@@ -1,0 +1,6 @@
+      <dl class="lisd_sj mt20 fix">
+       <dt><em class="sort">类别</em><em class="name">作品名</em><em class="date">更新时间</em><em class="author">作者</em><em class="status">状态</em><em class="honor">粉丝荣誉</em></dt>
+	   {?section name=i loop=$articlerows?}
+       <dd  {?eval if($i['order']%2 == 0){ echo 'class=\'dbg\'';}?}><em class="sort">[{?$articlerows[i].sort?}]</em><em class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue">{?$articlerows[i].articlename?}</a></em><em class="date">{?$articlerows[i].lastupdate|date:"Y-m-d H:i"?}</em><em class="author">{?$articlerows[i].author?}</em><em class="status">{?$articlerows[i].fullflag_tag?}</em><em class="honor"></em></dd>
+	   {?/section?} 
+      </dl>

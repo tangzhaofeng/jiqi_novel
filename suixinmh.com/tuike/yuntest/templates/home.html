@@ -1,0 +1,117 @@
+{?include file="tuike/yuntest/templates/public/header.html" ?}
+{?include file="tuike/yuntest/templates/public/left.html" ?}
+  <div class="g-main">
+    <div class="alert alert-warning mt10 tip_red">温馨提醒：为了获得最佳的投放效果，请点击右下角联系您的专属客户经理，我们将给您提供适合您账号的内容及投放意见，并在合作过程中竭诚为您服务。
+      <a id='notomore' href="javascript:;" class="no_more">不再提示</a>
+    </div>
+    <script type="text/javascript">
+      notomore.onclick = function() {
+        $('.alert').css('display', 'none');
+        localStorage.setItem('nomore', 'none');
+      };
+      if(localStorage.nomore == 'none'){
+        $('.alert').css('display', 'none');
+      }
+    </script>
+
+    <div class="g-grid div_cen g-basicdata">
+      <div class="m-basicdata">
+        <div class="col-md-3 col-xs-6">
+          <div class="s-panel">
+            <div class="s-panel-bg">
+              <p>当日充值</p>
+              <p>{?$dayCz?}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class="s-panel">
+            <div class="s-panel-bg">
+              <p>本月充值</p>
+              <p>{?$MonthCz?}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class="s-panel">
+            <div class="s-panel-bg">
+              <p>累计充值</p>
+              <p>{?$allCz?}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class="s-panel">
+            <div class="s-panel-bg">
+              <p>账户余额</p>
+              <p>{?$_USER.userbalance?}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="g-grid">
+      <div class="m-panel">
+        <div class="panel-header"> <i class="u-icon-bars"></i> 一周数据 </div>
+        <div class="m-table-mobile">
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th>日期</th>
+                <th>充值</th>
+                <th>充值人数</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?section name=i loop=$weekPayList?}
+                <tr>
+                  <td>{?$weekPayList[i].dateS?}</td>
+                  <td>￥{?$weekPayList[i].qdpay?}</td>
+                  <td>{?$weekPayList[i].payusers?}
+                  </td>
+                </tr>
+                {?/section?}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="m-panel">
+        <div class="panel-header">
+          充值明细
+          <a href="{?function geturl:tuike:user:SYS=method=paydetail?}" target="_blank" class="jump_more">查看更多<img src="{?$jieqi_themeurl?}img/icon_jump_to.jpg"></a>
+        </div>
+        <div class="m-table-mobile">
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>用户名</th>
+                <th>充值金额</th>
+                <th>渠道号</th>
+                <th>充值方式</th>
+                <th>充值时间</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($payList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 6 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?section name=i loop=$payList?}
+              <tr>
+                <td>{?$payList[i].payid?}</td>
+                <td>{?$payList[i].buyname?}</td>
+                <td><span class="u-badge u-badge-success">{?$payList[i].money?}</span></td>
+                <td>{?$payList[i].source?}</td>
+                <td>{?$payList[i].paytype?}</td>
+                <td>{?$payList[i].rettime|date:"Y-m-d H:i"?}</td>
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/yuntest/templates/public/footer.html"?}

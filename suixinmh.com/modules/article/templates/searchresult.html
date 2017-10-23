@@ -1,0 +1,108 @@
+<link href="{?$jieqi_themeurl?}style/so.css" type="text/css" rel="stylesheet" />
+<!--wrap begin-->
+<div class="wrap fix"> 
+ <!--sidebar begin-->
+ <div class="sidebar fl">
+  <!--box_side begin-->
+<!--box_side end-->
+      
+    <!--box_side begin-->
+    <div class="box_side mt10">
+    <div class="t1"><h2>百万风云榜</h2></div>
+   <div class="dwn2 qh">
+      <dl class="ldt p10">      
+        {?tag_system_128_[首页]右上角-百万风云榜?}
+      </dl>
+    </div>
+  </div><!--box_side end-->
+    <!--box_side begin-->
+    <div class="box_side mt10">
+      <div class="t2"><h2>推荐榜</h2>
+       <ul class="tabm21" id="tabs4">
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=weekvote&sortid=0&page=1?}" target="_blank">周</a></li>
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=monthvote&sortid=0&page=1?}" target="_blank">月</a></li>
+		<li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=totalvote&sortid=0&page=1?}" target="_blank">总</a></li>
+       </ul>
+      </div>
+      <ul class="dwn1" id="tab_conbox4">
+       <li class="fix">
+        <dl class="ldt2 p10 f_black">
+        {?tag_system_2_通用查询<{weekvote,10,0,0,0,0}><{v1/block_topli.html}>?}
+      </dl>
+        </li>       
+        <li class="fix" style="display:none;"><dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{monthvote,10,0,0,0,0}><{v1/block_topli.html}>?} </dl>
+        </li>      
+        <li class="fix" style="display:none;">
+		<dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{totalvote,10,0,0,0,0}><{v1/block_topli.html}>?} </dl>
+        </li>
+      </ul>
+    </div><!--box_side end-->
+    <!--box_side begin-->
+    <div class="box_side mt10">
+      <div class="t2"><h2>点击榜</h2>
+       <ul class="tabm21" id="tabs5">
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=weekvisit&sortid=0&page=1?}" target="_blank">周</a></li>
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=monthvisit&sortid=0&page=1?}" target="_blank">月</a></li>
+		<li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=totalvisit&sortid=0&page=1?}" target="_blank">总</a></li>
+       </ul>
+      </div>
+      <ul class="dwn1" id="tab_conbox5">
+       <li class="fix">
+        <dl class="ldt2 p10 f_black">
+        {?tag_system_2_通用查询<{weekvisit,10,0,0,0,0}><{v1/block_topli.html}>?}
+      </dl>
+        </li>       
+        <li class="fix" style="display:none;"><dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{monthvisit,10,0,0,0,0}><{v1/block_topli.html}>?} </dl>
+        </li>      
+        <li class="fix" style="display:none;">
+		<dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{totalvisit,10,0,0,0,0}><{v1/block_topli.html}>?} </dl>
+        </li>
+      </ul>
+    </div><!--box_side end-->
+ </div>
+      
+ <!--sidebar end-->
+ <!--article4 begin-->
+ <div class="article4 fr">
+ <!--  <div class="search">
+    
+    <div class="intxt"><form action="/search" method="get" ajaxform="true" onsubmit='return false'>
+	<input name="searchkey" id="J_search_suggest" data-placeholder="键入书名、作者名开始搜索" type="text"/></div>
+    <button name="dosubmit" type="submit" class="btn_so2 fr"></button>
+   </div>
+   <div class="sohot2 g9 pt5 pl20 cl">热搜：<a href="#" target="_blank" class="f_gray6">修真小说</a><a href="#" target="_blank" class="org">修真小说</a><a href="#" target="_blank" class="f_blue1">皮肤的逆袭</a><a href="#" target="_blank" class="red">权力巅峰</a></div>-->
+   
+   <!--result begin-->
+   <div class="result">
+     <!--resultop begin-->
+     <div class="resultop fix">
+       <div class="tit"><p class="zi">搜索结果</p><p class="zi2">Search Results</p> </div>
+       <p class="num">找到<em class="blue3">“{?$searchkey?}”</em>相关小说<em >{?$allresults?}</em>部</p>
+     </div><!--resultop end-->
+     <ul class="list_img2">
+	 {?section name=i loop=$articlerows?}
+      <li class="fix">
+        <div class="img"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" title="{?$articlerows[i].articlename?}"><img src="{?$articlerows[i].url_image?}"/></a></div>
+        <div class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue4">{? eval echo str_replace($searchkey,'<em class="red b">'.$searchkey.'</em>' ,$articlerows[i].articlename); ?}</a>
+          <div class="opt"><!--<a href="#" class="download" title="下载"></a>--><a href="javascript:;" class="add" title="收藏本书" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');"></a><a href="{?$articlerows[i].url_articleindex?}" class="read2" title="阅读" target="_blank"></a></div>
+        </div>
+        <div class="info">
+         <p class="it"><em>作者：</em>{?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}" ajaxhover="true" uid="{?$articlerows[i].authorid?}" class="f_gray6" target="_blank">{? eval echo str_replace($searchkey,'<em class="red b">'.$searchkey.'</em>' ,$articlerows[i].author); ?}</a>{?else?}{? eval echo str_replace($searchkey,'<em class="red b">'.$searchkey.'</em>' ,$articlerows[i].author); ?}{?/if?}</p>
+         <p class="it"><em>分类：</em><a href="{?$articlerows[i].url_class?}" class="f_gray6">{?$articlerows[i].shortcaption?}</a></p>
+         <p class="it"><em>字数：</em>{?$articlerows[i].size_c?}</p>
+<!--         <p class="it"><em>标签：</em>总裁 豪门</p>-->
+        </div>
+        <div class="txt"><em>简介：</em><p>{?$articlerows[i].intro?}</p></div>       
+      </li>
+	  {?/section?}
+     </ul>
+     <div class="page3">
+      {?$url_jumppage?}	  
+     </div>
+   </div><!--result end-->
+ </div><!--article4 end-->
+</div><!--wrap end-->

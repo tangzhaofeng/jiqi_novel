@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+<li>{?$i.order?}.<a href="{?function geturl:'wap':'channel':'class=$articlerows[i].class'?}" target="_self">{?$articlerows[i].sort?}</a>-<a href="{?function geturl:'wap':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self"class="f_0">¡¶{?$articlerows[i].articlename?}¡·</a></li>
+{?/section?}

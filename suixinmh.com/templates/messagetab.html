@@ -1,0 +1,17 @@
+  <div class="t2"><h2>我的消息</h2><p class="count">(共 {?$nowmsg?} 封，其中 <a href="{?function geturl:'system':'userhub':'SYS=method=inbox'?}"><em class="green2">未读邮件</em></a> {?$newmsg?} 封)</p></div>      
+  <ul class="tabs7" id="tabs">
+   <a id="t_userhub_newMsgView"  href="javascript:;"><li onclick="location.href='{?function geturl:'system':'userhub':'SYS=method=newmessage'?}'">发消息</li></a>
+   <a id="t_userhub_inbox"  href="javascript:;">
+   			<li onclick="location.href='{?function geturl:'system':'userhub':'SYS=method=inbox'?}'">收件箱{?if $newmsg != 0 ?}（{?$newmsg?}）{?/if?}</li>
+   		</a>
+   	
+   <a id="t_userhub_outbox" href="javascript:void()"><li onclick="location.href='{?function geturl:'system':'userhub':'SYS=method=outbox'?}'">已发送</li></a>
+   <a id="t_userhub_draft"  href="javascript:;"><li onclick="location.href='{?function geturl:'system':'userhub':'SYS=method=draft'?}'">草稿箱</li></a>
+   	<!-- 管理员不显示 -->
+		<a id="t_userhub_toSysView"  href="javascript:;"><li onclick="location.href='{?function geturl:'system':'userhub':'SYS=method=toSysView'?}'">写给管理员</li></a>
+  </ul> 
+<script>
+	//防止tab ID和accordion id 冲突，tabID加t_
+	var id ='{?$_REQUEST['controller']?}'+'_'+'{?$_REQUEST['method']?}';
+	$("#t_"+id).css("font-weight","bold");
+</script>

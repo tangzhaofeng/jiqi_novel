@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <meta charset="gbk">
+    <title>youyue小说云</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/base.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/style.css?1.4">
+    <script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+    <script src="{?$jieqi_themeurl?}js/admin.js?1.1"></script>
+    <script src="{?$jieqi_themeurl?}js/users.js?1.2"></script>
+    <script src="{?$jieqi_themeurl?}js/layer_mobile/layer.js"></script>
+    <link href="{?$jieqi_themeurl?}js/layer_mobile/need/layer.css" rel="stylesheet" >
+  </head>
+  <body>
+    <div class="g-head">
+      <a href="/newadmin/" class="m-logo">
+      <img src="{?$jieqi_themeurl?}img/logo_c.png" />
+      </a>
+      <ul class="m-nav f-fl u-menu-mobile" id="main-nav">
+        <li>
+          <a {?if $nav == 1?}class="on"{?/if?} href="/newadmin/">首页</a>
+        </li>
+        <li>
+          <a {?if $nav == 2?}class="on"{?/if?} href="{?function geturl:'newadmin':'manqd'?}">渠道管理</a>
+        </li> 
+        <li>
+          <a {?if $nav == 3?}class="on"{?/if?} href="{?function geturl:'newadmin':'order'?}">订单管理</a>
+        </li>
+        <li>
+          <a {?if $nav == 4?}class="on"{?/if?} href="{?function geturl:'newadmin':'report'?}">报表管理</a>
+        </li>
+      </ul>
+      <ul class="m-nav f-fr u-menu-mobile" id="tool-nav">
+        <li>
+          <a href="/newadmin/">{?$_USER.useruname?}</a>
+          <ul class="m-pulldown">
+            <li>
+              <a class="u-divider" href="{?function geturl:'newadmin':'home':'SYS=method=edit'?}">修改密码</a>
+            </li>
+            <li>
+              <a class="u-divider" href="{?function geturl:'newadmin':'home':'SYS=method=logout'?}">安全退出</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="loading"></div>

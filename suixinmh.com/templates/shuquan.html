@@ -1,0 +1,39 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+	  <div class="tips f14 p10 g3 mt10 mb10 pl20 b">昵称:<a href="javascript:;" class="f_blue5">{?$_USER['username']?}</a>{?$_USER['vipgrade']?}{?if $_USER['vipgrade'] == VIP0?}您还不是VIP会员，开通VIP会员享受更多尊贵特权<a class="f_blue5" href="">现在申请&gt;&gt;</a>{?/if?}</div>
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+         <table width="98%" border="0" cellspacing="0" cellpadding="0" class="tabl2">
+		  <tr class="bgt b">
+		  	<th width="20%" align="left" scope="col">消费用途</th>
+            <th width="80%" scope="col"></th>
+            <th width="0%" scope="col"></th>
+		  </tr>
+		  <tr>
+		  	<td align="left" valign="middle">当前余额</td>
+		    <td align="left" valign="middle">{?$_USER['egolds']?}{?$jieqi_sitename?}币<a href="{?function geturl:'pay':'home'?}" class="f_blue5">充值</a></td>
+		    <td align="left" valign="middle"></td>
+		  </tr>
+		  <tr>
+		  	<td align="left" valign="middle">书券</td>
+		    <td align="left" valign="middle">{?$_USER['esilvers']?}书券<a href="{?$dingyuecrows[i].url_articleinfo?}" class="f_blue5">书券使用说明&gt;&gt;</a></td>
+		    <td align="left" valign="middle"></td>
+		  </tr>
+		</table>
+         <div class="bar fix tc">
+          <div class="page2 auto">{?$url_jumppage?}</div>
+         </div>
+		
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

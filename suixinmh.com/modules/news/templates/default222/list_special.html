@@ -1,0 +1,24 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_news.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title $jieqi_sitename"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+{?eval $catid = $_SGLOBAL['cate']['catid'];?}<link href="{?$_SGLOBAL['localurl']?}/images/news/css/news_ganyou.css" rel="stylesheet" type="text/css" />
+	<div class="clear"></div>
+	<div id="news_mid">
+	  <div class="news_mid_2">
+	      <div id="mid_2_1">
+		     <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/new_9.jpg" /></div>
+			 <div class="t_bt1" id="title_1">单机游戏专题</div>
+		    <div id="title_2">
+			   
+			 </div>
+		  </div>
+		  <div id="pic_1">
+		   <ul class="clearfix_zt">
+		   {?section name=i loop=$_PAGE['articlerows']?}
+			<li><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank"><img src="{?$_PAGE['articlerows'][i]['thumb']?}"/></a><span>{?$_PAGE['articlerows'][i]['title']?}</span></li>
+			{?/section?}
+		  </ul>
+		  <div id="fenye">[单机游戏专题] {?$_PAGE['url_jumppage']?} </div>
+		</div>
+	  </div>
+  </div>
+

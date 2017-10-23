@@ -1,0 +1,260 @@
+{?include file="tuike/server/templates/public/header.html" ?}
+    <div class="g-main">
+      <!-- <h3>充值明细</h3> -->
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+          </div>
+          <table id="table" class="m-table  table_cen table_th">
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>订单号</th>
+                <th>提现金额</th>
+                <th>推客姓名</th>
+                <th>真实姓名</th>
+                <th>支付方式</th>
+                <th>支付信息</th>
+                <th>联系电话</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($payList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 10 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('server','home','SYS=method=getPayList');?}
+              {?section name=i loop=$payList?}
+                <tr>
+                  <td>
+                    {?if $payList[i].type ==3?}
+                      {?$payList[i].time|date:"Y-m-d H:i:s"?}
+                    {?else?}
+                      {?$payList[i].date?}
+                    {?/if?}
+                  </td>
+                  <td>{?$payList[i].ordernumber?}</td>
+                  <td>{?$payList[i].money?}￥</td>
+                  <td>{?$payList[i].uname?} </td>
+                  <td>{?$payList[i].p_uname?} </td>
+                  <td>{?$payList[i].type?} </td>
+                  <td>{?$payList[i].p_info?} </td>
+                  <td>{?$payList[i].mobil?} </td>
+                  <td>{?$payList[i].state?}</td>
+                  <td class="chSelect">
+                    <span class="u-btn-primary" _id="{?$payList[i].payid?}" _n="{?$payList[i].payusers?}" _u="{?$payList[i].uid?}" _ty="3">已完成</span>
+                    <span _id="{?$payList[i].payid?}" _n="{?$payList[i].payusers?}" _u="{?$payList[i].uid?}" _ty="8">付款失败</span>
+                  </td>
+                </tr>
+              </tr>
+              {?/section?}
+              {?/if?}
+              </tbody>
+            </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="myShowHtml" style="display:none;">
+      <h1 style="font-size: 15px;text-align:center;background-color: #00a8e6; height: 32px; line-height: 32px; color: #fff; ">设置付款失败！</h1>
+      <form action="" idtmp="editPayState" onSubmit="editPayState(this);return false;" method="post" style="padding:0 10px; ">
+        <select name="infoSe" class="form-element " style="width: 164px; ">
+          <option value="" >==请选择失败的原因==</option>
+          <option value="帐号信息不正确！" >帐号信息不正确！</option>
+        </select>
+        <p style="padding: 4px 0; padding-bottom: 0; "> 其它原因：</p>
+        <textarea name="infoTex" style="padding: 4px 5px;height: 120px;width: 254px;"></textarea>
+        <br />
+        <input type="hidden" name="ajax_request" value="1">
+        <input type="hidden" name="ac" value="setPa">
+        <input type="hidden" name="method" value="ajax_action">
+        <input type="hidden" name="n" value="">
+        <input type="hidden" name="u" value="">
+        <input type="hidden" name="ty" value="">
+        <input type="hidden" name="id" value="">
+        <input type="submit" value="提交" style="background-color: #00a8e6;height: 32px;width: 51px;font-size: 15px;border: none;color: #fff;cursor: pointer;" class="__web-inspector-hide-shortcut__" />
+      </form>
+    </div>
+
+    <script type="text/javascript">
+
+      $('.chSelect span').click(function(){
+        var q_this=$(this);
+        var id=q_this.attr('_id');
+        var ty=q_this.attr('_ty');
+        var n=q_this.attr('_n');
+        var u=q_this.attr('_u');
+
+        var j_this=$('#myShowHtml form').get(0);
+        j_this.n.value=n;
+        j_this.u.value=u;
+        j_this.ty.value=ty;
+        j_this.id.value=id;
+
+             
+        if( ty==3 ){
+          $.ajax({ // jq  
+            url:$(j_this).prop('action'),
+            type:'post',
+            async: false,
+            data:$(j_this).serialize(),
+            dataType:'json',
+            success:function(msgs){
+              if(msgs.status === 'OK'){
+                layer.closeAll();
+                Users.ShowMsg('设置成功！',1);
+                setTimeout(function(){
+                  location.href='';
+                },500);
+              }else{
+                Users.ShowMsg(msgs.msg);
+              }
+            }
+          });
+        }else{
+          layer.open({//页面层
+            type:1,
+            content: $('#myShowHtml').html().replace('idtmp="editPayState"','id="editPayState"'),
+            anim: 'up',
+            style: 'position:fixed;left:50%;margin-left:-150px;width:300px;height: 276px;top:50%;margin-top: -138px;padding:10px 0;border:none;padding-top: 0;border: 2px solid #00a8e6;'
+          });
+        }
+
+
+      });
+
+      function editPayState(j_this){
+        if(j_this.infoSe.value === '' && j_this.infoTex.value === ''){
+          Users.ShowMsg('请设置失败的原因！');
+          return false;
+        }
+
+        $.ajax({ // jq  
+          url:$(j_this).prop('action'),
+          type:'post',
+          async: false,
+          data:$(j_this).serialize(),
+          dataType:'json',
+          success:function(msgs){
+            if(msgs.status === 'OK'){
+              layer.closeAll();
+              Users.ShowMsg('设置成功！',1);
+              setTimeout(function(){
+                location.href='';
+              },500);
+            }else{
+              Users.ShowMsg(msgs.msg);
+            }
+          }
+        });
+      }
+
+      $("#form2").submit(function () { // 651780
+        Users.form=this;
+        Users.SendForm(function(msgs){
+          if(msgs.status === 'OK'){
+            Users.ShowMsg('处理成功！');
+            setTimeout(function(){
+              location.href=msgs.jumpurl;
+            },200);
+          }else{
+            Users.ShowMsg(msgs.msg);
+          }
+        });
+        return false;
+      });
+      $("#form3").submit(function () { // 651780
+        Users.form=this;
+        Users.SendForm(function(msgs){
+          if(msgs.status === 'OK'){
+            Users.ShowMsg('下载成功');
+            uri = 'data:application/vnd.ms-excel;base64,';
+            template = '<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name></x:Name><x:WorksheetOptions><x:Selected/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--> <style type="text/css"> .td{width: 120px; } .gdtjContainer .tb tr{text-align: center; vertical-align: middle; } .gdtjContainer .tb th{border-left: 0.5pt solid #000; border-bottom: 0.5pt solid #000; text-align: center; font-weight: normal; font-size: 10pt; middle: ;; height:30px; } .gdtjContainer .header th {font-size: 12pt; } .gdtjContainer .tb tr .noleftborder {border-left: none; } .gdtjContainer .tb tr .rightborder {border-right: 0.5pt solid #000; } .gdtjContainer .tb td{border-left: 0.5pt solid #000; border-bottom: 0.5pt solid #000; text-align: center; font-weight: normal; font-size: 10pt; middle: ;; height:30px; }.all_border{border: 0.5pt solid #000; } </style> </head> <body> <div class="gdtjContainer"> {table} </div> </body> </html>';
+            base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))); };
+            format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }); };
+            ctx = { worksheet: name || 'Worksheet', table: msgs.content };
+            ctx.table=ctx.table.replace(/<img[^>]+>/g,'' );
+            ctx.table=ctx.table.replace(/<a[^>]+>/g,'' );
+            ctx.table=ctx.table.replace(/<\/a[^>]+>/g,'' );
+            ctx.table=ctx.table.replace(/<input[^>]+>/g,'' );
+            window.location.href = uri + base64(format(template, ctx));
+          }else{
+            Users.ShowMsg(msgs.msg);
+          }
+        });
+        return false;
+      });
+      $("#form4").submit(function () { //
+        var j_this=this;
+          //询问框
+        layer.open({
+          content:'您确定要设置为已完成吗!,<br />设置为完成后，该列表的记录将转移到已完成列表<br /> ',
+          btn: ['确定', '取消!'],
+          no:function(index){layer.close(index);},
+          yes: function(index){
+            layer.close(index);
+            Users.form=j_this;
+            Users.SendForm(function(msgs){
+              if(msgs.status === 'OK'){
+                Users.ShowMsg('设置成功！');
+                setTimeout(function(){
+                  location.href='';
+                },2000);
+              }else{
+                Users.ShowMsg(msgs.msg);
+              }
+            });
+          }
+        });
+        return false;
+      });
+
+
+
+    </script>
+
+    <style>
+      .chSelect span{
+        color:#ccc;
+      }
+      .chSelect span:hover {
+          color: #b90000;
+          background-color: #dacfc2;
+      }
+      .chSelect span {
+          color: #d86b00;
+          background-color: #dcc9b6;
+          cursor: pointer;
+          font-size: 12px;
+          height: 25px;
+          display: inline-block;
+          text-align: center;
+          line-height: 25px;
+          padding: 0 6px;
+          border-radius: 3px;
+      }
+      .chSelect .u-btn-primary {
+        background-color: #57a0bb;
+        color: #fff;
+      }
+
+      .chSelect .u-btn-primary:hover {
+        background-color: #00a8e6;
+        color: #fff;
+      }
+
+
+
+
+    </style>
+{?include file="tuike/server/templates/public/footer.html"?}

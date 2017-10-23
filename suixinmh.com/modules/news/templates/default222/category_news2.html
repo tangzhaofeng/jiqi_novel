@@ -1,0 +1,968 @@
+{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title 游戏频道 $jieqi_sitename"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/shouye.css" rel="stylesheet" type="text/css" />
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/gongyong.css" rel="stylesheet" type="text/css" />
+<div class="tj">
+<div class="menu_tj01">
+<span class="righta">
+<select class="input_tj2">
+  <option>所有</option>
+  <option>单机游戏</option>
+  <option>热门游戏</option>
+  <option>tv游戏</option>
+</select>
+<input type="text" class="input_tj1" size="5" />
+<input name="button" type="button" class="tj_searchbtn01" value="搜索" />
+</span>
+	<ul id="menu8">
+	<li class="hover" onmouseover="setTab(8,0)"><a href="#">热门专区</a></li>
+	<!--<li onmouseover="setTab(8,1)"><a href="#">网页游戏</a></li>
+	<li onmouseover="setTab(8,2)"><a href="#">单机游戏</a></li>
+	<li onmouseover="setTab(8,3)"><a href="#">tv游戏</a></li>
+	<li onmouseover="setTab(8,4)"><a href="#">小游戏</a></li>
+	<li onmouseover="setTab(8,5)"><a href="#">abc</a></li>
+	<li onmouseover="setTab(8,6)"><a href="#">def</a></li>
+	<li onmouseover="setTab(8,7)"><a href="#">def</a></li>-->
+	</ul>
+  </div>
+	<div class="main_tj01">
+	<div id="main8">
+	<ul class="block">
+	<li>
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|	
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+    <a href="#" target="_blank" class="xfont06">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+    <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+		<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+    <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+		<a href="#" target="_blank" class="xfont06">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+    <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|</li>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	<ul  style="display:none">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_tj01">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+  </tr>
+</table>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	<ul  style="display:none">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_tj01">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+  </tr>
+</table>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	<ul  style="display:none">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_tj01">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+  </tr>
+</table>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	<ul  style="display:none">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_tj01">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gg01.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+    <td><a href="#" target="_blank">寻仙</a></td>
+  </tr>
+</table>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	<ul  style="display:none">
+	<li><span class="tj_pm1">A</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|	</li>
+	<li><span class="tj_pm2">B</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">天下贰</a>|	</li>
+	<li><span class="tj_pm3">C</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|	</li>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  
+    <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	
+	<ul  style="display:none">
+	<li><span class="tj_pm1">D</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|	</li>
+	<li><span class="tj_pm2">E</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">天下贰</a>|	</li>
+	<li><span class="tj_pm3">F</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|	</li>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  
+    <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	<ul  style="display:none">
+	<li><span class="tj_pm1">G</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|	</li>
+	<li><span class="tj_pm2">H</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">天下贰</a>|	</li>
+	<li><span class="tj_pm3">T</span>	
+	<a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|	</li>
+    <li class="a1">
+  <span class="tj_a01">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank" class="xfont06">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+    <li class="a1">
+  <span class="tj_a02">新游戏：</span>  
+    <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank class="xfont06"">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank" class="xfont06">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+       <li class="a1">
+  <span class="tj_a03">新游戏：</span>  <a href="#" target="_blank">赤壁</a>| 
+	<a href="#" target="_blank">寻仙</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank" class="xfont06">诛仙-诛仙2</a>|
+	<a href="#" target="_blank">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank">天下贰</a>|
+	<a href="#" target="_blank">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|
+	<a href="#" target="_blank" class="xfont06">梦幻诛仙</a>|
+	<a href="#" target="_blank">魔兽世界</a>|
+	<a href="#" target="_blank" class="xfont06">天下贰</a>|
+	<a href="#" target="_blank" class="xfont06">龙之谷</a>|
+	<a href="#" target="_blank">诛仙-诛仙2</a>|  </li>
+	</ul>
+	</div>
+	</div>
+</div>
+<div class="contain">
+<div class="sy_pc">
+<a href="#" target="_blank" >单击游戏下载</a> | 
+<a href="#" target="_blank" >单击游戏</a> | 
+<a href="#" target="_blank" >游戏专题</a> |  
+<a href="#" target="_blank ">游戏库</a> | 
+<a href="#" target="_blank" >资讯新闻</a> | 
+<a href="#" target="_blank"  >图集</a> | 
+<a href="#" target="_blank" >截图</a> | 
+<a href="#" target="_blank" >攻略</a> | 
+<a href="#" target="_blank" >秘籍</a> 
+<input type="button" class="sy_searchbtn01" value="进入单机游戏频道&gt;&gt;" />
+</div>
+<div class="top10"></div>
+<!--第一屏 left 开始-->
+<div class="sy01_left">
+<!--第一屏 广告 开始-->
+<script type="text/javascript">
+imgUrl1="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg";
+imgtext1="《笑傲江湖》上市或与剑灵同期 01"
+imgLink1=escape("#");
+imgUrl2="{?$_SGLOBAL['TPL_DIR']?}/images/2.jpg";
+imgtext2="《笑傲江湖》上市或与剑灵同期 02"
+imgLink2=escape("#");
+imgUrl3="{?$_SGLOBAL['TPL_DIR']?}/images/3.jpg";
+imgtext3="《笑傲江湖》上市或与剑灵同期 03"
+imgLink3=escape("#");
+imgUrl4="{?$_SGLOBAL['TPL_DIR']?}/images/4.jpg";
+imgtext4="《笑傲江湖》上市或与剑灵同期 04"
+imgLink4=escape("#");
+
+ var focus_width=319
+ var focus_height=312
+ var text_height=20
+ var swf_height = focus_height+text_height
+ 
+ var pics=imgUrl1+"|"+imgUrl2+"|"+imgUrl3+"|"+imgUrl4
+ var links=imgLink1+"|"+imgLink2+"|"+imgLink3+"|"+imgLink4
+ var texts=imgtext1+"|"+imgtext2+"|"+imgtext3+"|"+imgtext4
+ 
+ document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+ document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{?$_SGLOBAL['TPL_DIR']?}/flash/focus2.swf"><param name="quality" value="high"><param name="bgcolor" value="#C5C3C3">');
+ document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+ document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">');
+ document.write('</object>');
+</script>	
+<!--第一屏 广告 结束-->
+<div class="dj_ss">
+<SMALL></SMALL>
+<ul>
+<li><span class="xfont_right2">2010年02月02日</span> <span class="xfont01">攻略秘籍搜索 </span></li>
+<li><input type="text" value="关键词" /> 
+<img src="{?$_SGLOBAL['TPL_DIR']?}/images/dj_anniu.jpg" align="absmiddle" /></li>
+</ul>
+</div>
+</div>
+<!--第一屏 left 结束-->
+<!--第一屏 中间 开始-->
+<div class="sy01_left2 dj_a1">
+<ul class="sy_nrul1">
+<li class="v01"><a href="#" target="_blank" class="xfont11">《笑傲江湖》上市或与剑灵同期</a></li>
+<li class="v02">
+<a href="#" target="_blank">[索尼《星球大战：克隆人战争冒险》秋季上市]</a>   
+<a href="#" target="_blank">[索尼bnb ]</a>
+</li>
+<li class="v02">
+<a href="#" target="_blank">[索尼《星球大战：克隆人战争冒险》秋季上市]</a>   
+<a href="#" target="_blank">[索尼bnb ]</a>
+</li>
+</ul>
+<div class="dj_tw_zj"></div>
+<div class="dj_tw">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" class="imga1" /></a>
+  <ul>
+  <li><a href="#" target="_blank" class="xfont12">星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  </ul>
+</div>
+<div class="dj_tw">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" class="imga1" /></a>
+  <ul>
+  <li><a href="#" target="_blank" class="xfont12">星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  </ul>
+</div>
+<div class="dj_tw">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" class="imga1" /></a>
+  <ul>
+  <li><a href="#" target="_blank" class="xfont12">星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  <li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yx_syjt.jpg" align="absmiddle" class="img" /> <a href="#" target="_blank">索尼《星球大战：克隆人战争冒险</a></li>
+  </ul>
+</div>
+</div>
+<!--第一屏 中间 结束-->
+<!--第一屏 right 开始-->
+<div class="sy01_right">
+<div class="sy_kuang2">
+<div class="sy_bt03">
+<a href="#" target="_blank" class="xfont_right2 xfont10">更多>> </a>
+<span class="xfont_14 xfont07">最新更新游戏</span>
+</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="xztp_table">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">《QQ炫舞》星随舞动</a></td>
+    <td><a href="#" target="_blank">《QQ炫舞》星随舞动</a></td>
+  </tr>
+</table>
+<ul class="sy_nrul3">
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+<li><a href="#" target="_blank">·<span class="xfont05">《特工代理》</span>尼下间谍类网游谍类</a></li>
+</ul>
+</div>
+</div>
+<!--第一屏 right 结束-->
+<div class="clear"></div>
+</div>
+<!--第2屏 开始-->
+<div class="dj_2">
+<div class="dj_2_bt"><a href="#" class="dj_2_f">更多>></a><span class="xfont07">经典攻略</span></div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+<div class="dj_2_img">
+<p><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></p>
+<p class="a1"><a href="#" target="_blank">《特工代理》</a></p>
+</div>
+</div>
+<!--第2屏 结束-->
+<div class="contain">
+<div class="dj_3_left">
+<Div class="xzbt05"><a href="#" target="_blank" class="xfont_right2">更多>></a><span class="xfont07">热门视频</span></Div>
+<ul class="xzsp_ul1">
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+</ul>
+</div>
+<div class="dj_3_right">
+<Div class="xzbt06"><a href="#" target="_blank" class="xfont_right2">更多>></a><span class="xfont07">热门视频</span></Div>
+<ul class="xzsp_ul1">
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+</ul>
+</div>
+<Div class="clear"></Div>
+</div>
+
+<div class="bottom" style="width:960px;">
+<a href="" class=sinatail>关于赶游</a> | 
+<a href="" class=sinatail>赶游招聘</a> | 
+<a href="" class=sinatail>联系赶游</a> | 
+<a href="" class=sinatail>友情链接</a> | 
+<a href="" class=sinatail>加入收藏</a> | 
+<a href="" class=sinatail>网站帮助</a> | 
+<a href="" class=sinatail>意见留言</a> | 
+<a href="" class=sinatail>网站地图</a><br/>
+Copyright (C) 2002-2010 赶游网 All Rights Reserved | 蜀ICP备05000570号 电信增值业务许可证：川BZ-20070003<br/>
+赶游网提供最新网络游戏资讯，提供包含网络游戏、单机游戏、电视游戏、小游戏在内的所有游戏服务，倡导健康游戏生活，打造一站式游戏网站。<br/>
+好游戏，好心情，赶快来游戏吧！赶游网为您提供游戏娱乐每一秒！<a href="/"  title=游戏网站 target="_blank">站长统计</a><br/>
+  </div>

@@ -1,0 +1,236 @@
+/*目前大部分的css样式都是公用的,就算有添加的,也添加在了本届面之上，如有需要可引入extend.css*/
+/*支付充值页面和微信充值页面*/
+ .pay_alipay_money a,.pay_wechat_money a{
+    position: relative;
+    display: block;
+    width: 40%;
+    height: auto;
+    border: 1px solid #dfdfdf;
+    float: left;
+    border-radius: 5px;
+    margin-left: 6%;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 22px;
+    overflow: hidden;
+ }
+.pay_alipay_money span,.pay_wechat_money span{
+    color: #fe5b00;
+    display: block;
+    font-size: 18px;
+}
+.pay_alipay_money i,.pay_wechat_money i{
+     position: absolute;
+    width: 100px;
+    background: #f75d11;
+    font-size: 12px;
+    line-height: 16px;
+    height: 17px;
+    z-index: 99;
+    font-style: normal;
+    color: #fff;
+    top: 13px;
+    right: -33px;
+    transform: rotate(54deg);
+    -ms-transform: rotate(54deg);
+    -moz-transform: rotate(54deg);
+    -webkit-transform: rotate(54deg);
+    -o-transform: rotate(54deg);
+    /* -webkit-transform-origin: 100% 0%; */
+}
+/*阅读页面*/
+.read_style_1{
+    background: #fcfcfc;
+}
+.read_style_2{
+    background: #ceebcd;
+}
+.read_style_3{
+    background: #ffe3df;
+}
+.read_style_4{
+    background: #f3e5cf;
+}
+.read_style_5{
+    background: #2d2d2d;
+    color:#a0a0a0;
+}
+#content p{
+   color:#333;
+   padding:5px 0;
+   line-height: 1.8em;
+    text-indent: 2em;
+}
+.read_style_5 p{
+    color:#a0a0a0!important;
+}
+.config {
+    font-size: .875em;
+}
+.config span {
+    display: inline-block;
+    width: 34px;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 5px;
+    text-align: center;
+    border-radius: 3px;
+    background: #d6d6d6;
+    cursor: pointer;
+    font-size: 2.7em;
+}
+.config .bg_bar {
+    width: 292px;
+    border-bottom: 1px solid #ddd;
+    margin: 10px auto 0;
+    padding-bottom: 12px;
+}
+.bg_bar li {
+    margin-left: 0.45rem;
+    float:left;
+}
+.bg_bar li a {
+    width: 30px;
+    height: 25px;
+    border: 2px solid transparent;
+    display: inline-block;
+    float: left;
+     border:none;
+}
+.bg_bar li.active{
+      border: 1px solid #666;
+}
+.bg_bar .li_1 {
+    margin-left: 0.3em;
+}
+.bg_bar .li_1 a {
+    background: #fcfcfc;
+}
+.bg_bar .li_2 a {
+    background: #ceebcd;
+
+}
+.bg_bar .li_3 a {
+    background: #ffe3df;
+}
+.bg_bar .li_4 a {
+    background: #f3e5cf;
+}
+.config span i {
+    background: url(../images/chapter-night-icon.png) no-repeat 0% 100%;
+    display: inline-block;
+    width: 19px;
+    height: 18px;
+    vertical-align: 2px;
+}
+.role-inc,.role-des{
+    font-size:1.5em!important;
+}
+.read_title{
+    text-align: center;
+    width: 100%;
+}
+/*会员等级和会员积分*/
+.tab2 {
+  font-size: 15px;
+  line-height: 42px;
+  color: #777;
+  border-bottom: 1px solid #D50D56;
+  background: #fff;
+}
+.tab2 li {
+    text-align: center;
+    margin: 10px;
+    padding: 0;
+    float: left;
+}
+.tab2 .thistab a {
+    color: #D50D56;
+    text-decoration: none;
+    display: block;
+    border-bottom: 4px solid #D50D56;
+}
+.mylev {
+    padding: 5px 14px;
+    font-size: 14px;
+    vertical-align: middle;
+    border: 1px solid #fff;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 1px 0px #eee;
+    background: #fff;
+
+}
+.m12 {
+    margin: 12px;
+}
+
+.txtabox {
+    display: block;
+    background: #fff;
+     border-radius:10px; 
+     overflow: hidden;
+  
+}
+.txtabox h3 {
+    font-size: 1.2em;
+    line-height: 40px;
+    padding-left: 12px;
+    color: #333;
+    border: 1px solid #eee;
+    background: #fff;
+   
+}
+.tablbg {
+    border-left: 1px solid #eee;
+    table-layout: fixed;
+    word-break: break-all;
+    font-size: 16px;
+}
+.tablbg th{
+    font-size:15px;
+    font-weight: 500;
+    background:#EEE;
+
+}
+.tablbg th, .tablbg td {
+    text-align: center;
+    height: 34px;
+    line-height: 34px;
+   border-border:1px solid #EEE;
+    padding-left: 5%;
+}
+.txtabox .dwntxt {
+  padding: 6px;
+  line-height: 1.2em;
+  vertical-align: middle;
+  border: 1px solid #eee;
+  }
+  .txtabox .btn0.btnorg {
+    float: right;
+    display: inline-block;
+    font-size: 1.125em;
+  }
+  .m12 {
+      margin: 12px;
+  }
+
+.txtabox ul {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 6px; 
+}
+.txtabox ul li {
+  padding: 6px 6px;
+}
+.txtabox .dwntxt {
+  padding: 6px;
+  line-height: 1.2em;
+  vertical-align: middle;
+  border: 1px solid #eee;
+}
+.txtabox .btn0.btnorg {
+float: right;
+display: inline-block;
+font-size: 1.125em;
+}

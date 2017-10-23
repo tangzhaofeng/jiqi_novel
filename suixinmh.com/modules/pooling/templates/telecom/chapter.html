@@ -1,0 +1,9 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>{?$chapter['chaptername']?}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  </head>
+  <body style="FONT-SIZE: 16px;">
+  	{?eval echo preg_replace("/<p>\r\n<p>/",'<p>',str_replace('&nbsp;&nbsp;&nbsp;&nbsp;','<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',preg_replace("/<br \/>\r\n<br \/>/","</p>\r\n<p>",$chapter['content'])));?}</p>
+  </body>
+</html>

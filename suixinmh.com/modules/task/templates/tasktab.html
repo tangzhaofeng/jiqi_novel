@@ -1,0 +1,15 @@
+      <div class="t2">
+       <h2>任务专区</h2>
+       <ul class="tabs62">
+        <li id="t_task_main"><a href="{?function geturl:'task':'task':'SYS=method=main'?}">所有任务</a></li>
+        <li id="t_task_userfinished"><a href="{?function geturl:'task':'task':'SYS=method=userfinished'?}">已完成任务</a></li>
+       </ul>       
+      </div>
+      
+      <script>
+	//防止tab ID和accordion id 冲突，tabID加t_
+	var id ='{?$_REQUEST['controller']?}'+'_'+'{?$_REQUEST['method']?}';
+	 $('#t_'+id).addClass("thistab");
+	 if('{?$_REQUEST['controller']?}'=='home')
+	 	$('#t_home_main').addClass("thistab");
+	</script>

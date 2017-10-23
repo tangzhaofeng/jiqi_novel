@@ -1,0 +1,144 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+
+    <div class="g-main">
+      <form action="{?function geturl:'tuike':'qdlist':'SYS=method=qdAdd'?}" onsubmit="return false;" method="post" id="form" class="m-form m-form-horizontal qdAdd">
+        <fieldset>
+          <div class="formitm">
+            <label class="lab"><span class="bixuanzxing">*</span>选择下一章</label>
+            <div class="ipt">
+              <select name="chapterid" id="selectChapter" class="form-element ">
+              {?section name=i loop=$chapterL?}
+                <option value="{?$chapterL[i].id?}" >{?$chapterL[i].name?}</option>
+              {?/section?}
+              </select>
+            </div>
+          </div>    
+          <div class="formitm towenan"  >
+            <label class="lab">一键生成文案</label>
+            <div class="ipt wenStyle">
+              <a href="#" _type="1" class="u-btn u-btn-primary">样式1</a>
+              <a href="#" _type="2" class="u-btn u-btn-primary">样式2</a>
+              <a href="#" _type="3" class="u-btn u-btn-primary">样式3</a>
+              <a href="#" _type="4" class="u-btn u-btn-primary">样式4</a>
+              <a href="#" _type="5" class="u-btn u-btn-primary">样式5</a>
+            </div>
+          </div>
+          <div class="titlecho">选填</div>
+          <div class="formitm m-pingtai">
+            <label class="lab">平台</label>
+            <div class="ipt">
+              <label >
+                <input name="pingtai" type="radio" checked="checked"  id="weixin" value="weixin" >微信
+              </label>
+              <label >
+                <input name="pingtai" type="radio"  id="after/bookfangan.html" value="weibo" >微博
+              </label>
+              <label >
+                <input name="pingtai" type="radio"  id="after/bookfangan.html" value="other">其他
+              </label>
+            </div>
+          </div>
+
+          <div class="formitm">
+            <label class="lab">平台名称 </label> <div class="ipt">
+              <input name="name" type="text" class="form-element u-width-large n-bg  " id="name" value="" maxlength="250">
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">粉丝数</label>
+            <div class="ipt">
+              <input name="fans" type="text" class="form-element u-width-large n-bg" id="fans" value="" maxlength="10">
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+          <div class="formitm">
+            <label class="lab">成本</label>
+            <div class="ipt">
+              <input name="fee" type="text" class="form-element u-width-large n-bg  " id="vote" value="" maxlength="10">
+              <p class="help-block"></p>
+            </div>
+          </div>
+          <div class="formitm form-submit">
+            <div class="ipt">
+              <div class="tip" id="tips"></div>
+              <input type="hidden" name="ajax_request" value="1" />
+              <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+              <input type="hidden" id="articleid" name="aid" value="{?$aid?}" />
+              <button class="u-btn u-btn-primary" type="submit" >生成链接</button>
+              <button class="u-btn " type="reset">重置</button>
+            </div>
+          </div>
+        </fieldset>
+        <script type="text/javascript">
+          $('.wenStyle .u-btn-primary').click(function(){
+            var styleN=$(this).attr('_type');
+            var chpater=$('#selectChapter option:first').val();
+            var chpaterN=$('#selectChapter').find("option:selected").text();
+            chpaterN=chpaterN.replace('第','');
+            chpaterN=chpaterN.replace('章','');
+            // chpaterN=parseInt(chpaterN);
+            var aid=$('#articleid').val();
+            if( styleN > 5 || styleN < 1 ){
+              Users.ShowMsg('不存在该方案！');
+              return false;
+            }
+            // 获取文章
+            $.post(location.origin+'/article/ajax',{ajax_request:1,method:'ajax',styleN:styleN,chpater:chpater,type:'wenStyle',aid:aid,chpaterN:chpaterN},function(msgs){
+              var obj,html;
+              if( msgs.indexOf('{') === 0 ){
+                obj=jQuery.parseJSON(msgs);
+                Users.ShowMsg(obj.msg);
+              }else{
+
+                html='<h1 id="myShowH1" style="z-index: 11;position: relative;font-size: 15px;text-align:center;background-color: #00a8e6; height: 32px; line-height: 32px; color: #fff; ">一键生成文案</h1> <div id="wenHtml" style="padding: 20px 158px;"> '+msgs+'</div>';
+
+                //页面层 jq js
+                layer.open({
+                  type:1,
+                  content: html,
+                  anim: 'up',
+                  style: 'position: fixed; left: 10%; width: 80%; height: 80%; top: 10%; border: 2px solid #00a8e6; overflow-y: scroll;'
+                });
+                $(".layui-m-layerchild").scroll(function() {
+                  $('#myShowH1').css('top',this.scrollTop);
+                });
+              }
+            },'html');  
+          });
+
+        </script>
+
+        <div class="hide_box" id="testBox" style="display: none; margin: 0px;">
+          <h4><a href="javascript:void(0)" title="x" id='close_dia'>×</a>链接</h4>
+          <p>http://m.mmd6666.com/read/10270/751043.html</p>
+          <div style="margin: 10px auto;width: 13%;"><a class="u-btn u-btn-primary" >保存</a></div>
+        </div>
+        <script type="text/javascript">
+          $("#form").submit(function () { // 651780
+            Users.form=this;
+            Users.SendForm(function(msgs){
+              if(msgs.status === 'OK'){
+                $('#testBox p').html(msgs.url);
+                easyDialog.open({
+                  container: 'testBox'
+                });
+              }else{
+                Users.ShowMsg(msgs.msg);
+              }
+            });
+            return false;
+          });
+          $('#overlay').live('click',function(){
+            easyDialog.close();
+          });
+          $('#close_dia').click (function() {
+            easyDialog.close();
+          });
+
+        </script>
+      </form>
+    </div>
+{?include file="tuike/templates/public/footer.html"?}

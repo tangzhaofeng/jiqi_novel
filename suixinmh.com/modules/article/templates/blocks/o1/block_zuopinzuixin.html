@@ -1,0 +1,15 @@
+{?section name=i loop=$articlerows?}
+	<li>
+		<div class="zxdt_conl">
+			<a href="#">[{?$articlerows[i].sort?}]</a>
+			<a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="b">{?$articlerows[i]['articlename']?}</a>
+			<a href="{?function geturl:'overseas':'reader':SYS=aid=$articlerows[i].articleid&cid=$articlerows[i].lastchapterid?}" class="clearfix">{?$articlerows[i]['lastchapter']?}</a>
+			{?if $articlerows[i]['lastchaptervip']==1?}<i class="ico_7"></i>{?/if?}
+		</div>
+		<div class="zxdt_conr">
+			<a href="#">{?$articlerows[i].author?}</a>
+			<span>{?$articlerows[i]['lastupdate']|date:"Y-m-d H:i"?}</span>
+		</div>
+		<div class="clearfix"></div>
+	</li>
+{?/section?}

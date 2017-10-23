@@ -1,0 +1,45 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>栏目管理</caption>
+  <tr>
+    <td><a href='?ac=create&op=category'>更新栏目页</a> | <a href='?ac=create&op=show'>更新内容页</a> | <a href='?ac=create&op=index'>更新首页</a></td>
+  </tr>
+</table>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<form action="{?$_PAGE['posturl']?}/modules/news/admin/?ac=create&op=show" method="post" name="myform">
+  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+  <input type="hidden" name="dosubmit" value="1"> 
+  <input type="hidden" name="type" value="lastinput"> 
+  <tr>
+    <caption>更新内容页</caption>
+  <tr>
+	<th>选择栏目范围</th>
+	<th>生成html</th>
+  </tr>
+	<tr> 
+      <td align="center" rowspan="5"><select name='catids[]' id='catids' multiple="multiple"  style="height:200px;width:250px;" title="按住“Ctrl”或“Shift”键可以多选，按住“Ctrl”可取消选择">
+<option value='0'>===所有栏目===</option>
+{?section name=i loop=$_SGLOBAL['catelist']?}
+{?if $_SGLOBAL['catelist'][i]['type']<1?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}'>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/if?}
+{?/section?}
+</select></td>
+      <td><font color="red">每轮更新 <input type="text" name="pagesize" value="100" size="4"> 条信息</font></td>
+    </tr>
+	<tr> 
+      <td>更新所有信息 <input type="button" name="dosubmit1" value=" 开始更新 " onclick="myform.type.value='all';myform.submit();"></td>
+    </tr>
+	<tr> 
+      <td>更新最新发布的 <input type="text" name="number" value="100" size="5"> 条信息 <input type="button" name="dosubmit2" value=" 开始更新 " onclick="myform.type.value='lastinput';myform.submit();"></td>
+    </tr>
+	<tr> 
+      <td>更新发布时间从 <input type="text" name="fromdate" id="fromdate" value="{?eval echo date('Y-m-d',time());?}" size="10" >&nbsp; 的信息 <input type="button" name="dosubmit3" value=" 开始更新 " onclick="myform.type.value='date';myform.submit();"></td>
+    </tr>
+	<tr> 
+      <td>更新ID从 <input type="text" name="fromid" value="0" size="8"> 到 <input type="text" name="toid" size="8"> 的信息 <input type="button" name="dosubmit4" value=" 开始更新 " onclick="myform.type.value='id';myform.submit();"></td>
+    </tr>
+	</form>
+</table>

@@ -1,0 +1,13 @@
+<div class="tags f_blue4 fix"><em class="g3 fl">他的其他作品:（{?eval echo(count($articlerows)-1);?}）本</em><a href="{?function geturl:'system':'userhub':'method=userinfo':'SYS=uid=$authorid'?}" target="_blank" class="b fr">所有作品&gt;&gt;</a></div>
+<dl>
+{?set $num = 0?}
+{?section name=i loop=$articlerows?}
+		{?if $articlerows[i]['articleid'] != $articleid && $num <= 2?}
+			{? eval $num++;?}
+			<dd>
+	         	<p class="tname"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_blue4">《{?$articlerows[i]['articlename']?}》</a></p>
+	         	<p class="sort"><em>分类：</em>{?$articlerows[i]['shortcaption']?}</p><p class="staus"><em>状态：</em>{?$articlerows[i]['fullflag_tag']?}</p><p class="num"><em>总字数：</em>{?if $articlerows[i]['size_c'] < 10000 ?}{?$articlerows[i]['size_c']?}字{?else?}{?$articlerows[i]['size_w']?}万字{?/if?}</p>
+	        </dd>
+		{?/if?}
+{?/section?} 
+ </dl>

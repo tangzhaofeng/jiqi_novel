@@ -1,0 +1,45 @@
+<?php
+$jieqiVipgrade['1']['photo'] = 'v0';
+$jieqiVipgrade['1']['caption'] = 'VIP0';
+$jieqiVipgrade['1']['name']['0'] = 'VIP0';
+$jieqiVipgrade['1']['minscore'] = '-99999';
+$jieqiVipgrade['1']['maxscore'] = '100';
+$jieqiVipgrade['1']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:1:&quot;0&quot;;s:13:&quot;dingyuezhekou&quot;;s:1:&quot;0&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;0&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;0&quot;;s:11:&quot;tuijianpiao&quot;;s:1:&quot;0&quot;;}';
+$jieqiVipgrade['2']['photo'] = 'v1';
+$jieqiVipgrade['2']['caption'] = 'VIP1';
+$jieqiVipgrade['2']['name']['0'] = 'VIP1';
+$jieqiVipgrade['2']['minscore'] = '100';
+$jieqiVipgrade['2']['maxscore'] = '5000';
+$jieqiVipgrade['2']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:1:&quot;0&quot;;s:13:&quot;dingyuezhekou&quot;;s:1:&quot;0&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;1&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;1&quot;;s:11:&quot;tuijianpiao&quot;;s:1:&quot;3&quot;;}';
+$jieqiVipgrade['3']['photo'] = 'v2';
+$jieqiVipgrade['3']['caption'] = 'VIP2';
+$jieqiVipgrade['3']['name']['0'] = 'VIP2';
+$jieqiVipgrade['3']['minscore'] = '5000';
+$jieqiVipgrade['3']['maxscore'] = '20000';
+$jieqiVipgrade['3']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:3:&quot;1.1&quot;;s:13:&quot;dingyuezhekou&quot;;s:4:&quot;0.95&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;2&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;2&quot;;s:11:&quot;tuijianpiao&quot;;s:1:&quot;6&quot;;}';
+$jieqiVipgrade['4']['photo'] = 'v3';
+$jieqiVipgrade['4']['caption'] = 'VIP3';
+$jieqiVipgrade['4']['name']['0'] = 'VIP3';
+$jieqiVipgrade['4']['minscore'] = '20000';
+$jieqiVipgrade['4']['maxscore'] = '40000';
+$jieqiVipgrade['4']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:3:&quot;1.2&quot;;s:13:&quot;dingyuezhekou&quot;;s:4:&quot;0.90&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;3&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;3&quot;;s:11:&quot;tuijianpiao&quot;;s:1:&quot;9&quot;;}';
+$jieqiVipgrade['5']['photo'] = 'v4';
+$jieqiVipgrade['5']['caption'] = 'VIP4';
+$jieqiVipgrade['5']['name']['0'] = 'VIP4';
+$jieqiVipgrade['5']['minscore'] = '40000';
+$jieqiVipgrade['5']['maxscore'] = '70000';
+$jieqiVipgrade['5']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:3:&quot;1.5&quot;;s:13:&quot;dingyuezhekou&quot;;s:4:&quot;0.85&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;4&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;4&quot;;s:11:&quot;tuijianpiao&quot;;s:2:&quot;12&quot;;}';
+$jieqiVipgrade['6']['photo'] = 'v5';
+$jieqiVipgrade['6']['caption'] = 'VIP5';
+$jieqiVipgrade['6']['name']['0'] = 'VIP5';
+$jieqiVipgrade['6']['minscore'] = '70000';
+$jieqiVipgrade['6']['maxscore'] = '100000';
+$jieqiVipgrade['6']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:3:&quot;1.7&quot;;s:13:&quot;dingyuezhekou&quot;;s:4:&quot;0.80&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;5&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;5&quot;;s:11:&quot;tuijianpiao&quot;;s:2:&quot;15&quot;;}';
+$jieqiVipgrade['7']['photo'] = 'v6';
+$jieqiVipgrade['7']['caption'] = 'VIP6';
+$jieqiVipgrade['7']['name']['0'] = 'VIP6';
+$jieqiVipgrade['7']['minscore'] = '100000';
+$jieqiVipgrade['7']['maxscore'] = '999999999';
+$jieqiVipgrade['7']['setting'] = 'a:5:{s:10:&quot;jifenjiasu&quot;;s:1:&quot;2&quot;;s:13:&quot;dingyuezhekou&quot;;s:4:&quot;0.75&quot;;s:12:&quot;baodiyuepiao&quot;;s:1:&quot;6&quot;;s:14:&quot;xiaofeiyuepiao&quot;;s:1:&quot;6&quot;;s:11:&quot;tuijianpiao&quot;;s:2:&quot;18&quot;;}';
+
+?>

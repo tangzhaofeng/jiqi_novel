@@ -1,0 +1,354 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/newadmin/templates/public/header.html" ?}
+{?include file="tuike/newadmin/templates/public/left.html" ?}
+  <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/jquery.datetimepicker.css" />
+  <script src="{?$jieqi_themeurl?}js/jquery.datetimepicker.full.js" type="text/javascript" charset="gbk"></script>
+    <div class="g-main">
+      <h3>渠道管理 </h3>
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form style="display:inline" action="" method="post">
+                <input type="text" class="form-element" name="keyword" value="">
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+            </div>
+            <div class="tool-filter f-cb">
+              <a class="u-btn u-btn-primary" href="{?function geturl:'newadmin':'order':'SYS=method=addOrder'?}">添加订单</a>
+            </div>
+          </div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th><i class="sortOr" _z="oord">订单号</i></th>
+                  <th><i class="sortOr" _z="otime">时间</i></th>
+                  <th><i class="sortOr" _z="ocom">公司名</i></th>
+                  <th><i class="sortOr" _z="ofe">成本</i></th>
+                  <th><i class="sortOr" _z="ofan">粉丝数</i></th>
+                  <th>充值金额</th>
+                  <th><i class="sortOr" _z="onote">备注</i></th>
+                  <th><i class="sortOr" _z="ofet">计费方式</i></th>
+                  <th>渠道数</th>
+                  <th>操作</th>
+                  <th width="120px"></th>
+                  <th width="120px"></th>
+                  <th width="120px"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($qdList)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 11 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('newadmin','order','SYS=method=editOrder');?}
+                {?section name=i loop=$qdList?}
+                <tr>
+                  <td>{?$qdList[i].ordersn?}</td>
+                  <td>{?$qdList[i].addtime|date:"Y-m-d H:i:s"?}</td>
+                  <td>{?$qdList[i].company?}</td>
+                  <td>{?$qdList[i].fee?}</td>
+                  <td>{?$qdList[i].fans?}</td>
+                  <td>￥{?$qdList[i].payAll?}</td>
+                  <td>{?$qdList[i].notes?}</td>
+                  <td>{?$qdList[i].feeType?}</td>
+                  <td>{?$qdList[i].count?}</td>
+                  <td>
+                    <a class="u-btn u-btn-primary" href="{?$url?}?oid={?$qdList[i].id?}">修改</a>
+                  </td>
+                  <td>
+                    <a class="u-btn u-btn-primary addchannel" _ty="{?$qdList[i].feetype?}" _id="{?$qdList[i].id?}" href="javascript:;" >添加渠道</a>
+                  </td>
+                  <td>
+                    <a class="u-btn u-btn-primary viewchannel" _ty="{?$qdList[i].feetype?}" _id="{?$qdList[i].id?}" href="javascript:;" >查看渠道</a>
+                  </td>
+                  <td>
+                    <a class="u-btn u-btn-primary deletechannel" _ty="{?$qdList[i].feetype?}" _id="{?$qdList[i].id?}" href="javascript:;" >删除</a>
+                  </td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                  {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+{?if $ajax_request == 0?}
+        
+        <input type="hidden" id="formhashAjax" value="{?eval echo form_hash();?}" />
+        <div id="viewbox" class="tableBoxShow">
+          <h4 class="hide_boxh4"><a href="javascript:void(0)" title="x" class="close_dia">×</a>查看渠道</h4>
+          <div class="m-panel ">
+            <div class="panel-body" style="height: 600px; overflow: auto;">
+              <form id="formView" action="{?function geturl:newadmin:manqd:SYS=method=viewOrder?}" method="post">
+                <table class="m-table cartView">
+                  <thead>
+                    <tr>
+                      <th>渠道号</th>
+                      <th>上线时间</th>
+                      <th>微信名</th>
+                      <th>微信号</th>
+                      <th class="uprice">成本</th>
+                      <th>粉丝</th>
+                      <th>书名</th>
+                      <th>阅读</th>
+                      <th>删除</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+                <div class="formitm form-submit">
+                  <div class="ipt" style="text-align: center;margin-top:15px;">
+                    <input type="hidden" id="feeTypeView" value="" />
+                    <input type="hidden" name="oid" id="orderIdView" value="" />
+                    <input type="hidden" name="ajax_request" value="1" />
+                    <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                    <input class="u-btn u-btn-success u-btn-large" type="submit" value="提交" >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="addbox" class="tableBoxShow">
+          <h4 class="hide_boxh4"><a href="javascript:void(0)" title="x" class='close_dia'>×</a>添加渠道</h4>
+          <div class="m-panel ">
+            <div class="panel-body">
+              <button class="u-btn u-btn-primary" id="btAdd">新增</button>
+              <form id="form" action="" method="post">
+                <table id="cart" class="m-table">
+                  <thead>
+                    <tr>
+                      <th>渠道号</th>
+                      <th>上线时间</th>
+                      <th>微信名</th>
+                      <th>微信号</th>
+                      <th class="uprice">成本</th>
+                      <th>粉丝</th>
+                      <th>书名</th>
+                      <th>阅读</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+                <div class="formitm form-submit">
+                  <div class="ipt" style="text-align: center;margin-top:15px;">
+                    <input type="hidden" name="orderid" id="orderId" value="" />
+                    <input type="hidden" id="feeType" value="" />
+                    <input type="hidden" name="ajax_request" value="1" />
+                    <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                    <input class="u-btn u-btn-success u-btn-large" type="submit" value="保存" id="saveproduct">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <style>
+          .deleteQd{
+            background-color: #887e6e;
+          }
+          .u-btn-success:focus {
+            background-color: #887e6e;
+              color: #fff;
+          }
+
+        </style>
+        <script src="{?$jieqi_themeurl?}js/easydialog.min.js"></script>
+        <script>
+
+
+          // 添加时间
+          $.datetimepicker.setLocale('ch');
+          /**
+           * 加时间事件
+           * @param  {[type]} j_this [description]
+           * @return {[type]}        [description]
+           */
+          function datetimepickerRun(j_this){
+            if( !j_this.runDate ){
+              var dataS=j_this.value.length > 5?j_this.value:formatDate();
+              j_this.runDate=1;
+              $(j_this).datetimepicker({
+                lang: "ch", 
+                format:"Y-m-d H:i", 
+                value: dataS,
+                step: 10
+              });
+              $(j_this).focus();
+            }
+          }
+
+          // 删除空订单
+          $('.deletechannel').live('click',function() {
+            var ar;
+            var oid=$(this).attr('_id');
+            var _ty=$(this).attr('_ty');
+            ar=location.pathname.split('/');
+            $.post('http://'+location.host+'/'+ar['1']+'/order/delorder',{oid:oid,ajax_request:1},function(msg){
+              if( msg.status === 'OK' ){
+                setTimeout(function(){location.href='';},1100);
+              }
+              Users.ShowMsg(msg.msg);
+            },'json');
+          });
+
+          // 删除渠道 jq
+          $('.deleteQd').live('click',function(){                 
+            var ar;
+            var q_this=$(this);
+            var id=q_this.attr('_id');
+            var formhash=$('#formhashAjax').val();
+            ar=location.pathname.split('/');
+
+            //询问框
+            layer.open({
+              content: '您确定要删除渠道吗？,<br />删除后将不可恢复，确认再删除！',
+              btn: ['确定', '取消'] ,
+              yes: function(index){
+                layer.close(index);
+                $.post('http://'+location.host+'/'+ar['1']+'/order/deleteQd',{qid:id,returnHtml:1,ajax_request:1,formhash:formhash},function(msg){
+                  if( msg.status === 'OK' ){
+                    q_this.parent().parent().animate({ 
+                       opacity: 'toggle'
+                    }, 1000 ,function(){
+                      $(this).remove();
+                    });
+                  }else{
+                    Users.ShowMsg(msg.msg);
+                  }
+                },'json');
+              }
+            });          
+          });
+
+
+          // 查看-获取
+          $('.viewchannel').live('click',function() {
+            var ar;
+            var oid=$(this).attr('_id');
+            var _ty=$(this).attr('_ty');
+            ar=location.pathname.split('/');
+            $.post('http://'+location.host+'/'+ar['1']+'/manqd/viewOrder',{oid:oid,returnHtml:1,ajax_request:1},function(html){
+              var msg;
+              if(html.indexOf('{') === 0){
+                msg=$.parseJSON(html);  
+              }else{
+                msg={status:'OK'};
+              }
+              if( msg.status === 'OK' ){
+                $('.cartView tbody').html(html);
+                $('#orderIdView').val(oid);                 
+                $('#feeTypeView').val(_ty);    
+
+                if( _ty === '2' ){
+                  $('#viewbox .uprice').each(function(){
+                    $(this).find('input').removeAttr("disabled");
+                  });
+                }else{
+                  $('#viewbox .uprice').each(function(){
+                    $(this).find('input').attr("disabled", "disabled");
+                  });
+                }
+                easyDialog.open({container: 'viewbox'});
+              }else{
+                Users.ShowMsg(msg.msg);
+              }
+            },'html');
+          });
+          // 查看-提交
+          $("#formView").submit(function() { // 651780   
+            Users.form = this;
+            Users.SendForm(function(msgs) {
+              if(msgs.status === 'OK'){
+                setTimeout(function(){location.href='';},1500);
+                Users.ShowMsg(msgs.msg);
+              }else{
+                Users.ShowMsg(msgs.msg,22);
+              }
+            });
+            return false;
+          });
+
+
+          // 添加-提交
+          $("#form").submit(function() { // 651780   
+            Users.form = this;
+            Users.msg_err=false;
+            Users.checkemptyAr('qdorder[]','请输入渠道号！');
+            Users.checkemptyAr('qdtime[]','请输入上线时间！');
+            Users.checkemptyAr('qdwxh[]','请输入微信名！');
+            Users.checkemptyAr('qdwxn[]','请输入微信号！');
+            if( $('#feeType').val() === '2'){
+              Users.checkemptyAr('qdfee[]','请输入成本！',function(v){return v<=0?false:true;});
+            }
+            Users.checkemptyAr('qdfan[]','请输入粉丝！',function(v){return v<=0?false:true;});
+            Users.checkemptyAr('qdarname[]','请输入书名！');
+            if( Users.checkeError() )return false;
+            
+            Users.SendForm(function(msgs) {
+              if(msgs.status === 'OK'){
+                setTimeout(function(){location.href='';},1500);
+                Users.ShowMsg(msgs.msg);
+              }else{
+                Users.ShowMsg(msgs.msg,22);
+              }
+            });
+            return false;
+          });
+
+
+          // 添加-添加一个渠道
+          function addQd() {
+            $('#cart tbody').append('<tr>' +
+              '<td><input type="text" name="qdorder[]" value=""></td>' +
+              '<td><input type="text" name="qdtime[]" value="" onclick="datetimepickerRun(this)"></td>' +
+              '<td><input type="text" name="qdwxn[]" value=""></td>' +
+              '<td><input type="text" name="qdwxh[]" value=""></td>' +
+              '<td class="uprice"><input type="text" name="qdfee[]" value=""></td>' +
+              '<td><input type="text" name="qdfan[]" value=""></td>' +
+              '<td><input type="text" name="qdarname[]" value=""></td>' +
+              '<td><input type="text" name="read[]" value=""></td>' +
+              '</tr>');
+
+            if( $('#feeType').val() === '2' ){
+              $('#addbox .uprice').each(function(){
+                $(this).show().find('input').removeAttr("disabled");
+              });
+            }else{
+              $('#addbox .uprice').each(function(){
+                $(this).hide().find('input').attr("disabled", "disabled");
+              });
+            }
+          }
+
+          $('#btAdd').click(addQd);
+          $('.addchannel').live('click',function() {
+            var q_this=$(this);    
+            $('#cart tbody').html('');
+            $('#orderId').val(q_this.attr('_id'));    
+            $('#feeType').val(q_this.attr('_ty'));
+            addQd();
+            easyDialog.open({container: 'addbox'});
+            $('#dialog_box').css('top', '25%');
+          });
+          $('.close_dia').click(function() {easyDialog.close(); });
+          
+        </script>
+
+    </div>
+{?include file="tuike/newadmin/templates/public/footer.html"?}
+{?/if?}

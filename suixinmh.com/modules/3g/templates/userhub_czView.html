@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="{?$jieqi_charset?}">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-transform " /> 
+        <meta name="keywords" content="{?$meta_keywords?}" />
+        <meta name="description" content="{?$meta_description?}" />
+        <meta name="author" content="{?$meta_author?}" />
+        <meta name="copyright" content="{?$meta_copyright?}" />
+        <title>充值记录</title>
+        <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+        <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+        <style>
+            .chargeTable td {
+                border-top: #eee 1px solid;
+            }
+            table th,table td{
+                font-weight: 500;
+               
+            }
+            .activeH2{
+                border-bottom: 2px solid #D50D56;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--nav-->
+        {?include file = "themes/3g/header.html"?}
+        {?include file = "themes/3g/paylogin.html"?}
+        <div class="clearfix cardtype bgcfff m10 plf10 br5">
+            <h2 class="fwn f16 c333 lh40 fl mr20 activeH2"><a href="{?function geturl:'3g':'userhub':'SYS=method=czView'?}">充值记录</a></h2>
+            <h2 class="fwn f16 c333 lh40 fl"><a href="{?function geturl:'3g':'userhub':'SYS=method=xfView'?}">消费记录</a></h2>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="lh35 tc chargeTable">
+                <tr bgcolor="#EEEEEE" class="f14">
+                    <th scope="col">书币</th>
+                    <th scope="col">类型</th>
+                    <th scope="col">时间</th>
+                   
+                </tr>
+                {?section name=i loop=$paylog?}{?eval $bg = $i.order%2;?}
+                <tr {?if $bg == 1?} class="line"{?/if?}>
+                    <td><div ><span>{?$paylog[i].egold?}</span>{?eval echo JIEQI_EGOLD_NAME;?}</div></td>
+                    <td>{?if $paytype[$paylog[i].paytype] != null ?}{?$paytype[$paylog[i].paytype].name?}{?else?}{?$paylog[i].paytype?}{?/if?}<span{?if $paylog[i].payflag == 0?} >（未确认{?else?} class="cg">（支付成功{?/if?}）</span></td>
+                    <td><span>{?$paylog[i].buytime|date:"Y-m-d H:i:s"?}</span></td>
+                 
+                </tr>
+                {?/section?}
+            </table>
+        </div>
+        <div class="p10 mb10">
+            <a href="{?function geturl:'3g':'userhub'?}" class="cRed f14">返回个人中心</a>
+        </div>
+        <!--footer-->
+      {?include file = "themes/3g/bottom.html"?}
+    </body>
+    <script src="{?$jieqi_themeurl?}js/jquery.min.js"></script>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{?$articlename?}首发,{?$author?},{?$sort?}-{?$jieqi_sitename?}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta name="keywords" content="{?$articlename?},{?$articlename?}首发,{?$author?}" />
+<meta name="description" content="{?$articlename?}首发{?$jieqi_sitename?},是一本优秀的都市小说,{?$jieqi_sitename?}独家提供小说{?$articlename?}在线阅读,请大家投票支持{?$articlename?}吧。" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/book.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/page.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/swipe.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<!--[if lt IE 10]>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/PIE.js"></script>
+<![endif]-->
+<!--[if IE 6]>
+<script src="{?$jieqi_themeurl?}js/DD_belatedPNG.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('div, ul, img, li, dl, dd, input,span,h3,h2,a,em');
+</script>
+<![endif]-->
+
+</head>
+
+<body>
+<!--top begin-->
+<div class="top fix">
+{?include file = "themes/v1/header.html" ?}
+  <!--box_ns begin-->
+  <div class="box_ns">
+    {?include file = "themes/v1/search.html" ?}
+  </div><!--box_ns end-->
+</div><!--top end-->
+
+<div class="wrap fix">
+  <div class="ad2"><script type="text/javascript" src="{?$jieqi_url?}/js/sy1.js"></script></div>
+ <!--article begin-->
+ <div class="article">
+   <!--book_top begin-->
+   <div class="book_top fix">
+     <div class="path f_gray3 mb20">
+      <p class="fl"><span class="g6">当前位置：</span><a href="{?$jieqi_local_url?}" target="_blank" >书海首页</a>&gt;<a href="{?$url_class?}" target="_blank" >{?$sort?}</a>&gt;  {?$articlename?}</p><div class="bdsharebuttonbox fr" style=" width:28%; position:relative; top:2px;"><span class="fl">分享到：</span><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a class="bds_count" data-cmd="count"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"{?$articlename?}是书海小说网作者{?$author?}精心打造的一部{?$sort?}，书海小说网第一时间提供{?$articlename?}最新章节及全文阅读。更多热门首发小说，请上书海小说网www.shuhai.com。","bdMini":"2","bdMiniList":false,"bdPic":"{?$url_image_l?}","bdStyle":"0","bdSize":"16","bdCustomStyle":"{?$jieqi_themeurl?}style/share.css"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+     </div>
+     <div class="book_top_l">
+       <div class="img">
+        <a href="{?$url_articleindex?}" title="{?$articlename?}"><img src="{?$url_image_l?}" alt="{?$articlename?}" /></a>
+       </div>
+       <div class="ope">
+        <a href="{?$url_articleindex?}" target="_blank" class="on" title="开始阅读{?$articlename?}">立即阅读</a>
+        <a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=vote&aid=$articleid'?}');" title="给{?$articlename?}投票">投票推荐</a>
+        <a href="javascript:;" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articleid'?}');" title="将{?$articlename?}加入书架">加入书架</a>
+        <a href="javascript:void(0)" onclick="jumpurl('{?function geturl:'article':'articleinfo':SYS=method=downlink&aid=$articleid&articlename=$articlename?}',0);" title="将{?$articlename?}放在桌面">放在桌面</a>
+       </div>
+     </div>
+     <div class="book_top_r">
+      <div class="t"><h2 class="name">{?$articlename?}</h2></div><p class="author">作者：{?if $authorid > 0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$authorid'?}" target="_blank" class="f_gray3" ajaxhover="true" uid="{?$authorid?}">{?$author?}</a>{?else?}{?$author?}{?/if?}</p>
+      
+      <!--tabbox_bk begin-->
+      <div class="tabbox_bk">
+       <div class="tt1">
+        <ul class="tabs_bk" id="tabs1">
+          <li><a href="javascript:void(0);">作品简介</a></li>
+          <li><a href="javascript:void(0);">作品信息</a></li>
+          <li><a href="javascript:void(0);">作者信息</a></li>
+        </ul>
+       </div>
+       <ul class="tab_conbox_bk" id="tab_conbox1">
+        <li class="one">
+        <p class="intro">
+        	{?eval echo preg_replace('/<br \/>([\s]*)<br \/>/','<br />',jieqi_htmlstr($intro));?}
+        </p><div class="fr blue2 poi" id="zhan">+点击展开</div>
+        </li>
+        <li class="two g3" style="display:none;">
+         <dl class="fix">
+          <dd><em>作品类别：</em>{?$sort?}</dd>
+          <dd><em>文章状态：</em>{?$fullflag_tag?}</dd>
+          <dd><em>授权级别：</em>{?$permission_tag?}</dd>
+          <dd><em>首发状态：</em>{?$firstflag_tag?}</dd>
+          <dd><em>总点击数：</em>{?if $visit > 0?}{?$visit?}{?else?}0{?/if?}</dd>
+          <dd><em>总推荐数：</em>{?if $vote > 0?}{?$vote?}{?else?}0{?/if?}</dd>
+          <dd><em>全文长度：</em>{?$size_c?}字</dd>
+          <dd><em>最后更新：</em>{?$lastupdate|date:Y-m-d?}</dd>          
+         </dl>
+        </li>
+        <li class="three" style="display:none;">
+			{?if $authorid > 0?}
+				<a href="{?function geturl:'system':'userhub':'method=userinfo':'SYS=uid=$authorid'?}" target="_blank" title="了解作者，进入他的主页" class="f_blue4">了解作者，进入他的主页</a>
+				{?tag_system_124_查询用户作品<{postdate,100,0,$authorid,0}><{block_zuozhexinxi.html}>?}
+			{?else?}
+				暂无作者信息
+			{?/if?}
+        	
+        </li>
+       </ul>
+      </div><!--tabbox_bk end-->
+      <p class="wap">使用手机输入wap.shuhai.com,直接在手机上阅读这部书！</p>
+		<div class="new">
+			<div class="new_chapter f_blue">
+				<span class="tt g9">最新章节：</span>
+				<a href="{?$url_lastchapter?}" target="_blank">{?$lastchapter?}{?if $lastchaptervip>0?}<em class="iv"></em>{?/if?}</a>
+				<span class="time g9">{?$lastupdate|date:Y-m-d H:i:s?}</span>
+			</div>
+			<p class="new_summary"> {?$lastchapter_con|truncate:228:"……"?}</p>
+		</div>
+     </div>
+   </div><!--book_top end-->
+   <script type="text/javascript" src="{?$jieqi_url?}/js/article_book.js"></script>
+	 {?tag_system_2_通用查询<{totalvisit,10,$sortid,0,0,0}><{block_guesslike.html}>?}
+   <!--maylike end-->
+   <!--bk_comment begin-->
+   <div class="bk_comment mt10">
+    <div class="t" id="pro">
+     <ul class="tabs_comm" id="tabs2">
+      <li id="mostnew"><a class="pr15" href="javascript:void(0);" onClick="return false;">最新评论</a></li>
+      <li id="goodli"><a href="javascript:void(0);" >精华评论</a></li>
+     </ul>
+     <p class="fr g6 f14 pt5 pr10">共<em class="b" style="color:red;" id="count"> {?$count?} </em>条评论</p>
+    </div>
+	 <ul class="tab_conbox_comm" id="tab_conbox2">
+     <li class="tab_con_comm">
+     <dl class="list_comm" id="reviewcontent"></dl>
+	 <div id="loadmore">{? if $count > 0 ?}<a href="{?function geturl:'article':'reviews':'SYS=aid=$articleid'?}" id="loadreview"  class="more f_blue5 f14">加载更多评论...</a>{?else?}
+	  <a href="javascript:void(0);" class="more f_blue5" disabled>亲，还没有书评...</a>{?/if?}</div>
+     </li>
+     <li class="tab_con_comm" style="display:none">
+	  <dl class="list_comm" id="goodreviewcontent"></dl>
+	  {? if $goodcount > 0 ?}
+	  	<a href="{?function geturl:'article':'reviews':'SYS=aid=$articleid&display=isgood'?}" id="loadgoodreview" class="more f_blue5">加载更多评论...</a>
+	  {?else?}
+	  	<a href="javascript:void(0);"  class="more f_blue5" disabled>亲，还没有精华书评...</a>
+	  {?/if?}
+	 </li>
+    </ul>
+	<a name="maodian"></a>
+ </div><!--bk_comment end-->
+ 	 <!--commentbar begin-->
+	 <div class="commentbar mt10 box_mid2">
+		 <div class="ttt"><h3>评论本书</h3></div>
+		  <form name="review" id="review" method="post" action="{?function geturl:'article':'reviews':'SYS=method=add&aid=$articleid'?}" data-validator-option="{theme:'simple_right'}">
+	    <div class="comm_box">
+	     <div class="txt">
+		  <textarea name="pcontent" id="pcontent" onkeyup="checkMsgLen(this.id)" placeholder="发表点什么吧..." data-placeholder="发表点什么吧..."></textarea>
+		 <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+		</div><!--txt end-->
+		<!--txt_r begin-->
+	      <div class="txt_r fix">
+		    <!--face2 begin-->
+			<div class="face2 fix fl">
+			 <em class="iface" id="em{?$articleid?}" title="表情" onclick="$('#box{?$articleid?}').toggle();"></em>
+			<div class="box_face" id="box{?$articleid?}"  style="display:none" onclick="$('#box{?$articleid?}').hide();">
+				<img src="{?$jieqi_url?}/images/ubb/20.gif" onclick="javascript:inface('呵呵','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/21.gif"  onclick="javascript:inface('偷笑','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/22.gif"  onclick="javascript:inface('花心','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/23.gif"  onclick="javascript:inface('思考','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/24.gif"  onclick="javascript:inface('问号','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/25.gif"  onclick="javascript:inface('汗','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/26.gif"  onclick="javascript:inface('伤心','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/27.gif"  onclick="javascript:inface('哼','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/28.gif"  onclick="javascript:inface('吃惊','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/29.gif"  onclick="javascript:inface('怒','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/30.gif"  onclick="javascript:inface('睡','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/31.gif"  onclick="javascript:inface('闭嘴','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/32.gif"  onclick="javascript:inface('爱你','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/33.gif"  onclick="javascript:inface('泪','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/34.gif"  onclick="javascript:inface('鄙视','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/35.gif"  onclick="javascript:inface('鼓掌','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/36.gif"  onclick="javascript:inface('ok','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/37.gif"  onclick="javascript:inface('握手','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/38.gif"  onclick="javascript:inface('求','pcontent');"/>
+				<img src="{?$jieqi_url?}/images/ubb/39.gif"  onclick="javascript:inface('可怜','pcontent');"/>
+			 </div>
+			</div><!--face2 end-->
+			
+		    <div class="deliver" id="deliver">
+			 <div id="result_error"></div>
+			 <input name="dosubmit" type="submit" value="马上发表" class="btn_deliver" id="btn_pcontent" />
+			 <p><img src="{?$jieqi_url?}/checkcode.php" id="code_post" style="cursor:pointer;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" width="60" height="24" title="点击更新"/></p>
+			 <input name="checkcode" id="checkcode"  type="text" class="tit"  placeholder="验证码" />
+			 <label>验证码：</label><font id="pcontentmsgLen" class="ibt">您还可以输入<b style="color:red;" id="fontnum">150</b>字</font>
+			  <input type="hidden" name="visit" id="visit" value="{?$visit?}" />
+			  <input type="hidden" name="sortid" id="sortid" value="{?$sortid?}" />
+			  <input type="hidden" name="action" id="action" value="newpost" />
+			</div><!--deliver end-->
+	      </div><!--txt_r end-->
+		</div><!--comm_box end-->
+	   </form>
+	 <!--引入评论--->
+	 
+<script type="text/javascript">
+	layer.ready(function(){
+		//加载最新评论下一页
+		addLoad('loadreview','reviewcontent');
+		//加载精华评论下一页
+		addLoad('loadgoodreview','goodreviewcontent');
+		$('#loadreview').trigger("click");
+		$('#loadgoodreview').trigger("click");
+		//提交评论
+		$('#review').bind('submit', function(event){
+			event.preventDefault();
+			if(getUserId()<1){
+	         	userLogin();
+			 }else{
+				var i = layer.load(0);
+				GPage.postForm('review', $("#review").attr("action"), function(data){
+						if(data.status=='OK'){
+								layer.msg(data.msg,1,{type:1,shade:false},function(){});
+								$.ajaxSetup ({ cache: false });
+								GPage.loadpage('reviewcontent', '{?function geturl:'article':'reviews':'SYS=aid=$articleid'?}');
+								document.getElementById("review").reset();			//清空输入框的文字
+								window.scrollTo(0,764);								//跳到最新评论处
+								layer.close(i);
+								checkMsgLen('pcontent');
+								$('#count').html(parseInt($('#count').html())+1);
+								$('#code_post').attr('src',$('#code_post').attr('src')+'?rand='+Math.random());							//刷新验证码
+						}else{
+						    layer.close(i);
+							layer.alert(data.msg, 8, !1);
+						}
+				   });
+			  }
+		});
+	$(".tt").live({mouseenter:function(){
+		$(this).find(".tt_r").show();
+	},mouseleave:function(){
+		$(this).find(".tt_r").hide();
+	}});
+	//apply_moderator js
+	if(getUserId()<1 || getUserId() == '{?$authorid?}'){
+		$("#apply_moderator").hide();
+	}
+	$("#apply_moderator").live("click",function(index){
+		GPage.getJson('{?function geturl:'article':'reviews':'SYS=method=asyncApplyModerator&aid=$articleid'?}',function(data){
+			if(data.status == 'OK'){
+				layer.alert(data.msg, 1, '系统提示');
+			}
+		});
+	});
+});
+//abelId 标签ID，ContainerId 容器ID
+function addLoad(abelId,ContainerId){
+	    var i = 1;
+		$('#'+abelId).live('click',function(event){
+			event.preventDefault();
+			var ii = layer.load(0);
+			var loadurl = this.href;
+			if (loadurl.indexOf("display=") < 0)
+			{
+				loadurl = this.href +"?page="+i;
+			}else{
+				loadurl = this.href +"&page="+i;
+			}
+			GPage.getJson(urlParams(loadurl,'ajax_gets='+ContentTag),function(data){
+				if ($.trim(data) != "")
+				{
+					$('#'+ContainerId).html($('#'+ContainerId).html()+data);
+					i++;
+					layer.close(ii);
+					if($("input[name='"+abelId+"_has_next_page']:last").val() == 0){
+						with($('#'+abelId)){
+							attr("href","javascript:;");
+							die();
+							text("亲,没有评论了");
+							attr("disabled",true);
+						}
+					}
+				}
+		  });
+	  });
+}
+//显示回复和分页显示回复
+function showReplies(_this, url, show)
+{
+    var relayid = "show"+_this.id;
+	if(show!='1') $("#"+relayid).toggle();
+	GPage.loadpage(relayid, url);
+}	
+
+function inface(str,tag){
+	if(str!=''){
+		var str = "["+str+"]";
+		var obj=document.getElementById(tag);
+	if(document.selection){
+		obj.focus();
+	var sel=document.selection.createRange();
+	document.selection.empty();
+	sel.text=str;
+	}else{
+		var prefix,main,suffix;
+		prefix=obj.value.substring(0,obj.selectionStart);
+		main=obj.value.substring(obj.selectionStart,obj.selectionEnd);
+		suffix=obj.value.substring(obj.selectionEnd);
+		obj.value=prefix+str+suffix;
+	}
+		obj.focus();
+	}
+		checkMsgLen(tag);
+}
+		
+//判定字数
+function checkMsgLen(tag){
+	var content=$('#'+tag).val();
+	try{
+			var len=GetLength(content);
+			var strTag = tag+'msgLen';
+			if(len>150){
+				$('#'+strTag).html('已超出<b style="color:red;">'+(len-150)+'</b>字');
+			}else{
+				var n=150-len;
+				$('#'+strTag).html('您还可以输入<b style="color:red;">'+n+'</b>字');
+			   
+			}
+		}catch(e){
+			return false;
+		}
+		
+	}
+
+//获取字符长度，中文为2个字符
+function GetLength(str){
+	var realLength=0;
+	var n=str.length;
+	var len=0;
+	for(var i=0;i<n;i++){
+		var ns=str[i];
+		if(ns==null){
+			ns=str.substring(i,i+1);
+		}
+		if(ns.match(/[^\x00-\xff]/ig)!=null){
+			len+=2;
+		}else{
+			len+=1;
+		}
+	}
+	len=parseInt(len/2);
+	return len;
+}
+
+//提交回复
+function submit_reply(_this){
+  var url = $(_this).attr("action");
+  if(getUserId()<1){
+	 userLogin();
+   }else{
+           GPage.postForm('reply'+_this.rid.value,url,
+		   function(data){
+				if(data.status=='OK'){
+					addreplise(_this.rid.value+'span');
+					GPage.loadpage('show'+_this.rid.value,_this.get_reply_url.value);
+				}else{
+					layer.alert(data.msg, 8, !1);
+				}
+		   }
+	);}
+	return false;
+}
+function addreplise(obj){
+
+ $('#'+obj).html(parseInt($('#'+obj).html())+1);
+}
+
+$(function(e){ 
+    /***不需要自动滚动，去掉即可***/ 
+/*    time = window.setInterval(function(){ 
+        $('.og_next').click();   
+    },5000); */
+    /***不需要自动滚动，去掉即可***/ 
+    linum = $('.mainlist li').length;//图片数量
+    w = linum*141.6;//ul宽度
+    $('.piclist').css('width', w + 'px');//ul宽度 
+    $('.swaplist').html($('.mainlist').html());//复制内容 
+     
+    $('.changes').click(function(){ 
+        if($('.swaplist,.mainlist').is(':animated')){ 
+            $('.swaplist,.mainlist').stop(true,true); 
+        }
+        if($('.mainlist li').length>5){//多于4张图片 
+            ml = parseInt($('.mainlist').css('left'));//默认图片ul位置 
+            sl = parseInt($('.swaplist').css('left'));//交换图片ul位置
+            if(ml<=0 && ml>w*-1){//默认图片显示时
+                $('.swaplist').css({left: '1416px'});//交换图片放在显示区域右侧
+                $('.mainlist').animate({left: ml - 708 + 'px'},'slow');//默认图片滚动             
+                if(ml==(w-708)*-1){//默认图片最后一屏时 
+                    $('.swaplist').animate({left: '0px'},'slow');//交换图片滚动 
+                } 
+            }else{//交换图片显示时
+                $('.mainlist').css({left: '1416px'})//默认图片放在显示区域右 
+                $('.swaplist').animate({left: sl - 708 + 'px'},'slow');//交换图片滚动 
+                if(sl==(w-708)*-1){//交换图片最后一屏时 
+                    $('.mainlist').animate({left: '0px'},'slow');//默认图片滚动 
+                } 
+            } 
+        } 
+    })    
+}); 
+ 
+$(function(){ 
+    $('.og_prev,.og_next').hover(function(){ 
+            $(this).fadeTo('fast',1); 
+        },function(){ 
+            $(this).fadeTo('fast',0.7); 
+    });
+	$('#zhan').toggle(function(){
+		$(this).parents("li").css("overflow","visible");
+		$(this).prev("p").css({overflow:"visible",height:"auto"});
+		$("div.book_top").css("height","auto");
+		$(this).html("-点击折叠");
+	},function(){
+		$(this).parents("li").css("overflow","hidden");
+		$(this).prev("p").css({overflow:"hidden",height:"110px"});
+		$("div.book_top").css("height","470px;");
+		$(this).html("+点击展开");
+	});
+	layer.tips('点此投月票支持本书。',".vote", {
+		style: ['background-color:#78BA32; color:#fff', '#78BA32'],
+		maxWidth:185,
+		guide:2,
+		closeBtn:[0, true]
+	});
+});
+
+</script>
+  </div> <!--commentbar end-->
+ </div><!--article end-->
+ <!--aside begin-->
+ 	<div class="aside">
+   <div class="moving">
+    <h3 class="t">作品动态</h3>
+	<dl class="f_gray3 fix mulitline">
+        {?tag_system_127_作品动态<{all,100,$articleid,0,0}><{block_zuopindongtai.html}>?}
+    </dl>
+    <div class="ope2">
+     <a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=vipvote&aid=$articleid'?}');" class="vote">投月票</a><a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=reward&aid=$articleid'?}');" class="reward">打赏书</a><a href="javascript:;" onclick="alert('建设中...');" class="urge">催更新</a>
+    </div>
+   </div>
+   {? if $notice !='' && $notice != ' ' ?}
+   <div class="bk_author mt10">
+    <h3 class="t">作者有话说</h3>
+    <p>{?$notice?}</p>
+   </div>{?/if?}
+     <!--tabbox_sid begin-->
+   <div class="tabbox_sid mt10">
+    <div class="tt1">
+     <ul class="tabs_sid" id="tabs3">
+      <li class="thistab"><a href="javascript:;">男频</a></li>
+        <li><a href="javascript:;">女频</a></li>
+     </ul>
+    </div>
+    <ul class="tab_conbox_sid" id="tab_conbox3">
+     <li class="sid">
+      <dl class="list_t1d f_black fix">
+       {?tag_system_216_[书页]-右上角-书海强推-男<{}><{block_commend.html}>?}
+      </dl>
+     </li>
+     <li class="sid"  style="display:none">
+      <dl class="list_t1d f_black fix">          
+        {?tag_system_217_[首页]左上角-书海强推-女<{}><{block_commend.html}>?}
+      </dl>
+     </li>
+    </ul>    
+   </div><!--tabbox_sid end--> 
+
+   
+   {?if $sortid==12?}
+   <div class="box_side2 mt10">
+    <div class="t1"><h2>VIP小说推荐</h2><span class="orn"></span></div>
+    {?tag_system_2_通用查询<{vipdate,10,12,1,0,0}><{block_xinshuruku.html}>?} 
+   </div>
+   {?else?}
+   <div class="box_side2 mt10">
+    <div class="t1"><h2>VIP小说推荐</h2><span class="orn"></span></div>
+    {?tag_system_2_通用查询<{vipdate,10,1|2|3|4|5|6|7|8|9|10|11,1,0,0}><{block_xinshuruku.html}>?} 
+   </div>
+   {?/if?}
+     
+
+ </div></div><div class="ad4"><script type="text/javascript" src="{?$jieqi_url?}/js/tb1.js"></script></div>
+ <div class="dwnline"></div>
+</div><!--wrap end-->
+{?include file = "themes/v1/bottom.html" ?}
+{?include file = "modules/article/templates/reviews_mute_layer.html" ?}
+</body>
+</html>

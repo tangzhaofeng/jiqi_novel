@@ -1,0 +1,15 @@
+{?section name=i loop=$articlerows?}
+	<li>
+		<div class="hgz_imgcon">
+			<a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="img">
+				<img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i]['articlename']?}" />
+			</a>
+			<div class="hgz_imgtxt">
+				<p class="shuname"><a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$articlerows[i].articleid?}">{?$articlerows[i]['articlename']?}</a></p>
+				<p class="author">作者 <a href="#">{?$articlerows[i].author?}</a></p>
+				<p class="txt">{?$articlerows[i].intro|truncate:80:'……'?}</p>
+				<a href="{?function geturl:'overseas':'index':SYS=aid=$articlerows[i].articleid?}" class="read">(马上阅读)</a>
+			</div>
+		</div>
+	</li>
+{?/section?}

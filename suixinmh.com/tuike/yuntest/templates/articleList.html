@@ -1,0 +1,140 @@
+{?include file="tuike/yuntest/templates/public/header.html" ?}
+{?include file="tuike/yuntest/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-book-title">图书管理 </div>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+
+              <form class="m-nform" action="{?function geturl:'yuntest':'article'?}" method="post">
+                <input type="text" class="form-element  n-bg" name="keyword" value="">
+                <button class="u-btn u-btn-while" type="submit">搜索</button>
+              </form>
+
+              <div class="m-sex-search">
+                <form class="m-nform" action="{?function geturl:'yuntest':'article'?}" method="post">
+                  <input type="hidden" name="siteidT" value="1"/>
+                  <button class="u-btn u-btn-while" type="submit">男频</button>
+                </form>
+                <form class="m-nform" action="{?function geturl:'yuntest':'article'?}" method="post">
+                  <input type="hidden" name="siteidT" value="2"/>
+                  <button class="u-btn u-btn-while" type="submit">女频</button>
+                </form>
+                <form class="m-nform" action="{?function geturl:'yuntest':'article'?}" method="post">
+                  <input type="hidden" name="siteidT" value="3"/>
+                  <button class="u-btn u-btn-while" type="submit">精选</button>
+                </form>
+              </div>
+            </div>
+            <div class="tool-filter f-cb">
+              <form action="{?function geturl:'yuntest':'article'?}" method="post">
+
+                <select name="siteid" class="form-element ">
+                  <option value="0">===全部分类===</option>
+                  <optgroup label="===分类({?$getcategory.0.name?})===">
+                    {?eval $list=$getcategory.0.sort;?}
+                    {?section name=i loop=$list?}
+                    <option value="{?$list[i].siteid?}" {?if $list[i].siteid == $siteid?}selected="selected"{?/if?}>{?$list[i].name?}</option>
+                    <td>{?$articleList[i].size?}</td>
+                    {?/section?}
+                  </optgroup>
+                  <optgroup label="===分类({?$getcategory.1.name?})===">
+                    {?eval $list=$getcategory.1.sort;?}
+                    {?section name=i loop=$list?}
+                    <option value="{?$list[i].siteid?}" {?if $list[i].siteid == $siteid?}selected="selected"{?/if?}>{?$list[i].name?}</option>
+                    <td>{?$articleList[i].size?}</td>
+                    {?/section?}
+                  </optgroup>
+                </select>
+                <select name="order" id="order_key" class="form-element ">
+                  <option value="0" selected="selected">===排序===</option>
+                  <option value="default" {?if $order == 'default'?}selected="selected"{?/if?}>默认</option>
+                  <option value="articleid" {?if $order == 'articleid'?}selected="selected"{?/if?}>书号</option>
+                  <option value="articlename" {?if $order == 'articlename'?}selected="selected"{?/if?}>书名</option>
+                  <option value="author" {?if $order == 'author'?}selected="selected"{?/if?}>作者</option>
+                  <option value="sortid" {?if $order == 'sortid'?}selected="selected"{?/if?}>类型</option>
+                  <option value="fullflag" {?if $order == 'fullflag'?}selected="selected"{?/if?}>完本</option>
+                  <option value="size" {?if $order == 'size'?}selected="selected"{?/if?}>字数</option>
+                  <option value="size" {?if $order == 'chapters'?}selected="selected"{?/if?}>章节</option>
+                  <option value="postdate" {?if $order == 'postdate'?}selected="selected"{?/if?}>创建时间</option>
+                </select>
+                <select name="sort" id="order_by" class="form-element ">
+                  <option value="1" {?if $sort == 1?}selected="selected"{?/if?}>升</option>
+                  <option value="0" {?if $sort == 0?}selected="selected"{?/if?}>降</option>
+                </select>
+                <button class="u-btn u-btn-while" type="submit">筛选</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>书号</th>
+                  <th>封面</th>
+                  <th>书名</th>
+                  <th>频道</th>
+                  <th>评级</th>
+                  <th>作者</th>
+                  <th>类型</th>
+                  <th>完本</th>
+                  <th>总字数</th>
+                  <th>章节</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($articleList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 10 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $youyueUrl=YOUYUEBOOK_URL_M;?}
+                {?eval $url=geturl('yuntest','qdlist','SYS=method=qdAdd');?}
+                {?eval $url2=geturl('yuntest','article','SYS=method=reader');?}
+                {?section name=i loop=$articleList?}
+                <tr>
+                  <td>{?$articleList[i].articleid?}</td>
+                  <td><img onerror="this.src='{?$imgDefault?}'"  src="{?$articleList[i].img?}" width="60"></td>
+                  <td>
+                    <a href="{?$url2?}?aid={?$articleList[i].articleid?}" target="_blank">{?$articleList[i].articlename?}</a>
+                  </td>
+                  <td class="rating_content">
+                      {?$articleList[i].sortidS?}
+                  </td>
+
+                  <td class="rating_content">
+                      {?$articleList[i].starStr?}
+                  </td>
+
+                  <td>{?$articleList[i].author?}</td>
+                  <td>{?$articleList[i].typeName?}</td>
+
+                  <td>
+                    <span class="{?if $articleList[i].fullflag == 1?}fullflag{?/if?} u-badge u-badge-danger">{?$articleList[i].fullflagS?}</span>
+                  </td>
+                  <td>{?$articleList[i].size?}</td>
+                  <td>{?$articleList[i].chapters?}</td>
+                  <td>
+                    <span>
+                      <a class="u-btn u-btn-primary" target="_blank" href="{?if strlen($articleList[i].arCaseUrl) > 3 ?}{?$articleList[i].arCaseUrl?}{?else?}{?$url2?}?aid={?$articleList[i].articleid?}{?/if?}">参考文案</a>
+                      <a class="u-btn u-btn-primary" style="margin-left:10px;" href="{?$url?}?aid={?$articleList[i].articleid?}">生成链接</a>
+                    </span>
+                  </td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="m-page">
+              {?$page?}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/yuntest/templates/public/footer.html"?}

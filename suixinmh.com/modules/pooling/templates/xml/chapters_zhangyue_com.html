@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<book>
+ <chapters>
+	{?section name=i loop=$chapters?}	
+		<chapter>
+			<id><![CDATA[{?$chapters[i]['chapterid']?}]]></id>
+			<name><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></name>
+		</chapter>
+	{?/section?}
+</chapters>
+</book>

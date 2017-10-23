@@ -1,0 +1,39 @@
+@charset "gb2312";
+/*  
+*@Description: 书海全局样式重置reset.css （可写中文）  
+*@Author:      tanjing  
+*@Update:      tanjing(2014-12-31 10:10)  
+*@modify:      tanjing(2015-01-02 17:22)  
+*/ 
+
+/* 清除内外边距 */
+body,div,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin: 0; padding: 0;}
+/* 设置默认字体 */
+body,button, input, select, textarea {font: 12px/1.5 "宋体", arial, helvetica, sans-serif;;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var, i { font-style: normal; }
+code, kbd, pre, samp { font-family: courier new, courier, monospace; }
+small { font-size: 12px; }
+/* 重置列表元素 */
+ul, ol, li { list-style: none; }
+/* 重置文本格式元素 */
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
+sup { vertical-align: text-top; } /* 重置，减少对行高的影响 */
+sub { vertical-align: text-bottom; }
+/* 重置表单元素 */
+legend { color: #000; } 
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } 
+/* 重置表格元素 */
+table { border-collapse: collapse; border-spacing: 0; } 
+q:before,q:after { content:'' }
+* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}/*bootstrap*/
+*:before,*:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}/*bootstrap控制左右浮动同行平行排列*/
+img {vertical-align: middle;}/*bootstrap控制图片默认对齐*
+
+
+
+
+
+

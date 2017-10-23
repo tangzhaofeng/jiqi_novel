@@ -1,0 +1,59 @@
+<div class="gridtop">作者申请记录&nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/admin/?controller=apply">全部记录</a> | <a href="{?$article_dynamic_url?}/admin/?controller=apply&display=ready">待审记录</a> | <a href="{?$article_dynamic_url?}/admin/?controller=apply&display=success">已审记录</a> | <a href="{?$article_dynamic_url?}/admin/?controller=apply&display=failure">被拒记录</a></div>
+<table class="grid" width="100%" align="center">
+  <tr align="center">
+    <th width="18%">申请时间</th>
+    <th width="15%">申请人</th>
+    <th width="18%">审核时间</th>
+    <th width="15%">审核人</th>
+    <th width="10%">审核状态</th>
+    <th width="10%">申请内容</th>
+    <th width="14%">操作</th>
+  </tr>
+  {?section name=i loop=$rows?}
+  <tr style="background-color:pink;">
+    <td class="odd" align="center">{?$rows[i].applytime|date:"Y-m-d H:i"?}
+    </td>
+    <td class="even"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$rows[i].applyuid'?}" target="_blank">{?$rows[i].applyname?}</a></td>
+    <td class="odd">
+    	{?if $rows[i].authtime != 0 ?}
+    		{?$rows[i].authtime|date:"Y-m-d H:i"?}
+    	{?/if?}
+    </td>
+    <td class="even"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$rows[i].authuid'?}" target="_blank">{?$rows[i].authname?}</a></td>
+    <td class="odd" align="center">
+    	{?if $rows[i].applyflag == 0?}
+    		<span class="blue">待审</span>
+    	{?elseif $rows[i].applyflag == 1?}
+    		已审
+    	{?else?}
+    		<span class="green">拒绝</span>
+    	{?/if?}
+    </td>
+    <td class="even" align="center"><a href="javascript:;" onclick="showChapter({?$rows[i].applyid?});">点击查看</a></td>
+    <div style="display:none;" id="ap_{?$rows[i].applyid?}">{?$rows[i].applytext?}</div>
+    <td class="odd" align="center">
+    	{?if $rows[i].applyflag == 0?}
+    		<a href="{?$article_dynamic_url?}/admin/?controller=apply&action=audit&display={?$display?}&applyuid={?$rows[i].applyuid?}&aid={?$rows[i].applyid?}">审核</a> 
+    		<a href="{?$article_dynamic_url?}/admin/?controller=apply&action=refusal&display={?$display?}&aid={?$rows[i].applyid?}">拒绝</a> 
+    	{?/if?}
+    		<a href="javascript:if(confirm('确实要删除该申请记录么？')) document.location='{?$article_dynamic_url?}/admin/?controller=apply&action=del&display={?$display?}&aid={?$rows[i].applyid?}'">删除</a></td>
+  </tr>
+  {?/section?}
+</table>
+<div class="pages">{?$url_jumppage?}</div>
+<script>
+function showChapter(ap_id){
+ 	$.layer({
+ 	    type: 1,
+ 	    title: false,
+ 	   //	fix: false,
+ 	    area: ['600px', '600px'],
+ 	    offset: ['20px' , ''],
+ 	    //shade: [0],
+ 	    page: {
+ 	        //dom: '#ap_'+ap_id
+ 	       html:'<div style="width:600px;height:600px;overflow-y:scroll;">'+$('#ap_'+ap_id).text()+'</div>'
+ 	    }
+ 	});
+}
+</script>

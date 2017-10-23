@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<book> 
+        <id>{?$article['articleid']?}</id> 
+        <name>{?eval echo gb2utf8XHSafeStr($article['articlename'],true,'xml');?}</name> 
+        <class><![CDATA[{?eval echo gb2utf8XHSafeStr($article['sort'],true,'xml');?}]]></class> 
+		<author>{?eval echo gb2utf8XHSafeStr($article['author'],true,'xml');?}</author> 
+		<bookintr><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></bookintr>
+		<smallimg><![CDATA[{?$article['url_image']?}]]></smallimg> 
+		<bigimg><![CDATA[{?$article['url_image_l']?}]]></bigimg> 
+		<words>{?$article['size_c']?}</words> 
+        <tag>{?eval echo gb2utf8XHSafeStr($article['keywords'],true,'xml');?} </tag> 
+		<free>{?if $article['articletype']<1?}1{?else?}0{?/if?}</free> 
+        <status>{?if $article['fullflag']<1?}1{?else?}2{?/if?}</status>      
+        <updatetime><![CDATA[{?$article['lastupdate']?}]]></updatetime> 
+</book> 

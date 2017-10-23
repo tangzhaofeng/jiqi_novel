@@ -1,0 +1,166 @@
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+        <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+      </div>
+      <h3>经理明细</h3>
+      <form action="" method="post" id="form" class="m-form m-form-horizontal">
+        <style>
+        .m-form-horizontal .ipt {
+            margin-left: 118px;
+        }
+        .m-form-horizontal .ipt input {
+            border: 1px solid #ccc;
+            height: 28px;
+            padding: 0 4px;
+            color: #666;
+        }
+        .hottext{
+          color:red;
+        }
+        </style>
+        <fieldset>
+          <div class="formitm" style="border: none; padding-bottom: 0;">
+            <p>经理信息</p>
+          </div>
+
+
+          <div class="formitm">
+            <label class="lab">用户ID</label>
+            <div class="ipt">{?$info.uid?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">真实姓名</label>
+            <div class="ipt"><input type="text" value="{?$info.uname?}" name="uname"></div>
+          </div>
+          <div class="formitm">
+            <label class="lab">手机</label>
+            <div class="ipt">{?$info.mobile?}</div>
+          </div>
+
+
+          <div class="formitm" style="border: none; padding-bottom: 0;padding-top: 37px;">
+            <p>联系信息</p>
+          </div>
+
+
+          <div class="formitm">
+            <label class="lab">昵称：</label>
+            <div class="ipt">
+            <input type="text" value="{?$info.co_name?}" name="co_name" >
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">QQ：</label>
+            <div class="ipt">
+            <input type="text" value="{?$info.co_qq?}" name="co_qq" >
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">电话：</label>
+            <div class="ipt">
+            <input type="text" value="{?$info.co_phone?}" name="co_phone" >
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">二维码：</label>
+            <div class="ipt">
+              <img src="{?$jieqi_url?}/{?$info.co_img?}" id="imgHeadImg"  alt="二维码">
+              <span class="hottext">(点击修改头像)</span>
+            </div>
+          </div>
+      
+
+          <div class="formitm form-submit">
+            <div class="ipt">
+              <input type="hidden" name="uid" value="{?$info.uid?}">
+              <input type="hidden" name="ajax_request" value="1">
+              <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+              <button class="u-btn u-btn-success u-btn-large" type="submit" id="btn-submit">保存</button>
+              <button class="u-btn u-btn-large" type="reset">重置</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+<div id="popup_overlay"></div>
+<div id="popup_container">
+  <h6 class="title">修改头像</h6>
+  <span class="close">X</span>
+  <div class="main" style="width:550px;">
+    <div id="swfContainer"></div>
+  <div>
+</div>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/fullAvatarEditor/scripts/swfobject.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/fullAvatarEditor/scripts/fullAvatarEditor.js"></script>
+<script type="text/javascript">
+  var fale=0;
+  $(function(){
+    $('#popup_container .close,#popup_overlay').click(hideHtml);
+    $('#imgHeadImg').click(function(){
+        if(fale === 0)editHead();
+        showHtml();
+        fale++;
+    });
+  });
+  function showHtml(){
+    $('#popup_overlay').show();
+    $('#popup_container').show();
+  }
+  function hideHtml(){
+    $('#popup_overlay').hide();
+    $('#popup_container').hide();
+  }
+  function editHead(){
+    swfobject.addDomLoadEvent(function () {
+      var swf = new fullAvatarEditor("swfContainer",330,550, {
+        id: 'swf',
+        baseUrl:baseImgUrl+'../js/fullAvatarEditor/',
+        upload_url: '{?function geturl:"super":"manusers":"SYS=method=uploadImg"?}?uid={?$info.uid?}',
+        src_upload:0,
+        src_box_width: "250",//原图编辑框的宽度
+        src_box_height: "250",//原图编辑框的高度
+        avatar_sizes: "162*162",
+        tab_visible:false,
+        checkbox_visible:false
+      }, function (msg) {
+        console.log( msg );
+        if(msg.code ==5 &&msg.type === 0){
+          hideHtml();
+          $('#imgHeadImg').prop('src',msg.content.sourceUrl+'?rand='+Math.random());
+          $('#headImg').val(msg.content.sourceUrl);
+        }else if( msg.type==1 ){
+          Users.ShowMsg(msg.content.msg);
+        }
+      }
+      );
+    });
+  }
+</script>
+<style>
+#popup_overlay{display:none;position: absolute;z-index: 99998;top: 0px;left: 0px;width: 100%;height: 4017px;background-color: #cccccc;opacity: 0.8;}
+#popup_container {display:none;border: 2px solid #999999;position: fixed;z-index: 99999;padding: 0px;left: 50%;margin: -160px 0px 0px -235px;background-color: #fff;top: 50%;}
+#popup_container .title{background-color: rgb(170, 170, 170);text-align: center;font-size: 21px;color: rgb(255, 255, 255);height: 45px;line-height: 45px;}
+#popup_container .main{width: 297px; padding: 10px 60px 40px;}
+#popup_container .close {color: #d9d9d9;cursor: pointer;font-size: 14px;font-weight: 800;position: absolute;right: 16px;top: 16px;}
+#popup_container .modal-title {font-size: 18px;font-weight: 500;line-height: 1;margin-bottom: 16px;}
+</style>
+        <script type="text/javascript">
+          // 表单处理
+          $("#form").submit(function() { // 651780
+            Users.form = this;
+            Users.SendForm(function(msgs) {
+              if(msgs.status === 'OK'){
+                Users.ShowMsg(msgs.msg);
+                location.href='';
+              }else{
+                Users.ShowMsg(msgs.msg);
+              }
+            });
+            return false;
+          });
+        </script>
+      </form>
+    </div>
+{?include file="tuike/super/templates/public/footer.html"?}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><categorys>{?section name=i loop=$sortrows?}<category>
+<id>{?$i.key?}</id>
+<pid>0</pid>
+<categoryName>{?eval echo gb2utf8XHSafeStr($sortrows[i]['caption'],false);?}</categoryName> 
+</category>{?/section?}</categorys>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book>	  	
+	<id><![CDATA[{?$article['articleid']?}]]></id>
+	<name><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></name>	
+	<class><![CDATA[{?eval echo gb2utf8XHSafeStr(getCategory_zuidie($article['sortid']),false);?}]]></class>
+	<author><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></author>
+	<bookintr><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></bookintr>
+	<smallimg><![CDATA[{?$article['url_image']?}]]></smallimg>
+	<bigimg><![CDATA[{?$article['url_image_l']?}]]></bigimg>	
+	<words><![CDATA[{?eval echo bcdiv($article['size'],2);?}]]></words>
+	<tag><![CDATA[{?eval  $keyword = gb2utf8XHSafeStr($article['keywords'],false);?}{?$keyword|str_replace:' ':'|'?}]]></tag>
+	<free><![CDATA[{?if $article['articletype']==1?}0{?else?}1{?/if?}]]></free>
+	<status><![CDATA[{?if $article['fullflag']==1?}2{?else?}1{?/if?}]]></status> 
+	<updatetime><![CDATA[{?$article['lastupdate']?}]]></updatetime>
+	<chaptersurl><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$article['articleid']?}]]></chaptersurl>	
+</book>

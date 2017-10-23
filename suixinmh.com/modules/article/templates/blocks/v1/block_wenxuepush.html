@@ -1,0 +1,12 @@
+{?section name=i loop=$articlerows?}
+	<dd class="img" {?if $i.order!=1?} style="display:none;"{?/if?}>
+        <a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}" title="{?$articlerows[i].articlename?}" /></a>
+        <dl>
+         <dt><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_gray3" title="{?$articlerows[i].articlename?}">{?$articlerows[i].articlename?}</a></dt>
+         <dd>作者：{?if $articlerows[i].authorid > 0 ?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'uid=$articlerows[i].authorid'?}" target="_blank" class="f_gray6" uid="{?$articlerows[i].authorid?}" >{?$articlerows[i].author?}</a>{?else?}{?$articlerows[i].author?}{?/if?}</dd>
+         <dd>类型：<a href="{?$articlerows[i].url_class?}" target="_blank" class="f_gray6" title="{?$articlerows[i].sort?}">{?$articlerows[i].sort?}</</dd>
+         <dd><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_brown">[阅读]</a></dd>
+        </dl>
+       </dd>   
+	 <dd {?if $i.order==1?} style="display:none;"{?/if?}><a href="{?$articlerows[i].url_class?}" target="_blank" class="f_gray6">[{?$articlerows[i].sort?}]</a><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_gray3">{?$articlerows[i].articlename?}</a></dd>
+{?/section?}

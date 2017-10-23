@@ -1,0 +1,11 @@
+<div class="b1">{?if $articlerows['0']['title']!=''?}
+<p><a href="{?$articlerows['0']['url_articleinfo']?}" title="{?$articlerows['0']['title']?}">{? if $articlerows['0']['thumb']!='' ?}<img src="{?$articlerows['0']['thumb']?}" border="0" alt="{?$articlerows['0']['title']?}" />{?else?}<img src='{?$articlerows['0']['pictureurls']['0']['url']|preg_replace:"/.(jpg|gif|png|bmp|jpeg)/":"_78_65.$1"?}' border="0" alt="{?$articlerows['0']['title']?}" />{?/if?}</a></p>
+<p><a href="{?$articlerows['0']['url_articleinfo']?}" title="{?$articlerows['0']['title']?}">{?$articlerows['0']['title']|truncate:24:'':0?}</a></p>
+{?else?}<p>没有了!</p><p><a href="" title="回到频道首页">回到频道首页</a></p>{?/if?}
+</div>
+<div class="b2" id="imgSmallDiv" STYLE="width:477px; height:95px;overflow-x:auto; overflow-y:hidden;white-space:nowrap; font-size:0px; background:#999999;BACKGROUND-COLOR: transparent; scrollbar-highlight-color: #FFFFFF; scrollbar-shadow-color: #FFFFFF; scrollbar-arrow-color: #FFFFFF; scrollbar-face-color: #CCCCCC; scrollbar-3dlight-color: #000000; scrollbar-darkshadow-color: #000000; scrollbar-track-color: #FFFFFF;"><div id="imgSmallDivInner" style="overflow:visible;white-space:nowrap;font-size:0px;background:#999999"></div></div>
+<div class="b3">{?if $articlerows['1']['title']!=''?}
+<p><a href="{?$articlerows['1']['url_articleinfo']?}" title="{?$articlerows['1']['title']?}">{? if $articlerows['1']['thumb']!='' ?}<img src='{?$articlerows['1']['thumb']?}' border="0" alt="{?$articlerows['1']['title']?}" />{?else?}<img src='{?$articlerows['1']['pictureurls']['0']['url']|preg_replace:"/.(jpg|gif|png|bmp|jpeg)/":"_78_65.$1"?}' border="0" alt="{?$articlerows['1']['title']?}" />{?/if?}</a></p>
+<p><a href="{?$articlerows['1']['url_articleinfo']?}" title="{?$articlerows['1']['title']?}">{?$articlerows['1']['title']|truncate:24:'':0??}</a></p>
+{?else?}<p>没有了!</p><p><a href="" title="回到频道首页">回到频道首页</a></p>{?/if?}
+</div>

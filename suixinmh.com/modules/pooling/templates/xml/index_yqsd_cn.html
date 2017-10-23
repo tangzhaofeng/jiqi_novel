@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<books>{?section name=i loop=$rows?}
+  <book>
+    <id>{?$rows[i]['articleid']?}</id>
+    <booktitle><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></booktitle>
+    <updatetime>{?$rows[i]['lastupdate']|date:'Y-m-d H:i:s'?}</updatetime>
+  </book>{?/section?}
+</books>

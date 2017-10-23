@@ -1,0 +1,7 @@
+{?section name=i loop=$articlerows?}
+<li class="wpT30 f14 fl">
+    <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self"><img class="w100 h120 left10 b bcddd" src="{?$articlerows[i]['url_image']?}" alt=""></a>
+    <p class="c333 tEllipsis mt3"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self">{?$articlerows[i]['articlename']?}</a></p>
+    <!--<p class="c888 f12 tEllipsis">×÷ÕßÃû×Ö</p>-->
+</li>
+{?/section?}

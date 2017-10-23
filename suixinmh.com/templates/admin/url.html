@@ -1,0 +1,70 @@
+<div class="gridtop">URL管理：
+  <select class="select" name="modules" id="modules" onchange="document.location='{?$url_mod?}&mod='+this.options[this.selectedIndex].value;">
+	{?section name=i loop=$jieqi_modules?}
+      <option value="{?$i['key']?}"{?if $mod == $i['key']?} selected{?/if?}>{?$jieqi_modules[i].caption?}</option>
+	{?/section?}  
+  </select>
+</div>
+
+<form action="{?$url_action?}" method="post">
+  <table class="grid" width="100%" align="center">
+
+    <tr>
+	<td width="8%" align="center">序</td>
+	  <td width="10%" align="center">功能名称</td>
+      <td width="25%" align="center">URL路径规则</td>
+	  <td width="7%" align="center">生成HTML</td>
+	  <td width="10%" align="center">控制器</td>
+      <td width="10%" align="center">方法</td>
+	  <td width="10%" align="center">参数</td>
+	  <td align="center">说明</td>
+    </tr> <!--
+		<td >	
+			<select name='urls[{?$urls[i].id?}][modname]'>
+			  {?section name=a loop=$modules?}
+			  <option value="{?$a['key']?}" {?if $urls[i].modname==$a['key']?}selected{?/if?}>{?$modules[a].caption?}</option>
+			   {?/section?}
+			</select>
+			{?$modules[$urls[i].modname].caption?}
+		</td>
+		-->
+    {?section name=i loop=$urls?}
+	  <tr>
+	  	<td align="center">
+			{?$i.order?}
+		 </td>
+		
+		<td>
+			<input name="urls[{?$urls[i].id?}][caption]" type="text" value="{?$urls[i].caption?}" size="20">
+		 </td>
+		<td >
+			<input name="urls[{?$urls[i].id?}][rule]" type="text" value="{?$urls[i].rule?}" size="50">
+		</td>
+		<td align="center">{?if $urls[i].ishtml!=99?}<input type="checkbox" name="urls[{?$urls[i].id?}][ishtml]" value="1"{?if $urls[i].ishtml==1?} checked{?/if?} />
+		{?else?}<input type="hidden" name="urls[{?$urls[i].id?}][ishtml]" value="99" />{?/if?}
+		</td>
+		<td >
+			<input name="urls[{?$urls[i].id?}][controller]" type="text" value="{?$urls[i].controller?}" size="20"{?if $urls[i].system>0?} disabled{?/if?}>
+		</td>
+		<td >
+			<input name="urls[{?$urls[i].id?}][method]" type="text" value="{?$urls[i].method?}" size="20"{?if $urls[i].system>0?} disabled{?/if?}>
+		</td>
+		<td >
+			<input name="urls[{?$urls[i].id?}][params]" type="text" value="{?$urls[i].params?}" size="70" maxlength="100" {?if $urls[i].system>0?} disabled{?/if?}>
+		</td>
+		<td>
+			<input name="urls[{?$urls[i].id?}][description]" type="text" value="{?$urls[i].description?}" size="30">
+		</td>
+	  </tr>
+    {?/section?}
+  <tr>
+    <td colspan="8" align="center"><input type="submit" class="button" name="dosubmit" id="dosubmit" value="更新" title="批量更新"/></td>
+  </tr>
+  </table>
+</form>
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">{?$addForm?}</td>
+  </tr>
+</table>

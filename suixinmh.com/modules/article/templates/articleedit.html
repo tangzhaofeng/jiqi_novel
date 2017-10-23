@@ -1,0 +1,277 @@
+{?include file="templates/autor_head.html"?}
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+
+
+<div id="main">
+	{?include file="templates/autor_left.html"?}
+	<div class="right fl ov">
+		<div class="right_nav ov"> <span class="fl black">发表作品</span> <span class="fr"><a href="http://www.deishu.com/modules/pay/">充 值>></a> <a href="http://www.deishu.com/welfare/welfare.html">查看作家福利>></a></span> </div>
+		<div class="right_c">
+			<div class="right_c_menu ov"><span class="span_nav"><a href="{?$jieqi_modules['article']['url']?}/newarticle.php">发表作品</a></span><span><a href="{?$jieqi_modules['article']['url']?}/masterpage.php">作品管理</a></span><span><a href="{?$article_static_url?}/ytuijian.php">申请推荐</a></span><span><a href="{?$article_static_url?}/yqiany.php">申请签约</a></span><span><a href="{?$article_static_url?}/ymyapply.php">我的申请</a></span><span ><a href="{?$article_static_url?}/newdraft.php">草稿箱定时发布</a></span></div>
+			<div class="right_c_list">
+				<div class="introdu">
+					<div class="bg"></div>
+					<div class="text">
+						<div>说明：</div>
+						<ul>
+							<li>1、新作品建立后30天之内如未能上传5000字，我们将做删除处理。</li>
+							<li>2、如已有1万字以下未完成作品，不能再建立新作品,如果需要删除作品请联系客服或编辑。</li>
+							<li>3、新建作品总字数超过3000字后，请点击"提交审核"。</li>
+							<li>4、新作品提交审核后，我们将在24小时内进行审核。通过的作品可以在页面上显示。 </li>
+						</ul>
+					</div>
+				</div>
+				<form id="signup_form" name="" action="{?function geturl:'article':'article':'SYS=method=editArticle'?}" method="post" class="jNice" enctype="multipart/form-data">
+					<dd class="fix">
+						<em class="tt3">选择作品：</em>
+						<div class="int">
+							<div class="selt4">
+								<select name="aid" id="now_place1" style="display: none;" onchange="location.href='{?function geturl:'article':'article':SYS=method=editArticleView&aid=?}'+this.value">
+									{?section name=i loop=$articles?}
+									<option value="{?$articles[i].articleid?}" {?if $articles[i].articleid == $article.articleid ?} selected {?/if?}>{?$articles[i].articlename?}</option>
+									{?/section?}
+								</select>
+							</div><!--selt4 end-->
+							<span class="hint">请选择您要编辑的作品</span>
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">所属类别：</em>
+						{?if $manageallarticle == 1  ?}
+						<div class="selt3">
+							<select id="siteid" name="siteid" onchange="showtypes(this)" style="display:none;">
+								{?section name=i loop=$channel?}
+								<option value="{?$i['key']?}" {?if $article.siteid == $i['key']  ?}selected{?/if?}>{?$channel[i].name?}</option>
+								{?/section?}
+							</select>
+						</div>
+						<!-- 频道对应的分类 --><!--
+		         <div class="selt3" >
+		           <select id="sortid" name="sortid" style="display:none;">
+		           </select>
+	           	</div>-->
+
+						<div class="selt3">
+							<select id="sortid" name="sortid" style="display:none;">
+								{?section name=i loop=$channel?}
+								{?if $i['key'] == $article.siteid?}
+								{?section name=k loop=$channel[i].sort?}
+								<option value="{?$k['key']?}" {?if $article.sortid == $k['key']  ?}selected{?/if?}>{?$channel[i].sort[k].caption?}</option>
+								{?/section?}
+								{?/if?}
+								{?/section?}
+							</select>
+						</div>
+						{?else?}
+						<div class="int">
+							<input name="siteid" value="{?$article.siteid?}" type="hidden"/>
+							<input name="sortid" value="{?$article.sortid?}" type="hidden"/>
+							<span class="tit">{?section name=i loop=$channel?}{?if $article.siteid == $channel[i].siteid  ?}{?$channel[i].name?}{?/if?}{?/section?}-{?$article.sort?}</span>【<a href="javascript:alert('建设中...')" class="f_blue5">修改所属类别</a>】 (30天内仅可向管理员申请修改所属分类1次)
+						</div>
+						{?/if?}
+					</dd>
+					<dd class="fix">
+						<em class="tt3">作品书名：</em>
+						{?if $manageallarticle == 1  ?}
+						<div class="int">
+							<input name="articlename" id="articlename" type="text" class="input3 fl" value="{?$article.articlename?}" maxlength="20" data-rule="书名: required;articlename;remote[{?function geturl:'article':'article':'SYS=method=checkArticlename&aid=$article.articleid'?}]"/>
+						</div>
+						{?else?}
+						<div class="int">
+							<input name="articlename" value="{?$article.articlename?}" type="hidden"/>
+							<span class="tit">{?$article.articlename?}</span>【<a href="javascript:alert('建设中...')" class="f_blue5">申请修改书名</a>】 (30天内仅可向管理员申请修改所属分类1次)
+						</div>
+						{?/if?}
+					</dd>
+					<dd class="fix">
+						<em class="tt3">关键字：</em>
+						<div class="int">
+							<input name="keywords" id="keywords" type="text" class="input3 fl" value="{?$article.keywords?}" /><span class="hint">关键字之间用空格隔开,最多十组</span>
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">标签：</em>
+						<div class="int">
+							<div id="tags">
+								{?section name=i loop=$tags[$article.siteid]?}
+								<label><input name="tag[]" type="checkbox" value="{?$tags[$article.siteid][i]['id']?}" data-rule="checked[1~4]"/>{?$tags[$article.siteid][i]['name']?}</label>&nbsp;
+								{?/section?}
+							</div>
+							<span class="hint cl">最少选择一个标签，最多选择4个标签。 </span>
+						</div>
+					</dd>
+					<script>
+						var tagid = '{?$article.tag?}';
+						tagid = tagid.split(",");
+						$("[name='tag[]']").attr("checked",false);//清空
+						for(i=0;i<tagid.length;i++){
+							$("[name='tag[]'][value='"+tagid[i]+"']").attr("checked",'true');
+						}
+					</script>
+					<dd class="fix">
+						<em class="tt3">编辑：</em>
+						{?if $manageallarticle == 1  ?}
+						<div class="int">
+							<input name="agent" id="agent" type="text" class="input3 fl" value="{?$article.agent?}" maxlength="20" data-rule="agent;remote[{?function geturl:'article':'article':'SYS=method=checkAgent'?}]"/><span class="hint">指定一个本站现有用户作为管理员</span>
+						</div>
+						{?else?}
+						<div class="int">
+							<input name="agent" value="{?$article.agent?}" type="hidden"/>
+							<span class="tit">{?$article.agent?}</span>
+						</div>
+						{?/if?}
+					</dd>
+					<dd class="fix">
+						<em class="tt3">作者：</em>
+						{?if $transarticle == 1  ?}
+						<div class="int">
+							<input name="author" id="author" type="text" class="input3 fl" value="{?$article.author?}"  maxlength="20" /><span class="hint">发表自己作品请留空</span>
+							<!--   <input name="author" id="author" type="text" class="input3 fl" value="{?$article.author?}"  maxlength="10" data-rule="author;remote[{?function geturl:'article':'article':'SYS=method=checkAuthor'?}]"/><span class="hint">发表自己作品请留空</span>
+                             --></div>
+						{?else?}
+						<div class="int">
+							<input name="author" value="{?$article.author?}" type="hidden"/>
+							<span class="tit">{?$article.author?}</span>
+						</div>
+						{?/if?}
+					</dd>{?if $transarticle == 1  ?}
+					<dd class="fix">
+						<em class="tt3">管理授权：</em>
+						<div class="int">
+							{?section name=i loop=$authorflag['items']?}
+							<input type="radio" class="radio" name="authorflag" value="{?$i['key']?}" {?if $i['key'] == $article['authorflag']?}checked="checked" {?/if?}/>{?$authorflag['items'][i]?}
+							{?/section?}
+						</div>
+					</dd>{?/if?}
+					<dd class="fix">
+						<em class="tt3">授权级别：</em>
+						<div class="int">
+							{?if $transarticle == 1  ?}
+							{?section name=i loop=$permission['items']?}
+							<p class="rdo fl">
+								<input type="radio" name="permission" value="{?$i['key']?}" {?if $i['key'] == $article.permission?}checked="checked" {?/if?} /><label>{?$permission['items'][i]?}</label>
+							</p>
+							{?/section?}
+							{?else?}
+							<input name="permission" value="{?$article.permission?}" type="hidden"/><span class="tit fl">{?$article.permission_tag?}</span><!--<span class="hint">授权性质请详见 <a href="javascript:alert('建设中...')" class="f_blue5">投稿须知</a> 一经选定，不能再更改</span>-->
+							{?/if?}
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">作品状态：</em>
+						<div class="int">
+							<p class="rdo fl">
+								{?if $manageallarticle == 1  ?}
+								{?section name=i loop=$fullflag['items']?}
+								<label><input name="fullflag" type="radio"  value="{?$i['key']?}" {?if $i['key'] == $article.fullflag?}checked="checked" {?/if?}/>{?$fullflag['items'][i]?}</label>
+								{?/section?}
+								{?else?}
+								{?if $article.fullflag=='1' ?}
+								<!-- 已完成 不能更改 -->
+								<input name="fullflag" value="{?$article.fullflag?}" type="hidden"/><span class="tit fl">{?$article.fullflag_tag?}</span><span class="hint">一经选定，不能再更改</span>
+								{?else?}
+								{?section name=i loop=$fullflag['items']?}
+								<label><input name="fullflag" type="radio"  value="{?$i['key']?}" {?if $i['key'] == $article.fullflag?}checked="checked" {?/if?}/>{?$fullflag['items'][i]?}</label>
+								{?/section?}
+								{?/if?}
+								{?/if?}
+							</p>
+							<span class="hint">写作中的作品请选择"连载中",如选择"已完成"作品状态不可再次更改</span>
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">首发状态：</em>
+						<div class="int">
+							{?if $transarticle == 1  ?}
+							{?section name=i loop=$firstflag['items']?}
+							<p class="rdo fl">
+								<input type="radio" name="firstflag" value="{?$i['key']?}" {?if $i['key'] == $article.firstflag?}checked="checked" {?/if?} /><label>{?$firstflag['items'][i]?}</label>
+							</p>
+							{?/section?}
+							{?else?}
+							<input name="firstflag" value="{?$article.firstflag?}" type="hidden"/><span class="tit fl">{?$article.firstflag_tag?}</span><span class="hint">一经选定，不能再更改</span>
+							{?/if?}
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">内容简介：</em>
+						<div class="int">
+							<span class="hint">此处填写的是作品的简介，不是正文内容，请不要超过400字。</span>
+							<textarea name="intro" id="intro" class="inp31"   maxlength="400" data-rule="简介: required;intro;remote[{?function geturl:'article':'article':'SYS=method=checkIntro'?}]">{?$article.intro?}</textarea>
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">作者公告：</em>
+						<div class="int">
+							<span class="hint">此处填写的是作品的公告内容，之后会显示在新作品首页的作品公告版块中。请不要超过140字。</span>
+							<textarea name="notice" id="notice" class="inp31" maxlength="140">{?$article.notice?}</textarea>
+						</div>
+					</dd>
+					{?if $manageallarticle == 1  ?}
+					<dd class="fix">
+						<em class="tt3">当前封面：</em>
+						<div class="int">
+							<div class="bk_pic fix">
+								<div class="box">
+									<img src="{?$article['url_image_l']?}"/>大封面
+								</div>
+								<div class="box">
+									<img src="{?$article.url_image?}"/>小封面
+								</div>
+							</div>
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">上传大封面：</em>
+						<div class="int">
+							<input type="file" class="text" size="60" name="articlelpic" id="articlelpic"/><span class="hint cl">大封面用于PC端，可在文章管理中修改。 </span>
+						</div>
+					</dd>
+					<dd class="fix">
+						<em class="tt3">上传小封面：</em>
+						<div class="int">
+							<input type="file" class="text" size="60" name="articlespic" id="articlespic"/><span class="hint cl">小封面用于移动端，默认使用大封面缩小图。 </span>
+						</div>
+					</dd>
+					{?/if?}
+					<dd class="fix">
+						<em class="tt3"></em>
+						<div class="int">
+							<span class="hint"></span>
+							<p class="pt20 pb20"><button type="submit" class="btn">提交</button></p>
+							<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+						</div>
+					</dd>
+				</form>
+			</div>
+		</div>
+		<div class="right_f"><img src="{?$jieqi_local_url?}/modules/article/templates/style/images/right_f.jpg" width="733" height="42" /></div>
+	</div>
+</div>
+<script language="javascript">
+	function showtypes(obj){
+		var temp,tag_html = '';
+		{?section name=i loop=$channel?}
+		if(obj.options[obj.selectedIndex].value == {?$i['key']?}){
+			{?section name=k loop=$channel[i].sort?}
+			temp +='<option value="{?$k['key']?}" {?if $article.sortid == $k['key']  ?}selected{?/if?}>{?$channel[i].sort[k].caption?}</option>';
+			{?/section?}
+
+			{?section name=l loop=$tags[i]?}
+			tag_html += '<label><input name="tag[]" type="checkbox" value="{?$tags[i][l]['id']?}" data-rule="checked[1~4]"/>{?$tags[i][l]["name"]?}</label>&nbsp;';
+			{?/section?}
+		}
+		{?/section?}
+		$("#sortid").html(temp);
+		$("#tags").html(tag_html);
+		bindselectOnId('sortid');
+	}
+</script>
+<!--header end-->
+{?include file="templates/autor_footer.html"?}

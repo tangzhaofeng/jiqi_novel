@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>	  	
+	<info>		
+		<title><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></title>		
+		<bookid>{?$article['articleid']?}</bookid> 		
+		<category><![CDATA[{?eval echo gb2utf8XHSafeStr($article['shortcaption'],false);?}]]></category>		
+		<image_big><![CDATA[{?$article['url_image_l']?}]]></image_big>		
+		<image_small><![CDATA[{?$article['url_image']?}]]></image_small>		
+		<comment><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></comment>			
+		<author><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></author>		
+		<postdate>{?$article['postdate']?}</postdate>		
+		<lastupdate>{?$article['lastupdate']?}</lastupdate>		
+		<size>{?eval echo $article['size']/2;?}</size>		
+		<fullflag>{?$article['fullflag']?}</fullflag>		
+		<isvip>{?$article['articletype']?}</isvip>	
+		<chaptersurl><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$article['articleid']?}]]></chaptersurl>	    
+	</info>	
+</document>

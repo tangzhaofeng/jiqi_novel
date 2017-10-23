@@ -1,0 +1,71 @@
+{?include file="tuike/manager/templates/public/header.html" ?}
+{?include file="tuike/manager/templates/public/left.html" ?}
+<div class="g-main">
+      <form action="" method="post" id="form" class="m-form m-form-horizontal">
+        <fieldset>
+          <div class="formitm">
+            <label class="lab">用户名</label>
+            <div class="ipt">
+              {?$_USER.useruname?}
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">旧密码</label>
+            <div class="ipt">
+              <input name="oldpass" type="password" class="form-element u-width-large  " placeholder="输入旧密码" value="" maxlength="250">
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">新密码</label>
+            <div class="ipt">
+              <input name="oldpass1" type="password" class="form-element u-width-large  " placeholder="输入新密码" value="" maxlength="250">
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">确认密码</label>
+            <div class="ipt">
+              <input name="oldpass2" type="password" class="form-element u-width-large  " placeholder="确认新密码" value="" maxlength="250">
+            </div>
+          </div>
+          <div class="formitm form-submit">
+            <div class="ipt">
+              <div class="tip" id="tips"></div>
+              <input type="hidden" name="ajax_request" value="1" />
+              <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+              <button class="u-btn u-btn-success u-btn-large" type="submit">确定修改</button>
+            </div>
+          </div>
+        </fieldset>
+
+
+        <script type="text/javascript">
+          $("#form").submit(function() { // 651780
+              Users.form=this;
+              Users.msg_err=false;
+              Users.checkempty('oldpass','请输入旧密码！');
+              Users.checkempty('oldpass1','请输入新密码！');
+              Users.checkempty('oldpass2','请输入新密码！');
+              if( Users.form.elements.oldpass1.value !== Users.form.elements.oldpass2.value ){
+                Users.msg_err='两个新密码不相同！';
+              }
+              if( Users.msg_err !== false ){
+                  Users.ShowMsg();
+                  return false;
+              }
+              Users.SendForm(function(msgs) {
+              if(msgs.status === 'OK') {
+                $('#form')[0].reset(); 
+                $(':input','#form').not(':button, :submit, :reset, :hidden').val('').removeAttr('checked').removeAttr('selected');
+                Users.ShowMsg(msgs.msg);
+              } else {
+                Users.ShowMsg(msgs.msg,3);
+              }
+            });
+            return false;
+          });
+
+
+        </script>
+      </form>
+    </div>
+{?include file="tuike/manager/templates/public/footer.html"?}

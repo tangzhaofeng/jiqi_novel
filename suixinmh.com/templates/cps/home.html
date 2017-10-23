@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="http://res.book.3g.cn/book_partner/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="http://res.book.3g.cn/book_partner/js/jquery-migrate-1.1.0.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="http://res.book.3g.cn/book_partner/css/style_new.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="http://192.168.172.72:82/book_partner/css/style_new.css" /> -->
+    <title>久邦文学 · 合作管理后台</title></head>
+<body class="other">
+<div class="top top_2">
+    <div><span>欢迎您：锦瑟文学 | <a href="/PartnerManage/logout">退出系统</a></span><img
+            src="http://res.book.3g.cn/book_partner/images/title2.png"/></div>
+</div>
+<div class="main">
+    <div class="leftnav" id="leftnav">
+        <div><!-- <a href="#" class="nav_btn"><img src="http://res.book.3g.cn/book_partner/images/btn_nav1.png"/></a>--><a
+                href="/PartnerManage/book" class="nav_btn"><img
+                src="http://res.book.3g.cn/book_partner/images/btn_nav2.png"/></a></div>
+        <div class="nav_area"><a href="/PartnerManage/index" class="sel">书籍管理</a><!-- <a href="/PartnerManage/limitbooklist" >限制书单</a> -->
+            <!-- <a href="#">草稿箱（125）</a><a href="#">申请修改信息</a> --></div>
+        <div class="nav_area nav_area2"><a href="/PartnerManage/cpinfo">基础信息</a><a
+                href="/PartnerManage/editpass">修改密码</a></div>
+    </div>
+    <div class="rightmain" id="rightmain"><h2>资源管理 --> 书籍管理</h2>
+
+        <form method="post" action="/PartnerManage/index" id="form1">
+            <p class="search"><label>书名：<input type="text" name="book_name" class="txt"
+                                               value=""/></label><label>作者：<input type="text" name="author" class="txt"
+                                                                                  value=""/></label><label> 连载状态：<select
+                    name="status">
+                <option value="0" selected="selected">请选择</option>
+                <option value="1">连载</option>
+                <option value="2">完结</option>
+            </select></label><label>状态：<select name="is_del">
+                <option value="-1" selected="selected">请选择</option>
+                <option value="0">正常</option>
+                <option value="1">删除</option>
+            </select></label><label style="width:105px\9;"><input type="submit" class="search_btn" value=""/></label><a
+                    href="/PartnerManage/exportinfo">导出表格</a></p>
+        </form>
+        <div class="table">
+            <div class="title"><span class="t1">图书ID</span><span class="t2">图书名</span><span class="t3">作者名</span><span
+                    class="t4">分类</span><span class="t5">状态</span><span class="t6">上架</span><span
+                    class="t7">审核</span><span class="t8">意见</span><span class="t9">添加时间</span><span
+                    class="t10">更新时间</span><span class="t11">操作</span></div>
+            <div class="tr "><p class="t1">37</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/37">与老板的雇佣婚姻</a></p>
+
+                <p class="t3">小十</p>
+
+                <p class="t4">现言</p>
+
+                <p class="t5">完结</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:52</p>
+
+                <p class="t10">2016-10-12 11:54</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/37">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50176" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">36</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/36">医道邪圣</a></p>
+
+                <p class="t3">闹眼子</p>
+
+                <p class="t4">都市</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:51</p>
+
+                <p class="t10">2016-10-12 11:52</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/36">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50174" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">34</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/34">锦衣夜行</a></p>
+
+                <p class="t3">小十</p>
+
+                <p class="t4">幻想</p>
+
+                <p class="t5">完结</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:50</p>
+
+                <p class="t10">2016-10-12 11:51</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/34">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50172" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">32</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/32">妃倾天下</a></p>
+
+                <p class="t3">某Ｒ</p>
+
+                <p class="t4">古言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:47</p>
+
+                <p class="t10">2016-10-12 11:50</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/32">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50170" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">27</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/27">祸妃入帐：皇帝很不矜持</a></p>
+
+                <p class="t3">某Ｒ</p>
+
+                <p class="t4">古言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:44</p>
+
+                <p class="t10">2016-10-12 11:47</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/27">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50168" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">26</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/26">首长赖上门：萌妻束手就擒</a></p>
+
+                <p class="t3">某Ｒ</p>
+
+                <p class="t4">现言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:41</p>
+
+                <p class="t10">2016-10-12 11:44</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/26">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50166" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">25</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/25">总裁请克制：萌妻嫁到</a></p>
+
+                <p class="t3">正月初九</p>
+
+                <p class="t4">现言</p>
+
+                <p class="t5">完结</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:39</p>
+
+                <p class="t10">2016-10-12 11:41</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/25">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50164" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">20</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/20">总裁前妻很抢手</a></p>
+
+                <p class="t3">花艾艾</p>
+
+                <p class="t4">现言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:35</p>
+
+                <p class="t10">2016-10-12 11:39</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/20">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50162" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">17</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/17">一路修仙：弄个妖怪做炉鼎</a></p>
+
+                <p class="t3">孟婆</p>
+
+                <p class="t4">幻想</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:33</p>
+
+                <p class="t10">2016-10-12 11:35</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/17">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50160" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">18</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/18">占卜邪后：陛下的心尖宠 </a></p>
+
+                <p class="t3">草荔</p>
+
+                <p class="t4">古言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:30</p>
+
+                <p class="t10">2016-10-12 11:33</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/18">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50158" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">19</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/19">宫墙似锦：只宠小小妖妃</a></p>
+
+                <p class="t3">寤寐思之</p>
+
+                <p class="t4">古言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:27</p>
+
+                <p class="t10">2016-10-12 11:30</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/19">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50156" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">2</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/2">不小心捡了一个总裁</a></p>
+
+                <p class="t3">正月初九</p>
+
+                <p class="t4">现言</p>
+
+                <p class="t5">连载</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 11:23</p>
+
+                <p class="t10">2016-10-12 11:25</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/2">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50154" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+            <div class="tr "><p class="t1">1</p>
+
+                <p class="t2"><a href="/PartnerManage/book/id/1">捡个千年僵尸做宠物</a></p>
+
+                <p class="t3">孟婆</p>
+
+                <p class="t4">幻想</p>
+
+                <p class="t5">完结</p>
+
+                <p class="t6">未上架</p>
+
+                <p class="t7">未审</p>
+
+                <p class="t8"></p>
+
+                <p class="t9">2016-10-12 10:44</p>
+
+                <p class="t10">2016-10-12 11:18</p>
+
+                <p class="t11"><a href="/PartnerManage/menulist/id/1">章节信息</a><br/><a
+                        href="/PartnerManage/delbook/id/50152" class="del" onclick="return confirm('是否删除该书籍')">删除</a>
+                </p></div>
+        </div>
+        <div class="page"> 13 条记录 1/1 页</div>
+        <div class="alertCeng" style="display:none;"><p class="title"><b id="close">×</b>审核意见</p>
+
+            <p id="objection_msg"></p></div>
+        <script>$(function () {
+            $('#close').click(function () {
+                $('.alertCeng').fadeOut(300);
+            })
+            $('.alertCeng').siblings().click(function () {
+                $('.alertCeng').fadeOut(300);
+            })
+
+        })
+
+        function ShowObjection(id) {
+            var msg = $("#objection_" + id).val();
+            $("#objection_msg").html(msg);
+            $('.alertCeng').show();
+        }
+        </script>
+        <script>$(function () {
+            var wheight = $(window).height();
+            $('.leftnav').height(wheight - 80);
+        })
+        </script>
+    </div>
+</body>
+</html>

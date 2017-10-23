@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+<dd class="fix"><em class="no{?if $i.order==1?}1{?elseif $i.order<4?}2{?/if?}">{?$i.order?}</em><span class="name2"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span><span class="num">{?$articlerows[i]['visitnum']?}</span></dd>
+{?/section?}

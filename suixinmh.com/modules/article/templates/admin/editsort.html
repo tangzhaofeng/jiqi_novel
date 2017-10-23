@@ -1,0 +1,80 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">
+		<form name="blocksnew" id="blocksnew" action="{?$adminprefix?}&method=editsort" method="post" onsubmit="return jieqiFormValidate_blocksnew();">
+		<table width="650" class="grid" cellspacing="1" align="center">
+		<caption>{?$sort['caption']?}</caption>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">分类ID</td>
+		  <td class="even">{?$sortid?}</td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">渠道</td>
+		  <td class="even"><input type="text" class="text" name="siteid" id="siteid" size="4" maxlength="50" value="{?$sort['siteid']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">层</td>
+		  <td class="even"><input type="text" class="text" name="layer" id="layer" size="4" maxlength="50" value="{?$sort['layer']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">标题</td>
+		  <td class="even"><input type="text" class="text" name="caption" id="caption" size="20" maxlength="50" value="{?$sort['caption']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">名称</td>
+		  <td class="even"><input type="text" class="text" name="shortname" id="shortname" size="20" maxlength="50" value="{?$sort['shortname']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">描述</td>
+		  <td class="even"><input type="text" class="text" name="description" id="description" size="40" maxlength="50" value="{?$sort['description']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">图片地址</td>
+		  <td class="even"><input type="text" class="text" name="imgurl" id="imgurl" size="40" maxlength="50" value="{?$sort['imgurl']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">简称</td>
+		  <td class="even"><input type="text" class="text" name="shortcaption" id="shortcaption" size="20" maxlength="50" value="{?$sort['shortcaption']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">类</td>
+		  <td class="even"><input type="text" class="text" name="class" id="class" size="20" maxlength="50" value="{?$sort['class']?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">是否显示</td>
+		  <td class="even"><select name="publish">
+		  <option value="1" {?if $sort['publish']==1?}selected{?/if?}>是</option>
+		  <option value="0" {?if $sort['publish']==0?}selected{?/if?}>否</option>
+		  </select></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%"><input type="hidden" name="sortid" value="{?$sortid?}" /></td>
+		  <td class="even"><input type="submit" class="button" name="submit" id="submit" value="修改分类"></td>
+		</tr>
+		</table>
+		</form>
+
+<script language="javascript" type="text/javascript">
+<!--
+function jieqiFormValidate_blocksnew(){
+  if(document.blocksnew.caption.value == ""){
+    alert("请输入分类标题");
+    document.blocksnew.caption.focus();
+    return false;
+  }
+  if(document.blocksnew.shortname.value == ""){
+    alert("请输入分类名称");
+    document.blocksnew.shortname.focus();
+    return false;
+  }
+  if(document.blocksnew.shortcaption.value == ""){
+    alert("请输入分类简称");
+    document.blocksnew.shortcaption.focus();
+    return false;
+  }
+}
+//-->
+</script>
+	</td>
+  </tr>
+</table>

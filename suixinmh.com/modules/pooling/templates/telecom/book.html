@@ -1,0 +1,34 @@
+<book>
+	<contentId>{?$contentId?}</contentId>
+	{?if $chapters['0']['chaptertype']|intval == 1?}
+	 	{?eval $volume = $chapter = 0;?}
+		{?section name=i loop=$chapters?}{?eval $chapter = $volume = 0;?}
+			{?if $chapters[i]['chaptertype'] == 1?}{?eval $volume++;?}
+				<column>
+					<order>{?$chapters[i]['order']?}</order>
+					<name><![CDATA[{?$chapters[i]['chaptername']?}]]></name>
+					<longdescription />
+					<shortdescription />
+					<chapters>{?eval $chapter = 0;?}
+			{?else?}{?eval $chapter++;?}
+						<chapter>
+							<order>{?$chapters[i]['order']?}</order>
+							<name><![CDATA[{?$chapters[i]['chaptername']?}]]></name>
+							<src><![CDATA[chapters/{?$chapters[i]['cpchapterid']?}.html]]></src>
+						</chapter>
+			{?/if?}{?if $chapters[$i.order]['chaptertype'] == "1" || $chapters[$i.order]['chaptername'] == ""?}
+                </chapters>
+        </column>{?/if?}
+		{?/section?}
+	{?else?}
+		<chapters>
+			{?section name=i loop=$chapters?}
+			<chapter>
+				<order>{?$chapters[i]['order']?}</order>
+				<name><![CDATA[{?$chapters[i]['chaptername']?}]]></name>
+				<src><![CDATA[chapters/{?$chapters[i]['cpchapterid']?}.html]]></src>
+			</chapter>
+			{?/section?}
+		</chapters>
+	{?/if?}               
+</book>

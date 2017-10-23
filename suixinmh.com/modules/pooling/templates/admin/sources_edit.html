@@ -1,0 +1,67 @@
+<style type="text/css">
+	.search_box{width: 400px;height: auto}
+	.search_box .snow_search{width: 100%;height: 25px;margin: 5px}
+	.search_box .snow_search input.snow_text{width: 35%}
+	.search_box .snow_search a.snow_sub{float: right;margin-right: 10px;line-height: 25px}
+	.search_box .snow_showbox{width: 80%;height: 200px;padding: 10px;margin-left: 5px;overflow:scroll;}
+	.search_box .snow_showbox a{width: 100%;height: 25px;display: inline-block;text-decoration: none;color: #999}
+	.search_box .snow_showbox a:hover{color: #A30000}
+	.search_box .snow_tips{width: 100%;height: 25px;margin-top: 5px}
+	td.odd{text-align: right;padding-right: 10px}
+	td.even{padding-left: 10px}
+	.button_diy{display: inline-block;padding: 3px 10px;border: 0;background: #83B0E1;color: #f8f8f8;margin-right: 10px;line-height: 25px;cursor: pointer}
+	td{line-height: 30px}
+	span.span-help{color: #a31000}
+	code{color: #1000a3;background-color:#ddd;border: 1px solid #aaa;height: 25px;width: auto;display: inline-block;padding:0 3px;line-height:25px}
+</style>
+<table class="grid" width="100%" align="center" style="height: 30px;line-height: 30px">
+	<tr>
+		<td>
+			<a data-act="act" href="{?$adminprefix?}" class="button_diy">返回</a>
+		</td>
+	</tr>
+</table>
+<div style="height: 30px;line-height: 30px;width: 100%"></div>
+<form id="j_form" method="post" action="javascript:;" data-url="{?$adminprefix?}&method=editData">
+	<table width="100%" cellspacing="1" align="center" class="grid">
+		<caption>编辑渠道</caption>
+		<tbody>
+			<tr valign="middle" align="left">
+				<td width="25%" class="odd">渠道名称</td>
+				<td class="even">
+					<input width="40%" type="text" value="{?$sname?}" maxlength="20" size="20" name="sname" class="text"><span class="span-help">&nbsp;&nbsp;*字数不能超过20个字</span></td>
+			</tr>
+			<tr valign="middle" align="left">
+				<td width="25%" class="odd">标识字段</td>
+				<td class="even">
+					<input width="40%" type="text" value="{?$markname?}" maxlength="20" size="20" name="markname" class="text"><span class="span-help">&nbsp;&nbsp;*字数不能超过20个字</span></td>
+			</tr>
+			<tr valign="middle" align="left">
+				<td width="25%" class="odd">渠道登录名</td>
+				<td class="even">
+					<input width="40%" type="text" value="{?$name?}" maxlength="20" size="20" name="name" class="text"><span class="span-help">&nbsp;&nbsp;*字数不能超过20个字</span></td>
+			</tr>
+			<tr valign="middle" align="left">
+				<td width="25%" class="odd">渠道登录密码</td>
+				<td class="even">
+					<code>{?$password?}</code><span class="span-help">&nbsp;&nbsp;*渠道商用于登录的密码</span></td>
+			</tr>
+			<tr valign="middle" align="left">
+				<td width="25%" class="odd">排序</td>
+				<td class="even">
+					<input width="8%" type="text" value="{?$compositor?}" maxlength="2" size="2" name="compos" class="text"><span class="span-help">&nbsp;&nbsp;*只能使用0~99的数字</span></td>
+			</tr>
+			<tr valign="middle" align="left">
+				<td width="25%" class="odd">锁定状态</td>
+				<td class="even">
+					<input type="radio" name="locked" value="1" {?if $locked==1?} checked="checked"{?/if?} />&nbsp;正常&nbsp;<input type="radio" name="locked" value="2" {?if $locked==2?} checked="checked"{?/if?} />&nbsp;锁定
+			</tr>
+			<tr valign="middle" align="left">
+                <td width="25%" class="odd"><input type="hidden" name="sid" value="{?$sid?}" /></td>
+                <td class="even">
+                		<a href="javascript:;" id="j_submit" name="submit" class="button_diy">提交</a></td>
+            </tr>
+		</tbody>
+	</table>
+</form>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/mod.pooling.sources.admin.js"></script>

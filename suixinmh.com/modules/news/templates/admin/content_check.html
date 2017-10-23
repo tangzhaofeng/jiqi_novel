@@ -1,0 +1,61 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>{?if $_SGLOBAL['cate']['catid']>0?}{?$_SGLOBAL['cate']['catname']?} 栏目管理{?else?}信息管理{?/if?}</caption>
+  <tr>
+    <td>{?if $_SGLOBAL['cate']['catid']>0?}<a href='?ac=content&op=add&catid={?$_SGLOBAL['cate']['catid']?}'><font color="red">发布信息</font></a> | <a href='?ac=content&op=manage&action=my&catid={?$_SGLOBAL['cate']['catid']?}'>我发布的信息</a> | <a href='?ac=content&op=check&status=3&catid={?$_SGLOBAL['cate']['catid']?}'>待审</a> | <a href='?ac=content&op=check&status=1&catid={?$_SGLOBAL['cate']['catid']?}'>退稿</a> | <a href='?ac=content&op=check&action=recycle&catid={?$_SGLOBAL['cate']['catid']?}'>回收站</a> | <a href='?ac=content&op=manage&catid={?$_SGLOBAL['cate']['catid']?}'>管理</a> | <a href='?ac=content&op=manage&action=search&catid={?$_SGLOBAL['cate']['catid']?}'>搜索</a>
+	{?else?}
+	<a href='?ac=content&op=manage'>所有通过信息</a> | <a href='?ac=content&op=check&status=3'><font color="#ff0000">待审</font></a> | <a href='?ac=content&op=check&status=1'>退稿</a> | <a href='?ac=content&op=check&action=recycle' >回收站</a> | <a href='?ac=content&op=manage&action=my' >我发布的信息</a> | <a href='?ac=content&op=manage&action=search'>搜索</a>
+	{?/if?}</td>
+  </tr>
+</table>
+
+<form name="myform" method="post" action="">
+<table align="center" cellpadding="2" cellspacing="1" class="grid " width="100%">
+  <caption>{?if $_PAGE['_GET']['status']>0?}{?$_SGLOBAL['status'][$_PAGE['_GET']['status']]['name']?}信息列表{?else?}回收站{?/if?}</caption>
+<tr>
+<th width="30">选中</th>
+<th width="40">ID</th>
+<th>标题</th>
+<th width="80">模型</th>
+<th width="80">栏目</th>
+<th width="70">状态</th>
+<th width="70">录入者</th>
+<th width="85">更新时间</th>
+<th width="165">管理操作</th>
+</tr>
+{?section name=i loop=$_PAGE['rows']?}
+<tr>
+<td><input type="checkbox" name="contentid[]" value="{?$_PAGE['rows'][i]['contentid']?}" id="content_{?$_PAGE['rows'][i]['contentid']?}" /></td>
+<td>{?$_PAGE['rows'][i]['contentid']?}</td>
+<td><a href="{?$_PAGE['rows'][i]['url_articleinfo']?}" target="_blank">{?$_PAGE['rows'][i]['alltitle']?}</a>
+&nbsp;&nbsp;</td>
+<td class="align_c">{?$_PAGE['rows'][i]['modelname']?}</td>
+
+<td class="align_c"><a href="{?$_PAGE['rows'][i]['url_catelist']?}" target="_blank">{?$_PAGE['rows'][i]['catname']?}</a></td>
+<td class="align_c">{?$_SGLOBAL['status'][$_PAGE['rows'][i]['status']]['name']?}</td>
+<td class="align_c"><a href="/admin/usermanage.php?id={?$_PAGE['rows'][i]['userid']?}">{?$_PAGE['rows'][i]['username']?}</a></td>
+<td class="align_c">{?$_PAGE['rows'][i]['updatetime']|date:'Y-m-d H:i:s'?}</td>
+<td class="align_c">
+<a href="{?$_PAGE['rows'][i]['url_articleinfo']?}" target="_blank">查看</a> | 
+<a href="?ac=content&op=add&contentid={?$_PAGE['rows'][i]['contentid']?}">修改</a> | 
+<a href="javascript:confirmurl('?ac=content&op=del&contentid={?$_PAGE['rows'][i]['contentid']?}{?if $_PAGE['_GET']['status']<1?}&action=recycle{?/if?}','确认删除此文章吗？此操作不可恢复!');">删除</a><!-- | <a href="#">评论</a>--> </td>
+</tr>
+{?/section?}  
+</table>
+<div class="button_box">
+<span style="width:60px"><a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a></span>
+{?if $_PAGE['_GET']['status']>0?}
+	<input type="button" name="delete" value=" 删除 " onclick="myform.action='?ac=content&op=del';myform.submit();"> 
+	<input type="button" onClick="myform.action='?ac=content&op=check&action=pass&do=1';myform.submit();" value=" 批准 ">
+	<input type="button" onClick="myform.action='?ac=content&op=check&action=reject&do=1';myform.submit();" value=" 退稿 ">
+{?else?}
+	<input type="button" name="delete" value=" 彻底删除 " onclick="myform.action='?ac=content&op=del&action=recycle';myform.submit();"> 
+	<input type="button" onClick="myform.action='?ac=content&op=check&action=3&do=1';myform.submit();" value=" 还原 ">
+{?/if?}</div>
+<div>{?$_PAGE['url_jumppage']?}</div>
+</form>

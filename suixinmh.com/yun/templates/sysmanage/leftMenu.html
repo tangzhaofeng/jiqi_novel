@@ -1,0 +1,19 @@
+<{config_load file="smarty.conf" section="setup"}>
+<{foreach key=key item=item from=$mUser.menu}>
+<li class="nav-item  <{if $item.module == $mUser.module}>active open<{/if}>">
+    <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="<{$item.icon}>"></i>
+        <span class="title"><{$item.title}></span>
+        <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+    	<{foreach key=key2 item=item2 from=$item.sonfunc}>
+        <li class="nav-item  <{if $item.module == $mUser.module && $item2.option == $mUser.option}>active open<{/if}>">
+            <a href="?action=<{$item.module}>&opt=<{$item2.option}>" class="nav-link ">
+                <span class="title"><{$item2.title}></span>
+            </a>
+        </li>
+        <{/foreach}>
+    </ul>
+</li>
+<{/foreach}>                          

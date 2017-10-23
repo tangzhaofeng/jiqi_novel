@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<booklist>
+	{?section name=i loop=$rows?}
+	<book>
+		<id>{?$rows[i]['articleid']?}</id>
+		<status>1</status>
+	</book>
+	{?/section?}
+</booklist>

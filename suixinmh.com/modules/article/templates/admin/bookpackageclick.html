@@ -1,0 +1,55 @@
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<style>
+.layer_notice{float:left; height:75px; width:170px;  overflow:hidden; display:none;  background:#78BA32; padding:10px; border:1px solid #628C1C;}
+/*layer_notice li{ height:30px; line-height:30px;}
+.layer_notice li a{ display:block; color:#fff;}
+.layer_notice li a:hover{ background:#fff; color:#78BA32;}*/
+</style>
+<form name="frmsearch" method="post" action="{?$adminprefix?}&method=bpclick">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" value="{?$_REQUEST['keyword']?}" class="text" size="15" maxlength="50">&nbsp;<input type="radio" name="searchkey" value="bpname" {?if $_REQUEST['searchkey']=='bpname' || !isset($_REQUEST['searchkey'])?}checked="checked"{?/if?} />&nbsp;书包名称&nbsp;<input type="radio" name="searchkey" value="bookname" {?if $_REQUEST['searchkey']=='bookname'?}checked="checked"{?/if?} />&nbsp;书籍名称&nbsp;<input type="radio" name="searchkey" value="authorname" {?if $_REQUEST['searchkey']=='authorname'?}checked="checked"{?/if?} />&nbsp;作者
+            &nbsp;&nbsp;购买日期：<input onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" type="text" name="start" value="{?$_REQUEST['start']?}" />
+            -&nbsp;<input onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" type="text" name="end" value="{?$_REQUEST['end']?}" />
+            &nbsp;&nbsp;销售状态：
+            <select name="overtime" >
+                <option value="0" {?if $_REQUEST['overtime']==0 ||!$_REQUEST['overtime']?}selected="selected"{?/if?}>全部书包</option>
+                <option value="1" {?if $_REQUEST['overtime']==1?}selected="selected"{?/if?}>未过期书包</option>
+                <option value="2" {?if $_REQUEST['overtime']==2?}selected="selected"{?/if?}>已过期书包</option>
+            </select>
+            <input type="submit" name="dosubmit" class="button" style="cursor:pointer" value="搜 索">
+        </td>
+    </tr>
+</table>
+</form>
+<br />
+<table class="grid" width="100%" align="center">
+    <caption>书包阅读统计（共{?$count?}条记录）</caption>
+    <tr align="center">
+        <th width="5%">销售编号</th>
+        <th width="13%">书包名称</th>
+        <th width="13%">书籍名称</th>
+        <th width="10%">作者</th>
+        <th width="10%">阅读量</th>
+        <th width="9%">书包总售价</th>
+        <!--<th width="16%">阅读量</th>-->
+        <th width="15%">过期时间</th>
+        <th width="8%">过期状态</th>
+    </tr>
+    {?section name=i loop=$salelist?}
+        <tr>
+            <td align="center">{?$salelist[i].saleid?}</td>
+            <td align="center">{?$salelist[i].bpname?}</td>
+            <td align="center">{?$salelist[i].bookname?}</td>
+            <td align="center">{?$salelist[i].authorname?}</td>
+            <td align="center">{?$salelist[i].clicks?}</td>
+            <td align="center">{?$salelist[i].price?}{?if $salelist[i].pricetype==1?}书海币{?else?}银元{?/if?}</td>
+            <!--<td align="center"><a id="j_bpsale_list" bpsale-id="{?$salelist[i].id?}" href="javascript:;">（点击查看明细）</a></td>-->
+            <td align="center">{?$salelist[i].end_time|date:'Y-m-d H:i:s'?}</td>
+            <td align="center">{?if $salelist[i].end_time>=time()?}<p style="color:#66ff00">未过期</p>{?else?}<p style="color:#cc6666">过期</p>{?/if?}</td>
+        </tr>
+    {?/section?}
+</table>
+<div class="pagelink">{?$url_jumppage?}</div>
+

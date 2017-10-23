@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<booklist>{?section name=i loop=$rows?}
+
+<books>
+
+<bookid>{?$rows[i]['articleid']?}</bookid>
+
+<bookname><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></bookname>
+
+</books>{?/section?}
+
+</booklist>

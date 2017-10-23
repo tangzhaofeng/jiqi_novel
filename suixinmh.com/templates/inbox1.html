@@ -1,0 +1,95 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" /> 
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	{?include file = "templates/messagetab.html" ?}
+      <ul id="tab_conbox" class="zsy bg5 f0">
+       <li>
+	   <form action="{?function geturl:'system':'userhub':'SYS=method=delMsg&op=inbox'?}" method="post" name="checkform" id="checkform">
+        <div class="bar f_blue4 fix">
+           <dl class="tit">
+			 <dd class="sender">发件人</dd>
+			 <dd class="name">标题</dd>
+			 <dd class="date">日期</dd>
+		   </dl>
+        </div>
+        
+        {?if $messagerows != null?}
+	        <dl class="list_t4">
+			{?section name=i loop=$messagerows?}
+	         <dd class="fix">
+	          <em class="check"><input type="checkbox"  id="checkid[]" name="checkid[]" value="{?$messagerows[i].messageid?}"/></em>
+	          {?if $messagerows[i].isread == 0?}<em class="status status2"></em>{?else?}<em class="status status1"></em>{?/if?}
+	          <em class="origin">{?eval $fromid=$messagerows[i].fromid;?}<a href="{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$fromid'?}" target="_blank" title="{?$messagerows[i].fromname?}" class="f_blue4">{?$messagerows[i].fromname?}</a></em>
+	          <p class="info"><a href="{?function geturl:'system':'userhub':'SYS=method=messagedetail&id=$messagerows[i].messageid'?}" class="f_blue4">{?$messagerows[i].title?}</a></p>
+	          <em class="date">{?$messagerows[i].postdate|date:"Y-m-d"?}</em> 
+	        </dd>
+			{?/section?}
+	         </dl>
+	       <div class="bar f_blue4 fix">
+	        <div class="opt"><input type="checkbox" class="check"  id="checkall" name="checkall" value="checkall" onclick="javascript: for(var i=0;i<this.form.elements.length;i++){ if(this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"/><a href="#" onclick="javascript: for (var i=0;i<document.forms['checkform'].elements.length;i++){  document.forms['checkform'].elements[i].checked = 'checked'; }return false;">全选</a><a href="javascript:check_confirms()">删除</a></div>
+	        <div class="page">
+	        	{?$url_jumppage?}
+	        </div>
+	       </div>
+       {?else?}
+       		<dl class="list_t4">
+	     		没有数据。
+	     	</dl>
+       {?/if?}  
+	   </form>
+	   <script type="text/javascript">
+		function check_confirms(){
+			var checkform = document.getElementById('checkform');
+			var checknum = 0;
+			for (var i=0; i < checkform.elements.length; i++){
+			 if (checkform.elements[i].name == 'checkid[]' && checkform.elements[i].checked == true) checknum++; 
+			}
+			if(checknum == 0){
+				layer.msg('请先选择要操作的书目!',2,{type:3,shade:false});
+			}else{
+				$.layer({
+					shade : [1], //不显示遮罩
+					area : ['auto','auto'],
+					title:'确定删除',
+					dialog : {
+						msg:'确定要删除选中记录吗?',
+						btns : 2, 
+						type : 4,
+						btn : ['确定','取消'],
+						yes : function(){
+							GPage.postForm('checkform', $('#checkform').attr('action'),
+							function(data){
+								if(data.status=='OK'){
+									$.ajaxSetup ({ cache: false });
+/*									$('.list_t4').load(location.href+ ' .list_t4>*');
+									layer.msg(data.msg,2,{type:1,shade:false});*/
+									layer.msg(data.msg,2,{type:1,shade:false},function(){
+										$('.list_t4').load(location.href+ ' .list_t4>*');
+									});	
+								}else{
+									layer.alert(data.msg, 8, !1);
+								}
+							});
+						},
+						no : function(){
+							$(".xubox_close").click();
+							checkform.reset();
+						}
+					}
+				});
+			}
+		}
+	   </script>
+        </li>
+      </ul> 
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

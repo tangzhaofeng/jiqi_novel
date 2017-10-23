@@ -1,0 +1,2 @@
+//document.writeln("<script charset=\"gbk\" src=\"http:\/\/p.tanx.com\/ex?i=mm_10835543_4322182_23420091\"><\/script>")
+document.writeln("<embed src=\"/js/reader-bottom.swf\" width=\"760\" height=\"95\" type=application/x-shockwave-flash wmode=\"transparent\" quality=\"high\"><\/embed>");

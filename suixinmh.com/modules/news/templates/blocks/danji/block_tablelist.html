@@ -1,0 +1,16 @@
+{?section name=i loop=$articlerows?}<table width="156" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>
+	     <table width="156" border="0" align="center" cellpadding="0" cellspacing="0" class="dj_tab">
+           <tr>
+              <td height="217"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}{?$articlerows[i]['version']?}下载" target="_blank"><img src="{?$articlerows[i]['thumb']?}" alt="{?$articlerows[i]['title']?}" border="0" /></td>
+            </tr>
+          </table>
+	  </td>
+   </tr>
+   <tr>
+       <td height="52" style="line-height:20px;"><p align="center"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}{?$articlerows[i]['version']?}下载" target="_blank">{?$articlerows[i]['title']?}</a></p>
+	   {?eval $supports = $articlerows[i]['supports']+$articlerows[i]['againsts'];?}
+       <p align="center"> 已有<span class="cRed">{?$supports|defaultval:'0'?}</span> 人顶 已有 <span class="cRed">{?$articlerows[i]['comments_checked']|defaultval:'0'?} </span>条评论 </p></td>
+   </tr>
+</table>{?/section?}

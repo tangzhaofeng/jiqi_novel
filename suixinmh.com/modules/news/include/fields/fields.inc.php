@@ -1,0 +1,34 @@
+<?php
+$_SGLOBAL['fields'] = array('text'=>'单行文本',
+				'textarea'=>'多行文本',
+				'hidden'=>'隐藏域',
+				'select'=>'列表框',
+				'checkbox'=>'复选框',
+				'radio'=>'单选按纽',
+				'number'=>'数字',
+				'editor'=>'编辑器',
+				'keyword'=>'关键词',
+				'datetime'=>'日期和时间',
+				'image'=>'图片上传',
+				'images'=>'多图片上传',
+				'files'=>'多文件上传',
+				'video'=>'视频',
+				'vars'=>'动态变量',
+				'find'=>'动态列表',
+				'catid'=>'栏目',
+				'typeid'=>'类别',
+				'areaid'=>'地区',
+				'groupid'=>'会员组',
+				'userid'=>'会员ID',
+				'posid'=>'推荐位',
+				'template'=>'模板',
+				'pages'=>'分页选择',
+				);
+$_SGLOBAL['fields_canpage'] = array(
+				 'editor',
+				 'images',
+                 'files',
+				 'video',
+				 'vars'
+			    );
+?>

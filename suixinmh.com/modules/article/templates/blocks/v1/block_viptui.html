@@ -1,0 +1,9 @@
+{?section name=i loop=$articlerows?}{?if $i.order==1?}
+<dd class="first">
+  <a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="img"><img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i]['articlename']?}" title="{?$articlerows[i]['articlename']?}"/></a>
+  <h3><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" title="{?$articlerows[i]['articlename']?}" class="f_black">{?$articlerows[i]['articlename']?}</a></h3>
+  <p class="intro">{?$articlerows[i].intro|truncate:50:'¡­¡­'?}</p>
+  <p><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue">ÔÄ¶Á&gt;&gt;</a></p>
+</dd>{?else?}
+<dd><a href="{?$articlerows[i]['url_class']?}" class="sort" title="{?$articlerows[i]['sort']?}">[{?$articlerows[i]['shortcaption']?}]</a><span class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" title="{?$articlerows[i]['articlename']?}" class="f_black">{?$articlerows[i]['articlename']?}</a></span></dd>{?/if?}
+{?/section?}

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+    <title>微信充值</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta name="keywords" content="{?$meta_keywords?}" />
+    <meta name="description" content="{?$meta_description?}" />
+    <meta name="author" content="{?$meta_author?}" />
+    <meta name="copyright" content="{?$meta_copyright?}" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/extend.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+    {?include file="themes/3g/js.html"?}
+</head>
+<body>
+{?include file="themes/3g/header.html"?}
+{?include file="themes/3g/paylogin.html"?}
+<div class="bgcfff">
+    <div class="p10 clearfix bb bceee">
+        微信支付：选择充值金额<a href="/user/"><span class="fr cPink">个人中心</span></a>
+    </div>
+    <div class="checkbox mt10 ptb10 clearfix pay_wechat_money">
+        <form action="/pay/wechat" method="post" id="payform">
+            {?section name=i loop=$paylimit?}{?eval if($i.key>$paylimit[i]*100){$duo=$i.key-$paylimit[i]*100;}else{$duo=0;}?}
+            {?if $i.key == 365 ?}
+            <a data-egold="36500"  href="javascript:;" onclick="pay(36500)">
+                <p><span>包年VIP {?$paylimit[i]?}元</span></p>
+                <p class="f12">有效期365天，全站书籍不限量阅读</p>
+            </a>
+            {?else?}
+            <a data-egold="{?$i.key?}"  href="javascript:;" onClick="pay({?$i.key?})">
+                <p><span>{?$i.key?}元 </span></p>
+                <p class="f12">{?eval echo $i.key * 100; ?} {?if $paylimit[i] > $i.key * 100?}+{? eval echo $paylimit[i]-$i.key * 100;?}{?/if?} 书币{?if $i.key==100?}<i>最优惠</i>{?/if?}</p>
+                <!--<img class="pa right0 bottom0 w15" src="{?$jieqi_themeurl?}images/sright.png" />-->
+            </a>
+            {?/if?}
+            {?/section?}
+
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+            <input type="hidden" name="money" id="money" value="" />
+        </form>
+    </div>
+    {?include file = "modules/3g/templates/pay_notify.html"?}
+</div>
+
+
+
+
+{?include file="themes/3g/bottom.html"?}
+<script type="text/javascript">
+    function pay(money){
+        document.getElementById('money').value=money;
+        document.getElementById('payform').submit();
+    }
+</script>
+
+{?eval if(isset($wx_result['sign'])){?}
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    var backurl='/pay/checkwechat';
+    wx.config({
+        debug: false,
+        appId: '{?$wx_result['sign']['appId']?}',
+        timestamp: '{?$wx_result['sign']['timestamp']?}',
+        nonceStr: '{?$wx_result['sign']['nonceStr']?}',
+        signature: '{?$wx_result['sign']['signature']?}',
+        jsApiList: [
+            "chooseWXPay"
+        ]
+    });
+    wx.ready(function(){
+        // 在这里调用 API
+        wx.chooseWXPay({
+            timestamp: '{?$wx_result['jsapi']['timeStamp']?}',
+            nonceStr: '{?$wx_result['jsapi']['nonceStr']?}',
+            package: '{?$wx_result['jsapi']['package']?}',
+            signType: '{?$wx_result['jsapi']['signType']?}',
+            paySign: '{?$wx_result['jsapi']['paySign']?}',
+            success: function(res){
+                alert("支付成功");
+                location.href = decodeURIComponent(backurl);
+            },
+            fail: function(){},
+            cancel: function(){}
+        });
+    });
+    wx.error(function(res){
+        alert(res.err_msg);
+    });
+</script>
+{?eval }?}
+
+<body>

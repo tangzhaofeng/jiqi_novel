@@ -1,0 +1,165 @@
+<{config_load file="smarty.conf" section="setup"}>
+<!-- BEGIN DASHBOARD STATS 1-->
+<div class="row">
+	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<a class="dashboard-stat dashboard-stat-v2 red"
+			href="?action=game&opt=dayitv">
+			<div class="visual">
+				<i class="icon-diamond"></i>
+			</div>
+			<div class="details">
+				<div class="number">
+					CNY&nbsp;<span data-counter="counterup" data-value="<{$sys_info.win_money}>"><{$sys_info.win_money}></span>
+				</div>
+				<div class="desc">输赢统计</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<a class="dashboard-stat dashboard-stat-v2 green"
+			href="?action=bet&opt=dayDesc">
+			<div class="visual">
+				<i class="fa fa-shopping-cart"></i>
+			</div>
+			<div class="details">
+				<div class="number">
+					CNY&nbsp;<span data-counter="counterup" data-value="<{$sys_info.profit}>"><{$sys_info.profit}></span>
+				</div>
+				<div class="desc">今日净转入</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<a class="dashboard-stat dashboard-stat-v2 purple"
+			href="?action=users&opt=userlist">
+			<div class="visual">
+				<i class="fa fa-globe"></i>
+			</div>
+			<div class="details">
+				<div class="number">
+					+
+					<span data-counter="counterup" data-value="<{$sys_info.users}>"><{$sys_info.users}></span>
+				</div>
+				<div class="desc">新增玩家</div>
+			</div>
+		</a>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<a class="dashboard-stat dashboard-stat-v2 blue"
+			href="?action=users&opt=arealist">
+			<div class="visual">
+				<i class="icon-users"></i>
+			</div>
+			<div class="details">
+				<div class="number">
+					<span data-counter="counterup" data-value="<{$sys_info.activated}>"><{$sys_info.activated}></span>
+				</div>
+				<div class="desc">激活玩家</div>
+			</div>
+		</a>
+	</div>
+</div>
+<div class="clearfix"></div>
+<!-- END DASHBOARD STATS 1-->
+
+<!-- 首页自定义区 开始 -->
+<div class="row">
+	<div class="col-md-6 col-sm-6" style="width: 100%">
+		<!-- BEGIN PORTLET-->
+		<div class="portlet light ">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-bar-chart font-green-sharp hide"></i>
+					<span class="caption-subject font-green-sharp bold uppercase">新增激活与活跃</span>
+					<span class="caption-helper">近10天</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<script src="<{#root_url_cframe#}>Highcharts/jquery-1.8.3.min.js"></script>
+				<SCRIPT type="text/javascript">
+					$(function() {
+						var chart = Highcharts.chart('container', {
+							title : {
+								text : '',//标题
+								x : -20
+							//center
+							},
+							/* subtitle : {
+								text : 'Source: WorldClimate.com',
+								x : -20
+							}, */
+							xAxis : {
+								categories : [ <{$sys_info.datelist}>]
+							},
+						    plotOptions: {
+					            line: {
+					                dataLabels: {
+					                    enabled: true,
+					                    color:'green'
+					                },
+					                //enableMouseTracking: false //鼠标
+					            }
+					        }, 
+					        credits: {
+					             text: '<{#officel_title#}>',
+					             href: '#'
+					         },
+							series : [ 
+							{
+								name : '新增',
+								data : [ <{$sys_info.userslist}> ],
+								//visible: false
+							} ,
+							{
+								name : '激活',
+								data : [ <{$sys_info.actuserslist}> ]
+							} ,
+							{
+								name : '活跃',
+								data : [ <{$sys_info.loginslist}> ]
+							}
+							]
+						});
+					});
+				</SCRIPT>
+				<script src="<{#root_url_cframe#}>Highcharts/highcharts.js"></script>
+				<script src="<{#root_url_cframe#}>Highcharts/modules/exporting.js"></script>
+				<div id="container" style="height: 400px; width: 100%"></div>
+			</div>
+		</div>
+		<!-- END PORTLET-->
+	</div>
+
+</div>
+<div class="clearfix"></div>
+
+<{if $notifylist}>
+<{foreach item=vo from =$notifylist}>
+<!-- <div class="row" > -->
+	<div class="col-md-6 col-sm-6" style="width: 100%;margin-top: -40px;">
+		<!-- BEGIN PORTLET-->
+		<div class="portlet light ">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-bar-chart font-green-sharp hide"></i>
+					<span class="caption-subject font-green-sharp bold uppercase"><{$vo.date}></span>
+					<!-- <span class="caption-helper">近10天</span> -->
+				</div>
+			</div>
+			<div><{$vo.content}></div>
+		</div>
+		<!-- END PORTLET-->
+	</div>
+<!-- </div> -->
+<div class="clearfix"></div>
+<{/foreach}>
+<{/if}>
+<!-- 首页自定义区 结束 -->
+
+</div>
+<!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->
+
+
+

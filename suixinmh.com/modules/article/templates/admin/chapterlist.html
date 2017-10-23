@@ -1,0 +1,126 @@
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<style type="text/css">
+.layer_notice{float:left; height:75px; width:170px;  overflow:hidden; display:none;  background:#78BA32; padding:10px; border:1px solid #628C1C;}
+</style>
+<form name="frmsearch" method="post" action="?controller=chapter">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}"> <input name="keytype" type="radio" class="radio" value="0"{?if $keytype==0?} checked{?/if?}>
+            文章名称
+			<input type="radio" name="keytype" class="radio" value="1"{?if $keytype==1?} checked{?/if?}>
+            发表者
+			<input type="radio" name="keytype" class="radio" value="2"{?if $keytype==2?} checked{?/if?}>
+            文章ID &nbsp;&nbsp;
+			<select name="nowagent" id="nowagent"><option value="0">-选择责编-</option>{?section name=j loop=$agents?}<option value="{?$agents[j]['uid']?}" {?if $nowagent==$agents[j]['uid']?}selected{?/if?}>{?eval echo ($agents[j]['name'] ? $agents[j]['name'] : $agents[j]['uname']);?}</option>{?/section?}</select>
+		  起始更新时间：<input name="start" id="start" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$start?}" />
+		  &nbsp;&nbsp;结束更新时间：<input name="end" id="end" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$end?}" />&nbsp;&nbsp;
+            <input type="submit" name="btnsearch" class="button" value="搜 索"><input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+            &nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/admin/?controller=chapter">分卷及章节</a>
+			&nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/admin/?controller=chapter&chaptertype=volume">所有分卷</a>
+			&nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/admin/?controller=chapter&display=1">待审章节</a></td>
+    </tr>
+</table>
+</form>
+<br />
+<form action="{?function geturl:'article':'chapter':'SYS=method=delChapters'?}" method="post" name="checkform" id="checkform">
+<table class="grid" width="100%" align="center">
+<caption>{?$articletitle?}</caption>
+  <tr align="center">
+    <th width="5%">选择</th>
+    <th width="15%">文章名称</th>
+    <th width="15%">章节名称</th>
+    <th width="10%">发表者</th>
+	<th width="10%">责编</th>
+    <th width="7%">章节字数(共{?$totalsize?}字)</th>
+	<th width="4%">频道</th>
+    <th width="10%">更新/发布</th>
+    <th width="6%">类型</th>
+	<th width="8%">状态</th>
+	<th width="10%">操作</th>
+  </tr>
+  {?section name=i loop=$articlerows?}
+  <tr>
+    <td class="odd" align="center">{?$articlerows[i].checkbox?}</td>
+    <td class="even"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank">{?$articlerows[i].articlename?}</a></td>
+    <td class="odd">{?if $articlerows[i].chaptertype == 0?}{?if $articlerows[i].display > 0?}
+	<a href="{?function geturl:'article':'chapter':'SYS=method=editChapterView&aid=$articlerows[i].articleid&cid='?}{?$articlerows[i].chapterid?}" target="_blank">
+	{?else?}<a href="{?$articlerows[i].url_lastchapter?}" target="_blank">{?/if?}{?$articlerows[i].chaptername?}</a>{?else?}{?$articlerows[i].chaptername?}{?/if?}</td>
+    <td class="even" align="center"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$articlerows[i].posterid'?}" target="_blank">{?$articlerows[i].poster?}</a></td>
+	<td align="center">{?$articlerows[i].agent?}</td>
+    <td class="odd" align="center">{?$articlerows[i].size_c?}</td>
+	<td class="odd" align="center">{?$articlerows[i].channel?}</td>
+    <td class="even" align="center">{?$articlerows[i].lastupdate?}<br>{?$articlerows[i].postdate?}</td>
+    <td class="odd" align="center">{?$articlerows[i].typename?}</td>
+	<td class="odd" align="center">{?if $articlerows[i].display == 0?}正常{?else if $articlerows[i].display == 1?}{?if $articlerows[i].comment !=''?}<span class="red" tiptitle=ture title="{?$articlerows[i].comment?}">驳回修改</span>{?else?}<span class="blue">待审</span>{?/if?}{?else if $articlerows[i].display == 2?}<span class="green">定时</span>{?else if $articlerows[i].display == 9?}{?if $articlerows[i].comment !=''?}<span class="red" tiptitle=ture title="{?$articlerows[i].comment?}">驳回修改</span>{?else?}<span class="org">定时待审</span>{?/if?}{?/if?}</td>
+	<td class="odd" align="center">{?if ($articlerows[i].display == 1 || $articlerows[i].display == 9) && $articlerows[i].comment =='' ?}<a href="?controller=chapter&method=checkchapter&aid={?$articlerows[i].articleid?}&cid={?$articlerows[i].chapterid?}"  title='{?$articlerows[i].chaptername?}' checkchapter="true">审核</a>{?/if?}</td>
+  </tr>
+  {?/section?}
+  <tr>
+    <td width="3%" class="odd" align="center"><input type="checkbox" id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ if (this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"></td>
+    <td colspan="6" align="left" class="odd"><!--<input type="button" name="Submit" value="批量删除" class="button" onclick="javascript:if(confirm('确实要批量删除章节么？')) this.form.submit();">--><input name="batchdel" type="hidden" value="1"></td>
+  </tr>
+</table>
+</form>
+<table width="100%"  border="0" cellspacing="2" cellpadding="3">
+  <tr>
+    <td width="12%" align="right"><!--<input type="submit" name="Submit" value="批量删除" class="button">
+                <input name="batchdel" type="hidden" value="1">--></td>
+    <td width="88%" align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+<div>
+        <ul class="layer_notice"><li><b>[选择责编]</b><a href="{?$article_dynamic_url?}/admin/?controller=article&action=setagent&uid=-1" agentclick="true">清空</a></li>{?section name=j loop=$agents?}
+        	<li style="height:25px; line-height:25px;">[{?$groups[$agents[j]['groupid']]?}]<a href="{?$article_dynamic_url?}/admin/?controller=article&action=setagent&uid={?$agents[j].uid?}" agentclick="true">{?eval echo ($agents[j]['name'] ? $agents[j]['name'] : $agents[j]['uname']);?}</a></li>
+            {?/section?}<input type="hidden" value="0" id='tmpid'>
+        </ul>
+</div>
+<div style="display:none; height:450px;" id="hidden"></div>
+<script language="javascript">
+function selectAgent(_this, articleid){
+	var s = layer.tips($('.layer_notice').html(), _this, {
+        guide: 1,
+		maxWidth:190,
+		closeBtn:[0,true], //显示关闭按钮
+        style: ['background-color:#FFF8ED; color:#000; width:190;border:1px solid #FF9900', '#FF9900']//['background-color:#FFF8ED; color:#000; border:1px solid #FF9900', '#FF9900']
+    });
+	$('#tmpid').val(articleid);
+}
+layer.ready(function(){
+	$("[agentclick]").live('click',function(event){
+		event.preventDefault();
+		var id = $('#tmpid').val();
+		var i = layer.load();//layer.load(0);
+		GPage.getJson(urlParams(this.href, 'id='+id),
+			function(data){
+			    if(data.status=='OK'){			    	
+					GPage.loadpage('content', data.jumpurl, true, false);
+					layer.closeAll();
+				}else{
+					layer.alert(data.msg, 8, !1);
+				}
+			}
+		);
+	});	
+	$("[checkchapter]").live('click',function(event){
+		event.preventDefault();
+		var gurl = urlParams(this.href, 'date='+Math.random());
+		var pagei = $.layer({
+			type:2,
+			shade : [0.6 , '#000' , true],
+			border : [10 , 0.3 , '#000', true],
+			area: ['700px', '600px'],
+			title: '章节审核《'+this.title+'》',
+			closeBtn: [0,true],
+			iframe:{src: gurl}
+		});
+	});	
+   $("[tiptitle]").live('mouseenter',function(event){
+		layer.tips(this.title,this, {
+			maxWidth:185,
+			guide:1,
+			closeBtn:[0, true]
+		});	 
+	});	 
+});
+</script>

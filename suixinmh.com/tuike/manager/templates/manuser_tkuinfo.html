@@ -1,0 +1,130 @@
+{?include file="tuike/manager/templates/public/header.html" ?}
+{?include file="tuike/manager/templates/public/left.html" ?}
+    <div class="g-main">
+      <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+        <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+      </div>
+      <h3>推客明细</h3>
+      <form action="" method="post" id="form" class="m-form m-form-horizontal">
+        <fieldset>
+          <div class="formitm">
+            <label class="lab">用户ID</label>
+            <div class="ipt">{?$info.uid?}</div>
+          </div>
+
+          <div class="formitm">
+            <label class="lab">昵称</label>
+            <div class="ipt"> 
+            <input name="name" type="text" class="form-element u-width-large" value="{?$info.name?}" maxlength="20">
+            </div>
+          </div>
+
+          <div class="formitm">
+            <label class="lab">手机</label>
+            <div class="ipt">
+            <input name="mobile" type="text" class="form-element u-width-large" value="{?$info.mobile?}" maxlength="20">
+            </div>
+          </div>
+
+          <div class="formitm">
+            <label class="lab">QQ</label>
+            <div class="ipt">
+            <input name="p_qq" type="text" class="form-element u-width-large" value="{?$info.p_qq?}" maxlength="20">
+            </div>
+          </div>
+
+          <div class="formitm">
+            <label class="lab">微信</label>
+            <div class="ipt">
+            <input name="p_wechat" type="text" class="form-element u-width-large" value="{?$info.p_wechat?}" maxlength="20">
+            </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">备注 </label>
+            <div class="ipt">
+              <textarea name="notes" value="" maxlength="80" style="width: 350px;height: 100px;padding: 5px;    border: 1px solid #ddd;">{?$info.notes?}</textarea>
+            </div>
+          </div>
+
+          {?if $info.p_type == 1?}
+          <div class="formitm">
+            <label class="lab">支付方式(支付宝)</label>
+            <div class="ipt">{?$info.p_ali?}</div>
+          </div>
+          {?elseif $info.p_type == 3?}
+          <div class="formitm">
+            <label class="lab">支付方式(银行卡)</label>
+            <div class="ipt">{?$info.p_bank?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">开户支行</label>
+            <div class="ipt">{?$info.p_bankn?}</div>
+          </div>
+          {?else?}
+          <div class="formitm">
+            <label class="lab">支付方式(未设置)</label>
+            <div class="ipt">无</div>
+          </div>
+          {?/if?}
+
+          <div class="formitm">
+            <label class="lab">上级推客</label>
+            <div class="ipt">{?$info.tkuidname?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">注册时间</label>
+            <div class="ipt">{?$info.reg_time|date:'Y-m-d H:i:s'?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab"> 待提现</label>
+            <div class="ipt">{?$info.balance?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">  已提现 </label>
+            <div class="ipt">{?$info.balancey?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">  提现中 </label>
+            <div class="ipt">{?$info.balancer?}</div>
+          </div>
+          <div class="formitm form-submit">
+            <div class="ipt">
+              <input type="hidden" name="uid" value="{?$info.uid?}" />
+              <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+              <button class="u-btn u-btn-success u-btn-large" type="submit">保存</button>
+            </div>
+          </div>
+        </fieldset>
+        <div class="hide_box" id="testBox" style="display: none; margin: 0px;">
+          <h4><a href="javascript:void(0)" title="x" id='close_dia'>×</a>链接</h4>
+          <p>http://m.mmd6666.com/read/10270/751043.html</p>
+          <div style="margin: 10px auto;width: 13%;">
+            <a class="u-btn u-btn-primary">保存</a>
+          </div>
+        </div>
+        <script src="http://yun.mmd6666.com/themes/tuike/js/easydialog.min.js"></script>
+        <script type="text/javascript">
+          $("#form").submit(function() { // 651780
+            Users.form = this;
+            Users.SendForm(function(msgs) {
+              if(msgs.status === 'OK') {
+                $('#testBox p').html(msgs.url);
+                easyDialog.open({
+                  container: 'testBox'
+                });
+              } else {
+                Users.ShowMsg(msgs.msg);
+              }
+            });
+            return false;
+          });
+          $('#overlay').live('click', function() {
+            easyDialog.close();
+          });
+          $('#close_dia').click(function() {
+            easyDialog.close();
+          });
+        </script>
+      </form>
+    </div>
+{?include file="tuike/manager/templates/public/footer.html"?}

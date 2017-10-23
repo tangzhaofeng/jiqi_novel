@@ -1,0 +1,457 @@
+{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+<script language="javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<!--内容 start-->
+<div class="contain">
+<div class="lbdh">
+<p class="a1">{?eval echo date('Y.m.d',time());?}</p>
+<p class="a2">2</p>
+<p class="a3">您现在的位置：<a href="{?$_SGLOBAL['localurl']?}">赶游首页</a>><a href="http://danji.ganyou.com/">单机频道</a>>{?$_SGLOBAL['cate']['catname']?}</p>
+<Div class="clear"></Div>
+</div>
+<!--left start-->
+<Div class="lbtj_left ">
+<div class="lbtj_left1_bt2">
+<ul id="menu3">
+	<li><a href="#">按点击排行 </a></li>
+	<li><a href="#">按评论排行 </a></li>
+	<li><a href="#">按评分排行 </a></li>
+	<li class="hover"><a href="#">按日期排行</a></li>
+</ul>
+</div>
+<div class="djflyx_kuang1" >
+<div id="main3">
+<ul class="block">
+{?section name=i loop=$_PAGE['articlerows']?}
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">{?if $_PAGE['articlerows'][i]['thumb']!=''?}
+  <a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}{?$_PAGE['articlerows'][i]['version']?}下载" target="_blank"><img src="{?$_PAGE['articlerows'][i]['thumb']?}" onload="javascript:setpicWH(this,156,126);" alt="{?$_PAGE['articlerows'][i]['title']?}" border="0" /></a>{?/if?}
+  </div>
+<div class="lbtj_ul5_right">{?eval if($_PAGE['articlerows'][i]['supports']<1) $score = 0; else $score = $_PAGE['articlerows'][i]['supports']/($_PAGE['articlerows'][i]['supports']+$_PAGE['articlerows'][i]['againsts'])*100;?}
+<p><span class="xfont_right2">好评率：<div class="score">
+                                <span style="width:81px"></span>
+                            </div></span><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}{?$_PAGE['articlerows'][i]['version']?}下载" target="_blank" class="djflyx_font02">{?$_PAGE['articlerows'][i]['title']?}{?$_PAGE['articlerows'][i]['version']?}</a></p>
+<p>{?$_PAGE['articlerows'][i]['description']|defaultval:'简介：暂无!'?}<a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">{?$_PAGE['articlerows'][i]['hits']|defaultval:0?}</span> &nbsp; &nbsp;大小：<span class="xfont06">{?$_PAGE['articlerows'][i]['filesize']?}</span> &nbsp; &nbsp;语言：{?$_PAGE['articlerows'][i]['language']?} &nbsp; &nbsp;时间：{?$_PAGE['articlerows'][i]['inputtime']|date:'Y-m-d'?}</p>
+</div>
+<div class="clear"></div>
+</div>
+{?/section?}
+
+<div class="fn_yema1">
+[<span class="xfont06">{?$_SGLOBAL['cate']['catname']?}</span>] {?$_PAGE['url_jumppage']?}
+</div>
+</ul>
+<ul  style="display:none">
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="lbtj_ul5">
+<div class="lbtj_ul5_left">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a>
+  </div>
+<div class="lbtj_ul5_right">
+<p><span class="xfont_right2">好评率：<img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx12.jpg" align="absmiddle" /><span class="xfont06"> 85%</span></span><a href="#" target="_blank" class="djflyx_font02">星球大战：克隆人战</a></p>
+<p>《七剑》是由798GAME旗下辐射工作室自主研发的大型3DMMORPG。《七剑》以已故武侠小说大师梁羽生笔下的小说《七剑下天山》为题材，《七剑》采用了世界上最优秀的游戏引擎制世界带给玩家，开发人员还考察了游戏中所涉及到的大部分场景<a href="#" target="_blank" class="xfont06">【查看详细】</a></p>
+<p class="a1">下载次数：<span class="xfont06">1234</span> &nbsp; &nbsp;大小：<span class="xfont06">4.25GB</span> &nbsp; &nbsp;语言：简体中文 &nbsp; &nbsp;时间：2010-10-11</p>
+</div>
+<div class="clear"></div>
+</div>
+<div class="fn_yema1">
+[<span class="xfont06">战略棋牌cl</span>] 合计<span class="xfont04">1190</span>个   首页  <a href="#" target="_blank">上一页</a>  <a href="#" target="_blank">下一页</a>  页次：1/6页 <span class="xfont06">20</span>个/页     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GO
+ <select name="select">  <option>第一页</option>  </select>
+</div>
+</ul>
+</Div></div>
+</Div>
+<!--left end-->
+<!--right start-->
+<div class="xz_right">
+<!--广告位 start-->
+<div class="lbgg">
+  <a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></div>
+<!--广告位 end-->
+<div class="xznr03">
+<div class="xzyx1_01">
+	<ul id="menu1">
+	<li class="hover" onmouseover="setTab(1,0)"><a href="#">单机</a></li>
+	<li onmouseover="setTab(1,1)"><a href="#">网游</a></li>
+	<li onmouseover="setTab(1,2)"><a href="#">网页</a></li>
+	<li onmouseover="setTab(1,3)"><a href="#">电玩</a></li>
+	</ul>
+  </div>
+
+<div class="main_lt">
+	<div  id="main1">
+	<ul class="block">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+<div class="xznr03">
+<div class="xzyx1_02"><ul id="menu2">
+	<li class="hover" onmouseover="setTab(2,0)"><a href="#">单机</a></li>
+	<li onmouseover="setTab(2,1)"><a href="#">网游</a></li>
+	<li onmouseover="setTab(2,2)"><a href="#">网页</a></li>
+	<li onmouseover="setTab(2,3)"><a href="#">电玩</a></li>
+	</ul></div>
+<div class="main_lt">
+	<div class="main" id="main2">
+	<ul class="block">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+<div class="xznr03">
+<div class="xzyx1_03">
+	<ul id="menu3">
+	<li class="hover" onmouseover="setTab(3,0)"><a href="#">单机</a></li>
+	<li onmouseover="setTab(3,1)"><a href="#">网游</a></li>
+	<li onmouseover="setTab(3,2)"><a href="#">网页</a></li>
+	<li onmouseover="setTab(3,3)"><a href="#">电玩</a></li>
+	</ul></div>
+<div class="main_lt">
+	<div  id="main3">
+	<ul class="block">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+<div class="xznr03">
+<div class="xzbt08"><a href="#" target="_blank" class="xfont_right">更多>></a><img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt01.jpg" align="absmiddle" /> <span class="xfont01">图游天下 帅哥美女</span></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="xztp_table">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">《QQ炫舞》星随舞动</a></td>
+    <td><a href="#" target="_blank">《QQ炫舞》星随舞动</a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">《QQ炫舞》星随舞动</a></td>
+    <td><a href="#" target="_blank">《QQ炫舞》星随舞动</a></td>
+  </tr>
+</table>
+</div>
+
+<div class="xznr03">
+<div class="xzbt08"><a href="#" target="_blank" class="xfont_right">更多>></a><img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt01.jpg" align="absmiddle" /> <span class="xfont01">热门专题</span></div>
+<table width="220" border="0" cellpadding="0" cellspacing="0" class="xztp_table2">
+  <tr>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+    <td><a href="#" target="_blank">腾讯游戏</a>|</td>
+    <td><a href="#" target="_blank">腾讯游戏</a> |</td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">腾讯游戏</a> |</td>
+    <td><a href="#" target="_blank">腾讯游戏</a> |</td>
+    <td><a href="#" target="_blank">腾讯游戏</a> |</td>
+  </tr>
+</table>
+</div>
+
+</div>
+<!--right end-->
+<div class="clear"></div>
+</div>
+
+<div class="bottom" style="width:960px;">
+<a href="" class=sinatail>关于赶游</a> | 
+<a href="" class=sinatail>赶游招聘</a> | 
+<a href="" class=sinatail>联系赶游</a> | 
+<a href="" class=sinatail>友情链接</a> | 
+<a href="" class=sinatail>加入收藏</a> | 
+<a href="" class=sinatail>网站帮助</a> | 
+<a href="" class=sinatail>意见留言</a> | 
+<a href="" class=sinatail>网站地图</a><br/>
+Copyright (C) 2002-2010 赶游网 All Rights Reserved | 蜀ICP备05000570号 电信增值业务许可证：川BZ-20070003<br/>
+赶游网提供最新网络游戏资讯，提供包含网络游戏、单机游戏、电视游戏、小游戏在内的所有游戏服务，倡导健康游戏生活，打造一站式游戏网站。<br/>
+好游戏，好心情，赶快来游戏吧！赶游网为您提供游戏娱乐每一秒！<a href="/"  title=游戏网站 target="_blank">站长统计</a><br/>
+  </div>

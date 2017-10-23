@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter> 
+    <id>{?$chapter['chapterid']?}</id> 
+    <title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapter['chaptername'],false);?}]]></title> 
+	<updatetime><![CDATA[{?$chapter['lastupdate']?}]]></updatetime> 
+	<words><![CDATA[ {?eval echo ceil($chapter['size']/2);?}]]></words> 
+	<priceunit><![CDATA[3]]></priceunit> 
+	<price><![CDATA[{? if $chapter['saleprice'] < 3?}3 {?else?} {?$chapter['saleprice']?} {?/if?}]]></price> 
+	<vip><![CDATA[{?$chapter['isvip']?}]]></vip>
+	<content><![CDATA[{?eval echo str_replace('&nbsp;&nbsp;&nbsp;&nbsp;','<p>',preg_replace("/<br \/>\r\n<br \/>/","</p>\r\n<p>",jieqi_htmlstr(gb2utf8XHSafeStr($chapter['content'],false))));?}</p>]]></content>
+</chapter> 

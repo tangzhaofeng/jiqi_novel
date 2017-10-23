@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>��ͨ��֤��</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/unicom_code.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'pay':SYS=method=unicom?}">����</a></div>
+    <div class="title"><a href="javascript:;">��ͨ��֤��</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">��ҳ</a></div>
+</div>
+{?include file = "themes/3g/paylogin.html"?}
+<form method="post" action="{?function geturl:'3g':'pay':'SYS=method=yanunicom'?}">
+	<div class="content">
+		<p>��ֵ���ͣ�{?$paytype?}</p>
+		<p>��ֵ��{?$money?}Ԫ<span class="orange">{?$egold?}</span>�麣��</p>
+		<p>�ֻ�ţ�{?$mobile?}</p>
+		<p>{?$msg?}</p>
+		<input type="text" name="VerificationCode" id="VerificationCode" class="code"/>
+		{?section name=i loop=$urlvars?}
+		<input type="hidden" name="{?$i.key?}" value="{?$urlvars[i]?}" />
+		{?/section?}
+		<input type="hidden" name="egold" value="{?$egold?}" />
+		<input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+		<input type="submit" value="ȷ��" class="affirm" />
+	</div>
+</form>
+<div class="warm_prompt">
+	<p>��ܰ��ʾ</p>
+	<span>1.��������Ķ�Ȩ��ֻ���ڱ�վʹ��!<br />2.�˳�ֵ��ʽ�����й���ͨ�ֻ��û�ʹ�á�<br />3.����ʱ��δ�յ���ֵ����ϵͳ��Ϣ�����˻�����ޱ仯,���µ��麣�ͷ�<br />�ͷ����ߣ�029-83566520<br />�ͷ�QQ��724171887</span>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

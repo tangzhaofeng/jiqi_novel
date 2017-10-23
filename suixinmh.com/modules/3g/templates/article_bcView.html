@@ -1,0 +1,187 @@
+{?set $jieqi_pagetitle = "我的书架"?}
+{?set $meta_keywords = "最新小说,原创小说,小说大全,小说库"?}
+{?set $meta_description = ""?}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{?$jieqi_pagetitle?}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		
+		<meta http-equiv="Cache-Control" content="no-transform " /> 
+		<meta name="keywords" content="{?$meta_keywords?}" />
+		<meta name="description" content="{?$meta_description?}" />
+		<meta name="author" content="{?$meta_author?}" />
+		<meta name="copyright" content="{?$meta_copyright?}" />
+		<link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css"/>
+		<link rel="stylesheet" href="{?$jieqi_themeurl?}css/jquery.alertable.css"/>
+		<style>
+			.current {
+				color: #b90000;
+			}
+			
+			 .shanchu{
+                outline:none;
+                -webkit-tap-highlight-color: rgba(0,0,0,0); 
+                background:#f0234e;
+                height:25px;
+                width:60px;
+                border:none;
+                border-radius: 5px;
+                color:#fff;
+                display: block;
+                margin :0 auto;
+                margin-top:5px;
+
+            }
+      .dib {
+			    display: inline-block;
+			    padding: 6px;
+			    background: #00b8ac;
+			    color: #fff;
+			    border-radius: 4px;
+			}
+			.tz{
+				  display: inline-block;
+          vertical-align: middle;
+			}
+			.pageN{
+				   display: inline-block;
+           vertical-align: middle;
+		}
+		</style>
+		
+	</head>
+
+	<body>
+		<!--nav-->
+		{?include file="themes/3g/header.html"?}
+		<div class="mt10  bgcfff pb10">
+				<h1 id="tabs1" class="mlf10 ptb10 f16 clearfix" style="color: #1fb3b6;border-bottom:#dad9d9 1px solid;">我在看的书<span class="fr"><a class="f12 mr10 current" href="javascript:;">最近阅读({?$read_count?})</a><a class="f12" href="javascript:;">已收藏的(<span data-name="my_collect">{?$nowbookcase?}</span>)</a></span>
+				</h1>
+			<table class="wp100 f13 plf10 lh25"   id="list2">
+					{?if intval($read_count)==0?}
+		            <tr>
+		            	<td colspan="2">
+						>_<当前还没有阅读记录哦~
+						</td>
+		            </tr>
+	            {?else?}
+	            {?section name=i loop=$read_history?}{?eval $bg=$i.order%2;?}
+				<tr {?if $bg<1?} class="line"{?/if?}>
+					<td class="wp80 bb bceee">
+						<p>
+							<a class="cOrange1" href="javascript:;">{?$read_history[i].aname?}</a>
+						</p>
+					
+						<p>
+							<a class="c333" href="javascript:;">{?$read_history[i].asort?} | {?$read_history[i].autname?}</a>
+						</p>
+						<p>
+							<a class="c333" href="{?function geturl:'3g':'reader':'SYS=aid=$read_history[i].aid&cid=$read_history[i].cid'?}"><em>连载中：</em>{?$read_history[i].cname?}</a>
+						</p>
+			
+					</td>
+
+					<td class="wp20 tc bb bceee">
+						<a href="{?function geturl:'3g':'articleinfo':'SYS=aid=$read_history[i].aid'?}" class="cRed">继续阅读</a>
+					</td>
+				</tr>
+				{?/section?}
+				{?/if?}
+				
+			</table>
+			<table class="wp100 f13 plf10 lh25" style="display:none;" data-name="collect_ul">
+					{?if intval($read_count)==0?}
+		            <tr>
+		            	<td colspan="2">
+						您的书架没有书，赶紧去加书架吧
+						</td>
+		            </tr>
+	            {?else?}
+	           {?section name=i loop=$articlerows?}{?eval $aid=$articlerows[i].articleid;$cid=$articlerows[i].lastchapterid;$bg = $i.order%2;?}
+				<tr {?if $bg<1?} class="line"{?/if?} data-id="{?$aid?}">
+					<td class="wp80 bb bceee">
+						<p>
+							  <a class="cOrange1" href="{?$articlerows[i].url_module_articleinfo?}" class="name">{?$articlerows[i].articlename?}</a>
+						</p>
+					
+						<p>
+							 <span class="lei"><a href="{?function geturl:'3g':'shuku':'SYS=sort=$articlerows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1&siteid=$articlerows[i].siteid'?}">{?$articlerows[i].sort?}</a> | {?$articlerows[i].author?}</span>
+						</p>
+						<p>
+							  <a href="{?function geturl:'3g':'reader':'SYS=aid=$aid&cid=$cid'?}" class="lzz"><em>{?$articlerows[i].fullflag_tag?}：</em>{?$articlerows[i].lastchapter?}</a>
+                    {?if $articlerows[i].chaptername != ''?}<a href="{?function geturl:'3g':'reader':'SYS=aid=$aid&cid=$articlerows[i].chapterid'?}" class="sq">书   签：{?$articlerows[i].chaptername?}</a>{?/if?}
+						</p>
+					</td>
+					<td class="wp20 tc bb bceee">
+					 <a href="{?function geturl:'3g':'article':'SYS=method=bcBatch&aid=$aid&checkid=$articlerows[i].caseid'?}" class="shanchu" data-act="j_del_bookcase">删除</a>
+					</td>
+				</tr>
+				{?/section?}
+				{?/if?}
+			</table>
+		</div>
+		 <div class="mt10 bgceee tc ptb5">
+        <form action="#" id="jumppage">
+          
+            <a href="#" class="dib">上一页</a>
+        
+        <input type="text" class="bgcfff b bcddd w40 lh25 tc" name="page" value="1" />
+        <a href="javascript:" onclick="document.getElementById('jumppage').submit()" class="w40 lh25 bgcfff  ml5 b bcddd tz">跳转</a>
+        <span class="lh25 pageN">1/21</span>
+          
+        <a href="{?$url_3g_next?}" class="dib">下一页</a>
+       
+        </form>
+    </div>
+		<div class="p10 mb10">
+			<a href="{?function geturl:'3g':'userhub'?}" class="cRed f14">返回个人中心</a>
+		</div>
+		{?include file = "themes/3g/bottom.html"?}
+	 	<script src="{?$jieqi_themeurl?}js/jquery.min.js"></script>
+	 	<script src="{?$jieqi_themeurl?}js/share/jquery.alertable.min.js"></script>
+		<script type="text/javascript">
+		$(function(){
+				$("#tabs1 a").on("click",function(){
+					var index=$(this).index();
+					$(this).siblings().removeClass("current");
+					$(this).addClass("current");
+					$("table").hide();
+					$("table").eq(index).show();
+				})
+			// 个人中心-收藏页删除
+				$("[data-act=j_del_bookcase]").on("click", function(event){
+					event.preventDefault();
+					var parent=$(this).parents("tr");
+					var _this_id=$(this).parent().attr("data-id");
+					var _collect_sum=$("[data-name=my_collect]").html();
+					var _url = $(this).attr("href");
+					$.alertable.confirm('确定要删除么?').then(function() {
+
+						$.ajax({
+						     type: 'GET',
+						     url: _url ,
+						     // dataType: "json",
+						    success: function(data){
+						    	
+						    $.alertable.alert('删除成功！');
+						    var num=$("[data-name=my_collect]").text();
+						  	 $("[data-name=my_collect]").text(num-1);
+						    	parent.remove();
+						  
+						    } 
+						   
+						});		
+					
+					}, function() {
+					     
+					});
+
+			
+				})
+		})
+		</script>	
+	</body>
+
+</html>

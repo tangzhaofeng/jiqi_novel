@@ -1,0 +1,138 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>{?$_PAGE['model']['name']?}模型管理</caption>
+  <tr>
+    <td><a href='?ac=model'>管理模型</a> | <a href='?ac=model&op=model_field&modelid={?$_PAGE['_GET']['modelid']?}'><font color="red">添加字段</font></a> | <a href='?ac=model&op=fields&modelid={?$_PAGE['_GET']['modelid']?}'>管理字段</a></td>
+  </tr>
+</table>
+
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+<form action="?ac=model&op={?$_PAGE['active']?}&modelid={?$_PAGE['_GET']['modelid']?}&fieldid={?$_PAGE['field']['fieldid']?}" method="post" name="myform">
+    <caption>{?if $_PAGE['active']=='copyfield'?}复制{?else?}{?if $_PAGE['field']['fieldid']>0?}修改{?else?}添加{?/if?}{?/if?}字段</caption>
+	<tr> 
+      <th width="25%"><font color="red">*</font> <strong>字段名</strong><br />
+	  只能由英文字母、数字和下划线组成，并且仅能字母开头，不以下划线结尾
+	  </th>
+      <td><input type="text" name="info[field]" id='field' size="20" {?if $_PAGE['field']['fieldid']>0?}readonly{?else?}require="true" datatype="limit|ajax" min="1" max="20" url="?ac=model&op=checkfield&modelid={?$_PAGE['_GET']['modelid']?}&ajax_request=1" msg="字符长度范围必须为1到10位|" {?/if?} value="{?$_PAGE['field']['field']?}"></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>字段别名</strong><br />例如：文章标题</th>
+      <td><input type="text" name="info[name]" size="30" require="true" datatype="limit" min="1" max="50" msg="字符长度范围必须为1到50位" value="{?$_PAGE['field']['name']?}"></td>
+    </tr>
+	<tr> 
+      <th><strong>字段提示</strong><br />显示在字段别名下方作为表单输入提示</th>
+      <td><textarea name="info[tips]" rows="2" cols="20" style="height:60px;width:250px;">{?$_PAGE['field']['tips']?}</textarea></td>
+    </tr>
+	<tr> 
+      <th><strong>字段类型</strong><br /></th>
+      <td>
+	  <select name="info[formtype]" id="formtype" {?if $_PAGE['field']['fieldid']>0 || $_PAGE['active']=='copyfield'?}disabled{?else?}onchange="javascript:$('#setting').load('?ac=model&op=setting_add&modelid={?$_PAGE['_GET']['modelid']?}&ajax_request=1&formtype='+this.value+'&field='+$('#field').val());"{?/if?}>
+{?section name=i loop=$_SGLOBAL['fields']?}
+<option value="{?$i.key?}" {?if $_PAGE['field']['formtype']==$i.key?}selected{?/if?}>{?$_SGLOBAL['fields'][i]?}</option>
+{?/section?}
+	  </select>
+	  {?if $_PAGE['field']['fieldid']>0?}<input type="hidden" name="info[formtype]" id="formtype" value="{?$_PAGE['field']['formtype']?}" />{?/if?}
+	  </td>
+    </tr>
+	<tr> 
+      <th><strong>相关参数</strong><br />设置表单相关属性</th>
+      <td><div id="setting"></div></td>
+    </tr>
+	<tr> 
+      <th><strong>表单附加属性</strong><br />可以通过此处加入javascript事件</th>
+      <td><input type="text" name="info[formattribute]" value="{?$_PAGE['field']['formattribute']?}" size="50"></td>
+    </tr>
+	<tr> 
+      <th><strong>表单附加说明</strong><br />可以通过此处加入HTML和javascript事件</th>
+      <td><textarea name="info[forminfo]" rows="6" cols="70">{?$_PAGE['field']['forminfo']?}</textarea></td>
+    </tr>
+	<tr> 
+      <th><strong>表单样式名</strong><br />定义表单的CSS样式名</th>
+      <td><input type="text" name="info[css]" value="{?$_PAGE['field']['css']?}" size="10"></td>
+    </tr>
+	<tr> 
+      <th><strong>字符长度取值范围</strong><br />系统将在表单提交时检测数据长度范围是否符合要求，如果不想限制长度请留空</th>
+      <td>最小值：<input type="text" name="info[minlength]" id="minlength" value="{?$_PAGE['field']['minlength']?}" size="5"> 最大值：<input type="text" name="info[maxlength]" id="maxlength" value="{?$_PAGE['field']['maxlength']?}" size="5"></td>
+    </tr>
+	<tr> 
+      <th><strong>数据校验正则</strong><br />系统将通过此正则校验表单提交的数据合法性，如果不想校验数据请留空</th>
+      <td><input type="text" name="info[pattern]" id="pattern" value="{?$_PAGE['field']['pattern']?}" size="40"> 
+<select name="pattern_select" onchange="javascript:$('#pattern').val(this.value)">
+<option value="">常用正则</option>
+<option value="/^[0-9.-]+$/">数字</option>
+<option value="/^[0-9-]+$/">整数</option>
+<option value="/^[a-z]+$/i">字母</option>
+<option value="/^[0-9a-z]+$/i">数字+字母</option>
+<option value="/^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/">E-mail</option>
+<option value="/^[0-9]{5,20}$/">QQ</option>
+<option value="/^http:\/\//">超级链接</option>
+<option value="/^(13|15)[0-9]{9}$/">手机号码</option>
+<option value="/^[0-9-]{6,13}$/">电话号码</option>
+<option value="/^[0-9]{6}$/">邮政编码</option>
+</select>
+	  </td>
+    </tr>
+	<tr> 
+      <th><strong>数据校验未通过的提示信息</strong><br />当表单数据不满足正在校验时的系统提示信息</th>
+      <td><input type="text" name="info[errortips]" value="{?$_PAGE['field']['errortips']?}" size="50"></td>
+    </tr>
+	<tr> 
+      <th><strong>值唯一</strong></th>
+      <td><input type="radio" name="info[isunique]" value="1" {?if $_PAGE['field']['isunique']=='1'?}checked{?/if?}> 是 <input type="radio" name="info[isunique]" value="0" {?if $_PAGE['field']['isunique']=='0' || $_PAGE['field']['isunique']==''?}checked{?/if?}> 否</td>
+    </tr>
+	<tr> 
+      <th><strong>作为基本信息</strong><br />本选项只在添加、修改信息时起作用，选“是”则在信息的基本选项中显示，否则在高级选项中显示</th>
+      <td><input type="radio" name="info[isbase]" value="1" {?if $_PAGE['field']['isbase']=='1' || $_PAGE['field']['isbase']==''?}checked{?/if?}> 是 <input type="radio" name="info[isbase]" value="0" {?if $_PAGE['field']['isbase']=='0'?}checked{?/if?}> 否 </td>
+    </tr>
+	<tr> 
+      <th><strong>作为搜索条件</strong></th>
+      <td><input type="radio" name="info[issearch]" value="1" {?if $_PAGE['field']['issearch']=='1'?}checked{?/if?}> 是 <input type="radio" name="info[issearch]" value="0" {?if $_PAGE['field']['issearch']<1?}checked{?/if?}> 否</td>
+    </tr>
+	<tr> 
+      <th><strong>作为标签调用排序字段</strong></th>
+      <td><input type="radio" name="info[isorder]" value="1" {?if $_PAGE['field']['isorder']=='1'?}checked{?/if?}> 是 <input type="radio" name="info[isorder]" value="0" {?if $_PAGE['field']['isorder']<1?}checked{?/if?}> 否</td>
+    </tr>
+	<tr> 
+      <th><strong>作为采集默认读取字段</strong></th>
+      <td><input type="radio" name="info[isselect]" value="1" {?if $_PAGE['field']['isselect']=='1'?}checked{?/if?}> 是 <input type="radio" name="info[isselect]" value="0" {?if $_PAGE['field']['isselect']<1?}checked{?/if?}> 否</td>
+    </tr>
+	<tr> 
+      <th><strong>在前台投稿中显示</strong></th>
+      <td><input type="radio" name="info[isadd]" value="1" {?if $_PAGE['field']['isadd']=='1' || $_PAGE['field']['isadd']==''?}checked{?/if?}/> 是 <input type="radio" name="info[isadd]" value="0" {?if $_PAGE['field']['isadd']=='0'?}checked{?/if?}/> 否</td>
+    </tr>
+	<tr> 
+      <th><strong>作为全站搜索信息</strong></th>
+      <td><input type="radio" name="info[isfulltext]" value="1" {?if $_PAGE['field']['isfulltext']=='1' || $_PAGE['field']['isfulltext']==''?}checked{?/if?}/> 是 <input type="radio" name="info[isfulltext]" value="0" {?if $_PAGE['field']['isfulltext']=='0'?}checked{?/if?}/> 否</td>
+    </tr>
+	<tr> 
+      <th><strong>禁止设置字段值的会员组</strong></th>
+      <td>
+{?section name=i loop=$_SGLOBAL['_GROUPS']?}
+ <span style="width:100px"><label><input type="checkbox" boxid="unsetgroupids" name="unsetgroupids[]" id="unsetgroupids" value="{?$i['key']?}"{?eval if(in_array($i['key'], $_PAGE['field']['unsetgroupids'])){ echo ' checked';}?} style="border:0px"/>{?$_SGLOBAL['_GROUPS'][i]?}</label></span>
+{?/section?}
+ </td>
+    </tr>
+    <tr> 
+      <th></th>
+      <td> 
+	  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+	  <input type="submit" name="dosubmit" value=" 确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+	</form>
+</table>
+<script LANGUAGE="javascript">
+<!--
+$('#setting').load('?ac=model&op=setting_add&modelid={?$_PAGE['_GET']['modelid']?}&ajax_request=1&formtype='+$('#formtype').val()+'&field='+$('#field').val());
+$().ready(function() {
+	  $('form').checkForm(1);
+	});
+//-->
+</script>

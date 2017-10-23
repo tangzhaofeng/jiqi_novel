@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<book> 
+        <id>{?$article['articleid']?}</id> 
+		<keywords><![CDATA[{?eval echo iconv('gbk','utf-8//IGNORE',str_replace(' ',',',$article['keywords']));?}]]></keywords> 
+		<author><![CDATA[{?eval echo iconv('gbk','utf-8//IGNORE',$article['author']);?}]]></author> 
+        <name><![CDATA[{?eval echo iconv('gbk','utf-8//IGNORE',$article['articlename_old']);?}]]></name> 
+		<picurl><![CDATA[{?$article['url_image_l']?}]]></picurl> 
+		<category><![CDATA[{?eval echo iconv('gbk','utf-8//IGNORE',$article['category']);?}]]></category> 
+		<brief><![CDATA[{?eval echo iconv('gbk','utf-8//IGNORE',$article['intro']);?}]]></brief> 
+		<complete_status>{?$article['fullflag']?}</complete_status> 
+</book> 

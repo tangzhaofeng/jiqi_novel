@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+ <webName><![CDATA[{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,false);?}]]></webName>
+ <webSite><![CDATA[{?eval echo JIEQI_URL;?}]]></webSite>
+ <pagesize><![CDATA[{?$pagesize?}]]></pagesize>
+ <totalcount><![CDATA[{?$totalcount?}]]></totalcount>
+ {?section name=i loop=$rows?}<item id ="{?$i.order?}">
+  <bookid><![CDATA[{?$rows[i]['articleid']?}]]></bookid>
+  <Original_URL><![CDATA[{?$rows[i]['url_articleinfo']?}]]></Original_URL>
+  <title><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></title>
+  <author><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['author'],false);?}]]></author>
+  <category><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['sort'],false);?}]]></category>
+  <second_category><![CDATA[]]></second_category>
+  <size>{?eval echo $rows[i]['size']/2;?}</size>
+  <tag>{?eval echo gb2utf8XHSafeStr($rows[i]['keywords'],true,'xml');?}</tag>
+  <start_time><![CDATA[{?$rows[i]['postdate']:'ymdHi'?}]]></start_time>
+  <update_time><![CDATA[{?$rows[i]['lastupdate']:'ymdHi'?}]]></update_time>
+  <isvip><![CDATA[{?$rows[i]['articletype']?}]]></isvip>
+  <fullflag><![CDATA[{?$rows[i]['fullflag']?}]]></fullflag>
+  <comment><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['intro'],false);?}]]></comment> 
+  <imageLink><![CDATA[{?eval echo $rows[i]['url_image'];?}]]></imageLink>
+  <thumbnail><![CDATA[{?eval echo $rows[i]['url_image_l'];?}]]></thumbnail>
+  <url><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$rows[i]['articleid']?}]]></url>
+ </item>{?/section?}
+</document>

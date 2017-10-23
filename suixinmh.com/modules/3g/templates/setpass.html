@@ -1,0 +1,44 @@
+{?set $jieqi_pagetitle = "设置密码-$jieqi_sitename"?}
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{?$jieqi_pagetitle?}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/find_password.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="javascript:;">返回</a></div>
+    <div class="title"><a href="javascript:;">重置密码</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+<form action="{?function geturl:'3g':'setpass'?}" method="post">
+	<div class="content reset">
+		<p class="resettit"><a href="javascript:;">{?$useruname?}</a>恭喜你，可以开始设置新密码了！</p>
+		<div class="yx">
+	        <span>新密码：</span>
+	        <input name="pass" type="password" value="" placeholder="请输入密码" />
+	    </div>
+	    <div class="yx">
+	        <span>确认密码：</span>
+	        <input type="password" name="repass" value="" placeholder="请输入密码"/>
+	    </div>
+	    <div class="button">
+	    	<input class="tj" type="submit" value="设置密码" />
+			<input type="hidden" name="id" id="id" value="{?$id?}" />
+			<input type="hidden" name="checkcode" id="checkcode" value="{?$checkcode?}" />
+			<input type="hidden" name="setpwd" value="1" />
+			<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	    </div>
+	</div>
+</form>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

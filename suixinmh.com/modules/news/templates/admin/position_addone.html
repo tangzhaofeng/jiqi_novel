@@ -1,0 +1,40 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>标签管理</caption>
+  <tr>
+    <td><a href='?ac=position&op=add&step=one'><font color="red">添加标签</font></a> | <a href='?ac=position'>返回标签列表</a></td>
+  </tr>
+</table>
+<form name="myform" method="post" action="?ac=position&op=add">
+<table cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>添加标签</caption>
+
+     <tr>
+      <th><strong>栏目类型</strong></th>
+      <td>
+	  <input type="radio" name="type" value="0" checked onClick="$('#model').hide()">推荐位（可用于发布文章时选择推荐文章，并支持直接修改文章编号显示文章）<br/>
+	  <input type="radio" name="type" value="1" onClick="$('#model').show()">查询区块（可根据自定查询条件显示相应内容）<br/>
+	  <input type="radio" name="type" value="2" onClick="$('#model').hide()">自定义内容（可自定义页面显示内容，支持HTML）<br/>
+	  </td>
+    </tr>
+<tbody id="model" style="display:none;">
+     <tr>
+      <th><strong>区块文件</strong></td>
+      <td>	<select name="bid" id="bid" size="1">
+	{?section name=i loop=$_PAGE['block']?}
+	<option value="{?$_PAGE['block'][i]['bid']?}">{?$_PAGE['block'][i]['blockname']?}</option>
+	{?/section?}
+	</select> <a href="/admin/blocks.php?modules=news">管理区块</a></td>
+    </tr>
+</tbody>
+	<tr>
+	 <th></th>
+	 <td><input type="submit" name="next" value=" 下一步 ">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重置 "></td>
+	</tr>
+</table>
+</form>

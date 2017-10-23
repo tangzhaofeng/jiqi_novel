@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>评论详情</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/comment_details.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$review.articleid?}">返回</a></div>
+    <div class="title"><a href="javascript:;">评论详情</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+
+<div class="allcomment">
+	<div class="title">主题</div>
+	<div class="content1">
+		<div class="head">
+			<img src="{?function jieqi_geturl:'system':'avatar':'$review.posterid':'m':'$review.avatar'?}" alt="" class="faceimg" />
+			<span class="facezhe"><img src="{?$jieqi_themeurl?}images/headzhe.png" alt="" /></span>
+		</div>
+		<div class="right">
+			<p class="blue name">{?$review.poster?}</p>
+			<p class="summary">{?$review.posttext?}</p>
+			<p class="date">{?$review.posttime|date:"m-d H:i"?}</p>
+			<p class="comment"><a href="javascript:;">回复（{?$totalcount?}）</a></p>
+		</div>
+	</div>
+</div>
+{?if $totalcount>0?}
+<div class="allcomment comment_hf">
+	<div class="title">回复</div>
+	{?section name=i loop=$replyrows?}
+	<div class="content1">
+		<div class="head">
+			<img src="{?function jieqi_geturl:'system':'avatar':'$replyrows[i].posterid':'m':'$replyrows[i].avatar'?}" alt="" class="faceimg" />
+			<span class="facezhe"><img src="{?$jieqi_themeurl?}images/headzhe.png" alt="" /></span>
+		</div>
+		<div class="right">
+			<p class="blue name">{?$replyrows[i].poster?}</p>
+			<p class="summary">{?$replyrows[i].posttext?}</p>
+			<p class="date">{?$replyrows[i].posttime|date:"Y-m-d H:i:s"?}</p>
+		</div>
+		<span class="line"></span>
+	</div>
+	{?/section?}
+	<div class="fanye">
+    	{?$url_jumppage?}
+    </div> 
+</div>
+{?else?}
+{?/if?}
+<div class="dan">
+	<form action="{?$url_addreplies?}" method="post">
+	    <div class="so2">
+	        <input type="text" name="rcontent" id="textfield" size="14" placeholder="输入评论" class="intxt"/>
+	        <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	        <input type="hidden" name="checkflag" value="1" />
+	       <button type="submit" class="btn_so" >发送</button>
+	    </div>
+    </form>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

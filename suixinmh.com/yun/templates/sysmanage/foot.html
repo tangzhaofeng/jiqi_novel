@@ -1,0 +1,30 @@
+<{config_load file="smarty.conf" section="setup"}>
+
+                
+            </div>
+            <!-- END CONTAINER -->
+            <!-- BEGIN FOOTER -->
+            <div class="page-footer">
+                <div class="page-footer-inner"> <{#officel_title#}>
+                </div>
+                <div class="scroll-to-top">
+                    <i class="icon-arrow-up"></i>
+                </div>
+            </div>
+            <!-- END FOOTER -->
+        </div>
+        <{include file="sysmanage/load.html"}>
+        
+        <!-- BEGIN Validform_v5.3.2 -->
+        <link href="<{#root_url_cframe#}>Validform_v5.3.2/demo/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="<{#root_url_cframe#}>Validform_v5.3.2/Validform_v5.3.2.js" type="text/javascript"></script>
+        <script src="<{#root_url_cframe#}>Validform_v5.3.2/Validform_v5.3.2_min.js" type="text/javascript"></script>
+        <script src="<{#root_url_cframe#}>Validform_v5.3.2/Validform_v5.3.2_ncr_min.js" type="text/javascript"></script>
+        <!-- END Validform_v5.3.2 -->
+       	<script type="text/javascript">
+			$(function(){
+				$(".cmdata").Validform();  //就这一行代码！;
+			})
+		</script>
+    </body>
+</html>

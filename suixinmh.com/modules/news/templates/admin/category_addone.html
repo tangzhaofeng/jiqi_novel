@@ -1,0 +1,50 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>栏目管理</caption>
+  <tr>
+    <td><a href='?ac=category&op=add&step=one'><font color="red">添加栏目</font></a> | <a href='?ac=category'>返回栏目列表</a></td>
+  </tr>
+</table>
+<form name="myform" method="post" action="?ac=category&op=add">
+<table cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>添加栏目</caption>
+  <tr>
+  <th><font color="red">*</font>  <strong>上级栏目</strong></th>
+  <td>
+<select name='parentid' id='parentid' >
+<option value='0'>无（作为一级栏目）</option>
+{?section name=i loop=$_SGLOBAL['catelist']?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}' {?if $_PAGE['_GET']['parentid']==$_SGLOBAL['catelist'][i]['catid']?}selected{?/if?}>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/section?}
+</select>
+</td>
+  </tr>
+     <tr>
+      <th><strong>栏目类型</strong></th>
+      <td>
+	  <input type="radio" name="type" value="0"{?if $_PAGE['_GET']['type']=='0' || $_PAGE['_GET']['type']==''?} checked{?/if?} onClick="$('#model').show()">内部栏目（可绑定内容模型，并支持在栏目下建立子栏目或发布信息）<br/>
+	  <input type="radio" name="type" value="1"{?if $_PAGE['_GET']['type']=='1'?} checked{?/if?} onClick="$('#model').hide()">单网页（可更新单网页内容，但是不能在栏目下建立子栏目或发布信息）<br/>
+	  <input type="radio" name="type" value="2"{?if $_PAGE['_GET']['type']=='2'?} checked{?/if?} onClick="$('#model').hide()">外部链接（可建立一个链接并指向任意网址）<br/>
+	  </td>
+    </tr>
+<tbody id="model" style="display:'block'">
+     <tr>
+      <th><strong>绑定模型</strong></td>
+      <td>	<select name="modelid" id="modelid" size="1">
+	{?section name=i loop=$_SGLOBAL['model']?}
+	<option value="{?$_SGLOBAL['model'][i]['modelid']?}" {?if $_PAGE['_GET']['modelid']==$_SGLOBAL['model'][i]['modelid']?}selected{?/if?}>{?$_SGLOBAL['model'][i]['name']?}</option>
+	{?/section?}
+	</select> <a href="?ac=model">管理模型</a></td>
+    </tr>
+</tbody>
+	<tr>
+	 <th></th>
+	 <td><input type="submit" name="next" value=" 下一步 ">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重置 "></td>
+	</tr>
+</table>
+</form>

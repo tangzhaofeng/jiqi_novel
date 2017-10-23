@@ -1,0 +1,102 @@
+<form method="post" action="?" name="myform" id="myform">
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+    <caption>渠道：{?$channel.channelname?}　《{?$article.articlename?}》数据池章节列表</caption>
+<!--     <tr> -->
+<!--     	<th width="2%">序</th> -->
+<!--         <th width="4%">原ID</th> -->
+<!--         <th width="12%">文章名称</th> -->
+<!-- 		<th width="">文章简介</th> -->
+<!-- 		<!-- <th width="5%">接口状态</th> --> 
+<!-- 		<th width="7%">建立时间</th> -->
+<!-- 		{?if $channel.type == 0?} -->
+<!-- 			<th width="7%">最后推送</th> -->
+<!-- 		{?/if?} -->
+<!-- 		<th width="4%">状态</th> -->
+<!--         <th width="17%">管理操作</th> -->
+<!--     </tr> -->
+    {?section name=i loop=$chapters columns=4?}
+    {?if $i['column'] == 1?}<tr>{?/if?}
+		<td class="align_c"  onmouseover="this.style.backgroundColor='#EAF8FF';" onmouseout="this.style.backgroundColor='#ffffff';">
+			<span>{?if $i['append'] == 0?}{?if (JIEQI_NOW_TIME-$chapters[i].adddate) < 60?}<font style="color:red">{?$chapters[i].chaptername?}</font>{?else?}{?$chapters[i].chaptername?}{?/if?} {?else?}&nbsp;{?/if?}</span>
+			{?if $chapters[i].chaptertype == 1 && $i['append'] == 0?}
+			<span align="right" style="float:right;"><a href="javascript:void(0)" onclick="edit('{?$chapters[i].pcid?}')" style="color:blue">编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{?/if?}
+			{?if $chapters[i].chaptertype == 0 && $i['append'] == 0?}
+				<span align="right" style="float:right;"><a href="javascript:void(0)" onclick="edit('{?$chapters[i].pcid?}')" style="color:blue">编辑</a> |
+				{?if $channel.type == 0?}
+					<a href="javascript:void(0)" onclick="insert('{?$chapters[i].pcid?}')" style="color:blue" title="插入一个章节">插队</a> |
+				{?/if?}
+				<!-- 最后一章不提供删除功能，避免下次同步无法定位 -->
+				{?if $i['order'] < $i['count']?}
+					<a href="javascript:confirmurl('{?$adminprefix?}&method=delete&pcid={?$chapters[i].pcid?}', '确认删除文章：{?$chapters[i].chaptername?}')" style="color:blue">删除</a>&nbsp;</span>
+				{?else?}
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				{?/if?}
+			{?/if?}
+		</td>
+     {?if $i['column'] == $i['columns']?}</tr>{?/if?}
+    {?/section?}  
+</table>																																																																																																																																																																																																																																																																																													
+<!-- <div class="button_box"><span style="width:60px"><a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a></span>　<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /> <input name="dosubmit" type="button" value=" 解禁 "  onclick="javascript:if(confirm('批量：解禁？')){myform.action='{?$adminprefix?}&method=editStatu&cid={?$channel.channelid?}&value=1';myform.submit();}" class="text"/> <input name="dosubmit" type="button" value=" 封禁 " onclick="javascript:if(confirm('批量：封禁？')){myform.action='{?$adminprefix?}&method=editStatu&cid={?$channel.channelid?}&value=0';myform.submit();}" class="text"/> <input type="button" name="delete" value=" 删除 " onclick="javascript:if(confirm('确认批量删除选中的推送文章？')){myform.action='{?$adminprefix?}&method=delArticle&cid={?$channel.channelid?}';myform.submit();}">{?if $channel.type == 0?} <input type="button" name="delete" value=" 推送 " onclick="javascript:if(confirm('确认批量推送文章？')){myform.action='{?$adminprefix?}&method=push&cid={?$channel.channelid?}';myform.submit();}">{?/if?} <input type="button" name="synchronisation" value=" 同步 " title="批量同步章节" onclick="javascript:if(confirm('确认批量同步文章？')){myform.action='{?$adminprefix?}&method=synchronization&cid={?$channel.channelid?}';myform.submit();}"> </div> -->
+</form>
+<script type="text/javascript">
+function insert(pcid){
+	GPage.getJson('{?$adminprefix?}&method=getChapter&cid='+pcid,function(data){
+		 if(data.status=='OK'){
+			 html = '<form id="edit_form" name="edit_form" id="edit_form" method="post" style="padding:5px;" action="{?$adminprefix?}&method=insertChapter&pcid='+pcid+'">';
+			 html += '<div class="fl" style="width:45%">';
+			 html += '<input id="chaptername" name="chaptername" size="50" value="'+data.msg['chaptername']+'" /><br><br>';
+			 html += '<textarea id="content" name="content" rows="30" cols="55">'+data.msg['content']+'</textarea><br><br>';
+			 html += '</div>';
+			 html += '<div class="fr" style="width:45%">';
+			 html += '<input id="insertChapterName" name="insertChapterName" size="50" /><br><br>';
+			 html += '<textarea id="insertContent" name="insertContent" rows="30" cols="55"></textarea><br><br>';
+			 html += '<input  type="submit" value=" 保存/插入 "/>';
+			 html += '</div></form>';
+			 $.layer({
+					shade : [0.5 , '#000' , true],
+					type : 1,
+					area : ['880px','auto'],
+					title : false,
+					offset : ['90px' , '50%'],
+					border : [10 , 0.3 , '#000', true],
+					zIndex : 1,
+					page : {html : html},
+					close : function(index){
+						layer.close(index);
+						$('.ul_con').hide();
+					}
+				});	
+		 }else{
+			 layer.alert(data.msg, 8, !1);
+		 }
+	});
+}
+function edit(pcid){
+	GPage.getJson('{?$adminprefix?}&method=getChapter&cid='+pcid,function(data){
+		 if(data.status=='OK'){
+			 html = '<form id="edit_form" name="edit_form" id="edit_form" method="post" style="padding:5px;" action="{?$adminprefix?}&method=editChapter&pcid='+pcid+'">';
+			 html += '章节号：'+pcid+'<br>';
+			 html += '<input id="chaptername" name="chaptername" size="80" value="'+data.msg['chaptername']+'" /><br>';
+			 html += '<textarea id="content" name="content" rows="33" cols="80">'+data.msg['content']+'</textarea><br>';
+			 html += '<input  type="submit" value=" 修改 "/></form>';
+			 $.layer({
+					shade : [0.5 , '#000' , true],
+					type : 1,
+					area : ['600px','560px'],
+					title : false,
+					offset : ['10px' , '50%'],
+					border : [10 , 0.3 , '#000', true],
+					zIndex : 1,
+					page : {html : html},
+					close : function(index){
+						layer.close(index);
+						$('.ul_con').hide();
+					}
+				});	
+		 }else{
+			 layer.alert(data.msg, 8, !1);
+		 }
+	});
+}
+</script>

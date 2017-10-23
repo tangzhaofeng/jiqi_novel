@@ -1,0 +1,16 @@
+<link href="{?$jieqi_themeurl?}style/pop.css" type="text/css" rel="stylesheet" />
+<!--pop3 begin-->
+<div class="pop3 fix" style="position:absolute; z-index:1; border: 5px solid gray; border-radius: 5px;">
+  <div class="user fix">
+    <div class="img"><img src="{?function jieqi_geturl:'system':'avatar':'$uid':'m':'2'?}" onerror="this.src='{?eval echo JIEQI_URL;?}/modules/article/images/nophoto_head.jpg'" /></div>
+    <dl class="g3">
+     <dt class="db"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$uid'?}" target="_blank" class="f_blue1 b f14">{?$name?}</a><a class="{?$vipphoto?} vs" title="{?$vipgrade?}级会员" href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}"></a></dt>
+     <dd class="db g6">{?$group?}</dd>
+     <dd>关注：<em class="blue3">{?$friendnum?}</em></dd>
+     <dd>作品：<em class="blue3">{?$worknum?}</em></dd>
+     <dd>书评：<em class="blue3">{?$reviewnum?}</em></dd>
+    </dl>
+    <p class="g3 cl"><em class="b">简介：</em>{?if $sign!=''?}{?$sign?}{?else?}这家伙很懒，什么也没留下。{?/if?}</p>
+  </div>
+  <div class="po_dwn g6 fix"><p class="fl"><a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$name|urlencode'?}" class="f_gray6">发私信</a> | <a href="javascript:;" class="f_gray6">@{?$jieqi_sitename?}小说</a></p><p class="fr" id="display_type"><a href="javascript:;" {?if  $type == 1||$type == -1?}style="display:none;"{?/if?} id="add_gz" onclick="GPage.addbook('{?function geturl:'system':'userhub':'SYS=method=addAttention&yuid=$uid'?}','display_type');" class="abtn4">+加关注</a> <a href="javascript:;" id="cancel_gz"  class="abtn4" {?if  $type == 0||$type == -1||$type == -2?}style="display:none;"{?/if?} onclick="GPage.addbook('{?function geturl:'system':'userhub':SYS=method=delAtten&yid=$uid&myid=$_USER.uid?}','display');">取消关注</a>{?if $type == -1?} {?/if?}</p></div>
+</div><!--pop3 end-->

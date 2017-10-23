@@ -1,0 +1,14 @@
+{?section name=i loop=$articlerows?}
+{?if $i.order == 1?}
+<ul class="li-img clearfix" id="one" >
+{?else if $i.order ==5?}
+</ul><ul class="li-img clearfix" id="two" style="display:none">
+{?else if $i.order ==9?}
+</ul>
+{?/if?}
+<li>
+	<a href="{?$articlerows[i].url_module_articleinfo?}" media="handheld">
+	<img src="{?$articlerows[i].url_image?}"><p>{?$articlerows[i].articlename|truncate:10?}</p>
+	</a>
+</li>
+{?/section?}

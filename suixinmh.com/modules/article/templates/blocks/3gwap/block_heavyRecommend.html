@@ -1,0 +1,26 @@
+{?section name=i loop=$articlerows?}
+{?if $i.order == 1?}
+  <a href="{?$articlerows[i].url_module_articleinfo?}" class="center-block" media="handheld">
+	<dl class="book-img clearfix">
+	  <dt class="thumb-img"><img src="{?$articlerows[i].url_image?}"></dt>
+      <dd>
+        <h4>{?$articlerows[i].articlename?}</h4>
+      </dd>
+      <dd class="sort">{?$articlerows[i].sort?} | {?$articlerows[i].author?}</dd>
+      <dd class="txt">{?$articlerows[i].intro?}</dd>
+    </dl>
+  </a>
+{?else?}
+  <ul class="list-t2">
+	<li>
+	  <a href="{?$articlerows[i].url_module_articleinfo?}" media="handheld">
+	    <div class="name">
+		  <h4>{?$articlerows[i].articlename?}</h4>
+		  <span>{?$articlerows[i].shortcaption?} | </span><span class="author">{?$articlerows[i].author?}</span>
+	    </div>
+	    <p class="txt">{?$articlerows[i].intro?}</p>
+	  </a>
+	</li>
+  </ul>
+{?/if?}
+{?/section?}

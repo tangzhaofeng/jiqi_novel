@@ -1,0 +1,11 @@
+{?section name=i loop=$articlerows?}
+ <dl class="list_img2">
+   <dt><a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}" title="{?$articlerows[i].articlename?}"/></a></dt>
+   <dd><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="b f-gray3">{?$articlerows[i].articlename?}</a></dd>
+   <dd>作者：<a class="f-gray9" {?if$articlerows[i]["authorid"]>0?} target="_blank" ajaxhover="true" uid="{?$articlerows[i].authorid?}"  href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i]["authorid"]'?}"{?else?}href="javascript:void(0);"{?/if?}>{?$articlerows[i].author?}</a></dd>
+   <dd>类别：<a class="f-gray9" target="_blank" href="{?function geturl:'mm':'shuku':SYS=sort=$articlerows[i]['sortid']&tag=0&size=0&fullflag=0&operate=0&free=0&page=1?}" title="{?$articlerows[i].sort?}">{?$articlerows[i].shortcaption?}</a></dd>
+   <dd>字数：{?if $articlerows[i]['size_c'] < 10000 ?}{?$articlerows[i]['size_c']?}字{?else?}{?$articlerows[i]['size_w']?}万字{?/if?}</dd>
+   <dd>更新：{?$articlerows[i].lastupdate|date:"m-d H:i"?}</dd>
+   <dd class="f-org"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank">[阅读]</a><a href="javascript:void(0)" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">[收藏]</a></dd>
+ </dl>
+{?/section?}

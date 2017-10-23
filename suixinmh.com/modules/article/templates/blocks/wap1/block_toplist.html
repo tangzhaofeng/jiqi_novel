@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+<li><span class="name"><em class="no{?$i.order?}">{?$i.order?}</em><a href="{?function geturl:'wap':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self">{?$articlerows[i].articlename?}</a></span><span class="num"><em class="org">{?if $articlerows[i]['visitnum'] < 10000 ?}{?$articlerows[i]['visitnum']?}{?else?}{?$articlerows[i]['visitnum_w']?}Íò{?/if?}</em><img src="{?$jieqi_themeurl?}images/arrow1.jpg" alt="ÉÏÉý"/></span></li>
+{?/section?}

@@ -1,0 +1,19 @@
+<div class="gridtop"><a href="{?$article_dynamic_url?}/admin/?controller=search">全部搜索关键字</a>  | <a href="{?$article_dynamic_url?}/admin/?controller=search&flag=no">找不到的文章</a></div>
+<table class="grid" width="100%" align="center">
+  <tr align="center">
+    <th width="25%">搜索时间</th>
+    <th width="40%">关键字</th>
+    <th width="15%">结果数</th>
+	<th width="15%">搜索次数</th>
+    </tr>
+  {?section name=i loop=$cacherows?}
+  <tr>
+    <td height="14" align="center" class="odd">{?$cacherows[i].searchtime|date:Y-m-d H:i:s?}</td>
+    <td class="even">{?$cacherows[i].keywords?}</td>
+    <td align="center" class="even">{?$cacherows[i].results?}</td>
+	 <td align="center" class="odd">{?$cacherows[i].searchtype?}</td>
+  </tr>
+  {?/section?}
+</table>
+<div class="pages">{?$url_jumppage?}</div>
+

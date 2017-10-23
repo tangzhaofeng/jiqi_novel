@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>{?eval $volume = $chapter = 0;?}{?eval $volumename = '正文';?}
+{?section name=i loop=$chapters?}{?eval $chapter = $volume = 0;?}
+{?if $chapters[i]['chaptertype']>0?}{?eval $volumename = gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}{?/if?}
+{?if $chapters[i]['chaptertype']==0 && $i.order==1?}{?eval $volume++;?}{?eval $chapter++;?}
+        <vol> 
+            <volumename><![CDATA[{?eval echo gb2utf8XHSafeStr('正文',false);?}]]></volumename> 
+				<url><![CDATA[http://{?$HTTP_HOST?}/?ac=content&cid={?$chapters[i]['chapterid']?}&aid={?$article['articleid']?}]]></url>
+				<chaptername><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chaptername>
+				<chapterid>{?$chapters[i]['chapterid']?}</chapterid>
+				<license>{?$chapters[i]['isvip']?}</license>
+{?elseif $chapters[i]['chaptertype']==1?}{?eval $volume++;?}
+	<vol>
+	<volumename>{?$volumename;?}</volumename>
+	{?eval $chapter = 0;?}
+{?else?}{?eval $chapter++;?}
+<url><![CDATA[http://{?$HTTP_HOST?}/?ac=content&cid={?$chapters[i]['chapterid']?}&aid={?$article['articleid']?}]]></url>
+<chaptername><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chaptername>
+<chapterid>{?$chapters[i]['chapterid']?}</chapterid>
+<license>{?$chapters[i]['isvip']?}</license>
+{?/if?}{?if $chapters[$i.order]['chaptertype'] == "1" || $chapters[$i.order]['chaptername'] == ""?}</vol>{?/if?}
+{?/section?}
+</data>

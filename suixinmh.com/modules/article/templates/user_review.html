@@ -1,0 +1,14 @@
+{?if $count != 0?}
+     <!--box0 begin-->
+     <div class="box0 fix">
+      <div class="tbox mt20"><em class="comm">最新书评</em></div>
+       <dl class="lisd_t g6">
+	   {?section name=i loop=$reviewrows?}
+        <dd {?eval if($i['order']%2 == 0){ echo 'class=\'dbg\'';}?}>
+         <p>{?$reviewrows[i].replytime|date:"Y-m-d H:i:s"?} 在<a href="{?function geturl:'article':'articleinfo':'SYS=aid=$reviewrows[i].articleid'?}#maodian" target="_blank" class="f_org b">《{?$reviewrows[i].articlename?}》</a>书评区发表 <a href="{?function geturl:'article':'articleinfo':'SYS=aid=$reviewrows[i].articleid'?}#maodian" target="_blank" class="f_blue1 b">{?$reviewrows[i].posttext?}</a></p>
+         <p class="txt">{?$reviewrows[i].title?}</p>
+        </dd>
+		{?/section?}
+       </dl>
+     </div><!--box0 end-->   
+{?/if?}

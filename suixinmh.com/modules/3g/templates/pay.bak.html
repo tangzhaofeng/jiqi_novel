@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>充值中心</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/recharge.css" rel="stylesheet" type="text/css" />
+<script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+<script src="{?$jieqi_themeurl?}js/page-tj.js"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?eval echo JIEQI_REFER_URL;?}">返回</a></div>
+    <div class="title"><a href="javascript:;">充值中心</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+
+{?include file = "themes/3g/paylogin.html"?}
+
+<div class="content2">
+	<ul>
+		<li class="fl hot">
+			<img class="hots" src="{?$jieqi_themeurl?}images/hotsicon.png" alt="" />
+			<a href="{?function geturl:'3g':'pay':'SYS=method=wechat'?}"><img src="{?$jieqi_themeurl?}images/weixin.jpg"/></a>
+			<p>微信支付</p>
+		</li>
+		<!--<li class="fl hot">
+			<img class="hots" src="{?$jieqi_themeurl?}images/hotsicon.png" alt="" />
+			<a href="{?function geturl:'3g':'pay':'SYS=method=alipay'?}"><img src="{?$jieqi_themeurl?}images/zhifubao.jpg"/></a>
+			<p>支付宝</p>
+		</li>
+		-->
+		<!--<li class="fl hot">
+			<img class="hots" src="{?$jieqi_themeurl?}images/hotsicon.png" alt="" />
+			<a href="{?function geturl:'3g':'pay':'SYS=method=qq'?}"><img src="{?$jieqi_themeurl?}images/qq.jpg"/></a>
+			<p>QQ钱包</p>
+		</li>
+		<li class="fl hot">
+			<img class="hots" src="{?$jieqi_themeurl?}images/hotsicon.png" alt="" />
+			<a href="{?function geturl:'3g':'pay':'SYS=method=yeepay'?}"><img src="{?$jieqi_themeurl?}images/yinlian.jpg"/></a>
+			<p>银行卡</p>
+		</li>
+		<li class="fl hot">
+			<img class="hots" src="{?$jieqi_themeurl?}images/hotsicon.png" alt="" />
+			<a href="weixinpay.html"><img src="{?$jieqi_themeurl?}images/weixin.jpg"/></a>
+			<p>微信支付</p>
+		</li>
+		<li class="fl">
+			<a href="{?function geturl:'3g':'pay':'SYS=method=mobile'?}"><img src="{?$jieqi_themeurl?}images/yidong.jpg"/></a>
+			<p>移动短信</p>
+		</li>
+		<li class="fl">
+			<a href="{?function geturl:'3g':'pay':'SYS=method=telecom'?}"><img src="{?$jieqi_themeurl?}images/dianxin.jpg"/></a>
+			<p>电信短信</p>
+		</li>
+		<li class="fl">
+			<a href="{?function geturl:'3g':'pay':'SYS=method=unicom'?}"><img src="{?$jieqi_themeurl?}images/liantong.jpg"/></a>
+			<p>联通短信</p>
+		</li>-->
+		<!--<li class="fl">
+			<a href="javascript:;"><img src="{?$jieqi_themeurl?}images/shoujika.jpg"/></a>
+			<p>手机充值卡</p>
+		</li>-->
+	</ul>
+</div>
+
+<div class="warm_prompt">
+	<p>温馨提示</p>
+	<span>1.兑换比例：1元=100{?$egoldname?}<br /><!--2.短信充值：1元=40{?$egoldname?}<br />3.手机充值卡：1元=80{?$egoldname?}<br />--> 2.支付宝：支付宝余额，银行卡支付，微信环境内不可用！<br />3.微信支付：<font color="#FF0000">微信环境下唯一可使用充值方式</font><br />*充值遇到问题时，请联系客服。<br />客服：微信搜索”品书“或者”pinshuwang“，关注品书公众号，进行问题咨询</span>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

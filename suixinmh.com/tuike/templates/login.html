@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>优阅云丨让流量不再闲置</title>
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}/login/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}/login/css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}/login/css/jquery.fullPage.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}/login/css/main.css?1.1">
+    <script src="{?$jieqi_themeurl?}js/layer_mobile/layer.js"></script>
+  </head>
+  <body>
+    <div class="menu nav">
+      <div class="container">
+        <div class="col-md-2 col-xs-2 logo_p" style="padding-left: 0;" data-menuanchor="page1">
+          <a href="#page1" class="logo"></a>
+        </div>
+        <div class="col-md-2 col-xs-2 " data-menuanchor="page1">
+          <a href="#page1" class="main_nav">HOME</a>
+        </div>
+        <div class="col-md-2 col-xs-2" data-menuanchor="page2">
+          <a href="#page2" class="main_nav">YOU YUE YUN</a>
+        </div>
+        <div class="col-md-2 col-xs-2" data-menuanchor="page3">
+          <a href="#page3" class="main_nav">WHY ME</a>
+        </div>
+        <div class="col-md-2 col-xs-2" data-menuanchor="page4">
+          <a href="#page4" class="main_nav">CASE</a>
+        </div>
+        <div class="col-md-2 col-xs-2" data-menuanchor="page1">
+          <a href="#page1"><i class="user"></i></a>
+        </div>
+      </div>
+    </div>
+    <div id="dowebok">
+      <div class="section section1">
+        <div class="container lead_channel">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 lead_title">
+              引领渠道未来
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-xs-12 lead_titleusa">
+              LEAD THE CHANNEL IN THE FUTURE
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="container login_main" style="display: block;" id="login">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 login_title">登录</div>
+            </div>
+            <div class="row login_content">
+              <div class="col-md-4 col-xs-1"></div>
+              <div class="col-md-4 col-xs-10">
+                <form action="" id="users_login" onsubmit="return false;" >
+                  <div class="container-fluid form_container">
+                    <div class="row login_row">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="text" class="username" name="username" placeholder="用户名">
+                      </div>
+                    </div>
+                    <div class="row login_row">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="password" class="password" name="password" placeholder="用户密码">
+                      </div>
+                    </div>
+                    <div class="row login_row">
+                      <div class="col-md-8 col-xs-8 col-xm-8">
+                        <input type="text" class="code" name="checkcode" placeholder="验证码">
+                      </div>
+                      <div class="col-md-4 col-xs-4  mar-t-15 mar-b-15">
+                        <a href="javascript:;">
+                          <img src="{?$jieqi_url?}/checkcode.php?rand={?eval echo mt_rand(100000,999999);?}" width="100%" class="j-codeReresh img-responsive" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row login_submit">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="hidden" name="ajax_request" value="1" />
+                        <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                        <input type="submit" value="登录" class="login-btn">
+                      </div>
+                    </div>
+                    <div class="row to_register">
+                      <div class="col-md-12 col-xs-12">
+                        <a href="#register" class="to_tabs to_tabs_user">没有账号？立即注册</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-fluid login_remeb">
+                    <div class="row">
+                      <div class="col-md-4 col-xs-4 login_remeber">
+                        <label class="fl">
+                        <input type="checkbox" id="rd_remember">记住密码
+                      </label>
+                      </div>
+                      <div class="col-md-4 col-xs-4"></div>
+                      <div class="col-md-4 col-xs-4 login_forget">
+                        <a href="#forget_pwd" class="to_tabs to_tabs_user fr login-forgetlink">忘记密码？</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-4 col-xs-1"></div>
+            </div>
+          </div>
+          <div class="container login_main" style="display: none;" id="register">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 login_title">注册</div>
+            </div>
+            <div class="row login_content">
+              <div class="col-md-4 col-xs-1"></div>
+              <div class="col-md-4 col-xs-10">
+                <form action="{?function geturl:'tuike':'login':'SYS=method=registerNa'?}" onsubmit="return false;" id="users_register">
+                  <div class="container-fluid form_container">
+                    <div class="row login_row">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="text" name="phone" class="phone" placeholder="请输入手机号码">
+                      </div>
+                    </div> 
+                    <div class="row login_row">
+                      <div class="col-md-8 col-xs-8">
+                        <input type="text" class="code" name="checkcode" placeholder="验证码">
+                      </div>
+                      <div class="col-md-4 col-xs-4 mar-t-15 mar-b-15">
+                        <a href="javascript:;">
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" width="100%" class="j-codeReresh img-responsive" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row login_row get_code">
+                      <div class="col-md-8 col-xs-8">
+                        <input type="text" class="code" name="msgcode" placeholder="请输入短信验证码" data-autohide="1" tabindex="2">
+                      </div>
+                      <div class="col-md-4 col-xs-4">
+                        <input id="btn_sendCode_regiter" type="button" class="btn-getCode" value="获取验证码">
+                      </div>
+                    </div>
+                    <div class="row login_row">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="password" class="password" name="password" placeholder="输入密码" tabindex="3">
+                      </div>
+                    </div>
+                    <div class="row login_submit">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="hidden" name="ajax_request" value="1" />
+                        <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                        <input type="submit" value="注册" class="login-btn">
+                      </div>
+                    </div>
+                    <div class="row to_register">
+                      <div>
+                        <label><input type="checkbox" name="agreement" value="1" id="rd_readme" checked="1">我已阅读并同意</label>
+                        <a class="xieyi" href="{?$jieqi_url?}/login/agreement" target="_blank">《优阅云用户注册协议》</a>
+                      </div>
+                    </div>
+                    <div class="row to_register">
+                      <div class="col-md-12 col-xs-12">
+                        <a href="#login" class="to_tabs to_tabs_user">已有账号？立即登录</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-4 col-xs-1"></div>
+            </div>
+          </div>
+          <div class="container login_main" style="display: none;" id="forget_pwd">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 login_title">找回密码</div>
+            </div>
+            <div class="row login_content">
+              <div class="col-md-4 col-xs-1"></div>
+              <div class="col-md-4 col-xs-10">
+                <form action="{?function geturl:'tuike':'login':'SYS=method=getpass'?}" method="post" id="users_getpass" >
+                  <div class="container-fluid form_container">
+                    <div class="row login_row">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="text" name="phone" class="phone" placeholder="请输入手机号码">
+                      </div>
+                    </div>
+                    <div class="row login_row">
+                      <div class="col-md-8 col-xs-8">
+                        <input type="text" class="code" name="checkcode" placeholder="验证码">
+                      </div>
+                      <div class="col-md-4 col-xs-4 mar-t-15 mar-b-15">
+                        <a href="javascript:;">
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" width="100%" class="j-codeReresh img-responsive" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();">
+                        </a>
+                      </div>
+                    </div>
+                    <div class="row login_row get_code">
+                      <div class="col-md-8 col-xs-8">
+                        <input type="text" class="code" name="msgcode" placeholder="请输入短信验证码" data-autohide="1" tabindex="2">
+                      </div>
+                      <div class="col-md-4 col-xs-4">
+                        <input id="btn_sendCode_getpass" type="button" class="btn-getCode" value="获取验证码">
+                      </div>
+                    </div>
+                    <div class="row login_row">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="password" class="password" name="password" placeholder="输入密码" tabindex="3">
+                      </div>
+                    </div>
+                    <div class="row login_submit">
+                      <div class="col-md-12 col-xs-12">
+                        <input type="hidden" name="ajax_request" value="1" />
+                        <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                        <input type="submit" value="立即修改" class="login-btn">
+                      </div>
+                    </div>
+                    <div class="row to_register">
+                      <div class="col-md-12 col-xs-12">
+                        <a href="#login" class="to_tabs to_tabs_user">已有账号？立即登录</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-4 col-xs-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section2">
+        <div class="container part2_container">
+          <div class="row">
+            <div class="col-md-5 col-xs-7">
+              <div class="liuliang_title">
+                随时发随时赚
+              </div>
+              <div class="liuliang_content">
+                入住门槛不限，优阅云将让各个媒体平 台大、小流量主随时自己发广告，随时 发、随时赚钱，当日收、入当日即可提 现 。
+              </div>
+            </div>
+            <div class="col-md-7 col-xs-5"></div>
+          </div>
+          <div class="row ">
+            <div class="col-md-7 col-xs-4">
+            </div>
+            <div class="col-md-5 col-xs-8">
+              <div class=" liuliang_title">
+                让流量不再闲置
+              </div>
+              <div class=" liuliang_content2 ">
+                优阅云依靠强大的运营团队大量在微博、 微信、百度等各大渠道精准投放广告实 战经验，并对各社会化媒体帐号进行评 估，对用户群受众进行分析，确定各类 帐号隐形属性，帮助流量主做到流量高 效性的广告投放高速回报的通道！创立 出优阅云。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section3">
+        <div class="container part3_why">
+          <div class="row">
+            <div class="col-md-12 col-xs-12 why_title">
+              为什么选择优阅云？
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-xs-12 why_title_usa">
+              WHY DID YOU CHOOSE US?
+            </div>
+          </div>
+        </div>
+        <div class="container why_content">
+          <div class="row">
+            <div class="col-md-4 col-xs-6">
+              <div class="why_content_head"><span>运营屌</span></div>
+              <div class="why_content_body first_why">
+                大型游戏公司it技术架构，平台稳定有保障； 电话、微信、QQ全线客服，用户疑问高效促转化；品牌电商内容运营总监，最大价值开发自己的流量资源；专业媒体编辑审稿，提供的优质推广文案和建议文案。
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+              <div class="why_content_head"><span>内容好</span></div>
+              <div class="why_content_body">
+                签约国内大型中文小说网站，包括百度文学下的纵横中文网，上千本图书总有适合你的。
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+              <div class="why_content_head"><span>分成高</span></div>
+              <div class="why_content_body">
+                高达85%的分成率，你还去接什么单，剩余 流量高效利用。
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+              <div class="why_content_head"><span>留存久</span></div>
+              <div class="why_content_body">
+                一次推广，终生受益，用户价值永久推客。 千字5分钱，每本书几百万字，多次充值， 多次受益。
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+              <div class="why_content_head"><span>变现快</span></div>
+              <div class="why_content_body">
+                发布即见效果，用户充值方便，提供简便的 支付宝、微信充值。
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+              <div class="why_content_head"><span>结算快</span></div>
+              <div class="why_content_body why_content_body_last-child">
+                当天结算，次日打款。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section4">
+        <div class="container part4_hezuo">
+          <div class="row">
+            <div class="col-md-2 col-xs-12"></div>
+            <div class="col-md-10 col-xs-12">
+              <div class="col-md-4 col-xs-5 case_main case_title">合作案例</div>
+              <div class="col-md-8 col-xs-7 case_main case_title_usa">COOPERATION CASE</div>
+            </div>
+          </div>
+        </div>
+        <div class="container case_lists">
+          <div class="row">
+            <div class="col-md-2 col-xs-12"></div>
+            <div class="col-md-10 col-xs-12">
+              <div class="border_bottom">
+                <div class="col-md-10 col-xs-12">
+                  <ul class="case_change">
+                    <li class="col-md-3 col-xs-3 active">
+                      <a href="#wechat" class="to_tabs to_tabs_case">微信</a>
+                    </li>
+                    <li class="col-md-3 col-xs-3">
+                      <a href="#weibo" class="to_tabs to_tabs_case">微博</a>
+                    </li>
+                    <li class="col-md-3 col-xs-3">
+                      <a href="#qqdingyue" class="to_tabs to_tabs_case">QQ订阅号</a>
+                    </li>
+                    <li class="col-md-3 col-xs-3">
+                      <a href="#qqboluo" class="to_tabs to_tabs_case">QQ部落</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-2 col-xs-12"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row case_shows">
+            <div id="wechat" style="display: block;">
+              <div class="col-md-2 col-xs-12"></div>
+              <div class="col-md-10 col-xs-12 ">
+                <ul>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weixingongzhong1.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weixingongzhong2.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weixingongzhong3.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weixingongzhong4.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weixingongzhong5.jpg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="weibo" style="display: none;">
+              <div class="col-md-2 col-xs-12"></div>
+              <div class="col-md-10 col-xs-12">
+                <ul>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weibogongzhong1.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weibogongzhong2.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weibogongzhong3.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weibogongzhong4.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/weibogongzhong5.jpg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="qqdingyue" style="display: none;">
+              <div class="col-md-2 col-xs-12"></div>
+              <div class="col-md-10 col-xs-12">
+                <ul>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqgongzhong1.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqgongzhong2.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqgongzhong3.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqgongzhong4.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqgongzhong5.jpg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div id="qqboluo" style="display: none;">
+              <div class="col-md-2 col-xs-12"></div>
+              <div class="col-md-10 col-xs-12">
+                <ul>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqblok1.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqblok2.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqblok3.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqblok4.jpg">
+                  </li>
+                  <li>
+                    <img src="{?$jieqi_themeurl?}/img/qqblok5.jpg">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{?$jieqi_themeurl?}/login/js/jquery-1.8.3.min.js"></script>
+    <script src="{?$jieqi_themeurl?}/login/js/jquery.fullPage.min.js"></script>
+    <link href="{?$jieqi_themeurl?}js/layer_mobile/need/layer.css" rel="stylesheet" >
+    <script src="{?$jieqi_themeurl?}/js/users.js"></script>
+    <script>
+
+
+      // 注册-发送验证码
+      var q_this=$("#btn_sendCode_regiter");
+      q_this.data("msg_url",getUrl(["registerCo"]));
+      q_this.data("form",document.getElementById('users_register'));
+      q_this.click(msg_phone_code);
+      // 注册-提交 jq
+      $("#users_register").submit(Users.FormSubmit).data("da",{"fn_f":function(){
+          if(!Users.form.agreement.checked)Users.msg_err ='请选择用户协议！';
+          Users.checkUser('phone');               
+          Users.checkempty('password','请输入用户密码！');
+          Users.checkCheckcode('checkcode',4);
+          Users.checkMsgcode('msgcode');
+        }});
+
+      // 密码找回-发送验证码
+      q_this=$("#btn_sendCode_getpass");
+      q_this.data("msg_url",getUrl(["sendsms"]));
+      q_this.data("form",document.getElementById('users_getpass'));
+      q_this.click(msg_phone_code);
+      // 密码找回-提交
+      $("#users_getpass").submit(Users.FormSubmit).data("da",{"fn_f":function(){
+          Users.checkUser('phone');               
+          Users.checkempty('password','请输入用户密码！');
+          Users.checkCheckcode('checkcode',4);
+          Users.checkMsgcode('msgcode');
+        },"fn":function(msg){                 
+          if(msg.status === 'OK'){
+            setTimeout(function(){location.href='';},1100);
+          }
+          Users.ShowMsg(msg.msg);
+        }});
+
+
+      // 登陆
+      $("#users_login").submit(Users.FormSubmit).data("da",{"fn_f":function(){
+          Users.checkempty('username','请输入用户名！');
+          Users.checkempty('password','请输入用户密码！');
+          Users.checkCheckcode('checkcode',4);
+        }});
+
+
+      // 合作案例
+      $('.to_tabs_case').click(function(e) {
+        var q_par;
+        e.preventDefault();
+        if( !($(this).parent().hasClass('active')) ) {
+          $(this).parent().addClass('active').siblings().removeClass('active');
+        }
+        q_par=$(this.hash);
+        q_par.css('display', 'block').siblings().css('display', 'none');
+      });
+      // 切换会员操作
+      $('.to_tabs_user').click(function(e) {
+        var q_par,to_id;
+        to_id=this.hash;
+        e.preventDefault();
+        if( !($(this).parent().hasClass('active')) ) {
+          $(this).parent().addClass('active').siblings().removeClass('active');
+        }
+        q_par=$(to_id);
+        q_par.css('display', 'block').siblings().css('display', 'none');
+        q_par.find('.j-codeReresh').trigger("click");
+        q_par.find('input[name=checkcode]').val('');
+      });
+
+      // 页面效果
+      $('#dowebok').fullpage({
+        sectionsColor: ['#fff', '#fff', '#fff', '#fff'],
+        anchors: ['page1', 'page2', 'page3', 'page4'],
+        menu: '.menu',
+        'navigation': true,
+        loopBottom: true,
+        css3: true 
+      });
+
+      // 发送验证码
+      function msg_phone_code() {
+        if( Users.se>0)return false;
+        Users.q_btnv=$(this);
+        Users.form=Users.q_btnv.data("form");
+        Users.msg_err=false;
+        if(Users.form.agreement && !Users.form.agreement.checked)Users.msg_err ='请选择用户协议！';
+        Users.checkUser('phone');
+        Users.checkCheckcode('checkcode',4);
+        if( Users.checkeError()) return false;
+        $.ajax({ // jq  
+          url:Users.q_btnv.data("msg_url"), 
+          type:'post',
+          async: false,
+          data:$(Users.form).serialize(),
+          dataType:'json',
+          success:function(msgs){ 
+            if(msgs.status == 'OK'){ 
+              Users.se=60;
+              Users.q_btnv.attr("disabled", "disabled");
+              Users.RegSmsWait();
+            }else{
+              Users.ShowMsg(msgs.msg); 
+            }
+          }
+        });
+      }
+
+
+    </script>
+  </body>
+
+</html>

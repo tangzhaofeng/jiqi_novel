@@ -1,0 +1,146 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+ 
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+    {?if $display == 1?}
+    	<div class="t2 rel">
+       		<h2>创建新书</h2> <a href="/help/" class="ihelp f_blue5">FAQ </a>
+      </div>
+    {?else?}
+    	{?include file = "modules/article/templates/newarticletab.html" ?}
+    {?/if?}
+     <dl class="list_note2">
+      <dd class="org3">请仔细想好书名，书名一旦采用，不可更改！如果被查证该作品抄袭，申请的作者帐号将会被屏蔽！</dd>
+     </dl>
+     <dl class="box_form">
+	 <div id="result_14" class="tip-ok" style="display:none"></div>
+	   <form  id="signup_form" action="{?function geturl:'article':'article':'SYS=method=step1'?}"  method="post" enctype="multipart/form-data" class="jNice" >
+         <dd class="fix">
+          <em class="tt3">作品类别：</em>
+          <div class="int">
+            <!--selt3 begin-->
+            <div class="selt3">
+              <select id="sortid" name="sortid" style="display:none;">
+				{?section name=i loop=$sortrows?}
+                	<option value="{?$i['key']?}">{?$sortrows[i].caption?}</option>
+				{?/section?}
+              </select>
+
+            </div><!--selt3 end-->
+           <span class="hint">一经选定，不能修改。 </span>
+          </div>
+         </dd>
+         <dd class="fix">
+          <em class="tt3">作品书名：</em>
+          <div class="int">
+           	<input type="text" class="input1"  name="articlename" id="articlename"  maxlength="20" data-rule="书名: required;articlename;remote[{?function geturl:'article':'article':'SYS=method=checkArticlename'?}]" />
+           <span class="hint cl">请不要在书名里加标点、标识符等异形字符，最多20个汉字。一经选定，不能修改。 </span>
+          </div>
+         </dd>
+       <dd class="fix">
+          <em class="tt3">关键字：</em>
+          <div class="int"> 
+           <input type="text" class="input1 fl" name="keywords" id="keywords" value="" maxlength="30"/><span class="hint">关键字(标签)之间用空格隔开,最多十组</span>
+          </div>
+         </dd>
+         <dd class="fix">
+          <em class="tt3">编辑：</em>
+          <div class="int"> 
+           <input type="text" class="input1 fl" name="agent" id="agent" value="" maxlength="10" data-rule="agent;remote[{?function geturl:'article':'article':'SYS=method=checkAgent'?}]"/><span class="hint cl">可以指定一个本站现有用户作为管理员</span>
+          </div>
+         </dd>
+         {?if $allowtrans > 0?}
+	         <dd class="fix">
+	          <em class="tt3">作者：</em>
+	          <div class="int"> 
+	           <input type="text" class="input1 fl" name="author" id="author" value="" maxlength="10" data-rule="author;remote[{?function geturl:'article':'article':'SYS=method=checkAuthor'?}]"><span class="hint cl">发表自己作品请留空</span>
+	          </div>
+	         </dd>
+	         <dd class="fix">
+	          <em class="tt3">管理授权：</em>
+	          <div class="int"> 
+	           {?section name=i loop=$authorflag['items']?}
+  <input type="radio" class="radio" name="authorflag" value="{?$i['key']?}" {?if $i['key'] == $authorflag['default']?}checked="checked" {?/if?}/>{?$authorflag['items'][i]?} 
+  {?/section?}
+	          </div>
+	         </dd>
+	         <dd class="fix">
+	          <em class="tt3">授权级别：</em>
+	          <div class="int">
+			     {?section name=i loop=$permission['items']?}
+			     <p class="rdo fl">
+			     	<input type="radio" name="permission" value="{?$i['key']?}" {?if $i['key'] == $permission['default']?}checked="checked" {?/if?} /><label>{?$permission['items'][i]?}</label>
+				 </p>
+				 {?/section?}
+			   <!--<span class="hint">授权性质请详见投稿须知一经选定，不能再更改 </span> -->
+	          </div>
+	         </dd>
+	         <dd class="fix">
+	          <em class="tt3">首发状态：</em>
+	          <div class="int">
+			     {?section name=i loop=$firstflag['items']?}
+				     <p class="rdo fl">
+				     	<input type="radio" name="firstflag" value="{?$i['key']?}" {?if $i['key'] == $firstflag['default']?}checked="checked" {?/if?} /><label>{?$firstflag['items'][i]?}</label>
+				    </p>
+			     {?/section?}
+			   <span class="hint">一经选定，不能再更改</span>
+	          </div>
+	         </dd>
+         {?/if?}
+         <dd class="fix">
+          <em class="tt3">内容简介：</em>
+          <div class="int">
+          <span class="hint">请不要超过400字，此处填写的不是章节内容。</span>
+		  <textarea name="intro" id="intro" class="inp31" maxlength="400" data-rule="简介: required;intro;remote[{?function geturl:'article':'article':'SYS=method=checkIntro'?}]"></textarea>
+          </div>
+         </dd>
+          <dd class="fix">
+          <em class="tt3">作者公告：</em>
+          <div class="int">
+          <span class="hint">此处填写的是作品的公告内容，之后会显示在新作品首页的作品公告版块中。请不要超过140字。</span>
+		  <textarea name="notice" cols="" rows="" class="inp31" maxlength="140"></textarea>
+          </div>
+         </dd>
+         <dd class="fix">
+	          <em class="tt3">上传大封面：</em>
+	          <div class="int">
+	           <input type="file" class="text" size="60" name="articlelpic" id="articlelpic"/>
+	           <span class="hint cl">大封面用于PC端，可在封面管理修改。 </span>
+	          </div>
+	         </dd>
+	         <dd class="fix">
+	          <em class="tt3">上传小封面：</em>
+	          <div class="int">
+	           <input type="file" class="text" size="60" name="articlespic" id="articlespic"/>
+	           <span class="hint cl">小封面用于移动端，默认使用大封面缩小图。 </span>
+	          </div>
+	         </dd>
+	 
+         <dd class="fix">
+          <em class="tt3">验证码：</em>
+          <div class="int"> 
+           <input type="text" name="checkcode" class="input1 fl" style="width:160px;" maxlength="4" autocomplete=”off”/><img src="{?$jieqi_local_url?}/checkcode.php" height="28" class="pic" id="checkcode2" /><a class="f_org2 pl10" href="javascript:;" onclick="$('#checkcode2').attr('src','{?$jieqi_local_url?}/checkcode.php?rand='+Math.random());">换一张</a>
+          </div>
+         </dd> 
+		 
+	     <dd class="fix">
+          <em class="tt3"></em>
+          <div class="int">
+           <p class="pb20 cl"><button type="submit" class="btn">保存</button></p>
+		   	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+          </div>
+         </dd>        
+        </form>
+       </dl>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

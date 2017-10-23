@@ -1,0 +1,70 @@
+<div class="top">
+  <div class="mintop">
+    <div class="wrap clearfix">
+      <div class="userbar" id="userbar">      
+        	{?include file = "modules/mm/templates/loginheader.html" ?}
+      </div>
+      <div class="mini_r f-black">
+       <a href="{?$SITE_MM_URL?}" onClick="window.external.addFavorite(this.href,this.title);return false;" title='�麣������' rel="sidebar" class="addfav">�����ղ�</a>
+       |<a href="javascript:;"  onclick=this.style.behavior="url(#default#homepage)";this.setHomePage("{?$jieqi_local_url?}");  class="sethome"  title="�麣��" >��Ϊ��ҳ</a>
+       |<a href="javascript:void(0)" id="StranLink" name="StranLink" class="fan"  title="����">����</a>
+       |<a href="{?$jieqi_local_url?}/help"  title="����" target="_blank">����</a>
+      </div>
+    </div><!--wrapbg end-->
+  </div><!--mintop end-->
+  <script type="text/javascript">loadheader();setInterval(loadheader,10000);</script>
+  <div class="wrap">
+    <div class="site">
+     <a href="{?$SITE_MM_URL?}" title="�麣������" class="logo">�麣С˵��</a>
+     <ul class="substation">
+       <li>��<a href="{?eval echo JIEQI_LOCAL_URL;?}" target="_blank" title="�麣��">�麣��</a></li>
+       <li>��<a href="http://www.shuhai.com/wap/" target="_blank" title="�麣�ֻ���">�ֻ���</a></li>
+       <li>��<a href="{?$SITE_WENXUE_URL?}" target="_blank" title="�麣��ѧ��">��ѧ��</a></li>
+     </ul>     
+    </div>
+    <div class="ad1"><a href="javascript:;" target="_blank" title="�麣�´�2014ŮƵ����"><img src="{?$jieqi_themeurl?}images/ad1.jpg" width="480" height="95" /></a></div>
+    <div class="top_news">
+     <ul class="f-gray3">
+      <li><a href="javascript:;" target="_blank">���𱬶���С˵�����ֽ�ʦ</a></li>
+      <li><a href="javascript:;" target="_blank">�����ϰ��£������ྪϲ����</a></li>
+      <li><a href="javascript:;" target="_blank">���𱬶���С˵�����ֽ�ʦ</a></li>
+      <li><a href="javascript:;" target="_blank">��36����ѵӪǩԼ��ͻ��500��!</a></li>
+     </ul>
+    </div>
+  </div><!--wrap end-->
+  
+  <!--nav begin-->
+  <div class="nav">
+   <div class="mainav">
+    <ul>
+     <li title="��ҳ" style="cursor:pointer" onclick="location.href='{?$SITE_MM_URL?}'" class="on" id="home">��ҳ</li>
+     <li id="top"><a title="�麣���а�" target="_blank" href="{?function geturl:'article':'top'?}">���а�<em>|</em></a></li>
+     <li id="search"><a target="_blank" title="��С˵" href="{?eval echo JIEQI_LOCAL_URL;?}/search">��С˵<em>|</em></a></li>
+     <li><a target="_blank" title="���߸���" href="http://www.shuhai.com/fuli/">���߸���<em>|</em></a></li>
+     <li id="masterPage"><a target="_blank" title="����ר��" href="http://www.shuhai.com/article/masterPage">����ר��<em>|</em></a></li>
+<!--     <li><a href="http://www.shuhai.com/shuku/0_0_2_0_0_1.html">�걾<em>|</em></a></li>-->
+     <li id="news"><a title="��Ѷ" target="_blank" href="http://www.shuhai.com/news/">��Ѷ<em>|</em></a></li>
+     
+      <li>
+      	<a href="http://www.shuhai.com/wap/html5.html" target="_blank" title="wap">wap</a><span class="fl">&nbsp;&nbsp;��</span><a class="client" href="http://www.shuhai.com/wap/anzhuo.html" target="_blank" title="�ͻ���">�ͻ���<img class="newapp" src="{?$jieqi_themeurl?}images/new.png" alt="���¿ͻ���" /><em>|</em></a>
+      </li>
+      
+     <li id="pay"><a class="f_red" target="_blank" title="��ֵ" href="http://www.shuhai.com/pay/">��ֵ<em>|</em></a></li>
+     <!-- <li id="help"><a title="����" target="_blank" href="/help">����<em>|</em></a></li> -->
+     <li><a title="�ͷ�" href="tencent://message/?uin=724171887">�ͷ�<em>|</em></a></li>
+    </ul>
+   </div>
+   <div class="sortnav">
+    <dl class="f-white">
+     <dd><a href="{?function geturl:'mm':'shuku':SYS=sort=0&tag=0&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_blank">Ů����� </a></dd>
+     <dd><a href="{?function geturl :'mm':'top':'method=toplist':SYS=type=totalvisit&sortid=0&page=1?}" target="_blank">ŮƵ���а�</a></dd>
+     {?tag_system_220_��ѧͷ������<{}><{m1/block_headsort.html}>?}
+     <!-- <dd><a href="javascript:void(0)" target="_blank">����Ƶ��</a></dd> -->
+     			  
+     <dd><a href="{?function geturl:'mm':'shuku':SYS=sort=0&tag=0&size=0&fullflag=2&operate=0&free=0&page=1?}" target="_blank">ȫ��</a>��<a href="{?function geturl:'mm':'shuku':SYS=sort=0&tag=0&size=0&fullflag=0&operate=0&free=1&page=1?}" target="_blank">���</a></dd>
+     <!-- <dd><a href="javascript:void(0)" target="_blank">����ר���Ƽ�</a></dd> -->
+    </dl>
+   </div>
+  </div><!--nav end-->
+  
+</div><!--top end-->

@@ -1,0 +1,58 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>文章采集</caption>
+  <tr>
+    <td><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a> | <a href="?ac=collectset&op=task&step=add&collectid={?$_PAGE['collect']['collectid']?}">添加任务</a></td>
+  </tr>
+</table>
+<form name="myform" method="post" action="">
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>采集任务管理</caption>
+    <tr align="center">
+
+		<th width="3%">选</th>
+        <th width="5%">编号</th>
+		<th width="15%">名称</th>
+		<th width="30%">任务描述</th>
+		<th width="15%">所属站点</th>
+		<th width="15%">最多采集页数</th>
+		<th width="*">管理操作</th>
+	</tr>
+	{?section name=i loop=$_PAGE['task']?}
+    <tr>
+		<td class="align_c"><input type="checkbox" id="checkbox" name="index[]" value="{?$i.key?}"></td>
+		<td class="align_c">{?$i.key?}</td>
+		<td class="odd">{?$_PAGE['task'][i]['taskname']?}</td>
+		<td class="odd">{?$_PAGE['task'][i]['description']|truncate:50:'……'?}</td>
+		<td class="odd"><a href="?ac=collectset&op=add&collectid={?$_PAGE['collect']['collectid']?}">{?$_PAGE['collect']['sitename']?}</a></td>
+		<td class="align_c">{?$_PAGE['task'][i]['maxpagenum']?}</td>
+		<td class="align_c">
+	<a href="?ac=collectset&op=task&step=add&collectid={?$_PAGE['collect']['collectid']?}&index={?$i.key?}">编辑</a> 
+	<a href="javascript:confirmurl('?ac=collectset&op=task&step=del&collectid={?$_PAGE['collect']['collectid']?}&index={?$i.key?}', '是否删除该采集任务')">删除</a>
+	<a href="?ac=collect&collectid={?$_PAGE['collect']['collectid']?}&op=start&index={?$i.key?}">采集内容</a></td>
+	</tr>
+	{?/section?}
+	</table> 
+      <div class="button_box">
+	 <input type="button" value=" 全选 " onClick="checkall()"> 
+	<input type="button" onClick="if(confirm('此操作不可恢复，确定要继续吗？')) myform.action='?ac=collectset&op=task&step=del&collectid={?$_PAGE['collect']['collectid']?}';myform.submit();" value=" 删除 ">
+	 </div>
+<div id="pages"></div>
+</form>
+
+<br />
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+
+    <caption>操作说明</caption>
+
+  <tr>
+    <td class="tablerow">
+	  <p>每一次采集都被定义成一个采集任务，在这里进行任务的添加，修改，测试和采集工作</p>    </td>
+  </tr>
+</table>

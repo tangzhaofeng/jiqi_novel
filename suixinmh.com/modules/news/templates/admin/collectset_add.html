@@ -1,0 +1,221 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>文章采集</caption>
+  <tr>
+    <td><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a></td>
+  </tr>
+</table>
+
+<div class="tag_menu" style="width:99%;margin-top:10px;">
+	<ul>
+		<li><a onClick="ShowTabs(0)" id="TabTitle0" href="###" class="selected">基本信息</a></li>
+		<li><a onClick="ShowTabs(2)" id="TabTitle2" href="###">站点规则</a></li>
+		<li><a onClick="ShowTabs(3)" id="TabTitle3" href="###">高级设置</a></li>
+	</ul>
+</div>
+<table align="center" cellpadding="2" cellspacing="1" class="grid " width="100%">
+<caption>{?if $_PAGE['collect']['collectid']>0?}编辑{?else?}添加{?/if?}采集规则</caption>
+<form name="myform" id="collectnew" action="?ac=collectset&op=add&modelid={?$_PAGE['collect']['modelid']?}&collectid={?$_PAGE['collect']['collectid']?}" method="post">
+
+<tbody id='Tabs0' style='display:'>
+<tr>
+  <td colspan="2" class="head">基本信息</td>
+</tr>
+<tr valign="middle" align="left">
+  <th width="25%"><strong>规则说明</strong></td>
+  <td class="even">请先选择采集规则对应绑定的模型.<font color="red">*</font>为必填</td>
+</tr>
+     <tr>
+      <th width="25%"><font color="red">*</font> <strong>绑定模型</strong></th>
+      <td>
+	<select name="info[modelid]" id="modelid" size="1" require="true" datatype="limit" msg="请选择采集规则对应的模型" onChange="javascript:if(this.value) location.href='?ac=collectset&op=add&modelid='+this.value;">
+	<option value="" >请选择模型</option>
+	{?section name=i loop=$_SGLOBAL['model']?}
+	<option value="{?$_SGLOBAL['model'][i]['modelid']?}">{?$_SGLOBAL['model'][i]['name']?}</option>
+	{?/section?}
+	</select>{?if $_PAGE['collect']['modelid']>0 && $_PAGE['collect']['collectid']<1?}<a href="javascript:model_reload();">重选</a>{?/if?}
+	{?if $_PAGE['collect']['modelid']>0?}<script type="text/javascript">
+	   function model_reload()
+		{
+			$("select[name='info[modelid]']").val([""]);
+			$("select[name='info[modelid]']").attr("disabled","");
+		}
+		$("select[name='info[modelid]']").val(["{?$_PAGE['collect']['modelid']?}"]);
+		$("select[name='info[modelid]']").attr("disabled","disabled");
+	</script> {?/if?}
+		</td>
+    </tr>
+<tr valign="middle" align="left">
+  <th><font color="red">*</font> <strong>网站名称</strong></td>
+  <td class="even"><input type="text" name="info[sitename]" id="sitename" size="60" maxlength="50" value="{?$_PAGE['collect']['sitename']?}" require="true" datatype="limit" msg="字符长度范围必须为1到80位"/></td>
+</tr>
+<tr valign="middle" align="left">
+  <th><font color="red">*</font> <strong>网站地址</strong></td>
+  <td class="even"><input type="text" name="info[siteurl]" id="siteurl" size="60" maxlength="100" value="{?$_PAGE['collect']['siteurl']?}" require="true" datatype="url" msg="请填表写要采集网站的URL.例如：{?$_SGLOBAL['localurl']?}"/></td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>站点描述</strong></th>
+  <td class="even"><textarea  name="info[description]" id="description" rows="10" cols="60">{?$_PAGE['collect']['description']?}</textarea></td>
+</tr>
+</tbody>
+<tbody id='Tabs2' style='display:none'>
+<tr>
+  <td colspan="2" class="head">通用站点采集规则</td>
+</tr>
+<tr valign="middle" align="left">
+  <th width="25%"><strong>规则说明</strong></td>
+  <td class="even"><ul><li>系统标签 * 可以替代任意字符串。</li><li>系统标签 ! 可以替代除了&lt;和&gt;以外的任意字符串。</li><li>系统标签 ~ 可以替代除了&lt;&gt;'&quot;以外的任意字符串。</li><li>系统标签 ^ 可以替代除了数字和&lt;&gt;之外字符串。</li><li>系统标签 $ 可以替代数字字符串。</li><li>采集规则中，需要获取的内容部分用四个以上系统标签代替，如 !!!!</li></ul></td>
+</tr>
+
+<tr>
+  <td colspan="2" class="head">文章基本信息采集规则</td>
+</tr>
+{?section name=i loop=$_PAGE['form']['base']?}
+{?$_PAGE['form']['base'][i]?}
+{?/section?}
+<tr>
+  <td colspan="2" class="head">文章高级字段设置采集规则</td>
+</tr>
+{?section name=i loop=$_PAGE['form']['senior']?}
+{?$_PAGE['form']['senior'][i]?}
+{?/section?}
+<tbody id='Tabs3' style='display:none'>
+<tr>
+  <td colspan="2" class="head">高级设置</td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th width="25%"><strong>代理服务器地址</strong><br>不使用代理服务器请留空</td>
+  <td class="even"><input type="text" class="text" name="setting[senior][proxy_host]" id="proxy_host" size="20" maxlength="100" value="{?$_PAGE['collect']['setting']['senior']['proxy_host']?}" /> </td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>代理服务器端口</strong></td>
+  <td class="even"><input type="text" class="text" name="setting[senior][proxy_port]" id="proxy_port" size="20" maxlength="20" value="{?$_PAGE['collect']['setting']['senior']['proxy_port']?}" /></td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th><strong>代理服务器用户名</strong></td>
+  <td class="even"><input type="text" class="text" name="setting[senior][proxy_user]" id="proxy_user" size="20" maxlength="20" value="{?$_PAGE['collect']['setting']['senior']['proxy_user']?}" /></td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th><strong>代理服务器密码</strong></td>
+  <td class="even"><input type="text" class="text" name="setting[senior][proxy_pass]" id="proxy_pass" size="20" maxlength="20" value="{?$_PAGE['collect']['setting']['senior']['proxy_pass']?}" /></td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th><strong>发送HTTP_REFERER标志，用于突破防采集设置</strong></td>
+  <td class="even"><input type="radio" class="radio" name="setting[senior][referer]" value="1" />是
+<input type="radio" class="radio" name="setting[senior][referer]" value="0" checked="checked" />否
+</td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>调用wget命令，用于突破防采集设置</strong></td>
+  <td class="even"><input type="radio" class="radio" name="setting[senior][wget]" value="1" />是
+<input type="radio" class="radio" name="setting[senior][wget]" value="0" checked="checked" />否<span class="hottext"><br>开启exec函数才能启用此功能；windows主机需将wget组件安装到c:/windows目录。此设置将覆盖代理采集配置！</span>
+</td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>对方网页编码</strong><br>编码与本站不同将自动尝试转换</td>
+  <td class="even"><select class="select"  size="1" name="setting[senior][pagecharset]" id="pagecharset">
+<option value="auto" selected="selected">自动检测</option>
+<option value="gbk">GB2312</option>
+<option value="utf8">UTF8</option>
+<option value="big5">BIG5</option>
+</select> </td>
+</tr>
+   <tr>
+    <th><strong>多线程设置</strong></th>
+    <td class='tablerow'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    线程数:<input name='setting[senior][threadnum]' type='text' id='threadnum' size='8' value='2' maxlength="1"><br />
+    每个线程同时请求连接数:<input name='setting[senior][threadrequest]' type='text' id='threadrequest' size='8' value='2' maxlength="1"><br />
+    线程间隔时间(单位为秒):<input name='setting[senior][threadsleep]' type='text' id='threadsleep' size='8' value='0' maxlength="2"><br /></td>
+  </tr>
+   <tr>
+    <th><strong>超时时间</strong></th>
+    <td><input name='setting[senior][timeout]' type='text' id='timeout' size='6' value='120'> 秒 (0为无限大)</td>
+  </tr>
+<tr>
+  <td colspan="2" class="head">采集到本地的图片处理，需要GD库支持</td>
+</tr>
+<tr valign="middle" align="left">
+  <th width="25%"><strong>相关说明</strong></td>
+  <td class="even"><ul><li><br>采集图片处理会按照相关模型的栏目或模型字段中的设置为准！<br><br></li></ul></td>
+</tr>
+</tbody>
+<tr valign="middle" align="left">
+  <td>&nbsp;</td>
+  <td class="even">
+  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+  <input type="submit" class="button" name="dosubmit"  id="dosubmit" value="添加采集规则" />
+  </td>
+</tr>
+
+</form>
+</table>
+<br/>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<caption>提示信息</caption>
+  <tr>
+    <td class="tablerow">
+      因为一般站点的规则都比较统一，建议在添加好站点的基本信息后添加整个站点的规则！
+    </td>
+  </tr>
+</table>
+<script language="javascript" type="text/javascript">
+<!--
+{?if $_PAGE['collect']['collectid']>0?}
+$("input[name='setting[senior][referer]']").val(["{?$_PAGE['collect']['setting']['senior']['referer']?}"]);
+$("input[name='setting[senior][wget]']").val(["{?$_PAGE['collect']['setting']['senior']['wget']?}"]);
+$("select[name='setting[senior][pagecharset]']").val(["{?$_PAGE['collect']['setting']['senior']['pagecharset']?}"]);
+$("input[name='setting[senior][timeout]']").val(["{?$_PAGE['collect']['setting']['senior']['timeout']?}"]);
+$("input[name='setting[senior][threadnum]']").val(["{?$_PAGE['collect']['setting']['senior']['threadnum']?}"]);
+$("input[name='setting[senior][threadrequest]']").val(["{?$_PAGE['collect']['setting']['senior']['threadrequest']?}"]);
+$("input[name='setting[senior][threadsleep]']").val(["{?$_PAGE['collect']['setting']['senior']['threadsleep']?}"]);
+{?/if?}
+function HtmlTrimSelect(i,status)
+{
+
+	var elts= document.myform.elements["setting[fields]["+i+"][HtmlTrim][]"];
+	var elts_cnt  = (typeof(elts.length) != 'undefined')
+	? elts.length
+	: 0;
+
+	if (elts_cnt) {
+		for (var i = 0; i < elts_cnt; i++) {
+			elts[i].checked = (status=="all")?true:false;
+		} 
+	} else {
+		elts.checked        = true;
+	} 
+
+}
+function ShowLabel(objname)
+{
+	var obj = document.getElementById(objname);
+	var objtrim = document.getElementById(objname+"trim");
+	var objimg = document.getElementById(objname+"img");
+	if(obj.style.display=="none")
+	{
+		obj.style.display = "block";
+		objtrim.style.display = "block";
+		objimg.src="{?$_SGLOBAL['news']['url']?}/images/open.gif";
+	}
+	else
+	{
+		obj.style.display="none";
+		objtrim.style.display="none";
+		objimg.src="{?$_SGLOBAL['news']['url']?}/images/close.gif";
+	}
+}
+$().ready(function() {
+	  $('form').checkForm(1);
+	});
+//-->
+</script>

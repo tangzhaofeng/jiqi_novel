@@ -1,0 +1,55 @@
+<style>
+.layer_notice{float:left; height:75px; width:170px;  overflow:hidden; display:none;  background:#78BA32; padding:10px; border:1px solid #628C1C;}
+/*layer_notice li{ height:30px; line-height:30px;}
+.layer_notice li a{ display:block; color:#fff;}
+.layer_notice li a:hover{ background:#fff; color:#78BA32;}*/
+.d6{ width:600px; height:auto; margin:0 auto;}
+.d6 table{ background:#fff; border-collapse:collapse;table-layout: fixed}
+.d6 table tr:hover{ background:#FC9}
+.d6 table th{ color:#333; background:#f8f8f8;}
+.d6 table th,table td{ height:30px; line-height:30px; padding:0 10px; white-space:nowrap; overflow:hidden;word-break: break-all}
+.sort,.author,.money,.numb{ width:15%;}
+.sort{ padding:0;}
+.name,.date{ width:20%; height:30px; white-space:nowrap; overflow:hidden;text-overflow: ellipsis;}
+.date{ text-align:right; color:#999;}
+.span-pw-act{width: 80%;height: 28px;cursor: pointer;color: green;font-weight: 700}
+</style>
+<form id="j_search_form" method="post" action="{?$adminprefix?}">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">
+            关键字：<input name="keyword" type="text" value="{?$_REQUEST['keyword']?}" class="text" size="15" maxlength="50">&nbsp;<input type="radio" name="searchkey" value="sname" checked="checked" />&nbsp;渠道名称&nbsp;<input type="radio" name="searchkey" value="name" />&nbsp;登录名&nbsp;<input type="radio" name="searchkey" value="markname" />&nbsp;标识字段
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /><input type="submit" class="button">  
+        </td>
+    </tr>
+</table>
+</form>
+<br />
+<table class="grid" width="100%" align="center">
+    <caption>渠道管理&nbsp;<a href="{?$adminprefix?}&method=addSource">[+添加渠道]</a></caption>
+    <tr align="center">
+        <th width="5%">排序</th>
+        <th width="15%">渠道名称</th>
+        <th width="15%">登录名</th>
+        <th width="14%">登录密码</th>
+        <th width="15%">标识字段</th>
+        <th width="19%">创建时间</th>
+        <th width="5%">锁定状态</th>
+        <th width="12%">操作</th>
+    </tr>
+  {?section name=i loop=$lists?}
+  <tr data-id="{?$lists[i].sid?}">
+    <td class="odd" align="center"><input type="text" name="byorder" value="{?$lists[i].compositor?}" data-ori="{?$lists[i].compositor?}" data-act="" size="1"/></td>
+    <td class="even" align="center">{?$lists[i].sname?}</td>
+    <td class="odd" align="center">{?$lists[i].name?}</td>
+    <td class="even" align="center"><span class="span-pw-act" data-pw="{?$lists[i].password?}" data-pw-act="act">显示密码</span></td>
+    <td class="odd" align="center">{?$lists[i].markname?}</td>
+    <td class="even" align="center">{?$lists[i].createtime|date:'Y-m-d H:i:s'?}</td>
+    <td class="odd" align="center">{?if $lists[i].locked==1?}<p style="color: green">正常</p>{?else?}<p style="color:#aa1000">锁定</p>{?/if?}</td>
+    <td class="even" align="center"><a href="{?$adminprefix?}&method=editSource&sid={?$lists[i].sid?}">编辑</a>|<a href="javascript:;" data-act="delete" data-url="{?$adminprefix?}&method=delData">删除</a></td>
+  </tr>
+  {?/section?}
+</table>
+<a href="javascript:;" class="button" data-act="order" data-url="{?$adminprefix?}&method=ordorData">更新排序</a>
+<div class="pagelink">{?$url_jumppage?}</div>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/mod.pooling.sources.admin.js"></script>

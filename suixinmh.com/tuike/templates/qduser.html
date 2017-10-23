@@ -1,0 +1,79 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>用户列表 </h3>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form action="{?function geturl:'tuike':'qduser'?}" method="post">
+                <input type="text" class="form-element" name="keyword" value="">
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+            </div>
+
+            <div class="tool-filter f-cb">
+              <form action="{?function geturl:'tuike':'qduser'?}" method="post">
+                <select name="order" id="subscribe" class="form-element ">
+                  <option value="0" >==请选择==</option>
+                  <option value="uname" {?if $order == 'uname'?}selected="selected"{?/if?}>账户</option>
+                  <option value="name" {?if $order == 'name'?}selected="selected"{?/if?}>呢称</option>
+                  <option value="regdate" {?if $order == 'regdate'?}selected="selected"{?/if?}>注册时间</option>
+                </select>
+                <select name="sort" id="money" class="form-element ">
+                  <option value="1" {?if $sort == 1?}selected="selected"{?/if?}>升</option>
+                  <option value="0" {?if $sort == 0?}selected="selected"{?/if?}>降</option>
+                </select>
+                <button class="u-btn u-btn-primary" type="submit">筛选</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table table_bor">
+              <thead>
+                <tr>
+                  <th>账户</th>
+                  <th>呢称</th>
+                  <th>头像</th>
+                  <th>注册时间</th>
+                  <th>总充值金额</th>
+                  <th>渠道</th>
+                  <th>详情</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($userPayList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 7 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('tuike','qduser','SYS=method=qduserI');?}
+                {?section name=i loop=$userPayList?}
+                <tr>
+                  <td>{?$userPayList[i].uname?}</td>
+                  <td>{?$userPayList[i].name?}</td>
+                  <td><img src="{?$userPayList[i].head?}" style="width:40px;height:40px;"></td>
+                  <td>{?$userPayList[i].regdate|date:"Y-m-d H:i"?}</td>
+                  <td>{?$userPayList[i].qdpay?}</td>
+                  <td>{?$userPayList[i].source?}</td>
+                  <td>
+                    <a class="u-btn u-btn-primary" href="{?$url?}?qdUid={?$userPayList[i].uid?}">查看</a>
+                  </td> 
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+              {?$page?}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/templates/public/footer.html"?}

@@ -1,0 +1,166 @@
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>渠道管理</caption>
+  <tr>
+    <td><a href='{?$adminprefix?}&method=add'><font color="red">添加站点</font></a> | <a href='{?$adminprefix?}&method=main'>返回站点列表</a></td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+<form action="{?$adminprefix?}&method=editArticle&cid={?$channel.channelid?}&paid={?$article.paid?}" method="post" name="myform" enctype="multipart/form-data">
+    <caption>编辑《{?$channel.channelname?}-{?$article.articlename?}》</caption>
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>书名</strong></th>
+      <td><input type="text" name="info[articlename]" id="articlename" value="{?$article.articlename?}" size="38" require="true" datatype="limit" min="2" max="60" msg="不得少于2个字符超过30个字符"></td>
+    </tr>
+<tr> 
+{?if $channel.type == 0 ?}
+	{?if $channel.url  == 'mobile' ?}
+	<tr> 
+      	<th width='15%'><font color="red">*</font> <strong>移动MCP平台文章ID</strong><br />由于在移动MCP平台上书，通过此ID映射本站文章</th>
+      	<td><input type="text" name="info[apiId]" id="apiId" value="{?$article['apiId']?}" size="38"></td>
+    </tr>
+	{?/if?}
+      <th width='15%'><font color="red">*</font> <strong>最后推送章节ID</strong></th>
+      <td><input type="text" name="info[lastchapterid]" id="lastchapterid" value="{?$article['lastchapterid']?}" size="38"></td>
+    </tr>
+    <tr> 
+      <th width='15%'><font color="red">*</font> <strong>最后推送章节名称</strong></th>
+      <td><input type="text" name="info[lastchapter]" id="lastchapter" value="{?$article['lastchapter']?}" size="38"></td>
+    </tr>
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>最后推送分卷ID</strong></th>
+      <td><input type="text" name="info[lastvolumeid]" id="lastvolumeid" value="{?$article['lastvolumeid']?}" size="38"></td>
+    </tr>
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>最后推送分卷</strong></th>
+      <td><input type="text" name="info[lastvolume]" id="lastvolume" value="{?$article['lastvolume']?}" size="38"></td>
+    </tr>
+{?elseif $channel.type == 1  && $channel.url == '360.com'?}
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>360小说，分类：</strong></th>
+      <td>
+      	<label ><input type='radio' name='info[sort]' value='武侠' {?eval if($article['sort']=='武侠') echo ' checked';?} />武侠</label>
+      	<label ><input type='radio' name='info[sort]' value='仙侠' {?eval if($article['sort']=='仙侠') echo ' checked';?} />仙侠</label>
+      	<label ><input type='radio' name='info[sort]' value='玄幻' {?eval if($article['sort']=='玄幻') echo ' checked';?} />玄幻</label>
+      	<label ><input type='radio' name='info[sort]' value='奇幻' {?eval if($article['sort']=='奇幻') echo ' checked';?} />奇幻</label>
+      	<label ><input type='radio' name='info[sort]' value='历史' {?eval if($article['sort']=='历史') echo ' checked';?} />历史</label>
+      	<label ><input type='radio' name='info[sort]' value='军事' {?eval if($article['sort']=='军事') echo ' checked';?} />军事</label>
+      	<label ><input type='radio' name='info[sort]' value='灵异' {?eval if($article['sort']=='灵异') echo ' checked';?} />灵异</label>
+      	<label ><input type='radio' name='info[sort]' value='悬疑' {?eval if($article['sort']=='悬疑') echo ' checked';?} />悬疑</label>
+      	<label ><input type='radio' name='info[sort]' value='游戏' {?eval if($article['sort']=='游戏') echo ' checked';?} />游戏</label>
+      	<label ><input type='radio' name='info[sort]' value='黑道' {?eval if($article['sort']=='黑道') echo ' checked';?} />黑道</label>
+      	<label ><input type='radio' name='info[sort]' value='都市' {?eval if($article['sort']=='都市') echo ' checked';?} />都市</label>
+      	<label ><input type='radio' name='info[sort]' value='伦理' {?eval if($article['sort']=='伦理') echo ' checked';?} />伦理</label>
+      	<label ><input type='radio' name='info[sort]' value='科幻' {?eval if($article['sort']=='科幻') echo ' checked';?} />科幻</label></br>
+      	<label ><input type='radio' name='info[sort]' value='古代言情' {?eval if($article['sort']=='古代言情') echo ' checked';?} />古代言情</label>
+      	<label ><input type='radio' name='info[sort]' value='现代言情' {?eval if($article['sort']=='现代言情') echo ' checked';?} />现代言情</label>
+      	<label ><input type='radio' name='info[sort]' value='总裁豪门' {?eval if($article['sort']=='总裁豪门') echo ' checked';?} />总裁豪门</label>
+      	<label ><input type='radio' name='info[sort]' value='青春校园' {?eval if($article['sort']=='青春校园') echo ' checked';?} />青春校园</label>
+      	<label ><input type='radio' name='info[sort]' value='时空穿越' {?eval if($article['sort']=='时空穿越') echo ' checked';?} />时空穿越</label>
+      	<label ><input type='radio' name='info[sort]' value='耽美同人' {?eval if($article['sort']=='耽美同人') echo ' checked';?} />耽美同人</label>
+      </td>
+    </tr>
+{?/if?}
+<tr valign="middle" align="left">
+  <th width="15%"><strong>上传封面(大)</strong><br /> 请根据渠道所规定的尺寸处理好封面图片</th>
+  <td class="even"><input type="file" class="text" size="30" name="articleimage" id="articleimage" />{?if $article.image != ''?} <a href="/api/api_image{?$article.image?}" target="_blank">{?$article.image?}</a><input type="hidden" name="old_image" value="{?$article.image?}" />{?/if?} <br />
+  <span class="hottext">封面图片格式为 .gif .jpg .jpeg .png ，文件大小不能超过 1024K</span>  </td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th width="15%"><strong>上传封面(中)</strong><br /> 请根据渠道所规定的尺寸处理好封面图片</th>
+  <td class="even"><input type="file" class="text" size="30" name="larticleimage" id="larticleimage" />{?if $article.limage != ''?} <a href="/api/api_image{?$article.limage?}" target="_blank">{?$article.limage?}</a><input type="hidden" name="lold_image" value="{?$article.limage?}" />{?/if?} <br />
+  <span class="hottext">封面图片格式为 .gif .jpg .jpeg .png ，文件大小不能超过 1024K</span>  </td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th width="15%"><strong>上传封面(小)</strong><br /> 请根据渠道所规定的尺寸处理好封面图片</th>
+  <td class="even"><input type="file" class="text" size="30" name="sarticleimage" id="sarticleimage" />{?if $article.simage != ''?} <a href="/api/api_image{?$article.simage?}" target="_blank">{?$article.simage?}</a><input type="hidden" name="sold_image" value="{?$article.simage?}" />{?/if?} <br />
+  <span class="hottext">封面图片格式为 .gif .jpg .jpeg .png ，文件大小不能超过 1024K</span>  </td>
+</tr>
+{?if $channel.type == 0?}
+	<tr valign="middle" align="left">
+	  <th width="15%">设置</th>
+	  <td class="even">
+	  			  <table>
+	 		   <tr>
+				  <th>每次可推送章节数<br/>（不填或0推送全部）</th>
+				  <td>
+				 	<input type="text" name="setting[daychapter]" id="daychapter" value="{?$article['setting']['daychapter']?}" maxlength="2" size="4">章
+				  </td>
+				</tr>
+			  </table>
+	  </td>
+	</tr>
+{?/if?}
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>文章简介</strong></th>
+      <td><textarea name="info[intro]" cols="80" rows="10">{?$article.intro?}</textarea></td>
+    </tr>
+	<!-- <tr> 
+      <th width='15%'><strong>推送参数设置</strong><input type='checkbox' name='setting[open]' id='getdata_open' value='1' {?if $_SGLOBAL['api']['open']>0?}checked{?/if?}/></th><th style="text-align:left">此配置将覆盖API站点中的全局配置</th>
+	</tr>
+	<tbody id="getdata" {?if $_SGLOBAL['api']['open']<1?} style="display:'none'"{?/if?}>
+	<tr> <th width='15%'></th>
+      <td>
+		  <table>
+		   <tr>
+			  <th><strong>推送章节设置</strong><br /> 对该本书有效</th>
+			  <td>
+			 <input type='radio' name='setting[data]' value='allchapter' {?eval if($_SGLOBAL['api']['data']=='allchapter') echo 'checked';?}/> 全部章节<br /> 
+			 <input type='radio' name='setting[data]' value='other' {?eval if($_SGLOBAL['api']['data']=='' || $_SGLOBAL['api']['data']=='other') echo 'checked';?}/>
+			 每天更新<input type="text" name="setting[daychapter]" id="daychapter" value="{?$_SGLOBAL['api']['daychapter']?}" size="5"  datatype="number" min="1" max="30" msg="必须为数字">章
+
+			  </td>
+			</tr>
+		   <tr>
+			  <th><strong>延迟更新</strong><br /> 对该本书有效</th>
+			  <td>
+			 始终落后本站<input type="text" name="setting[sleepchapter]" id="sleepchapter" value="{?$_SGLOBAL['api']['sleepchapter']?}" size="5" datatype="number" min="1" max="30" msg="必须为数字">章(不填为同步更新)
+
+			  </td>
+			</tr>
+		  </table>
+	  </td>
+    </tr>	</tbody> -->
+<!-- 	<tr> 
+      <th><font color="red">*</font> <strong>完本状态</strong></th>
+      <td><input type='radio' name='info[fullflag]' value='1'{?eval if($_PAGE['data']['fullflag']=='1') echo ' checked';?}/> 巳完本&nbsp;
+	  <input type='radio' name='info[fullflag]' value='0'{?eval if($_PAGE['data']['fullflag']=='0') echo ' checked';?}/> 连载中 (如果非完本状态，将由接口自动判断完本状态)</td>
+    </tr>	 -->
+	
+	<tr> 
+      <th><font color="red">*</font> <strong>更新状态</strong></th>
+      <td><input type='radio' name='info[pushflag]' value='1'{?eval if($article.pushflag=='1' || !isset($article.pushflag)) echo ' checked';?}/> 开启&nbsp;
+	  <input type='radio' name='info[pushflag]' value='0'{?eval if($article.pushflag=='0') echo ' checked';?}/> 关闭(文章将不出现在接口中)</td>
+    </tr>	
+
+    <tr> 
+      <th></th>
+      <td> 
+	  <input type="hidden" name="jumpurl" value="{?$_SGLOBAL['refer']?}" />
+	  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	  <input type="submit" name="dosubmit" value=" 确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+	</form>
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+  <caption>提示信息</caption>
+  <tr>
+    <td>请根据各合作网站API配置。
+	</td>
+  </tr>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+$().ready(function() {
+	  $('form').checkForm(1);
+	  $("input[id=getdata_open]").click(function(){
+				if($(this).attr("checked")){
+				   $('#getdata').show();
+				}else{
+				   $('#getdata').hide();
+				}
+		}); 
+	});
+</script>

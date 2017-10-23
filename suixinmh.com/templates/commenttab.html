@@ -1,0 +1,7 @@
+      <div class="t2">
+       <h2>书籍评论</h2>
+       <ul class="tabs62">
+        <li{?if $_REQUEST['method']==comment?} class="thistab"{?/if?}><a href="{?function geturl:'system':'userhub':'SYS=method=comment'?}">我发表的书评</a></li>
+        <li{?if $_REQUEST['method']==hotcomment?} class="thistab"{?/if?}><a href="{?function geturl:'system':'userhub':'SYS=method=hotcomment'?}">我回复的书评</a></li>
+       </ul>       
+      </div>

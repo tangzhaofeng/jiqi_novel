@@ -1,0 +1,36 @@
+{?set $jieqi_pagetitle = "设置密码-$jieqi_sitename"?}<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}style/login.css" type="text/css" media="all" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script><!--box_mid begin-->
+<div class="box_mid fix">
+ <div class="result3">
+  <div class="tt" align="center">
+   <em class="head"><img src="{?function jieqi_geturl:'system':'avatar':'$id':'m':'2'?}" onerror="this.src='/modules/article/images/nophoto_head.jpg'" width="60" height="60" /></em>
+   <h6><span class="user">{?$useruname?}</span>恭喜你，可以开始设置新密码了!</h6>
+   <p class="origin">您只需<em class="org">设置新密码</em>就能登陆{?$jieqi_sitename?}了</p>
+  </div>
+  <p align="center">您下次可以使用以下用户名和密码来登录{?$jieqi_sitename?}了（即：设置账号 <em class="org">{?$useruname?}</em> 的唯一登陆密码）</p>  
+  <div class="bind" align="center">
+  <form id="signup_form" class="signup" method="post" action="{?$url_setpass?}" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+<fieldset>
+    <div class="form-item" align="left">
+        <div class="field-name">新密码：</div>
+        <div class="field-input">
+          <input type="password" name="pass" maxlength="20" data-rule="新密码: required;password;" placeholder="请输入密码" autocomplete="off" />
+        </div>
+    </div>
+    <div class="form-item" align="left">
+        <div class="field-name">确认密码：</div>
+        <div class="field-input">
+          <input type="password" name="repass" maxlength="20" autocomplete="off" data-rule="确认密码: required;match(pass);" placeholder="请输入密码" />
+        </div>
+    </div>
+</fieldset>
+<input type="hidden" name="id" id="id" value="{?$id?}" />
+<input type="hidden" name="checkcode" id="checkcode" value="{?$checkcode?}" />
+<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+    <button id="btn-submit" class="btn-submit2" type="submit">登 录</button>
+</form>
+  </div>
+ </div>
+</div><!--box_mid end-->

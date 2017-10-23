@@ -1,0 +1,62 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-book-title">标题素材 </div>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form action="{?function geturl:'tuike':'article':'SYS=method=caption'?}" method="post">
+                <input type="text" class="form-element n-bg" name="keyword" value="">
+                <button class="u-btn u-btn-while" type="submit">搜索</button>
+              </form>
+            </div>
+            <div class="tool-filter f-cb">
+              <form action="{?function geturl:'tuike':'article':'SYS=method=caption'?}" method="post">
+                <select name="sort" id="order_by" class="form-element ">
+                  <option value="1" {?if $sort == 1?}selected="selected"{?/if?}>升</option>
+                  <option value="0" {?if $sort == 0?}selected="selected"{?/if?}>降</option>
+                </select>
+                <button class="u-btn u-btn-while u-btn-search" type="submit">筛选</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th width="50">序号</th>
+                  <th>标题</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($articleList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 2 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $youyueUrl=YOUYUEBOOK_URL_M;?}
+                {?eval $url=geturl('tuike','qdlist','SYS=method=qdAdd');?}
+                {?section name=i loop=$articleList?}
+                <tr>
+                  <td>{?$articleList[i].mattert_id?}</td>
+                  <td>{?$articleList[i].title?}</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/templates/public/footer.html"?}

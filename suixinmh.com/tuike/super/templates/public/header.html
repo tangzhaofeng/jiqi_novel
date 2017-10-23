@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+    <meta charset="utf-8">
+    <title>youyue小说云</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/base.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/style.css?1.2">
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/jquery.datetimepicker.css" />
+    <script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+    <script src="{?$jieqi_themeurl?}js/admin.js?1.1"></script>
+
+    <script src="{?$jieqi_themeurl?}js/jquery.datetimepicker.full.js" type="text/javascript" charset="gbk"></script>
+ 
+    <script src="{?$jieqi_themeurl?}js/users.js?1.1"></script>
+    <script src="{?$jieqi_themeurl?}js/layer_mobile/layer.js"></script>
+    <link href="{?$jieqi_themeurl?}js/layer_mobile/need/layer.css" rel="stylesheet" >
+
+  </head> 
+  <body>
+    <div class="g-head">
+      <a href="/super/" class="m-logo"> <img src="{?$jieqi_themeurl?}img/logo_c.png" /> </a>
+      <ul class="m-nav f-fl u-menu-mobile" id="main-nav">
+        <li>
+          <a {?if $nav == 1?}class="on"{?/if?} href="/super/">首页</a>
+        </li>
+        <li>
+          <a {?if $nav == 2?}class="on"{?/if?} href="{?function geturl:'super':'manuser'?}">推客管理 ({?$comm.tkNu?})</a>
+          <ul class="m-pulldown">
+            <li class="u-divider">
+              <a href="{?function geturl:'super':'manuser'?}">推客管理</a>
+            </li>
+            <li class="u-divider">
+              <a href="{?function geturl:'super':'manuser':'SYS=method=moon'?}">每月充值</a>
+            </li>
+
+          </ul>
+
+        </li> 
+        <li>
+          <a {?if $nav == 3?}class="on"{?/if?} href="{?function geturl:'super':'manqd'?}">渠道管理</a>
+        </li>
+        <li>
+          <a {?if $nav == 4?}class="on"{?/if?} href="{?function geturl:'super':'manusers'?}">经理管理</a>
+        </li>
+        <li>
+          <a {?if $nav == 6?}class="on"{?/if?} href="{?function geturl:'super':'manusersdata'?}">经理数据</a>
+        </li>
+        <li>
+          <a {?if $nav == 5?}class="on"{?/if?} href="{?function geturl:'super':'paylog'?}">财务管理(待审核￥{?$comm.money?})</a>
+          <ul class="m-pulldown">
+            <li class="u-divider">
+              <a href="{?function geturl:'super':'paylog'?}">所有订单</a>
+            </li>
+            <li class="u-divider">
+              <a href="{?function geturl:'super':'paylog'?}?payflag=1">待审核</a>
+            </li>
+            <li class="u-divider">
+              <a href="{?function geturl:'super':'paylog'?}?payflag=7">审核通过</a>
+            </li>
+            <li class="u-divider">
+              <a href="{?function geturl:'super':'paylog'?}?payflag=9">审核失败</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="m-nav f-fr u-menu-mobile" id="tool-nav">
+        <li>
+          <a href="/super">{?$_USER.useruname?}</a>
+          <ul class="m-pulldown">
+            <li>
+              <a class="u-divider" href="{?function geturl:'super':'home':'SYS=method=logout'?}">安全退出</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="loading"></div>

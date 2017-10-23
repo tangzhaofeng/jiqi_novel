@@ -1,0 +1,38 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article3 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+          <!--pay begin-->
+          <div class="pay f12">
+		  {?include file = "modules/pay/templates/paytab.html" ?}
+            <ul id="tab_con11" class="pay_dwn fix">
+              <li>
+			  <form id="payfrm" name="payfrm" method="post"  onSubmit="return checkForm(this, 1);"action="{?$url_pay?}" target="_blank">
+                <dl class="ld_t f14 g3">
+                 <dt>您的本次充值信息如下,请确认：</dt>
+                 <dd>您选择的是:<em class="org">{?$paytype?}</em></dd>
+                 <dd>充值帐号：<em class="org">{?$buyname?}</em></dd>
+                 <dd>充值金额：<em class="num">{?$money?}{?if $moneytype==1?}美元{?else?}元{?/if?}</em>（{?$egold?}{?$egoldname?}）</dd>
+                </dl>
+                <p class="pt20 cl pb10"><button type="submit" class="btn mr10">开始充值&gt;&gt;</button><a href="{?eval echo JIEQI_CURRENT_URL;?}" class="btna">返回上一步</a></p>
+				{?section name=i loop=$urlvars?}
+				<input type="hidden" name="{?$i.key?}" value="{?$urlvars[i]?}" />
+				{?/section?}
+				</form>
+              </li>
+            </ul>
+          </div><!--pay end-->
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article3 end-->
+</div><!--wrap2 end-->
+{?include file = "modules/pay/templates/tips.html" ?}

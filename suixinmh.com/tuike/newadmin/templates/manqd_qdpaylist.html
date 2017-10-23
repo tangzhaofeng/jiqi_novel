@@ -1,0 +1,74 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/newadmin/templates/public/header.html" ?}
+{?include file="tuike/newadmin/templates/public/left.html" ?}
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/laydate.css" />
+    <script src="{?$jieqi_themeurl?}js/laydate.js" type="text/javascript" charset="gbk"></script>
+    <div class="g-main">
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+            <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+          </div>
+
+        <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+          <form style="display:inline" action="" method="post">
+            <input class="form-element" size="10" type="text" name="t1" value="{?$t1?}" onclick="laydate()"> -
+            <input class="form-element" size="10" type="text" name="t2" value="{?$t2?}" onclick="laydate()">
+            <button type="submit" class="u-btn u-btn-primary">查看</button>
+          </form>
+          &nbsp;&nbsp;
+          充值金额：{?$totalMoney?}
+          &nbsp;&nbsp;
+          充值笔数：{?$totalcount?}
+
+
+          </div>
+          <div class="panel-header">
+            渠道明细
+          </div>
+          <table id="table" class="m-table ">
+            <thead> 
+              <tr>
+                <th><i class="sortOr" _z="pid">序号</i></th>
+                <th><i class="sortOr" _z="pbn">用户名</i></th>
+                <th><i class="sortOr" _z="psou">渠道号</i></th>
+                <th><i class="sortOr" _z="pbtime">日期</i></th>
+                <th><i class="sortOr" _z="ptype">充值方式</i></th>
+                <th><i class="sortOr" _z="pmon">充值金额</i></th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($payList)==0?}
+              <tr>
+                <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?section name=i loop=$payList?}
+              <tr>
+                <td>{?$payList[i].payid?}</td>
+                <td>{?$payList[i].buyname?}</td>
+                <td>{?$payList[i].source?}</td>
+                <td>{?$payList[i].rettime|date:"Y-m-d H:i"?}</td>
+                <td>{?$payList[i].paytype?}</td>
+                <td><span class="u-badge u-badge-success">{?$payList[i].money?}</span></td>
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+{?include file="tuike/newadmin/templates/public/footer.html"?}
+{?/if?}

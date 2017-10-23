@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>	  	
+	<webName>{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,true,'xml');?}</webName>	  	
+	<webSite><![CDATA[{?eval echo JIEQI_URL;?}]]></webSite>	    
+	<info>		
+		<title><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></title>		
+		<subtitle><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></subtitle>		
+		<bookid>{?$article['articleid']?}</bookid> 		
+		<sortid>{?$article['sortid']?}</sortid> 		
+		<typeid>0</typeid> 		
+		<category><![CDATA[{?eval echo gb2utf8XHSafeStr($article['sort'],false);?}]]></category>		
+		<second_category><![CDATA[{?eval echo gb2utf8XHSafeStr($article['shortcaption'],false);?}]]></second_category>		
+		<image_big><![CDATA[{?$article['url_image_l']?}]]></image_big>		
+		<image_small><![CDATA[{?$article['url_image']?}]]></image_small>		
+		<comment><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></comment>			
+		<author><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></author>		
+		<postdate>{?$article['postdate']?}</postdate>		
+		<lastupdate>{?$article['lastupdate']?}</lastupdate>		
+		<size>{?eval echo $article['size']/2;?}</size>		
+		<weekvisit>{?$article['weekvisit']?}</weekvisit>		
+		<monthvisit>{?$article['monthvisit']?}</monthvisit>		
+		<allvisit>{?$article['allvisit']?}</allvisit>		
+		<fullflag>{?$article['fullflag']?}</fullflag>		
+		<isvip>{?$article['articletype']?}</isvip>	
+		<chapterurl><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$article['articleid']?}]]></chapterurl>	    
+	</info>	
+</document>

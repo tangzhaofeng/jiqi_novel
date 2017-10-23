@@ -1,0 +1,1 @@
+{?section name=i loop=$sortrows?}{?if $i.order<50?}<li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=weekvisit&sortid=$i.order&page=1?}"{?if $i.order==$_REQUEST['sortid']?} class="on"{?/if?}>{?$sortrows[i].sortname?}≈≈––∞Ò</a></li>{?/if?}{?/section?}

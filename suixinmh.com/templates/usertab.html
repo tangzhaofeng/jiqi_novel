@@ -1,0 +1,13 @@
+  <div class="t2">
+   <h2>个人资料</h2>
+   <ul class="tabs62">
+	<li id="x_usereditView"><a href="{?function geturl:'system':'userhub':'SYS=method=usereditView'?}">基本资料</a></li>
+	<li id="x_upaView"><a href="{?function geturl:'system':'userhub':'SYS=method=upaView'?}">修改头像</a></li>
+	<li id="x_pwdview"><a href="{?function geturl:'system':'userhub':'SYS=method=pwdview'?}">修改密码</a></li>
+   </ul>       
+  </div>
+
+<script>
+var id ="{?$_REQUEST['method']?}";
+$('#x_'+id).addClass("thistab");
+</script>

@@ -1,0 +1,49 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0 fix">
+        <li class="fix">
+          <div class="pay f12">
+		  {?include file = "modules/pay/templates/paytab.html" ?}
+            <ul id="tab_con11" class="pay_dwn fix">
+              <li>
+			  <form id="payfrm" name="payfrm"  onSubmit="return checkForm(this, 0);"method="post" action="{?function geturl:'pay':'home':'SYS=method=txfpay'?}">
+                <!--box_note2 begin-->
+                <div class="box_note2 cl mt10">
+                 <h3 class="tit3">请选择你要充值的金额：</h3>
+                 <dl class="lisd_m fix">
+				 {?section name=i loop=$paylimit?}{?eval if($i.order==1){$egold=$i.key;$money_yuan=$paylimit[i];}?}
+                  <dd id="v_{?$i.key?}"{?if $i.order==1?} class="hover"{?/if?} onclick="tmpjiage({?$i.key?});" money_yuan="{?$paylimit[i]?}"><b>{?$paylimit[i]?}元</b><br />({?$i.key?}书海币)</dd>
+				  {?/section?}
+<!--                  <dd id="v_380" class="hover" onclick="tmpjiage(380);document.getElementById('product_id').value=527001;" money_yuan="10"><b>10元</b><br />(380书海币)</dd>
+                  <dd id="v_780" onclick="tmpjiage(780);document.getElementById('product_id').value=527002;" money_yuan="20"><b>20元</b><br />(780书海币)</dd>
+                  <dd id="v_1200" onclick="tmpjiage(1200);document.getElementById('product_id').value=527003;" money_yuan="30"><b>30元</b><br />(1200书海币)</dd>-->
+                 </dl>
+				 <input type="hidden" name="egold" id="egold" value="380">
+				 <input type="hidden" name="money_yuan" id="money_yuan" value="10">
+				 <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+				 <input type="hidden" name="product_id" id="product_id" value="527001" />
+                 <dl class="lisd_note">
+                  <dt class="pb5">可自由选择充值金额，最低仅需10元，<b>充的越多送的越多！</b></dt>
+                  <dd>1、充值<span class="org">10</span>元，获得<span class="org">380</span>书海币。</dd>
+                  <dd>2、充值<span class="org">20</span>元，获得<span class="org">780</span>书海币。</dd>  
+                  <dd>3、充值<span class="org">30</span>元，获得<span class="org">1200</span>书海币。</dd>                  
+                 </dl>
+                </div><!--box_note2 end-->
+                <p class="pt20 cl pb10"><button type="submit" class="btn">开始充值&gt;&gt;</button></p>
+				</form>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+{?include file = "modules/pay/templates/tips.html" ?}

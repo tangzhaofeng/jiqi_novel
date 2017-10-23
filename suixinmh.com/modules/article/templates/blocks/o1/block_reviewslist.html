@@ -1,0 +1,15 @@
+{?section name=i loop=$reviewrows?}
+	<li>
+		<div class="imgs">
+			<a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$reviewrows[i].ownerid?}" class="img"><img src="{?$reviewrows[i].url_image_l?}"></a>
+			<a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$reviewrows[i].ownerid?}" class="imgname">{?$reviewrows[i].articlename?}</a>
+		</div>
+		<div class="img_ping">
+			<a href="#" class="tou">
+				<img src="{?function jieqi_geturl:'system':'avatar':$reviewrows[i].posterid:'m':'$reviewrows[i].avatar'?}" alt="{?$reviewrows[i].poster?}" />
+			</a>
+			<a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$reviewrows[i].ownerid?}" class="pingcon">{?$reviewrows[i].reviewtitle|truncate:28:'бнбн'?}</a>
+			<span class="toutime">{?$reviewrows[i].posttime|date:"Y-m-d"?}</span>
+		</div>
+	</li>
+{?/section?}

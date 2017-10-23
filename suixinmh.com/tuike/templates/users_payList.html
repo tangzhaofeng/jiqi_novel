@@ -1,0 +1,57 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>充值明细</h3>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form action="{?function geturl:'tuike':'user':'SYS=method=paydetail'?}" method="post">
+                <input type="text" class="form-element" name="keyword" value="">
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+            </div>
+            <div class="tool-filter f-cb">
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th >序号</th>
+                  <th >用户名</th>
+                  <th >日期</th>
+                  <th >充值金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($payList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?section name=i loop=$payList?}
+                <tr>
+                  <td>{?$payList[i].payid?}</td>
+                  <td>{?$payList[i].buyname?}</td>
+                  <td>{?$payList[i].rettime|date:"Y-m-d H:i"?}</td>
+                  <td><span class="u-badge u-badge-success">{?$payList[i].money?}</span></td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/templates/public/footer.html"?}

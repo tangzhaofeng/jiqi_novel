@@ -1,0 +1,122 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/membertab.html" ?}
+	  <ul id="tab_conbox" class="f0">
+	  <li class="fix" style="display:none;">
+         <div class="tips2 p10">您当前为VIP级别为<em class="org"> {?$_USER['vipgrade']?}  </em>会员，当前成长值<em class="org"> {?$_USER['vip']?} </em>分   </div>
+         <div class="member">
+          <h3>VIP成长体系</h3>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabl4 g6">
+            <tr class="bgt">
+             <th scope="col">vip等级</th>
+             {?section name=i loop=$vipgrade?}
+            	 <th scope="col"><em class="{?$vipgrade[i].photo?}"></em></th>
+			 {?/section?}
+            </tr>
+            <tr>
+             <td align="center" valign="middle">成长值要求</td>
+             {?section name=i loop=$vipgrade?}
+             	<td align="center" valign="middle">{? if $vipgrade[i].minscore >0?} {?$vipgrade[i].minscore?}{?else?}0{?/if?}</td>
+             {?/section?}
+            </tr>
+            <tr>
+             <td colspan="8" align="left" valign="middle">
+              <dl class="how_jf fix">
+               <dt>如何获得VIP成长值?</dt>
+               <dd>每充值1元获得100点VIP成长值</dd>
+               <!--<dd>每消耗100书币获得2点积分</dd>
+               <dd>每投1张月票获得2点积分</dd>-->
+              </dl>
+             </td>
+            </tr>
+            </table>
+          <h3>等 级 特 权</h3>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabl4 g6">
+            <tr class="bgt f14">
+             <th width="222" align="center" valign="middle" scope="col"></th>
+             <th width="137" align="center" valign="middle" scope="col">vip0</th>
+             <th width="137" align="center" valign="middle" scope="col">vip1</th>
+             <th width="137" align="center" valign="middle" scope="col">vip2</th>
+             <th width="137" align="center" valign="middle" scope="col">vip3</th>
+             <th width="137" align="center" valign="middle" scope="col">vip4</th>
+             <th width="137" align="center" valign="middle" scope="col">vip5</th>
+			 <th width="137" align="center" valign="middle" scope="col">vip6</th>
+            </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">会员积分加速</td>
+             <td width="137" align="center" valign="middle">{?if $vip['0']['jifenjiasu']==0?}无{?else?}{?eval echo $vip[0]['jifenjiasu']*100;?}%{?/if?}</td> 
+             <td width="137" align="center" valign="middle">{?if $vip['1']['jifenjiasu']==0?}无{?else?}{?eval echo $vip['1']['jifenjiasu']*100;?}%{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['2']['jifenjiasu']==0?}无{?else?}{?eval echo $vip['2']['jifenjiasu']*100;?}%{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['3']['jifenjiasu']==0?}无{?else?}{?eval echo $vip['3']['jifenjiasu']*100;?}%{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['4']['jifenjiasu']==0?}无{?else?}{?eval echo $vip['4']['jifenjiasu']*100;?}%{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['5']['jifenjiasu']==0?}无{?else?}{?eval echo $vip['5']['jifenjiasu']*100;?}%{?/if?}</td>
+			 <td width="137" align="center" valign="middle">{?if $vip['6']['jifenjiasu']==0?}无{?else?}{?eval echo $vip['6']['jifenjiasu']*100;?}%{?/if?}</td>
+            </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">订阅折扣</td>
+          	 <td width="137" align="center" valign="middle">{?if $vip['0']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip[0]['dingyuezhekou']*10;?}折{?/if?}</td> 
+             <td width="137" align="center" valign="middle">{?if $vip['1']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip['1']['dingyuezhekou']*10;?}折{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['2']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip['2']['dingyuezhekou']*10;?}折{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['3']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip['3']['dingyuezhekou']*10;?}折{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['4']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip['4']['dingyuezhekou']*10;?}折{?/if?}</td>
+             <td width="137" align="center" valign="middle">{?if $vip['5']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip['5']['dingyuezhekou']*10;?}折{?/if?}</td>
+			 <td width="137" align="center" valign="middle">{?if $vip['6']['dingyuezhekou']==0?}无{?else?}{?eval echo $vip['6']['dingyuezhekou']*10;?}折{?/if?}</td>
+            </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">保底月票<br />（上月订阅满{?eval echo ceil($configs['article']['vipvotes'])/100;?}元可获得，1次/月）</td>
+               <td width="137" align="center" valign="middle">{?if $vip['0']['baodiyuepiao']==0?}无{?else?}{?$vip[0]['baodiyuepiao']?}张{?/if?}</td> 
+              <td width="137" align="center" valign="middle">{?if $vip['1']['baodiyuepiao']==0?}无{?else?}{?$vip['1']['baodiyuepiao']?}张{?/if?}</td>
+              <td width="137" align="center" valign="middle">{?if $vip['2']['baodiyuepiao']==0?}无{?else?}{?$vip['2']['baodiyuepiao']?}张{?/if?}</td>
+              <td width="137" align="center" valign="middle">{?if $vip['3']['baodiyuepiao']==0?}无{?else?}{?$vip['3']['baodiyuepiao']?}张{?/if?}</td>
+              <td width="137" align="center" valign="middle">{?if $vip['4']['baodiyuepiao']==0?}无{?else?}{?$vip['4']['baodiyuepiao']?}张{?/if?}</td>
+              <td width="137" align="center" valign="middle">{?if $vip['5']['baodiyuepiao']==0?}无{?else?}{?$vip['5']['baodiyuepiao']?}张{?/if?}</td>
+			  <td width="137" align="center" valign="middle">{?if $vip['6']['baodiyuepiao']==0?}无{?else?}{?$vip['6']['baodiyuepiao']?}张{?/if?}</td>
+            </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">消费月票<br />（每订阅满{?eval echo ceil($configs['article']['vipvegold'])/100;?}元可得，无上限）</td>
+               <td width="137" align="center" valign="middle">{?if $vip['0']['xiaofeiyuepiao']==0?}无{?else?}{?$vip[0]['xiaofeiyuepiao']?}张{?/if?}</td> 
+               <td width="137" align="center" valign="middle">{?if $vip['1']['xiaofeiyuepiao']==0?}无{?else?}{?$vip['1']['xiaofeiyuepiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['2']['xiaofeiyuepiao']==0?}无{?else?}{?$vip['2']['xiaofeiyuepiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['3']['xiaofeiyuepiao']==0?}无{?else?}{?$vip['3']['xiaofeiyuepiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['4']['xiaofeiyuepiao']==0?}无{?else?}{?$vip['4']['xiaofeiyuepiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['5']['xiaofeiyuepiao']==0?}无{?else?}{?$vip['5']['xiaofeiyuepiao']?}张{?/if?}</td>
+			   <td width="137" align="center" valign="middle">{?if $vip['6']['xiaofeiyuepiao']==0?}无{?else?}{?$vip['6']['xiaofeiyuepiao']?}张{?/if?}</td>
+            </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">VIP专属图标</td>
+             <td width="137" align="center" valign="middle">无</td>
+             <td colspan="6" align="center" valign="middle">不同VIP等级会员，拥有各自专属炫酷图标哦！</td>
+             </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">每天赠送推荐票</td>
+               <td width="137" align="center" valign="middle">{?if $vip['0']['tuijianpiao']==0?}无{?else?}{?$vip[0]['tuijianpiao']?}张{?/if?}</td> 
+               <td width="137" align="center" valign="middle">{?if $vip['1']['tuijianpiao']==0?}无{?else?}{?$vip['1']['tuijianpiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['2']['tuijianpiao']==0?}无{?else?}{?$vip['2']['tuijianpiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['3']['tuijianpiao']==0?}无{?else?}{?$vip['3']['tuijianpiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['4']['tuijianpiao']==0?}无{?else?}{?$vip['4']['tuijianpiao']?}张{?/if?}</td>
+               <td width="137" align="center" valign="middle">{?if $vip['5']['tuijianpiao']==0?}无{?else?}{?$vip['5']['tuijianpiao']?}张{?/if?}</td>
+			   <td width="137" align="center" valign="middle">{?if $vip['6']['tuijianpiao']==0?}无{?else?}{?$vip['6']['tuijianpiao']?}张{?/if?}</td>
+            </tr>
+            <tr>
+             <td width="222" align="center" valign="middle">更多神秘特权</td>
+             <td width="137" align="center" valign="middle">?</td>
+             <td width="137" align="center" valign="middle">?</td>
+             <td width="137" align="center" valign="middle">?</td>
+             <td width="137" align="center" valign="middle">?</td>
+             <td width="137" align="center" valign="middle">?</td>
+             <td width="137" align="center" valign="middle">?</td>
+			 <td width="137" align="center" valign="middle">?</td>
+            </tr>
+            </table>
+         </div>
+        </li>
+	</ul>
+	</div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+/* SHUHAI.COM ABOUT.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.article6{ float:left; width:798px; padding-right:10px; height:auto; background:url(../images/bg_y2.gif) repeat-y right 0px #fff; position:relative;}
+.article6 .adorn1,.article6 .adorn2{ width:10px; height:10px; background:url(../images/icon_about.gif) no-repeat; position:absolute; right:0px;}
+.article6 .adorn1{ background-position:0px 0px; top:0px;}
+.article6 .adorn2{ background-position:0px -10px; bottom:-1px;_bottom:-6px;}
+.sidebar3{ width:170px; height:auto;}
+.sidebar3 .kf{ width:170px; height:130px; margin:20px auto 0px; padding-bottom:0px; background:url(../images/kf.gif) no-repeat -14px 0px;}
+.sidebar32{ background: url(../images/icon_login.gif) no-repeat -433px -312px; padding-top:130px;}
+.list_menu2{ padding-top:130px;}
+.list_menu2 li{ width:auto; height:38x; line-height:38px; margin:10px auto; font-size:14px; font-weight:800; background-color:#cfecfa; text-align:center;}
+.list_menu2 li a{ display:block; height:38px; color:#3cabdb;}
+.list_menu2 li a:hover,.list_menu2 .thistab{ color:#fff; font-weight:800; background:#3cabdb; border-left:5px solid #1271ad;}
+.list_menu2 .thistab a{color:#fff;}
+.about{ width:auto;height:auto !important; min-height:580px; _height:500px; padding:60px 60px 60px 100px; margin-bottom:0px; border:1px solid #d2e6f4; border-right:0px; color:#333;}
+.boxtit .adorn{ width:100%; height:5px; font-size:0px; position:absolute; left:-2px; bottom:-10px; border-bottom:1px dotted #9a9a9a; _border-bottom:1px dotted #c6c6c6;}
+.about .boxtit{ margin-bottom:30px;}
+.about .intro{ line-height:180%;}
+.about .intro p{ text-indent:2em;}
+.about .flink{ line-height:240%;}
+.about .flink a{ padding:0px 8px;}
+.limenu{ width:auto; height:auto;}
+.limenu div{display:none;}
+.limenu li{ clear:both; width:auto; height:auto; padding:10px 0px; font-size:14px;}
+.limenu li h3{ width:auto; height:30px; line-height:30px; padding-left:30px; color:#2c2c2c; font-size:14px; font-weight:800; cursor:pointer;}
+.limenu li h3 em{ display:inline-block; width:30px; height:30px; vertical-align:middle; background:url(../images/ipg.png) no-repeat;}
+.limenu .author{ background-position: -5px -294px;}
+.limenu .reader{ background-position: -5px -326px}
+.limenu li a{ display:block; width:auto; height:40px; line-height:40px; padding-left:52px; color:#2c2c2c;}
+.limenu li a:hover,.limenu li a.on{ background:#cfecfa; border-left:5px solid #1271ad;}
+.faq h6{ width:auto; height:22px; line-height:22px; padding-left:30px; font-size:14px; font-weight:800; color:#3cabdb; background: url(../images/icon2.gif) no-repeat 0px -644px #cfecfa; margin-top:10px; cursor:pointer;}
+.faq .txt{ width:auto; height:auto; line-height:160%; padding:5px 10px 20px 30px; color:#333; font-size:13px; background:url(../images/icon2.gif) no-repeat 0px -672px; word-break:break-all; }
+
+
+
+
+
+

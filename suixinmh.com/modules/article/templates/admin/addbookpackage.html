@@ -1,0 +1,225 @@
+<style type="text/css">
+.search_box{width: 400px;height: auto}
+.search_box .snow_search{width: 100%;height: 25px;margin: 5px}
+.search_box .snow_search input.snow_text{width: 35%}
+.search_box .snow_search a.snow_sub{float: right;margin-right: 10px;line-height: 25px}
+.search_box .snow_showbox{width: 80%;height: 200px;padding: 10px;margin-left: 5px;overflow:scroll;}
+.search_box .snow_showbox a{width: 100%;height: 25px;display: inline-block;text-decoration: none;color: #999}
+.search_box .snow_showbox a:hover{color: #A30000}
+.search_box .snow_tips{width: 100%;height: 25px;margin-top: 5px}
+td.odd{text-align: right;padding-right: 10px}
+td.even{padding-left: 10px}
+.button_diy{display: inline-block;padding: 3px 10px;border: 0;background: #83B0E1;color: #f8f8f8;margin-right: 10px;line-height: 25px;cursor: pointer}
+/*input.buton_diy{border: 0}*/
+td{line-height: 30px}
+</style>
+<!--<link href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" rel="stylesheet" />
+<script src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>-->
+<table class="grid" width="100%" align="center" style="height: 30px;line-height: 30px">
+    <tr>
+        <td>
+            <a href="{?$adminprefix?}" class="button_diy" >返回</a>
+        </td>
+    </tr>
+</table>
+<div style="height: 30px;line-height: 30px;width: 100%" ></div>
+<form id="j_addbp_form" method="post" action="{?$adminprefix?}&method=add_newbp" enctype="multipart/form-data">
+    <table width="100%" cellspacing="1" align="center" class="grid">
+        <caption>添加新书包</caption>
+        <tbody><tr valign="middle" align="left">
+                <td width="25%" class="odd">书包名称</td>
+                <td class="even"><input width="40%" type="text" value="" maxlength="20" size="20" name="name" class="text" data-rule="required;length[~20]" >*限20个字以内</td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包介绍</td>
+                <td class="even"><textarea width="40%" name="description" cols="40" maxlength="120" rows="4" style="resize:none"></textarea>*限120字以内</td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">所属频道</td>
+                <td class="even">
+                    <select width="15%" name="siteid" >
+                        {?section name=i loop=$channel?}
+            		<option value="{?$i.key?}" {?if $siteid != "" && $siteid==$i.key ?}selected{?/if?}>{?$channel[i].name?}</option>
+            	{?/section?}
+                    </select>
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书籍数量</td>
+                <td class="even">
+                    <select width="15%" name="booknumber" id="j_booknumber_select">
+                        {?section name=i loop=$bpsort?}
+                            <option value="{?$bpsort[i].number?}" book-price="{?$bpsort[i].price?}" {?if $bpsort[i].number==5?}selected="selected"{?/if?}>{?$bpsort[i].number?}本书</option>
+                        {?/section?}
+                    </select>
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包包月价格</td>
+                <td class="even">
+                    <input width="15%" name="price" id="j_bpprice" type="text" readonly="readonly" value="300书海币" />
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包封面</td>
+                <td class="even"><input type="file" name="faceimg" />*宽高为130X170像素、大小不超过2M的JPG文件</td>
+            </tr>
+<!--            <tr valign="middle" align="left">
+                <td width="25%" class="odd">是否上架</td>
+                <td class="even">
+                    <input type="radio" name="putaway" value="1" />&nbsp;销售&nbsp;&nbsp;&nbsp;<input type="radio" name="putaway" value="2" checked="checked" />&nbsp;下架
+                </td>
+            </tr>-->
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">销售状态</td>
+                <td class="even">
+                    <input type="radio" name="showbookpackage" value="1" />&nbsp;销售&nbsp;<input type="radio" name="showbookpackage" value="2" checked="checked" />&nbsp;停售
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">首页推荐</td>
+                <td class="even">
+                    <select id="j_commends_checked" name="commends" width="20%" >
+                        <option value="0" selected="selected">不推荐</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>*数字越小，首页推荐位置越靠前
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">添加书籍</td>
+                <td class="even" >
+                    <a id="j_add_book" href="javascript:;" class="button_diy">+添加书籍</a>
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd"><input id="j_booklists" type="hidden" value="" name="booklists"></td>
+                <td class="even"><a href="javascript:;" id="submit" name="submit" class="button_diy">提交</a><input type="reset" value="重置" id="reset" name="reset" class="button_diy" /></td>
+            </tr>
+        </tbody></table>
+</form>
+<script language="javascript" type="text/javascript">
+$(function(){
+    $("#submit").live("click", function(){
+        var valiName = $("input[name=name]").val();
+        var valiDesc = $("textarea[name=description]").val();
+        var valiBook = $(".j_bpbooks_name").length;
+        if (valiName==''||valiName.length>20){
+            alert("书包名称必须填写并且字数不能大于20个字");
+            return false;
+        } else if (valiDesc==''||valiDesc.length>120){
+            alert("书包简介必须填写并且字数不能大于120个字");
+            return false;
+        } else if (valiBook<parseInt($("select[name=booknumber]").val())) {
+            var number = parseInt($("select[name=booknumber]").val()) - valiBook;
+            alert("书包内数量还少"+number+"本书");
+            return false;
+        } else if (valiBook>parseInt($("select[name=booknumber]").val())) {
+            var number = valiBook - parseInt($("select[name=booknumber]").val());
+            alert("书包内数量超出了"+number+"本书");
+            return false;
+        } else {
+            $("#j_addbp_form").submit();
+        }
+        return false;
+    })
+    $("#j_add_book").on("click", function(){
+        var addBookLayer = $.layer({
+            type: 1,
+//            shade: [0],
+            area: ['auto', 'auto'],
+            title: "添加书籍",
+//            border: [0],
+            page: {
+                html: '<div class="search_box"><form id="j_search_form"><div class="snow_search">&nbsp;<input class="snow_text" type="text" name="keywords">&nbsp;<input type="radio" name="keytype" checked="checked" value="1" >&nbsp;书名&nbsp;<input type="radio" name="keytype" value="2" >&nbsp;书籍编号<a class="snow_sub button" href="javascript:;">搜索</a></div></form><div class="snow_showbox"></div><div class="snow_tips">&nbsp;*直接点击一个需要添加的书籍名称即可</div></div>'
+            }
+        });
+        $(".snow_sub").on("click", function(){
+            // TODO::增加一个获取数据的等待动画
+            var loadLayer = layer.load(0);
+            var sendData = $(".j_search_form").serialize();
+            GPage.postForm('j_search_form', "{?$adminprefix?}&method=search_book_id", function(data){
+                if (data.status=='OK') {
+                    // TODO::关闭等待动画
+                    layer.close(loadLayer);
+                    //success msg
+                    $(".snow_showbox").html("");
+                    var selectData = '';
+                    $.each(data.msg, function(i, n){
+                        selectData += '<a href="javascript:;" class="bookname" book-id="'+i+'">《'+n+'》</a>';
+                    })
+                    $(".snow_showbox").append(selectData);
+                } else {
+                    // TODO::关闭等待动画
+                    layer.close(loadLayer);
+                    //error msg
+                    $(".snow_showbox").html("");
+                    $(".snow_showbox").append("没有查到任何数据...");
+                }
+                $(".bookname").on("click", function(){
+                    var stat = false;
+                    var bookname = $(this).html();
+                    var loadLayer_i = layer.load(0);
+                    var bookid = $(this).attr("book-id");
+                    // 异步检查所添加书籍是否已存在书包中
+                    $.post( "{?$adminprefix?}&method=check_exist_book", {"bookid":bookid}, function(data){
+                        if(data.status!="200"){
+                            layer.close(loadLayer_i);
+                            alert(data.msg);
+                            stat=true;
+                        } else {
+                            layer.close(loadLayer_i);
+                            var bookids = $(".bpbooks");
+                            $.each(bookids, function(i, n){
+                                if(n.getAttribute("book-id")==bookid){
+                                    layer.close(loadLayer_i);
+                                    alert("这本书已经添加过了");
+                                    stat=true;
+                                }
+                            })
+                            if(stat){return false;}
+                            var booklists = $("#j_booklists").val();
+                            var bookHtml = "";
+                            bookHtml = '<div class="bpbooks" book-id="'+bookid+'" style="width: 100%;height: 30px;float: left;line-height: 30px;display: inline" ><p class="j_bpbooks_name" style="width:30%;display: inline-block">'+bookname;
+                            bookHtml += '</p>&nbsp;&nbsp;<a class="j_bpbooks_delete" style="display: inline" href="javascript:;" >删除</a></div>';
+                            $("#j_add_book").before(bookHtml);
+                            $("#j_booklists").val(booklists+bookid+",");
+                            if ($(".j_bpbooks_name").length>=parseInt($("select[name=booknumber]").val())) {
+                                $("#j_add_book").hide();
+                            }
+                            layer.close(addBookLayer);
+                        }
+                    }, "json");
+                })
+            })
+        })
+    })
+    $("#j_booknumber_select").on("change", function(){
+        var sortNumber = $(this).val();
+        var sortPrice = $(this).children("[selected=selected]").attr("book-price");
+        $("#j_bpprice").val(sortPrice+"书海币");
+        if($(".j_bpbooks_name").length<sortNumber){$("#j_add_book").show();}else{$("#j_add_book").hide();}
+    })
+    $(".j_bpbooks_delete").live("click", function(){
+//        alert(111);
+        var booklists = $("#j_booklists").val();
+        var bookid = $(this).parent(".bpbooks").attr("book-id")+",";
+        $("#j_booklists").val(booklists.replace(bookid, ""));
+        $(this).parent(".bpbooks").remove();
+        if ($(".j_bpbooks_name").length<parseInt($("select[name=booknumber]").val())) {
+            $("#j_add_book").show();
+        }
+    })
+})
+</script>

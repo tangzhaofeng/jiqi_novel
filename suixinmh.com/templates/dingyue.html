@@ -1,0 +1,43 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+        {?if $dingyuecrows != null?}	<!-- 如果结果不为空 -->
+         <table width="98%" border="0" cellspacing="0" cellpadding="0" class="tabl2">
+		  <tr class="bgt">
+		    <th width="8%" scope="col">编号</th>
+		    <th width="49%" scope="col">文章名称 </th>
+		    <th width="14%" align="left" scope="col">作者</th>
+		    <th width="20%" scope="col">设置时间 </th>
+		    <th width="9%" align="left" scope="col">操作</th>
+		  </tr>
+		  
+		  {?section name=i loop=$dingyuecrows?}
+		  <tr>
+		    <td align="left" valign="middle">{?$i.order?}</td>
+		    <td align="left" valign="middle"><a href="{?$dingyuecrows[i].url_articleinfo?}" class="f_blue5">《{?$dingyuecrows[i].articlename?}》</a><a href="{?$dingyuecrows[i].url_lastchapter?}" class="f_gray3 pl5">{?$dingyuecrows[i].lastchapter?}</a></td>
+		    <td align="left" valign="middle">{?$dingyuecrows[i].author?}</td>
+		    <td align="left" valign="middle" class="g6">{?$dingyuecrows[i].addtime|date:Y-m-d H:i:s?} </td>
+		    <td align="left" valign="middle"><a href="{?function geturl:'system':'userhub':'SYS=method=canseDingyue&aid=$dingyuecrows[i].articleid'?}" ajaxclick="true" class="f_blue5" confirm="你确定要取消自动订阅吗？">取消</a></td>
+		  </tr> 
+		  {?/section?}
+		</table>
+         <div class="bar fix tc">
+          <div class="page2 auto">{?$url_jumppage?}</div>
+         </div>
+		{?else?}	<!-- 如果结果为空 -->
+		<div class="tips f14 p10 g3 mt10 mb10 pl20 b">您还没有自动订阅的书，快去<a href="{?$jieqi_url?}/" class="f_blue5">首页</a>看看吧</div>
+		{?/if?}
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

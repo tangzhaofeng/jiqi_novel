@@ -1,0 +1,30 @@
+<table class="grid" width="100%" align="center">
+  <caption>VIP级别管理</caption>
+  <tr align="center">
+    <th width="50">序号</th>
+	<th width="50">图片标识</th>
+    <th width="140">VIP级别名称</th>
+    <th width="130">积分大于</th>
+	<th width="130">积分小于</th>
+    <th width="90">操作</th>
+  </tr>
+  {?section name=i loop=$vipgrade?}
+  <tr>
+    <td class="odd" align="center">{?$vipgrade[i].vipgradeid?}</td>
+	<td class="odd" align="center">{?$vipgrade[i].photo?}</td>
+    <td class="even" align="center">{?$vipgrade[i].caption?}</td>
+    <td class="odd" align="left">{?$vipgrade[i].minscore?}</td>
+	<td class="odd" align="left">{?$vipgrade[i].maxscore?}</td>
+    <td class="even" align="center"><a href="{?$vipgrade[i].url_edit?}">编辑</a>{?if $vipgrade[i].vipgradetype == 0?}  <a href="javascript:if(confirm('确实要删除该VIP级别么？')) document.location='{?$vipgrade[i].url_del?}';">删除</a>{?/if?}</td>
+  </tr>
+  {?/section?}
+  <tr>
+    <td colspan="6" class="foot">&nbsp;</td>
+  </tr>
+</table>
+<br />
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">{?$form_addvipgrade?}</td>
+  </tr>
+</table>

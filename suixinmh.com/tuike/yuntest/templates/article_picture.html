@@ -1,0 +1,86 @@
+{?include file="tuike/yuntest/templates/public/header.html" ?}
+{?include file="tuike/yuntest/templates/public/left.html" ?}
+    <div class="g-main">
+      <style type="text/css">
+        .alert {
+          padding: 8px 35px 8px 14px;
+          margin-bottom: 20px;
+          text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+          background-color: #fcf8e3;
+          border: 1px solid #fbeed5;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+        }
+        .alert {
+          color: #c09853;
+        }
+        .no_more {
+          float: right;
+        }
+      </style>
+      <div class="m-book-title">图书素材 </div>
+      <div class="alerta alert-warning" style="font-size: 16px;">温馨提醒：<br />男性小说封面建议用美女性感诱惑的图片！ <br />女性小说封面建议用男女接吻、带神秘感的图片！ </div>
+      <div class="m-panel ">
+        <div class="panel-body">
+
+
+        
+          <div class="m-table-tool f-cb bg_while pd_tb20">
+            <div class="tool-search f-cb">
+
+              <form style="display:inline;margin-left:9px;" action="{?function geturl:'yuntest':'article':'SYS=method=picture'?}" method="post">
+                <input type="hidden" name="cat_id" value="1" />
+                <button class="u-btn u-btn-primary" type="submit">男频</button>
+              </form>
+              <form style="display:inline" action="{?function geturl:'yuntest':'article':'SYS=method=picture'?}" method="post">
+                <input type="hidden" name="cat_id" value="2" />
+                <button class="u-btn u-btn-primary" type="submit">女频</button>
+              </form>
+
+            </div>
+
+            <div class="tool-filter f-cb">
+             
+            </div>
+          </div>
+
+
+
+          <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/jquery.fancybox.css" />
+          <script src="{?$jieqi_themeurl?}js/jquery.fancybox.js" type="text/javascript" charset="utf-8"></script>
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $('.fancybox').fancybox();
+            });
+          </script>
+          <div class="bookresource">
+            <ul>
+
+              {?if intval($articleList)==0?}
+              <li>
+                <p>亲，当前还没有记录哦~</p>
+              </li>
+              {?else?}
+              {?section name=i loop=$articleList?}
+              <li>
+                <a class="fancybox" data-fancybox-group="gallery" href="{?$jieqi_url?}/{?$articleList[i].img_url?}" target="_blank">
+                  <img src="{?$jieqi_url?}/{?$articleList[i].img_url?}" alt="{?$articleList[i].img_titile?}">
+                </a>
+              </li>
+              {?/section?}
+              {?/if?}
+            </ul>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/yuntest/templates/public/footer.html"?}

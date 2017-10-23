@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chaplist> 
+     {?eval $volume = $chapter = 0;?}
+	{?section name=i loop=$chapters?}{?eval $chapter = $volume = 0;?}
+	{?if $chapters[i]['chaptertype']==0 && $i.order==1?}{?eval $volume++;?}{?eval $chapter++;?}
+        <volume> 
+            <volumeid>0</volumeid> 
+            <volumename>正文</volumename> 
+                <chapters> 
+				   <chap> 
+                        <id>{?$chapters[i]['chapterid']?}</id> 
+                        <title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></title> 
+                    </chap> 
+	{?elseif $chapters[i]['chaptertype']==1?}{?eval $volume++;?}
+        <volume> 
+            <volumeid>{?$chapters[i]['chapterid']?}</volumeid> 
+            <volumename><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></volumename> 
+                <chapters> {?eval $chapter = 0;?}
+	{?else?}{?eval $chapter++;?}
+                    <chap> 
+                        <id>{?$chapters[i]['chapterid']?}</id> 
+                        <title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></title> 
+                    </chap> 
+	{?/if?}{?if $chapters[$i.order]['chaptertype'] == "1" || $chapters[$i.order]['chaptername'] == ""?}
+                </chapters> 
+        </volume> {?/if?}
+		{?/section?}
+</chaplist> 

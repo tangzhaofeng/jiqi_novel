@@ -1,0 +1,134 @@
+<style type="text/css">
+.search_box{width: 400px;height: auto}
+.search_box .snow_search{width: 100%;height: 25px;margin: 5px}
+.search_box .snow_search input.snow_text{width: 35%}
+.search_box .snow_search a.snow_sub{float: right;margin-right: 10px;line-height: 25px}
+.search_box .snow_showbox{width: 80%;height: 200px;padding: 10px;margin-left: 5px;overflow:scroll;}
+.search_box .snow_showbox a{width: 100%;height: 25px;display: inline-block;text-decoration: none;color: #999}
+.search_box .snow_showbox a:hover{color: #A30000}
+.search_box .snow_tips{width: 100%;height: 25px;margin-top: 5px}
+td.odd{text-align: right;padding-right: 10px}
+td.even{padding-left: 10px}
+.button_diy{display: inline-block;padding: 3px 10px;border: 0;background: #83B0E1;color: #f8f8f8;margin-right: 10px;line-height: 25px;cursor: pointer}
+/*input.buton_diy{border: 0}*/
+td{line-height: 30px}
+</style>
+<!--<link href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" rel="stylesheet" />
+<script src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>-->
+<table class="grid" width="100%" align="center" style="height: 30px;line-height: 30px">
+    <tr>
+        <td>
+            <a href="{?$adminprefix?}" class="button_diy" >返回</a>
+        </td>
+    </tr>
+</table>
+<div style="height: 30px;line-height: 30px;width: 100%" ></div>
+<form id="j_addbp_form" method="post" action="{?$adminprefix?}&method=edit_bpinfo" enctype="multipart/form-data">
+    <table width="100%" cellspacing="1" align="center" class="grid">
+        <caption>编辑书包</caption>
+        <tbody><tr valign="middle" align="left">
+                <td width="25%" class="odd">书包名称</td>
+                <td class="even"><input width="40%" type="text" value="{?$bpinfo.name?}" maxlength="20" size="20" name="name" class="text" data-rule="required;length[~20]" >*限20个字以内</td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包介绍</td>
+                <td class="even"><textarea width="40%" name="description" cols="40" maxlength="120" rows="4" style="resize:none">{?$bpinfo.description?}</textarea>*限120字以内</td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">所属频道</td>
+                <td class="even">
+                    <select width="15%" name="siteid" >
+                        {?section name=i loop=$channel?}
+            		<option value="{?$i.key?}" {?if $bpinfo.siteid != "" && $bpinfo.siteid==$i.key ?}selected{?/if?}>{?$channel[i].name?}</option>
+            	{?/section?}
+                    </select>
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书籍数量</td>
+                <td class="even">
+                    <input width="15%" name="" type="text" readonly="readonly" value="{?$bpinfo.booknumber?}" />
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包包月价格</td>
+                <td class="even">
+                    <input width="15%" name="price" id="j_bpprice" type="text" readonly="readonly" value="{?$bpinfo.price?}书海币" />
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包封面</td>
+                <td class="even">
+                    <input type="file" name="faceimg" />*宽高为130X170像素、大小不超过2M的JPG文件
+                    <img src="{?$bpinfo.coverimg?}" alt="封面" style="width: 130px;height: 170px;display: block"/>
+                </td>
+            </tr>
+<!--            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书包下架</td>
+                <td class="even">
+                    <input type="radio" name="putaway" value="1" {?if $bpinfo.putaway==1?}checked="checked"{?/if?} />&nbsp;销售&nbsp;&nbsp;&nbsp;<input type="radio" name="putaway" value="2" {?if $bpinfo.putaway==2?}checked="checked"{?/if?} />&nbsp;下架
+                </td>
+            </tr>-->
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">销售状态</td>
+                <td class="even">
+                    <input type="radio" name="showbookpackage" value="1" {?if $bpinfo.showbookpackage==1?}checked="checked"{?/if?} />&nbsp;销售&nbsp;<input type="radio" name="showbookpackage" value="2" {?if $bpinfo.showbookpackage==2?}checked="checked"{?/if?} />&nbsp;停售
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">首页推荐</td>
+                <td class="even">
+                    <select id="j_commends_checked" name="commends" width="20%" >
+                        <option value="0" {?if $bpinfo.commends==0?} selected="selected"{?/if?}>不推荐</option>
+                        <option value="1" {?if $bpinfo.commends==1?} selected="selected"{?/if?}>1</option>
+                        <option value="2" {?if $bpinfo.commends==2?} selected="selected"{?/if?}>2</option>
+                        <option value="3" {?if $bpinfo.commends==3?} selected="selected"{?/if?}>3</option>
+                        <option value="4" {?if $bpinfo.commends==4?} selected="selected"{?/if?}>4</option>
+                        <option value="5" {?if $bpinfo.commends==5?} selected="selected"{?/if?}>5</option>
+                        <option value="6" {?if $bpinfo.commends==6?} selected="selected"{?/if?}>6</option>
+                        <option value="7" {?if $bpinfo.commends==7?} selected="selected"{?/if?}>7</option>
+                        <option value="8" {?if $bpinfo.commends==8?} selected="selected"{?/if?}>8</option>
+                        <option value="9" {?if $bpinfo.commends==9?} selected="selected"{?/if?}>9</option>
+                        <option value="10" {?if $bpinfo.commends==10?} selected="selected"{?/if?}>10</option>
+                        <option value="11" {?if $bpinfo.commends==11?} selected="selected"{?/if?}>11</option>
+                        <option value="12" {?if $bpinfo.commends==12?} selected="selected"{?/if?}>12</option>
+                    </select>*数字越小，首页推荐位置越靠前
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">书籍列表</td>
+                <td class="even" >
+                    {?section name=i loop=$bpinfo['book']?}
+                        <div class="bpbooks" book-id="{?$bpinfo['book'][i].articleid?}" style="width: 100%;height: 30px;float: left;line-height: 30px;display: inline"><p class="j_bpbooks_name" style="width:30%;display: inline-block">《{?$bpinfo['book'][i].articlename?}》</p></div>
+                    {?/section?}
+                    <!--<a id="j_add_book" href="javascript:;" class="button_diy">+添加书籍</a>-->
+                </td>
+            </tr>
+            <tr valign="middle" align="left">
+                <td width="25%" class="odd">
+                    <input id="j_booklists" type="hidden" value="{?section name=i loop=$bpinfo['book']?}{?$bpinfo['book'][i].articleid?},{?/section?}" name="booklists">
+                    <input type="hidden" name="id" value="{?$bpinfo.id?}" />
+                </td>
+                <td class="even"><a href="javascript:;" id="submit" name="submit" class="button_diy">提交</a><input type="reset" value="重置" id="reset" name="reset" class="button_diy" /></td>
+            </tr>
+        </tbody></table>
+</form>
+<script language="javascript" type="text/javascript">
+$(function(){
+    $("#submit").live("click", function(){
+        var valiName = $("input[name=name]").val();
+        var valiDesc = $("textarea[name=description]").val();
+        if (valiName==''||valiName.length>20){
+            alert("书包名称必须填写并且字数不能大于20个字");
+            return false;
+        } else if (valiDesc==''||valiDesc.length>120){
+            alert("书包简介必须填写并且字数不能大于120个字");
+            return false;
+        } else {
+            $("#j_addbp_form").submit();
+        }
+        return false;
+    })
+})
+</script>

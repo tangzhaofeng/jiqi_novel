@@ -1,0 +1,49 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix" style="display:none;">
+         <div class="finag"><a href="{?function geturl:'system':'userhub':'SYS=method=czView&flag=all'?}" {?if $flag=='all'?}class="on"{?/if?} >显示全部</a><a href="{?function geturl:'system':'userhub':'SYS=method=czView&flag=success'?}" {?if $flag=='success'?}class="on"{?/if?}>支付成功</a></div>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabl2">
+          <tr class="bgt b">
+           <td>充值帐号 </td>
+           <td>充值时间</td>
+           <td>充值方式</td>
+           <td>购买数量</td>
+           <td>交易状态 </td>
+          </tr>
+           {?section name=i loop=$paylog?} 
+	          <tr>
+	           <td>{?$paylog[i].buyname?}</td>
+	           <td class="g6">{?$paylog[i].buytime|date:"Y-m-d H:i:s"?}</td>
+	           <td>{?if $paytype[$paylog[i].paytype] != null ?}{?$paytype[$paylog[i].paytype].shortname?}{?else?}{?$paylog[i].paytype?}{?/if?}</td>
+	           <td>{?$paylog[i].egold?}{?eval echo JIEQI_EGOLD_NAME;?}</td>
+	           {?if $paylog[i].payflag == 0?}
+	           	<td>未确认</td>
+	           {?else?}
+	           	<td class="red">支付成功</td>
+	           {?/if?}
+	          </tr>
+          {?/section?}  
+         </table>
+         {?if $paylog != null?}
+         	<div class="page">
+		        	{?$url_jumppage?}
+		        </div>
+         {?else?}
+      		<dl class="list_t4">
+	     		没有数据。
+	     	</dl>
+       	{?/if?}
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

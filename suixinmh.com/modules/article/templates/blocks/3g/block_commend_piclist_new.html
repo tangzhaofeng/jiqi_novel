@@ -1,0 +1,10 @@
+<ul class="clearfix tc ptb10 f13">
+    {?section name=i loop=$articlerows?}
+    <li class="wp25 fl bsi">
+        <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="db">
+            <span class="wp90 db mc"><img class="wp100" src="{?$articlerows[i]['url_image']?}" alt=""></span>
+            <p class="c333 tEllipsis mt3">{?$articlerows[i]['articlename']?}</p>
+        </a>
+    </li>
+    {?/section?}
+</ul>

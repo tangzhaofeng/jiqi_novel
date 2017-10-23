@@ -1,0 +1,271 @@
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<style type="text/css">
+.layer_notice{float:left; height:75px; width:170px;  overflow:hidden; display:none;  background:#78BA32; padding:10px; border:1px solid #628C1C;}
+#tabs13 .thistab{background:#DDF2FF};
+</style>
+<form name="frmsearch" method="post" action="{?$adminprefix?}&method=chapterStatistics">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}"> <input name="keytype" type="radio" class="radio" value="0"{?if $keytype==0?} checked{?/if?}>
+            文章名称
+			<input type="radio" name="keytype" class="radio" value="1"{?if $keytype==1?} checked{?/if?}>
+            作者 &nbsp;&nbsp;
+            {?if $agents != null?}
+             <select name="nowagent" id="nowagent">
+ 				<option value="0">-选择责编-</option>
+ 				{?section name=j loop=$agents?}
+ 				<option value="{?$agents[j]['uid']?}" {?if $nowagent==$agents[j]['uid']?}selected{?/if?}>
+ 					{?eval echo ($agents[j]['name'] ? $agents[j]['name'] : $agents[j]['uname']);?}
+ 				</option>
+ 				{?/section?}
+ 			</select>
+            {?/if?}
+            <select name="firstflag" id="firstflag">
+            	<option value="">-选择来源-</option>
+            	{?section name=j loop=$soruce?}
+            		<option value="{?$j.key?}" {?if $firstflag != ""  && $firstflag==$j.key ?}selected{?/if?}>{?$j.value?}</option>
+            	{?/section?}
+            </select>
+
+		  选择日期：<input name="ym" id="ym" onclick="WdatePicker({dateFmt:'yyyy-MM',minDate:'2008-01',maxDate:'%y-%M'})" autocomplete='off' value="{?$year?}-{?$month?}" />
+            <input type="submit" name="btnsearch" class="button" value="搜 索"><input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+<!--             &nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/web_admin/?controller=chapter">分卷及章节</a> -->
+<!-- 			&nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/web_admin/?controller=chapter&display=volume">所有分卷</a> -->
+<!-- 			&nbsp;&nbsp;&nbsp; <a href="{?$article_dynamic_url?}/web_admin/?controller=chapter&display=chapter">所有章节</a></td> -->
+    </tr>
+</table>
+</form>
+<br />
+<form action="{?function geturl:'article':'chapter':'SYS=method=delChapters'?}" method="post" name="checkform" id="checkform">
+<table class="grid" width="2000px" id="list">
+<caption>{?$articletitle?}</caption>
+  <tr align="center">
+  	<th width="10px"></th>
+  	<th width="10px"></th>
+    <th width="160px">文章名称</th>
+    <th width="50px">月统计</th>
+    <th width="50px">作者</th>
+    <th width="50px">状态</th>
+    <th width="50px">责编</th>
+    {?eval $day_num = range(1,$day_num);?}
+	{?section name=i loop=$day_num?}
+		<th>{?$month?}/{?$i.value?}</th>
+	{?/section?}
+	<th width="50px">合计</th>
+  </tr>
+<!--   <tr onmouseover="this.style.backgroundColor='#DDF2FF';" onmouseout="this.style.backgroundColor='#ffffff';"> -->
+  {?section name=i loop=$rows?}
+  <tr>
+  	<td >{?$i['order']?}</td>
+  	<td ><input type="checkbox" name="selbox"/></td>
+    <td ><a href="{?function geturl:'article':'index':'aid=$rows[i].articleid'?}" target="_blank">{?$rows[i].articlename?}</a>{?if $rows[i].articletype>0?}<img src="{?$jieqi_local_url?}/images/vip.gif" border="0" />{?/if?}</td>
+    <td  align="center"><button onclick="monthChapterList({?$rows[i].articleid?})" type="button">月计</button></td>
+    <td  align="center">{?$rows[i].author?}</td>
+    <td  align="center">{?$state[$rows[i].fullflag]?}</td>
+    <td  align="center">{?$rows[i].agent?}</td>
+    {?eval $total_num = $total_size = 0;?}
+    {?section name=j loop=$rows[i].items?}
+    	{?if $rows[i].items[j]['t_num'] == 0 && $rows[i].items[j]['t_size'] == 0?} 
+    		<td >-</td>
+    	{?else?}
+    		{?eval $total_num += $rows[i].items[j]['t_num'];?}
+    		{?eval $total_size += $rows[i].items[j]['t_size'];?}
+    		<td ondblclick="dayChapterList({?$rows[i].articleid?},{?$j.order?});" {?if $rows[i].items[j]['has_comment'] == 1?}style="border-bottom:1pt double #F30;"{?elseif $rows[i].items[j]['has_comment'] > 1?}style="border-bottom:1pt double blue;"{?/if?}>{?$rows[i].items[j]['t_num']?}/{?$rows[i].items[j]['t_size']?}</td>
+    	{?/if?}
+    {?/section?}
+    <td  align="center">{?$total_num?}/{?$total_size?}</td>
+  </tr>
+  {?/section?}
+<!--   <tr> -->
+<!--     <td width="3%" class="odd" align="center"><input type="checkbox" id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ if (this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"></td> -->
+<!--     <td colspan="6" align="left" class="odd"><input type="button" name="Submit" value="批量删除" class="button" onclick="javascript:if(confirm('确实要批量删除章节么？')) this.form.submit();"><input name="batchdel" type="hidden" value="1"></td> -->
+<!--   </tr> -->
+</table>
+</form>
+<table width="100%"  border="0" cellspacing="2" cellpadding="3">
+  <tr>
+    <td width="12%" align="right"><!--<input type="submit" name="Submit" value="批量删除" class="button">
+                <input name="batchdel" type="hidden" value="1">--></td>
+    <td width="88%" align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+<div>
+        <ul class="layer_notice"><li><b>[选择责编]</b><a href="{?$article_dynamic_url?}/admin/?controller=article&action=setagent&uid=-1" agentclick="true">清空</a></li>{?section name=j loop=$agents?}
+        	<li style="height:25px; line-height:25px;">[{?$groups[$agents[j]['groupid']]?}]<a href="{?$article_dynamic_url?}/admin/?controller=article&action=setagent&uid={?$agents[j].uid?}" agentclick="true">{?eval echo ($agents[j]['name'] ? $agents[j]['name'] : $agents[j]['uname']);?}</a></li>
+            {?/section?}<input type="hidden" value="0" id='tmpid'>
+        </ul>
+</div>
+<script language="javascript">
+	var cellEvent = null;
+	var rowIndex = 0;
+	function addComment(cid){
+		var comment = $("#comment"+cid).val();
+		if(!comment){
+			layer.msg('批注不能为空！',1,{type:8,shade:false});
+			return;
+		}
+		GPage.getJson('{?$adminprefix?}&method=addComment&cid='+cid+'&comment='+encodeURIComponent(comment),function(data){
+			if(data.status=='OK'){
+				var id = layer.msg(data.msg['msg'],1,{type:1,shade:false},function(obj){
+					$("#comment_list_"+cid).prepend('<font color="red">@'+data.msg['username']+'</font>  '+data.msg['date']+'  '+data.msg['comment']+"  ");
+					$("#comment"+cid).empty();
+					var td=cellEvent.srcElement;
+					if(td.tagName!="TD"){//如果事件不是发生在单元格上，退出函数
+						return;
+					}
+// 					tb=td.parentElement.parentElement  //单元格的上两级对象为表格
+					makerCell(td.cellIndex,td.parentNode.rowIndex,'marker');
+					//layer.close(id);
+				});
+			}else{
+				 layer.alert(data.msg, 8, !1);
+			 }
+		});
+	}
+	//标记|选中 指定的单元格
+	function makerCell(cellIndex,rowIndex,active){
+		tb = document.getElementById("list");
+		for(var i=1;i<tb.rows.length;i++){
+			for(var j=7;j<tb.rows[i].cells.length;j++){
+				if(active == 'marker'){//marker
+					if(j==cellIndex && i==rowIndex){
+						if(tb.rows[i].cells[j].style.borderBottomStyle){
+// 							tb.rows[i].cells[j].style.borderBottom='1pt double blue';//标记
+							tb.rows[i].cells[j].style.borderBottom='1pt double #F30';//标记
+						}else{
+							tb.rows[i].cells[j].style.borderBottom='1pt double #F30';//标记
+						}
+						
+						break;
+					}
+				}else{//select
+					if(j==cellIndex && i==rowIndex){
+						tb.rows[i].cells[j].bgColor='#069DD5';//选择
+					}else{
+						tb.rows[i].cells[j].bgColor='';
+					}
+				}
+
+			}
+		}
+	}
+	//月统计
+	function monthChapterList(aid){
+		//选中所在行的多选按钮
+		var event = $.event.fix(arguments.callee.caller.arguments[0] || window.event);//jquery维护event统一
+		rowIndex = $(event.target).parent().parent().index();
+		
+		var url = '{?$adminprefix?}&method=getMonthChapters&aid='+aid+'&year={?$year?}&month={?$month?}';
+		 $.layer({
+				shade : [0.5 , '#000' , true],
+				type : 1,
+				area : ['780px','560px'],
+				title : false,
+				offset : ['30px' , '50%'],
+				border : [10 , 0.3 , '#000', true],
+				zIndex : 1,
+				page : {html : '<div id="month" style="width:780px;height:560px;OVERFLOW-Y: auto; OVERFLOW-X:auto;"></div>'},
+				close : function(index){
+					layer.close(index);
+					$('.ul_con').hide();
+				}
+			});	
+		
+ 	    var i = layer.load(0);
+		//加载模版
+		GPage.loadpage('month', url);
+  		layer.close(i); 
+	}
+	function dayChapterList(aid,day){
+		var i = layer.load(0);
+		var event = $.event.fix(arguments.callee.caller.arguments[0] || window.event);//jquery维护event统一
+		var td = event.target;
+		if(td.tagName!="TD"){//如果事件不是发生在单元格上，退出函数
+			return;
+		}
+		cellEvent = event;
+		//选中单元格
+		makerCell(td.cellIndex,td.parentNode.rowIndex);
+		GPage.getJson('{?$adminprefix?}&method=getChapters&aid='+aid+'&year={?$year?}&month={?$month?}&day='+day,function(data){
+			layer.close(i);
+			 if(data.status=='OK'){
+				 html_dl = html_li = '';
+				 for(i=0;i<data.msg.length;i++){
+					 var cid = data.msg[i]['chapterid'];
+					 var commentid = 'comment'+cid;
+					 var comment_list_id = 'comment_list_'+cid;
+					 var comment = data.msg[i]['comment'];
+					 var content = '';
+					 var style = '';//var type = '（卷）';
+					 if(data.msg[i]['chaptertype'] == 0){//type = '（章节）';
+						 content = data.msg[i]['content'];
+					 }
+					 if(comment.length == 1){
+						 style = 'style="border-bottom:1pt double #F30"';
+					 }else if(comment.length > 1){
+						 //style = 'style="border-bottom:1pt double blue"';
+						 style = 'style="border-bottom:1pt double #F30"';
+					 }
+					 html_li += '<li ><a href="javascript:void(0)" '+style+'>'+data.msg[i]['chaptername']+'</a></li>';
+					 html_dl += '<li ><dl><textarea id="content" name="content" rows="20" cols="70" readonly="readonly">'+content+'</textarea></dl>';
+					 html_dl += '<div style="margin-top:3px;" id="'+comment_list_id+'">'; 
+					 for(j=0;j<comment.length;j++){
+						 html_dl += '<font color="red">@'+comment[j]['username']+'</font>  '+comment[j]['date']+'  '+comment[j]['comment']+'  '; 
+					 }
+					 html_dl += '</div>'; 
+					 html_dl += '<div style="margin-top:3px;"><div style="float:left;"><textarea id="'+commentid+'" name="content" maxlength="170" rows="7" cols="50"></textarea></div><div style="text-align:center;padding-top:15px;"><button style="width:80px;height:80px;" onclick="addComment('+cid+')">批注</button></div></div>';
+					 html_dl += '</li>';
+				 }
+				 html = '<div style="width:783px;padding:10px 5px;"><div style="float:left;width:30%;height:450px;clear:none;overflow-y:auto"><ul id="tabs13">';
+				 html += html_li;
+				 html += '</ul></div><ul id="tab_conbox13" style="float:left;width:68%;clear:none">';
+				 html += html_dl;
+				 html += '</ul></div>';
+				 $.layer({
+						shade : [0.5 , '#000' , true],
+						type : 1,
+// 						area : ['60%','560px'],
+						area : ['60%','500px'],
+						title : false,
+						offset : ['30px' , '50%'],
+						border : [10 , 0.3 , '#000', true],
+						zIndex : 1,
+						page : {html : html},
+						close : function(index){
+							layer.close(index);
+							$('.ul_con').hide();
+						}
+					});	
+				 $.jqtab("#tabs13","#tab_conbox13","click");
+			 }else{
+				 layer.alert(data.msg, 8, !1);
+			 }
+		});
+	}
+	$(document).ready(function(){
+		$("#list tr:not(':first')").bind("mouseover",function(){
+			 $(this).css("background","#DDF2FF");
+		});
+		$("#list tr:not(':first')").bind("mouseout",function(){
+			if($(this).find("input[name='selbox']").attr("checked")){
+				$(this).css("background","#C3E8FF");
+			}else{
+				$(this).css("background","#ffffff");
+			}
+		});
+	})
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

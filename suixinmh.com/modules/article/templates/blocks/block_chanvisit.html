@@ -1,0 +1,7 @@
+	<div class="box_dwn21">
+	<dl class="list_t3d f_black">
+	{?section name=i loop=$articlerows?}
+		<dd><span class="numb{?if $i.order<4?}1{?else?}{?/if?}">{?$i.order?}</span><p><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span><span class="click">{?$articlerows[i]['visitnum']?}</span></p></dd>
+	{?/section?}
+	</dl>
+	</div>

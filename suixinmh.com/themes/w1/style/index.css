@@ -1,0 +1,70 @@
+/* SHUHAI.COM INDEX.CSS v1.0 | 2014*/
+@import url(style.css);
+.boxm{ float:left; width:560px; height:auto; padding-left:10px;}
+.boxm .t_sort{ display:block; width:560px; height:50px; text-align:left; text-indent:-9999px; background:url(../images/icon.gif) no-repeat 0px -160px;}
+.tabbox1{ width:560px; height:333px; overflow:hidden; background-color:#fff;}
+.tabbox1 .tt1{ width:auto; height:34px; border-bottom:1px solid #d2e1f1; position:relative;}
+.tabs1{ width:560px; height:39px; position:absolute; top:0px;}
+.tabs1 li{ float:left; width:100px; height:39px; margin-right:5px; position:relative; top:1px; font-size:14px; top:1px; background:url(../images/icon.gif) no-repeat -384px -68px; }
+.tabs1 li .focus{background:url(../images/icon.gif) no-repeat -256px -68px; }
+.tabs1 li a { position:absolute;display: block; width:100px; height:24px; padding-top:10px; padding-bottom:5px; text-align:center; color:#252525;}
+.tabs1 li a:hover {color:#fff; font-weight:800;}
+.tabs1 .thistab a{ color:#fff;}	
+.tabs1 .thistab,.tabs1 .thistab a:hover{background:url(../images/icon.gif) no-repeat -256px -68px; color:#fff; font-weight:800;}
+.tabs1 li a .ivip{ color:#55b5df; padding-right:5px; font-weight:800; font-family:Georgia, Times New Roman;word-wrap:break-word;}
+.tabs1 li a:hover .ivip,.tabs1 .thistab a .ivip{ color:#fff;}
+.tab_conbox1{ width:558px; height:auto; padding:5px 0px 0px; margin:0px; border-top: 0px; border-right:1px solid #d2e1f1; border-bottom: 0px; border-left:1px solid #d2e1f1;}
+.tab_con1{ display:none; width:505px; height:419px; margin:0px auto; clear:both;}
+.tab_con1 .line{ width:100%; height:2px; margin:8px auto; background:url(../images/icon.gif) no-repeat -280px -7px; clear:both; font-size:0px; line-height:0px; }
+.bok{ width:100%; height:135px; margin:0px auto; overflow:hidden;}
+.bok dl{ width:auto; height:125px; padding:10px 0px 0px 0px; overflow:hidden;}
+.bok dl .img{ float:left; width:90px; height:120px; padding-right:15px; overflow:hidden;}
+.bok dl .img a img{ width:90px; height:120px;}
+.bok dl dd{ float:left; width:79%; height:120px;}
+.bok dl .name{ height:24px; line-height:24px; overflow:hidden;}
+.bok dl .name a{ font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-size:18px; padding-right:5px;}
+.bok dl .name .collect{ color:#fff; font-size:12px; display:inline-block; width:40px; height:20px;background:url(../images/icon.gif) no-repeat -298px -38px; padding-left:8px; font-family:"ËÎÌå";}
+.bok dl .intro { height:60px; line-height:180%; padding:8px 0px; _padding:3px 0px;text-indent:2em; color:#555; overflow:hidden;}
+.bok dl .recom{ color:#f9644e; height:24px; line-height:24px;}
+.box_news{ width:auto; height:135px; margin:0px; clear:both; border:1px solid #d2e1f1; border-top:none; background-color:#fff;}
+.box_news h2{ width:auto; height:25px; font-family:"Î¢ÈíÑÅºÚ"; font-size:18px; color:#2974ab; font-weight:normal; background:url(../images/icon.gif) no-repeat -250px 5px;}
+.box_news h2 .ito{ display:inline-block; width:20px; height:20px; background:url(../images/icon.gif) no-repeat -204px -120px;}
+.box_news h2 .ien{ font-size:16px; color:#87c8f8;}
+.box_news .headline{ width:auto; height:50px; line-height:50px; font-family:"Î¢ÈíÑÅºÚ"; font-size:18px; text-align:center; overflow:hidden; padding:0px 20px;}
+.box_news .headline a{ color:#f00;}
+.box2,.box2r{ float:left; width:275px; height:474px;}
+.box2r{ float:right;}
+.box2{ background:url(../images/line_y.gif) no-repeat 263px center;}
+.box2_x{ width:auto; height:220px; padding:10px 0px 0px 15px; clear:both;}
+.box2_x h3{ width:auto; height:30px; padding-top:5px; padding-left:20px; text-align:left; font-size:14px; font-weight:800; color:#2974ab; background:url(../images/icon.gif) no-repeat -256px -118px;}
+.box3{width:270px; height:auto; }
+.box3_x{width:250px; height:275px;padding:10px 10px 0px; margin-top:14px;}
+.box3_x .t{ width:auto; height:30px; line-height:30px; padding-left:10px; border-bottom:3px solid #d6eefe; position:relative;}
+.box3_x .t h3{ font-size:14px; font-weight:800; color:#2974ab; border-left:3px solid #fff; border-right:3px solid #fff; position:absolute; _bottom:-3px;}
+.box3_x .t h3 a{ padding:0px 5px; display:inline-block; height:30px; border-bottom:3px solid #3294ce; color:#2974ab; background:#fff;}
+.box3_x .t p{ width:auto; height:26px; padding-top:4px;  text-align:right;}
+.bok3{ width:auto; height:140px; padding-top:20px;}
+.bok3 .img{ float:left; width:95px; height:130px; padding-right:10px;}
+.bok3 .img a img{ width:95px; height:127px;}
+.bok3 .name{ float:left; width:142px; height:28px; overflow:hidden;}
+.bok3 .name .b{ display:block; width:100px; height:28px; overflow:hidden; font-size:14px;}
+.bok3 .name a{ display:block; float:left;}
+.bok3 .intro{ width:142px; height:110px; line-height:170%; overflow:hidden; text-indent:2em; color:#666;}
+.box3_x ul{ width:auto; height:auto; margin-top:10px; background-color:#f6fafe; padding:5px; padding-right:0px; clear:both;}
+.box3_x ul li{ width:auto; height:24px; line-height:24px; padding:0px;  overflow:hidden;}
+.box3_x ul li .sort{ color:#555; padding-right:5px;}
+.dwn0{ width:auto; height:208px; margin:0px; border:1px solid #d2e1f1; border-top:0px; background:#fff; overflow:hidden;}
+.dwn0 .hotag{ padding:16px 10px;}
+.dwn0 .hotag a{ padding:0px 5px; line-height:220%; font-size:14px;}
+.list_kf{ width:auto; height:auto; padding:15px 0px 15px 10px; }
+.list_kf dd{ width:100%; height:auto; line-height:26px; font-family:"ËÎÌå";}
+.list_kf dd p{ padding-left:35px;}
+.list_ib{ width:auto; height:auto; padding-top:10px;}
+.list_ib .pic{ float:left; width:102px; height:160px; padding-right:10px;}
+.list_ib .pic .img{ display:block; width:100px; height:134px; border:1px solid #a9def8}
+.list_ib .pic .t{ display:block; width:102px; height:28px; line-height:28px; text-align:center; font-size:14px; background-color:#cdecfe; color:#5f8b96;}
+.list_ib dd{ float:left; width:135px; height:28px; _height:20px;line-height:28px; _line-height:20px;overflow:hidden;}
+.list_ib dd .numb,.list_ib dd .numb1{ display:inline-block; width:15px; height:15px; line-height:15px; text-align:center; font-size:12px;}
+.list_ib dd .numb{ background:#e3f5ff; color:#666;}
+.list_ib dd .numb1{ background:#dc3535; color:#fff;}
+.list_ib dd a{ font-size:13px; padding-left:5px;}

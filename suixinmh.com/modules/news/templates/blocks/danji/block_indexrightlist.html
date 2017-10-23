@@ -1,0 +1,14 @@
+<table width="97%" border="0" align="center" cellspacing="0" class="eptj_table2">
+  <tr class="a4">
+    <td width="50%">游戏名称</td>
+    <td width="23%">类型</td>
+    <td width="21%"><div align="center">发布时间</div></td>
+    <td width="6%"><div align="center">下载</div></td>
+  </tr>{?section name=i loop=$articlerows?}
+  <tr>
+    <td><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}下载" target="_blank">{?$articlerows[i]['title']|truncate:20?}</a></td>
+    <td><a href="{?$articlerows[i]['url_catelist']?}" target="_blank" class="a2">{?$articlerows[i]['catname']|truncate:10?}</a></td>
+    <td><div align="center">{?$articlerows[i]['updatetime']|date:'m-d'?}</div></td>
+    <td><div align="center"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}下载" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/djyx1_14.jpg" border="0" /></a></div></td>
+  </tr>{?/section?}
+</table>

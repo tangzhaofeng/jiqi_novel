@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>支付宝充值</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/alipay.css" rel="stylesheet" type="text/css" />
+{?include file="themes/3g/js.html"?}
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'pay'?}">返回</a></div>
+    <div class="title"><a href="javascript:;">支付宝充值</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+{?include file = "themes/3g/paylogin.html"?}
+<div class="logging_status"><div class="wlogin">
+		<p><b>支付宝（支付宝余额及银行卡）</b></p>
+</div></div>
+<div class="recharge_shb">
+	<form action="{?function geturl:'3g':'pay':SYS=method=alipay?}" method="post">
+		<ul>
+			{?section name=i loop=$paylimit?}{?eval if($i.key>$paylimit[i]*100){$duo=$i.key-$paylimit[i]*100;}else{$duo=0;}?}
+			<li><a href="javascript:;" data-egold="{?$i.key?}"><span class="orange">{?$paylimit[i]?}元</span><span style="font-size:14px;">{?eval echo $paylimit[i]*100;?}{?if $duo>0?} + 送 <font color="red"><b>{?$duo?}</b></font>{?/if?} 币</span></a></li>
+			{?/section?}
+		</ul>
+		<input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+		<input type="hidden" name="egold" id="egold" value="" />
+	</form>
+</div>
+
+<div class="warm_prompt">
+	<p>温馨提示</p>
+	<span>1.支付宝充值兑换比例：1元=100{?$egoldname?}；<br />2.冲的多，送的多；<br />*充值遇到问题时，请联系客服。<br />客服热线：15996266606<br />客服QQ：724171887</span>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $("div.recharge_shb ul li a").click(function(){
+    	var egold = $(this).attr("data-egold");//alert(egold);
+    	$("#egold").val(egold);
+    	$("form").submit();
+	});
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

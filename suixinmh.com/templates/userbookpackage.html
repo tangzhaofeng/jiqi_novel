@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="{?$jieqi_themeurl?}style/mod_shubao_user.css">
+<div class="wrap2">
+    {?include file = "modules/article/templates/bookFunction.html" ?}
+    <!--article3 begin-->
+    <div class="article3 fr">
+        <!--tabox begin-->
+        <div class="tabox">
+            <div class="t2">
+                <h2>我的包月</h2>
+                <ul class="tabs62">
+                    <li class="thistab"><a href="#">包月记录</a></li>
+                </ul>       
+            </div>
+            <div class="baoyue">
+                <p class="p15 f14"></p>
+                <!--<p class="p15 f14">帐户余额：{?$user.egold?}{?$jieqi_sitename?}币/{?$user.credit?}书券<a href="#" class="f_red pl20">充值</a></p>-->
+                <div class="finag">
+                    <a href="{?function geturl:'system':'userhub':'SYS=method=mybplist'?}" {?if !isset($_REQUEST['isover']) || intval($_REQUEST['isover'])!=1?} class="on"{?/if?}>有效的书包</a>
+                    <a href="{?function geturl:'system':'userhub':'SYS=method=mybplist&isover=1'?}" {?if intval($_REQUEST['isover'])==1?} class="on"{?/if?}>过期的书包</a>
+                </div>
+                <table width="98%" border="0" cellspacing="0" cellpadding="0" class="tabl21">
+                    <tr class="bgt b">
+                        <td width="30%" align="left" valign="middle">包月书包名称</td>
+                        <td width="15%" align="left" valign="middle">作品数量</td>
+                        <td width="15%" align="left" valign="middle">售价</td>
+                        <td width="20%" align="left" valign="middle">购买时间</td>
+                        <td width="20%" align="left" valign="middle">到期时间</td>
+                    </tr>
+                     {?section name=i loop=$salelist?}
+                    <tr class="trover">
+                        <td width="30%" align="left" valign="middle"><em class="arrow arrow-r"></em>{?$salelist[i].name?}</td>
+                        <td width="15%" align="left" valign="middle">{?$salelist[i].booknumber?}</td>
+                        <td width="15%" align="left" valign="middle">{?$salelist[i].saleprice?}{?$jieqi_sitename?}币</td>
+                        <td width="20%" align="left" valign="middle">{?$salelist[i].buy_time|date:'Y-m-d H:i:s'?}</td>
+                        <td width="20%" align="left" valign="middle">{?$salelist[i].endtime|date:'Y-m-d H:i:s'?}</td>
+                    </tr>
+                    <tr class="trbox dn">
+                        <td colspan="5" align="left" valign="middle" class="p0">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabl22">
+                                <tr>
+                                    <th width="30%" align="left" valign="middle" scope="col">书名</th>
+                                    <th width="15%" align="left" valign="middle" scope="col">类别</th>
+                                    <th width="15%" align="left" valign="middle" scope="col">作者</th>
+                                    <th width="20%" align="left" valign="middle" scope="col"></th>
+                                    <th width="20%" align="left" valign="middle" scope="col">加入书包时间</th>
+                                </tr>
+                                {?section name=n loop=$salelist[i].book?}
+                                <tr>
+                                    <td align="left" valign="middle"><a href="{?function geturl:'article':'articleinfo':'SYS=method=main&aid=$salelist[i]['book'][n].id'?}" class="f_blue5">{?$salelist[i]['book'][n].articlename?}</a></td>
+                                    <td lign="left" valign="middle">{?$sortname[$salelist[i]['book'][n].sortid].shortcaption?}</td>
+                                    <td align="left" valign="middle">{?$salelist[i]['book'][n].author?}</td>
+                                    <td align="left" valign="middle"></td>
+                                    <td align="left" valign="middle">{?$salelist[i]['book'][n].create_time?}</td>
+                                    <!--<td align="left" valign="middle"><a href="javascript:;" class="f_black">{?$salelist[i]['book'][n].lastread?}</a></td>-->
+                                </tr>
+                                {?/section?}
+                            </table>
+                        </td>
+                    </tr><!--trbox end-->
+                    {?/section?}
+                </table>
+                <div class="bar fix tc">
+                    <div class="page3">
+                        {?$url_jumppage?}
+                    </div>
+<!--                    <div class="page2 auto">
+                        1/13 页 <a href="#" class="f_blue4">下一页</a>跳转<input name="" type="text" />
+                    </div>-->
+                </div>
+            </div><!--baoyue end-->      
+        </div><!--tabox end-->
+    </div><!--article3 end-->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $(".trover").live("click", function () {
+            var thisArrow = $(this).children().children(".arrow").hasClass("arrow-d");
+//            alert(111);
+            $(".trbox").stop().hide();
+            $(".trover").children().children(".arrow").removeClass("arrow-d").addClass("arrow-r");
+            if(thisArrow){
+                $(this).next(".trbox").stop().hide();
+                $(this).children().children(".arrow").removeClass("arrow-d").addClass("arrow-r");  
+            }else{
+                $(this).next(".trbox").stop().show(300);
+                $(this).children().children(".arrow").removeClass("arrow-r").addClass("arrow-d");
+            }
+        })
+//        $(".trover").live("mouseout", function () {
+//            $(this).next(".trbox").stop().hide(600);
+//        })
+    })
+</script>

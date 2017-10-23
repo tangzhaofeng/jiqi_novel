@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="gbk">
+    <meta name="keywords" content="优阅云 小说 微信 阅读 流量" />
+    <meta name="description" content="优阅云丨让流量不再闲置" />
+    <title>优阅云-忘记密码</title>
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common_login_reg.css?1.3">
+    <link href="{?$jieqi_themeurl?}js/layer_mobile/need/layer.css" rel="stylesheet" >
+    <script src="{?$jieqi_themeurl?}js/jquery.js"></script>
+    <script src="{?$jieqi_themeurl?}js/users.js"></script>
+    <script src="{?$jieqi_themeurl?}js/layer_mobile/layer.js"></script>
+  </head>
+  <body>
+    <div class="login register">
+      <div class="login-inner">
+        <h1 class="login-title">找回密码</h1>
+        <form action="" id="formg" method="post">  
+          <div class="login-item">
+            <input type="text" class="clearError" name="mobile" id="ipt_account" placeholder="请输入手机号码" tabindex="1">
+          </div>
+          <p class="reg-helper"><i>*</i>请填写找回的手机号码，用于接收验证码</p>
+          <div class="clearfix mgb10">
+            <div class="login-item code picode fl">
+              <input type="text" class="clearError" id="code" placeholder="验证码" name="checkcode" data-autohide="1" tabindex="3">
+            </div>
+            <div class="code-img fl mgl5">
+              <img src="{?$url_checkcode?}?rand={?eval echo mt_rand(100000,999999); ?}" style="cursor:pointer;" id="checkcodeimg" onclick="this.src='{?$url_checkcode?}?rand='+Math.random();">
+            </div>
+            <div class="fl mgl5"><a href="javascript:;" onclick="$('#checkcodeimg').get(0).src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" class="j-codeReresh" id="code-refresh">换一张</a>
+            </div>
+          </div>
+          <div class="clearfix mgb25">
+            <div class="login-item code fl">
+              <input type="text" class="clearError" name="msgcode" id="ipt_code" placeholder="请输入短信验证码" data-autohide="1" tabindex="2">
+            </div>
+            <input id="btn_sendCode" type="button" class="fl btn-getCode" style="margin: 0; border: none; margin-left: 9px; cursor: pointer;" value="获取验证码" />
+          </div>
+          <div class="login-item">
+            <input type="password" class="clearError" name="pass" id="ipt_pwd" placeholder="请输入新密码" tabindex="3">
+          </div>
+          <p class="reg-helper"><i>*</i>6~21位数字或字母</p>
+          <div>
+            <input type="hidden" name="ajax_request" value="1" />
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+            <input type="submit" class="login-btn" id="submitBtn" value="立即修改" />
+          </div>
+        </form>
+        <script type="text/javascript">
+
+            Users.q_btnv= $("#btn_sendCode");
+            Users.q_sub= $("#submitBtn");
+
+            /**
+             * 修改密码_提交表单
+             * @param {[type]} form_id [description]
+             */
+            $("#formg").submit(function () {
+              Users.form=this;
+              Users.msg_err=false;
+              Users.checkUser('mobile');
+              Users.checkPassword('pass');
+              Users.checkCheckcode('checkcode');
+              Users.checkMsgcode('msgcode');
+              if( Users.msg_err !== false ){
+                  Users.ShowMsg();
+                  return false;
+              }
+              Users.q_btnv.attr("disabled", "disabled");
+              Users.q_sub.attr("disabled", "disabled");
+              Users.SendForm(function(msgs){                 
+                if(msgs.status === 'OK'){
+                  location.href='/';
+                }else{
+                  Users.ShowMsg(msgs.msg);
+                }
+              });
+              Users.q_btnv.removeAttr("disabled");
+              Users.q_sub.removeAttr("disabled");
+              return false;
+            });
+ 
+
+            $("#btn_sendCode").click(function () {
+              var username,checkcode;
+              Users.form=document.getElementById('formg');
+              Users.msg_err=false;
+              Users.checkUser('mobile');
+              Users.checkCheckcode('checkcode');
+              if( Users.msg_err !== false ){
+                  Users.ShowMsg();
+                  return false;
+              }
+              if (Users.se > 0)return false;
+              Users.q_btnv.attr("disabled", "disabled");
+              Users.q_sub.attr("disabled", "disabled");
+              $.ajax({ // jq  
+                url:'http://'+location.host+'/login/sendsms', 
+                type:'post',
+                async: false,
+                data:$(Users.form).serialize(),
+                dataType:'json',
+                success:function(msgs){ 
+                  if(msgs.status == 'OK'){ 
+                    Users.se=60;
+                    Users.q_btnv.attr("disabled", "disabled");
+                    $('#checkcodeimg').click();
+                    Users.RegSmsWait();
+                  }else{
+                    Users.ShowMsg(msgs.msg); 
+                  }
+                }
+              });
+              Users.q_btnv.removeAttr("disabled");
+              Users.q_sub.removeAttr("disabled");
+            });
+        </script>
+
+        <div class="login-locationnow">
+          <a href="/">已有账号？立即登录</a>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

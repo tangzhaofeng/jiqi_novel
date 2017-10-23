@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="{?$jieqi_charset?}">
+    <title>打赏</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="{?$meta_keywords?}" />
+    <meta name="description" content="{?$meta_description?}" />
+    <meta name="author" content="{?$meta_author?}" />
+    <meta name="copyright" content="{?$meta_copyright?}" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+    <style>
+        .supportlinks li {
+            width: 20%;
+            text-align: center;
+            float: left;
+        }
+
+        .supportlinks li a {
+            display: block;
+            width: 90%;
+            max-width: 100px;
+            min-width: 50px;
+            margin: 0 auto;
+        }
+
+        .supportlinks li a img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<!--nav-->
+{?include file = "themes/3g/header.html"?}
+{?if $egolds<100?}
+<div class="lh25 f14 m10 p10" style="background: #ecc4c4;border: 1px solid #e1b4b4;color: #3e2400;">您的余额不足！ </div>
+{?/if?}
+<div class="m10 br5 bgcfff">
+    <h1 class="mlf10 ptb10 f16 clearfix" style="color: #a44b3b;border-bottom:#E2B4AC 1px solid;">当前余额:<span class="cRed">{?$egolds?}</span>{?$egoldname?}<a href="{?function geturl:'3g':'pay'?}" class="f12 cRed fr">立即充值</a></h1>
+    <div class="m10 pb15">
+        <form  name="rewardform" id="rewardform"  action="{?function geturl:'3g':'huodong':'SYS=method=reward&aid=$articleid'?}" method="post">
+        <ul class="clearfix supportlinks">
+            {?section name=i loop=$reward_item?}
+            <li><a href="{?function geturl:'3g':'huodong':'SYS=method=reward&aid=$articleid&item=$reward_item[i].item'?}"><img src="{?$jieqi_themeurl?}/reward/img/{?$reward_item[i].pic?}" alt="" /></a>{?$reward_item[i].name?}</li>
+            {?/section?}
+        </ul>
+        <div class="mtb10 f14 c333">点击上面图标选择打赏类型</div>
+        <div class="h30 lh30 pr pl30"><span class="dib w30 h30 oh pa left0 top0"><img src="{?$jieqi_themeurl?}/reward/img/{?$reward_pic?}" class="wp100" alt="" /></span>（一个{?$reward_name?}需要消耗{?$reward_price?}{?$egoldname?}）</div>
+        <div class="mtb10 f14 c333">打赏数量：<input type="number" name="num" class="b bcddd p10 br0" value="1" /></div>
+        <div class="mtb10 f14 c333">打赏赠言：</div>
+        <div><textarea name="" id="" cols="30" rows="5" class="b bcddd p10 wp100 bsi f14" placeholder="支持作者文思泉涌，妙笔生花。"></textarea></div>
+        <div class="mt20">
+            <a href="javascript:" class="db lh35 h35 cfff f14 tc br3" style="background: #d2a05f;" onclick="document.getElementById('rewardform').submit()">立即打赏</a>
+        </div>
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+            <input type="hidden" name="item" id="current3" value="{?$reward_id?}"/>
+        </form>
+    </div>
+</div>

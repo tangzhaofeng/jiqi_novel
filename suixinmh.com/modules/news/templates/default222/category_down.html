@@ -1,0 +1,665 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_pc.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title"?}
+{?set $meta_keywords = "$meta_keywords"?}{?set $meta_description = "$meta_description"?}
+<script language="JavaScript" src="{?$_SGLOBAL['localurl']?}/images/news/js/swfobject2.js" type="text/javascript"></script>
+	<div id="guanggao"><a href="http://www.2100book.com/" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_9.jpg" alt="世纪文学" width="981" height="63" /></a></div>
+	<div class="clear"></div>
+  <div id="danji_mid">
+       <div style="overflow:hidden; height:457px; margin-bottom:8px;">
+			 <div id="gy_mid_left">
+				          <div id="FocusObj" ></div>
+          <script type="text/javascript">
+					<!--//
+					var focus_width=300;
+					var focus_height=294;
+					var text_height=0;
+					var swf_height=focus_height + 0;
+					{?tag_news_52_[单机]首页左上角图推?}
+					var fo = new SWFObject("{?$_SGLOBAL['localurl']?}/images/news/flash/pix.swf", "_FocusObj", focus_width, swf_height, "7","F6F8FA");
+					fo.addVariable("pics", pics);
+					fo.addVariable("links", links);
+					fo.addVariable("texts", texts); 
+					fo.addVariable("descripts", descripts);
+					fo.addVariable("borderwidth", focus_width);
+					fo.addVariable("borderheight", focus_height);
+					//fo.addVariable("textheight", text_height);
+					fo.addVariable("border_color", "#666"); 
+					//fo.addVariable("fontsize", "24"); 
+					//fo.addVariable("fontcolor", "FFFFFF");
+					fo.addVariable("is_border", "");
+					fo.addVariable("is_text", "1");
+					fo.addParam("wmode", "opaque");
+					fo.write("FocusObj");
+				//-->
+				</script>
+
+	   <div id="gy_mid_a">
+		  <div id="ganyou_bt"><div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'lists':77:1?}">精彩专题</a></div>
+		  <div id="gy_more"><a href="{?function jieqi_geturl:'news':'lists':77:1?}">更多>></a></div>
+		  </div>
+		  <div id="danji2">
+				   <ul class="news_list_aq2">
+					{?tag_news_56_[单机]左上角精彩专题?}
+				  </ul>
+				</div>
+			   </div>
+	         </div>
+			 <div id="danji_1_b">
+		     <div id="mid_b_1">
+			    <div style="float:left;" class="t_black">焦点资讯</div>
+				<div style="float:right; margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':88:1?}" target="_blank">访谈</a> - <a href="{?function jieqi_geturl:'news':'lists':83:1?}" target="_blank">深度</a> - <a href="{?function jieqi_geturl:'news':'lists':84:1?}" target="_blank">八卦</a></div>
+			 </div>
+			 <div id="danji_b_2">
+			    <DIV class=colM>
+<DIV class=content style="ZOOM: 1"><SPAN class=blank3></SPAN>
+{?tag_news_51_[单机]首页焦点资讯?}
+</DIV>
+</DIV>
+<div class="gyt_5" id="danji1"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/0303_6.jpg" width="5" height="5" /> 热门单机游戏下载</div>
+<div  id="gy_vid3">
+				   <ul class="news_list_aq5">
+					{?tag_news_53_[单机]热门单机游戏下载?}
+				  </ul>
+		   </div>
+
+			 </div>
+		  </div><div id="gy_mid_left3">
+		      <div id="danji_left_w1">
+			     <div id="ganyou_bt">
+			      <div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'lists':90:1?}" target="_blank">编辑推荐游戏</a></div>
+				 <div id="gy_more"><a href="{?function jieqi_geturl:'news':'lists':90:1?}" target="_blank">更多>></a></div>
+			    </div>
+				   {?tag_news_54_[单机]首页编辑推荐游戏?}
+		    </div>
+	        <div id="danji_left_wqw">
+			     <div id="ganyou_bt">
+			       <div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'lists':137:1?}" target="_blank">快速通道</a></div>
+					  <div id="gy_more"><a href="{?function jieqi_geturl:'news':'lists':137:1?}" target="_blank">更多>></a></div>
+			    </div>
+			     <table width="10" border="0" cellspacing="0" cellpadding="0">
+                   <tr>
+                     <td height="3"></td>
+                   </tr>
+                 </table>
+			     {?tag_news_57_[单机]首页快速通道?}
+		      </div>
+		      </div>
+       </div>
+	   <div id="danji_2">
+			   <div style="height:28px;">
+			   <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_16.jpg" /></div>
+			   <div class="gy_hs" id="dj_lb2">{?tag_news_42_首页单机栏目导航?}</div>
+			   </div>
+			   <div>
+			     <div class="gy_hs" id="dj_lb2">{?tag_news_46_字母索引?}</div>
+			   </div>
+		 </div>
+		 <div id="dj_p4">
+		   <div id="gy_mid_left">
+				
+	   <div id="danji_mid_b22">
+		  <div id="ganyou_bt">{?eval $param['m'] = 'down';?}
+		    <div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'top':$param:'inputtime'?}">近期单机游戏下载</a></div>
+		    <div id="gy_more"><a href="{?function jieqi_geturl:'news':'top':$param:'inputtime'?}">更多>></a></div>
+		  </div>
+		  {?tag_news_21_[新闻]通用查询<{inputtime,15,64,0,0,2,22}><{danji/block_indexlist.html}>?}
+	   </div>
+	   <div class="clear"></div>
+	   <div id="du_mid_a">
+		  <div id="ganyou_bt">
+		    <div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'lists':95:1?}" target="_blank">精美壁纸</a></div>
+		    <div id="gy_more"><a href="{?function jieqi_geturl:'news':'lists':95:1?}" target="_blank">更多>></a></div>
+		  </div>
+		  {?tag_news_55_[单机]首页精美壁纸?}
+	   </div>
+		  </div>
+		  <div id="dja_mid">
+		     <div id="du_mid_top">
+			     <div id="ganyou_bt">
+					<div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'lists':90:1?}" target="_blank">游戏新作</a></div>
+					<div id="gy_more"><a href="{?function jieqi_geturl:'news':'lists':90:1?}" target="_blank">更多>></a></div>
+			   </div>
+				  {?tag_news_58_[单机]首页游戏新作?}
+			   
+		    </div>
+		     <div id="du_mid_top2">
+			     <div id="ganyou_bt">
+					<div id="ganyou_bt2"><a href="#">游戏新闻</a></div>
+					<div id="gy_more"><a href="#">更多>></a></div>
+			   </div>
+				  <div id="dj_b_5">
+			      <div id="dj_b_6"><a href="#"><img src="http://imgs.gamersky.com/pic/2011/i0420_3.jpg" border="0" /></a></div>
+				  <div id="dj_b_7">
+				    <p class="t_blue gyt_5"><a href="#">今年E3十大最期待单机游戏</a></p>
+				    <p><a href="#">根据游民星空最新一年来新闻及话题的关注度，今天我们为大家总结下2011年E3展最令人期待的十款游戏作品</a></p>
+				  </div>
+			   </div>
+			   			   <div id="dj_b_5">
+			      <div id="dj_b_6"><a href="#"><img src="http://imgs.gamersky.com/pic/2011/i0420_5.jpg" border="0" /></a></div>
+				  <div id="dj_b_7">
+				    <p class="t_blue gyt_5"><a href="#">今年E3十大最期待单机游戏</a></p>
+				    <p><a href="#">根据游民星空最新一年来新闻及话题的关注度，今天我们为大家总结下2011年E3展最令人期待的十款游戏作品</a></p>
+				  </div>
+			   </div>
+			   <div  id="gy_vid3">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,6,86,0,0,0,48}><{news/block_li.html}>?}
+				  </ul>
+		   </div>
+		    </div>
+		  </div>
+		  <div id="gy_mid_left3">
+		    <div id="du_left_w1">
+			     <div id="ganyou_bt"><div id="ganyou_bt2"><a href="#">精彩视频欣赏</a></div>
+					  <div id="gy_more"><a href="#">更多>></a></div>
+			    </div>
+				  <div id="gy_mid_b">
+			 <div id="gy_b3">
+				<div id="gy_a2">
+				   <div><a href="#"><img src="http://img.265g.com/images/gg/asqx0401.jpg" border="0" /></a></div>
+				   <div style="margin-top:8px;"><a href="#">新手激活新手激活</a></div>
+				</div>
+			 </div>
+			 <div id="gy_b3">
+				<div id="gy_a2">
+				   <div><a href="#"><img src="http://img.265g.com/images/gg/snyj02283.jpg" border="0" /></a></div>
+				   <div style="margin-top:8px;"><a href="#">新手激活新手激活</a></div>
+				</div>
+			 </div>
+		  </div>
+				  <div id="danji_aq">
+				   <ul class="news_list_aq">
+					<li>·<a href="view.html" >从孙兴“吸毒”事件看娱乐圈明星奢侈生</a></li>
+					<li>·<a href="view.html" >不坑爹！来就送彩票卷！《航海之王》活</a></li>
+					<li>·<a href="view.html" >赛尔号雷奥纳解析——☆Sun☆Moon·流</a></li>
+					<li>·<a href="view.html" >赛尔号普no练自杀号已无可能！！！</a></li>
+					<li>·<a href="view.html" >手绘风奇幻页游游戏特色</a></li>
+					<li>·<a href="view.html" >从孙兴“吸毒”事件看娱乐圈明星奢侈生</a></li>
+					<li>·<a href="view.html" >不坑爹！来就送彩票卷！《航海之王》活</a></li>
+					<li>·<a href="view.html" >赛尔号雷奥纳解析——☆Sun☆Moon·流</a></li>
+					<li>·<a href="view.html" >赛尔号普no练自杀号已无可能！！！</a></li>
+					<li>·<a href="view.html" >赛尔号普no练自杀号已无可能！！！</a></li>
+					<li>·<a href="view.html" >手绘风奇幻页游游戏特色</a></li>
+				  </ul>
+				</div>
+		    </div>
+			<div id="danji_left_w2">
+			     <div class="wl_bt3">
+					<ul id="menu4">
+						<li class="hover" onmouseover="setTab(4,0)"><a href="#" target="_blank">攻略</a> </li>
+						<li onmouseover="setTab(4,1)"><a href="#" target="_blank">秘籍</a></li>
+						<li onmouseover="setTab(4,2)"><a href="#" target="_blank">心得</a></li>
+					</ul>
+				</div>
+				<div class="main_lt_315">
+				
+				 <div id="main4">
+				 <div id="danji_sy">
+				    <div id="danji_mid_b">
+<span class="cRed">攻略索引</span>：<span class="gy_hs">&nbsp;<a href="#">A </a><a href="#">B </a><a href="#">C</a><a href="#"> D </a><a href="#">E </a><a href="#">F</a><a href="#"> G </a><a href="#">H</a><a href="#"> I </a><a href="#">J </a><a href="#">K </a><a href="#">L </a><a href="#">M </a><a href="#">N </a><a href="#">O </a><a href="#">P </a><a href="#">Q </a><a href="#">R </a><a href="#">S </a><a href="#">T </a><a href="#">U </a><a href="#">V </a><a href="#">W </a><a href="#">X </a><a href="#">Y</a></span></div>
+<div id="danji_mid_b">
+<span class="cRed">秘籍索引</span>：<span class="gy_hs">&nbsp;<a href="#">A </a><a href="#">B </a><a href="#">C</a><a href="#"> D </a><a href="#">E </a><a href="#">F</a><a href="#"> G </a><a href="#">H</a><a href="#"> I </a><a href="#">J </a><a href="#">K </a><a href="#">L </a><a href="#">M </a><a href="#">N </a><a href="#">O </a><a href="#">P </a><a href="#">Q </a><a href="#">R </a><a href="#">S </a><a href="#">T </a><a href="#">U </a><a href="#">V </a><a href="#">W </a><a href="#">X </a><a href="#">Y</a></span></div>
+				 </div>
+					   <ul class="gy_t">
+							<li>·<a href="view.html" >“核高基”5000万资金力挺国产平板电</a></li>
+							<li>·<a href="view.html" >《英雄不再2》女主角性感热辣手办欣</a></li>
+							<li>·<a href="view.html" >	翠贝卡电影节《黑色洛城》实机演示泄</a></li>
+							<li class="t_blue">·<a href="view.html" >不走寻常路！玩家可以跳过</a></li>
+							<li>·<a href="view.html" >《51新炫舞》新手激活新手激活卡 </a></li>
+							<li>·<a href="view.html" >《巫师2》正式确认登陆主机 或有独占</a></li>
+							<li>·<a href="view.html" >developer盘点Android开发者必备的十</a></li>
+							<li>·<a href="view.html" >《第一圣殿骑士》女骑士“玛丽”预告</a></li>
+							<li class="t_blue">·<a href="view.html" >《古剑奇谭》海外特典版即将</a></li>
+					  </ul>
+					  	<ul class="gy_t" style="display:none">
+							<li>·<a href="view.html" >金力0万资“核高基”500挺国产平板电</a></li>
+							<li>·<a href="view.html" >主角性感热辣《英雄不再2》女手办欣</a></li>
+							<li>·<a href="view.html" >	《黑色洛城》翠贝卡电影节实机演示泄</a></li>
+							<li class="t_blue">·<a href="view.html" >不走寻常路！玩家可以跳过</a></li>
+							<li>·<a href="view.html" >《51新炫舞》新手激活新手激活卡 </a></li>
+							<li>·<a href="view.html" >开发者必备developer盘点Android的十</a></li>
+							<li class="t_blue">·<a href="view.html" >	解作《传送门2谜闯关大》前瞻</a></li>
+							<li>·<a href="view.html" >《第一士》女骑士“玛圣殿骑丽”预告</a></li>
+							<li class="t_blue">·<a href="view.html" >《特典古剑奇谭》海外版即将</a></li>
+					  </ul>
+					  	<ul class="gy_t" style="display:none">
+							<li>·<a href="view.html" >“核高基力挺国产平板电”5000万资金</a></li>
+							<li>·<a href="view.html" >《英雄性感热辣手办欣不再2》女主角</a></li>
+							<li>·<a href="view.html" >	翠贝卡电影节《黑色洛城》实机演示泄</a></li>
+							<li>·<a href="view.html" >《51新炫舞新手激活卡 》新手激活</a></li>
+							<li>·<a href="view.html" >《巫师2》正机 或有式确认登陆主独占</a></li>
+							<li>·<a href="view.html" >developer盘发者必备点Android开的十</a></li>
+							<li class="t_blue">·<a href="view.html" >	解谜闯关门2》前大作《传送瞻</a></li>
+							<li>·<a href="view.html" >《第一圣殿女骑士“玛丽”预告骑士》</a></li>
+							<li class="t_blue">·<a href="view.html" >特典版即《古剑奇谭》海外将</a></li>
+					  </ul>
+		  </div>
+				</div>
+			  </div>
+		   </div>
+		</div>
+		<div class="clear"></div>
+		<div id="ganyou_mid_wl">
+		<div id="danji_223">
+			   <div style="float:left;"><a href="http://www.2100book.com/"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_9.jpg" /></a></div>
+		 </div>
+		 <div class="clear"></div>
+	     <div id="danji_3">
+             <div id="ganyou_bt"><div id="ganyou_bt2"><a href="{?function jieqi_geturl:'news':'lists':118:1?}" target="_blank">单机游戏截图</a></div>
+					  <div id="gy_more"><a href="{?function jieqi_geturl:'news':'lists':118:1?}" target="_blank">更多>></a></div>
+			    </div>
+			 <div >
+			   <ul class="clearfix">
+				{?tag_news_21_[新闻]通用查询<{inputtime,12,118,0,0,0,20}><{photo/block_imgspan.html}>?}
+			  </ul>
+			</div>
+	    </div>
+		 <div class="clear"></div>
+		 <div id="wl_4">
+		   <div id="gy_mid_left">
+				
+	   <div id="danji_mid_a">
+		  <div class="djyx1_bt3">
+			<ul id="menu3">
+			<li class="hover" onmouseover="setTab(3,0)"><a href="#" target="_blank">补丁</a> </li>
+			<li onmouseover="setTab(3,1)"><a href="#" target="_blank">快报</a></li>
+			<li onmouseover="setTab(3,2)"><a href="#" target="_blank">杂谈</a></li>
+			</ul>
+			</div>
+		 <div id="main3" style="margin-top:2px;">
+		  <ul class="gy_t"><table width="97%" border="0" cellspacing="0" cellpadding="0" class="ta1">
+            <tr>
+              <td width="20%" height="23" class="t_411"><div align="center">日期</div></td>
+              <td width="45%" class="t_411"><div align="center">游戏名称</div></td>
+              <td width="23%" class="t_411"><div align="center">类型</div></td>
+              <td width="12%" class="t_411"><div align="center">下载</div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/of3/" target="_blank">22闪点行动3：红河</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/Soft/Special/nfs15/" target="_blank">极品飞车15：变速2</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/acb/" target="_blank">刺客信条：兄弟会</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/Homefront/" target="_blank">国土防线</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/Shogun2/" target="_blank">幕府将军2</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dragonage2/" target="_blank">龙腾世纪2</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dawnofwar2/" target="_blank">战争黎明2：惩罚</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dnf/" target="_blank">永远的毁灭公爵</a><a href="http://www.gamersky.com/z/bulletstorm/" target="_blank"></a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/thewitcher2/" target="_blank">巫师2：刺客之王</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dnf/" target="_blank">永远的毁灭公爵</a><a href="http://www.gamersky.com/z/bulletstorm/" target="_blank"></a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/thewitcher2/" target="_blank">巫师2：刺客之王</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+          </table></ul>
+		 <ul class="gy_t" style="display:none"> <table width="97%" border="0" cellspacing="0" cellpadding="0" class="ta1" >
+            <tr>
+              <td width="20%" height="23" class="t_411"><div align="center">日期</div></td>
+              <td width="45%" class="t_411"><div align="center">游戏名称</div></td>
+              <td width="23%" class="t_411"><div align="center">类型</div></td>
+              <td width="12%" class="t_411"><div align="center">下载</div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/of3/" target="_blank">闪点行动3：红河</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/Soft/Special/nfs15/" target="_blank">车1极品飞5：变速2</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/acb/" target="_blank">刺客信条：兄弟会</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/Homefront/" target="_blank">国土防线</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/Shogun2/" target="_blank">幕府将军2</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dragonage2/" target="_blank">龙腾世纪2</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dawnofwar2/" target="_blank">战争黎明2：惩罚</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dnf/" target="_blank">永远的毁灭公爵</a><a href="http://www.gamersky.com/z/bulletstorm/" target="_blank"></a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/thewitcher2/" target="_blank">巫师2：刺客之王</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dnf/" target="_blank">永远的毁灭公爵</a><a href="http://www.gamersky.com/z/bulletstorm/" target="_blank"></a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/thewitcher2/" target="_blank">巫师2：刺客之王</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+          </table></ul>
+		  <ul class="gy_t" style="display:none"><table width="97%" border="0" cellspacing="0" cellpadding="0" class="ta1">
+            <tr>
+              <td width="20%" height="23" class="t_411"><div align="center">日期</div></td>
+              <td width="45%" class="t_411"><div align="center">游戏名称</div></td>
+              <td width="23%" class="t_411"><div align="center">类型</div></td>
+              <td width="12%" class="t_411"><div align="center">下载</div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/of3/" target="_blank">闪点行动3：红河</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/Soft/Special/nfs15/" target="_blank">极品飞车15：变速2</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/acb/" target="_blank">刺客信条：兄弟会</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/Homefront/" target="_blank">国土防线</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/Shogun2/" target="_blank">幕府将军2</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dragonage2/" target="_blank">龙腾世纪2</a></div></td>
+              <td><div align="center"><a href="view.html" >电视游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dawnofwar2/" target="_blank">战争黎明2：惩罚</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dnf/" target="_blank">永远的毁灭公爵</a><a href="http://www.gamersky.com/z/bulletstorm/" target="_blank"></a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/thewitcher2/" target="_blank">巫师2：刺客之王</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">拉雄贡的指环王阿冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/dnf/" target="_blank">永远的毁灭公爵</a><a href="http://www.gamersky.com/z/bulletstorm/" target="_blank"></a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/z/thewitcher2/" target="_blank">巫师2：刺客之王</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201009/165046.shtml" target="_blank">英雄传说：零之轨迹</a></div></td>
+              <td><div align="center"><a href="view.html" >单机游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+            <tr>
+              <td height="23"><div align="center">04-28</div></td>
+              <td class="t_blue"><div align="left"><a href="http://www.gamersky.com/news/201010/166025.shtml" target="_blank">指环王阿拉贡的冒险</a></div></td>
+              <td><div align="center"><a href="view.html" >网络游戏</a></div></td>
+              <td><div align="center"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></div></td>
+            </tr>
+          </table></ul>
+		 </div>
+	   </div>
+	       </div>
+		   <div id="dj_wl_mid">
+		     <div id="wl_mid_top">
+			     <div class="djyx1_bt3">
+			<ul id="menu2">
+			<li class="hover" onmouseover="setTab(2,0)"><a href="{?function jieqi_geturl:'news':'lists':104:1?}" target="_blank">硬件资讯</a> </li>
+			<li onmouseover="setTab(2,1)"><a href="{?function jieqi_geturl:'news':'lists':105:1?}" target="_blank">硬件测评</a></li>
+			</ul>
+			</div>
+				  <div class="main_lt_315">
+				  <div id="main2">
+				   <ul class="gy_t">
+					{?tag_news_21_[新闻]通用查询<{inputtime,18,104,0,0,0,58}><{news/block_li.html}>?}
+				  </ul>
+				  <ul class="gy_t" style="display:none">
+					{?tag_news_21_[新闻]通用查询<{inputtime,18,105,0,0,0,58}><{news/block_li.html}>?}
+				  </ul>
+		   </div>
+		   </div>
+		     </div>
+		     
+		   </div>
+			 <div id="dj_mid_left3">
+			   <div>
+			     <div id="ganyou_bt">
+					 <div id="ganyou_bt2"><a href="#">精彩视频欣赏</a></div>
+					 <div id="gy_more"><a href="#">更多>></a></div>
+			    </div>
+				  <div id="gy_mid_b">
+			 <div id="gy_b3">
+				<div id="gy_a2">
+				   <div><a href="#"><img src="http://img.265g.com/images/gg/asqx0401.jpg" border="0" /></a></div>
+				   <div style="margin-top:8px;"><a href="#">新手激活新手激活</a></div>
+				</div>
+			 </div>
+			 <div id="gy_b3">
+				<div id="gy_a2">
+				   <div><a href="#"><img src="http://img.265g.com/images/gg/snyj02283.jpg" border="0" /></a></div>
+				   <div style="margin-top:8px;"><a href="#">新手激活新手激活</a></div>
+				</div>
+			 </div>
+		  </div>
+				  <div id="danji_aq">
+				   <ul class="dj_list_aq">
+					<li>·<a href="view.html" >从孙兴“吸毒”事件看娱乐圈明星奢侈生</a></li>
+					<li>·<a href="view.html" >不坑爹！来就送彩票卷！《航海之王》活</a></li>
+					<li>·<a href="view.html" >赛尔号雷奥纳解析——☆Sun☆Moon·流</a></li>
+					<li>·<a href="view.html" >赛尔号普no练自杀号已无可能！！！</a></li>
+					<li>·<a href="view.html" >手绘风奇幻页游游戏特色</a></li>
+					<li>·<a href="view.html" >从孙兴“吸毒”事件看娱乐圈明星奢侈生</a></li>
+					<li>·<a href="view.html" >不坑爹！来就送彩票卷！《航海之王》活</a></li>
+					<li>·<a href="view.html" >赛尔号雷奥纳解析——☆Sun☆Moon·流</a></li>
+					<li>·<a href="view.html" >手绘风奇幻页游游戏特色</a></li>
+					<li>·<a href="view.html" >赛尔号普no练自杀号已无可能！！！</a></li>
+					<li>·<a href="view.html" >手绘风奇幻页游游戏特色</a></li>
+					<li>·<a href="view.html" >赛尔号雷奥纳解析——☆Sun☆Moon·流</a></li>
+					<li>·<a href="view.html" >赛尔号普no练自杀号已无可能！！！</a></li>
+				  </ul>
+				</div>
+		    </div>
+			 </div>
+		 </div>
+	  </div>
+  </div>
+

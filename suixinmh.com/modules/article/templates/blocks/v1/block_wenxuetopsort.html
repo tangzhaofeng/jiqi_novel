@@ -1,0 +1,1 @@
+{?section name=i loop=$sortrows?}{?if $i.order<50?}<a {?if $sortid==$sortrows[i].sortid?} class="on_sort"{?/if?} href="{?function geturl:'wenxue':'shuku':SYS=sort=$sortrows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}"{?if $sortrows[i]['sortid']==$_REQUEST['sortid']?} class="on"{?/if?}>{?$sortrows[i].sortname?}</a>{?/if?}{?/section?}

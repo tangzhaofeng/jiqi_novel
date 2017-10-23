@@ -1,0 +1,12 @@
+@charset "utf-8";
+html,body{font-size:12px;color:#333333;height:100%;}
+.Progress{
+	font: 12px Arial, Helvetica, sans-serif;overflow:hidden;margin:0px;position:relative;text-align:center;
+	-moz-border-radius:4px;-webkit-border-radius:4px; border:#6593CF 1px solid;height:16px; background:#F0F4F9;
+}
+.Progress b{color:#396095; display:block; height: 100%;}
+.Progress .bar{
+	overflow:hidden;border-color:#7FA9E4; border-right:1px solid; -moz-border-radius:2px;-webkit-border-radius:2px;
+	background:url(img/progress_bar.gif) repeat-x 0px -2px; height:100%; position:absolute; top:0px;left:0px;
+}
+.Progress .bar b{color:#ffffff;}

@@ -1,0 +1,59 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+    <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+	  <div class="tips f14 p10 g3 mt10 mb10 pl20 b">您的账户目前{?if $flagcount <= 0?}没{?/if?}有可以领取的书券</div>
+      {?if $rownum > 0?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+          <table width="98%" border="0" cellspacing="0" cellpadding="0" class="tabl2">
+		    <tr class="bgt b">
+		  	  <th width="25%" align="center" scope="col">赠送时间</th>
+              <th width="25%" align="center" scope="col">书券数额</th>
+              <th width="25%" align="center" scope="col">获赠途径</th>
+              <th width="25%" align="center" scope="col">领取书券</th>
+		    </tr>
+		    {?section name=i loop=$rows?}
+		    <tr>
+		  	  <td align="center" valign="middle">{?$rows[i].gettime|date:"Y-m-d H:i:s"?}</td>
+		      <td align="center" valign="middle">{?$rows[i].stat?}</td>
+		      <td align="center" valign="middle">{?$source[$rows[i].source]?}</td>
+		      <td align="center" valign="middle">
+		      
+		      {?if $rows[i].flag == 1?}
+		        <a class="taked" href="javascript:;">已领取</a>
+		      {?else?}
+		    	<a class="take" href="{?function geturl:'system':'userhub':'SYS=method=takeBookC&sid=$rows[i].sid'?}">点击领取</a>
+		      {?/if?}
+		      </td>
+		    </tr>
+		    {?/section?}
+		 </table>
+         <div class="bar fix tc"><div class="page2 auto">{?$url_jumppage?}</div></div>
+        </li>
+      </ul>
+      {?/if?}
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+<script>
+$(function(){
+  $(".take").click(function(e){
+	e.preventDefault();
+	var _this = $(this);
+	GPage.getJson(this.href,function(data){
+	  if(data.status == 'OK'){
+		layer.msg(data.msg,1,1);
+		_this.attr({"href":"javascript:;","class":"taked"}).html("已领取");
+	  }else{
+		layer.msg(data.msg);
+	  }
+	});
+  });
+});
+</script>

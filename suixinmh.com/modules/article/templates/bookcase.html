@@ -1,0 +1,93 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" /> 
+<div class="wrap2">
+{?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+      {?include file = "modules/article/templates/bookcasetab.html" ?}
+<form action="{?function geturl:'article':'article':'SYS=method=bcBatch'?}" name="checkform" id="checkform" method="post" confirm="确定要删除选中记录吗?" delajax="true" targetid="tab_conbox">
+      <ul id="tab_conbox" class="booksel">
+        <li class="fix">
+          <div class="t">
+           <span class="sel"></span><span class="sort">类别</span><span class="name">作品名/最新章节</span><span class="author">作者</span><span class="renew">书签</span><span class="date">更新时间</span>
+          </div>
+          {?if $articlerows != null?}
+	          <dl class="list_td4 f12">
+	          {?section name=i loop=$articlerows?}{?eval $aid=$articlerows[i].articleid;?}{?eval $cid=$articlerows[i].chapterid;?}
+		           <dd>
+		           		<span class="sel">
+		           			<input type="checkbox"  id="checkid[]" name="checkid[]" value="{?$articlerows[i].caseid?}"/>
+		           		</span>
+		           		<span class="sort">[{?$articlerows[i].shortcaption?}]</span>
+		           		<span class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue f14">{?$articlerows[i].articlename?}</a>/<a href="{?$articlerows[i].url_lastchapter?}" target="_blank" class="f_gray3">{?$articlerows[i].lastchapter?}</a></span>
+		           		<span class="author">{?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$articlerows[i].authorid'?}" ajaxhover="true" uid="{?$articlerows[i].authorid?}" class="f_gray6" target="_blank">{?$articlerows[i].author?}</a>{?else?}{?$articlerows[i].author?}{?/if?}</span>
+		           		<span class="renew"><a href="{?function geturl:'article':'reader':'SYS=aid=$aid':'cid=$cid'?}" target="_blank" class="f_blue">{?$articlerows[i].chaptername?}</a></span>
+		           		<span class="date">{?$articlerows[i].lastupdate|date:"m-d H:i"?}</span>
+		           </dd>
+		       {?/section?} 
+	          </dl>
+	          <div class="bar f_blue4">
+	           <div class="opt">
+	           		<input type="checkbox" class="check"  id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ if (this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"/>
+	           		<a class="abtn f_blue5" href="javascript:void(0)" onclick="javascript: for (var i=0;i<document.forms['checkform'].elements.length;i++){  document.forms['checkform'].elements[i].checked = 'checked'; }">全选</a>
+					<a class="abtn f_blue5" href="javascript:void(0)" onclick="javascript:$('#checkform').submit();">删除</a></div>
+	           <div class="page">
+	           		{?$url_jumppage?}
+	           </div>
+	         </div> 
+	     {?else?}
+			<div class="tips f14 p10 g3 mt10 mb10 pl20 b">您还没有在读的书，快去<a href="{?$jieqi_url?}/" class="f_blue5">首页</a>看看吧</div>
+         {?/if?}
+        </li>
+        <li class="fix" style="display:none;">
+         <!--box_timg begin-->
+          <div class="box_timg">
+            <a href="#" target="_blank" class="img"><img src="{?$jieqi_themeurl?}images/bk3_1.jpg"/></a>
+            <dl>
+             <dt><a href="#" target="_blank" class="f_blue4">猛男公寓猛男公寓猛男公寓</a></dt>
+             <dd><em>作者：</em>水边的梅朵</dd>
+             <dd><em>状态：</em>连载中</dd>
+             <dd><em>更新：</em>至440章</dd>
+             <dd>2014-04-15</dd>
+             <dd class="org">439章未读</dd>
+            </dl>            
+          </div><!--box_timg end-->
+        </li>
+        <li class="fix" style="display:none;">
+         <!--box_timg begin-->
+          <div class="box_timg">
+            <a href="#" target="_blank" class="img"><img src="{?$jieqi_themeurl?}images/bk3_1.jpg"/></a>
+            <dl>
+             <dt><a href="#" target="_blank" class="f_blue4">猛男公寓猛男公寓猛男公寓</a></dt>
+             <dd><em>作者：</em>水边的梅朵</dd>
+             <dd><em>状态：</em>连载中</dd>
+             <dd><em>更新：</em>至440章</dd>
+             <dd>2014-04-15</dd>
+             <dd class="org">439章未读</dd>
+            </dl>            
+          </div><!--box_timg end-->
+        </li>
+        <li class="fix" style="display:none;">
+         <!--box_timg begin-->
+          <div class="box_timg">
+            <a href="#" target="_blank" class="img"><img src="{?$jieqi_themeurl?}images/bk3_1.jpg"/></a>
+            <dl>
+             <dt><a href="#" target="_blank" class="f_blue4">猛男公ddddddd猛男公寓猛男公寓</a></dt>
+             <dd><em>作者：</em>水边的梅朵</dd>
+             <dd><em>状态：</em>连载中</dd>
+             <dd><em>更新：</em>至440章</dd>
+             <dd>2014-04-15</dd>
+             <dd class="org">439章未读</dd>
+            </dl>            
+          </div><!--box_timg end-->
+        </li>
+      </ul>
+</form> 
+</div><!--tabox end-->
+  </div><!--article2 end-->
+
+</div>

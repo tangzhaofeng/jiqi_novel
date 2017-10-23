@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book>	  		
+    <id>{?$article['articleid']?}</id> 	
+	<status>{?$article['fullflag']?}</status>			
+	<bookName><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></bookName>	
+	<keyWord><![CDATA[{?eval echo gb2utf8XHSafeStr($article['keywords'],true,'xml');?}]]></keyWord>	
+	<detail><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></detail>
+	<bookType><![CDATA[{?eval echo gb2utf8XHSafeStr($article['shortcaption'],false);?}]]></bookType>	
+	<imgPath><![CDATA[{?$article['url_image_l']?}]]></imgPath>		
+	<authorName><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></authorName>		
+	<chapters> {?eval $aid =$article['articleid'];?}<![CDATA[{?function geturl:'article':'index': aid=$aid?}]]></chapters>   
+</book>

@@ -1,0 +1,213 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_pc.html"?}{?eval $version=$_PAGE['data']['version'];?}{?eval $meta_title = $_PAGE['data']['title'];?}{?eval $catname = $_PAGE['data']['catname'];?}{?eval $catid = $_PAGE['data']['catid'];?}{?set $jieqi_pagetitle = "$meta_title$version下载_$meta_title$version单机游戏下载-赶游单机游戏网"?}
+{?set $meta_keywords = "$meta_title$version,$meta_title$version下载,$meta_title$version单机游戏下载,$meta_title$version下载"?}{?set $meta_description = "$meta_title是一款优秀的$catname类单机游戏,赶游网提供$meta_title$version下载服务,,我们承诺$meta_title$version单机游戏下载将永久免费,希望$meta_title单机游戏能给您带来快乐!"?}
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script language="javascript">
+<!--
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+var articleid = '{?$_PAGE['data']['contentid']?}';
+//-->
+</script>
+	<div id="guanggao"> 您所在的位置：<a href="{?$_SGLOBAL['localurl']?}">{?$_SGLOBAL['sitename']?}首页</a> > <a href="{?function jieqi_geturl:'news':'lists':64:1?}">单机首页</a> > <a "title={?$_PAGE['data']['catname']?}" href="{?$_PAGE['data']['url_catelist']?}" target="_blank">{?$_PAGE['data']['catname']?}</a> > <span class="cRed">{?$_PAGE['data']['title']?}{?$version?}下载</span></div>
+	<div class="clear"></div>
+	<div id="view_all">
+		<div style="float:left;">
+		<div id="danji_0505_ta3">
+	            <div id="du_left_w2">
+           <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 热门同类游戏</div>
+		 </div>
+           <div style="width:156px;">{?tag_news_21_[新闻]通用查询<{hits_week,5,$catid,0,0,3,48}><{danji/block_tablelist.html}>?}</div>
+       </div>
+       <div id="du_left_w2">
+           <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 最新游戏推荐</div>
+		 </div>
+           <div style="width:156px;">{?tag_news_21_[新闻]通用查询<{inputtime,5,$catid,0,0,3,48}><{danji/block_tablelist.html}>?}</div>
+       </div>
+	   <div id="du_left_w1">
+			     <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 你可能错过的近日要闻</div>
+			 </div>
+				  <div id="danji_aq">
+				   <ul class="news_list_aq">
+					{?tag_news_21_[新闻]通用查询<{inputtime,11,77,0,0,0,34}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+       </div>
+	   <div id="du_left_w1">
+			     <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 精彩视频欣赏</div>
+			 </div>
+				  <div id="gy_mid_b">
+<div id="gy_b3">
+<div id="gy_a2">
+<div><a href="http://v.ganyou.com/66075.html" target="_blank"><img src="http://www.ganyou.com/images/news/images/sp_1.jpg" border="0" alt="《西游III》精彩视频第三波——混沌大战" /></a></div>
+<div style="margin-top:7px;"><a href="http://v.ganyou.com/66075.html" target="_blank">《西游III》第三波</a></div>
+</div>
+</div>
+<div id="gy_b3">
+<div id="gy_a2">
+<div><a href="http://v.ganyou.com/66014.html" target="_blank"><img src="http://www.ganyou.com/images/news/images/sp_2.jpg" border="0" alt="17173尝鲜坊《天骄3》新游试玩" /></a></div>
+<div style="margin-top:7px;"><a href="http://v.ganyou.com/66014.html" target="_blank">《天骄3》新游试玩</a></div>
+</div>
+</div>
+</div>
+<div id="gy_mid_b">
+<div id="gy_b3">
+<div id="gy_a2">
+<div><a href="http://v.ganyou.com/66013.html" target="_blank"><img src="http://www.ganyou.com/images/news/images/sp_3.jpg" border="0"  alt="《白蛇传OL》首测17173试玩"/></a></div>
+<div style="margin-top:7px;"><a href="http://v.ganyou.com/66013.html" target="_blank">《白蛇传OL》首测</a></div>
+</div>
+</div>
+<div id="gy_b3">
+<div id="gy_a2">
+<div><a href="http://v.ganyou.com/66011.html" target="_blank"><img src="http://www.ganyou.com/images/news/images/sp_4.jpg" border="0" alt="《倩女幽魂》微电影之《蒲松龄前传》" /></a></div>
+<div style="margin-top:7px;"><a href="http://v.ganyou.com/66011.html" target="_blank">《倩女幽魂》</a></div>
+</div>
+</div>
+</div>
+<div id="gy_mid_b">
+<div id="gy_b3">
+<div id="gy_a2">
+<div><a href="http://v.ganyou.com/66009.html" target="_blank"><img src="http://www.ganyou.com/images/news/images/sp_5.jpg" border="0" alt="《三国战魂》最新游戏视频
+" /></a></div>
+<div style="margin-top:7px;"><a href="http://v.ganyou.com/66009.html" target="_blank">《三国战魂》最新</a></div>
+</div>
+</div>
+<div id="gy_b3">
+<div id="gy_a2">
+<div><a href="http://v.ganyou.com/65687.html" target="_blank"><img src="http://www.ganyou.com/images/news/images/sp_6.jpg" border="0"  alt="《武林至尊》游戏高清CG序章-无间天堂"/></a></div>
+<div style="margin-top:7px;"><a href="http://v.ganyou.com/65687.html" target="_blank">《武林至尊》高清</a></div>
+</div>
+</div>
+</div>
+       </div>
+	 </div>
+	
+		</div>
+
+	   <div id="danji_0505_a">
+	   <div id="danji_0505_left">
+		     <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> {?$_PAGE['data']['title']?}{?$_PAGE['data']['version']?}下载</div>
+			 </div>
+	   <div style="width:719px;"><table width="693" height="177" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="61" colspan="2"><h1 align="center" class="view_1"><strong>{?$_PAGE['data']['title']?}{?$_PAGE['data']['version']?}下载</strong></h1></td>
+    </tr>
+  <tr>
+    <td width="532" height="344" valign="top">&nbsp;
+      <table width="521" border="0" align="center" cellpadding="0" cellspacing="0" class="danji_0505_1">
+      <tr>
+        <td width="91" height="30" bgcolor="#EAF6FA" class="t_411"><div align="center">游戏大小：</div></td>
+        <td width="215" height="30" bgcolor="#EAF6FA"><div align="left">{?$_PAGE['data']['filesize']?} </div></td>
+        <td width="82" height="30" bgcolor="#EAF6FA" class="t_411"><div align="center">游戏类别：</div></td>
+        <td width="163" height="30" bgcolor="#EAF6FA" class="t_blue2"><div align="left"><a href="{?$_PAGE['data']['url_catelist']?}" target="_blank">{?$_PAGE['data']['catname']?}</a></div></td>
+      </tr>
+      <tr>
+        <td height="30" class="t_411"><div align="center">游戏语言：</div></td>
+        <td height="30"> <div align="left">{?$_PAGE['data']['language']?}</div></td>
+        <td height="30" class="t_411"><div align="center">游戏性质：</div></td>
+        <td height="30"><div align="left">{?$_PAGE['data']['copytype']?}</div></td>
+      </tr>
+      <tr>
+        <td height="30" bgcolor="#EAF6FA" class="t_411"><div align="center">应用平台：</div></td>
+        <td height="30" bgcolor="#EAF6FA"><div align="left">{?$_PAGE['data']['systems']?}</div></td>
+        <td height="30" bgcolor="#EAF6FA" class="t_411"><div align="center">评分等级：</div></td>
+        <td height="30" bgcolor="#EAF6FA"> <div align="left">{?$_PAGE['data']['stars']?}</div></td>
+      </tr>
+      <tr>
+        <td height="30" class="t_411"><div align="center">更新时间：</div></td>
+        <td height="30"> <div align="left" class="cDRed">{?$_PAGE['data']['updatetime']|date:'Y-m-d'?}</div></td>
+        <td height="30" class="t_411"><div align="center">累计下载：</div></td>
+        <td height="30"><div align="left"><span id="hitss">0</span></div></td>
+      </tr>
+      <tr>
+        <td height="30" bgcolor="#EAF6FA" class="t_411"><div align="center">累积下载：</div></td>
+        <td height="30" colspan="3" bgcolor="#EAF6FA"><div align="left">总：<span class="cDRed" id="hits">0</span>次&nbsp;&nbsp;&nbsp;月：<span class="cDRed" id="hits_month">0</span>次&nbsp;&nbsp;&nbsp;周：<span class="cDRed" id="hits_week">0</span>次&nbsp;&nbsp;&nbsp;日：<span class="cDRed" id="hits_day">0</span>次</div></td>
+        </tr>
+    </table>
+      <table width="512" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="512" height="129">
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/gradevote.js"></script>
+{?eval $contentid = $_PAGE['data']['contentid'];?}
+<script type="text/javascript" id="callmood_js" src='{?$_SGLOBAL['news']['url']?}/?ac=blockshow&bid=102&module=news&filename=block_mood&classname=BlockNewsMood&vars=3,{?$contentid?}&template=block_gradevote.html&contenttype=4&custom=0&publish=3&hasvars=1'></script><div class="xz_p02">
+<div class="xz_p02_left" onclick="javascript:GData.digg('digg',1);" style="cursor:pointer;">
+<ul>
+<li class="f01">还不错（<span class="xfont09" id="supports">0</span>）人</li>
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/zh03.jpg" align="absmiddle"  width=1 height=8 id="supports_b"/> <span id="supports_bb">0</span>%</li>
+</ul>
+</div>
+<div class="xz_p02_right" onclick="javascript:GData.digg('digg',0);" style="cursor:pointer;">
+<ul>
+<li class="f01">不满意（<span class="xfont09" id="againsts">0</span>）人</li>
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/zh03.jpg" align="left" width=1 height=8 id="againsts_b"/> <span id="againsts_bb">0</span>%</li>
+</ul>
+</div>	<div class="clear"></div>
+</div>	  </td>
+        </tr>
+      </table></td>
+    <td width="161" valign="top"><table width="156" border="0" align="center" cellpadding="0" cellspacing="0" class="dj_tab">
+      <tr>
+        <td height="217"><img src="{?if $_PAGE['data']['thumb']!=''?}{?$_PAGE['data']['thumb']?}{?else?}{?$_SGLOBAL['localurl']?}/modules/news/templates/default/images/fm01.jpg{?/if?}" /></td>
+      </tr>
+    </table>
+      <table width="156" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="#downlods"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_30.jpg" width="155" height="59" border="0" /></a></td>
+        </tr>
+        <tr>
+          <td height="52" style="line-height:22px;"><p align="center"><a href="#">【用户评论】</a><a href="#">【检查报错】</a></p>
+              <p align="center"><a href="#">【常见问题】</a><a href="#">【下载声明】</a></p></td>
+        </tr>
+      </table></td>
+  </tr>
+</table></div> 
+
+</div>
+<div class="clear"></div>
+<div id="dj_left1">
+		     <div id="dj_left2"><a name="downlods" id="downlods"></a>
+			    <div><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_33.jpg"/></div>
+			 </div>
+			 <div id="dj_left3"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_34.jpg" /> {?$_PAGE['data']['title']?}{?$_PAGE['data']['version']?}下载</div>
+			 <div id="dj_left4">
+			 <ul class="t_blue">{?section name=i loop=$_PAGE['data']['downurls']?}
+			    <li><span><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_35.jpg" /></span> <a href="{?$_PAGE['data']['downurls'][i]['url']?}" target="_blank">{?$_PAGE['data']['downurls'][i]['description']|str_replace:'.rar':''?}</a></li>
+				{?/section?}
+			 </ul>
+			 </div>
+	    </div>
+<div class="clear"></div>
+<div id="danji_0505_left">
+		     <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 游戏简介</div>
+			 </div>
+	    <div id="dj_date2">
+			   {?$_PAGE['data']['__content']?}
+	    </Div>
+</div>
+		 
+		 <div></div>
+<div id="danji_0505_left">
+<span id=comment>评论加载中……</span>
+</div>
+</div>
+	</div>
+	<div class="clear"></div>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+	GData.pageLoad();
+	GData.digg('show', null);
+});
+//-->
+</script> 

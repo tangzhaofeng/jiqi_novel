@@ -1,0 +1,215 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<!--wrap begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/usertab.html" ?}
+      <ul id="tab_conbox" class="f0 bg5">
+        <li class="fix">
+         <dl class="box_form pt20">
+		  <form method="post" name="useredit" id="useredit" action="{?function geturl:'system':'userhub':'SYS=method=useredit'?}" class="jNice" ajaxpost="true">
+          <dd class="fix">
+           <em class="tt2">用户名：</em><div class="int">{?$user.uname?}</div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">昵称：</em>
+            <div class="int">
+              <input name="nickname" id="nickname" type="text" class="input1" value="{?$user.name?}" data-rule="required"/>
+            </div>
+          </dd>
+          <dd class="fix"><em class="tt2">真实姓名：</em>
+            <div class="int zx2">
+              <input name="realname" id="realname" type="text" class="input1 fl" value="{?$user.realName?}"/>
+              <!--selt1 begin-->
+               <div class="selt1">
+               <a class="a_menu" setchart="1" href="javascript:void(0);">所有人可以见</a>
+               <div class="nodis" style="display:none;">
+                <div data="1" class="">所有人可以见</div>
+                <div data="2">所有人不可见</div>
+                <div data="3">关注我的人可见</div>
+                <input id="truename_s" type="hidden" value="">
+               </div>
+              </div> 
+              <!--selt1 end-->
+            </div>          
+          </dd>
+          <dd class="fix"><em class="tt2">性别：</em>
+            <div class="int">
+             <p class="rdo fl">
+             	{?if $user.sex==1?}
+             		<input name="sex" type="radio" value="1" checked="checked" />
+             	{?else?}
+             		<input name="sex" type="radio" value="1" />
+             	{?/if?}<label>男</label>
+             	{?if $user.sex==2?}
+             		<input name="sex" type="radio" value="2" checked="checked" />
+             	{?else?}
+             		<input name="sex" type="radio" value="2" />
+             	{?/if?}<label>女</label></p>
+             <p class="rdo fl">
+             	是否接受站长信件：
+             	{?if $user.adminemail==1?}
+             		<input name="adminemail" type="radio" value="1" checked="checked" />
+             	{?else?}
+             		<input name="adminemail" type="radio" value="1" />
+             	{?/if?}<label>是</label>
+             	{?if $user.adminemail==0?}
+             		<input name="adminemail" type="radio" value="0" checked="checked" />
+             	{?else?}
+             		<input name="adminemail" type="radio" value="0" />
+             	{?/if?}<label>否</label></p>
+            </div>    
+          </dd>
+          <dd class="fix">
+           <em class="tt2">身份证号：</em>
+            <div class="int">
+            	 {?if $user.idnumber == null?}
+              		<input name="idnumber" id="idnumber" type="text" class="input1 fl" value="{?$user.idnumber?}" /><span class="hint"><em>*</em>一旦填写，无法变更</span>
+            	{?else?}
+            		<div class="int"><p class="fl pr20">{?$user.idnumber?}</p><span class="hint pl20"><em>*</em>一旦填写，无法变更</span></div>
+            	{?/if?}
+            </div>
+          </dd>
+          <!--  
+          <dd class="fix">
+           <em class="tt2">所在地：</em>
+            <div class="int">
+              <div class="selt4">
+               <select id="now_place1" style="display: none;">
+                <option value="北京">北京</option>
+                <option value="上海">上海</option>
+                <option value="天津">天津</option>
+                <option value="重庆">重庆</option>
+                <option value="河北">河北</option>
+                <option value="山西">山西</option>
+                <option value="内蒙古">内蒙古</option>
+                <option value="辽宁">辽宁</option>
+                <option value="吉林">吉林</option>
+                <option value="黑龙江">黑龙江</option>
+                <option value="江苏">江苏</option>
+                <option value="浙江">浙江</option>
+                <option value="安徽">安徽</option>
+                <option value="福建">福建</option>
+                <option value="江西">江西</option>
+                <option value="山东">山东</option>
+                <option value="河南">河南</option>
+                <option value="湖北">湖北</option>
+                <option value="湖南">湖南</option>
+                <option value="广东">广东</option>
+                <option value="广西">广西</option>
+                <option value="海南">海南</option>
+                <option value="四川">四川</option>
+                <option value="贵州">贵州</option>
+                <option value="云南">云南</option>
+                <option value="西藏">西藏</option>
+                <option value="陕西">陕西</option>
+                <option value="甘肃">甘肃</option>
+                <option value="宁夏">宁夏</option>
+                <option value="青海">青海</option>
+                <option value="新疆">新疆</option>
+                <option value="其它">其它</option>
+               </select>
+		</div>
+              <div class="selt4">
+               <select id="now_place2" style="display: none;"></select>
+              </div>
+            </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">家乡：</em>
+            <div class="int">
+              <div class="selt4">
+               <select id="now_place3" style="display: none;">
+                <option value="北京">北京</option>
+                <option value="上海">上海</option>
+                <option value="天津">天津</option>
+                <option value="重庆">重庆</option>
+                <option value="河北">河北</option>
+                <option value="山西">山西</option>
+                <option value="内蒙古">内蒙古</option>
+                <option value="辽宁">辽宁</option>
+                <option value="吉林">吉林</option>
+                <option value="黑龙江">黑龙江</option>
+                <option value="江苏">江苏</option>
+                <option value="浙江">浙江</option>
+                <option value="安徽">安徽</option>
+                <option value="福建">福建</option>
+                <option value="江西">江西</option>
+                <option value="山东">山东</option>
+                <option value="河南">河南</option>
+                <option value="湖北">湖北</option>
+                <option value="湖南">湖南</option>
+                <option value="广东">广东</option>
+                <option value="广西">广西</option>
+                <option value="海南">海南</option>
+                <option value="四川">四川</option>
+                <option value="贵州">贵州</option>
+                <option value="云南">云南</option>
+                <option value="西藏">西藏</option>
+                <option value="陕西">陕西</option>
+                <option value="甘肃">甘肃</option>
+                <option value="宁夏">宁夏</option>
+                <option value="青海">青海</option>
+                <option value="新疆">新疆</option>
+                <option value="其它">其它</option>
+               </select>
+              </div>
+              <div class="selt4">
+               <select id="now_place4" style="display: none;"></select>
+              </div>
+            </div>
+          </dd>
+          -->
+          <dd class="fix">
+           <em class="tt2">阅读爱好：</em>
+           <div class="int aho" style="word-break:break-all;">
+           {?section name=i loop=$sort?}
+           		<input name="hobby[]" type="checkbox" value="{?$i['order']?}" {?eval if(in_array($i['key'],$hobby)){echo 'checked';} ?}/><label>{?$sort[i].shortcaption?}</label>
+           {?/section?}
+           		
+           	</div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">一句话介绍：</em>
+           <div class="int">
+            <textarea name="sign" class="inp1" id="sign">{?$user.sign?}</textarea>
+            <p class="pt20 pb20"><button type="submit" class="btn" id="dosubmit" name="dosubmit">提交</button></p>
+           </div>
+          </dd>
+		  <input type="hidden" name="action" id="action" value="update" />
+		  		<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+		  </form>
+         </dl>
+        </li>
+        <!-- <li class="fix" style="display:none;">
+         <div class="user_tag">
+          <input name="" type="text" class="input1" />
+          <input name="" type="button" class="btn3" value="+添加标签" />
+          <div class="box">
+           <div class="t3">推荐标签</div>
+           <p class="tag"><a href="javascript:void(0);">穿越</a><a href="javascript:void(0);">重生</a><a href="javascript:void(0);">推理</a><a href="javascript:void(0);">后宫</a><a href="javascript:void(0);">权谋</a><a href="javascript:void(0);">总裁</a><a href="javascript:void(0);">豪门</a><a href="javascript:void(0);">专情</a><a href="javascript:void(0);" class="change">换一组</a></p>
+          </div>
+          <div class="box">
+           <div class="t3">我已有标签</div>
+           <p class="tag">你还没有添加任何标签，赶快添加吧!</p>
+          </div>
+         </div>
+         <dl class="list_note">
+          <dd>&middot;标签是自定义描述阅读喜好、兴趣爱好的关键词，让更多人找到你，让你找到更多同类，同时方便我们为你自动匹配您喜好的作品。</dd>
+          <dd>&middot;已经添加的标签将显示在个人主页页面右侧栏中，方便大家了解你。</dd>
+          <dd>&middot;在此查看你自己添加的所有标签，还可以方便地管理，更多可添加10个标签。</dd>
+          <dd>&middot;点击已添加的标签，可以搜索到有同样兴趣爱好的人。</dd>
+         </dl>
+        </li> -->
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

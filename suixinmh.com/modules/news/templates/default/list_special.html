@@ -1,0 +1,56 @@
+{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title $jieqi_sitename"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+{?eval $catid = $_SGLOBAL['cate']['catid'];?}
+<div class="box urhere">您现在的位置：<a href="{?$jieqi_url?}/">{?$jieqi_sitename?}首页</a> &gt; {?$_SGLOBAL['cate']['catname']?}</div>
+<div class="box" id="mainbox">
+<div class="bigleft">
+   <div class="oneleft">
+     <div class="pinktt2">
+       <h3>小说点击榜</h3>
+     </div>
+     <div class="listbox rankbox p5">
+       <ul>
+         {?block bid="bid100" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="1" title="总" vars="monthvisit,20,0,0" template="block_li.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+       </ul>
+     </div>
+   </div>
+   <div class="oneleft">
+     <div class="pinktt2">
+       <h3>小说推荐榜</h3>
+     </div>
+     <div class="listbox rankbox p5">
+       <ul>
+         {?block bid="bid100" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="1" title="总" vars="monthvote,20,0,0" template="block_li.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+       </ul>
+     </div>
+   </div>
+<div class="ad240_80" style="margin-bottom:15px;height:300px;"><img src="http://img.xunshuba.com/images/temp/ad240-80.jpg" width="240" height="300" alt="asd" /></div>
+ </div>
+ <div class="bigright">
+ <div class="catlistbox">
+   <div class="cattab idTabs">
+<a href="{?$jieqi_local_url?}/xiaoshuo/" xslink="#newbooks" class="on">专题列表</a>
+   </div>
+   <div class="catlist listbox" id="newbooks">
+   <ul>
+    <li class="liname">
+        <span class="sort">编号</span>
+        <span class="name">专题/<i>专题介绍</i></span>
+        <span class="author">点击</span>
+        <span class="time">更新时间</span>
+      </li>
+	  {?section name=i loop=$_PAGE['articlerows']?}
+      <li>
+        <span class="sort">[ {?$i.order?} ]</span>
+        <span class="name"><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank">{?$_PAGE['articlerows'][i]['alltitle']?}</a><i><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank">{?$_PAGE['articlerows'][i]['description']?}</a></i></span>
+        <span class="author">{?$_PAGE['articlerows'][i]['hits']?}</span>
+        <span class="time">{?$_PAGE['articlerows'][i]['inputtime']|date:'m-d H:i'?}</span>
+      </li>
+   {?/section?}
+	 <li class="limore">{?$_PAGE['url_jumppage']?}</li>
+      </ul>
+   </div>
+  </div>
+  <!--CATLIST END-->
+ </div>
+</div>

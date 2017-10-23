@@ -1,0 +1,106 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+      <div class="t2"><h2>阅读消息</h2></div>
+      <!--box_form begin-->
+      <div class="box_form fix">
+        <div class="tit2 mt1 fix pt5 pb5">
+          <em class="tt4">标&nbsp;&nbsp;题：</em>
+          <div class="int b f14">{?$title?}</div>
+        </div>
+        <div class="tit21 fix g9">
+         <em class="tt4">发送人：</em>
+         <div class="int">{?if $fromid > 0?}{?$fromname?}{?else?}网站管理员{?/if?}</div>
+         <em class="tt4">收件人：</em><div class="int">{?if $toid > 0?}{?$toname?}{?else?}网站管理员{?/if?}</div>
+         <em class="tt4">时&nbsp;&nbsp;间：</em><div class="int">{?$postdate?}</div>
+        </div>
+        <div class="txt">
+         <p>{?$content?}</p>
+        </div>
+        
+       <div class="bar f_blue4 fix bg5 tl">
+	   {?if $url_reply != ""?}<a href="{?function geturl:'system':'userhub':SYS=method=newmessage&reid=$messageid&tosys=$fromsys?}" class="abtn mr20 ml20">回复消息</a>{?/if?}<a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&fwid=$messageid'?}" class="abtn mr20">转发消息</a><button name="" class="abtn f_blue5 pt1 pb1" onclick="check_confirm();">删除</button>
+	   <!--onclick="javascript:if(confirm('确实要该消息么？')) document.location='{?function geturl:'system':'userhub':SYS=method=delMsg&op=$box&checkid[0]=$messageid?}'"-->
+       </div>
+      </div><!--box_form end-->
+
+	  {?if $url_reply != ""?}
+	<form name="newmessage" id="newmessage" action="{?function geturl:'system':'userhub':'SYS=method=sendMsg&do=submit'?}">      <!--box_form begin-->
+      <div class="box_form fix mt20">
+        <div class="tit2 mt1 fix pt5 pb5">
+          <div class="int b f14 ml20">快速回复</div>
+        </div>
+        <div class="tit21 fix">
+         <em class="tt4">收件人：</em><div class="int">{?if $fromid > 0?}{?$fromname?}<input type="hidden" name="receiver" id="receiver" value="{?$fromname?}" />{?else?}网站管理员<input type="hidden" name="tosys" id="tosys" value="1" />{?/if?}</div>
+         <em class="tt4">标&nbsp;&nbsp;题：</em><div class="int"><input name="title" id="title" type="text" class="input1" value="Re:{?$title?}" /></div>
+         <div class="box cl fix pt5 pb20"><em class="tt4">内&nbsp;&nbsp;容：</em><div class="int"><textarea name="content" id="content" class="inp3" data-rule="内容:required;length[~1000]"></textarea></div>
+		 <em class="tt4"></em><div class="int pt5"><button type="submit" class="btn" name="submit"  id="submit">回复消息</button><input type="hidden" name="action" id="action" value="newmessage" /><input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /></div>
+         </div>
+        </div> 
+      </div><!--box_form end-->
+	  </form>
+	  {?/if?}
+<script type="text/javascript">
+	function check_confirm(){
+		$.layer({
+			shade : [0], //不显示遮罩
+			area : ['auto','auto'],
+			title:'确定删除',
+			dialog : {
+				msg:'确定要删除选中记录吗?',
+				btns : 2, 
+				type : 4,
+				btn : ['确定','取消'],
+				yes : function(){
+					GPage.getJson('{?function geturl:'system':'userhub':SYS=method=delMsg&op=$box&checkid[0]=$messageid?}',
+						function(data){
+							if(data.status=='OK'){
+/*								jumpurl(data.jumpurl);
+								layer.msg(data.msg,2,{type:1,shade:false});*/
+								layer.msg(data.msg,2,{type:1,shade:false},function(){
+									jumpurl(data.jumpurl);
+								});
+							}else{
+								layer.alert(data.msg, 8, !1);
+							}
+						}
+					);
+				},
+				no : function(){
+					$(".xubox_close").click();
+				}
+			}
+		});
+	}
+	
+	layer.ready(function(){
+		$('#newmessage').bind('valid.form', function(event){
+		event.preventDefault();
+			  GPage.postForm('newmessage', $('#newmessage').attr('action'),
+				   function(data){
+						if(data.status=='OK'){
+							/*jumpurl(data.jumpurl);
+							layer.msg(data.msg,2,{type:1,shade:false});*/
+							layer.msg(data.msg,2,{type:1,shade:false},function(){
+								jumpurl(data.jumpurl);
+							});
+						}else{
+							layer.alert(data.msg, 8, !1);
+						}
+				   }
+			  );
+		});
+	});
+</script>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

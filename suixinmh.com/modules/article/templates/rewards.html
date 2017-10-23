@@ -1,0 +1,63 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "modules/article/templates/incometab.html" ?}
+	  <ul id="tab_conbox" class="f0">
+	  <li class="fix" style="display:none;">
+	  <form action="" id="" method="post">
+	  <div class="finag">选择作品1:<select name="cars"><option value="volvo">至尊狂医</option><option value="saab">Saab</option><option value="fiat">Fiat</option><option value="audi">Audi</option></select>
+	  <span class="fr">选择日期<select name="years"><option value="volvo">2013年</option><option value="saab">2012年</option><option value="fiat">2011年</option><option value="audi">2010年</option></select><select name="months" class="mr20"><option value="volvo">10月</option><option value="saab">9月</option><option value="fiat">8月</option><option value="audi">7月</option></select><button type="submit" class="ml20 mr10 pl10 pr10">查询</button>
+	  </span>
+	  </div>
+	  </form>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabl2">
+          <tr class="bgt">
+           <td>月份 </td>
+           <td>作品</td>
+           <td>订阅/买断稿酬</td>
+           <td>奖励保障</td>
+           <td>渠道收入 </td>
+		   <td>版权收入 </td>
+		   <td>合计 </td>
+		   <td>支付状态 </td>
+          </tr>
+		  <tr>
+		   <td>10</td>
+		   <td class="g6">至尊狂医</td>
+		   <td>123123</td>
+		   <td>{?$paylog[i].egold?}{?eval echo JIEQI_EGOLD_NAME;?}</td>
+			<td>未确认</td>
+			<td class="red">支付成功</td>
+			<td>123123</td>
+			<td>123123</td>
+		  </tr>
+           <!--{?section name=i loop=$paylog?} 
+	          <tr>
+	           <td>{?$paylog[i].buyname?}</td>
+	           <td class="g6">{?$paylog[i].buytime|date:"Y-m-d H:i:s"?}</td>
+	           <td>{?if $paytype[$paylog[i].paytype] != null ?}{?$paytype[$paylog[i].paytype].shortname?}{?else?}{?$paylog[i].paytype?}{?/if?}</td>
+	           <td>{?$paylog[i].egold?}{?eval echo JIEQI_EGOLD_NAME;?}</td>
+	           {?if $paylog[i].payflag == 0?}
+	           	<td>未确认</td>
+	           {?else?}
+	           	<td class="red">支付成功</td>
+	           {?/if?}
+	          </tr>
+          {?/section?}-->  
+         </table>
+		 <dl class="list_t4">银行开户名:王文金</dl>
+		 <dl class="list_t4">开户行信息:中国工商银行贵州省兴义市场坝支行</dl>
+		 <dl class="list_t4">银行账号:6222022409003587673</dl>
+		 <dl class="list_t4">备注:显示"已经支付"状态的,就是钱已经汇出来了;显示"信息不全"状态的,就是作者的汇款资料不齐无法支付;显示"累计支付"状态的,就是当月稿酬没超过200元,将累计至下月一起支付</dl>
+		 <dl class="list_t4">备注2:目前无法查询当月的稿酬数据,次月方可查询</dl>
+        </li>
+	  </ul>
+	</div>
+	
+  </div>
+</div>

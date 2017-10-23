@@ -1,0 +1,7 @@
+{?section name=i loop=$articlerows?}
+ <dd>
+   <a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank"><img src="{?$articlerows[i].url_image?}"/></a>
+   <p class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_gray3 f14 b">{?$articlerows[i].articlename|truncate:14?}</a></p>
+   <p class="author">×÷Õß£º<em class="brown">{?$articlerows[i].author?}</em></p>
+ </dd>
+{?/section?}

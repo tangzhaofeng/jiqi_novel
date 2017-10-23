@@ -1,0 +1,118 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>财务明细 </h3>
+      <div class="m-panel " id="form_main">
+      {?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+ 
+            </div>
+
+            <div class="tool-search f-cb">
+              <span class="sapnPa">推客名称:<i>{?$tuiInfo.uname?}</i></span>
+              <span class="sapnPa">待提现:<i>{?$tuiInfo.balance?}</i></span>
+              <span class="sapnPa">已提现:<i>{?$tuiInfo.balancey?}</i></span>
+              <span class="sapnPa">提现中:<i>{?$tuiInfo.balancer?}</i></span>
+
+              <select id="selectPayType" name="type" class="select_pay_type ">
+                <option value="0" {?if isset($filter['type']) == false ?}selected="selected"{?/if?}>===全部记录===</option>
+                <option value="1" {?if $filter['type'] ==1?}selected="selected"{?/if?}>返佣</option>
+                <option value="2" {?if $filter['type'] ==2?}selected="selected"{?/if?}>渠道</option>
+                <option value="3" {?if $filter['type'] ==3?}selected="selected"{?/if?}>提现</option>
+                <option value="4" {?if $filter['type'] ==4?}selected="selected"{?/if?}>帐户调节</option>
+              </select>
+
+
+            </div>
+
+          </div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th><i class="sortOr" _z="pdate">时间</i></th>
+                  <th><i class="sortOr" _z="pinfo">内容</i></th>
+                  <th><i class="sortOr" _z="pord">订单号</i></th>
+                  <th><i class="sortOr" _z="pmon">收支</i></th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($paylogList)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 11 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('super','manuser','SYS=method=paysettle');?}
+                {?section name=i loop=$paylogList?}
+                <tr>
+                  <td>{?$paylogList[i].date?}</td>
+                  <td>{?$paylogList[i].notes?}</td>
+                  <td>{?$paylogList[i].ordernumber?}</td>
+                  <td>+{?$paylogList[i].money?}</td>
+                  <td>
+
+                    {?if $paylogList[i].type == 3 || $paylogList[i].type == 4?}
+                      <span class="">(无)</span>
+                    {?else?}
+                      <a class="u-btn u-btn-primary" href="{?$url?}?payId={?$paylogList[i].payid?}">查看</a>
+                    {?/if?}
+                  </td> 
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                  {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    <style>
+      .sapnPa{
+        padding-left:12px;
+      }
+
+      .sapnPa i{
+        padding-left:6px;
+      }
+    
+      .select_pay_type{
+        margin-left: 33px;
+      }
+
+    </style>
+    {?eval $filter_jsobj=json_encode($filter);?}
+    <script type="text/javascript">
+      var filter=$.parseJSON('{?$filter_jsobj?}');  // jq
+      var q_main=$('#form_main');
+      var baseImgUrl='{?$jieqi_themeurl?}img/';
+
+
+      /**
+       * 筛选运营
+       * @param  {[type]} ){                     var uid [description]
+       * @return {[type]}     [description]
+       */
+      $('#selectPayType').live('change',function(){
+        var type=$(this).val(); 
+        filter.type=type;
+        filter.page=1;
+        get_content(location.href);
+      });
+
+      
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}
+{?/if?}

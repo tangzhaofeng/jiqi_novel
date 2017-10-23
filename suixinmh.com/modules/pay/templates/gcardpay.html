@@ -1,0 +1,149 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<script>
+function chgcard(id){	
+//	$("dd[id^='g_']").removeClass();
+//	$('#g_'+id).addClass("hover");
+	$('#pd_FrpId').val($('#g_'+id).attr('payfrom'));
+}
+function chm(m,em){
+	$('#egold').val(em);
+	$('#money_yuan').val(m);
+}
+</script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0 fix">
+        <li class="fix">
+          <div class="pay f12">
+		  {?include file = "modules/pay/templates/paytab.html" ?}
+            <ul id="tab_con11" class="pay_dwn fix">
+              <li>
+			  <form id="payfrm" name="payfrm"  onSubmit="return checkForm(this, 0);"method="post" action="{?function geturl:'pay':'home':'SYS=method=gcardpay'?}">
+                <!--box_note2 begin-->
+                <div class="box_note2 cl mt10">
+                 <h3 class="tit3">第一步：请选择游戏点卡的类别：</h3>
+                   <div class="tabm_card">
+					 <ul class="fix" id="tabs12">
+					  <li id="g_sd" onclick="chgcard('sd');chm(5,400);" payfrom="SNDACARD-NET">盛大卡</li>
+					  <li id="g_zt" onclick="chgcard('zt');chm(5,400);" payfrom="ZHENGTU-NET">征途卡</li>
+					  <li id="g_jy" onclick="chgcard('jy');chm(5,400);" payfrom="JIUYOU-NET">久游卡</li>
+					  <li id="g_wm" onclick="chgcard('wm');chm(15,1200);" payfrom="WANMEI-NET">完美卡</li>
+					  <li id="g_zy" onclick="chgcard('zy');chm(5,400);" payfrom="ZONGYOU-NET">纵游一卡通</li>
+					  <li id="g_zh" onclick="chgcard('zh');chm(5,400);" payfrom="TIANHONG-NET">天宏一卡通</li>
+					  <li id="g_sh" onclick="chgcard('sh');chm(5,400);" payfrom="SOHU-NET">搜狐卡</li>
+					  <li id="g_wy" onclick="chgcard('wy');chm(10,800);" payfrom="NETEASE-NET">网易卡</li>
+					 </ul> 
+				   </div>
+                 <h3 class="tit3">第二步：请选择你要充值的金额：</h3>
+                 <ul id="tab_con12">
+                  <li><!--盛大-->
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_400" onclick="tmpjiage(400);" money_yuan="5"><b>5元</b><br />(400书海币)</dd>
+                    <dd id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(800书海币)</dd>
+                    <dd id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_2000" onclick="tmpjiage(2000);" money_yuan="25"><b>25元</b><br />(2000书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_2800" onclick="tmpjiage(2800);" money_yuan="35"><b>35元</b><br />(2800书海币)</dd>
+                    <dd id="v_3600" onclick="tmpjiage(3600);" money_yuan="45"><b>45元</b><br />(3600书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                    <dd id="v_28000" onclick="tmpjiage(28000);" money_yuan="350"><b>350元</b><br />(28000书海币)</dd>
+                    <dd id="v_80000" onclick="tmpjiage(80000);" money_yuan="1000"><b>1000元</b><br />(80000书海币)</dd>
+                   </dl>
+                  </li><!--征途-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_400" onclick="tmpjiage(400);" money_yuan="5"><b>5元</b><br />(400书海币)</dd>
+                    <dd id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(800书海币)</dd>
+                    <dd id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_2000" onclick="tmpjiage(2000);" money_yuan="25"><b>25元</b><br />(2000书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                    <dd id="v_14400" onclick="tmpjiage(14400);" money_yuan="180"><b>180元</b><br />(14400书海币)</dd>
+                    <dd id="v_24000" onclick="tmpjiage(24000);" money_yuan="350"><b>300元</b><br />(24000书海币)</dd>
+                    <dd id="v_40000" onclick="tmpjiage(40000);" money_yuan="500"><b>500元</b><br />(40000书海币)</dd>
+                   </dl>
+				  </li><!--久游-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_400" onclick="tmpjiage(400);" money_yuan="5"><b>5元</b><br />(400书海币)</dd>
+                    <dd id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(800书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                   </dl>
+				  </li><!--完美-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                   </dl>
+				  </li><!--纵游-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_400" onclick="tmpjiage(400);" money_yuan="5"><b>5元</b><br />(400书海币)</dd>
+                    <dd id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(800书海币)</dd>
+                    <dd id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                   </dl><!--天宏-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_400" onclick="tmpjiage(400);" money_yuan="5"><b>5元</b><br />(400书海币)</dd>
+                    <dd id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(800书海币)</dd>
+                    <dd id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_1600" onclick="tmpjiage(1600);" money_yuan="25"><b>20元</b><br />(1600书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                   </dl><!--搜狐-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_400" onclick="tmpjiage(400);" money_yuan="5"><b>5元</b><br />(400书海币)</dd>
+                    <dd id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(800书海币)</dd>
+                    <dd id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_1600" onclick="tmpjiage(1600);" money_yuan="25"><b>20元</b><br />(1600书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_3200" onclick="tmpjiage(3200);" money_yuan="50"><b>40元</b><br />(3200书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                   </dl><!--网易-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_800" onclick="tmpjiage(800);" money_yuan="10"><b>10元</b><br />(400书海币)</dd>
+                    <dd id="v_1200" onclick="tmpjiage(1200);" money_yuan="15"><b>15元</b><br />(1200书海币)</dd>
+                    <dd id="v_1600" onclick="tmpjiage(1600);" money_yuan="20"><b>20元</b><br />(1600书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                   </dl>
+				  </li>
+                 </ul>
+				 <input type="hidden" name="egold" id="egold" value="400">
+				 <input type="hidden" name="money_yuan" id="money_yuan" value="5">
+				 <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+				 <input type="hidden" name="pd_FrpId" id="pd_FrpId" value="SNDACARD-NET" />
+                 <dl class="lisd_note">
+                  <dt>说明：</dt>
+                  <dd>1.兑换比例：1元 = 80{?$egoldname?}；</dd>
+<!--                  <dd>2.单次充值200元，送2500书海币；单次充值500元，送5800{?$egoldname?}。</dd>                  -->
+                 </dl>
+                </div><!--box_note2 end-->
+                <p class="pt20 cl pb10"><button type="submit" class="btn">开始充值&gt;&gt;</button></p>
+				</form>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+{?include file = "modules/pay/templates/tips.html" ?}

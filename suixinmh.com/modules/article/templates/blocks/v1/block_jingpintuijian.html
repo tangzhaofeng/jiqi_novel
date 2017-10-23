@@ -1,0 +1,6 @@
+{?section name=i loop=$articlerows?} <dl class="list_img3">
+       <dt><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank"><img src="{?$articlerows[i].url_image?}" width="95" height="127" alt="{?$articlerows[i]['articlename']?}" title="{?$articlerows[i]['articlename']?}" /></a></dt>
+       <dd class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></dd>
+       <dd class="author">×÷Õß£º{?if $articlerows[i]['authorid'] > 0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i]["authorid"]'?}" ajaxhover="true" uid="{?$articlerows[i]['authorid']?}" target="_blank" class="f_gray6">{?$articlerows[i]['author']?}</a>{?else?}{?$articlerows[i]['author']?}{?/if?}</dd>
+       <dd class="txt">{?$articlerows[i]['intro']?}</dd>
+     </dl>{?/section?}

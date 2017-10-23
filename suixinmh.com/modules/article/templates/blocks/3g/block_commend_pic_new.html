@@ -1,0 +1,11 @@
+{?section name=i loop=$articlerows?}
+<div class="p10 pr pl90" style="min-height: 90px;">
+    <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" ><img class="w80 h110 pa left10" src="{?$articlerows[i]['url_image']?}" alt=""></a>
+    <div class="ml10">
+        <h2 class="f16 fwn"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="c333">{?$articlerows[i]['articlename']?}</a></h2>
+        <!--<h2 class="f14 c333 fwn">×ÖÊý£º{?$articlerows[i]['size']/10000?}Íò</h2>-->
+        <div class="lh25 c888 f14 overMore">{?$articlerows[i]['intro']|truncate:'96':'...'?}</div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{?/section?}

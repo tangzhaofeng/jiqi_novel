@@ -1,0 +1,48 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix" style="display:none;">
+         <table width="98%" border="0" cellspacing="0" cellpadding="0" class="tabl2">
+          <tr class="bgt b">
+           <th width="50%" align="left" scope="col">消费用途</th>
+           <th width="25%" scope="col">消费数量（{?eval echo JIEQI_EGOLD_NAME;?}）</th>
+           <th width="25%" scope="col">消费时间 </th>
+          </tr>
+           {?section name=i loop=$pay?} {?eval $aid=$pay[i].articleid;?}{?eval $cid=$pay[i].chapterid;?}
+          <tr>
+          	<td align="left" valign="middle">订阅<a href="{?$pay[i].url_articleinfo?}" class="f_blue5" target="_blank">《{?$pay[i].articlename?}》</a><a href="{?function geturl:'article':'reader':'SYS=aid=$aid':'cid=$cid'?}" class="f_gray3 pl5"  target="_blank">{?$pay[i].chaptername?}</a></td>
+           <td style="padding-left:60px;"><span class="price">{?$pay[i].saleprice?}</span>{?if $pay[i].paynote != ''?}<a href="javascript:;" class="shuquanQ">?</a><span class="dn">{?$pay[i].paynote?}</span>{?/if?}</td>
+           <td>{?$pay[i].buytime|date:"Y-m-d H:i:s"?}</td>
+          </tr>
+          {?/section?}
+         </table>
+         <div class="bar fix tc">
+         	<div class="page">{?$url_jumppage?}</div>
+         </div>
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+<script>
+$(function(){
+	$(".shuquanQ").mouseover(function(){
+		var paynote = $(this).next().html();
+		layer.tips(paynote,this,{
+		    style: ['background-color:#fff6ce;border:1px solid #f2e2e1','#fff6ce'],//数值第二个值为三角形的颜色
+		    guide: 1,
+		    maxWidth:185
+		});
+	}).mouseout(function(){
+		layer.closeTips();
+	});
+});
+</script>

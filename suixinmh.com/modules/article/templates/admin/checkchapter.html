@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script><br>
+<form id="editchapter" name="editchapter" method="post" action="?controller=chapter&method=checkchapter&aid={?$chapter.articleid?}&cid={?$chapter.chapterid?}" ajaxpost2="true" retruemsg="true">
+	<table class="grid" width="400px" align="center"
+	<tr>
+		<td height=25><b>{?if $chapter.chaptertype<1?}章节名称：{?else?}分卷名称：{?/if?}</b>{?$chapter.chaptername?}</td>
+	</tr>
+	<tr>
+		<td height=25><b>{?if $chapter.chaptertype<1?}题外话：{?else?}分卷说明：{?/if?}</b></td>
+	</tr>
+	<tr>
+		<td><textarea name="manual" id="manual" cols="80" rows="2" readonly style="border:0px #ccc solid;">{?$chapter.manual?}</textarea></td>
+	</tr>
+	{?if $chapter.chaptertype<1?}
+	<tr>
+		<td height=25><b>章节内容：</b></td>
+	</tr>
+	<tr>
+		<td><textarea name="context" id="context" cols="80" rows="12" readonly style="border:0px #ccc solid;">{?$chapter.context?}</textarea></td>
+	</tr>{?/if?}
+	<tr>
+		<td height=25><b>审核方式：</b><label><input type="radio" name="type" onClick="$('#model').hide();$('#comment').val('驳回原因');" checked=checked value="1"/>审核通过</label> <label><input type="radio" name="type" onClick="$('#model').show();$('#comment').val('');" value="0"/>驳回修改</label></td>
+	</tr><tbody id="model" style="display:none;">
+	<tr>
+		<td height=25><b>驳回原因：</b></td>
+	</tr>
+	<tr>
+		<td><textarea name="comment" id="comment" cols="50" rows="1" style="border:1px #ccc solid;" data-rule="驳回原因: required;length[2~50];">驳回原因</textarea></td>
+	</tr></tbody>
+	<tr>
+		<td colspan="2" align="center"><button type="submit" >提交</button><input type="hidden" name="formhash" value="bf44ca2e" /></td>
+	</tr> 
+	</table>
+</form>
+<script>
+layer.ready(function(){
+	$("[ajaxpost2]").bind('valid.form',function(event){
+		event.preventDefault();
+		var isIE=!!window.ActiveXObject,
+			isIE6=isIE&&!window.XMLHttpRequest;
+		if(!isIE6){
+			var sub_obj = $(this).find("[type='submit']"),
+				btn_con = sub_obj.html();
+			sub_obj.attr('disabled','disabled').html("内容提交中……").css({"background":"none","color":"#000"});
+		}
+		var retruemsg = $(this).attr("retruemsg"),
+			formid = $(this).attr("id"),
+			formaction = $(this).attr("action"),
+			i = layer.load(0);
+		GPage.postForm(formid, formaction,function(data){
+			layer.close(i);
+			if(!isIE6){
+				sub_obj.removeAttr('disabled').html(btn_con).removeAttr('style');					
+			}
+			if(data.status=='OK'){
+				if(retruemsg!='false' &&  retruemsg) layer.msg(data.msg, 1, 1);
+				parent.layer.close(parent.layer.getFrameIndex(window.name));
+			}else{
+				layer.alert(data.msg, 8, !1);
+			}
+		});
+	});
+})
+</script>

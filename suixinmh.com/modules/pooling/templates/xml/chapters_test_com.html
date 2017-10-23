@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	<items>
+		{?section name=i loop=$chapters?}		
+		<item>			
+			<cid>{?$chapters[i]['chapterid']?}</cid>			
+			<isvip>{?$chapters[i]['isvip']?}</isvip>
+			<postdate>{?$chapters[i]['postdate']?}</postdate>				
+			<chaptername><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chaptername>			
+			<chaptertype>{?$chapters[i]['chaptertype']?}</chaptertype>
+			<chapterurl><![CDATA[{?if $chapters[i]['chaptertype'] == 0?}{?eval echo gb2utf8XHSafeStr($chapters[i]['url'],false);?}{?/if?}]]></chapterurl>
+		</item>
+		{?/section?}
+	</items>			
+</document>

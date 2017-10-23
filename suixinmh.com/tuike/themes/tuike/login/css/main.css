@@ -1,0 +1,765 @@
+ .section1 { background: url(../img/bg_part11.jpg) no-repeat center -40px;}
+ .section2 { background: url(../img/bg_part2.jpg) no-repeat center -40px;} 
+ .section3 { background: url(../img/bg_part3.jpg) no-repeat center -40px;}
+ .section4 { background: url(../img/bg_part4.jpg) no-repeat center -40px;}
+
+.menu {
+	position: fixed;
+	left: 0;
+	top: 0px;
+	right: 0;
+	z-index: 1;
+	background: rgba(255, 255, 255, 0.5);
+	padding: 10px 0;
+}
+.menu .col-md-2 {
+	padding: 0;
+	border-left: 1px solid #048ed8;
+	height: 35px;
+	margin-top: 10px;
+}
+
+.menu .col-md-2.logo_p {
+	margin-top: 0;
+}
+
+.menu .col-md-2:first-child {
+	border-left: none;
+}
+.menu a {
+	display: block;
+	text-align: center;
+	color: #048ed8;
+	font-size: 18px;
+	height: 35px;
+	line-height: 50px;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.menu a.main_nav:hover {
+	transform: scale(1.2);
+	line-height: 45px;
+}
+
+.menu a.logo {
+	background: url(../img/yun_icon.png) no-repeat 0 0;
+	height: 45px;
+	margin-top: 0;
+}
+
+.menu a .user {
+	display: inline-block;
+	width: 36px;
+	height: 45px;
+	background: url(../img/yun_icon.png) no-repeat 0 -99px;
+}
+
+.lead_channel {
+	margin-top: 9%;
+}
+.lead_title {
+	text-align: center;
+	/*font-size: 150px;*/
+	font-size: 12em;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 10px;
+}
+
+
+.lead_titleusa {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 3.6em;
+	color: #fff;
+	font-weight: lighter;
+	letter-spacing: 5px;
+}
+
+.login_main {
+	margin-top: 50px;
+}
+
+.login_title {
+	text-align: center;
+	color: #fff;
+	font-size: 30px;
+	letter-spacing: 10px;
+}
+
+.login_content {
+	margin-top: 15px;
+}
+
+.form_container {
+	border: 1px solid #999;
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px #999 inset;
+}
+
+.login_row {
+	border-bottom: 1px solid #999;
+	padding: 15px;
+}
+
+.login_row div {
+	padding: 0;
+}
+
+.login_row input {
+	display: block;
+	background: none;
+	border: none;
+	width: 100%;
+	height: 25px;
+	background: url(../img/yun_icon.png) no-repeat -60px -61px;
+	padding-left: 35px;
+	font-size: 18px;
+}
+
+.login_row input.password {
+	background: url(../img/yun_icon.png) no-repeat -60px -102px;
+}
+
+.login_row input.code {
+	background: url(../img/yun_icon.png) no-repeat -60px -141px;
+}
+
+.mar-t-15 {
+	margin-top: -12px;
+}
+
+.mar-b-15 {
+	margin-bottom: -15px;
+}
+
+.login_submit {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.login_submit input {
+	display: block;
+	text-align: center;
+	width: 100%;
+	background: url(../img/yun_icon.png) no-repeat 40px -177px;
+	height: 35px;
+	color: #fff;
+	font-size: 18px;
+}
+@media only screen and (max-width: 1000px) {
+	.login_submit input {
+		display: block;
+		text-align: center;
+		width: 100%;
+		background: url(../img/yun_icon.png) no-repeat 40px -177px;
+		height: 35px;
+		color: #048ED8;
+		font-size: 18px;
+	}
+}
+.to_register {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.to_register a {
+	color: #048ed8;
+	font-size: 14px;
+}
+
+.login_remeb {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.login_remeb div {
+	padding: 0;
+}
+
+.login_remeb .login_remeber {
+	color: #048ed8;
+}
+
+.login_remeb .login_remeber input {
+	position: relative;
+	top: 2px;
+	margin-right: 5px;
+	margin-top: 0;
+	cursor: pointer;
+}
+
+.login_forget {
+	text-align: right;
+}
+
+.login_forget a {
+	color: #048ED8;
+}
+
+.get_code input{
+	background: none;
+}
+input.btn-getCode{
+	padding-left: 0; 
+}
+.part2_container {
+	margin-top: 200px;
+	color: #fff;
+	line-height: 2;
+	font-size: 20px;
+}
+
+.liuliang_title {
+	font-size: 52px;
+	font-weight: lighter;
+	letter-spacing: 10px;
+}
+
+.liuliang_content {
+	margin-top: 10px;
+	margin-right: 95px;
+	padding: 10px;
+	border: 1px solid #fff;
+}
+
+.liuliang_content2 { 
+	letter-spacing: 5px;
+}
+
+.part3_why {
+	margin-top: 140px;
+	color: #048ED8;
+}
+
+.why_title {
+	font-size: 55px;
+	text-align: center;
+	letter-spacing: 5px;
+	font-weight: bold;
+}
+
+.why_title_usa {
+	font-size: 18px;
+	text-align: center;
+	letter-spacing: 5px;
+	margin-top: 15px;
+}
+
+.why_content {
+	margin-top: 100px;
+	color: #048ED8;
+	line-height: 1.5;
+}
+
+
+/*.why_content .col-md-4{
+	background: #048ED8;
+	transform: rotateZ(45deg);
+	height: 50px;
+}*/
+
+
+.why_content .row .col-md-4 {
+	position: relative;
+	margin-bottom: 100px;
+}
+
+.why_content_head {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	background: #048ED8;
+	transform: rotateZ(45deg);
+	color: #fff;
+	text-align: center;
+	font-size: 23px;
+	position: absolute;
+	left: 50%;
+	top: -40px;
+	margin-left: -50px;
+}
+
+.why_content_head span {
+	display: block;
+	transform: rotateZ(-45deg);
+}
+
+.why_content_body {
+	border: 1px solid #048ED8;
+	padding: 15px;
+	margin-right: 20px;
+	padding-top: 65px;
+	font-size: 14px;
+	height: 185px;
+}
+
+.why_content_body_last-child {
+	text-align: center;
+}
+
+.part4_hezuo {
+	margin-top: 300px;
+}
+
+.case_main {
+	color: #048ED8;
+	height: 60px;
+	line-height: 60px;
+	letter-spacing: 5px;
+}
+
+.case_title {
+	font-size: 58px;
+	border-right: 1px solid #048ED8;
+}
+
+.case_title_usa {
+	font-size: 35px;
+	padding-left: 40px;
+}
+@media only screen and (max-width:1000px ) {
+	.case_title_usa {
+	    font-size: 28px;
+	    padding-left: 0;
+	}
+}
+.case_lists {
+	margin-top: 60px;
+	padding-right: 46px;
+}
+
+.case_lists .row .col-md-10 .border_bottom {
+	border-bottom: 1px solid #048ED8;
+	padding-bottom: 10px;
+	margin-left: 20px;
+}
+
+.border_bottom div,
+.border_bottom li {
+	padding-left: 0;
+}
+
+.case_lists .row .col-md-10 a {
+	font-size: 19px;
+}
+
+.case_lists .row .col-md-10 .active a {
+	color: #048ED8;
+}
+
+.case_shows {
+	margin-top: 20px;
+}
+
+.case_shows li {
+	float: left;
+	width: 20%;
+	text-align: right;
+}
+
+.case_shows li img {
+	width: 95%;
+	border: 1px solid #048ED8;
+}
+.case_shows ul{
+	padding-left: 10px;`
+}
+@media only screen and (max-width: 1400px) {
+	.login_row input {
+		font-size: 16px;
+	}
+
+	.why_content_body {
+		border: 1px solid #048ED8;
+		padding: 15px;
+		margin-right: 20px;
+		padding-top: 52px;
+		font-size: 13px;
+		height: 170px;
+	}
+	.why_content_head {
+		width: 70px;
+		height: 70px;
+		line-height: 70px;
+		background: #048ED8;
+		transform: rotateZ(45deg);
+		color: #fff;
+		text-align: center;
+		font-size: 20px;
+		position: absolute;
+		left: 50%;
+		top: -35px;
+		margin-left: -45px;
+	}
+	.liuliang_title {
+		font-size: 39px;
+		font-weight: lighter;
+		letter-spacing: 10px;
+	}
+	 .container {
+	    width: 970px;
+ 	}
+	 .section1 { background-size: 100% 107%;}
+	 .section2 { background-size: 100% 107%;} 
+	 .section3 {background-size: 100% 107%;}
+	 .section4 { background-size: 100% 107%;}
+	.lead_channel {
+		margin-top:7%;
+	}
+	.login_main {
+		margin-top: 20px;
+	}
+	.lead_title {
+		text-align: center;
+		/*font-size: 150px;*/
+		font-size: 6em;
+		color: #fff;
+		font-weight: bold;
+		letter-spacing: 10px;
+	}
+	.lead_titleusa {
+		margin-top: 20px;
+		text-align: center;
+		font-size: 1.6em;
+		color: #fff;
+		font-weight: lighter;
+		letter-spacing: 5px;
+	}
+	.part2_container {
+		margin-top: 5%;
+		color: #fff;
+		line-height: 2;
+		font-size: 1.3em;
+	}
+	.part3_why {
+		margin-top: 7%;
+		color: #048ED8;
+	}
+	.why_title {
+		font-size: 35px;
+		text-align: center;
+		letter-spacing: 5px;
+		font-weight: bold;
+	}
+	.why_content {
+		margin-top: 65px;
+		color: #048ED8;
+		line-height: 1.5;
+	}
+	.part4_hezuo {
+		margin-top: 13%;
+	}
+	.case_title {
+		font-size: 40px;
+		border-right: 1px solid #048ED8;
+	}
+	.case_title_usa {
+		font-size: 25px;
+		padding-left: 40px;
+	}
+	.case_lists {
+		margin-top: 20px;
+		padding-right: 46px;
+	}
+	.case_shows {
+		margin-top: 10px;
+	}
+	.why_content .row .col-md-4 {
+		position: relative;
+		margin-bottom: 60px;
+	}
+	.login_submit input {
+	    display: block;
+	    text-align: center;
+	    width: 100%;
+	    background: url(../img/yun_icon.png) no-repeat 8px -177px;
+	    height: 35px;
+	    color: #048ED8;
+	    font-size: 18px;
+	}
+}
+@media only screen and (max-width:500px ) {
+	#fp-nav ul li, .fp-slidesNav ul li {
+	    display: block;
+	    width: 60px;
+	    height: 60px;
+	    margin: 7px;
+	    position: relative;
+	}
+	#fp-nav ul li a span, .fp-slidesNav ul li a span {
+	    top: 2px;
+	    left: 2px;
+	    width: 60px;
+	    height: 60px;
+	    background: url(../img/yun_icon1.png) no-repeat -3px -8px;
+	    position: absolute;
+	    z-index: 1;
+	}
+	#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span {
+	    background: url(../img/yun_icon1.png) no-repeat -77px -9px;
+	}
+	#fp-nav ul li:nth-child(2) a span {
+    background: url(../img/yun_icon1.png) no-repeat -4px -71px;
+}
+#fp-nav ul li:nth-child(2) a.active span {
+    background: url(../img/yun_icon1.png) no-repeat -77px -71px;
+}
+#fp-nav ul li:nth-child(3) a span {
+    background: url(../img/yun_icon1.png) no-repeat -4px -133px;
+}
+#fp-nav ul li:nth-child(3) a.active span {
+    background: url(../img/yun_icon1.png) no-repeat -75px -132px;
+}
+#fp-nav ul li:nth-child(4) a span {
+    background: url(../img/yun_icon1.png) no-repeat -4px -195px;
+}
+#fp-nav ul li:nth-child(4) a.active span {
+    background: url(../img/yun_icon1.png) no-repeat -76px -196px;
+}
+	.menu{display: none;}
+	.container {
+	    width: 100%;
+	    padding: 0 30px;
+	}
+	#fp-nav.right {
+	    right: -14px;
+	}
+	/*#fp-nav ul li, .fp-slidesNav ul li {
+	    display: block;
+	    width: 24px;
+	    height: 70px;
+	    margin: 7px;
+	    position: relative;
+	}*/
+	.lead_title {
+	    text-align: center;
+	    /* font-size: 150px; */
+	    font-size: 3.1em;
+	    color: #fff;
+	    font-weight: bold;
+	    letter-spacing: 10px;
+	}
+	.login_title {
+	    text-align: center;
+	    color: #fff;
+	    font-size: 20px;
+	    letter-spacing: 10px;
+	}
+	.login_row {
+	    border-bottom: 1px solid #999;
+	    padding: 10px;
+	}
+	.login_submit input {
+	    display: block;
+	    text-align: center;
+	    width: 100%;
+	    background: url(../img/yun_icon.png) no-repeat 12px -177px;
+	    height: 35px;
+	    color: #048ED8;
+	    font-size: 18px;
+	}
+	.mar-t-15 {
+	    margin-top: -7px;
+	}
+	.liuliang_title {
+	    font-size: 18px;
+	    font-weight: lighter;
+	    letter-spacing: 10px;
+	}
+	.liuliang_content {
+	    margin-top: 10px;
+	    margin-right: 15px;
+	    padding: 10px;
+	    border: 1px solid #fff;
+		margin-bottom: 50px;
+	}
+	.part2_container {
+	    margin-top: 23%;
+	    color: #fff;
+	    line-height: 2;
+	    font-size: 12px;
+	}
+	.why_title {
+	    font-size: 20px;
+	    text-align: center;
+	    letter-spacing: 5px;
+	    font-weight: bold;
+	}
+	.why_title_usa {
+	    font-size: 12px;
+	    text-align: center;
+	    letter-spacing: 0;
+	    margin-top: 5px;
+	}
+	.why_content_body {
+	    border: 1px solid #048ED8;
+	    padding: 0 3px;
+	    margin-right: 0;
+	    padding-top: 28px;
+	    font-size: 12px;
+	    height: 122px; 
+	    overflow: hidden;
+	}
+	.why_content_head {
+	    width: 40px;
+	    height: 40px;
+	    line-height: 40px;
+	    background: #048ED8;
+	    transform: rotateZ(45deg);
+	    color: #fff;
+	    text-align: center;
+	    font-size: 13px;
+	    position: absolute;
+	    left: 50%;
+	    top: -20px;
+	    margin-left: -20px;
+	}
+	.why_content .row .col-md-4 {
+	    position: relative;
+	    margin-bottom: 30px;
+	    padding: 0 5px;
+	}
+	.why_content {
+	    margin-top: 50px;
+	    color: #048ED8;
+	    line-height: 1.5;
+	}
+	/*.lead_channel {
+	    margin-top: 17%;
+	}*/
+	.section1 {
+	    background-size: 152% 107%;
+	}
+	.section2 {
+	    background-size: 245% 107%;
+	}
+	.section3 {
+	    background-size: 128% 107%;
+	}
+	.section4 {
+	    background-size: 175% 107%;
+	}
+	.part4_hezuo {
+	    margin-top: 40%;
+	}
+	.case_main {
+	    color: #048ED8;
+	    height: 46px;
+	    line-height: 46px;
+	    letter-spacing: 0;
+	}
+	.case_title {
+	    font-size: 25px;
+	    border-right: 1px solid #048ED8;
+	}
+	.case_title_usa {
+	    font-size: 15px;
+	    padding-left: 10px;
+	}
+	.case_lists .row .col-md-10 a {
+	    font-size: 13px;
+	}
+	.border_bottom div, .border_bottom li {
+	    padding-right: 0;
+	}
+	.case_shows li {
+	    float: left;
+	    width: 31%;
+	    text-align: right;
+	    padding-bottom: 5px;
+	}
+	.case_lists {
+	    margin-top: 10px;
+	    padding-right: 35px;
+	}
+	.mar-b-15 {
+	    margin-bottom: -7px;
+	}
+}
+@media only screen and (max-width:340px ) {
+	
+	.case_main {
+	    color: #048ED8;
+	    height: 30px;
+	    line-height: 30px;
+	    letter-spacing: 0;
+	}
+	.part4_hezuo {
+	    margin-top: 37%;
+	}
+	.part3_why {
+	    margin-top: 2%;
+	    color: #048ED8;
+	}
+	.why_content {
+	    margin-top: 35px;
+	    color: #048ED8;
+	    line-height: 1.5;
+	}
+	.case_title {
+	    font-size: 19px;
+	    border-right: 1px solid #048ED8;
+	}
+	.case_title_usa {
+	    font-size: 12px;
+	    padding-left: 10px;
+	}
+	.case_lists .row .col-md-10 a {
+	    font-size: 12px;
+	}
+	#fp-nav.right {
+	    right: -14px;
+	}
+	.part2_container {
+	    margin-top: 9%;
+	    color: #fff;
+	    line-height: 1.6;
+	    font-size: 12px;
+	}
+	.lead_title {
+	    text-align: center;
+	    /* font-size: 150px; */
+	    font-size: 2.1em;
+	    color: #fff;
+	    font-weight: bold;
+	    letter-spacing: 10px;
+	}
+	.lead_titleusa {
+	    margin-top: 20px;
+	    text-align: center;
+	    font-size: 12px;
+	    color: #fff;
+	    font-weight: lighter;
+	    letter-spacing: 5px;
+	}
+	.login_main {
+	    margin-top: 10px;
+	}
+	 .to_register a {
+	    color: #048ed8;
+	    font-size: 12px;
+	}
+	.to_register {
+	    margin-bottom: 10px;
+	    text-align: center;
+	}
+	.liuliang_title {
+	    font-size: 16px;
+	    font-weight: lighter;
+	    letter-spacing: 7px;
+	    padding-bottom: 12px; 
+	}
+	.liuliang_content {
+	    margin-top: 10px;
+	    margin-right: 5px;
+	    padding: 5px;
+	    border: 1px solid #fff;
+	    margin-bottom: 20px;
+	}
+	.part2_container .col-xs-8{
+		padding-left: 0;
+	}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>{?$jieqi_pagetitle|str_replace:'$jieqi_sitename':'用户登录-$jieqi_sitename'?}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/users_landing.css" rel="stylesheet" type="text/css" />
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=2646883799" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?eval echo JIEQI_REFER_URL;?}">返回</a></div>
+    <div class="title"><a href="javascript:;">用户登录</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+<form action="{?function geturl:'3g':'login'?}" method="post">
+<div class="landing">
+	<span class="hy">欢迎使用{?$jieqi_sitename?}</span>
+	<div class="user">
+    	<span class="userico"></span>
+        <input type="text" name="username" value="" maxlength="30" placeholder="用户名/手机号" />
+    </div>
+	<div class="key">
+    	<span class="keyico"></span>
+        <input type="password" name="password" value="" maxlength="20" placeholder="请输入密码" />
+    </div>
+	<div class="yzm" id="code_div" {?if $show_checkcode == 0 ?} style="display: none;" {?/if?}>
+    	<span class="yzmico"></span>
+        <input type="text" name="checkcode" value="" maxlength="4" placeholder="验证码" />
+        <a onclick="document.getElementById('checkcode').setAttribute('src','{?$url_checkcode?}?rand='+Math.random());" href="javascript:;"><img id="checkcode" class="yzm_img" src="{?$url_checkcode?}"></a>
+    </div>
+</div>
+<div class="zddl">
+	<label><input type="checkbox" name="usecookie" value="1" checked="checked"/>自动登录</label>
+    <a href="{?function geturl:'3g':'getpass'?}">忘记密码</a>
+</div>
+<div class="landing_but">
+	<input type="hidden" name="jumpurl"  id="jumpurl" value="{?$jumpurl?}">
+	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	<input class="dl" type="submit" value="登录">
+    <!--<a href="{?function geturl:'3g':'register':'SYS=jumpurl=$jumpurl'?}" class="zc">注册</a>-->
+</div>
+</form>
+<div class="kjdl">
+	<span>快捷登录：</span><a href="javascript:;" onclick="location.href='{?$SITE_WAP_URL?}/qqlogin/?jumpurl='+document.getElementById('jumpurl').value;" id="qqlogin" class="qq"></a>  <a href="javascript:;" onclick="location.href='{?$SITE_WAP_URL?}/sinalogin/?jumpurl='+document.getElementById('jumpurl').value;" class="weibo"></a>
+</div>
+<div class="landing_but">
+	<p class="wyts">温馨提示：</p>
+	<span class="nozh">还没有账号？</span>
+    <a href="{?function geturl:'3g':'register':'SYS=jumpurl=$jumpurl'?}" class="zc">点击注册</a>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

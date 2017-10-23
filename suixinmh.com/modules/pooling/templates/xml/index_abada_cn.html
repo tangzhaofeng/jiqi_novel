@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Books Pages="{?$_PAGE['Pages']?}">
+{?section name=i loop=$rows?}
+  <Book>
+	<Id><![CDATA[{?$rows[i]['articleid']?}]]></Id>
+	<Author><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['author'],false);?}]]></Author>
+	<Name><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></Name>
+  </Book>
+{?/section?}
+</Books>

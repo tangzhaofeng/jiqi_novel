@@ -1,0 +1,13 @@
+<div style="width:310px; height:130px;">
+	<ul id="newsMeinv2">{?section name=i loop=$articlerows?}{?if $i.order==1?}
+	   <li><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank"><img src="{?$articlerows[i]['thumb']?}" alt="{?$articlerows[i]['title']?}">{?$articlerows[i]['title']|truncate:20:'':0?}</a></li>
+	   {?elseif $i.order==2?}
+       <li><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank"><img src="{?$articlerows[i]['thumb']?}" alt="{?$articlerows[i]['title']?}">{?$articlerows[i]['title']|truncate:20:'':0?}
+</a></li>
+    </ul>
+</div>
+<div id="shipin">
+	<ul class="news_list_shipin">{?else?}
+		<li class="t_blue"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></li>{?/if?}{?/section?}
+	</ul>
+</div>

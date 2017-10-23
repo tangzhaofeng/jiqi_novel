@@ -1,0 +1,82 @@
+    <div class="g-main">
+      <div class="m-book-title">收款信息 </div>
+      <div class="to_leave"></div>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <form action="#" method="post" id="form" class="m-form m-form-horizontal">
+            <fieldset>
+  
+              <div class="formitm" id='bankh'> 
+                <label class="lab">银行卡</label>
+                <div class="ipt">
+                <span>{?$user.p_bank?}</span>
+                </div>
+              </div>
+              <div class="formitm" id='bankh'> 
+                <label class="lab">开户支行</label>
+                <div class="ipt">
+                <span>{?$user.p_bankn?}</span>
+                </div>
+              </div>
+
+              <div class="formitm backgrNam">
+                <label class="lab">真实姓名</label>
+                <div class="ipt">
+                <span>{?$user.p_uname?}</span>
+                </div>
+              </div>
+              <div class="formitm backgrNam">
+                <label class="lab">联系手机</label>
+                <div class="ipt">
+                <span>{?$user.mobile?}</span>
+                </div>
+              </div>
+
+              <div class="formitm" id='wehcatD'>
+                <label class="lab">微信号</label>
+                <div class="ipt">
+                  <input name="pay_weixin" type="text" class="form-element u-width-large " id="pay_weixin" value="{?$user.p_wechat?}" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm">
+                <label class="lab">联系QQ</label>
+                <div class="ipt">
+                  <input name="pay_qq" type="text" class="form-element u-width-large" id="pay_qq" value="{?$user.p_qq?}" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm form-submit">
+                <div class="ipt">
+                  <div class="tip" id="tips"></div>
+                  <input type="hidden" name="ajax_request" value="1" />
+                  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                  <button class="u-btn u-btn-primary" type="submit" id="btn-submit">保存</button>
+                  <button class="u-btn" type="reset">重置</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $("#form").submit(function () { // 651780
+        Users.form=this;
+        Users.msg_err=false;
+        Users.checkUser('pay_phone');
+        if( Users.msg_err !== false ){
+            Users.ShowMsg();
+            return false; 
+        }
+        Users.SendForm(function(msgs){
+          if(msgs.status === 'OK'){
+            Users.ShowMsg('修改成功');
+            setTimeout(function(){
+              location.href='';
+            },2000);
+          }else{
+            Users.ShowMsg(msgs.msg);
+          }
+        });
+        return false;
+      });
+    </script>

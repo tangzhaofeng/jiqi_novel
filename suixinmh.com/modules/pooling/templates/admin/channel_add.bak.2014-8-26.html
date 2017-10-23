@@ -1,0 +1,156 @@
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>站点管理</caption>
+  <tr>
+    <td><a href='{?$adminprefix?}&method=main'><font color="red">返回渠道列表</font></a></td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+
+
+<form action="{?$adminprefix?}&method=add&cid={?$_SGLOBAL['channel']['channelid']?}" method="post" name="myform">
+    <caption>{?if $_SGLOBAL['channel']['channelid']>0?}编辑{?else?}添加{?/if?}渠道配置</caption>
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>站点名字</strong></th>
+      <td><input type="text" name="info[channelname]" id="sitename" value="{?$_SGLOBAL['channel']['channelname']?}" size="30" require="true" datatype="limit" min="2" max="30" msg="不得少于2个字符超过30个字符"></td>
+    </tr>
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>合作域名</strong></th>
+      <td><input type="text" name="info[url]" id="siteurl" value="{?$_SGLOBAL['channel']['url']?}" size="30" require="true" datatype="limit" min="2" max="100" msg="例如：baidu.com"></td>
+    </tr>
+    <tr> 
+      <th><font color="red">*</font> <strong>类型</strong></th>
+      <td><label><input type='radio' name='info[type]' value='0'{?eval if($_SGLOBAL['channel']['type']=='0' || !isset($_SGLOBAL['channel']['type'])) echo ' checked';?}/> 推送&nbsp;</label>
+	  <label><input type='radio' name='info[type]' value='1'{?eval if($_SGLOBAL['channel']['type']=='1') echo ' checked';?}/> 读取</label></td>
+    </tr>
+    <tr> 
+      <th><font color="red">*</font> <strong>状态</strong></th>
+      <td><label><input type='radio' name='info[statu]' value='1'{?eval if($_SGLOBAL['channel']['statu']=='1' || !isset($_SGLOBAL['channel']['statu'])) echo ' checked';?}/> 开启&nbsp;</label>
+	  <label><input type='radio' name='info[statu]' value='0'{?eval if($_SGLOBAL['channel']['statu']=='0') echo ' checked';?}/> 关闭</label></td>
+    </tr>	
+<!-- 	<tr> 
+      <th width='15%'><strong>开启数据API</strong></th><th style="text-align:left"><input type='checkbox' name='setting[getdata][open]' id='getdata_open' value='1' {?if $_SGLOBAL['api']['setting']['getdata']['open']>0?}checked{?/if?}/></th>
+	</tr> -->
+	<tbody id="getdata">
+	<tr> <th width='15%'>配置</th>
+      <td>
+		  <table>
+<!--			<tr>
+			  <th><strong>站点密匙</strong></th>
+			  <td><input type="text" name="setting[getdata][key]" value='{?$_SGLOBAL['api']['setting']['getdata']['key']?}' size='40' maxlength='100'></td>
+			</tr>-->
+			<tr>
+			  <th><strong>允许访问IP</strong></th>
+			  <td><input type="text" name="setting[getdata][ip]" value='{?$_SGLOBAL['channel']['setting']['getdata']['ip']?}' size='40' maxlength='120'><br />例如：192.168.1.1|192.168.1.2</td>
+			</tr>
+<!--		   <tr>
+			  <th><strong>推送的文章ID</strong></th>
+			  <td><textarea name="setting[getdata][articleids]" cols="80" rows="10">{?$_SGLOBAL['api']['setting']['getdata']['articleids']?}</textarea><br />多个文章ID请用逗号","分隔，为空则推送所有文章</td>
+			</tr>-->
+<!-- 		   <tr>
+			  <th><strong>允许读取数据</strong></th>
+			  <td>
+			  <input type='radio' name='setting[getdata][data]' value='chaptername' {?eval if($_SGLOBAL['channel']['setting']['getdata']['data']=='chaptername') echo 'checked';?}/> 公众(仅章节) 
+			  <input type='radio' name='setting[getdata][data]' value='chaptercontent' {?eval if($_SGLOBAL['channel']['setting']['getdata']['data']=='chaptercontent') echo 'checked';?}/> 公众(章节+内容) 
+			  <input type='radio' name='setting[getdata][data]' value='' {?eval if($_SGLOBAL['channel']['setting']['getdata']['data']=='') echo 'checked';?}/> 无 <br />
+			  <input type='radio' name='setting[getdata][vipdata]' value='ochaptername' {?eval if($_SGLOBAL['channel']['setting']['getdata']['vipdata']=='ochaptername') echo 'checked';?}/> VIP(仅章节)&nbsp;
+			  <input type='radio' name='setting[getdata][vipdata]' value='ochaptercontent' {?eval if($_SGLOBAL['channel']['setting']['getdata']['vipdata']=='ochaptercontent') echo 'checked';?}/> VIP(章节+内容) 
+			  <input type='radio' name='setting[getdata][vipdata]' value='' {?eval if($_SGLOBAL['channel']['setting']['getdata']['vipdata']=='') echo 'checked';?}/> 无 <br />
+			  </td>
+			</tr> -->
+		   <tr>
+			  <th><strong>如果没有推送章节</strong></th>
+			  <td>
+			  <input type='radio' name='setting[getdata][nosetchapters]' value='2'{?if $_SGLOBAL['channel']['setting']['getdata']['nosetchapters']=='2' || $_SGLOBAL['channel']['setting']['getdata']['nosetchapters']==''?} checked{?/if?}/> 读取全部章节 
+			  <input type='radio' name='setting[getdata][nosetchapters]' value='1'{?if $_SGLOBAL['channel']['setting']['getdata']['nosetchapters']=='1'?} checked{?/if?}/> 读取全部免费章节 
+			  <input type='radio' name='setting[getdata][nosetchapters]' value='0'{?if $_SGLOBAL['channel']['setting']['getdata']['nosetchapters']=='0'?} checked{?/if?}/> 不读取章节
+			  </td>
+			</tr>	
+<!--		   <tr>
+			  <th><strong>推送章节设置</strong><br /> 对该API站点下所有书有效</th>
+			  <td>
+			 每天更新<input type="text" name="setting[getdata][daychapter]" id="daychapter" value="{?$_SGLOBAL['api']['setting']['getdata']['daychapter']?}" size="5" datatype="number" min="1" max="30" msg="必须为数字">章
+			  </td>
+			</tr>
+		   <tr>
+			  <th><strong>延迟更新</strong><br /> 对该API站点下所有书有效</th>
+			  <td>
+			 始终落后本站<input type="text" name="setting[getdata][sleepchapter]" id="sleepchapter" value="{?$_SGLOBAL['api']['setting']['getdata']['sleepchapter']?}" size="5" datatype="number" min="1" max="30" msg="必须为数字">章(不填为同步更新)
+			  </td>
+			</tr>-->
+		   <tr>
+			  <th><strong>每页显示数据</strong><br /> 书比较多的时候分页使用</th>
+			  <td>
+			 每页<input type="text" name="setting[getdata][pagesize]" id="pagesize" value="{?$_SGLOBAL['channel']['setting']['getdata']['pagesize']?}" size="5" datatype="number" min="1" max="30" msg="必须为数字">条(默认每页显示500条)
+			  </td>
+			</tr>
+		   <tr>
+			  <th><strong>数据返回格式</strong></th>
+			  <td>
+			  <input type='radio' name='setting[getdata][dataformat]' value='xml'{?if $_SGLOBAL['channel']['setting']['getdata']['dataformat']!='html'?} checked{?/if?}/> XML 
+			  <input type='radio' name='setting[getdata][dataformat]' value='html'{?if $_SGLOBAL['channel']['setting']['getdata']['dataformat']=='html'?} checked{?/if?}/> HTML
+			  </td>
+			</tr>
+		  </table>
+	  </td>
+    </tr>	</tbody>
+<!-- 	<tr> 
+      <th width='15%'><strong>开启合作API</strong></th><th style="text-align:left"><input type='checkbox' name='setting[sitejoin][open]' id='sitejoin_open' value='1' {?if $_SGLOBAL['api']['setting']['sitejoin']['open']>0?}checked{?/if?}/></th>
+	</tr>
+	<tbody id="sitejoin"{?if $_SGLOBAL['api']['setting']['sitejoin']['open']<1?} style="display:'none'"{?/if?}>
+	<tr> <th width='15%'></th>
+      <td>
+		  <table>
+		   <tr>
+			  <th><strong>销售数据查询密码</strong></th>
+			  <td><input type="text" name="setting[sitejoin][password]" value='{?$_SGLOBAL['api']['setting']['sitejoin']['password']?}' size='40' maxlength='120'><br /></td>
+			</tr>
+		  </table>
+	  </td>
+    </tr>	
+    </tbody> -->
+	<tr> 
+      <th><strong>备注</strong></th>
+      <td><textarea name="info[description]" cols="80" rows="8" id="beizhu">{?$_SGLOBAL['channel']['description']?}</textarea></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>排序权值</strong></th>
+      <td><input type="text" name="info[listorder]" id="listorder"  value="{?$_SGLOBAL['channel']['listorder']?}" size="10" require="true" datatype="number" msg="请输入数字"></td>
+    </tr>
+
+    <tr> 
+      <th></th>
+      <td> 
+	  <input type="hidden" name="info[channelid]" value="{?$_SGLOBAL['channel']['channelid']?}" />
+	  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	  <input type="submit" name="dosubmit" value="确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+	</form>
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+  <caption>提示信息</caption>
+  <tr>
+    <td>配置合作站点API接口，目前支持数据接口和渠道接口。
+	</td>
+  </tr>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+$().ready(function() {
+	  $('form').checkForm(1);
+	  $("input[id=getdata_open]").click(function(){
+				if($(this).attr("checked")){
+				   $('#getdata').show();
+				}else{
+				   $('#getdata').hide();
+				}
+		}); 
+	  $("input[id=sitejoin_open]").click(function(){
+				if($(this).attr("checked")){
+				   $('#sitejoin').show();
+				}else{
+				   $('#sitejoin').hide();
+				}
+		}); 
+	});
+</script>

@@ -1,0 +1,17 @@
+      <div class="t2">
+       <h2>账务中心</h2>
+       <ul class="tabs62">
+        <li id="t_home_main"><a href="{?function geturl:'pay':'home'?}">充值</a></li>
+        <li id="t_userhub_czView"><a href="{?function geturl:'system':'userhub':'SYS=method=czView'?}">充值记录</a></li>
+        <li id="t_userhub_xfView"><a href="{?function geturl:'system':'userhub':'SYS=method=xfView'?}">消费记录</a></li>
+        <li id="t_userhub_dyView"><a href="{?function geturl:'system':'userhub':'SYS=method=dyView'?}">自动订阅设置</a></li>
+       </ul>       
+      </div>
+      
+      <script>
+	//防止tab ID和accordion id 冲突，tabID加t_
+	var id ='{?$_REQUEST['controller']?}'+'_'+'{?$_REQUEST['method']?}';
+	 $('#t_'+id).addClass("thistab");
+	 if('{?$_REQUEST['controller']?}'=='home')
+	 	$('#t_home_main').addClass("thistab");
+	</script>

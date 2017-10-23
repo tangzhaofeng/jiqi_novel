@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+ <webName>{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,true,'xml');?}</webName>
+  <webSite><![CDATA[{?eval echo JIEQI_URL;?}]]></webSite>
+ <pagesize>{?$pagesize?}</pagesize>
+ <totalcount>{?$totalcount?}</totalcount>
+ <items>
+ {?section name=i loop=$rows?}
+ <item id ="{?$i.order?}">
+  <bookid>{?$rows[i]['articleid']?}</bookid>
+  <Original_URL><![CDATA[{?$rows[i]['url_articleinfo']?}]]></Original_URL>
+  <title><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></title>
+  <author><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['author'],false);?}]]></author>
+  <category>{?eval echo gb2utf8XHSafeStr($rows[i]['sort'],false);?}</category>
+  <second_category></second_category>
+  <size>{?$rows[i]['size_c']?}</size>
+  <tag>{?eval echo gb2utf8XHSafeStr($rows[i]['keywords'],true,'xml');?}</tag>
+  <postdate>{?$rows[i]['postdate']|date:'Y-m-d H:i:s'?}</postdate>
+  <lastupdate>{?$rows[i]['lastupdate']|date:'Y-m-d H:i:s'?}</lastupdate>
+  <isvip>{?$rows[i]['articletype']?}</isvip>
+  <allvisit>{?$rows[i]['visit']?}</allvisit>
+  <comment><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['intro'],false);?}]]></comment>
+  <fullflag>{?$rows[i]['fullflag']?}</fullflag>
+  <image_big><![CDATA[{?eval echo $rows[i]['url_image_l'];?}]]></image_big>
+  <image_small><![CDATA[{?eval echo $rows[i]['url_image'];?}]]></image_small>
+  <chaptersurl><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$rows[i]['articleid']?}]]></chaptersurl>
+ </item>
+ {?/section?}
+ </items>
+</document>

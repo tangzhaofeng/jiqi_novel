@@ -1,0 +1,44 @@
+<!--<form name="frmsearch" method="post" action="?controller=salestat">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}"> <input name="keytype" type="radio" class="radio" value="0" {?if $keytype!=1?} checked="checked" {?/if?}>
+            文章名称
+            <input type="radio" name="keytype" class="radio" value="1" {?if $keytype==1?} checked="checked" {?/if?}>
+            文章作者 &nbsp;&nbsp;
+            <input type="submit" name="btnsearch" class="button" value="搜 索">         
+        </td>
+    </tr>
+</table>
+</form>
+<br />
+-->
+<table><tr><td><button onclick="history.back()">返回</button></td></tr></table>
+<table class="grid" width="100%" align="center">
+<caption>章节销售记录</caption>
+  <tr align="center" valign="middle">
+  	<th width="16%">书名</th>
+    <th width="16%">章节</th>
+    <th width="8%">价格(书海币)</th>
+    <th width="8%">购买人</th>
+	<th width="8%">购买日期</th>
+  </tr>
+  {?section name=i loop=$pay?}
+  <tr valign="middle">
+  	<td align="left" class="even"><a href="{?$pay[i].url_articleinfo?}" target="_blank">{?$pay[i].articlename?}</a></td>
+    <td align="left" class="odd"><a href="{?function geturl:'article':'reader':'aid=$pay[i].articleid':'cid=$pay[i].chapterid'?}" target="_blank">{?$pay[i].chaptername?}</a></td>
+	<td align="center" class="odd">{?$pay[i].saleprice?}</td>
+	<td align="center" class="odd"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$pay[i].accountid'?}" target="_blank">{?$pay[i].account?}</a></td>
+	<td align="center" class="odd">{?$pay[i].buytime|date:'Y-m-d H:i:s'?}</td>
+  </tr>
+  {?/section?}
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+<br /><br />

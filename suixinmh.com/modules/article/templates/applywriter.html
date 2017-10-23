@@ -1,0 +1,117 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+      <div class="t2"><h2>�����Ϊ����</h2><a class="call abtn ml10 f_blue5">��ϵ�༭</a></div>
+      <!--box92 begin-->
+      <div class="box92 pt20">
+        <ul class="list_txt f14 pb20">
+          <li class="rel">һ��������������</li>
+          <li>1���������±���Ϊԭ����Ʒ��</li>
+          <li>2���бȽ��ȶ���д��ʱ���д���ٶȡ�</li>
+          <li>3���������ݲ��ú���ɫ�顢���μ�����Υ�����ݡ�</li>       
+          <li class="prel">��������Ҫ��</li>
+          <li>����ԭ�����߱����ύ������10000�ֽ�(�൱��5000����)��ԭ���������£��ɰ������ͨ����ܷ������¡�<br />
+          (ע������̨���ó��������߲���Ҫ��ˣ�����Ҫ�ύ�κ����ݣ�ֱ�ӵ�ͬ��������������)</li>
+        </ul>
+        <form action="{?function geturl:'article':'article':'SYS=method=appw'?}" method="post">
+	        <div class="box pt20">
+	         ��������������������<a href="javascript:;" onclick="CheckLen();" class="abtn ml10 f_blue5">����ͳ��</a>
+	         <textarea name="simpletext" id="simpletext" cols="" rows="" class="inp5"></textarea>
+	         <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	         <button class="btn auto mt20" type="submit">ͬ�Ⲣ����</button>
+	        </div>
+        </form>
+      </div><!--box92 end-->
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+<div class="pop_tgao" style="display:none;" id="account">
+  <div id="close">x</div>
+  <dl class="ldd">
+	<dt>��ӭͶ��</dt>
+	<dd>
+	  <em class="name"><b>����</b></em>
+   	  <em class="duty"><b>ְ��</b></em>
+   	  <em class="mail"><b>QQ����</b></em>
+   	  <em class="q"><b>QQ</b></em>
+	</dd>
+  	<dd class="fbg">
+   	  <em class="name">����</em>
+   	  <em class="duty">ǩԼ�༭</em>
+   	  <em class="mail">151621935@qq.com</em>
+   	  <em class="q">qq:151621935</em>
+  	</dd>
+  	<dd>
+   	  <em class="name">���</em>
+   	  <em class="duty">ǩԼ�༭</em>
+   	  <em class="mail">zexin@shuhai.com    </em>
+   	  <em class="q">qq:151621933</em>
+  	</dd>
+  	<dd class="fbg">
+   	  <em class="name">ټ��</em>
+   	  <em class="duty">ǩԼ�༭</em>
+   	  <em class="mail">151621937@qq.com</em>
+   	  <em class="q">qq:151621937</em>
+  	</dd>
+  	<dd>
+   	  <em class="name">���</em>
+   	  <em class="duty">���α༭</em>
+   	  <em class="mail">guigui@shuhai.com</em>
+      <em class="q">qq:151621941</em>
+  	</dd>
+  	<dd class="fbg">
+      <em class="name">����</em>
+      <em class="duty">���α༭</em>
+      <em class="mail">xiazhi@shuhai.com</em>
+      <em class="q">qq:151621954</em>
+  	</dd>
+  	<dd>
+   	  <em class="name">СQ</em>
+   	  <em class="duty">�麣�ͷ�</em>
+   	  <em class="mail">724171887@qq.com</em>
+   	  <em class="q">qq:724171887</em>
+  	</dd>
+  	<dd class="fbg">
+   	  <em class="name">ѩ��</em>
+   	  <em class="duty">���α༭</em>
+   	  <em class="mail">151621932@qq.com</em>
+   	  <em class="q">qq:151621932</em>
+  	</dd>
+  	<dd>
+   	  <em class="name">����</em>
+   	  <em class="duty">ǩԼ�༭</em>
+   	  <em class="mail">151621945@qq.com</em>
+   	  <em class="q">qq:151621945</em>
+  	</dd>
+  </dl>
+</div>
+<script>
+ var CheckLen  =function()
+     {
+    
+       var len;
+       var len0;
+       var value=document.getElementById("simpletext").value;
+       Len=value.replace(/(\r\n)$/gm,'').split(''),len=len0=Len.length;
+       for(o in Len)
+       {
+            if(Len[o].charCodeAt(0)>256)
+            {
+              len++;
+            }
+        }
+        alert('��'+ len0 +'�֡�');
+        //document.getElementById("simpletext").innerHTML="<b>"+len0+"</b>�ַ�";//+len+'�ֽ�';
+     }
+     $(".call").click(function(){
+		$("#account").show();
+	 });
+	 $("#close").click(function(){
+		$("#account").hide();
+	 });
+</script>

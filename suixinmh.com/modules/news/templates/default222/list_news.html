@@ -1,0 +1,28 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_news.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title $jieqi_sitename"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+{?eval $catid = $_SGLOBAL['cate']['catid'];?}
+	<div id="guanggao"><a href="http://www.2100book.com/" target="_blank"><img src="http://www.2100book.com/gg/02.jpg" width="980" /></a></div>
+	<div id="guanggao"> 您所在的位置：<a href="{?$_SGLOBAL['localurl']?}/">赶游首页</a> > <a href="{?function jieqi_geturl:'news':'lists':77:1?}">新闻中心</a> > <span class="cRed">{?$_SGLOBAL['cate']['catname']?}</span></div>
+	<div class="clear"></div>
+	<div id="list_all">
+	   <div id="list_left">
+	      <div class="t_bt1" id="list_left_1">{?$_SGLOBAL['cate']['catname']?}</div>
+		  <div id="list_left_mid">
+		     <div id="list_left_mid2">
+			    <div>
+					<ul class="news_list_9">{?section name=i loop=$_PAGE['articlerows']?}
+						<li><span>[ {?$_PAGE['articlerows'][i]['inputtime']|date:'m-d'?} ]</span><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank">{?$_PAGE['articlerows'][i]['alltitle']?}</a></li>
+						{?/section?}
+					</ul>
+				  </div>
+			 </div>
+			 <div id="list_left_mid3">
+			    {?tag_news_40_[新闻]列表页图片?}
+
+			 </div>
+		  </div>
+		  <div id="fenye">[{?$_SGLOBAL['cate']['catname']?}] {?$_PAGE['url_jumppage']?} </div>
+	   </div>
+	   {?include file = "modules/news/templates/default/right_news.html" ?}
+	</div>
+

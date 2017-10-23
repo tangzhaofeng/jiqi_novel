@@ -1,0 +1,12 @@
+<div class="t">
+     <ul class="tabs62" id="tabs">
+      <li id="t_article_bcView"><a href="{?function geturl:'article':'article':'SYS=method=bcView'?}">我的书架</a></li>
+      <li id=""><a href="#" target="_blank" style="display:none">订阅书籍</a></li>
+      <li id="t_article_sevenday"><a href="{?function geturl:'article':'article':'SYS=method=sevenday'?}" style="display:none">7天更新的作品</a></li>
+      <li id=""><a href="#" target="_blank" style="display:none">活动专区</a></li>
+     </ul>       
+   </div>
+   <script>
+	 var id ='{?$_REQUEST['controller']?}'+'_'+'{?$_REQUEST['method']?}';
+	 $('#t_'+id).addClass("thistab");
+   </script>

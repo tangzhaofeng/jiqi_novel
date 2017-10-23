@@ -1,0 +1,61 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script language="JavaScript" type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<body>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<form method="get" action="?">
+<input name="ac" type="hidden" value="pay">
+  <caption>搜索充值记录</caption>
+  <tr>
+    <td>
+	游戏ID：<input name='gameid' type='text' size='16' value='{?$_PAGE['gameid']?}'>
+	用户ID：<input name='uid' type='text' size='10' value='{?$_PAGE['uid']?}'>  
+	时间：<input name='start' id='start' type='text' size='16' value='{?$_PAGE['start']?}'>  至  <input name='end' type='text' size='16' value='{?$_PAGE['end']?}'>  
+	仅显示支付成功：<input name='payflag' type='checkbox' value='1' {?if $_PAGE['payflag']>0?}checked{?/if?}> 
+	<input name='submit' type='submit' value='搜索'>
+
+    </td>
+  </tr>
+  </form>
+</table>
+<form method="post"  name="thisform" id="thisform" onSubmit="return del_customer();">
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>管理充值记录</caption>
+  <tr>
+    <th style="width:5%;">编号</th>
+	<th style="width:120px">用户名</th>
+    <th style="width:80px">代理厂商</th>
+	<th style="width:150px">游戏名称</th>
+	<th style="width:60px">游戏ID</th>
+	<th style="width:60px">游戏编号</th>
+	<th style="width:75px">服务器编号</th>
+	<th style="width:120px">登陆IP</th>
+	<th style="width:120px">金额/总(<font color=red><b>{?$_PAGE['allamount']?}</b></font>)元</th>
+	<th style="width:100px">状态</th>
+	<th style="width:170px">充值时间</th>
+  </tr>
+  {?section name=i loop=$_PAGE['rows']?}
+  	<tr>
+	<td class="align_c">{?$_PAGE['rows'][i]['orderid']?}</td>
+    <td class="align_c">{?if $_PAGE['rows'][i]['uid']>0?}<a href="/admin/usermanage.php?id={?$_PAGE['rows'][i]['uid']?}">{?/if?}{?$_PAGE['rows'][i]['username']?}{?if $_PAGE['rows'][i]['uid']>0?}</a>{?/if?}</td>
+	<td class="align_c">{?$_PAGE['types'][$_PAGE['rows'][i]['typeid']]?}</td>
+    <td class="align_l"><a href="http://game.2100book.com/play/?id={?$_PAGE['rows'][i]['gameid']?}&serverId={?$_PAGE['rows'][i]['serverId']?}" target="_blank">{?$_PAGE['rows'][i]['gamename']?}</a></td>
+	<td class="align_c">{?$_PAGE['rows'][i]['gameid']?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['game']?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['serverId']?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['ip']?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['amount']?}</td>
+	<td class="align_c">{?if $_PAGE['rows'][i]['payflag']>0?}支付成功{?else?}未确认{?/if?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['time']|date:'Y/m/d H:i:s'?}</td>
+	</tr>
+{?/section?}  
+</table>
+<div>{?$_PAGE['url_jumppage']?}</div>
+</form>
+<script language="javascript">
+{?if $_PAGE['timeid']>0?}$("select[name='timeid']").val(["{?$_PAGE['timeid']?}"]);{?/if?}
+</script>

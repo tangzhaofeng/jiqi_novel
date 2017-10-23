@@ -1,0 +1,131 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+  {?if $user.p_type == 1?}
+    {?include file="tuike/templates/users_payreceive_ali.html" ?}
+  {?elseif $user.p_type == 2?}
+    {?include file="tuike/templates/users_payreceive_wechat.html" ?}
+  {?elseif $user.p_type == 3?}
+    {?include file="tuike/templates/users_payreceive_bank.html" ?}
+  {?else?}
+    <div class="g-main">
+      <div class="m-book-title">收款信息 </div>
+      <div class="to_leave"></div>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <form method="post" id="form" class="m-form m-form-horizontal">
+            <fieldset>
+              <div class="formitm">
+                <label class="lab">
+                  <select name="paychannel" id="moneyType" class="form-element" onchange="tobank(this)">
+                    <option value="alipay">支付宝</option>
+                    <option value="bank">银行卡</option>
+                  </select>
+                </label>
+                <div class="ipt">
+                  <input name="pay_account" type="text" class="form-element u-width-large  " id="pay_alipay_account" value="" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm" style="display: none;" id='bankh'> 
+                <label class="lab">开户支行*</label>
+                <div class="ipt">
+                  <input name="pay_bankh" type="text" class="form-element u-width-large  " id="pay_alipay_realname" value="" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm backgrNam">
+                <label class="lab">真实姓名*</label>
+                <div class="ipt">
+                  <input name="pay_realname" type="text" class="form-element u-width-large  " id="pay_alipay_realname" value="" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm"> 
+                <label class="lab">联系手机*</label>
+                <div class="ipt">
+                <span>{?$user.mobile?}</span>
+                </div>
+              </div>
+
+              <div class="formitm" id='wehcatD'>
+                <label class="lab">微信号</label>
+                <div class="ipt">
+                  <input name="pay_weixin" type="text" class="form-element u-width-large  " id="pay_weixin" value="" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm conQQ">
+                <label class="lab">联系QQ</label>
+                <div class="ipt">
+                  <input name="pay_qq" type="text" class="form-element u-width-large  " id="pay_qq" value="" maxlength="250">
+                </div>
+              </div>
+              <div class="formitm form-submit">
+                <div class="ipt">
+                  <div class="tip" id="tips"></div>
+                  <input type="hidden" name="ajax_request" value="1" />
+                  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                  <button class="u-btn u-btn-primary" type="submit" id="btn-submit">保存</button>
+                  <button class="u-btn " type="reset">重置</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $("#form").submit(function () { // 651780
+        Users.form=this;
+        Users.msg_err=false;
+        switch(Users.form.elements.paychannel.value){
+          case 'alipay':
+            Users.checkempty('pay_account','请输入支付宝帐号！');
+            break;
+          case 'bank':
+            Users.checkempty('pay_account','请输入银行卡卡号！');
+            Users.checkempty('pay_bankh','请输入开启支行！');
+            break;
+          case 'wehcat':
+            Users.checkempty('pay_account','请输入微信号！');
+            break;
+        }
+        Users.checkempty('pay_realname','请输入真实姓名！');
+        if( Users.msg_err !== false ){
+            Users.ShowMsg();
+            return false;
+        }
+        Users.SendForm(function(msgs){
+          if(msgs.status === 'OK'){
+            Users.ShowMsg(msgs.msg);
+            setTimeout(function(){
+              location.href='';
+            },2000);
+          }else{
+            Users.ShowMsg(msgs.msg);
+          }
+        });
+        return false;
+      });
+
+
+    function tobank(e) {
+        if(e.value=='bank'){
+            bankh.style.display='block';
+            wehcatD.style.display='block';
+        }else if(e.value=='wehcat'){
+            bankh.style.display='none';
+            wehcatD.style.display='none';
+        }else{
+            bankh.style.display='none';
+            wehcatD.style.display='block';
+        }
+        if(e.value=='wehcat'){
+            $('.conQQ').css({'background':'#fff'});
+        }else{
+            $('.conQQ').css({'background':'#fafafa'});
+        }
+    }
+
+
+
+      
+    </script>
+  {?/if?}
+{?include file="tuike/templates/public/footer.html"?}

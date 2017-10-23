@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<result language="zh_CN" version="1.1">
+<status>
+<code>0</code> 
+<msg>成功</msg> 
+</status>
+<total>{?eval echo count($sortrows);?}</total> 
+<start>1</start> 
+<count>{?eval echo count($sortrows);?}</count> 
+<data>
+{?section name=i loop=$sortrows?}<category>
+<cate_id>{?$i.key?}</cate_id> 
+<cate_name>{?eval echo gb2utf8XHSafeStr($sortrows[i]['shortcaption'],false);?}</cate_name> 
+</category>{?/section?}
+</data>
+</result>

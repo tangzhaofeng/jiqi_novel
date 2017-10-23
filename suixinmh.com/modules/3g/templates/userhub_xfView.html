@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="{?$jieqi_charset?}">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-transform " /> 
+        <meta name="keywords" content="{?$meta_keywords?}" />
+        <meta name="description" content="{?$meta_description?}" />
+        <meta name="author" content="{?$meta_author?}" />
+        <meta name="copyright" content="{?$meta_copyright?}" />
+        <title>³äÖµ¼ÇÂ¼</title>
+        <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+        <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+        <style>
+            .chargeTable td {
+                border-top: #eee 1px solid;
+            }
+            table th,table td{
+                font-weight: 500;
+               
+            }
+            .activeH2{
+                border-bottom: 2px solid #D50D56;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--nav-->
+        {?include file = "themes/3g/header.html"?}
+        {?include file = "themes/3g/paylogin.html"?}
+        <div class="clearfix cardtype bgcfff m10 plf10 br5">
+            <h2 class="fwn f16 c333 lh40 fl mr20"><a href="{?function geturl:'3g':'userhub':'SYS=method=czView'?}">³äÖµ¼ÇÂ¼</a></h2>
+            <h2 class="fwn f16 c333 lh40 fl  activeH2"><a href="{?function geturl:'3g':'userhub':'SYS=method=xfView'?}">¶©ÔÄ¼ÇÂ¼</a></h2>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="lh35 tc chargeTable">
+                <tr bgcolor="#EEEEEE" class="f14">
+                    <th scope="col">Êé±Ò</th>
+                    <th scope="col">¶©ÔÄ</th>
+                    <th scope="col">Ê±¼ä</th>
+                </tr>
+               {?section name=i loop=$pay?}{?eval $aid=$pay[i].articleid;$cid=$pay[i].chapterid;$bg=$i.order%2;?}
+                <tr {?if $bg == 1?} class="line"{?/if?}>
+                    <td><div class="shb"><span>{?$pay[i].saleprice?}</span>{?eval echo JIEQI_EGOLD_NAME;?}</div></td>
+                    <td><a href="/read/{?$pay[i].articleid?}/{?$pay[i].chapterid?}.html">¶©ÔÄ¡¶{?$pay[i].articlename|truncate:18:'¡­'?}¡·</a><br/><a href="/read/{?$pay[i].articleid?}/{?$pay[i].chapterid?}.html"><span class="zhang">{?$pay[i].chaptername|truncate:23:'¡­'?}</span></a></td>
+                    <td><span class="time">{?$pay[i].buytime|date:"Y-m-d H:i:s"?}</span></td>
+                </tr>
+                {?/section?}
+            </table>
+            <div class="fanye">
+                {?$url_jumppage?}
+            </div>
+        </div>
+        <div class="p10 mb10">
+            <a href="{?function geturl:'3g':'userhub'?}" class="cRed f14">·µ»Ø¸öÈËÖÐÐÄ</a>
+        </div>
+        <!--footer-->
+      {?include file = "themes/3g/bottom.html"?}
+    </body>
+    <script src="{?$jieqi_themeurl?}js/jquery.min.js"></script>
+</html>

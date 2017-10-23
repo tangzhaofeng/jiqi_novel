@@ -1,0 +1,4 @@
+ {?section name=i loop=$bookcaserows?}{?eval $aid=$bookcaserows[i].articleid;?}{?eval $cid=$bookcaserows[i].chapterid;?}
+  <li><span class="name3">{?$i.order?}.<a href="{?function geturl:'wap':'articleinfo':'aid=$aid'?}" target="_self">¡¶{?$bookcaserows[i].articlename?}¡·</a>{?if $bookcaserows[i].chapterid>0?}ÊéÇ©£º<a href="{?function geturl:'wap':'reader':'SYS=aid=$aid':'cid=$cid'?}" target="_blank" class="f_black">{?$bookcaserows[i].chaptername?}</a>{?/if?}</span><a href="#" target="_self" class="f_0">[É¾³ý]</a></li>
+  <!--  -->
+  {?/section?}

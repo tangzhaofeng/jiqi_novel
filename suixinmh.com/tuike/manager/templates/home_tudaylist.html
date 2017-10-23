@@ -1,0 +1,56 @@
+{?include file="tuike/manager/templates/public/header.html" ?}
+{?include file="tuike/manager/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="g-grid">
+        <div class="m-panel">
+          <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+            <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+          </div>
+          <div class="panel-header">
+            每日充值明细({?$date?})
+          </div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>用户ID</th>
+                  <th>用户姓名</th>
+                  <th>用户备注</th>
+                  <th>充值金额</th>
+                  <th>广告分成</th>
+                  <th>推广提成</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($qdList)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('manager','manqd','SYS=method=qdpaylist');?}
+                {?section name=i loop=$qdList?}
+                <tr>
+                  <td>{?$qdList[i].uid?}</td>
+                  <td>{?$qdList[i].uname?}</td>
+                  <td>{?if empty($qdList[i].notes) == 1?}(无){?else?}{?$qdList[i].notes?}{?/if?}</td>
+                  <td>{?$qdList[i].qdpay?}</td>
+                  <td>{?$qdList[i].tkMoneyG?}</td>
+                  <td>{?$qdList[i].tkMoneyT?}</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/manager/templates/public/footer.html"?}

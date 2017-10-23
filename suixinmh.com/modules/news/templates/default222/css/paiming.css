@@ -1,0 +1,24 @@
+/* CSS Document */
+/* creat by : houlijuan */
+/* creat time : 2010-07-04 */
+
+.pm_ph{ width:100%;border-top:1px solid #C5DAF9; border-right:1px solid #C5DAF9;}
+.pm_ph td{ padding-left:5px; border-bottom:1px solid #C5DAF9; border-left:1px solid #C5DAF9;}
+.pm_ph .a1{ background-color:#E4F2FF; color:#0B5E80}
+.pm_ph .a2{ background-color:#E4F2FF;}
+
+.pm_ph2{ margin-top:10px; width:auto}
+.pm_ph2_kuang{ width:230px;border:1px solid #DADBDC; float:left; margin-right:12px}
+.pm_ph2_kuang2{ width:230px;border:1px solid #DADBDC; float:right;}
+.pm_ph2_bt03{height:30px; background-image: url(../images/lm03.jpg); background-repeat: no-repeat;  line-height:30px;padding:0 10px 0 30px;font-size:14px; color:#FFFFFF; font-weight:bold;}
+.pm_ph2ul{ padding:10px}
+.pm_ph2ul li{ padding:3px 0; border-bottom:1px dotted #CCCCCC}
+.pm_ph2ul img{ margin-right:10px}
+.lt_pm{ color:#FFFFFF;text-align:center; background-image: url(../images/pm_dt.jpg);background-repeat: no-repeat; background-position: left top; padding:0px 2px;margin-right:10px;font-family:Arial, Helvetica, sans-serif; font-size:9px  }
+.lt_pm_r{ float:right; color:#FF0000}
+
+.pd_pc{ padding:0 10px; margin-top:10px; background-image: url(../images/pd_sy02.jpg); 	background-repeat: no-repeat; background-position: left bottom; height:32px; padding-top:6px; line-height:32px}
+.pd_pc .r{ float:right}
+.pd_pc_nr{ width:298px; float:left; margin-right:12px}
+.pd_pc_nr_bt{ background-image: url(../images/p_04.jpg); background-repeat: no-repeat; 	background-position: left top; height:31px; padding:2px 10px; line-height:31px; margin-right:10px}
+.pd_f01{ font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #FFFFFF; }

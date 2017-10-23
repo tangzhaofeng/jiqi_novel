@@ -1,0 +1,84 @@
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>站点管理</caption>
+  <tr>
+    <td><a href='{?$adminprefix?}&method=add'><font color="red">添加站点</font></a> | <a href='{?$adminprefix?}&method=main'>返回站点列表</a></td>
+  </tr>
+</table>
+<form method="post" action="?" name="myform" id="myform">
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+    <caption>《{?$channel.channelname?}》采集文章列表</caption>
+    <tr><th width="2%">全选</th>
+    	<th width="2%">序</th>
+        <th width="12%">书海文章名称</th>
+        <th width="12%">文章名称</th>
+		<th width="">文章简介</th>
+		<!-- <th width="5%">接口状态</th> -->
+		<th width="3%">分类</th>
+		<th width="9%">最后更新</th>
+		<th width="6%">作者</th>
+		<th width="2%">vip</th>
+        <th width="5%">管理操作</th>
+    </tr>{?section name=i loop=$rows?}
+    <tr onmouseover="this.style.backgroundColor='#EAF8FF';" onmouseout="this.style.backgroundColor='#ffffff';">
+	<td class="align_c"><input type="checkbox" name="aids[]" value="{?$rows[i]['articleid']?}" id="content_{?$rows[i]['articleid']?}" /></td>
+      <td>{?$i.order?}</td>
+      	<td>{?if $rows[i]['new'] == 0?}<font color=blue>{?$rows[i]['mappingArticle']['articlename']?}</font>{?/if?}</td>
+        <td>{?$rows[i]['articlename']?}{?if $_PAGE['rows'][i]['image']!=''?} <font color=red>封</font>{?/if?}</td>
+		<td title="{?$rows[i]['intro']?}">{?$rows[i]['intro']|truncate:'100':'……':'0'?}</td>
+		<!-- <td class="align_c">{?if $rows[i]['pushflag']>0?}<font color=blue>完成</font>{?else?}更新中{?/if?}</td> -->
+        <td class="align_c" align="center">{?$rows[i]['sort']?}</td>
+		<td class="align_c" align="center">{?if $rows[i]['lastupdate']>0?}{?$rows[i]['lastupdate']|date:'Y-m-d H:i'?}{?/if?}</td>
+		<td class="align_c" align="center">{?$rows[i]['author']?}</td>
+		<td class="align_c" align="center">{?if $rows[i]['isvip'] > 0 ?}是{?else?}否{?/if?}</td>
+		<td class="align_c" align="center">
+			<a href="{?$adminprefix?}&method=newArticle&cid={?$channel.channelid?}&aid={?$rows[i]['articleid']?}" target="_blank">{?if $rows[i]['new'] == 1?}入库{?else?}更新{?/if?}</a>
+		</td>
+    </tr>{?/section?}  
+</table>																																																																																																																																																																																																																																																																																													
+<div class="button_box"><span style="width:60px"><a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a></span>　<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /> <input name="dosubmit" type="button" value=" 解禁 "  onclick="javascript:if(confirm('批量：解禁？')){myform.action='{?$adminprefix?}&method=editStatu&cid={?$channel.channelid?}&value=1';myform.submit();}" class="text"/> <input name="dosubmit" type="button" value=" 封禁 " onclick="javascript:if(confirm('批量：封禁？')){myform.action='{?$adminprefix?}&method=editStatu&cid={?$channel.channelid?}&value=0';myform.submit();}" class="text"/> <input type="button" name="delete" value=" 入库更新 " onclick="javascript:if(confirm('确认批量采集入库吗？')){myform.action='{?$adminprefix?}&method=newArticle&cid={?$channel.channelid?}';myform.submit();}">{?if $channel.type == 0?} <input type="button" name="delete" value=" 推送 " onclick="javascript:if(confirm('确认批量推送文章？')){myform.action='{?$adminprefix?}&method=push&cid={?$channel.channelid?}';myform.submit();}">{?/if?} </div>{?$url_jumppage?}
+</form>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+<!-- <form action="{?$adminprefix?}&method=pusharticles&cid={?$channel.channelid?}" method="post">
+
+    <caption>《{?$channel.channelname?}》添加推送文章</caption>
+	<tr> 
+      <th width='15%'><strong>请填写文章id号</strong></th><th style="text-align:left">多个书号之前请用逗号分隔，不要出现换行</th>
+	</tr>
+	<tbody id="getdata">
+	<tr> <th width='15%'></th>
+      <td>
+		  <table>
+			<tr>
+			  <th><strong>文章id</strong></th>
+			  <td><textarea name="articleids" cols="80" rows="10"></textarea><br />多个文章id请用逗号","分隔</td>
+			</tr>
+		  </table>
+	  </td>
+    </tr>	</tbody>
+
+	<tr> 
+      <th><font color="red">*</font> <strong>状态</strong></th>
+      <td><input type='radio' name='statu' value='1' checked/> 开启更新&nbsp;
+	  <input type='radio' name='statu' value='0' /> 关闭更新(在没有确定推送之前，请先设置关闭更新)</td>
+    </tr>	
+
+    <tr> 
+      <th></th>
+      <td> 
+	  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	  <input type="submit" name="dosubmit" value=" 确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+	</form> -->
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+  <caption>提示信息</caption>
+  <tr>
+    <td>
+	１、显示封禁状态的书，系统不会向合作网站推送！<br />
+	２、显示推送完本状态的书，系统不会再向合作网站推送新的章节！<br />
+	３、在不确定书是否推送之前，请在添加书之前先将书设置为"关闭更新"状态,在开启更新之前，可以修改书名和简介。
+	</td>
+  </tr>
+</table>

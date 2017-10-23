@@ -1,0 +1,55 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/usertab.html" ?}
+      <ul id="tab_conbox" class="f0 bg5">
+        <li class="fix">
+       <dl class="box_form pt20">
+		<form name="frmpassedit" id="frmpassedit" action="{?function geturl:'system':'userhub':'SYS=method=updatePwd'?}" method="post" ajaxpost="true">
+         {? if $pass != ''?}<dd class="fix">
+          <em class="tt2">当前密码：</em>
+          <div class="int">
+           <input name="oldpass" id="oldpass" type="password" class="input3 fl" data-rule="required;"/>
+          </div>
+         </dd>{?/if?}
+         <dd class="fix">
+          <em class="tt2">新密码：</em>
+          <div class="int">
+           <input name="newpass" id="newpass" type="password" class="input3 fl" data-rule="新密码: required;password;" />
+          </div>
+         </dd>
+         <dd class="fix">
+          <em class="tt2">重复密码：</em>
+          <div class="int">
+           <input name="repass" id="repass" type="password" class="input3" data-rule="重复密码: required;match(newpass);"/>
+           <p class="pt20"><button class="btn" type="submit">修改密码</button></p>
+		   <input type="hidden" name="action" id="action" value="update" />
+		   <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+          </div>
+         </dd>
+         <dd class="fix">
+          <div class="int ml20 pt20">为了您的密码安全，及快速找回密码，强烈建议您进行安全认证。 <a href="#" class="f_blue5">立即认证</a>
+          </div>
+         </dd>
+		 </form>
+         </dl>
+      </li>
+      <li>
+       <dl class="safe">
+        <dt class="f14 b">手机认证</dt>
+        <dd>手机认证后，当您丢失密码，输入账号和密保手机号，就可以快速找回密码。</dd>
+        <dd>当前密保手机：<a href="#" class="f_blue5">修改手机号码</a></dd>
+       </dl>
+      </li>
+     </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

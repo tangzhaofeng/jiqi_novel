@@ -1,0 +1,5 @@
+{?section name=i loop=$sortrows?}
+{?if $sortrows[i].sortid > 200?}
+<dd class="col-xs-4"><a href="{?$sortrows[i].url_sort?}" target="_self">{?$sortrows[i].sortname?}</a></dd>
+{?/if?}
+{?/section?}

@@ -1,0 +1,134 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/newadmin/templates/public/header.html" ?}
+{?include file="tuike/newadmin/templates/public/left.html" ?}
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/laydate.css" />
+    <script src="{?$jieqi_themeurl?}js/laydate.js" type="text/javascript" charset="gbk"></script>
+    <div class="g-main">
+      <h3>渠道管理 </h3>
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form style="display:inline" action="" method="post">
+                <input class="form-element" size="10" type="text" name="t1" value="{?$t1?}" onclick="laydate()"> -
+                <input class="form-element" size="10" type="text" name="t2" value="{?$t2?}" onclick="laydate()">
+                <input type="hidden" name="page" value="1" />
+                <button type="submit" class="u-btn u-btn-primary">查看</button>
+              </form>
+              <a class="u-btn u-btn-primary" style="margin-left:33px;" id="downExcel" href="javascript:void(0);">excel 报表下载( {?$count?} )</a>
+            </div>
+          </div>
+          <div class="channel_content">
+            <table border="1" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr class="th">
+                  <td rowspan="2">开始</td>
+                  <td rowspan="2">结束</td>
+                  <td rowspan="2">渠道号</td>
+                  <td colspan="4" class="addwidth">账号信息</td>
+                  <td colspan="2">成本</td>
+                  <td rowspan="2">书名</td>
+                  <td colspan="4" class="addwidth">基本参数</td>
+                  <td rowspan="2">阅读<br>转化率</td>
+                  <td rowspan="2">注册</td>
+                  <td colspan="2">总收入</td>
+                  <td colspan="2">3天收入</td>
+                  <td colspan="2">7天收入</td>
+                </tr>
+                <tr class="th">
+                  <td>微信名</td>
+                  <td>微信号</td>
+                  <td>公司</td>
+                  <td>粉丝</td>
+                  <td>单价</td>
+                  <td>总价</td>
+                  <td>阅读</td>
+                  <td>UV</td>
+                  <td>点击</td>
+                  <td>PV</td>
+                  <td>收入</td>
+                  <td>回报比</td>
+                  <td>收入</td>
+                  <td>回报比</td>
+                  <td>收入</td>
+                  <td>回报比</td>
+                </tr>
+                {?if intval($List)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 23 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?section name=i loop=$List?}
+                <tr>
+                  <td>{?$List[i].statime|date:"Y-m-d H:i:s"?}</td>
+                  <td>{?if $List[i].endtime =='4294967295'?}到现在{?else?}{?$List[i].endtime|date:"Y-m-d H:i:s"?}{?/if?}</td>
+                  <td>{?$List[i].qd?}</td>
+                  <td>{?$List[i].wxn?}</td>
+                  <td style="overflow: hidden;">{?$List[i].wxh?}</td>
+                  <td>{?$List[i].company?}</td>
+                  <td>{?$List[i].fans?}</td>
+                  <td>￥{?$List[i].uprice?}</td>
+                  <td>￥{?$List[i].fee?}</td>
+                  <td>{?$List[i].articlename?}</td>
+                  <td>{?$List[i].read?}</td>
+                  <td>{?$List[i].uvIx?}</td>
+                  <td>{?$List[i].click?}</td>
+                  <td>{?$List[i].pv?}</td>
+                  <td>{?$List[i].readIx?}%</td>
+                  <td>{?$List[i].regi?}</td>
+                  <td>{?$List[i].payall?}</td>
+                  <td>{?$List[i].huiIx?}%</td>
+                  <td>{?$List[i].payallTh?}</td>
+                  <td>{?$List[i].huiThIx?}%</td>
+                  <td>{?$List[i].payallWe?}</td>
+                  <td>{?$List[i].huiWeIx?}%</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="line_h_30"></div>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    <input type="hidden" id="formhashAjax" value="{?eval echo form_hash();?}" />
+    <script type="text/javascript">
+      $("#downExcel").live('click',function () { // 651780
+        var ar,formhash;
+        ar=location.pathname.split('/');
+        formhash=$('#formhashAjax').val(); 
+        $.post('http://'+location.host+'/'+ar['1']+'/report/downQdloadList',$.extend(filter,{ajax_request:1,formhash:formhash}),function(html){
+          var obj,ar=html.split("aj||ax");         
+          msgs=$.parseJSON(ar['0']);
+          if(msgs.status === 'OK'){
+            Users.ShowMsg('下载成功');
+            uri = 'data:application/vnd.ms-excel;base64,';
+            template = '<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name></x:Name><x:WorksheetOptions><x:Selected/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--> <style type="text/css"> .td{width: 120px; } .gdtjContainer .tb tr{text-align: center; vertical-align: middle; } .gdtjContainer .tb th{border-left: 0.5pt solid #000; border-bottom: 0.5pt solid #000; text-align: center; font-weight: normal; font-size: 10pt; middle: ;; height:30px; } .gdtjContainer .header th {font-size: 12pt; } .gdtjContainer .tb tr .noleftborder {border-left: none; } .gdtjContainer .tb tr .rightborder {border-right: 0.5pt solid #000; } .gdtjContainer .tb td{border-left: 0.5pt solid #000; border-bottom: 0.5pt solid #000; text-align: center; font-weight: normal; font-size: 10pt; middle: ;; height:30px; }.all_border{border: 0.5pt solid #000; } </style> </head> <body> <div class="gdtjContainer"> {table} </div> </body> </html>';
+            base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))); };
+            format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }); };
+            ctx = { worksheet: name || '渠道报表下载', table:ar['1'] };
+            ctx.table=ctx.table.replace(/<img[^>]+>/g,'' );
+            ctx.table=ctx.table.replace(/<a[^>]+>/g,'' );
+            ctx.table=ctx.table.replace(/<\/a[^>]+>/g,'' );
+            ctx.table=ctx.table.replace(/<input[^>]+>/g,'' );
+            window.location.href = uri + base64(format(template, ctx));
+          }else{
+            Users.ShowMsg(msgs.msg);
+          }
+        },'html');
+      });
+    </script>
+{?include file="tuike/newadmin/templates/public/footer.html"?}
+{?/if?}

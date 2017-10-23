@@ -1,0 +1,73 @@
+  <div class="left fl ov">
+    <div class="left_h"><a href="{?$jieqi_modules['article']['url']?}/myarticle.php"><img src="{?$jieqi_local_url?}/modules/article/templates/style/images/left_bg_h.jpg" width="195" height="45" /></a></div>
+    <div class="left_m">
+      <div class="menu_zzjs_1">
+        <div class="tit_zzjs_net">
+          <h3><a href="{?$jieqi_modules['article']['url']?}/masterPage">作品管理</a></h3>
+        </div>
+        <div class="txt_zzjs_net">
+          <ul>
+            <li><a href="{?$jieqi_modules['article']['url']?}/step1View">发表作品</a></li>
+            <li><a href="{?$jieqi_modules['article']['url']?}/masterPage">作品管理</a></li>
+            <!--<li><a href="{?$article_static_url?}/ytuijian.php">申请推荐</a></li>-->
+            <!--<li><a href="{?$article_static_url?}/yqiany.php">申请签约</a></li>-->
+            <!--<li><a href="{?$article_static_url?}/ymyapply.php">我的申请</a></li>-->
+            <!--<li><a href="{?$article_static_url?}/newdraft.php">定时发布</a></li>  -->
+          </ul>
+        </div>
+      </div>
+      <!--menu_zzjs_1-->
+      <div class="menu_zzjs_1">
+        <div class="tit_zzjs_net">
+          <h3><a href="javascript:showmenu_zzjs(3);">我的作品</a></h3>
+        </div>
+        <div class="txt_zzjs_net">
+          <ul>
+            {?section name=i loop=$articlerows?}
+            <li><a href="{?$articlerows[i].url_articleinfo?}">{?$articlerows[i].articlename?}</a></li>
+            {?/section?}
+          </ul>
+        </div>
+      </div>
+      <!--menu_zzjs_1-->
+      <div class="menu_zzjs_1">
+        <div class="tit_zzjs_net">
+          <h3><a href="#">管理员通道</a></h3>
+        </div>
+        <div class="txt_zzjs_net">
+          <ul>
+            <li><a href="#">我的短信箱</a></li>
+            <li><a href="#">联系管理员</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--menu_zzjs_1-->
+      <div class="menu_zzjs_1">
+        <div class="tit_zzjs_net">
+          <h3><a href="#">作者相关</a></h3>
+        </div>
+        <div class="txt_zzjs_net">
+          <ul>
+            <!--<li><a href="{?$article_static_url?}/writerinfo.php">签约作者信息</a></li>-->
+            <li><a href="#">道具统计</a></li>
+            <li><a href="#">稿酬收入查询</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--menu_zzjs_1-->
+      <div class="menu_zzjs_1">
+        <div class="tit_zzjs_net">
+          <h3><a href="#">网站信息</a></h3>
+        </div>
+        <div class="txt_zzjs_net">
+          <ul>
+            <li><a href="#">网站公告</a></li>
+            <li><a href="{?$jieqi_local_url?}">返回网站首页</a></li>
+            <li><a href="{?$jieqi_user_url?}/logout">退出登陆</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--menu_zzjs_1--> 
+    </div>
+    <div class="left_f"><img src="{?$jieqi_local_url?}/modules/article/templates/style/images/left_bg_f.jpg" width="223" height="66" /></div>
+  </div>

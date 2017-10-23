@@ -1,0 +1,101 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/manager/templates/public/header.html" ?}
+{?include file="tuike/manager/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>下级推客 </h3>
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form action="{?function geturl:manager:manuser?}" method="post">
+                <input type="text" class="form-element" name="keyword" value="">
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+            </div>
+          </div>
+          <div class="panel-header">
+            推广明细(推客：{?$tuiInfo.uname?})
+          </div>
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="tkuid">用户ID</i></th>
+                <th><i class="sortOr" _z="tkunn">用户名</i></th>
+                <th><i class="sortOr" _z="tkpq">QQ</i></th>
+                <th><i class="sortOr" _z="tknote">备注</i></th>
+                <th>充值明细</th>
+                <th>每日结算</th>
+                <th>渠道管理</th>
+                <th>邀请返佣</th>
+                <th>详情</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($ktList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 8 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('manager','manuser');?}
+              {?section name=i loop=$ktList?}
+              <tr _i="{?$ktList[i].uid?}">
+                <td>{?$ktList[i].uid?}</td>
+                <td>{?$ktList[i].uname?}</td>
+                <td>{?$ktList[i].p_qq?}</td>
+                <td><span _y="note" class="fieldRev" >{?if empty($ktList[i].notes) == 1?}(无){?else?}{?$ktList[i].notes?}{?/if?}</span></td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}paylist?uid={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].payDay?}/{?$ktList[i].payMonth?}/{?$ktList[i].money?}
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}paydaylist?uid={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].payAlDayn?}/ {?$ktList[i].payAlDay?}
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}qdlist?uid={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].qdNum?}
+                </td>
+                <td>
+                 <a class="u-btn u-btn-primary" href="{?$url?}tkulist?tkId={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].payTNum?}/{?$ktList[i].payT?}
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}tkuinfo?uid={?$ktList[i].uid?}">查看</a>
+                </td>
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    <div class="hide_box" id="testBox" style="display: none; margin: 0px;">
+      <h4><a href="javascript:void(0)" title="x" id='close_dia'>×</a>链接</h4>
+      <p>{?$urlTkShare?}</p>
+      <div style="margin: 10px auto;width: 13%;">
+      </div>
+    </div>
+    <script src="{?$jieqi_themeurl?}js/easydialog.min.js"></script>
+    <script type="text/javascript">
+      $('#shareT').live('click',function() {
+        easyDialog.open({
+          container: 'testBox'
+        });
+      });
+      $('#overlay').live('click',function(){
+        easyDialog.close();
+      });
+      $('#close_dia').click(function() {
+        easyDialog.close();
+      });
+    </script>
+{?include file="tuike/manager/templates/public/footer.html"?}
+{?/if?}
+

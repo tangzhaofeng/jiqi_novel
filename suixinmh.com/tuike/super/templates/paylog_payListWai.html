@@ -1,0 +1,84 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+
+
+    <div class="g-main">
+      <!-- <h3>充值明细</h3> -->
+      <div class="m-panel " id="form_main">
+{?/if?}
+
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <form style="display:inline" action="" method="post">
+              <input class="form-element" size="10" type="text" name="t1" value="{?$t1?}" onclick="laydate()"> -
+              <input class="form-element" size="10" type="text" name="t2" value="{?$t2?}" onclick="laydate()">
+              <button type="submit" class="u-btn u-btn-primary">查看</button>
+            </form>
+          </div>
+          <table id="table" class="m-table  table_cen table_th">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="tkunn">推客姓名</i></th>
+                <th><i class="sortOr" _z="pdate">时间</th>
+                <th>财务明细</th>
+                <th>订单号</th>
+                <th>提现金额</th>
+                <th>真实姓名</th>
+                <th>支付方式</th>
+                <th>支付信息</th>
+                <th>联系电话</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($payList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 12 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('super','manuser');?}
+              {?section name=i loop=$payList?}
+                <tr>
+                  <td><a target="_bank" href="{?$url?}?uid={?$payList[i].uid?}">{?$payList[i].uname?}</a></td>
+                  <td>
+                    {?if $payList[i].type ==3?}
+                      {?$payList[i].time|date:"Y-m-d H:i:s"?}
+                    {?else?}
+                      {?$payList[i].date?}
+                    {?/if?}
+                  </td>
+                  <td><a class="u-btn u-btn-primary" href="{?$url?}paydaylist?uid={?$payList[i].uid?}">查看</a></td>
+                  <td>{?$payList[i].ordernumber?}</td>
+                  <td>{?$payList[i].money?}￥</td>
+                  <td>{?$payList[i].p_uname?} </td>
+                  <td>{?$payList[i].type?} </td>
+                  <td>{?$payList[i].p_info?} </td>
+                  <td>{?$payList[i].p_mobil?} </td>
+                  <td>{?$payList[i].state?}</td>
+                </tr>
+              </tr>
+              {?/section?}
+              {?/if?}
+              </tbody>
+            </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    {?eval $filter_jsobj=json_encode($filter);?}
+    <script type="text/javascript">
+      var filter=$.parseJSON('{?$filter_jsobj?}');  // jq
+      var q_main=$('#form_main');
+      var baseImgUrl='{?$jieqi_themeurl?}img/';
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}
+{?/if?}

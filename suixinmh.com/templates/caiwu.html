@@ -1,0 +1,70 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix" style="display:none;">
+         <div class="finag">
+         <a href="{?function geturl:'system':'userhub':'SYS=method=czView&flag=all'?}" {?if $flag=='all'?}class="on"{?/if?} >显示全部</a>
+         <a href="{?function geturl:'system':'userhub':'SYS=method=czView&flag=success'?}" {?if $flag=='success'?}class="on"{?/if?}>支付成功</a>
+         <!--<a href="{?function geturl:'system':'userhub':'SYS=method=czView&flag=shuquan'?}" {?if $flag=='shuquan'?}class="on"{?/if?}>书券获赠记录</a>-->
+         <!-- <span class="fr">账户余额:{?$_USER['egolds']?}{?$jieqi_sitename?}币/{?$_USER['esilvers']?}书券<a href="{?function geturl:'pay':'home'?}" class="f_blue5">充值</a></span> -->
+         </div>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabl2">
+          <tr class="bgt b">
+          {?if $flag!='shuquan'?}
+           <td width="80">充值帐号 </td>
+           <td width="146">充值时间</td>
+           <td width="90">充值方式</td>
+           <td width="90">金额</td>
+           <td width="110">购买数量</td>
+           <td width="76">交易状态 </td>
+          {?else?}<!-- 如果flag等于书券 -->
+            <!--<td width="155">赠送数额(书券)</td>
+            <td width="146">赠送时间</td>
+            <td width="145">获赠途径</td>-->
+          {?/if?}
+          </tr>
+          
+          {?if $flag!='shuquan'?}
+	          {?section name=i loop=$paylog?}
+	          <tr onmouseover="this.style.backgroundColor='#EAF8FF';" onmouseout="this.style.backgroundColor='#ffffff';">
+	           <td>{?$paylog[i].buyname?}</td>
+	           <td class="g6">{?$paylog[i].buytime|date:"Y-m-d H:i:s"?}</td>
+	           <td>{?if $paytype[$paylog[i].paytype] != null ?}{?$paytype[$paylog[i].paytype].shortname?}{?else?}{?$paylog[i].paytype?}{?/if?}</td>
+			   <td>{?$paylog[i].money?}  {?if $paylog[i].moneytype==1?}美元{?else?}元{?/if?}</td>
+	           <td>{?$paylog[i].egold?} {?eval echo JIEQI_EGOLD_NAME;?}</td>
+	           {?if $paylog[i].payflag == 0?}
+	           	<td>未确认</td>
+	           {?else?}
+	           	<td class="red">支付成功</td>
+	           {?/if?}
+	          </tr>
+	          {?/section?}
+	          
+          {?else?}<!-- 如果flag等于书券 -->
+	          <!--{?section name=i loop=$rows?}
+		          <tr onmouseover="this.style.backgroundColor='#EAF8FF';" onmouseout="this.style.backgroundColor='#ffffff';">
+		           <td>{?$rows[i].stat?}</td>
+		           <td class="g6">{?$rows[i].gettime|date:"Y-m-d H:i:s"?}</td>
+				   <td>{?$source[$rows[i].source]?}</td>
+		          </tr>
+	          {?/section?}-->
+          {?/if?}
+         </table>
+          {?if $paylog != null || $rows != null?}
+         	<div class="page">{?$url_jumppage?}</div>
+     	  {?else?}
+  			<div class="tips f14 p10 g3 mt10 mb10 pl20">{?if $flag == 'shuquan'?}您还没有书券获赠记录.{?else?}您还没有支付成功的充值.{?/if?}</div>
+   		  {?/if?}
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

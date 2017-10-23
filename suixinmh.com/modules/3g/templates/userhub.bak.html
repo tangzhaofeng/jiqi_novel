@@ -1,0 +1,63 @@
+{?set $jieqi_pagetitle = "我的账户-最新原创小说大全-$jieqi_sitename"?}
+{?set $meta_keywords = "最新小说,原创小说,小说大全,小说库"?}
+{?set $meta_description = "$jieqi_sitename书库提供最新的原创小说大全，提供各类网络小说在线阅读，希望大家支持$jieqi_sitename!"?}
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>{?$jieqi_pagetitle?}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/extend.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?eval echo JIEQI_REFER_URL;?}">返回</a></div>
+    <div class="title"><a href="javascript:;">个人中心</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+<div class="userinfo">
+	<div class="usr"><img src="{?function jieqi_geturl:'system':'avatar':'$_USER["uid"]':'l':'$_USER["avatar"]'?}" /></div>
+    <div class="name">
+    	<div>{?$_USER['username']?}</div>
+        <span class="v {?$_USER['vipphoto']?}"></span><span class="lb lb{?$_USER['honorid']?}"></span>
+    </div>
+    <div class="tui"><a href="{?function geturl:'system':'userhub':'SYS=method=logout'?}">退出</a></div>
+</div>
+<div class="content1">
+	<ul>
+    	<li>
+        	<a href="{?function geturl:'3g':'userhub':'SYS=method=userinfo'?}" class="bg1">账户</a>
+        </li>
+        <li>
+        	<a href="{?function geturl:'3g':'pay'?}" class="bg2">充值</a>
+        </li>
+        <li>
+        	<a href="{?function geturl:'3g':'userhub':'SYS=method=czView'?}" class="bg3">财务记录</a>
+        </li>
+        <li class="noborder">
+        	<a href="{?function geturl:'3g':'userhub':'SYS=method=inbox'?}" class="bg4">消息</a>
+        </li>
+        <li>
+        	<a href="{?function geturl:'3g':'article':'SYS=method=bcView'?}" class="bg5">书架</a>
+        </li>
+        <li>
+        	<a href="{?function geturl:'3g':'userhub':'SYS=method=comment'?}" class="bg6">书评</a>
+        </li>
+        <li>
+        	<a href="{?function geturl:'3g':'help'?}" class="bg7">帮助</a>
+        </li>
+        <li class="noborder"><a href="javascript:;"></a></li>
+    </ul>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

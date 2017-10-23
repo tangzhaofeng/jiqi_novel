@@ -1,0 +1,22 @@
+/* SHUHAI.COM NEWS.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.article5{ width:760px; height:auto;}
+.sidebar3{ width:210px; height:auto;}
+.news h2{ width:auto; height:25px; font-family:"Î¢ÈíÑÅºÚ"; font-size:18px; color:#2974ab; font-weight:normal;}
+.news h2 .ito{ display:inline-block; width:20px; height:20px; margin-right:10px; background:url(../images/icon.gif) no-repeat -204px -120px;}
+.news h2 .ien{ font-size:16px; color:#87c8f8;}
+.list_tt li{ width:auto; height:38px; line-height:38px; border-bottom:1px dotted #ddd; _border-bottom:1px solid #ddd; overflow:hidden;}
+.list_tt li span{ float:left; height:38px; overflow:hidden;}
+.list_tt li .name{ width:80%;}
+.list_tt li .hot{ display:inline-block; width:30px; height:30px; padding-left:12px; font-size:14px; color:#fff; background:url(../images/icon.gif) no-repeat -298px -30px;}
+.list_tt li .date{ width:18%; text-align:right; color:#666; padding-right:10px;}
+.list_tt2 li{ float:left; width:50%; height:30px; line-height:30px; border-bottom:1px dotted #c5c5c5;}
+.zwen .tit{ width:auto; height:auto; padding:10px 20px 10px; font-weight:normal; text-align:center; font-size:24px; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; color:#1b1b1b; border-bottom:1px dotted #ddd;}
+.zwen .info{width:100%; height:30px; padding-top:15px; color:#666; text-align:center;}
+.zwen .txt{ width:auto; padding:20px 20px; line-height:180%; color:#3f4748; font-size:14px;}
+.zwen .txt p{ text-indent:2em; padding:10px 0px;}
+.guide { float:left; color:#3f4748;}
+.zwen .op{ float:right; color:#999; padding-top:20px;}
+.zwen .op a{ padding:0px 10px;}
+

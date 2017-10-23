@@ -1,0 +1,164 @@
+/* CSS Document */
+
+.e2_photo_gallery {
+ width:650px;
+ margin:0px auto;
+ min-width:650px;
+ color:#fff;
+}
+
+.e2_photo_gallery .hd .c,
+.e2_photo_gallery .ft .c {
+ font-size:1px; /* ensure minimum height */
+ height:13px;
+}
+
+.e2_photo_gallery .ft .c {
+ height:14px;
+}
+
+.e2_photo_gallery .hd {
+ background:transparent url(../designs/black/tl.gif) no-repeat 0px 0px;
+}
+
+.e2_photo_gallery .hd .c {
+ background:transparent url(../designs/black/tr.gif) no-repeat right 0px;
+}
+
+.e2_photo_gallery .bd {
+ background:transparent url(../designs/black/ml.gif) repeat-y 0px 0px;
+}
+
+.e2_photo_gallery .bd .c {
+ background:transparent url(../designs/black/mr.gif) repeat-y right 0px;
+}
+
+.e2_photo_gallery .bd .c .s {
+ margin:0px 8px 0px 4px;
+ padding:1em;
+}
+
+.e2_photo_gallery .ft {
+ background:transparent url(../designs/black/bl.gif) no-repeat 0px 0px;
+}
+
+.e2_photo_gallery .ft .c {
+ background:transparent url(../designs/black/br.gif) no-repeat right 0px;
+}
+
+
+/* content-specific */
+
+.e2_photo_gallery h1 {
+ /* header */
+ font-size:2em;
+ margin:0px;
+ padding:0px;
+ margin-top:-0.6em;
+}
+
+.e2_photo_gallery p {
+ margin:0.5em 0px 0px 0px;
+ padding:0px;
+ font:0.95em/1.5em arial,tahoma,"sans serif";
+}
+
+html>body .e2_photo_gallery pre {
+ font-size:1.1em;
+}
+body{background: #000;}
+
+#main_image_wrapper{position:relative;border:1px solid #CCC; width:600px; height:399px;background: #FFF url(../rsrc/loading_image.gif) no-repeat 50% 50%;}
+#imgloader{text-align:center;vertical-align:middle;}
+#thumbbox{border:solid 1px #CCC;text-align:center;width:590px;position:relative;padding:5px;}
+#thumb_container{position:relative;overflow:hidden;width:530px;height:105px;margin:0 0 0 32px;}
+#thumbs img{margin-right:4px;vertical-align:top;}
+#thumbs a img{border:1px solid #666;}
+#thumbs a:hover img{border:1px solid #DDD;}
+#thumbs a:hover{color:red;}
+#photocount{
+	color:#FFF;
+	font-size:10px;
+	float: left;
+	width: 48%;
+	text-align: left;
+	left:0;
+}
+#back{position:absolute;top:0;left:0;visibility:hidden;z-index:1001;}
+#more{position:absolute;top:0;left:568px;float:right;z-index:1001;}
+.morelink:hover{font-size:11px;color:#FFF;text-decoration:underline;}
+#thumbgall{position:absolute;left:0;top:0;white-space:nowrap;z-index:1000;}
+#widthbox{position:relative;display:inline;left:0;top:0;padding:1px;}
+#imgbox{width:80px;height:80px;display:inline;position:absolute;text-align:center;}
+#iptc_btn{width:100%;text-align:right;position:absolute;left:0;top:0;z-index:999;}
+#iptc_info{position:absolute;bottom:0;left:0;height:auto;width:100%;background-color:#000;color:#CCC;font-size:10px;line-height:140%;text-align:left;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;}
+.iptc_left{float:left;text-align:right;width:18%;color:#FFF;padding:0 0 0 2%;}
+.iptc_right{float:right;text-align:left;width:79%;}
+#rightmore li a{background:url(../designs/black/right_more.gif) no-repeat;display:block;color:#fff;text-decoration:none;width:100%;padding:0;}
+#rightmore li a:hover{background:url(../designs/black/right_more_over.gif) no-repeat;color:#fff;height:115px;}
+#leftmore li a{background:url(../designs/black/left_more.gif) no-repeat;display:block;color:#fff;text-decoration:none;width:100%;padding:0;}
+#leftmore li a:hover{background:url(../designs/black/left_more_over.gif) no-repeat;color:#fff;height:115px;}
+.spacing{padding:1px;}
+.morelink:link,.morelink:visited{font-size:11px;color:#FFF;text-decoration:none;}
+#rightmore,#leftmore{color:#333;height:115px;width:32px;padding:0;}
+#rightmore ul,#leftmore ul{list-style:none;border:none;height:115px;margin:0;padding:0;}
+#rightmore li,#leftmore li{height:115px;margin:0;}
+html>body #rightmore li a,html>body #leftmore li a{width:auto;}
+#pn_overlay{position:absolute; top:0; left:0; width:100%; height:100%; z-index:998;}
+#prev, #next{
+	width: 30%;
+	height: 100%;
+	background: transparent url(../rsrc/blank.gif) no-repeat; /* Trick IE into showing hover */
+	outline:none;
+	}
+#prev { left: 0; float: left; outline: none; -moz-outline: none; visibility:hidden;}
+#next { right: 0; float: right; outline: none; -moz-outline: none;}
+#prev:hover, #prev:visited:hover { background: url(../rsrc/prev.gif) left 50% no-repeat; }
+#next:hover, #next:visited:hover { background: url(../rsrc/next.gif) right 50% no-repeat; }
+#imgtitle{width:600px; font-size:.8em; text-align:center; color:#FFF; display:block}
+#imgtitle h2{font-size:1.3em; margin:0; padding:0}
+#thumbtoggler {
+	text-align: right;
+	float: right;
+	width: 48%;
+	right:0;
+	z-index:1100;
+}
+#thumbdisplay {
+	width: 600px;
+}
+.clear{clear:both;}
+#e2link {font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	padding:5px 0;
+	color: #FFFFFF;
+	text-align:left;}
+#e2link a {
+	color: #FFFFFF;
+	text-decoration:none
+}
+
+.tooltip {
+	color: #fff;
+	width: 150px;
+	z-index: 15000;
+	text-align:left;
+}
+
+.tooltip h4 {
+	font-weight: bold;
+	font-size: 12px;
+	margin: 0px;
+	padding: 8px 8px 2px;
+	background:#000;
+}
+
+.tooltip p {
+	font-size: 11px;
+	padding: 1px 8px 8px;
+	margin:0px;
+	background: #000;
+}#thumbhide {
+	position: relative;
+	overflow:hidden;
+}

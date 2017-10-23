@@ -1,0 +1,123 @@
+<!--<script type="text/javascript">
+$(document).ready(function(){
+	$("select[name='channel']").change(function(){
+		alert($(this).children('option:selected').val());
+	});
+});
+</script>-->
+<!--<form action="?controller=managemodules" method="post">-->
+  <table class="grid" width="100%" align="center">
+    <caption>
+    分类管理：<select name="channel" onChange="document.location='?controller=sortmanage&channel='+this.options[this.selectedIndex].value;"><option value="0"{?if $channel==0?}selected{?/if?}>书海主站</option><option value="100"{?if $channel==100?}selected{?/if?}>女生频道</option><option value="200"{?if $channel==200?}selected{?/if?}>文学频道</option></select>
+    </caption>
+    <tr>
+	  <td width="5%" align="center" class="title">分类ID</td>
+      <td width="5%" align="center" class="title">渠道</td>
+      <td width="5%" align="center" class="title">层</td>
+      <td width="10%" align="center" class="title">标题</td>
+      <td width="10%" align="center" class="title">名称</td>
+      <td width="" align="center" class="title">描述</td>
+      <td width="" align="center" class="title">图片地址</td>
+      <td width="5%" align="center" class="title">简称</td>
+      <td width="10%" align="center" class="title">类</td>
+      <td width="5%" align="center" class="title">是否显示</td>
+	  <td width="10%" align="center" class="title">管理</td>
+    </tr>
+    {?section name=i loop=$sort?}
+  <tr>
+    <td align="center">{?$i.key?}</td>
+    <td align="center">{?$sort[i].siteid?}</td>
+    <td align="center">{?$sort[i].layer?}</td>
+    <td align="center">{?$sort[i].caption?}</td>
+    <td align="center">{?$sort[i].shortname?}</td>
+    <td align="center">{?$sort[i].description?}</td>
+    <td align="center">{?$sort[i].imgurl?}</td>
+    <td align="center">{?$sort[i].shortcaption?}</td>
+    <td align="center">{?$sort[i].class?}</td>
+    <td align="center"><select name="jieqiModules[{?$i.key?}][publish]">
+      <option value="1" {?if $sort[i].publish==1?}selected{?/if?}>是</option>
+      <option value="0" {?if $sort[i].publish==0?}selected{?/if?}>否</option>
+    </select>
+    </td>
+	<td align="center"><a href="{?$adminprefix?}&method=editsortview&sortid={?$i.key?}">[修改]</a> <a href="{?$adminprefix?}&method=delsort&sortid={?$i.key?}" ajaxclick="true" confirm="确定删除该分类？">[删除]</a></td>
+  </tr>
+    {?/section?}
+<!--  <tr>
+    <td colspan="9" align="center"><input type="submit" class="button" name="dosubmit" id="dosubmit" value="确定" /></td>
+  </tr>-->
+  </table>
+<!--</form>-->
+<br><br>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center">
+		<form name="blocksnew" id="blocksnew" action="{?$adminprefix?}&method=addsort" method="post" onsubmit="return jieqiFormValidate_blocksnew();">
+		<table width="650" class="grid" cellspacing="1" align="center">
+		<caption>增加分类</caption>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">渠道</td>
+		  <td class="even"><input type="text" class="text" name="siteid" id="siteid" size="4" maxlength="50" value="{?$channel?}"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">层</td>
+		  <td class="even"><input type="text" class="text" name="layer" id="layer" size="4" maxlength="50" value="0"></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">标题</td>
+		  <td class="even"><input type="text" class="text" name="caption" id="caption" size="20" maxlength="50" value=""></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">名称</td>
+		  <td class="even"><input type="text" class="text" name="shortname" id="shortname" size="20" maxlength="50" value=""></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">描述</td>
+		  <td class="even"><input type="text" class="text" name="description" id="description" size="40" maxlength="50" value=""></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">图片地址</td>
+		  <td class="even"><input type="text" class="text" name="imgurl" id="imgurl" size="40" maxlength="50" value=""></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">简称</td>
+		  <td class="even"><input type="text" class="text" name="shortcaption" id="shortcaption" size="20" maxlength="50" value=""></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">类</td>
+		  <td class="even"><input type="text" class="text" name="class" id="class" size="20" maxlength="50" value=""></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%">是否显示</td>
+		  <td class="even"><select name="publish"><option value="1">是</option><option value="0">否</option></select></td>
+		</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd" width="25%"><input type="hidden" name="channel" value="{?$channel?}"></td>
+		  <td class="even"><input type="submit" class="button" name="submit" id="submit" value="增加分类"></td>
+		</tr>
+		</table>
+		</form>
+
+<script language="javascript" type="text/javascript">
+<!--
+function jieqiFormValidate_blocksnew(){
+  if(document.blocksnew.caption.value == ""){
+    alert("请输入分类标题");
+    document.blocksnew.caption.focus();
+    return false;
+  }
+  if(document.blocksnew.shortname.value == ""){
+    alert("请输入分类名称");
+    document.blocksnew.shortname.focus();
+    return false;
+  }
+  if(document.blocksnew.shortcaption.value == ""){
+    alert("请输入分类简称");
+    document.blocksnew.shortcaption.focus();
+    return false;
+  }
+}
+//-->
+</script>
+	</td>
+  </tr>
+</table>

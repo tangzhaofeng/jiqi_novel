@@ -1,0 +1,228 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article3 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+      <div class="t2">
+       <h2>我的关注</h2>
+       <ul class="tabs62" id="tabs">
+        <li id="whole"><a href="javascript:void(0)">全部关注</a></li>
+        <li id="eachother"><a href="javascript:void(0)">互相关注</a></li>
+        <li id="author"><a href="javascript:void(0)">关注作者</a></li>
+        <li id="add"><a href="javascript:void(0)">添加关注</a></li>
+		<li id="fans"><a href="javascript:void(0)">我的粉丝</a></li>
+       </ul>       
+      </div>
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+         <!--opit begin-->
+		 <div id="friend"><img src="{?$jieqi_url?}/scripts/layer/skin/default/xubox_loading2.gif"></div>		 
+        </li>
+		<!--开始-->        
+       <!--<li style="display:none;">-->
+         <!--opit begin-->
+<!--         <div class="opit f12">
+          互相关注<em class="red3"> 3 </em>人
+         </div>--><!--opit end-->
+         <!--box_user begin-->
+<!--         <div class="box_user fix auto">
+           <div class="imghead fl"><img src="{?$jieqi_themeurl?}images/head2.jpg"/><span class="mask"></span></div>
+           <dl>
+            <dd><a href="#" target="_blank" class="f_blue5 f14 b">落情泪</a> <a href="#" class="f_blue5">设置备注</a></dd>
+            <dd>安徽_合肥/男</dd>
+            <dd>粉丝：10450人</dd>
+            <dd>落落已经写了很多本书了，并且已经完本，喜欢的可以去看看！ <a href="#" class="f_blue2">《绝世修真》</a><a href="#" class="f_blue2">《元素》</a> </dd>
+           </dl>
+           <div class="opt fix">
+            <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].yourname|urlencode'?}" class="gbtn"><em class="mes">发私信</em></a>
+            <a href="javascript:if(confirm('确实要删除该好友么？'))document.location='{?function geturl:'system':'userhub':'SYS=method=friend&delid=$friendsrows[i].friendsid'?}'" class="gbtn"><em class="cancel">取消关注</em></a>
+           </div>
+         </div>--><!--box_user end-->
+         <!--box_user begin-->
+<!--         <div class="box_user fix auto">
+           <div class="imghead fl"><img src="{?$jieqi_themeurl?}images/head2.jpg"/><span class="mask"></span></div>
+           <dl>
+            <dd><a href="#" target="_blank" class="f_blue5 f14 b">落情泪</a> <a href="#" class="f_blue5">设置备注</a></dd>
+            <dd>安徽_合肥/男</dd>
+            <dd>粉丝：10450人</dd>
+            <dd>落落已经写了很多本书了，并且已经完本，喜欢的可以去看看！ <a href="#" class="f_blue2">《绝世修真》</a>，喜欢的可以去看看！<a href="#" class="f_blue2">《元素》</a>落落已经写了很多本书了落落已经写了很多本书了落落已经写了很多本书了 </dd>
+           </dl>
+           <div class="opt">
+            <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].yourname|urlencode'?}" class="gbtn"><em class="mes">发私信</em></a>
+            <a href="javascript:if(confirm('确实要删除该好友么？'))document.location='{?function geturl:'system':'userhub':'SYS=method=friend&delid=$friendsrows[i].friendsid'?}'" class="gbtn"><em class="cancel">取消关注</em></a>
+           </div>
+         </div>--><!--box_user end-->
+         <!--box_user begin-->
+<!--         <div class="box_user fix auto">
+           <div class="imghead fl"><img src="{?$jieqi_themeurl?}images/head2.jpg"/><span class="mask"></span></div>
+           <dl>
+            <dd><a href="#" target="_blank" class="f_blue5 f14 b">落情泪</a> <a href="#" class="f_blue5">设置备注</a></dd>
+            <dd>安徽_合肥/男</dd>
+            <dd>粉丝：10450人</dd>
+            <dd>落落已经写了很多本书了，并且已经完本，喜欢的可以去看看！ <a href="#" class="f_blue2">《元素》</a>落落已经写了很多本书了落落已经写了很多本书了落落已经写了很多本书了 </dd>
+           </dl>
+           <div class="opt">
+            <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].yourname|urlencode'?}" class="gbtn"><em class="mes">发私信</em></a>
+            <a href="javascript:if(confirm('确实要删除该好友么？'))document.location='{?function geturl:'system':'userhub':'SYS=method=friend&delid=$friendsrows[i].friendsid'?}'" class="gbtn"><em class="cancel">取消关注</em></a>
+           </div>
+         </div>--><!--box_user end-->
+<!--        </li>
+        <li style="display:none;">-->
+         <!--opit begin-->
+<!--         <div class="opit f12">
+          关注的作者<em class="red3"> 3 </em>人
+         </div>--><!--opit end-->
+         <!--box_user begin-->
+<!--         <div class="box_user fix auto">
+           <div class="imghead fl"><img src="{?$jieqi_themeurl?}images/head2.jpg"/><span class="mask"></span></div>
+           <dl>
+            <dd><a href="#" target="_blank" class="f_blue5 f14 b">落情泪</a> <a href="#" class="f_blue5">设置备注</a></dd>
+            <dd>安徽_合肥/男</dd>
+            <dd>粉丝：10450人</dd>
+            <dd>落落已经写了很多本书了，并且已经完本，喜欢的可以去看看！ <a href="#" class="f_blue2">《绝世修真》</a><a href="#" class="f_blue2">《元素》</a> </dd>
+           </dl>
+           <div class="opt fix">
+            <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].yourname|urlencode'?}" class="gbtn"><em class="mes">发私信</em></a>
+            <a href="javascript:if(confirm('确实要删除该好友么？'))document.location='{?function geturl:'system':'userhub':'SYS=method=friend&delid=$friendsrows[i].friendsid'?}'" class="gbtn"><em class="cancel">取消关注</em></a>
+           </div>
+         </div>--><!--box_user end-->
+<!--        </li>
+        <li style="display:none;">-->
+         <!--opit begin-->
+<!--         <div class="opit fix f12">
+           <div class="so"><label>搜索好友</label><p class="input"><input type="text" value="在这里输入你要搜索的姓名或昵称，如：小新" name="searchkey" onfocus="if(this.value='在这里输入你要搜索的姓名或昵称，如：小新')this.value=''" onblur="if(this.value=='')this.value='在这里输入你要搜索的姓名或昵称，如：小新'" /></p><button type="submit" class="btn">搜索</button></div>
+         </div>--><!--opit end-->
+         
+         <!--box_note2 begin-->
+<!--         <div class="box_note2 fix">
+          <div class="tit2 pt20 auto">可能认识的人</div>-->
+            <!--box_user2 begin-->
+			<!--<div id="addattention"></div>
+         </div>--><!--box_note2 end-->
+<!--		 <div class="page">{?$url_jumppage?}</div>
+        </li>
+		<li style="display:none;">-->
+         <!--opit begin-->
+<!--         <div class="opit f12">
+          我的粉丝<em class="red3">{?$nowfans?}</em>人
+         </div>--><!--opit end-->
+		 <!--{?section name=i loop=$fansrows?}-->
+         <!--box_user begin-->
+<!--		 <div class="box_user fix auto">
+           <div class="imghead fl"><img src="{?$jieqi_themeurl?}images/head2.jpg"/><span class="mask"></span></div>
+           <dl>
+            <dd><a href="{?function geturl:'system':'myfriends':'SYS=method=friendSpace&uid=$friendsrows[i].yourid'?}" target="_blank" class="f_blue5 f14 b">{?$fansrows[i].myname?}</a> <a href="#" class="f_blue5">设置备注</a></dd>
+            <dd>安徽_合肥/男</dd>
+            <dd>粉丝：10450人</dd>
+            <dd>落落已经写了很多本书了，并且已经完本，喜欢的可以去看看！ <a href="#" class="f_blue2">《绝世修真》</a><a href="#" class="f_blue2">《元素》</a> </dd>
+           </dl>
+           <div class="opt fix">
+            <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].yourname|urlencode'?}" class="abtn5"><em class="mes">发私信</em></a>
+            <a href="javascript:if(confirm('确实要删除该好友么？'))document.location='{?function geturl:'system':'userhub':'SYS=method=friend&delid=$friendsrows[i].friendsid'?}'" class="abtn5"><em class="cancel">取消关注</em></a>
+           </div>
+         </div>--><!--box_user end-->
+<!--		 {?/section?}
+		 <div class="page">{?$url_jumppage?}</div>-->
+         <!--box_user begin-->
+       <!-- </li>-->
+		<!--结束-->
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article3 end-->
+</div><!--wrap2 end-->
+<script type="text/javascript">
+	var fans = '{?$_REQUEST['fans']?}';
+	$(document).ready(function(){
+		$.jqtab("#tabs","#tab_conbox","click");
+		if (fans) {
+			$('#fans').click();
+		}else{
+			var friendurl = "{?function geturl:'system':'userhub':'SYS=method=getfriend'?}";	//加载默认全部关注模版
+			friendurl =  urlParams(friendurl, "mid=whole");
+			GPage.loadpage("friend", friendurl);
+		}
+	});
+	
+	$('#whole').bind('click',myfriend);
+	$('#eachother').bind('click',myfriend);
+	$('#author').bind('click',myfriend);
+	$('#add').bind('click',myfriend);
+	$('#fans').bind('click',myfriend);
+
+	function myfriend(){
+		var friendurl = "{?function geturl:'system':'userhub':'SYS=method=getfriend'?}";
+		friendurl =  urlParams(friendurl, "mid=" +this.id);					//加载模版
+		GPage.loadpage("friend", friendurl);
+	}
+	$("#ajaxformseach").live('submit',function(event){
+		var val = $('#searchF').val();
+		if (!val){
+			alert('请输入关键词');
+		}else{
+			 var url = $('#iact').val() +"/?smid="+encodeURI(val);
+			 GPage.loadpage('friend',url);
+		}
+	});
+	
+	function addatt(uid,mid){
+		var loadurl = "{?function geturl:'system':'userhub':'SYS=method=addAttention&yuid="+uid+"'?}";
+			GPage.getJson(urlParams(loadurl,'ajax_gets='+ContentTag),function(data){
+				if(data.status=='OK'){
+					layer.msg(data.msg,2,{type:1,shade:false},function(){
+						if (mid && mid!='' && mid!=null){
+							$("#"+mid).click();
+						}else{
+							 var url = $('#iact').val() +"/?smid="+encodeURI($('#searchF').val());
+							 GPage.loadpage('friend',url);
+						}
+					});
+					
+				}else{
+					layer.alert(data.msg, 8, !1);
+				}
+			});
+	}
+	
+	function showfriend(_this, url, show)
+	{
+	    GPage.loadpage('friend', url); 
+	}
+	
+	/*function check_confirms(friendsid,mid){
+		$.layer({
+			shade : [1], //不显示遮罩
+			area : ['auto','auto'],
+			title:'确定删除',
+			dialog : {
+				msg:'确定要删除选中记录吗?',
+				btns : 2, 
+				type : 4,
+				btn : ['确定','取消'],
+				yes : function(){
+					var url ="{?function geturl:'system':'userhub':'SYS=method=delAtten&delid="+friendsid+"'?}";
+					GPage.getJson(url,
+					function(data){
+						if(data.status=='OK'){
+							$.ajaxSetup ({ cache: false });
+							layer.msg(data.msg,2,{type:1,shade:false},function(){
+								$("#"+mid).click();
+							});	
+						}else{
+							layer.alert(data.msg, 8, !1);
+						}
+					});
+				},
+				no : function(){
+					$(".xubox_close").click();
+				}
+			}
+		});
+	}*/
+</script>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<title>{?$chapter['title']?}-{?$article['articlename']?}-{?$jieqi_sitename?}首发</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="keywords" content="{?$article['articlename']?},{?$article['articlename']?}在线阅读">
+<meta name="description" content="{?$chapter['title']?}由{?$jieqi_sitename?}独家抢先发布了,欢迎大家阅读{?$chapter['title']?}这一章,{?$article['articlename']?}首发{?$jieqi_sitename?}{?$jieqi_host?}。">
+<link href="{?$jieqi_themeurl?}style/read3g.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+{?include file="themes/3g/js.html"?}
+</head>
+<body oncontextmenu="return false" onselectstart="return false"
+ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<div class="header">
+	<div class="shouye"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+    <div class="title"><a href="#">{?$article['articlename']?}</a></div>
+    <div class="shujia"><a href="{?function geturl:'3g':'article':'SYS=method=bcView'?}">书架</a></div>
+</div>
+<div class="content">
+	<div class="sy_mu"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$article.articleid?}">书页</a> | <a href="{?function geturl:'3g':'catalog':'SYS=aid=$article.articleid'?}">目录</a></div>
+    <div class="jsq"><a href="{?function geturl:'3g':'huodong':SYS=method=addBookCase&aid=$article.articleid&cid=$chapter.chapterid?}">加书签</a></div>
+</div>
+<div class="content1" data-con="read_cont">
+	<h2>
+    	<div class="tit">{?$chapter.chaptername|truncate:26:"…"?}</div>
+        <div class="fb_time"><span></span>{?$chapter.postdate|date:"m-d H:i"?}发布 | {?eval echo (ceil($chapter.size/2));?}字</div>
+        <div class="szbut">
+        	<a href="javascript:;" class="szbut_a" data-act="read_mode"></a>
+        	<a href="javascript:;" class="szbut_b" data-act="read_act" data-name="plus"></a>
+        	<a href="javascript:;" class="szbut_c" data-act="read_act" data-name="less"></a>
+        </div>
+    </h2>
+    <div class="text" data-act="read_content">
+        {?eval echo preg_replace("/<p>\r\n<p>/",'<p>',str_replace('&nbsp;&nbsp;&nbsp;&nbsp;','<p>',preg_replace("/<br \/>\r\n<br \/>/","</p>\r\n<p>",$chapter.content)));?}</p>
+        {?if $article['sortid']<100?} {?tag_system_345_[3g][阅读页]推荐阅读-男频?}
+        {?else if $article['sortid']>100 && $article['sortid']<200?} {?tag_system_347_[3g][阅读页]推荐阅读-女频?}
+        {?else?} {?tag_system_345_[3g][阅读页]推荐阅读-男频?} {?tag_system_347_[3g][阅读页]推荐阅读-女频?}{?/if?}
+    </div>
+    <div class="fanye">
+    	<div class="but"><a href="{?$chapter.preview_page?}">上一章</a></div>
+        <div class="but nomargin"><a href="{?$chapter.next_page?}">下一章</a></div>
+    </div> 
+</div>
+<script type="text/javascript" src="{?$jieqi_local_url?}/js/mm.js"></script>
+<div class="content">
+	<div class="sy_mu"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$article.articleid?}">书页</a> | <a href="{?function geturl:'3g':'catalog':'SYS=aid=$article.articleid'?}">目录</a></div>
+    <div class="jsq"><a href="{?function geturl:'3g':'huodong':SYS=method=addBookCase&aid=$article.articleid&cid=$chapter.chapterid?}">加书签</a></div>
+</div>
+<div class="content2">
+	<h2>精品推荐</h2>
+    <div class="con">
+        {?if $article['sortid']<100?} {?tag_system_339_[3g][目录]精品推荐?}
+        {?else if $article['sortid']>100 && $article['sortid']<200?} {?tag_system_348_[3g][目录]精品推荐-女频?}
+        {?else?} {?tag_system_349_[3g][目录]精品推荐-文学?}{?/if?}
+    </div> 
+</div>
+<div class="content"><a href="javascript:;" class="backtop" id="backtop">返回顶部</a></div>
+{?include file = "themes/3g/bottom.html"?}
+<script>
+	var _htmlName = 'notop';
+</script>
+<script type="text/javascript">
+
+$(function() {
+    //当点击跳转链接后，回到页面顶部位置
+    $("#backtop").click(function(){
+        	$('body,html').animate({scrollTop:0},1000);
+        	return false;
+    });
+	// 阅读页面设置
+	var _content = $("[data-act=read_content]");
+	// 文字样式
+	$("[data-act=read_act]").live('click', function(event) {
+		var _mod = $(this).attr("data-name");
+		var _cont_size = $("[data-act=read_content]").children("p:first").css("font-size");
+		var _cont_marg = $("[data-act=read_content]").children("p:first").css("margin");
+		var _change = 4;
+		if ('plus' === _mod) {
+			var _last_size = parseInt(_cont_size)+_change;
+			var _chan_marg = parseInt(_cont_marg)+_change;
+			if (_last_size>=36){
+				_last_size=36;
+				_chan_marg=20;
+			}
+		} else {
+			var _last_size = parseInt(_cont_size)-_change;
+			var _chan_marg = parseInt(_cont_marg)-_change;
+			if (_last_size<=16){
+				_last_size=16
+				_chan_marg=8;
+			}
+		}
+		// 设置行高和段间距
+		var _last_lh = _last_size + _change*2;
+//		alert(_last_pm);
+		_content.children("p").css({"font-size":_last_size + "px","line-height":_last_lh + "px","margin":_chan_marg + "px 0"});
+		var _read_str = '{\"fs\":\"'+_last_size + '\",\"lh\":\"'+_last_lh + '\",\"pm\":\"' +_chan_marg + '\"}';
+//		_read_str = eval("("+_read_str+")");
+//		console.log(_read_str);
+		$.cookie('shuhai_read_fs',_read_str,{expires:30,path:"/"});
+	});
+	// 夜间模式
+	$("[data-act=read_mode]").live('click', function(event) {
+		var _this_cont = $("[data-con=read_cont]");
+		_this_cont.toggleClass("night");
+		var _color={"bodybg":"#eaeaea","bodybgn":"#1f1c1d","conn":"#353434","conan":"#ffffff","con":"#ffffff","cona":"#0068b7"};
+		var _read_str="";
+		if(_this_cont.hasClass("night")){
+			$("body").css("background",_color.bodybgn);
+			$(".content").css("background",_color.conn);
+			$(".content a").css("color",_color.conan);
+			_read_str = '{\"bodybg\":\"'+_color.bodybgn + '\",\"con\":\"'+_color.conn + '\",\"cona\":\"'+_color.conan + '\",\"mode\":\"night\"}';
+		}else{
+			$("body").css("background",_color.bodybg);
+			$(".content").css("background",_color.con);
+			$(".content a").css("color",_color.cona);
+			_read_str = '{\"bodybg\":\"'+_color.bodybg + '\",\"con\":\"'+_color.con + '\",\"conan\":\"'+_color.cona + '\",\"mode\":\"day\"}';
+		}
+//		_read_str = eval("("+_read_str+")");
+//		console.log(_read_str.bodybg);
+		$.cookie('shuhai_read_mod',_read_str,{expires:30,path:"/"});
+	})
+	readInit();
+	function readInit(){
+		if($.cookie("shuhai_read_fs")){
+			var _fsObj=$.cookie("shuhai_read_fs");
+//			console.log(_fsObj);
+			_fsObj = eval("("+_fsObj+")");
+//			console.log(_fsObj.lh);
+			$("[data-act=read_content]").children("p").css({"font-size":_fsObj.fs + "px","line-height":_fsObj.lh + "px","margin":_fsObj.pm + "px 0"});
+		}
+		if($.cookie("shuhai_read_mod")){
+			var _modObj=$.cookie("shuhai_read_mod");
+			_modObj = eval("("+_modObj+")");
+			$("[data-con=read_cont]").toggleClass(_modObj.mode);
+			$("body").css("background",_modObj.bodybg);
+			$(".content").css("background",_modObj.con);
+			$(".content a").css("color",_modObj.cona);
+		}
+	}
+})
+</script>
+</body>
+</html>

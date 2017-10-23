@@ -1,0 +1,65 @@
+/*
+------Home--------
+-www.deishu.com--
+*/
+body{
+	margin:0;
+	padding:0;
+	font-size: 12px;
+	line-height: 22px;
+	font-family: "ËÎÌו";
+	background: #fff;
+	-webkit-text-size-adjust: none;
+	position: relative;
+	overflow-x:hidden
+}
+form,ul,li,p,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+input,select{font-size:12px;line-height:16px;}
+img{ border:0}
+ul,li{list-style-type:none;}
+.tc{text-align:center;}
+.tl{text-align:left;}
+.tr{text-align:right;}
+.dis{display:block;}
+.undis{display:none;}
+.ov{overflow:hidden;}
+.fl{float:left;}
+.fr{float:right;}
+.cl{clear:both;}
+.fb{font-weight:bold;}
+.fnb{font-weight:200;margin-left:-1px;}
+.fc30{color:#303030;font-family:"ËÎÌו","Arial Narrow";}
+.fchot{color:#ff0700}.f11{font-size:12px;font-family:tahoma;}
+h3{font-size:14px;}
+h4{font-size:14px;font-weight:normal;text-align:center;cursor:pointer;overflow:hidden;}
+h4 a{width:100%;height:100%;display:block;}
+a{color:#393939;text-decoration:none;}
+a img{color:#000;text-decoration:none;}
+a.lcblue{color:#0F479C;}
+.lchot,a.lchot{color:#bd0a01;}
+.black,a.black{color:#000;}
+.hr_6,.hr_10{font-size:1px;line-height:1px;clear:both;}
+.hr_6{height:6px;}
+.hr_10{height:10px;}
+#main{ width:973px; margin:0 auto; overflow:hidden;}
+/*
+--------Web minilogin-----
+*/
+#minilogin{margin:0 auto;height:48px;background: url(../images/minilogin_bg.jpg) repeat-x 0 0;position: fixed;clear: both;width: 100%;top: 0px;left: 0px;z-index: 1000;}
+#minilogin .mini_main{margin:0 auto;height:48px;width:973px;font-size: 13px;color:#FFF;}
+#minilogin .mini_kong{height:48px;width:50px;}
+#minilogin .mini_logo{height:37px;width:94px;margin: 5px 10px 0 0;}
+#minilogin .mini_landed{height:48px;width:300px;line-height:48px;}
+#minilogin .mini_landed a{color:#fff200}
+#minilogin .mini_nav{height:48px;line-height:48px;}/*width:500px;*/
+#minilogin .mini_nav a{color:#FFF;}
+/*
+--------Web head-----
+*/	
+
+/*
+--------Web foot-----
+*/	
+.bottom{margin:0 auto;height:15px;background: url(../images/minilogin_bg.jpg) repeat-x 0 -48px; margin-top:10px;} 
+#footer{margin:0 auto;height:130px;width:960px;text-align: center; color:#000;font-size:13px;}
+#footer a{color:#000}

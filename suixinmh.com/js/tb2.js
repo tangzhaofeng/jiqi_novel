@@ -1,0 +1,1 @@
+document.writeln("<script charset=\"gbk\" src=\"http:\/\/p.tanx.com\/ex?i=mm_10835543_4322182_14578637\"><\/script>")

@@ -1,0 +1,106 @@
+/* SHUHAI.COM VIP.CSS v1.0 | 2014*/
+.top_mini3{ width:auto; height:50px; background:#2c6e92;}
+.top_mini3 .wrap .logo{ float:left; width:150px; height:40px; padding-top:2px;}
+.top_mini3 .logo a { display:block; width:130px; height:40px; background:url(../images/icon_png.png) no-repeat 0px -170px; text-indent:-9999px;}
+.top_mini3 .topmenu3 li{ float:left; padding:12px 10px 0px; font-size:18px; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå";}
+.top_mini3 .topmenu3 li a{ color:#fff;}
+.top_mini3 .so{ float:right; width:210px; height:32px; padding:0px 0px; margin-top:9px; background: url(../images/icon_user.gif) no-repeat right -642px #d4ecf6;}
+.top_mini3 .so .btn0{background: none repeat scroll 0 0 rgba(0, 0, 0, 0); border: 0 none; cursor: pointer; height: 32px; width:30px;}
+.top_mini3 .so input{ float:left; width:170px; height:32px; line-height:32px; color:#2c6e92; font-size:14px; padding:0px 3px; background:none; border:none;}
+.boxv{ width:auto; height:64px; overflow:hidden;}
+.vtop { float:left; height:64px; border-right:1px solid #d7effa; overflow:hidden;}
+.vtop .place{ width:480px; height:44px; padding:20px 20px 0px 20px;}
+.vtop .place p{line-height:30px; padding-left:30px; color:#2c6e92; background:url(../images/icon_user.gif) no-repeat 10px -674px;}
+.vtop .place a{ padding:0px 5px;}
+.vtop .my{ width:200px; height:44px; padding-top:20px; text-align:center; font-size:13px;}
+.vtop .my a{ display:inline-block; padding:5px 10px;background: #ffffff;background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#D4ECF6));background: -webkit-linear-gradient(#ffffff, #D4ECF6);background: -moz-linear-gradient(#ffffff, #D4ECF6);background: -ms-linear-gradient(#ffffff, #D4ECF6);background: -o-linear-gradient(#ffffff, #D4ECF6);background: linear-gradient(#ffffff, #D4ECF6);-pie-background: linear-gradient(#ffffff, #D4ECF6);behavior: url(js/pie.htc);}
+.vtop .user{ width:244px; height:58px; padding:6px 0px 0px 10px;}
+.vtop .user .img{ float:left; width:52px; height:52px; position:relative;}
+.vtop .user .img img{ width:52px; height:52px;}
+.vtop .user .img .mask{ display:block; width:52px; height:52px; background:url(../images/bg_mask.png) no-repeat 0px -224px; position:absolute; left:0px; top:0px;}
+.vtop .user dl{ float:left; width:170px; padding-left:10px;}
+.vtop .user dl dt,.vtop .user dl dd{ width:auto; height:26px; line-height:26px; overflow:hidden;}
+.vtop .user dl dt a{ font-size:14px; font-weight:800; color:#1a9665;}
+.vtop .user dl dd a{ padding-right:10px;}
+.vtop .user .yke{ padding:10px 0px 0px 10px; font-size:14px; color:#666; float:left;}
+.vtop .place,.vtop .my,.vtop .user{ border-right:1px solid #98cbe2;}
+{ width:978px; height:auto; margin:0px auto 50px; border:1px solid #fff; background:#e7f4fe;}
+ .add{ width:auto; height:34px; line-height:34px; background:#c6f4e2; padding:0px 20px; color:#1a9665; font-size:13px; position:relative;}
+ .add .add_r{ position:absolute; right:10px; top:4px;}
+ .add a{ text-align: center; display:inline-block; height:22px; line-height:24px; padding:0px 10px; margin-right:10px;}
+ .add .sc{border: 1px solid #1a9665; background-color:#1a9665; color:#fff;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;behavior: url(js/pie.htc); position:relative;}
+ .add .sc:hover{border: 1px solid #ec6941; background-color:#ec6941; color:#fff;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;behavior: url(js/pie.htc); position:relative;}
+ .add .hu{border: 1px solid #d3d3d3; background-color:#d3d3d3; color:#656565;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;behavior: url(js/pie.htc); position:relative;}
+ .add .hu:hover{border: 1px solid #656565; background-color:#656565; color:#fff;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;behavior: url(js/pie.htc); position:relative;}
+.v_readtop{ width: auto; height: auto; text-align: center; border-bottom: 1px solid #d4e9f4; margin: 0 auto 20px; padding: 20px 0 10px; color:#999;}
+.v_readtop h1{ width:98%; height:auto; color:#e62a07; font-size:32px; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; padding:30px 0px 16px; font-weight:normal;}
+.v_readtop em{ color:#333; padding-right:20px;}
+.txt, .txt2{width:92%; line-height: 26px; margin:0px auto 50px; padding: 10px 0px 10px; color:#333; font-size:14px;}
+.txt p{ text-indent:2em; line-height:160%; padding:10px 0px;}
+.txt{ height: auto !important; min-height:200px;}
+ .txt2{ height:300px; overflow:hidden;}
+ .talk{ width:610px; height:auto; margin:0px auto 50px; padding:20px; font-size:14px; color:#333; border:1px solid #59c89c; background-color:#c6f4e2; word-break:break-all; line-height:200%;}
+ .v_down{ width:auto; height:45px; padding-top:15px; text-align:right; font-size:13px; color:#b6b6b6; background-color:#fff;}
+.v_down a{ display:inline-block; height:30px; line-height:30px; padding-left:28px; margin:0px 10px; background:url(../images/icon_user.gif) no-repeat;}
+.v_down .icomm{ background-position:0px -33px;}
+.v_down .imp{ background-position:0px -708px;}
+.v_down .marks{ background-position:0px -737px;}
+.v_down .author{ background-position:0px -770px;}
+ .v_note{ font-size:14px; color:#f56e51; margin:0px auto 10px; text-align:center;}
+ .logn{ width:100%; height:auto; margin:0px auto 50px; color:#333; background:#fff;border:1px solid #d4e9f4;}
+.logn_l,.logn_r { float:left;}
+.logn_l{ width:46%; border-right:1px solid #d4e9f4; padding-left:30px; padding-bottom:20px;}
+.logn_r { width:40%; font-size:14px; color:#666; padding-left:50px;}
+.logn_l h3,.logn_r h3{ color: #575757;font-family: "Î¢ÈíÑÅºÚ","ºÚÌå";font-size: 24px;font-weight: normal; padding: 30px 0px;line-height:36px;}
+ .buy{ width:600px; height:auto; margin:0px auto 50px; padding-bottom:20px; background:#fff; border:8px solid #5a6064; color:#5f5f5f;}
+.buy .t{ width:auto; height:40px; line-height:40px; font-size:14px; font-weight:800; padding:0px 16px;}
+.buy .account{ width:auto; height:auto; line-height:200%; padding:20px 20px; margin-bottom:20px; text-align:center; font-size:14px; background:#d4ecf6;}
+.buy .account em{ color:#fa6400; padding:0px 10px; font-weight:800; font-size:16px; font-family:"Arial Black", Gadget, sans-serif;}
+.buy .account .pay{ display:inline-block; padding:2px 10px 0px; line-height:24px; font-weight:800; margin-left:10px; color:#fff; border: 1px solid #fa6400; background-color:#fa6400; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;behavior: url(js/pie.htc); position:relative;}
+.buy .account .pay:hover{ color:#fff; font-weight:800;border: 1px solid #32b16c; background-color:#32b16c; -webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;behavior: url(js/pie.htc); position:relative;}
+.buy .box{ float:left; width:26%; height:auto; padding:0px 21px 30px; text-align:center;}
+.buy .box p{ word-break:break-all;}
+.buy .box a{ position:relative; bottom:-10px;}
+.yline{ border-right:1px solid #e9e9e9;}
+.read_dwn{width:auto; height:auto;text-align:center; color:#7d7d7d; padding-bottom:30px;}
+.read_dwn p{ border-bottom:1px solid #eee; padding:20px 0px 10px; margin:0px auto 20px; color:#c4c4c4; }
+.read_dwn p a{ display:inline-block; padding:0px 10px; margin:0px 5px; height:34px; line-height:34px; font-size:14px; background:#fff; border:1px solid #dedede;}
+
+.buy2{width:680px; height:auto; margin:0px auto 50px; padding:10px 20px; background:#e5f6fd; border:8px solid #5a6064; color:#000;}
+.buy2 h3{ font-size:18px; font-family:"Î¢ÈíÑÅºÚ","ºÚÌå"; text-align:center; font-weight:normal;line-height:27px;}
+.buy2 h3 span{ color:#04b2fa;}
+.buy2 .myac{font-size:16px; line-height:42px; font-family:"Î¢ÈíÑÅºÚ","ºÚÌå";}
+.buy2 .myac em{ color:#f60;}
+.buy2 .myac a{ display:inline-block; width:58px; height:42px; margin-left:10px; font-size:15px; text-align:center; color:#fff; letter-spacing:2px; background:url(../images/i_dyue.gif) no-repeat 0 10px;}
+.buy2 .myac p.fr{float:right; text-align:right; font-family:"ËÎÌå"; font-size:12px;}
+
+.radbox{ padding:0 0 10px;}
+.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8{height:1px; font-size:1px; overflow:hidden; display:block; background:#b9e5fd;}
+.b1,.b8{margin:0 5px;}
+.b2,.b7{margin:0 3px;border-right:2px solid; border-left:2px solid; border-color:#b9e5fd;}
+.b3,.b6{margin:0 2px;border-right:1px solid; border-left:1px solid; border-color:#b9e5fd;}
+.b4,.b5{margin:0 1px;border-right:1px solid; border-left:1px solid; height:2px; border-color:#b9e5fd;}
+.bcont {border-right:1px solid;border-left:1px solid;overflow:hidden; border-color:#b9e5fd; background:#b9e5fd; font-size:16px; padding:0 10px 4px; font-weight:normal; font-family:"Î¢ÈíÑÅºÚ","ºÚÌå";line-height:24px;}
+.li_dyue{ background:#fff; text-align:left;font-size:12px;}
+.li_dyue span{ display:block; float:left; height:34px; line-height:34px; overflow:hidden; white-space:nowrap; padding:0px 8px;}
+.li_dyue .name{ width:38%;}
+.li_dyue .num1{width:12%;}
+.li_dyue .num2{width:18%;}
+.li_dyue .num3{width:18%; float:right;}
+.btn_pic { display:inline-block; width:155px; height:32px; line-height:30px; border:0; background:url(../images/i_dyue.gif) no-repeat right 0px; margin:5px 0; color:#fff; font-family:"Î¢ÈíÑÅºÚ","ºÚÌå"; font-size:14px; cursor:pointer;text-align:center;}
+.tbl{ margin:6px auto;font-size:12px;}
+.tbl2{ width:99.5%; height:146px; border:2px solid #b9e5fc; background:#fff; overflow-y:auto; overflow-x:hidden;font-size:12px;}
+.tbl2 td{ border-bottom:1px solid #b9e5fd;}
+.tbl2 td,.tbl2 th{ padding:0 8px; font-weight:normal;}
+.o_num{ color:#f60; padding:0 3px;}
+.buy2 p.fl,.buy2 p.fr{padding:0;margin:0;text-indent:0;line-height:42px;}
+fieldset .form-item .field-input p{padding:10px 0 0 0;line-height:18px;text-indent:0;}
+form .signup{padding:10px 0;}
+.radbox table tbody tr{line-height:20px;}
+.tbl span.sq{/* text-decoration:underline; */color:red;border-bottom:1px dashed red;}
+
+.pop-3year{ position:absolute; left:50%;/* margin-top:200px; margin-left:-210px;*/ width:420px; height:260px; background:url(../images/bg3.jpg) no-repeat 0 0; text-align:center;}
+.pop-3year h3{ font-family:"ºÚÌå"; font-size:24px; color:#ff060f; text-align:center; padding:45px 0 15px 5px; letter-spacing:-2px;}
+.pop-3year div{ padding:0 45px 0 65px; line-height:200%; word-break:break-all; font-size:14px; text-align:left;}
+.pop-3year .btn-ok{ display: inline-block; padding:0 15px; text-decoration:none; margin:30px auto 0; background:#f30210; color:#fff; height:40px; line-height:40px; font-size:24px;font-family:"ºÚÌå"}
+

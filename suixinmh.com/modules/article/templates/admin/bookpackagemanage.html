@@ -1,0 +1,157 @@
+<style>
+.layer_notice{float:left; height:75px; width:170px;  overflow:hidden; display:none;  background:#78BA32; padding:10px; border:1px solid #628C1C;}
+/*layer_notice li{ height:30px; line-height:30px;}
+.layer_notice li a{ display:block; color:#fff;}
+.layer_notice li a:hover{ background:#fff; color:#78BA32;}*/
+.d6{ width:600px; height:auto; margin:0 auto;}
+.d6 table{ background:#fff; border-collapse:collapse;table-layout: fixed}
+.d6 table tr:hover{ background:#FC9}
+.d6 table th{ color:#333; background:#f8f8f8;}
+.d6 table th,table td{ height:30px; line-height:30px; padding:0 10px; white-space:nowrap; overflow:hidden;word-break: break-all}
+.sort,.author,.money,.numb{ width:15%;}
+.sort{ padding:0;}
+.name,.date{ width:20%; height:30px; white-space:nowrap; overflow:hidden;text-overflow: ellipsis;}
+.date{ text-align:right; color:#999;}
+</style>
+<form method="post" action="{?$adminprefix?}">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">
+            关键字：<input name="keyword" type="text" value="{?$_REQUEST['keyword']?}" class="text" size="15" maxlength="50">&nbsp;<input type="radio" name="searchkey" value="name" checked="checked" />&nbsp;书包名称&nbsp;<input type="radio" name="searchkey" value="articleid" />&nbsp;文章编号
+            &nbsp;&nbsp;所属频道：
+            <select name="siteid" >
+            	<option value="-1">-选择频道-</option>
+            	{?section name=i loop=$channel?}
+            		<option value="{?$i.key?}" {?if $siteid != "" && $siteid==$i.key ?}selected{?/if?}>{?$channel[i].name?}</option>
+            	{?/section?}
+            </select>
+            &nbsp;&nbsp;销售状态：
+            <select name="showbookpackage" >
+                <option value="0" {?if $_REQUEST['showbookpackage']==0?}selected="selected"{?/if?}>全部书包</option>
+                <option value="1" {?if $_REQUEST['showbookpackage']==1?}selected="selected"{?/if?}>正在销售书包</option>
+                <option value="2" {?if $_REQUEST['showbookpackage']==2?}selected="selected"{?/if?}>暂停销售书包</option>
+            </select>
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /><input type="submit" name="dosubmit" class="button" value="搜 索">  
+        </td>
+    </tr>
+</table>
+</form>
+<br />
+<form action="{?$url_batchdel?}" method="post" name="checkform" id="checkform" onSubmit="javascript:if(confirm('确实要批量删除文章么？')) return true; else return false;">
+<table class="grid" width="100%" align="center">
+    <caption>书包管理（合计{?$bpcount?}个书包）&nbsp;<a href="{?$adminprefix?}&method=add_bp">[+添加新书包]</a></caption>
+    <tr align="center">
+        <th width="5%">书包编号</th>
+        <th width="17%">书包名称</th>
+        <th width="8%">规格</th>
+        <th width="8%">包月价格</th>
+        <th width="10%">所属频道</th>
+        <th width="10%">书包详情</th>
+        <th width="6%">销售状态</th>
+        <!--<th width="6%">上架状态</th>-->
+        <th width="12%">创建时间</th>
+        <th width="12%">暂停销售时间</th>
+        <th width="6%">状态操作</th>
+    </tr>
+  <!--{?$adminprefix?}-->
+  {?section name=i loop=$bplist?}
+  <tr bpid="{?$bplist[i].id?}">
+    <td class="odd" align="center">{?$bplist[i].id?}</td>
+    <td class="even" align="center">{?$bplist[i].name?}</td>
+    <td class="odd" align="center">{?$bplist[i].booknumber?}本书</td>
+    <td class="even" align="center">{?$bplist[i].price?}{?if $bplist[i].pricetype==1?}书海币{?elseif $bplist[i].pricetype==2?}银元{?/if?}</td>
+    <td class="odd" align="center">{?$channel[$bplist[i].siteid].name?}</td>
+    <td class="even" align="center"><a class="j_bpdetails_jump" href="javascript:;" bpname="{?$bplist[i].name?}">[显示详情]</a></td>
+    <td class="odd" align="center">{?if $bplist[i].showbookpackage==1?}正在销售{?else?}<p style="color:#aaaaaa">暂停销售</p>{?/if?}</td>
+    <!--<td class="even" align="center">{?if $bplist[i].putaway==1?}在售{?else?}<p style="color:#aaaaaa">下架</p>{?/if?}</td>-->
+    <td class="odd" align="center">{?$bplist[i].createtime|date:'Y-m-d H:i:s'?}</td>
+    <td class="even" align="center">{?if $bplist[i].updatetime<=$bplist[i].createtime?}最新{?else?}{?$bplist[i].updatetime|date:'Y-m-d H:i:s'?}{?/if?}</td>
+    <td class="odd" align="center"><a href="{?$adminprefix?}&method=edit_bp&bpid={?$bplist[i].id?}" title="编辑"><img src="{?$jieqi_local_url?}/images/editor.gif" border="0" /></a>&nbsp;&nbsp;<a class="j_bpdel_sub" href="javascript:;"><img src="{?$jieqi_local_url?}/images/delete_on.gif" border="0" /></a></td>
+  </tr>
+  {?/section?}
+<!--  <tr>
+    <td width="3%" class="odd" align="center"><input type="checkbox" id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ if (this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"></td>
+    <td colspan="6" align="left" class="odd"><input type="submit" name="Submit" value="批量删除" class="button"><input name="batchdel" type="hidden" value="1"><input name="url_jump" type="hidden" value="{?$url_jump?}"><input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /><strong></strong></td>
+  </tr>-->
+</table>
+</form>
+<div class="pagelink">{?$url_jumppage?}</div>
+<!--<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/jquery-1.8.3.min.js"></script>-->
+<script language="javascript" type="text/javascript">
+$(function(){
+    var bpdetails = $(".j_bpdetails_jump");
+    bpdetails.on("click", function(){
+        var bpid = $(this).parent().parent("tr").attr("bpid");
+        var bpname = $(this).attr("bpname");
+        var jumpurl = "{?$adminprefix?}&method=show_on_bp";
+        $.ajax({
+            type:"POST",
+            url:jumpurl,
+            data:{'id':bpid},
+            dataType:"json",
+            success:function(data){
+                var htmls = "";
+                if (data.status == '200') {
+                    htmls += '<div class="d6"><table width="100%" border="1" bordercolor="#eeeeee" cellspacing="0" cellpadding="0"><tr><th width="15%" align="center" valign="middle" scope="col" class="sort">类别</th><th width="20%" align="left" valign="middle" scope="col" class="name">文章名称</th><th width="15%" align="left" valign="middle" scope="col" class="author">作者</th><th width="15%" align="left" valign="middle" scope="col" class="money">原售价</th><th width="15%" align="left" valign="middle" scope="col" class="numb">字数</th><th width="20%" align="left" valign="middle" scope="col" class="date">加入书包时间</th></tr>';
+                    $.each(data.list, function(i, n){
+                        htmls += '<tr><td width="15%" align="center" valign="middle" class="sort">'+n.sortname+'</td>';
+                        htmls += '<td width="20%" align="left" valign="middle" class="name">'+n.articlename+'</td>';
+                        htmls += '<td width="15%" align="left" valign="middle" class="author">'+n.author+'</td>';
+                        htmls += '<td width="15%" align="left" valign="middle" class="money">'+n.saleprice+'书海币</td>';
+                        htmls += '<td width="15%" align="left" valign="middle" class="numb">'+n.size+'</td>';
+                        htmls += '<td width="20%" align="left" valign="middle" class="date">'+n.createtime+'</td>';
+                    });
+                    htmls += "</table></div>";
+//                    alert(htmls);
+                } else {
+                    htmls = "<div style='width:400px'>没有数据...</div>";
+                }
+                $.layer({
+                    type:1,
+//                    shade:[0.8, '#cccccc'],
+                    area:["auto", "auto"],
+                    title:bpname,
+//                    border:[0],
+                    page:{
+                        html:htmls
+                    }
+                });
+            }
+        });
+    })
+    $(".j_bpdel_sub").on("click", function(){
+        var bpid = $(this).parent().parent("tr").attr("bpid");
+        var jumpurl = "{?$adminprefix?}&method=del_on_bp";
+//        alert(111);
+        $.layer({
+            area:['auto', 'auto'],
+            dialog:{
+                msg:'本书包删除后将无法恢复，您确认继续删除？',
+                btns:2,
+                type:3,
+                btn:['删除', '取消'],
+                yes:function() {
+                    $.ajax({
+                        type:"POST",
+                        url:jumpurl,
+                        data:{'id':bpid},
+                        dataType:"json",
+                        success:function(data) {
+                            if (data.status=='200') {
+                                //
+                                layer.msg('删除成功', 3, 1);
+                                location.reload();
+                            } else if (data.status=='300') {
+                                // 
+                                layer.msg(data.msg, 3, 3);
+                            } else {
+                                layer.msg('网络不给力，请稍后重试', 3, 3);
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    })
+})
+</script>

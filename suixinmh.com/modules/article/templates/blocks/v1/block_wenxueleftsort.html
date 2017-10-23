@@ -1,0 +1,1 @@
+{?section name=i loop=$sortrows?}{?if $i.order<50?}<li><a href="{?function geturl:'wenxue':'top':'method=toplist':SYS=type=weekvist&sortid=$sortrows[i].sortid&page=1?}"{?if $sortrows[i].sortid==$_REQUEST['sortid']?} class="on"{?/if?}>{?$sortrows[i].sortname?}</a></li>{?/if?}{?/section?}

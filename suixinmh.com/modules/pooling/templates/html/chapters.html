@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{?eval echo gb2utf8XHSafeStr($article['articlename']);?}-小说目录</title>
+<style>
+body{
+	padding:0;margin:0;font-size:12px;
+}
+ul{
+	margin:10px;;LIST-STYLE-TYPE: none;padding:0;
+}
+
+li{
+	PADDING-BOTTOM: 5px;PADDING-TOP: 8px;LIST-STYLE-IMAGE: none;
+	border-bottom: #EFEEEE 1px solid;height:18px;
+}
+
+</style>
+</head>
+
+<body>
+<h2>{?eval echo gb2utf8XHSafeStr($article['articlename']);?}</h2>
+<div id="novelinfo"> 
+<div class="image"><img src="{?eval echo gb2utf8XHSafeStr($article['url_image_l'],false);?}" /></div> 
+<div class="sort">【分类】{?eval echo gb2utf8XHSafeStr($article['sort']);?}</div>
+<div class="author">【作者】{?eval echo gb2utf8XHSafeStr($article['author']);?}</div>
+<div class="statustype">【状态】{?eval echo gb2utf8XHSafeStr($article['fullflag_tag']);?}</div>
+<div class="click">【人气】+{?$article['allvisit']?}</div>
+<div class="info">【简介】{?eval echo gb2utf8XHSafeStr($article['intro']);?}</div>
+<div class="updatetime">【最后更新】{?$article['lastupdate']|date:'Y-m-d H:i:s'?}</div>
+<div class="dataurl">【目录网址】{?eval echo gb2utf8XHSafeStr($article['url_articleindex'],false);?}</div>
+
+</div>
+
+<div id="Chapter"> 
+<h3>小说共{?$chapters|count?}章节</h3> 
+<ul>
+{?section name=i loop=$chapters?}
+	{?if $chapters[i]['chaptertype']==1?}
+		<li class="b_title"><b>{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername']);?}</b></li>
+	{?else?}													
+		<li>{?$i.order?}、<a href="{?eval echo gb2utf8XHSafeStr($chapters[i]['url'],false);?}" target="_blank">{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername']);?}</a> {?if $chapters[i]['isvip']>0?}<span style="color:#f00"> [vip]</span>{?/if?}</li>
+	{?/if?}
+{?/section?}
+</ul> 
+</div>
+
+
+</body>
+</html>

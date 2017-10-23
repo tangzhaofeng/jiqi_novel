@@ -1,0 +1,106 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<script>
+function tmpjiag(v){	
+	$("dd[id^='v_']").removeClass();
+	$("dd.other.hover").removeClass("hover");
+	$("dd.other input").attr("disabled","disabled");
+	$('#v_'+v).addClass("hover");
+	$('#egold').val(v);
+	$('#money_yuan').val($('#v_'+v).attr('money_yuan'));
+}
+$(document).ready(function(){
+	$("dd.other").click(function(){
+		$("dd[id^='v_']").removeClass();
+		$(this).addClass("hover");
+		$(this).find("input").removeAttr("disabled");
+		var jine = $(this).find("input").val();
+		if(jine>=1){
+			var ejine = jine*100;
+			//$(this).next("p").find("em").html(ejine);
+			$('#egold').val(ejine);
+			$('#money_yuan').val(jine);
+		}else{
+			$(this).find("input").val('');
+			$(this).find("p").find("em").html(0);
+			$('#money_yuan').val(0);
+			$('#egold').val(0);
+			$(this).find("input").focus();
+		}
+		$(this).find("input").on("keyup",function(){
+			var y = $(this).val();
+			$(this).val(parseInt(y.replace(/\D/g,'')));
+			var jine = $(this).val();
+			if(parseInt(jine)>=1){
+				var ejine = jine*100;
+				if(!isNaN(ejine)){
+					$(this).next("p").find("em").html(ejine);
+					$('#egold').val(ejine);
+					$('#money_yuan').val(jine);
+				}else{
+					$(this).next("p").find("em").html(0);
+					$('#egold').val(0);
+					$('#money_yuan').val(0);
+				}
+			}else{
+				$(this).val('');
+				$(this).next("p").find("em").html(0);
+				$('#egold').val(0);
+				$('#money_yuan').val(0);
+				$(this).focus();
+				return false;
+			}
+		});
+	});
+});
+</script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0 fix">
+        <li class="fix">
+          <div class="pay f12">
+		  {?include file = "modules/pay/templates/paytab.html" ?}
+            <ul id="tab_con11" class="pay_dwn fix">
+              <li>
+			  <form id="payfrm" name="payfrm" method="post" onSubmit="return checkForm(this, 1);" target="_blank" action="{?function geturl:'pay':'home':'SYS=method=alipay'?}" data-validator-option="{theme:'yellow_top'}">
+                <!--box_note2 begin-->
+                <div class="box_note2 cl mt10">
+                 <h3 class="tit3">请选择你要充值的金额：</h3>
+                 <dl class="lisd_m fix">
+				 {?section name=i loop=$paylimit?}{?eval if($i.order==2){$egold=$i.key;$money_yuan=$paylimit[i];}?}
+				 {?if $i.key>1000?}
+                  <dd id="v_{?$i.key?}"{?if $i.order==1?} class="hover"{?/if?} onclick="tmpjiag({?$i.key?});" money_yuan="{?$paylimit[i]?}"{?if $i.key>=20000?} title="加赠{?eval echo $i.key*0.05;?}书券"{?/if?}><b>{?$paylimit[i]?}元</b><br />({?$i.key?}书海币)</dd>
+				  {?/if?}
+				  {?/section?}
+                  <dd class="other"><b>其它：</b><input name="jine" type="text" data-rule="range[20~]" disabled="disabled" />元<p>(<em>0</em>书海币)</p></dd>
+                 </dl>
+				 <input type="hidden" name="egold" id="egold" value="{?$egold?}">
+				 <input type="hidden" name="money_yuan" id="money_yuan" value="{?$money_yuan?}">
+				 <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+                 <dl class="lisd_note">
+                  <dt>说明：</dt>
+                  <dd>1.自定义金额，最少20元；</dd>
+                  <dd>2.兑换比例：1元=100书海币；</dd>
+                  <dd>3.单次充值200元，加赠1000书券；单次充值500元，加赠2500书券，多买多送；</dd>   
+                  <dd>4.赠送的书券可用于订阅部分VIP章节，不能用于打赏。</dd>             
+                 </dl>
+                </div><!--box_note2 end-->
+                <p class="pt20 cl pb10"><button type="submit" class="btn">开始充值&gt;&gt;</button></p>
+				</form>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+{?include file = "modules/pay/templates/tips.html" ?}

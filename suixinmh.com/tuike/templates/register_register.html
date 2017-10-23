@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="gbk"> 
+    <meta name="keywords" content="优阅云 小说 微信 阅读 流量" />
+    <meta name="description" content="优阅云丨让流量不再闲置" />
+    <title>优阅云-注册-输入帐号</title>
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common_login_reg.css?1.3">
+    <script src="{?$jieqi_themeurl?}js/jquery.js"></script>
+    <script src="{?$jieqi_themeurl?}js/users.js"></script>
+    <script src="{?$jieqi_themeurl?}js/layer_mobile/layer.js"></script>
+    <link href="{?$jieqi_themeurl?}js/layer_mobile/need/layer.css" rel="stylesheet" >
+  </head>
+  <body>
+    <form action="" id="form2" method="post">
+      <div class="login register popup-step2" id="j-popup-step2" style="opacity: 1; display: block;">
+        <div class="login-inner">
+          <h1 class="login-title">验证微分销账户</h1>
+          <div class="login-item mgb25">
+            <input type="text" class="clearError" name="msgcode" placeholder="请输入短信验证码"  >
+          </div> 
+          <div class="login-item mgb25">
+            <input type="text" class="clearError" name="username" id="ipt_nic" placeholder="登陆帐号" >
+          </div>
+          <div class="login-item mgb25">
+            <input type="text" class="clearError" name="qq" id="qq" placeholder="QQ" >
+          </div>
+          <div class="login-item">
+            <input type="password" class="clearError" name="password" id="ipt_pwd" placeholder="请设置登录密码" >
+          </div>
+          <p class="reg-helper"><i>*</i>6~21位数字或字母</p>
+          <div>
+            <input type="hidden" name="ajax_request" value="1" />
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+            <input type="submit" id="submitForm" class="login-btn" value="立即注册">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script type="text/javascript">
+
+      $("#form2").submit(function () { // 651780
+        Users.form=this;
+        Users.msg_err=false;
+        Users.checkMsgcode('msgcode');
+        Users.checkUserName('username');
+        Users.checkPassword('password');
+        if( Users.msg_err !== false ){
+            Users.ShowMsg();
+            return false; 
+        }
+        Users.SendForm(function(msgs){
+          if(msgs.status === 'OK'){
+            Users.ShowMsg(msgs.msg);
+            setTimeout(function(){
+              location.href=msgs.jumpurl;
+            },2000);
+          }else{
+            Users.ShowMsg(msgs.msg);
+          }
+        });
+        return false;
+      });
+
+    </script>
+  </body>
+</html>

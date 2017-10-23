@@ -1,0 +1,12 @@
+{?section name=i loop=$articlerows?}{?if $i.order==1?}
+ <dd class="img">
+  <a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" title="{?$articlerows[i]['articlename']?}"><img src="{?$articlerows[i]['url_image']?}"/></a>
+  <dl>
+   <dt><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></dt>
+   <dd>作者：{?$articlerows[i]['author']?}</dd>
+   <dd>类型：<a class="f_gray3" href="{?function geturl:'wenxue':'shuku':SYS=sort=$articlerows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}">{?$articlerows[i]['sort']?}</a></dd>
+   <dd><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_brown">[阅读]</a></dd>
+  </dl>
+ </dd>{?else?}
+ <dd><a href="{?function geturl:'wenxue':'shuku':SYS=sort=$articlerows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_blank" class="f_gray6">[{?$articlerows[i]['sort']?}]</a><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></dd>{?/if?}
+{?/section?}

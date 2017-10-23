@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title>{?eval echo gb2utf8XHSafeStr($article['articlename']);?} - {?eval echo gb2utf8XHSafeStr($chapter['chaptername']);?}</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<style>
+body {background-color: #fff;font-size: 14px;font-family: "宋体";line-height:180%;}
+</style>
+</head>
+<body>
+<h2>{?eval echo gb2utf8XHSafeStr($article['articlename']);?}</h2>
+<h3>{?eval echo gb2utf8XHSafeStr($chapter['chaptername']);?}</h3>
+<div id="content">
+	{?if $chapter['isvip']>0?}
+		{?eval $jieqi_content = truncate($chapter['content'],200);?}{?eval echo gb2utf8XHSafeStr($jieqi_content);?}……<br />本章节为VIP内容，阅读地址为：<!-VIP START-!>{?$url_vip?}<!-VIP END-!>
+	{?else?}
+		{?eval echo gb2utf8XHSafeStr($chapter['content']);?}
+	{?/if?}
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+{?include file = "modules/article/templates/admin/rewardfunction.html" ?}
+<a href="{?$adminprefix?}">返回</a>
+<div class="gridtop">
+财务信息修改审核记录
+	<a href="{?$adminprefix?}&method=finance">{?if $flag==''?}[全部记录]{?else?}全部记录{?/if?}</a>|<a href="{?$adminprefix?}&method=finance&flag=0">{?if $flag=='0'?}[待审记录]{?else?}待审记录{?/if?}</a>|<a href="{?$adminprefix?}&method=finance&flag=1">{?if $flag==1?}[已审记录]{?else?}已审记录{?/if?}</a>|<a href="{?$adminprefix?}&method=finance&flag=2">{?if $flag==2?}[被拒记录]{?else?}被拒记录{?/if?}</a>
+</div>
+<table class="grid" width="100%" align="center" id="list">
+  <tr align="center">
+  	<th width="2%"></th>
+    <th width="18%">申请时间</th>
+    <th width="15%">作者</th>
+    <th width="18%">审核时间</th>
+    <th width="15%">审核人</th>
+    <th width="10%">审核状态</th>
+    <th width="">操作</th>
+  </tr>
+  {?section name=i loop=$rows?}
+  <tr>
+      <td  align="center"><input type="checkbox" name="selbox"/>
+    </td>
+    <td  align="center">
+    	{?$rows[i].applydate|date:"Y-m-d H:i:s"?}
+    </td>
+    <td align="center">{?$rows[i].applyuname?}</td>
+    <td align="center">
+    	{?if $rows[i].auditdate>0?}
+    		{?$rows[i].auditdate|date:"Y-m-d H:i:s"?}
+    	{?/if?}
+    </td>
+    <td  align="center">
+    	{?$rows[i].audituname?}
+    </td>
+    <td  align="center">
+    	{?if $rows[i].state==0?}
+    		<font>待审</font>	
+    	{?elseif $rows[i].state==1?}
+    		<font color='green'>同意</font>
+    	{?elseif $rows[i].state==2?}
+    		<font color='red'>拒绝</font>
+    	{?else?}
+    		
+    	{?/if?}
+    </td>
+    <td  align="center">
+    	<a href="javascript:;" name="view_finance" value="{?$rows[i].applyuid?}">查看</a>
+    	<!-- 删除，通过，拒绝 -->
+    	{?if $rows[i].state==0 && $authfinance==1?}
+    		<a href="{?$adminprefix?}&method=audit&ueaid={?$rows[i].ueaid?}&state=1" ajaxclick="true" confirm="同意作者的修改申请？"  retruemsg="true" title="同意">同意</a>
+    		<a href="{?$adminprefix?}&method=audit&ueaid={?$rows[i].ueaid?}&state=2" ajaxclick="true" confirm="拒绝作者的修改申请？"  retruemsg="true" title="拒绝">拒绝</a>
+    	{?else?}
+    		<!--  不提供删除
+    		<a href="{?$adminprefix?}&method=deleteContract&id={?$rows[i].copyrightid?}" ajaxclick="true"  confirm="确定删除申请记录？" retruemsg="false" title="删除"><img src="{?$jieqi_local_url?}/images/delete_on.gif" border="0" /></a>
+    		-->
+    	{?/if?}
+  </tr>
+  {?/section?}
+</table>
+<div class="pages">{?$url_jumppage?}</div>
+<table class="grid" id="detail" style="display:none"  width="500px" >
+<caption>作品版权信息</caption>
+ <tr>
+	<td colspan="4" align="center"><h3>财务信息</h3></td>
+</tr>
+<tr>
+	<td align="right"><h4>收款人姓名</h4></td>
+	<td colspan="3" id="v_payee"></td>
+</tr>
+<tr>
+	<td align="right"><h4>身份证号码</h4></td>
+	<td colspan="3" id="v_sid"></td>
+</tr>
+<tr>
+	<td align="right"><h4>身份证地址</h4></td>
+	<td colspan="3" id="v_address"></td>
+</tr>
+<tr>
+	<td align="right"><h4>通讯地址</h4></td>
+	<td colspan="3" id="v_communication"></td>
+</tr>
+<tr>
+	<td align="right"><h4>开户行地址</h4></td>
+	<td colspan="3" id="v_bankaddress"></td>
+</tr>
+<tr>
+	<td align="right"><h4>银行账号</h4></td>
+	<td colspan="3" id="v_banknumber"></td>
+</tr>
+</table>
+<script>
+$(document).ready(function(){
+	//版权详情
+	$("a[name='view_finance']").click(function(){
+		var applyuid = $(this).attr("value");
+		GPage.getJson('{?$adminprefix?}&method=getFinance&ueid='+applyuid,function(data){
+			if(data.status=='OK'){
+				for(var key in data.msg){
+					if($('#v_'+key)[0]) {
+						$('#v_'+key).text("");
+						if(data.msg[key]){
+							$('#v_'+key).text(data.msg[key]);
+						}
+					}
+				} 
+				 $.layer({
+						shade : [0.5 , '#000' , true],
+						type : 1,
+//						area : ['60%','560px'],
+						area : ['500px','200px'],
+						title : false,
+						offset : ['100px' , '50%'],
+						border : [10 , 0.3 , '#000', true],
+						zIndex : 1,
+						page: {
+					 	       dom: '#detail'
+					 	    },
+						close : function(index){
+							layer.close(index);
+							$('.ul_con').hide();
+						}
+					});	
+			}else{
+				layer.alert(data.msg, 8, !1);
+			}
+		})});
+	$("#list tr:not(':first')").bind("mouseover",function(){
+		 $(this).css("background","#DDF2FF");
+	});
+	$("#list tr:not(':first')").bind("mouseout",function(){
+		if($(this).find("input[name='selbox']").attr("checked")){
+			$(this).css("background","#C3E8FF");
+		}else{
+			$(this).css("background","#ffffff");
+		}
+	});
+})
+</script>

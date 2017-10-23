@@ -1,0 +1,43 @@
+<?php 
+$jieqiSmiles[0] = array('code'=>'/:O', 'url'=>'1.gif', 'emotion'=>'¾ªÑÈ');
+$jieqiSmiles[1] = array('code'=>'/:~', 'url'=>'2.gif', 'emotion'=>'Æ²×ì');
+$jieqiSmiles[2] = array('code'=>'/:*', 'url'=>'3.gif', 'emotion'=>'É«É«');
+$jieqiSmiles[3] = array('code'=>'/:|', 'url'=>'4.gif', 'emotion'=>'·¢´ô');
+$jieqiSmiles[4] = array('code'=>'/8-)', 'url'=>'5.gif', 'emotion'=>'µÃÒâ');
+$jieqiSmiles[5] = array('code'=>'/:LL', 'url'=>'6.gif', 'emotion'=>'Á÷Àá');
+$jieqiSmiles[6] = array('code'=>'/:$', 'url'=>'7.gif', 'emotion'=>'º¦Ðß');
+$jieqiSmiles[7] = array('code'=>'/:X', 'url'=>'8.gif', 'emotion'=>'±Õ×ì');
+$jieqiSmiles[8] = array('code'=>'/:Z', 'url'=>'9.gif', 'emotion'=>'Ë¯¾õ');
+$jieqiSmiles[9] = array('code'=>'/:`(', 'url'=>'10.gif', 'emotion'=>'´ó¿Þ');
+$jieqiSmiles[10] = array('code'=>'/:-', 'url'=>'11.gif', 'emotion'=>'ÞÏÞÎ');
+$jieqiSmiles[11] = array('code'=>'/:@', 'url'=>'12.gif', 'emotion'=>'·¢Å­');
+$jieqiSmiles[12] = array('code'=>'/:P', 'url'=>'13.gif', 'emotion'=>'µ÷Æ¤');
+$jieqiSmiles[13] = array('code'=>'/:D', 'url'=>'14.gif', 'emotion'=>'ßÚÑÀ');
+$jieqiSmiles[14] = array('code'=>'/:)', 'url'=>'15.gif', 'emotion'=>'Î¢Ð¦');
+$jieqiSmiles[15] = array('code'=>'/:(', 'url'=>'16.gif', 'emotion'=>'ÄÑ¹ý');
+$jieqiSmiles[16] = array('code'=>'/:+', 'url'=>'17.gif', 'emotion'=>'Ë£¿á');
+$jieqiSmiles[17] = array('code'=>'/:#', 'url'=>'18.gif', 'emotion'=>'½ûÑÔ');
+$jieqiSmiles[18] = array('code'=>'/:Q', 'url'=>'19.gif', 'emotion'=>'×¥¿ñ');
+$jieqiSmiles[19] = array('code'=>'/:T', 'url'=>'20.gif', 'emotion'=>'Å»ÍÂ');
+
+$jieqiSmiles[20] = array('code'=>'[ºÇºÇ]', 'url'=>'20.gif', 'emotion'=>'ºÇºÇ');
+$jieqiSmiles[21] = array('code'=>'[ÍµÐ¦]', 'url'=>'21.gif', 'emotion'=>'ÍµÐ¦');
+$jieqiSmiles[22] = array('code'=>'[»¨ÐÄ]', 'url'=>'22.gif', 'emotion'=>'»¨ÐÄ');
+$jieqiSmiles[23] = array('code'=>'[Ë¼¿¼]', 'url'=>'23.gif', 'emotion'=>'Ë¼¿¼');
+$jieqiSmiles[24] = array('code'=>'[ÎÊºÅ]', 'url'=>'24.gif', 'emotion'=>'ÎÊºÅ');
+$jieqiSmiles[25] = array('code'=>'[º¹]', 'url'=>'25.gif', 'emotion'=>'º¹');
+$jieqiSmiles[26] = array('code'=>'[ÉËÐÄ]', 'url'=>'26.gif', 'emotion'=>'ÉËÐÄ');
+$jieqiSmiles[27] = array('code'=>'[ºß]', 'url'=>'27.gif', 'emotion'=>'ºß');
+$jieqiSmiles[28] = array('code'=>'[³Ô¾ª]', 'url'=>'28.gif', 'emotion'=>'³Ô¾ª');
+$jieqiSmiles[29] = array('code'=>'[Å­]', 'url'=>'29.gif', 'emotion'=>'Å­');
+$jieqiSmiles[30] = array('code'=>'[Ë¯]', 'url'=>'30.gif', 'emotion'=>'Ë¯');
+$jieqiSmiles[31] = array('code'=>'[±Õ×ì]', 'url'=>'31.gif', 'emotion'=>'±Õ×ì');
+$jieqiSmiles[32] = array('code'=>'[°®Äã]', 'url'=>'32.gif', 'emotion'=>'°®Äã');
+$jieqiSmiles[33] = array('code'=>'[Àá]', 'url'=>'33.gif', 'emotion'=>'Àá');
+$jieqiSmiles[34] = array('code'=>'[±ÉÊÓ]', 'url'=>'34.gif', 'emotion'=>'±ÉÊÓ');
+$jieqiSmiles[35] = array('code'=>'[¹ÄÕÆ]', 'url'=>'35.gif', 'emotion'=>'¹ÄÕÆ');
+$jieqiSmiles[36] = array('code'=>'[ok]', 'url'=>'36.gif', 'emotion'=>'ok');
+$jieqiSmiles[37] = array('code'=>'[ÎÕÊÖ]', 'url'=>'37.gif', 'emotion'=>'ÎÕÊÖ');
+$jieqiSmiles[38] = array('code'=>'[Çó]', 'url'=>'38.gif', 'emotion'=>'Çó');
+$jieqiSmiles[39] = array('code'=>'[¿ÉÁ¯]', 'url'=>'39.gif', 'emotion'=>'¿ÉÁ¯');
+?>

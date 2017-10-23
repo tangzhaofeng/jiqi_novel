@@ -1,0 +1,46 @@
+<form name="search" method="get" action="">
+<input type="hidden" name="file" value="content"> 
+<input type="hidden" name="action" value="manage"> 
+<input type="hidden" name="catid" value="12">
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="60%">
+  <caption>信息查询</caption>
+<tr>
+<td>
+
+<select name='field'>
+<option value='title'  >标题</option>
+<option value='username'  >用户名</option>
+<option value='userid'  >用户ID</option>
+<option value='contentid'  >ID</option>
+</select>
+<input type="text" name="q" value="" size="20" />&nbsp;
+发布时间：<input type="text" name="inputdate_start" id="inputdate_start" onfocus="showCalendar(this,event)" onclick="showCalendar(this,event)" value="2010-04-15" size="10" readonly>&nbsp;&nbsp;
+<script src="/scripts/calendar.js"></script></td>
+<td class="align_c">&nbsp;<input type="submit" name="dosubmit" value=" 查询 " /></td>
+</tr>
+</table>
+</form>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="60%">
+    <caption>信息管理</caption>
+	<tr>
+		<th width="5%">ID</th>
+		<th>栏目名称</th>
+		<th width="15%">栏目类型</th>
+		<th width="10%">绑定模型</th>
+		<th width="10%">数据量</th>
+		<th width="6%">访问</th>
+		<th width="100">管理操作</th>
+	</tr>
+	{?section name=i loop=$_SGLOBAL['catelist']?}
+	   {?if $_SGLOBAL['catelist'][i]['type']<1?}
+		<tr>
+			<td align="center">{?$_SGLOBAL['catelist'][i]['listorder']?}</td>
+			<td>&nbsp;{?$_SGLOBAL['catelist'][i]['layer']?}<a href='?mod=phpcms&file=category&action=edit&catid=24'><span class=''>{?$_SGLOBAL['catelist'][i]['catname']?}</span></a></td>
+			<td align="center">{?if $_SGLOBAL['catelist'][i]['type']<1?}内部栏目{?elseif $_SGLOBAL['catelist'][i]['type']==1?}<font color="blue">单网页</font>{?else?}<font color="red">外部链接</font>{?/if?}</td>
+			<td align="center"><a href="?mod=phpcms&file=model_field&action=manage&modelid=5">{?$_SGLOBAL['model'][$_SGLOBAL['catelist'][i]['modelid']]['name']?}</a></td>
+			<td align="center"><a href='?mod=phpcms&file=content&action=manage&catid=24' title='管理内容'>{?$_SGLOBAL['catelist'][i]['items']?}</a></td>
+			<td align="center"><a href="/{?$_SGLOBAL['catelist'][i]['url']?}" target='_blank'>访问</a></td>
+			<td align="center">{?if $_SGLOBAL['catelist'][i]['child']<1?}<a href='?ac=content&op=add&catid={?$_SGLOBAL['catelist'][i]['catid']?}'>发布信息</a>{?/if?}</td>
+		</tr>{?/if?}
+	{?/section?}
+</table>

@@ -1,0 +1,8 @@
+{?section name=i loop=$articlerows?}
+	<dd{?if $i.order % 2 == 0?} class="fix dbg"{?else?} class="fix"{?/if?}>
+      <a href="{?$articlerows[i]['url_class']?}" class="sort" title="{?$articlerows[i].sort?}">[{?$articlerows[i].shortcaption?}]</a>
+      <span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_gray54 f14 mr5">{?$articlerows[i]['articlename']?}</a>{?if $articlerows[i].permission > 3?}<em class="q"></em>{?/if?}{?if $articlerows[i]['lastchaptervip']==1?}<em class="v"></em>{?/if?}<a href="{?$articlerows[i]['url_lastchapter']?}" target="_blank" class="f_gray9 ml5">{?$articlerows[i]['lastchapter']?}</a></span>
+      {?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}" ajaxhover="true" uid="{?$articlerows[i].authorid?}" class="author" target="_blank">{?$articlerows[i].author?}</a>{?else?}<a class="author">{?$articlerows[i].author?}</a>{?/if?}
+      <span class="date">{?$articlerows[i]['lastupdate']|date:"m-d H:i"?}</span>
+     </dd>
+{?/section?} 

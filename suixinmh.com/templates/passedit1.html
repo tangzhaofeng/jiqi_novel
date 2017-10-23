@@ -1,0 +1,80 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/page.js"></script> 
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+      <div class="t2">
+       <h2>密码及安全 </h2>
+       <ul class="tabs62" id="tabs">
+        <li><a href="#" target="_blank">修改密码</a></li>
+        <!--  
+        <li><a href="#" target="_blank">安全认证</a></li>
+        -->
+       </ul>       
+      </div>
+      <ul id="tab_conbox" class="f0 bg5">
+        <li class="fix">
+       <dl class="box_form pt20">
+		<form name="frmpassedit" id="frmpassedit" action="{?function geturl:'system':'userhub':'SYS=method=updatePwd'?}" method="post">
+         <dd class="fix">
+          <em class="tt2">当前密码：</em>
+          <div class="int">
+           <input name="oldpass" id="oldpass" type="password" class="input3 fl" />
+          </div>
+         </dd>
+         <dd class="fix">
+          <em class="tt2">新密码：</em>
+          <div class="int">
+           <input name="newpass" id="newpass" type="password" class="input3 fl" />
+          </div>
+         </dd>
+         <dd class="fix">
+          <em class="tt2">重复密码：</em>
+          <div class="int">
+           <input name="repass" id="repass" type="password" class="input3" />
+           <p class="pt20"><button class="btn" type="submit">修改密码</button></p>
+		   <input type="hidden" name="action" id="action" value="update" />
+		   <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+          </div>
+         </dd>
+         <dd class="fix">
+          <div class="int ml20 pt20">为了您的密码安全，及快速找回密码，强烈建议您进行安全认证。 <a href="#" class="f_blue5">立即认证</a>
+          </div>
+         </dd>
+		 </form>
+		 <script type="text/javascript">
+		      layer.ready(function(){
+				$('#frmpassedit').on('submit', function(event){
+				event.preventDefault();
+					  GPage.postForm('frmpassedit',$('#frmpassedit').attr('action'),
+						   function(data){
+								if(data.status=='OK'){
+									layer.msg(data.msg,2,{type:1,shade:false});
+									jumpurl(data.jumpurl);
+								}else{
+									//document.getElementById("frmnewmessage").reset();
+									layer.alert(data.msg, 8, !1);
+								}
+						   }
+					  );
+				});
+			});
+		  </script>
+         </dl>
+      </li>
+      <li>
+       <dl class="safe">
+        <dt class="f14 b">手机认证</dt>
+        <dd>手机认证后，当您丢失密码，输入账号和密保手机号，就可以快速找回密码。</dd>
+        <dd>当前密保手机：<a href="#" class="f_blue5">修改手机号码</a></dd>
+       </dl>
+      </li>
+     </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

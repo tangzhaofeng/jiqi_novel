@@ -1,0 +1,191 @@
+{?set jieqi_page_template = "/modules/news/themes/empty.html"?}{?eval $contentid = $_PAGE['data']['contentid'];?}{?eval $catid = $_PAGE['data']['catid'];?}{?eval $keywords = $_PAGE['data']['keywords'];?}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{?$_PAGE['data']['title']?} 赶游网图片频道</title>
+<link href="{?$_SGLOBAL['TPL_DIR']?}/photo/css/spzs.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script src="{?$_SGLOBAL['TPL_DIR']?}/photo/images/xsbortsImageBrowser.js" type="text/javascript"></script>
+<script language="javascript">
+<!--
+var articleid = '{?$_PAGE['data']['contentid']?}';
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+//-->
+</script> 
+</head>
+
+<body class="m1">
+
+<div class="header">
+<!--header-->
+<div class="contain">
+	<div class="logo"><a href="{?function jieqi_geturl:'news':'lists':14:1?}"><img src="{?$_SGLOBAL['TPL_DIR']?}/photo/images/logo1.jpg" width="384" height="100" border="0" /></a></div>
+	<div class="top_right">
+	<a href="#" class="blue">登录</a> | <a href="#" class="blue">注册</a> | <a href="{?function jieqi_geturl:'news':'lists':77:1?}">游戏资讯</a> | <a href="{?function jieqi_geturl:'news':'lists':110:1?}" class="blue">游戏攻略</a> | <a href="{?function jieqi_geturl:'news':'lists':130:1?}">游戏视频</a>
+	<div class="search">
+		<ul><form name="fmt_search_form" id="fmt_search_form" action="{?function jieqi_geturl:'news':'lists':8:1?}" method="get" target="_blank">
+		<li class="sear_01"><input name="" type="button" class="s1"/>综合 </li>
+		<li class="sear_02"><input type="text" value="输入您要查询的关键字" onClick="javascript:this.value='';" name="k" id="k" /></li>
+		<li><input name="" type="button" class="go" style="cursor:pointer;" onClick="javascript:document.fmt_search_form.submit();"/></li></form>
+		</ul>
+	</div>	
+	</div>	
+	<div class="clear"></div>
+	<ul id="nav">
+	<li><a href="{?function jieqi_geturl:'news':'lists':14:1?}" id="m1" onfocus="blur()">图库首页</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':114:1?}" id="m2" onfocus="blur()" target="_blank">游戏壁纸</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':117:1?}" id="m3" onfocus="blur()" target="_blank">游戏截图</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':15:1?}" id="m4" onfocus="blur()" target="_blank">美女玩家</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':16:1?}" id="m5" onfocus="blur()" target="_blank">图工场</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':92:1?}" id="m6" onfocus="blur()" target="_blank">八天下</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':93:1?}" id="m7" onfocus="blur()" target="_blank">Cosplay</a></li>
+	<li><a href="{?function jieqi_geturl:'news':'lists':121:1?}" id="m8" onfocus="blur()" target="_blank">游戏周边</a></li>
+	</ul>
+</div>
+<!--<div style="padding:8px 0 8px 0; text-align:center;"><img src="{?$_SGLOBAL['TPL_DIR']?}/photo/images/gg.jpg" align="absmiddle" /></div>
+-->
+<!--header end-->
+<div class="box_hy">
+<div class="spym_a1"><img src="{?$_SGLOBAL['TPL_DIR']?}/photo/images/sp_01.jpg" align="absmiddle" />当前位置: <a href="{?$_SGLOBAL['localurl']?}/">{?$_SGLOBAL['sitename']?}首页</a> -> <a href="{?$_PAGE['data']['url_catelist']?}">{?$_PAGE['data']['catname']?}</a> -> <a href="{?$_PAGE['data']['url_articleinfo']?}">{?$_PAGE['data']['title']?}</a></div>
+<div class="spym_nr">
+<!--left-->
+<div class="tpk_left ">
+<ul>
+<li class="a1"><a href="{?$_PAGE['data']['url_articleinfo']?}">{?$_PAGE['data']['title']?}</a></li>
+<li>
+<div class="tpk_left_nr_l">
+投稿人：{?eval if($_PAGE['data']['author']) echo $_PAGE['data']['author']; else echo $_PAGE['data']['username'];?}    
+<a href="{?$_SGLOBAL['localurl']?}" class="jiathis" target="_blank"><img src="http://v2.jiathis.com/code/images/jiathis2.gif" border="0" align="absmiddle" /></a>
+<span style="display:none"><script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8"></script></span>
+
+</div>
+<div class="tpk_left_nr_r">{?eval $prepage = $_PAGE['page']-2;?}
+<input type="button" class="syb1" id="img_prepage" style="cursor:pointer;"/>
+<h1 id="currentIndex">{?$_PAGE['page']?}</h1><h2 id="totalIndex">/{?eval echo count($_PAGE['data']['pictureurls']);?}</h2>
+<input name="button2" type="button" class="syb2" id="img_nextpage" style="cursor:pointer;"/>
+<input name="button2" type="button" class="syb3" id="openBigPic" url='' onclick="javascript:window.open(this.url);" style="cursor:pointer;" alt="查看原图"/>
+</div>
+<div class="clear"></div>
+</li></ul>
+<div class="tpk_left_nr">
+<!--图片展示-->
+<table width="700" border="0" align="center">
+
+  <tr > <td align="center" id="imgBigTdX" height=300></td>
+  </tr>  
+</table>
+ <div class="tpk_left_nr2">
+{?block bid="100" module="news" filename="block_afterpage" classname="BlockNewsAfterpage" side="1" title="上下文" vars="$contentid,$catid" template="block_pic_afterpage.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+<div class="clear"></div>
+ </div> 
+  <script language="javascript">
+ var imgBigDesc=new Array(
+ {?section name=i loop=$_PAGE['data']['pictureurls']?}
+    ["{?$_PAGE['data']['pictureurls'][i]['description']?}" ,"{?$_PAGE['data']['pictureurls'][i]['url']?}" ]{?if $i.order<$i['loops']?},{?/if?}
+  {?/section?}
+  );
+ var urlLoading="{?$_SGLOBAL['news']['url']?}/images/loading.gif";
+ var urlLeftArrow="url({?$_SGLOBAL['news']['url']?}/images/left.cur),auto";
+ var urlRightArrow="url({?$_SGLOBAL['news']['url']?}/images/right.cur),auto";
+ var myImageBrowser=new xsbortsImageBrowser(imgBigDesc,"imgBigTdX","imgBigTdDesc","imgSmallDiv","imgSmallDivInner",urlLoading,urlLeftArrow,urlRightArrow);
+ myImageBrowser.insertSmallImg("myImageBrowser");
+ myImageBrowser.imgChangeToBig(imgBigDesc[0][1],imgBigDesc[0][0],0,"myImageBrowser");
+ var myScript=myImageBrowser.createScriptHead(); 
+ myScript+=myImageBrowser.createBigImgClick("myImageBrowser");
+ myScript+=myImageBrowser.createBigImgMouseMove("myImageBrowser");
+ myScript+=myImageBrowser.createBigImgMouseDown("myImageBrowser");
+ myScript+=myImageBrowser.createBigImgMouseUp("myImageBrowser");
+ myScript+=myImageBrowser.createAllSmallImgHover("myImageBrowser");
+ myScript+=myImageBrowser.createScriptTail();
+ $(myImageBrowser.jqBigImg).html(myScript); 
+ </script>  
+<!--图片展示 end-->
+ <div class="tpk_left_nr3">
+<ul>
+ <li><span id="imgBigTdDesc">{?$_PAGE['data']['content']?}</span></li>
+</ul>
+</div>
+<!--按钮-->
+<div class="spym_anniu">
+<ul class="spym_anniu01" id="click_supports" style="cursor:pointer;">
+<li class="a1" id="supports">0</li>
+<li class="a2"><a>赞一个</a></li>
+</ul>
+<ul class="spym_anniu02" id="click_againsts" style="cursor:pointer;">
+<li class="a1" id="againsts">0</li>
+<li class="a2"><a>我踩</a></li>
+</ul>
+<ul class="spym_anniu03">
+<li class="a2"><a href="{?function jieqi_geturl:'news':'comment':$_PAGE['data']['contentid']?}" target="_blank">我要发言(<span class="xfont04" id="comments_checked">0</span>)</a></li>
+</ul>
+<ul class="spym_anniu04">
+<li class="a2"><a href="{?$_PAGE['data']['url_catelist']?}">返回本版</a></li>
+</ul>
+</div>
+<!--按钮 end-->
+</div>
+</div>
+<!--left end-->
+<!--right-->
+<div class="tpk_right spym_kuang">
+<div class="spym_r_bt">推荐图片</div><div class="tpk_right_ul1">
+{?tag_news_6_图片显示页右边-推荐图片?}
+</div>
+</div>
+<!--right end-->
+<div class="clear"></div>
+</div>
+<div class="top10 spym_kuang">
+<div class="spym_r_bt">
+ <div style=" float:left;">图工场</div>
+<div style=" float:right;"><a href="{?function jieqi_geturl:'news':'lists':16:1?}">更多>></a></div>
+
+</div>
+<div class="tpk_zsnr_l">
+<p><a href="http://www.ganyou.com/pic/51756.html" target="_blank"><img src="http://www.ganyou.com/tp/pic/tugongchang.jpg" width="300" height="188" border="0" alt="兔耳娘来袭 ACG美少女兔女郎同人图赏" /></a></p>
+<p><a href="http://www.ganyou.com/pic/51756.html" target="_blank">兔耳娘来袭 ACG美少女兔女郎同人图赏</br></a></p>
+</div>
+<div class="tpk_zsnr_r">
+{?tag_news_21_[新闻]通用查询<{inputtime,8,16,0,0,0,20}><{photo/block_piclist.html}>?}
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+
+<div class="top10 spym_kuang">
+<div class="spym_r_bt">
+ <div style=" float:left;">八天下</div>
+<div style=" float:right;"><a href="{?function jieqi_geturl:'news':'lists':92:1?}">更多>></a></div>
+
+</div>
+<div class="tpk_zsnr_l">
+<p><a href="http://www.ganyou.com/pic/51778.html" target="_blank"><img src="http://www.ganyou.com/tp/pic/batianxia.jpg" width="300" height="188" border="0" alt="真人版僵尸新娘：最惊世骇俗的婚礼" /></a></p>
+<p><a href="http://www.ganyou.com/pic/51778.html" target="_blank">真人版僵尸新娘：最惊世骇俗的婚礼</br></a></p>
+</div>
+<div class="tpk_zsnr_r">
+{?tag_news_21_[新闻]通用查询<{inputtime,8,92,0,0,0,20}><{photo/block_piclist.html}>?}
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<!--footer-->
+<div class="footer">
+ <div class="foot_nav"><span>@ 2008-2010 All rights reserved.京ICP证090052号</span>
+ <a href="#">投稿说明</a> | <a href="#">我们的团队</a> | <a href="#">关于我们</a> | <a href="#">联系我们</a>
+ </div>
+</div>
+<!--footer end-->
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+	GData.pageLoad();
+	GData.digg('show', null);
+});
+//-->
+</script> 
+</div>
+</body>
+</html>

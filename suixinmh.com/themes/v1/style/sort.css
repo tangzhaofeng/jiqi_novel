@@ -1,0 +1,14 @@
+/* SHUHAI.COM SORT.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.show_li,show_img{ width:auto; height:auto;}
+.term{ width:auto; height:auto; border:1px solid #ccc; padding:0px 0px 10px 0; font-size:13px;border-top:none;}
+.box_term{ padding:0px 20px;}
+.box_term .t{ float:left; display:block; width:70px; height:30px; line-height:30px; text-align:right; font-weight:800; color:#0063DC;}
+.box_term .sort,.box_term .tag{ float:left; width:92%; line-height:30px; height:auto;}
+.box_term .sort a,.box_term .tag a{ display:inline-block; height:25px; line-height:25px; padding:0px 8px; color:#0063DC;}
+.box_term .sort a:hover,.box_term .tag a:hover{ color:#fff; background:#7CAADB; margin:0px 2px;}
+.box_term a.on{ background:#7CAADB; color:#fff;}
+.box_term .sort .show{ width:auto; height:auto; border:1px solid #99c8e1; background:#fff; color:#333; padding:5px 10px; line-height:180%;}
+.box_term .sort .show em{ padding:0px 10px;}
+.term h3{height:30px;line-height:30px;border-top:2px solid #3caadb;border-bottom:1px solid #dadada;display:block;text-indent:20px;color:#2974ab;font-weight:bold;font-size:14px;background:#f7f7f7;margin:0 0 10px 0;}

@@ -1,0 +1,100 @@
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main" style="padding-top: 6px;">
+      <p>&nbsp;<a _i="4" class="refreshPage" href="javascript:void();">刷新缓存</a></p>
+      <div class="g-grid div_cen">
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-info">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>当日充值: <span>{?$dayCz?}</span></p>
+                <p style="text-indent: 2em;">笔数: <span>{?$dayCzN?}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-danger">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>本月充值: <span>{?$MonthCz?}</span></p>
+                <p style="text-indent: 2em;">笔数: <span>{?$MonthCzN?}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-success">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>累计充值: <span>{?$allCz?}</span></p>
+                <p style="text-indent: 2em;">笔数: <span>{?$allCzN?}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1 g-col-last">
+          <div class="m-panel s-panel-warning">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>渠道点击量: <span>{?$allclick?}</span></p>
+                <p style="text-indent: 3em;">PV量: <span>{?$allpv?}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="g-grid">
+        <div class="m-panel">
+          <div class="panel-header"> <i class="u-icon-bars"></i> 最近30日数据   &nbsp;<a _i="1" class="refreshPage" href="javascript:void();">刷新缓存</a></div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>充值金额</th>
+                  <th>广告分成</th>
+                  <th>推广提成</th>
+                  <th>明细</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($manTkList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 12 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('super','home','SYS=method=tuDayList');?}
+                {?section name=i loop=$manTkList?}
+                <tr>
+                  <td>{?$manTkList[i].dateS?}</td>
+                  <td>￥{?$manTkList[i].allMoney?}</td>
+                  <td>{?$manTkList[i].tkMoneyG?}</td>
+                  <td>{?$manTkList[i].tkMoneyT?}</td>
+                  <td>
+                    <a class="u-btn u-btn-primary" href="{?$url?}?date={?$manTkList[i].dateS?}">查看</a>
+                  </td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.refreshPage').click(function(){
+        var i,ar;
+        i=$(this).attr('_i');
+        ar=location.pathname.split('/');
+        $.post('http://'+location.host+'/'+ar['1']+'/home/refreshPage',{refresh:i,ajax_request:1},function(msg){
+          if( msg.status === 'OK' ){
+            location.href='';
+          }else{
+            Users.ShowMsg(msg.msg);
+          }
+        },'json');
+      });
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}

@@ -1,0 +1,14 @@
+<div class="box" id="guesslike">
+	<div class="maylike">
+		<span class="maylike_s">²ÂÄãÏ²»¶</span>
+		<div class="backright"><span class="changes" >»»Ò»»»</span></div>
+	</div>
+	<div class="picbox"> 
+		<ul class="piclist mainlist"> 
+		{?section name=i loop=$articlerows?}
+		<li><a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}" title="{?$articlerows[i]['articlename']?}"/></a><a href="{?$articlerows[i].url_articleinfo?}" class="aname f_black" target="_blank">{?$articlerows[i].articlename?}</a></li> 
+		{?/section?}
+		</ul> 
+		<ul class="piclist swaplist"></ul> 
+	</div> 
+</div> 

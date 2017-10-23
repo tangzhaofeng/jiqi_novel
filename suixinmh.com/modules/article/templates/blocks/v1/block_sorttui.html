@@ -1,0 +1,5 @@
+{?section name=i loop=$articlerows?}{?if $i.order==1?}<li class="on"> 
+<a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank"><img src="{?$articlerows[i]['url_image']?}" width="80" height="108" alt="{?$articlerows[i]['articlename']?}" title="{?$articlerows[i]['articlename']?}"/></a>
+<dl><dt class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></dt>
+ <dd class="author">×÷Õß£º{?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}" class="f_gray3" title="{?$articlerows[i].author?}">{?$articlerows[i].author?}</a>{?else?}{?$articlerows[i].author?}{?/if?}</dd><dd class="txt">{?$articlerows[i]['intro']|truncate:38:'¡­¡­'?}</dd>
+</dl> </li>{?else?}<li><span class="sort">[{?$articlerows[i]['shortcaption']?}]</span><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span></li>{?/if?}{?/section?}

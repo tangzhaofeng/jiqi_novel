@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Chapters>
+{?eval $chaporder = $volorder = 0;?}{?eval $volname = "";?}
+{?section name=i loop=$chapters?}
+	{?if $chapters[i]['chaptertype'] > 0?}
+		{?eval $volname = $chapters[i]['chaptername'];$volorder++;?}
+	{?else?}
+		{?if $volorder == 0?}
+			{?eval $volname = '正文';?}{?eval $volorder++;?}
+		{?/if?}
+		<book>			
+			<id><![CDATA[{?$chapters[i]['chapterid']?}]]></id>			
+			<title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></title>			
+			<volume><![CDATA[{?eval echo gb2utf8XHSafeStr($volname,false);?}]]></volume>			
+			<VolumeOrder><![CDATA[{?eval echo $volorder;?}]]></VolumeOrder>			
+			<Length><![CDATA[{?eval echo $chapters[i]['size']/2;?}]]></Length>			
+			<order><![CDATA[{?eval echo $chaporder+1;?}]]></order>			
+			<updatetime><![CDATA[{?$chapters[i]['lastupdate']|date:'Y-m-d H:i:s'?}]]></updatetime>			
+			<IsVip><![CDATA[{?$chapters[i]['isvip']?}]]></IsVip>			
+			<Pages><![CDATA[1]]></Pages>		
+		</book>	
+		{?eval $chaporder++;?}
+	{?/if?}
+{?/section?}	
+</Chapters>

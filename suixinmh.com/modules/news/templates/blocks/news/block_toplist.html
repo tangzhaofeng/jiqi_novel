@@ -1,0 +1,1 @@
+{?section name=i loop=$articlerows?}<li><span class="lt_pm{?if $i.order<4?}4{?/if?}">{?$i.order|sprintf:"%02d"?}</span><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></li>{?/section?}

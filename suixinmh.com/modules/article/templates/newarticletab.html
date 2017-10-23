@@ -1,0 +1,15 @@
+ <div class="step2">
+ 	{?if $_REQUEST['method'] == 'step1View'?}
+ 		<p  class="on">第一步：创建新书<em class="orn"></em></p>
+   		<p  >第二步：上传内容<em class="orn2"></em></p>
+   		<p>第三步：等待审核</p>
+ 	{?elseif $_REQUEST['method'] == 'step2View'?}
+ 		<p>第一步：创建新书<em class="orn3"></em></p>
+   		<p class="on">第二步：上传内容<em class="orn"></em></p>
+   		<p>第三步：等待审核</p>
+ 	{?else?}
+ 		<p>第一步：创建新书<em class="orn2"></em></p>
+  		<p>第二步：上传内容<em class="orn3"></em></p>
+   		<p class="on">第三步：等待审核</p>
+ 	{?/if?}
+ </div>

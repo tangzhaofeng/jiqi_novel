@@ -1,0 +1,337 @@
+html,body {margin:0px; color:#000; background:url(../images/bodybg.gif) repeat-x left 274px}
+a{ text-decoration: none; color:#000}
+a:hover{text-decoration: underline;color:#390}
+body,font{font:12px/23px "宋体";}
+select,input{font-size: 12px;font-family: "宋体"; padding:1px; margin:0;color:#666;}
+ol,ul,li,dl,dt,dd,h1,h2,h3,h4,h5,p,form,em,span{ margin:0; padding:0; list-style:none}
+table{ border:0; padding:0; margin:0;}
+em,cite{ font-style:normal}
+img{ border:none}
+
+.gray999,.gray999_a a{ color:#999}
+.orager,.orager_a a{ color:#f60}
+.red{ color:#f00}
+.green,.green_a a{ color:#390}
+.u a{ text-decoration:underline}
+.u a:hover{ text-decoration: none;}
+.font12{ font-size:12px}
+
+.left,.topbar .logo,.topbar .topnav,.main,.sidebar,.sitenav,.wrapper .wl,.w_xline{ float:left; overflow:hidden}
+.right,.copyright,.wrapper .wr{ float:right; overflow:hidden}
+.wrapper{ margin-bottom:8px}
+
+
+.topbarbg,.main_tab .tab li,.main_tab .tab li a,.header .pagetitle h1,.header .pagetitle span,.rt_r,.rt_l,.main_tab .sq_writer a{background: url(../images/pngbar.png) no-repeat }
+
+.footer,.wrapper,.header,.main_tab,.topbar,.main_procedure{width:900px; overflow:hidden; margin:0 auto; z-index:90; position:relative}
+
+.topbar{ height:28px; padding:4px 0 8px;color:#58bf58;}
+.topbar a{color:#fff}
+.topbar a:hover{ color:#cfc}
+.topbar .logo{background-position:left -44px; width:136px; display:block; height:28px; margin-right:8px}
+.topbar .topnav,.topbar .right{ padding:4px 0 1px}
+.topbar .logo{ background:url(../images/logo.png) no-repeat left top}
+
+.topbarbg,.headpic{width:100%; position:absolute;}
+.topbarbg{height:40px; background-position:left top; background-repeat:repeat-x;z-index:90;}
+.headpic{ background:#34b600 url(../images/loginheadbg.jpg) no-repeat center top; height:274px; z-index:0}
+
+.header{ height:64px; padding:35px 0 25px}
+.header .pagetitle{ float:left; overflow:hidden;height:64px;}
+.header .pagetitle h1,.header .pagetitle span{ float:left; text-indent:-1000px;font-size:35px; line-height:35px;}
+.header .pagetitle h1{background-position:left -386px; width:300px;}
+.header .pagetitle span{display:inline-block;}
+.header .pagetitle p{ text-align:right;color:#fff;opacity:0.7;-moz-opacity:0.7;-khtml-opacity: 0.7;filter:alpha(opacity=70);line-height:23px; padding-top:3px; clear:both;}
+.header .pagetitle span.reg{background-position:left -434px; width:90px}
+.header .pagetitle span.login{background-position:left -481px; width:90px}
+.header .pagetitle span.a_reg{background-position:left -527px; width:158px}
+.header .pagetitle span.a_lostpwd{background-position:left -572px; width:158px}
+
+.main_tab{height:42px;z-index:100;margin-bottom:-1px}
+.main_tab .tab{ float:left; height:42px;overflow:hidden}
+.main_tab .sq_writer{ float:right; padding:5px 5px 0 0; overflow:hidden}
+.main_tab .sq_writer a{ display:block; background-position:left -300px; float:right; height:37px; font-size:14px; width:188px; text-align:center; line-height:38px; padding-right:20px; color:#fff; font-weight:bold}
+.main_tab .sq_writer a:hover{ background-position:left -338px; text-decoration:none}
+
+.main_tab .tab li,.main_tab .tab li a{ display:block; float:left; font-size:14px;color:#666;overflow:hidden;cursor:pointer;}
+.main_tab .tab li{height:41px; margin-right:3px; background-position:left -132px; padding-left:5px; margin-top:1px}
+.main_tab .tab li a{padding:10px 35px 9px 31px; height:23px; line-height:23px; color:#fff;font-weight:bold;background-position:right -174px;}
+.main_tab .tab li a:hover{ text-decoration:none}
+.main_tab .tab li.over{background-position:left -216px;_padding-left:7px;}/*IE6图片定位 奇偶问题*/
+.main_tab .tab li.over a{background-position:right -258px;_padding:10px 35px 9px 29px;}
+.main_tab .tab li.now{background-position:left -44px;margin-top:0px;height:42px;padding-left:5px;}
+.main_tab .tab li.now a,.main_tab .tab li.now a:hover{ color:#090; text-decoration:none; cursor:default; background-position:right -88px; padding:14px 35px 5px 30px;}
+
+.wrapper{width:924px;}
+.wrapper .wl,.wrapper .wr,.wrapper .w_xline,.wrapper .w_xline span{ background:url(../images/wrapperlr.png) no-repeat left top; height:358px; width:12px; margin-top:69px}
+.wrapper .wl{ background-position:left top}
+.wrapper .wr{ background-position:-12px top;}
+.wrapper .w_xline{background-position:-25px top; background-repeat:repeat-y; width:1px;margin-top:0px }
+.wrapper .w_xline span{ width:1px; overflow:hidden;background-position:-24px bottom; display:block;}
+
+.wrapper_login .main{ width:585px; background:#fff; padding-bottom:50px}
+.wrapper_login .main,.wrapper .w_xline{ border-top:#009900 1px solid}
+.wrapper_login .sidebar{ width:314px; background:url(../images/sidebarbg.gif) repeat-x left 6px}
+.wrapper_login .sidebar .roundtop{ width:314px;}
+.wrapper_login .sidebar .roundtop span.rt_c{width:310px;}
+.wrapper_login .innerbox{ padding:35px; overflow:hidden}
+
+.wrapper_wreg .main{ width:631px; background:#fff; padding-bottom:50px;}
+.wrapper_wreg .main{ border-top:#009900 1px solid;}
+.wrapper_wreg .sidebar{ width:268px; background:#fff url(../images/sidebarbg.gif) repeat-x left 6px; padding-top:6px}
+
+.wrap_pro .main .innerbox,.wrapper_wreg .innerbox{ padding:24px;}
+.wrap_pro .main .innerbox .registerlist{ padding-left:6px}
+.wrap_pro .main .innerbox .u_tip{ margin-bottom:15px; font-size:12px}
+
+.u_tip{ background:#ffc; border:#fc9 1px dotted; padding:12px; text-align:center;font-size:14px; color:#390; margin-bottom:40px}
+.u_tip a{ color:#f60; text-decoration:underline}
+.u_tip a:hover{ text-decoration:none; }
+.registerlist dl dt,.formbox dl dd input,.formbox .btnbox .btn,.you_fun li,.passlist ul li,.btnmore,.main_procedure .pdbox,.main_procedure .pdbox li,.main_procedure .pdbox li div,.main_procedure .pdbox li span,.mod_title{ background:url(../images/formbar.png) no-repeat}
+.formbox{ overflow:hidden; margin-bottom:20px}
+.formbox dl{ margin-bottom:12px; overflow:hidden; width:800px}
+.formbox dl dt,.formbox dl dd{ float:left; overflow:hidden; height:38px;font-family:tahoma}
+.formbox dl dt{ width:90px; text-align:right; line-height:40px; }
+.formbox dl dd{ width:460px}
+.formbox dl dd input{ height:27px; border:#ddd 1px solid; background-position:left top; padding:3px 5px 1px; _padding:4px 5px 0;font-size:14px; width:226px; color:#390; font-family:tahoma,"宋体"; line-height:22px}
+.formbox dl input.id,.formbox dl input.pw{ font-weight:bold; font-size:16px}
+.formbox dl.login_state {color:#888}
+.formbox dl.login_state input{ border:none; background:none;vertical-align:middle; margin-right:3px}
+.formbox dl.pl,.formbox dl dd.description{padding-left:94px}
+.formbox dl.btnbox{padding-top:16px;height:39px;}
+.formbox .btnbox .btn{width:150px; height:39px; line-height:39px; font-size:16px; color:#fff; border:none; cursor:pointer; background-position:left -93px; font-weight:bold; }
+.formbox .btnbox .btn:hover,.formbox .btnbox .btn.over{background-position:left -132px}/*-150px -132px*/
+.formbox .btnbox a{ padding:4px 0 0 20px; color:#339900; text-decoration:underline}
+.formbox .btnbox a:hover{ text-decoration:none}
+.formbox .input_wrap{ padding:2px; background:#fff; overflow:hidden; float:left}
+.formbox dl div.tofocus{ background:#eef7db}
+.formbox dl div.tofocus input,.formbox dl dd.correct input{background-position:left -31px; border-color:#9bcd38}
+.formbox dl dd.wrong,.formbox dl dd.correct{ position:relative}
+.formbox dl .ok,.formbox dl .wrong_tip{display:none; float:left; padding-left:18px; position:absolute; top:7px;right:0;width:192px;}
+.formbox dl dd .wrong_tip{background: url(../images/wrong.gif) no-repeat left 4px; color:#f60}
+.formbox dl dd.wrong .wrong_tip{ display:block}
+.formbox dl dd.wrong .input_wrap{ background:#fff3ce}
+.formbox dl dd.wrong input{background-position:left -62px;border-color:#ff9b07; color:#f60}
+.formbox dl dd.correct .ok{ background:url(../images/right.gif) no-repeat left 4px; display:block}
+.formbox dl dd.correct .input_wrap{ background:#eef7db}
+.formbox dl dd.description{ height:auto; color:#999; clear:both; line-height:18px}
+.formbox dl dd.red{ color:#f00}
+.formbox dl .code_box{ float:left; padding:5px 0 0 12px}
+.formbox dl .code_box img{vertical-align:middle; margin-right:10px}
+.formbox dl.textareabox dd.textarea{ height:145px}
+.formbox dl.textareabox textarea{ width:380px; height:130px; border:#ddd 1px solid;padding:3px 5px 1px; font-size:14px;color:#390; font-family:tahoma,"宋体"; line-height:22px}
+.formbox dl.textareabox div.tofocus textarea{ border-color:#9bcd38;background:#fbffef}
+
+.loginlist dl{ margin-bottom:18px;}
+.registerlist{ padding-top:10px}
+.registerlist dl dt{background-position:right -142px; padding-right:10px; width:80px}
+.registerlist .code_input{ width:60px;}
+.registerlist .btnbox .btn{background-position:-150px -93px;}
+.registerlist .btnbox .btn:hover,.formbox .btnbox .btn.over{background-position:-150px -132px}
+
+.lostpwd{ padding:20px 0 100px 60px;}
+.lostpwd dl dt{padding-right:10px; width:100px}
+.lostpwd dl.pl{ padding-left:115px; padding-top:30px}
+.lostpwd dl.pl .font14{ font-size:14px; font-weight:bold}
+
+.wrap_pro .pwdpass{ text-align:center; height:240px; padding-top:80px}
+.wrap_pro .pwdpass .a_jump a{ color:#f60; font-size:14px; font-weight:bold}
+
+.poppu_window .formbox{ padding:30px 0 0 25px}
+.poppu_window .passlist{ padding:70px 25px 12px 45px}
+.poppu_window .passlist .btnmore{ font-weight:100; padding-left:0px; background:none; color:#888;  }
+.poppu_window .passlist .right{ height:260px;}
+
+.passlist{ overflow:hidden; padding:40px 0 0 10px}
+.passlist .left{ width:149px; height:183px; background:url(../images/biglogo.png) no-repeat left top}
+.passlist .right{ width:335px;  padding-top:10px; height:200px; position:relative}
+.passlist h3{ font-size:30px;font-family:"微软雅黑","Microsoft YaHei"; color:#390; line-height:30px; margin-bottom:28px; font-weight:100}
+.passlist ul li{ background-position:-479px -113px; padding-left:28px; margin-bottom:8px; font-size:14px; overflow:hidden; width:300px; float:left}
+.passlist .btnmore{ position:absolute; bottom:0; right:0;}
+.passlist .pt{ background:url(../images/formbar.png) no-repeat -463px -381px; padding-left:40px;font-size:24px; line-height:35px; height:38px; margin-bottom:15px;}
+.passlist .font14{ font-size:14px; font-weight:bold; margin-bottom:15px;}
+.passlist .ml50{ margin-left:50px}
+.passlist2{ margin-left:50px; margin-bottom:80px}
+
+.btnmore{ font-size:14px; font-weight:bold; padding-left:16px; background-position:-489px -183px; overflow:hidden; height:23px}
+.btnmore a{ color:#f60; }
+.btnmore a:hover{ color:#f00}
+
+.roundtop{height:6px; line-height:6px; font-size:6px; overflow:hidden;}
+.roundtop span{display:block; height:6px; overflow:hidden; float:left;}
+.roundtop span.rt_c{height:5px; border-top:#009700 1px solid; background-color:#fff}
+.roundtop span.rt_r,.roundtop span.rt_l{display:block; width:4px; height:6px;}
+.roundtop span.rt_r{ float:right;background-position:-215px -300px; }
+.roundtop span.rt_l{ float:left;background-position:-210px -300px;}
+
+.main_procedure { margin:-4px auto -6px; z-index:100; border-bottom:#dbe7ce 1px solid}
+.main_procedure .roundtop{ width:900px}
+.main_procedure .roundtop span.rt_c{ width:892px}
+.main_procedure .pdbox{ height:38px; padding:0 13px 6px 0; background-position:left -329px; background-repeat:repeat-x; overflow:hidden}
+.main_procedure .pdbox ul{ float:left; padding-left:6px}
+.main_procedure .pdbox li,.main_procedure .pdbox li div{ float:left; overflow:hidden; font-size:14px; color:#fff}
+.main_procedure .pdbox li{ background-position:right -251px; padding-right:25px; margin-right:-25px; position:relative;}
+.main_procedure .pdbox li div{background-position:left -251px; padding-right:25px;height:23px; padding:7px 35px 8px 55px}
+.main_procedure .pdbox2 li div{padding:7px 25px 8px 45px}
+.main_procedure .pdbox li.lione div{ padding-left:35px}
+.main_procedure .pdbox li span{background-position:-315px -104px; width:22px; height:21px; display:inline-block; text-align:center; color:#390; line-height:22px; margin-right:6px;font-weight:bold; font-family:arial; font-size:16px }
+.main_procedure .pdbox li.now{ background-position:right -289px;  font-weight:bold;}
+.main_procedure .pdbox li.now div{background-position:left -289px; }
+.main_procedure .pdbox li.now span{background-position:-346px -104px; color:#C00; }
+.main_procedure .btnmore{ float:right; margin-top:9px}
+
+.listtitle{ height:26px; border-bottom:#f1f1f1 2px solid; margin-bottom:25px}
+.listtitle h3{ font-size:14px; float:left; color:#390}
+
+.stitle{ background:url(../images/ddfv.png); width:314px; height:62px; overflow:hidden}
+.you_fun{ width:252px; overflow:hidden; padding:24px 30px;}
+.you_fun li{ width:252px; overflow:hidden; text-align:center;background-position:left -384px; padding:5px 0; height:24px; margin-bottom:8px}
+.you_fun li span{ color:#99cc99; font-family:verdana; font-size:14px; font-style:italic}
+
+.mod{ overflow:hidden; margin-bottom:15px;}
+.mod_title{ height:23px; padding:12px 14px 4px; overflow:hidden; border-bottom:#e8e8e8 1px solid;line-height:17px; background-position:left -329px;}
+.mod_title .title{ float:left; height:15px; padding-left:18px; overflow:hidden; background:url(../images/jdc.gif) no-repeat left 6px}
+.mod_title .title,.mod_title .title a{font-weight:bold; font-size:14px; color:#333}
+.mod_title .title a:hover{color:#690}
+.mod_title .more{ float:left; display:block; color:#bbb;height:15px;}
+.mod_title .more{ float:right;}
+.mod_title .more a{color:#999}
+.mod_content{ padding:12px 18px; overflow:hidden}
+
+.mod .writerlist{ padding-bottom:0px; width:255px;}
+.writerlist li{width:230px; display:block; float:left; overflow:hidden; padding:12px 0 12px 2px; height:50px; border-bottom:#e0e6e0 1px dotted;}
+.writerlist li,.writerlist li .clubhead,.writerlist li p,.writerlist li small{ display:block;overflow:hidden;}
+.writerlist li .clubhead{float:left; width:50px; height:50px; line-height:50px; }
+.writerlist li p,.writerlist li small{ float:right; height:23px;font-size:12px;width:168px; line-height:23px; font-family:tahoma;}
+.writerlist li p{ padding-top:3px}
+.writerlist li p a{ color:#090; font-weight:bold}
+.writerlist li small,.writerlist li small a{ color:#666; }
+
+.mod .writerft{ padding:20px 38px 0px;}
+.mod .writerft p{ clear:both; line-height:19px; color:#666; padding-top:8px}
+
+.myinfolist dl dt,.myinfolist dl dd{height:25px;}
+.myinfolist dl dt{ line-height:25px;}
+
+.myinfolist .w_name{ font-size:14px; color:#f60; font-weight:bold}
+
+.footer{ border-top:#ededed 1px solid; padding:6px 0 20px;}
+.footer .sitenav{ color:#ddd;}
+.footer .sitenav a{ color:#666}
+.footer .sitenav a:hover{ color:#390}
+.footer .copyright{ color:#999; font-family:arial}
+
+
+.popupwindow_bg {position: absolute;width: 100%;height: 100%;background:#000;top: 0;left: 0;opacity:0.6;-moz-opacity:0.6;-khtml-opacity: 0.6;filter:alpha(opacity=60); z-index:9999}
+.poppu_window{ position:absolute; z-index:10000;}
+.poppu_window .tl,.poppu_window .cl,.poppu_window .dl,.poppu_window .tc,.poppu_window .dc,.poppu_window .tr,.poppu_window .cr,.poppu_window .dr{ float:left; background:url(../images/pop.png) no-repeat; overflow:hidden}
+.poppu_window .cc{ float:left; overflow:hidden; background:#fff}
+.poppu_window .tl,.poppu_window .cl,.poppu_window .dl,.poppu_window .tr,.poppu_window .cr,.poppu_window .dr{width:10px}
+.poppu_window .tr{ height:10px;}
+.poppu_window .dl,.poppu_window .dc,.poppu_window .dr{ height:10px;}
+.poppu_window .tl{ background-position:left -62px; }
+.poppu_window .tc{ background-position:left 0px; background-repeat:repeat-x}
+.poppu_window .tr{ background-position:-10px -62px;}
+.poppu_window .cl{background-position:-60px -62px;}
+.poppu_window .cr{background-position:-50px -62px;}
+.poppu_window .dl{background-position:left -130px;}
+.poppu_window .dc{background-position:left -52px;background-repeat:repeat-x}
+.poppu_window .dr{background-position:-10px -130px;}
+
+.poppu_window .popup_close{width:50px; height:50px; cursor:pointer;background-position:left -140px;}
+.poppu_window .popup_close:hover,.poppu_window .popup_close.over{background-position:left -190px;}
+
+.poppu_window .dl,.poppu_window .dc,.poppu_window .dr{height:10px;}
+.poppu_window .poppu_tab { padding-top:11px; height:39px; padding-left:1px}
+.poppu_window .poppu_tab li,.poppu_window .poppu_tab li a{ display:block; float:left; font-size:14px;font-weight:bold;color:#333;overflow:hidden;cursor:pointer; background:url(../images/tab.png) no-repeat}
+.poppu_window .poppu_tab li{height:38px; margin-right:3px; background-position:left -40px; padding-left:5px;}
+.poppu_window .poppu_tab li a{padding:9px 28px 6px 28px; height:23px; line-height:23px; background-position:right -40px;}
+.poppu_window .poppu_tab li a:hover{ text-decoration:none}
+.poppu_window .poppu_tab li.over,.poppu_window .poppu_tab li:hover{background-position:left -80px;}/*IE6图片定位 奇偶问题*/
+.poppu_window .poppu_tab li.over a,.poppu_window .poppu_tab li:hover a{background-position:right -80px; color:#390}
+.poppu_window .poppu_tab li.now{background-position:left 0px;height:39px;}
+.poppu_window .poppu_tab li.now a,.poppu_window .poppu_tab li.now a:hover{ color:#fff; text-decoration:none; cursor:default; background-position:right 0px;}
+
+.poppu_window .tipbox{ padding:20px; text-align:center}
+.poppu_window .tipbox h3{ font-size:16px; color:#f60; line-height:23px; margin-bottom:6px;background:url(../images/loading.gif) no-repeat left top; padding:2px 0; padding-left:28px; display:inline }
+.poppu_window .tipbox p{ color:#666; font-family:tahoma}
+.poppu_window .tipbox p a{ color:#009900;}
+.poppu_content{ overflow:hidden; display:block; width:600px}
+
+.wrapper_myhome .wl,.wrapper_myhome .wr{ margin-top:110px}
+.wrapper_myhome .main{ width:554px; padding-bottom:50px;position:relative}
+.wrapper_myhome .sidebar{ width:345px; background:url(../images/sidebarbg.gif) repeat-x left 6px}
+.wrapper_myhome .main .roundtop{ z-index:50; }
+.wrapper_myhome .main .roundtop span.rt_c{ width:550px}
+.wrapper_myhome .sidebar .roundtop span.rt_c{ width:341px}
+.wrapper_myhome .sidebar .mod_title{ padding-top:8px}
+.wrapper_myhome .miancontainer{ background:#fff; padding:38px 20px}
+.wrapper_myhome .mainti{ height:38px; overflow:hidden; z-index:100; position:absolute; padding-left:8px; top:0px; left:0; width:532px}
+.wrapper_myhome .mainti h2{ background:url(../images/formbar.png) no-repeat -266px -381px; overflow:hidden; padding:8px 0 7px; font-size:14px; font-weight:bold; color:#fff; width:184px; text-align:center; float:left}
+
+.wrapper_myhome .aw{ float:right; padding:13px 18px 2px 0; background:url(../images/jjt.png) no-repeat right 19px; font-size:14px; font-weight:bold}
+.wrapper_myhome .aw a{ color:#f60; text-decoration:underline}
+.wrapper_myhome .aw a:hover{ text-decoration:none}
+
+.wrapper_myhome .userinfobox { width:494px; overflow:hidden; padding:20px 0 20px 20px}
+.wrapper_myhome .userinfobox .myhand{ float:left; width:70px; overflow:hidden}
+.wrapper_myhome .userinfobox .myhand p{ color:#888; overflow:hidden; text-align:center}
+.wrapper_myhome .userinfobox .myhand p a{ color:#888}
+.wrapper_myhome .userinfobox .myhand .pic{ width:60px; height:60px; background:url(../images/formbar.png) no-repeat -266px -176px; padding:5px; margin-bottom:4px}
+.wrapper_myhome .userinfobox .my_info{ font-size:14px; font-family:tahoma; color:#666; margin-bottom:10px}
+.wrapper_myhome .userinfobox .my_info p{ height:23px; margin-bottom:8px; overflow:hidden}
+.wrapper_myhome .userinfobox .my_info p.dj span{ float:left; margin-right:12px}
+.wrapper_myhome .userinfobox .my_info p.dj b{ color:#f60; font-weight:bold}
+.wrapper_myhome .userinfobox .my_info p.dj .pi{ font-size:12px; color:#999}
+#percent_bar{ position:relative; margin-top:8px}
+#percent_bar,#percent_bar span{height:7px; line-height:7px; font-size:7px; overflow:hidden; width:100px}
+#percent_bar span{ position:absolute; top:0; left:0}
+#percent_bar .bobar{ background:url(../images/formbar.png) no-repeat -308px -136px; z-index:100}
+#percent_bar .colorbar{ background:#ebf5e6; z-index:50}
+.wrapper_myhome .userinfobox .closebtn,.wrapper_myhome .userinfobox .my_info{width:405px; float:right; overflow:hidden}
+.wrapper_myhome .userinfobox .closebtn a{ display:block; background:url(../images/closebtn.png) no-repeat left top; width:60px; height:23px; overflow:hidden; color:#999; padding-left:28px; font-size:12px; float:right}
+.wrapper_myhome .userinfobox .closebtn a:hover{ background-position:left -23px; text-decoration:none; color:#666}
+
+.wrapper_myhome .fasterbtn{width:514px; overflow:hidden}
+.wrapper_myhome .fasterbtn .ti{ background:url(../images/jbg.png) no-repeat left bottom; padding:0 0 10px 28px; font-size:14px; color:#000; font-weight:bold; height:23px;}
+.wrapper_myhome .fasterbtn dl{width:499px; overflow:hidden; padding:20px 0 0 15px}
+.wrapper_myhome .fasterbtn dl dt,.wrapper_myhome .fasterbtn dl dd{ float:left; overflow:hidden; margin-bottom:12px}
+.wrapper_myhome .fasterbtn dl dt{ width:68px; background:#f0f6e9; text-align:center; color:#888; margin-right:14px}
+.wrapper_myhome .fasterbtn dl dd{ width:416px; font-size:14px}
+.wrapper_myhome .fasterbtn dl dd a{  background: url(../images/formbar.png) no-repeat -494px -219px; padding-left:12px;}
+
+
+.pictext { WIDTH: 309px; padding-top:24px}
+.pictext IMG {DISPLAY: block; BACKGROUND: #fff; FLOAT: left; WIDTH: 80px; HEIGHT: 112px; border:#e8e8e8 1px solid; padding:3px}
+.pictext .text {FLOAT: right;}
+.pictext .text,.pictext .text STRONG,.pictext .text p{WIDTH: 209px;OVERFLOW: hidden;}
+.pictext .text STRONG {DISPLAY: block; FLOAT: left; font-size:14px;HEIGHT: 23px; margin-bottom:6px}
+.pictext .text P {DISPLAY: block; FLOAT: left;  }
+.pictext .text STRONG a {COLOR: #390}
+.pictext .text P {COLOR: #888; LINE-HEIGHT: 22px; margin-bottom:3px}
+.pictext .text P A {COLOR: #666}
+.pictext .text P A:hover {COLOR: #390}
+.pictext .text P.readnum{ padding-top:5px; font-family:tahoma}
+.pictext .text P.readnum a{ font-weight:bold; color:#f60; font-size:14px}
+
+.txtli{WIDTH: 319px; overflow:hidden; padding:8px 10px 10px 16px}
+.txtli li{ width:154px; overflow:hidden; float:left; height:26px; margin-bottom:6px; margin-right:5px}
+.txtli li a{ display:block; float:left; padding-left:10px; width:144px; line-height:26px; height:26px; background:url(../images/li_a.png) no-repeat left top}
+.txtli li a:hover{ background-position:left -26px; text-decoration:none}
+
+.txtlist{WIDTH: 319px; overflow:hidden; padding:2px 10px 10px 0}
+.txtlist li{ width:307px; overflow:hidden; float:left; height:23px; margin-bottom:2px; background:url(../images/lil.gif) no-repeat left 9px; padding-left:12px}
+
+
+/*hack by LuoChong*/
+.input_descript{color: #999!important; font-size: 13px!important; text-align: center}
+.topbar{width: auto; padding-left:10px; padding-right:10px}
+#userzone{margin-right:30px}
+.registerlist dl dt.no_star{background:none;}
+.hide{display:none}
+.lostpwd{padding-left: 10px}
+.lostpwd .code_input { width: 60px;}
+
+#other_login{margin: 0 15px 20px 15px; padding: 5px; font-size: 12px; line-height: 23px; border: 1px solid #ddd; background: #efefef}
+#other_login img{margin-right: 2px; vertical-align: text-top; border: none}
+#other_login a{text-decoration: none; color: #333; margin-right: 8px}

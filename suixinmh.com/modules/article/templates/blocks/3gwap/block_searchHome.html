@@ -1,0 +1,14 @@
+{?section name=i loop=$articlerows?}
+<li>
+ <a href="{?$articlerows[i].url_module_articleinfo?}" class="center-block">
+  <dl class="book-img clearfix">
+    <dt class="thumb-img"><img src="{?$articlerows[i].url_image?}"></dt>
+    <dd><h4><em class="f-red">{?$i.order?}.</em>{?$articlerows[i].articlename?}</h4></dd>
+    <dd class="sort2">{?$articlerows[i].shortcaption?} | {?$articlerows[i].author?}</dd>
+    <dd class="txt2">
+      <span {?if $articlerows[i].fullflag== 0?}class="f-green"{?else?}class="f-blue2"{?/if?}>{?$articlerows[i].fullflag_tag?}:</span>{?$articlerows[i].lastchapter?}
+    </dd>
+  </dl>
+ </a>
+</li>
+{?/section?}

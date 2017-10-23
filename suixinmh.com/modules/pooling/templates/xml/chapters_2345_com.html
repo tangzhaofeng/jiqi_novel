@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<novel>
+    {?eval $volume = $chapter = 0;?}
+	{?section name=i loop=$chapters?}{?eval $chapter = $volume = 0;?}
+	{?if $chapters[i]['chaptertype']==0 && $i.order==1?}{?eval $volume++;?}{?eval $chapter++;?}
+	<volume name="正文">	
+	             <chapter>			
+					<chapter_id>{?$chapters[i]['chapterid']?}</chapter_id>			
+					<isvip>{?if $chapters[i]['isvip'] == 0?}0{?else?}1{?/if?}</isvip>			
+					<chapter_date>{?$chapters[i]['lastupdate']?}</chapter_date>			
+					<chapter_title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chapter_title>	
+					<chapter_url><![CDATA[{?eval echo geturl('article', 'reader', 'aid='.$article['articleid'],'cid='.$chapters[i]['chapterid']);?}]]></chapter_url>
+					<words>{?eval echo ceil($chapters[i]['size']/2);?}</words>	
+					<price>{?$chapters[i]['saleprice']?}</price>	
+				</chapter>
+	{?elseif $chapters[i]['chaptertype']==1?}{?eval $volume++;?}
+	<volume name="{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}">	
+	{?eval $chapter = 0;?}
+	{?else?}{?eval $chapter++;?}
+				<chapter>			
+					<chapter_id>{?$chapters[i]['chapterid']?}</chapter_id>				
+					<isvip>{?if $chapters[i]['isvip'] == 0?}0{?else?}1{?/if?}</isvip>			
+					<chapter_date>{?$chapters[i]['lastupdate']?}</chapter_date>			
+					<chapter_title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chapter_title>	
+					<chapter_url><![CDATA[{?eval echo geturl('article', 'reader', 'aid='.$article['articleid'],'cid='.$chapters[i]['chapterid']);?}]]></chapter_url>
+					<words>{?eval echo ceil($chapters[i]['size']/2);?}</words>	
+					<price>{?$chapters[i]['saleprice']?}</price>	
+				</chapter>
+				 {?/if?}
+				{?if $chapters[$i.order]['chaptertype'] == "1" || $chapters[$i.order]['chaptername'] == ""?}</volume> {?/if?}
+		{?/section?}
+	
+</novel>

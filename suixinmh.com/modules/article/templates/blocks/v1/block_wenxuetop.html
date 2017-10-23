@@ -1,0 +1,18 @@
+  <dl class="list_t4d f_black">
+  {?section name=i loop=$articlerows?}
+    {?if $i.order==1?}
+	<dt>
+	 <div class="first">{?$i.order?}</div>
+	 <a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="img"><img src="{?$articlerows[i]['url_image']?}" width="84" height="112" /></a>
+	 <div class="intro">
+	  <span class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" title="{?$articlerows[i]['articlename']?}" class="f_blue3">{?$articlerows[i]['articlename']?}</a></span>
+	  <span class="author">作者：<em>{?$articlerows[i]['author']?}</em></span>
+	  <p class="txt" title="{?$articlerows[i]['intro']?}">{?$articlerows[i]['intro']?}</p>
+	 </div>
+	</dt>
+	{?else?}
+	<dd><span class="numb">{?$i.order?}</span><p><span class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']|truncate:18?}</a></span><span class="click">{?if $articlerows[i]['visitnum'] < 10000 ?}{?$articlerows[i]['visitnum']?}{?else?}{?$articlerows[i]['visitnum_w']?}万{?/if?}</span></p></dd>
+	{?/if?}
+	{?/section?}
+  </dl>
+ <div class="renew f_blue"><span class="date">更新时间:{?eval echo date('Y-m-d H:i:s',time());?}</span><a href="{? eval echo preg_replace('/w{1,3}\./','wen.',$url_more) ;?}">更多&gt;&gt;</a></div>  

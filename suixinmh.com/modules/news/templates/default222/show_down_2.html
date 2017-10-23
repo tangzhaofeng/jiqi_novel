@@ -1,0 +1,441 @@
+{?eval $version=$_PAGE['data']['version'];?}{?eval $meta_title = $_PAGE['data']['title'];?}{?set $jieqi_pagetitle = "$meta_title$version下载_$meta_title$version单机游戏下载_$meta_title$version免费下载-赶游单机游戏网"?}
+{?set $jieqi_keywords = "$meta_title$version,$meta_title$version下载,$meta_title$version单机游戏下载,$meta_title$version下载,$meta_title$version免费下载"?}{?set $jieqi_description = "赶游网提供$meta_title$version下载服务,其中包括$meta_title$version下载功能,我们承诺$meta_title$version单机游戏将永久免费!"?}
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/xiazai.css" rel="stylesheet" type="text/css" />
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script language="javascript">
+<!--
+var articleid = '{?$_PAGE['data']['contentid']?}';
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+//-->
+</script> 
+<div class="contain">
+<Div class="xz_left">
+<div class="xzbt01">您当前位置：<a title=单机游戏 href="http://danji.ganyou.com/" target="_blank">单机游戏首页</a> > <a "title={?$_PAGE['data']['catname']?}" href="{?$_PAGE['data']['url_catelist']?}" target="_blank">{?$_PAGE['data']['catname']?}</a> > <a title={?$_PAGE['data']['title']?}下载 href="/" target="_blank">{?$_PAGE['data']['title']?}下载</a></div>
+<div class="xznr01">
+<!--游戏介绍 start-->
+<div class="xznr01_a">
+<div class="xznr01_a_left"><img src="{?if $_PAGE['data']['thumb']!=''?}{?$_PAGE['data']['thumb']?}{?else?}{?$_SGLOBAL['localurl']?}/modules/news/templates/default/images/fm01.jpg{?/if?}" alt="{?$_PAGE['data']['title']?}的用户评论"  border="0" class="fmian" />
+<ul class="xz_pul">
+<li>
+<span class="yx_aniu02"><a href="#pinlun"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/a02_1.jpg" align="absmiddle" />用户评论</a></span> 
+<span class="yx_aniu02"><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/a02_2.jpg" align="absmiddle" />检举报错</a></span> 
+</li>
+<li><input type="button" class="ljxz_searchbtn02" onclick="javascript:location.href='#downlods';" />
+</li>
+</ul>
+</div>
+<div class="xznr01_a_right">
+<table border="0" cellspacing="0" cellpadding="0" class="xztable">
+<table border="0" cellspacing="0" cellpadding="0" class="xztable">
+  <tr>
+    <td colspan="2" class="a"><a target="_blank" class="xfont02">{?$_PAGE['data']['title']?}{?$_PAGE['data']['version']?}</a>  <span class="xfont03">更新日期：{?$_PAGE['data']['_updatetime']?}</span></td>
+    </tr>
+  <tr class="b">
+    <td><span class="xfont_bold">游戏大小：</span>{?$_PAGE['data']['filesize']?} </td>
+    <td><span class="xfont_bold">游戏类别：</span><a href="{?$_PAGE['data']['url_catelist']?}" target="_blank" class="xfont05">{?$_PAGE['data']['catname']?}</a></td>
+  </tr>
+  <tr class="b">
+    <td><span class="xfont_bold">游戏语言：</span>{?$_PAGE['data']['language']?}</td>
+	<td><span class="xfont_bold">游戏性质</span>：{?$_PAGE['data']['copytype']?}</td>
+    <!--<td><span class="xfont_bold">开 发 商：</span>capcom</td>-->
+  </tr>
+  <tr class="b">
+    <td><span class="xfont_bold">应用平台</span>：{?$_PAGE['data']['systems']?}</td>
+    <td><span class="xfont_bold">评分等级：</span>{?$_PAGE['data']['stars']?}</td>
+  </tr>
+  <tr class="b">
+    <td><span class="xfont_bold">更新时间：</span>2010-06-01</td>
+    <td><span class="xfont_bold">累计下载：</span><span id="hitss">0</span> </td>
+  </tr>
+<!--  <tr class="b">
+    <td><span class="xfont_bold">应用平台</span>：{?$_PAGE['data']['systems']?}</td>
+    <td><span class="xfont_bold">交流分享：</span><a href="#" target="_blank" class="xfont05">点击进入</a> </td>
+  </tr>-->
+  <tr class="b">
+    <td colspan="2"><span class="xfont_bold">累积下载：</span>总：<span class="xfont04" id="hits">0</span>次&nbsp; 月：<span class="xfont04" id="hits_month">0</span>次&nbsp; 周：<span class="xfont04" id="hits_week">0</span>次  &nbsp; 日：<span class="xfont04" id="hits_day">0</span>次</td>
+    </tr>
+</table>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/gradevote.js"></script>
+{?eval $contentid = $_PAGE['data']['contentid'];?}
+<script type="text/javascript" id="callmood_js" src='{?$_SGLOBAL['news']['url']?}/?ac=blockshow&bid=102&module=news&filename=block_mood&classname=BlockNewsMood&vars=3,{?$contentid?}&template=block_gradevote.html&contenttype=4&custom=0&publish=3&hasvars=1'></script><div class="xz_p02" style="padding-top:5px;">
+<div class="xz_p02_left" onclick="javascript:GData.digg('digg',1);" style="cursor:pointer;">
+<ul>
+<li class="f01">还不错（<span class="xfont09" id="supports">0</span>）人</li>
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/zh03.jpg" align="absmiddle"  width=1 height=8 id="supports_b"/> <span id="supports_bb">0</span>%</li>
+</ul>
+</div>
+<div class="xz_p02_right" onclick="javascript:GData.digg('digg',0);" style="cursor:pointer;">
+<ul>
+<li class="f01">不满意（<span class="xfont09" id="againsts">0</span>）人</li>
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/zh03.jpg" align="absmiddle" width=1 height=8 id="againsts_b"/> <span id="againsts_bb">0</span>%</li>
+</ul>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<!--游戏介绍 start-->
+<Div class="xzyx1_xzbt04"><span class="xfont01">相关介绍</span></Div>
+<div class="xznr01_b">
+<ul class="xz_ul">
+<li>{?$_PAGE['data']['__content']?}</li>
+<li><div style="padding-top:10px; text-align:center;" class="pages">{?$_PAGE['url_jumppage']?}</div></li>
+</ul>
+</div>
+
+
+
+
+
+<div class="xzyx1_xzbt04">
+<span class="xfont_right">使用答疑本软件文件较大,<span class="xfont06">建议使用迅雷下载</span>,以便更快的下载</span>
+<span class="xfont01">下载地址</span>&nbsp;&nbsp;&nbsp; 
+<a href="#" target="_blank" class="xfont06">使用答疑</a><a name="downlods" id="downlods"></a>
+</div>
+<div class="xznr01_b">
+<div class="xzxz_left">
+<div class="xzbt07"><a href="#" target="_blank" class="xfont08 xfont_right2">下载帮助</a><span class="xfont07">『 {?$_PAGE['data']['title']?}下载 』</span></div>
+<ul class="xzxz_ul">
+{?section name=i loop=$_PAGE['data']['downurls']?}
+<li><a href="{?$_PAGE['data']['downurls'][i]['url']?}" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/xz02.jpg" align="absmiddle" />{?$_PAGE['data']['downurls'][i]['description']?}</a></li>
+{?/section?}
+</ul>
+<div class="clear"></div>
+</div>
+<div class="xzxz_right">
+<div class="xznr03a">
+<Div class="xzbt05"><a href="#" target="_blank" class="xfont_right2">更多>></a><span class="xfont07">热门视频</span></Div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="xzsp_table">
+  <tr>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+    <td><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/yxtp.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">新绝代双骄OL</a></td>
+    <td><a href="#" target="_blank">新绝代双骄OL</a></td>
+  </tr>
+</table>
+<ul class="xzsp_ul1">
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a> </li>
+<li><span class="xfont_right2 xfont03"> 2010-05-12</span>·  <a href="#" target="_blank">《QQ炫舞》星随舞动标准版客户</a></li>
+</ul>
+</div>
+
+</div>
+<div class="clear"></div>
+
+</div>
+</div>
+<!--站长推荐 start-->
+<div class="zztj02">
+  <div class="zztj01_ne">
+    <div class="zztj01_left">
+      <ul class="zztj01_left_nr">
+        <li><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></li>
+        <li><a href="#" target="_blank">游客玩游戏</a></li>
+      </ul>
+      <ul class="zztj01_left_nr">
+        <li><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></li>
+        <li><a href="#" target="_blank">游客玩游戏</a></li>
+      </ul>
+      <ul class="zztj01_left_nr">
+        <li><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></li>
+        <li><a href="#" target="_blank">游客玩游戏</a></li>
+      </ul>
+      <ul class="zztj01_left_nr">
+        <li><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/1.jpg" border="0" /></a></li>
+        <li><a href="#" target="_blank">游客玩游戏</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+    <div class="zztj01_left2">
+      <ul >
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+        <li>· <a href="#" target="_blank">重温那份经典的恐怖系列游戏回顾</a></li>
+      </ul>
+    </div>
+    <div class="zztj01_right"> <img src="{?$_SGLOBAL['TPL_DIR']?}/images/tj01_a2.jpg" width="160" height="66" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+        <input name="button2" type="button" class="zztj01_searchbtn02" value="美女八卦" />
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--站长推荐 end-->
+<!--评论 start-->
+<div class="xznr04">
+<Div class="xzbt04 ">
+<a title=更多关于{?$_PAGE['data']['title']?}的评论 href="{?function jieqi_geturl:'news':'comment':$_PAGE['data']['contentid']?}" class="xfont_right">更多>></a>
+<span class="xfont01">评论区</span><a name="pinlun" id="xiazhi"></a></Div>
+<span id=comment>评论加载中……</span>
+</div>
+<!--评论框 end-->
+<div class="xznr05">
+<Div class="xzbt04 ">
+<span class="xfont_right">提示：赶游网下载站是当前最流行游戏下载中心，所有游戏都经过杀毒软件严格检测,<span class="xfont06">请大家放心下载安装</span></span>
+<span class="xfont01">网友评论</span></Div>
+<ul class="xzpl_ul3">
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt03.gif" align="absmiddle" />如果出现该页无法显示,请多试几次;如果总是不能下载,请点击“检举报错”联系管理员,谢谢!</li>
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt03.gif" align="absmiddle" />由于网站服务器承受能力有限,请其他网站不要盗链我们提供的软件。本公司保留对侵犯我公司知识产权的任何单位及个人采取任何行政和法律途径的维权行动的权利。</li> 
+<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt03.gif" align="absmiddle" />52PK提供的游戏及软件下载资源来源互联网，并由网友上传分享，52PK不承担任何法律责任。如有侵权，请来电来函告之。</li> 
+</ul>
+</div>
+
+</Div>
+<div class="xz_right">
+<!--游戏导航 start-->
+<div class="xzbt02">游戏导航</div>
+<div class="xznr02">
+<ul>
+<li> <img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt02.jpg" align="absmiddle" /> <span class="xfont01">栏目导航:</span></li>
+<li>
+<a href="http://danji.ganyou.com/rpg/" target="_blank">角色扮演</a> | 
+<a href="http://danji.ganyou.com/act/" target="_blank">动作类</a> | 
+<a href="http://danji.ganyou.com/avg/" target="_blank">冒险类</a> | 
+<a href="http://danji.ganyou.com/edu/" target="_blank">养成类</a> | 
+<a href="http://danji.ganyou.com/stg/" target="_blank">格斗类</a> | 
+<a href="http://danji.ganyou.com/ftg/" target="_blank">FPS 射击</a> | 
+<a href="http://danji.ganyou.com/rts/" target="_blank">即时战略</a>
+</li>
+</ul>
+</div>
+<!--游戏导航 end-->
+<div class="xznr03">
+<div class="xzyx1_01">
+	<ul id="menu1">
+	<li class="hover" onMouseOver="setTab(1,0)"><a href="#">单机</a></li>
+	<li onMouseOver="setTab(1,1)"><a href="#">网游</a></li>
+	<li onMouseOver="setTab(1,2)"><a href="#">网页</a></li>
+	<li onMouseOver="setTab(1,3)"><a href="#">电玩</a></li>
+	</ul>
+  </div>
+
+<div class="main_lt">
+	<div  id="main1">
+	<ul class="block">
+	{?eval $catid = $_PAGE['data']['catid'];?}
+	{?block bid="100" module="news" filename="block_newslist" classname="BlockNewsNewslist" side="1" title="下载排行榜" vars="hits,10,65|66|67|68|69|70|71|72|73|74|75|76" template="block_newslist.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+<div class="xznr03">
+<div class="xzyx1_02"><ul id="menu2">
+	<li class="hover" onMouseOver="setTab(2,0)"><a href="#">单机</a></li>
+	<li onMouseOver="setTab(2,1)"><a href="#">网游</a></li>
+	<li onMouseOver="setTab(2,2)"><a href="#">网页</a></li>
+	<li onMouseOver="setTab(2,3)"><a href="#">电玩</a></li>
+	</ul></div>
+<div class="main_lt">
+	<div class="main" id="main2">
+	<ul class="block">
+	{?block bid="100" module="news" filename="block_newslist" classname="BlockNewsNewslist" side="1" title="游戏资讯排行榜" vars="hits,10,12" template="block_newslist.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+<div class="xznr03">
+<div class="xzyx1_03">
+	<ul id="menu3">
+	<li class="hover" onMouseOver="setTab(3,0)"><a href="#">单机</a></li>
+	<li onMouseOver="setTab(3,1)"><a href="#">网游</a></li>
+	<li onMouseOver="setTab(3,2)"><a href="#">网页</a></li>
+	<li onMouseOver="setTab(3,3)"><a href="#">电玩</a></li>
+	</ul></div>
+<div class="main_lt">
+	<div  id="main3">
+	<ul class="block">
+	{?block bid="100" module="news" filename="block_newslist" classname="BlockNewsNewslist" side="1" title="最新更新游戏" vars="inputtime,10,65|66|67|68|69|70|71|72|73|74|75|76" template="block_newslist.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	<ul style="display:none">
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_j.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li> 
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_y.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><img src="{?$_SGLOBAL['TPL_DIR']?}/images/pm_t.jpg" align="absmiddle" /><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">04</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">05</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">06</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">07</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">08</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">09</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li><span class="lt_pm">10</span><a href="#" target="_blank">《跑跑卡丁车》P767版客户端下</a></li>
+	<li class="x01"><a href="#" target="_blank">更多>></a></li>
+	</ul>
+	</div>
+</div>
+</div>
+
+<div class="xznr03">
+<div class="xzbt08"><a href="#" target="_blank" class="xfont_right">更多>></a><img src="{?$_SGLOBAL['TPL_DIR']?}/images/jt01.jpg" align="absmiddle" /> <span class="xfont01">图游天下</span></div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="xztp_table">
+  <tr>
+    <td><a href="http://news.ganyou.com/2800.html" target="_blank"><img src="http://attachment.ganyou.com/attachment/image/2010/11/26/034534862.jpg" border="0" /></a></td>
+    <td><a href="http://news.ganyou.com/2790.html" target="_blank"><img src="http://attachment.ganyou.com/attachment/image/2010/11/25/050738307.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="http://news.ganyou.com/2800.html" target="_blank">仙剑五女一号公布</a></td>
+    <td><a href="http://news.ganyou.com/2790.html" target="_blank">娇媚稚嫩赛车娘COS</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://news.ganyou.com/2746.html" target="_blank"><img src="http://attachment.ganyou.com/attachment/image/2010/11/24/023933971.jpg" border="0" /></a></td>
+    <td><a href="http://news.ganyou.com/2722.html" target="_blank"><img src="http://attachment.ganyou.com/attachment/image/2010/11/23/043602538.jpg" border="0" /></a></td>
+  </tr>
+  <tr>
+    <td><a href="http://news.ganyou.com/2746.html" target="_blank">海贼团魔女大作战</a></td>
+    <td><a href="http://news.ganyou.com/2722.html" target="_blank">《QQ炫舞》星随舞动</a></td>
+  </tr>
+</table>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="bottom" style="width:960px;">
+<a href="" class=sinatail>关于赶游</a> | 
+<a href="" class=sinatail>赶游招聘</a> | 
+<a href="" class=sinatail>联系赶游</a> | 
+<a href="" class=sinatail>友情链接</a> | 
+<a href="" class=sinatail>加入收藏</a> | 
+<a href="" class=sinatail>网站帮助</a> | 
+<a href="" class=sinatail>意见留言</a> | 
+<a href="" class=sinatail>网站地图</a><br/>
+Copyright (C) 2002-2010 赶游网 All Rights Reserved | 蜀ICP备05000570号 电信增值业务许可证：川BZ-20070003<br/>
+赶游网提供最新网络游戏资讯，提供包含网络游戏、单机游戏、电视游戏、小游戏在内的所有游戏服务，倡导健康游戏生活，打造一站式游戏网站。<br/>
+好游戏，好心情，赶快来游戏吧！赶游网为您提供游戏娱乐每一秒！<a href="/"  title=游戏网站 target="_blank">站长统计</a><br/>
+  </div>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+	GData.pageLoad();
+	GData.digg('show', null);
+});
+//-->
+</script> 
+

@@ -1,0 +1,62 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_news.html"?}{?eval $title = $_PAGE['data']['title'];?}{?eval $author = $_PAGE['data']['author'];?}{?set $jieqi_pagetitle = " $title - $jieqi_sitename新闻"?}{?eval $contentid = $_PAGE['data']['contentid'];?}{?eval $catid = $_PAGE['data']['catid'];?}{?eval $keywords = $_PAGE['data']['keywords'];?}{?set $meta_keywords = "$keywords"?}{?set $meta_description = "$title资讯阅读"?}
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script language="javascript">
+<!--
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+var articleid = '{?$_PAGE['data']['contentid']?}';
+//-->
+</script>
+	<div id="guanggao"><a href="http://www.2100book.com/" target="_blank"><img src="http://www.2100book.com/gg/02.jpg" width="980" /></a></div>
+	<div id="guanggao"> 您所在的位置：<a href="{?$_SGLOBAL['localurl']?}/">赶游首页</a> > <a href="{?function jieqi_geturl:'news':'lists':77:1?}">新闻中心</a> > <a href="{?$_PAGE['data']['url_catelist']?}">{?$_SGLOBAL['cate']['catname']?}</a> > <span class="cRed">正文</span></div>
+	<div class="clear"></div>
+	<div id="view_all">
+	   <div id="view_left_all">
+	      <div id="view_left">
+		  <div class="t_bt1" id="list_left_1"></div>
+	      <div id="view_left_a">
+		     <div class="view_1">{?$_PAGE['data']['title']?}</div>
+			 <div id="date">{?$_PAGE['data']['_inputtime']?} &nbsp;&nbsp;&nbsp;作者：{?$author?}&nbsp;&nbsp;&nbsp;来源：{?$_PAGE['data']['copyfrom']|defaultval:'赶游网'?}&nbsp;&nbsp;&nbsp;浏览数：<span class="xfont04" id="hits">0</span>&nbsp;&nbsp;&nbsp;<a href="{?function jieqi_geturl:'news':'comment':$contentid?}" target="_blank">我要评论(<span class="xfont04" id="comments_checked">0</span>)</a></div>
+			 <div id="date2">
+			   {?$_PAGE['data']['__content']?}
+			  <div class="yema" style="padding-top:10px;text-align:center">
+ {?$_PAGE['url_jumppage']?}
+ </div>
+ <Div class="h4"> 
+<p class="a3">查看<span class="xfont04">《{?$_PAGE['data']['title']?}》</span>的相关新闻</p> 
+<ul>
+{?block bid="101" module="news" filename="block_relatednews" classname="BlockNewsRelatednews" side="1" title="相关新闻" vars="$keywords,$catid,10" template="block_relatednews.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+<div class="clear"></div>
+</ul>
+</Div>
+<div id="moodrank_div">
+	<script type="text/javascript" id="callmood_js" src='{?$_SGLOBAL['news']['url']?}/?ac=blockshow&bid=102&module=news&filename=block_mood&classname=BlockNewsMood&vars=1,{?$contentid?}&template=block_mood.html&contenttype=4&custom=0&publish=3&hasvars=1'></script>
+</div>
+	   </Div>
+	  
+		  </div>  
+	   </div>
+	   <div id="view_left">
+		     <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 编辑推荐</div>
+				<div id="more"><a href="{?function jieqi_geturl:'news':'lists':77:1?}">更多>></a></div>
+			 </div>
+			 <div id="view_1_b">
+			   {?tag_news_39_[新闻]显示页编辑推荐?}
+			 </div>
+		  </div>
+	   <div id="view_left">
+		  <span id=comment>评论加载中……</span>
+		  </div>
+		  </div>
+{?include file = "modules/news/templates/default/right_news.html" ?}	   
+	</div>
+	
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+	GData.pageLoad();
+});
+//-->
+</script>

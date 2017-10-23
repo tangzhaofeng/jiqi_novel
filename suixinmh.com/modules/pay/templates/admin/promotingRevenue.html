@@ -1,0 +1,40 @@
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+  <table width="100%" align="center" cellpadding="0" cellspacing="1" class="grid">
+  <form name="frmsearch" method="post" action="{?$adminprefix?}">  <tr>
+      <td class="odd">
+		  选择开始月份：<input name="start" id="start" onclick="WdatePicker({dateFmt:'yyyy-MM',minDate:'2015-06',maxDate:'%y-%M'})" autocomplete='off' value="{?$start?}" />
+		  &nbsp;&nbsp;
+        <input type="submit" name="search" class="button" value="确 定" /> 
+		</td>
+    </tr>
+<!--    <tr>
+      <td colspan="3" class="odd"><a href="{?$jieqi_url?}/modules/pay/admin/paylog2.php">分类显示</a>成功支付：{?section name=j loop=$paytyperows?}<a href="{?$jieqi_url?}/modules/pay/admin/paylog2.php?paytype={?$paytyperows[j].type?}"> {?$paytyperows[j].name?} </a>{?/section?}<a href="{?$jieqi_url?}/modules/pay/admin/paylogquery.php" target="_blank"> 日期统计 </a></td>
+    </tr>--></form>
+  </table>
+
+<br />
+<table class="grid" width="100%" align="center">
+  <caption>推广营收（未显示的日期，当天没有充值记录）</caption>
+  <tr align="center" valign="middle">
+    <th width="10%">时间</th>
+    <th width="8%">账单收入（单位：元）</th>
+    <th width="8%">公司收入（单位：元）</th>
+  </tr>
+  {?eval $total_revenues = $total_realincome = '0.00';?}
+  {?section name=i loop=$payrows?}
+  <tr valign="middle">
+    <td align="center" class="odd">{?$payrows[i].f_buytime?}</td>
+    <td align="center" class="odd">{?eval echo number_format($payrows[i].revenues,2);?}</td>
+    <td align="center" class="even">{?eval echo number_format($payrows[i].realincome,2);?}</td>
+</tr>
+					    		{?eval $total_revenues += $payrows[i].revenues;?}
+					    		{?eval $total_realincome += $payrows[i].realincome;?}
+  {?/section?}
+ <tr valign="middle">
+    <td align="center" class="odd">合计</td>
+    
+    <td align="center" class="odd">{?eval echo number_format($total_revenues,2);?}</td>
+    <td align="center" class="even">{?eval echo number_format($total_realincome,2);?}</td>
+</tr>
+</table>
+<br /><br />

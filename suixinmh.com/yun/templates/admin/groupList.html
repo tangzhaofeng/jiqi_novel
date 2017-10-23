@@ -1,0 +1,167 @@
+<{include file="sysmanage/head.html"}>
+
+<form action=?action=admin&opt=insertgroup method="post">
+	<div class="modal fade" id="add_group" tabindex="-1" role="basic"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">添加</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						权限名称：
+						<input name="title" type="text" value="">
+					</p>
+					<{foreach item=vo from =$allGrantsArray}>
+					<p>
+						<{$vo.title}>： 
+						<{foreach item=v from =$vo.option}>
+							<input name="<{$vo.module}>[]" type="checkbox"
+								value="<{$v.action}>"><{$v.title}>&nbsp; 
+						<{/foreach}>
+					</p>
+					<{/foreach}>
+				</div>
+				<div class="modal-footer">
+					<input name="id" type="hidden" value="<{$vo.id}>">
+					<button type="button" class="btn btn-outline sbold red"
+						data-dismiss="modal">取消</button>
+					<button type="submit" class="btn btn-outline sbold blue">保存</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+</form>
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-cogs"></i>
+					权限组列表
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse"> </a>
+					<!-- <a href="#portlet-config" data-toggle="modal" class="config"> </a> -->
+					<a href="javascript:;" class="reload"> </a>
+					<a href="javascript:;" class="remove"> </a>
+				</div>
+			</div>
+			<div class="portlet-body flip-scroll">
+
+				<div class="table-toolbar">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="btn-group">
+								<button class="btn green" data-target="#add_group"
+									data-toggle="modal">
+									Add New
+									<i class="fa fa-plus"></i>
+								</button>
+							</div>
+						</div>
+						<div class="col-md-6"></div>
+					</div>
+				</div>
+
+				<table
+					class="table table-bordered table-striped table-condensed flip-content">
+					<thead class="flip-content">
+						<tr>
+							<th>组名</th>
+							<th>使用者</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<{foreach item=vo from =$data}>
+						<tr class="odd gradeX" style="text-align: center;">
+							<td><{$vo.title}></td>
+							<td><{$vo.users}></td>
+							<td>
+								<{if $vo.id != 1}>
+								<a class="btn btn-xs default btn-editable"
+									data-target="#<{$vo.id}>" data-toggle="modal">
+									<i class="fa fa-pencil"></i>
+									Edit
+								</a>
+								&nbsp;&nbsp;
+								<a href="?action=admin&opt=delgroup&id=<{$vo.id}>"
+									class="btn btn-xs default btn-editable"
+									onclick="{if(confirm('确定删除吗？')){return true;}return false;}">
+									<i class="fa fa-trash-o"></i>
+									Del
+								</a>
+								<{/if}>
+							</td>
+						</tr>
+						<{/foreach}>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+
+	</div>
+</div>
+
+<{foreach item=vo from =$data}>
+<form action=?action=admin&opt=editgroup method="post">
+	<div class="modal fade" id="<{$vo.id}>" tabindex="-1" role="basic"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">编辑</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						权限名称：
+						<input name="title" type="text" value="<{$vo.title}>">
+					</p>
+					<{foreach item=val from =$vo.userGrants}>
+					<p>
+						<{$val.title}>： 
+						<{foreach item=v from =$val.option}>
+							<input name="<{$val.module}>[]" type="checkbox" <{if $v.yes == 1}>checked="checked"<{/if}> value="<{$v.action}>"><{$v.title}>&nbsp;
+						<{/foreach}>
+					</p>
+					<{/foreach}>
+				</div>
+				<div class="modal-footer">
+					<input name="id" type="hidden" value="<{$vo.id}>" readonly="readonly">
+					<button type="button" class="btn btn-outline sbold red"
+						data-dismiss="modal">取消</button>
+					<button type="submit" class="btn btn-outline sbold blue">保存</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+</form>
+<{/foreach}>
+
+
+
+
+</div>
+<!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->
+
+
+
+<{include file="sysmanage/foot.html"}>

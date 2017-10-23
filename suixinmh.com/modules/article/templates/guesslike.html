@@ -1,0 +1,17 @@
+
+<div class="path f_gray3 mb20">
+			<span class="g6">²ÂÄãÏ²»¶£º</span>
+			<span class="changes" >»»Ò»»»</span>
+		</div>
+		<div class="picbox"> 
+			<ul class="piclist mainlist"> 
+			{?section name=i loop=$articlerows?}
+				<li><a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}"  /></a><span>{?$articlerows[i].articlename?}</span></li> 
+			
+				{?/section?}
+			</ul> 
+			<ul class="piclist swaplist"></ul> 
+		</div> 
+		<div class="og_prev"></div> 
+		<div class="og_next"></div>
+</div> 

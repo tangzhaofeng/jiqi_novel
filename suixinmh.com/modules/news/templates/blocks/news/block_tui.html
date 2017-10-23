@@ -1,0 +1,7 @@
+<div class="tu_09_b">{?section name=i loop=$articlerows?}{?if $i.order<3?}
+	{?if $i.order==1?}<div class="t_blue4"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:32:'':0?}</a></div>{?/if?}
+{?if $i.order==2?}	<div><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></div>
+</div>
+<div id="aq3">{?/if?}{?else?}
+	<li>¡¤<a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></li>{?/if?}{?/section?}
+</div>

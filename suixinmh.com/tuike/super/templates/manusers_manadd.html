@@ -1,0 +1,67 @@
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>添加经理</h3>
+      <form action="" method="post" id="form" enctype="multipart/form-data" class="m-form m-form-horizontal">
+        <fieldset>
+<style>
+.m-form-horizontal .ipt {
+    margin-left: 118px;
+}
+.m-form-horizontal .ipt input {
+    border: 1px solid #ccc;
+    height: 28px;
+    padding: 0 4px;
+    color: #666;
+}
+  
+</style>
+          <div class="formitm" style="border: none; padding-bottom: 0;">
+            <p>经理信息</p>
+          </div>
+
+          <div class="formitm" style="border:none;">
+            <label class="lab">姓名：</label>
+            <div class="ipt"><input type="text" name="uname" value=""/> </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">手机：</label>
+            <div class="ipt"><input type="text" name="mobile" value=""/> </div>
+          </div>
+          <div class="formitm">
+            <label class="lab">密码：</label>
+            <div class="ipt"><input type="password" name="password" /></div>
+          </div>
+
+          <div class="formitm" style="border: none; padding-bottom: 0;padding-top: 37px;">
+            <p>联系信息</p>
+          </div>
+          
+          <div class="formitm" style="border:none;">
+            <label class="lab">昵称：</label>
+            <div class="ipt"><input type="text" name="name" value=""/> </div>
+          </div>
+          <div class="formitm" style="border:none;">
+            <label class="lab">QQ：</label>
+            <div class="ipt"><input type="text" name="qq" value=""/> </div>
+          </div>
+          <div class="formitm" style="border:none;">
+            <label class="lab">电话：</label>
+            <div class="ipt"><input type="text" name="phone" value=""/> </div>
+          </div>
+          <div class="formitm" style="border:none;">
+            <label class="lab">二维码：</label>
+            <div class="ipt"> <input style="border: none;" type="file" name="upfile" id="fileField" /></div>
+          </div>
+
+          <div class="formitm" style="border:none;">
+  
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+            <input style=" margin-left:200px;cursor:pointer;" class="u-btn u-btn-primary" type="submit" name="submit" value="上传"/>
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+{?include file="tuike/super/templates/public/footer.html"?}

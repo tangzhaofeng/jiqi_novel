@@ -1,0 +1,6 @@
+{?section name=i loop=$articlerows?}
+<li class="p10 bt bcddd clearfix">
+    <a class="wp70 fl tEllipsis" href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}"><span class="cPink">[{?$articlerows[i]['sort']?}]</span> {?$articlerows[i]['articlename']?}</a>
+    <span class="fr c999">{?$articlerows[i]['size']?}×Ö</span>
+</li>
+{?/section?}

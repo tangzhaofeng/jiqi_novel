@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+    <title>{?$chapter['title']?}-{?$article['articlename']?}-{?$jieqi_sitename?}首发</title>
+    <meta name="keywords" content="{?$article['articlename']?},{?$article['articlename']?}在线阅读">
+    <meta name="description" content="{?$chapter['title']?}由{?$jieqi_sitename?}独家抢先发布了,欢迎大家阅读{?$chapter['title']?}这一章,{?$article['articlename']?}首发{?$jieqi_sitename?}www.shuhai.com。">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta name="copyright" content="" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+    <style>
+        .content{
+        width: 95%;
+        margin: 10px auto;
+        height: auto;
+        background: #fff;
+        overflow: hidden;
+        }
+        .content p.title {
+        width: 95%;
+        margin: 0 2.5%;
+        height: 40px;
+        border-bottom: 1px solid #c5c5c5;
+        line-height: 40px;
+        font-size: 18px;
+        color: #2e2e2e;
+        }
+        .content p.chapter {
+            line-height: 20px;
+            font-size: 17px;
+            color: #df3048;
+            margin-top: 10px;
+            margin-left: 2.5%;
+        }
+        .content p.name {
+            line-height: 15px;
+            font-size: 14px;
+            margin-left: 2.5%;
+            margin-top: 5px;
+            color: #414141;
+        }
+        .content .details {
+            width: 89%;
+            height: auto;
+            margin: 10px 2.5%;
+            border: 1px solid #cecece;
+            background: #f7f7f7;
+            padding: 3%;
+        }
+        .content .details p.info {
+            font-size: 14px;
+            color: #3e3e3e;
+            line-height: 30px;
+        }
+        .content .details p.yue {
+             clear: both;
+        }
+        .content .details span.vip_icon {
+            display: block;
+            width: 53px;
+            height: 15px;
+            margin-top: 7px;
+            margin-left: 2.5%;
+        }
+        .content a.pay{width: 46%;height: auto;background: #ff6666;display: inline-block;margin-left: 2.5%;line-height: 40px;color: #fff;text-align: center;border-radius: 5px;margin-bottom: 10px;float: left;}
+        .content a.pay1{width: 92%;height: auto;background: #ff6666;display: inline-block;margin-left: 2.5%;line-height: 40px;color: #fff;text-align: center;border-radius: 5px;margin-bottom: 10px;float: left;}
+        .content a.recharge{width: 46%;height: auto;background: #df3048;display: inline-block;margin-right: 2.5%;line-height: 40px;color: #fff;text-align: center;border-radius: 5px;float: right;}
+        </style>
+</head>
+
+<body>
+{?include file = "themes/3g/header.html"?}
+
+<div class="content">
+    <p class="title">章节订阅信息</p>
+    <p class="chapter"><img src="{?$jieqi_themeurl?}images/vip.jpg"/>{?$chapter['chaptername']?}</p>
+    <p class="name">《{?$article['articlename']?}》</p>
+    <div class="details">
+        <p class="info fl">账户：<a href="{?function geturl:'3g':'userhub'?}">{?$_USER['username']?}</a></p><span class="vip_icon fl v {?$_USER['vipphoto']?}"></span>
+        <p class="info yue">当前余额：<span class="red">{?$_USER['egolds']?}</span>{?$egoldname?}/{?$_USER['esilvers']?}书券</p>
+        <p class="info">章节字数：{?eval echo (ceil($chapter['size']/2));?}</p>
+        <p class="info">本章原价：<span class="red">{?$chapter['saleprice']?}</span>{?eval echo JIEQI_EGOLD_NAME;?}</p>
+        <p class="info">折后价格：{?if $vipgrade['setting']['dingyuezhekou']>0?}{?eval echo $chapter['saleprice']*$vipgrade['setting']['dingyuezhekou'];?}{?eval echo JIEQI_EGOLD_NAME;?}{?else?}无折扣{?/if?}</p>
+        <p class="info">（{?if $vipgrade['setting']['dingyuezhekou']>0?}{?$vipgrade['caption']?}享受{?eval echo $vipgrade['setting']['dingyuezhekou']*10;?}折章节订阅优惠{?else?}{?$vipgrade['caption']?}级不能享受订阅折扣{?/if?}）</p>
+        <!--<p class="info">本次消费使用{?if $chapter['shuquan'] == ''?}0{?else?}{?$chapter['shuquan']?}{?/if?}书券抵扣支付</p>-->
+        {?if $_USER['egolds'] < $chapter['saleprice'] && $_USER['esilvers'] < $chapter['saleprice'] ?}
+        <p class="info">亲，您的账户余额不足订阅哦，充点零钱支持一下吧</p>
+        {?else?}
+        <p class="info">批量订阅：从当前章节起订阅所有后续VIP章节</p>
+        {?/if?}
+    </div>
+    {?if $_USER['egolds'] > $chapter['saleprice'] || $_USER['esilvers'] > $chapter['saleprice'] ?}
+    <a href="{?function geturl:'3g':'reader':SYS=method=buychapter&aid=$article.articleid&cid=$chapter.chapterid?}" class="pay">订阅本章</a>
+    {?if $_USER['egolds'] > $chapter['saleprice']?}
+    <a href="{?function geturl:'3g':'reader':SYS=method=xbuychapter&aid=$article.articleid&cid=$chapter.chapterid?}" class="pay">批量订阅</a>
+    {?/if?}
+    {?else?}
+    <a href="{?function geturl:'3g':'pay'?}" class="pay1">充值</a>
+    {?/if?}
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

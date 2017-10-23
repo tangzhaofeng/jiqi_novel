@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用户注册-{?$SITE_WAP_URL?}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/users_landing.css" rel="stylesheet" type="text/css" />
+<script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?eval echo JIEQI_REFER_URL;?}">返回</a></div>
+    <div class="title"><a href="javascript:;">用户注册</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+<form action="{?function geturl:'3g':'register'?}" method="post">
+<div class="landing zc">
+	<span class="hy">欢迎使用{?$jieqi_sitename?}</span>
+	<div class="user">
+    	<span class="userico"></span>
+        <input type="text" name="username" value="" maxlength="30" placeholder="2—30位字母，数字，汉字" />
+    </div>
+	<div class="e_mail">
+    	<span class="keyico"></span>
+        <input type="text" name="email" value="" maxlength="40" placeholder="推荐常用邮箱" />
+    </div>
+    <div class="key">
+    	<span class="keyico"></span>
+        <input type="text" name="password" value="" maxlength="20" placeholder="6—20位字母或数字" />
+    </div>
+	<!--{?if $show_checkcode >0 ?}<div class="yzm">
+    	<span class="yzmico"></span>
+        <input type="text" name="checkcode" value="" maxlength="4" placeholder="输入字符" />
+        <a onclick="document.getElementById('checkcode').setAttribute('src','{?$url_checkcode?}?rand='+Math.random());" href="javascript:;"><img id="checkcode" class="yzm_img" src="{?$url_checkcode?}"></a>
+    </div>{?/if?}-->
+</div>
+<div class="zddl zc_zddl">
+	<input type="checkbox" name="yesky" value="" checked="checked" />我已阅读并同意
+    <a href="{?function geturl:'3g':'dispatcher':'type=ment'?}">《{?$jieqi_sitename?}用户协议》</a>
+</div>
+<div class="landing_but zc_but">
+	<input type="hidden" name="jumpurl" id="jumpurl" value="{?$jumpurl|urlencode?}" />
+	<input type="hidden" name="norepsw" value="1" />
+	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	<input class="dl" type="submit" value="注册">
+</div>
+</form>
+<div class="kjdl">
+	<span>快捷登录：</span> <a href="javascript:;" onclick="location.href='{?$SITE_WAP_URL?}/sinalogin/?jumpurl='+document.getElementById('jumpurl').value;" class="weibo"></a>
+	<a href="javascript:;" onclick="location.href='{?$SITE_WAP_URL?}/qqlogin/?jumpurl='+document.getElementById('jumpurl').value;" id="qqlogin" class="qq"></a> 
+</div>
+<div class="landing_but zc_but">
+	<p class="wyts">温馨提示：</p>
+	<span class="nozh">已经有账号</span>
+    <a href="{?function geturl:'3g':'login':'SYS=jumpurl=$jumpurl'?}" class="zc">登录</a>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

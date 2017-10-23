@@ -1,0 +1,179 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>推客管理 </h3>
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+
+
+            <div class="tool-search f-cb">
+              <form onsubmit="screenFormSubmit(this);return false;" method="post">
+
+                <select style="height: 29px;" name="screen_sort" id="screen_sort" class="form-element elementMan">
+                  
+                </select>
+                <div style="display:none;" class="screen_op screen_time">
+                  <input type="text" onclick="datetimepickerRun(this,'Y-m-d');" class="form-element time_input" name="screen_t1" value="">-
+                  <input type="text" onclick="datetimepickerRun(this,'Y-m-d');" class="form-element time_input" name="screen_t2" value="">
+                </div>
+  
+                <div class="screen_op screen_text" style="display:inline-block;">
+                  <input type="text" class="form-element" name="screen_text" value="">
+                </div>
+
+                <div class="screen_op screen_select" style="display:none;">
+
+                  <select style="height: 29px;" name="screen_sort" id="screen_sort" class="form-element elementMan">
+                    
+                  </select>
+
+                </div>  
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+            </div>
+
+
+
+          </div>
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="tkuid">用户ID</i></th>
+                <th><i class="sortOr" _z="tkunn">用户名</i></th>
+                <th><i class="sortOr" _z="tknot">经理备注</i></th>
+                <th><i class="sortOr" _z="tktyp">类型</i></th>
+                <th><i class="sortOr" _z="tkman">所属经理</i></th>
+                <th><i class="sortOr" _z="tkshtk">显示返佣</i></th>
+                <th>充值明细</th>
+                <th>财务明细</th>
+                <th>渠道管理</th>
+                <th>邀请返佣</th>
+                <th>详情</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($ktList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 8 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('super','manuser');?}
+              {?section name=i loop=$ktList?}
+              <tr _i="{?$ktList[i].uid?}">
+                <td>{?$ktList[i].uid?}</td>
+                <td>{?$ktList[i].uname?}</td>
+                <td>{?if empty($ktList[i].notes) ==1 ?}(无){?else?}{?$ktList[i].notes?}{?/if?}</td>
+                <td>{?$ktList[i].typeS?}</td>
+                <td><div class="editMan" _uid="{?$ktList[i].uid?}">{?$ktList[i].mauname?}</div></td>
+                <td>
+                  <img _y="istuike" _ac="setPa" _v="{?$ktList[i].is_tuike?}" class="static_img" src="" title="点击修改状态" style="display: inline;"/>
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}paylist?uid={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].payDay?}/{?$ktList[i].payMonth?}/{?$ktList[i].money?}
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}paydaylist?uid={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].payAlDayn?}/ {?$ktList[i].payAlDay?}
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}qdlist?uid={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].qdNum?}
+                </td>
+                <td>
+                 <a class="u-btn u-btn-primary" href="{?$url?}tkulist?tkId={?$ktList[i].uid?}">查看</a>&nbsp;&nbsp;{?$ktList[i].payTNum?}/{?$ktList[i].payT?}
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}tkuinfo?uid={?$ktList[i].uid?}">查看</a>
+                </td>
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+          <div id="selectA" style="display:none;">
+            <select name="order" tid="selectMan" class="form-element elementMan">
+              <option value="0" selected="selected">==请选择==</option>
+              {?section name=i loop=$manList?}
+              <tr>
+              <option value="{?$manList[i].uid?}" >{?$manList[i].uname?}</option>
+              {?/section?}
+            </select>
+          </div>
+          <style>
+          .elementMan {
+
+            height: 27px;
+          }
+          </style>
+          <script type="text/javascript">
+              var selectAhtml=$('#selectA').html().replace('tid=','id='); // js;
+              $('.editMan').live('click',function(event){
+                if($('#selectMan').size()>0)selectManHide();
+                var q_this=$(this);
+                q_this.data('oldMa',q_this.text());
+                q_this.html(selectAhtml);
+                $(document).click(function (){
+                  //对document绑定一个影藏Div方法
+                  selectManHide();
+                });
+                event.stopPropagation();//阻止事件向上冒泡
+              });
+
+              $('#selectMan').live('click',function(event){event.stopPropagation();});
+              $('#selectMan').live('change',function(event){
+                var ar;
+                var q_this=$(this);
+                var mauid=q_this.val();
+                var q_par=q_this.parent();
+                var uid=q_par.attr('_uid');
+                if(mauid === 0){
+                  selectManHide();
+                  return false;
+                }
+
+                ar=location.pathname.split('/');
+                $.post('http://'+location.host+'/'+ar['1']+'/'+ar['2']+'/ajax',{mauid:mauid,uid:uid,ac:'setMan',ajax_request:1},function(msgs){
+                   if(msgs.status === 'OK'){
+                      Users.ShowMsg('设置成功！');
+                      q_par.data('oldMa',msgs.mauname);
+                      selectManHide();
+                    }else{
+                      Users.ShowMsg(msgs.msg,1);
+                    }
+                },'json');
+                event.stopPropagation();//阻止事件向上冒泡
+              });
+
+              /**
+               * 隐藏
+               * @return {[type]} [description]
+               */
+              function selectManHide(){
+                var q_this=$('#selectMan'),q_par;
+                if(q_this.size()>0){
+                  q_par=q_this.parent();
+                  q_par.html(q_par.data('oldMa'));
+                }
+              }
+          </script>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    {?eval $filter_jsobj=json_encode($filter);?}
+    <script type="text/javascript">
+      var filter=$.parseJSON('{?$filter_jsobj?}');  // jq
+      var q_main=$('#form_main');
+      var baseImgUrl='{?$jieqi_themeurl?}img/';
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}
+{?/if?}

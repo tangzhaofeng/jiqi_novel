@@ -1,0 +1,8 @@
+{?section name=i loop=$bookcaserows?}{?eval $aid=$bookcaserows[i].articleid;?}{?eval $cid=$bookcaserows[i].chapterid;?}
+<dd>
+<a href="http://3gwap.shuhai.com/book/{?$aid?}.htm" class="clearfix">
+<h4 class="name"><em class="i-clock"></em>{?$bookcaserows[i].articlename?}</h4>
+<div class="renew"><p>×îÐÂÕÂ½Ú:{?$bookcaserows[i].lastchapter?}</p><span class="time">{?$bookcaserows[i].joindate|date:m-d H:i?}</span></div>
+</a>
+</dd>
+{?/section?}

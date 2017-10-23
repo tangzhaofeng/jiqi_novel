@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>{?$article['articlename']?}最新章节,小说{?$article['articlename']?}全文阅读-{?$jieqi_sitename?}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="keywords" content="{?$article['articlename']?},{?$article['articlename']?}小说,{?$article['articlename']?}全文阅读,{?$article['articlename']?}无弹窗">
+<meta name="description" content="{?$article['articlename']?}为{?$article['author']?}精心创作,{?$jieqi_sitename?}提供{?$article['articlename']?}最新章节与{?$article['articlename']?}全文阅读,请大家投票与收藏支持{?$article['articlename']?}小说,{?$article['articlename']?}无弹窗免费阅读尽在{?$jieqi_sitename?}。">
+<meta name="author" content="{?$article['author']?}" />
+<meta name="copyright" content="{?$article['articlename']?}" />
+<link href="{?$jieqi_themeurl?}style/list.css" rel="stylesheet" type="text/css" />
+<script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+<script src="{?$jieqi_themeurl?}js/page-tj.js"></script>
+<script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+</head>
+
+<body oncontextmenu="return false" onselectstart="return false"
+ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<div class="header">
+	<div class="shouye"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+    <div class="title"><a href="#">{?$article.articlename?}</a></div>
+    <div class="shujia"><a href="{?function geturl:'3g':'article':SYS=method=bcView?}">书架</a></div>
+</div>
+<div class="content1">
+	<h2>
+    	<div class="tit">目录</div>
+    	<div class="xu" id="tabs1"><a href="{?function geturl:'3g':'catalog':SYS=aid=$article.articleid&order=asc?}"{?if $order=='asc'?} class="thistab"{?/if?}>正序</a><a href="{?function geturl:'3g':'catalog':SYS=aid=$article.articleid&order=desc?}"{?if $order=='desc'?} class="thistab"{?/if?}>倒序</a></div>
+    </h2>
+    <div class="news">
+    	<div class="new"><span>最新</span><a href="{?function geturl:'3g':'reader':SYS=aid=$article.articleid&cid=$article.lastchapterid?}">{?$article.lastchapter?}</a></div><div class="time">{?$article.date?}</div>
+    </div>
+    <div id="tab_conbox1">
+        	<div class="tab1">
+                <ul>
+                {?section name=i loop=$indexrows?}
+                	{?if $indexrows[i].ctype == 'volume'?}
+                	<li class="juan">{?$indexrows[i].vname?}</li>
+                	{?else?}
+                    <li><a href="{?function geturl:'3g':'reader':SYS=aid=$article.articleid&cid=$indexrows[i].cid?}">{?$indexrows[i].cname?}{?if $indexrows[i].isvip == 1?}<img src="{?$jieqi_themeurl?}images/vip.jpg" />{?/if?}</a><span>{?$indexrows[i].size_c?}字</span></li>
+                    {?/if?}
+                {?/section?}
+                </ul>
+            </div>
+        </div>
+    <div class="fanye">
+    	{?$url_jumppage?}
+    </div> 
+</div>
+<script type="text/javascript" src="{?$jieqi_local_url?}/js/mm.js"></script>
+<div class="fhsy"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$article.articleid?}">返回书页</a></div>
+<div class="content2">
+	<h2>精品推荐</h2>
+    <div class="con">
+        {?if $article['sortid']<100?} {?tag_system_339_[3g][目录]精品推荐?}
+        {?else if $article['sortid']>100 && $article['sortid']<200?} {?tag_system_348_[3g][目录]精品推荐-女频?}
+        {?else?} {?tag_system_349_[3g][目录]精品推荐-文学?}{?/if?}
+    </div> 
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

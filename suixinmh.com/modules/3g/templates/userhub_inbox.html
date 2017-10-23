@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>我的消息</title>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/mymessage.css" rel="stylesheet" type="text/css" />
+{?include file="themes/3g/js.html"?}
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'userhub'?}">返回</a></div>
+    <div class="title"><a href="javascript:;">我的消息</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+<div class="content1">
+	<h1>我的消息<span>({?$inboxnum?}条)</span></h1>
+	<div class="main">
+    	<ul>
+    		{?section name=i loop=$messagerows?}
+        	<li>
+            	<div class="maintit maintithover"><span class="{?if $messagerows[i].is_read>0?}c1{?else?}c2{?/if?}"></span>{?$messagerows[i].title?}<a href="#" class="ahover"></a></div>
+                <div class="maincon">
+                	<span>{?$messagerows[i].postdate|date:'Y-m-d'?} 来自：{?$messagerows[i].fromname?}</span>
+                    <p>{?$messagerows[i].content?}</p>
+                </div>
+            </li>
+            {?/section?}
+        </ul>
+    </div>
+    <div class="fanye">
+        {?$url_jumppage?}
+    </div>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+  <script type="text/javascript">
+$(document).ready(function(e) {
+    $(".maintit a").click(function(){
+		$(this).addClass("ahover").parents("div.maintit").addClass("maintithover").next().show();
+		$(this).parents("li").siblings().find("div.maincon").hide();
+		$(this).parents("li").siblings().find("div.maintit").removeClass("maintithover");
+		$(this).parents("li").siblings().find("a").removeClass("ahover");
+	});
+	
+});
+</script>
+</body>
+</html>

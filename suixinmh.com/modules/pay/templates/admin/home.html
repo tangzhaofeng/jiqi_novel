@@ -1,0 +1,92 @@
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+  <table width="100%" align="center" cellpadding="0" cellspacing="1" class="grid">
+  <form name="frmsearch" method="post" action="{?$jieqi_modules['pay']['url']?}/admin/">  <tr>
+      <td class="odd">关键字：
+        <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}" />
+          <input type="radio" name="keytype" class="radio" value="0"{?if $keytype!=1?} checked="checked" {?/if?}/>
+        交易序号
+        <input name="keytype" type="radio" class="radio" value="1"{?if $keytype==1?} checked="checked" {?/if?} />
+        用户名
+<!--        <input type="radio" name="keytype" class="radio" value="2" />
+        交易状态
+        <input type="radio" name="keytype" class="radio" value="3" />
+        手机号-->
+<!--      </td>
+        <td class="odd">-->
+        
+            来源:
+        <select name="sel_site" id="sel_site">
+                    <option value="-1">-全部来源-</option>
+                    {?section name=i loop=$sites?}
+                    <option value="{?$i.key?}" {?if $sel_site != "" && $sel_site==$i.key ?}selected{?/if?}>{?$i.value?}</option>
+                    {?/section?}
+                </select>    
+        交易状态：
+		  <select name="payflag">
+		    <option value="all" {?if $payflag=='all'?}selected{?/if?}>-未选择-</option>
+		    <option value="3" {?if $payflag==3?}selected{?/if?}>未确认</option>
+		    <option value="1" {?if $payflag==1?}selected{?/if?}>支付成功</option>
+		    <option value="2" {?if $payflag==2?}selected{?/if?}>手工确认</option>
+		  </select>
+<!--		<input type="radio" name="payflag" class="radio" value="0" {?if $payflag==0||$payflag==''?}checked{?/if?}>未确定
+		<input type="radio" name="payflag" class="radio" value="1" {?if $payflag==1?}checked{?/if?}>支付成功
+		<input type="radio" name="payflag" class="radio" value="2" {?if $payflag==2?}checked{?/if?}>手工确认-->
+<!--		<input name="action" type="hidden" value="submit" />-->
+<!--            <input type="submit" name="btnsearch" class="button" value="按购买量排序">         -->
+<!--        </td>
+		<td>-->&nbsp;&nbsp;支付方式：
+		  <select name="paytype">
+		    <option value="all">-未选择-</option>
+		    {?section name=j loop=$paytyperows?}
+		    	<option value="{?$j.key?}" {?if $paytype==$j.key?}selected{?/if?}>{?$paytyperows[j].name?}</option>
+			{?/section?}
+		  </select>&nbsp;&nbsp;
+		  起始时间：<input name="start" id="start" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$start?}" />
+		  &nbsp;&nbsp;结束时间：<input name="end" id="end" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$end?}" />&nbsp;
+        <input type="submit" name="search" class="button" value="确 定" /> <input type="submit" name="download" class="button" value="下 载" />
+		</td>
+    </tr>
+<!--    <tr>
+      <td colspan="3" class="odd"><a href="{?$jieqi_url?}/modules/pay/admin/paylog2.php">分类显示</a>成功支付：{?section name=j loop=$paytyperows?}<a href="{?$jieqi_url?}/modules/pay/admin/paylog2.php?paytype={?$paytyperows[j].type?}"> {?$paytyperows[j].name?} </a>{?/section?}<a href="{?$jieqi_url?}/modules/pay/admin/paylogquery.php" target="_blank"> 日期统计 </a></td>
+    </tr>--></form>
+  </table>
+
+<br />
+<table class="grid" width="100%" align="center">
+  <caption>在线支付记录 （总金额：{?$sum?}） （书海币：{?$totalegold?}）（共{?$totalnum?}条记录）</caption>
+  <tr align="center" valign="middle">
+    <th width="10%">序号</th>
+    <th width="8%">日期</th>
+    <th width="8%">时间</th>
+    <th width="12%">用户名</th>
+	<th width="10%">金额</th>
+    <th width="12%">购买点数</th>
+    <th width="7%">来源</th>
+    <th width="12%">支付方式</th>
+    <th width="5%">交易状态</th>
+    <th width="">操作</th>
+  </tr>
+  {?section name=i loop=$payrows?}
+  <tr valign="middle">
+    <td align="center" class="odd">{?$payrows[i].payid?}</td>
+    <td align="center" class="odd">{?$payrows[i].buytime|date:"Y-m-d"?}</td>
+    <td align="center" class="even">{?$payrows[i].buytime|date:"H:i:s"?}</td>
+    <td align="center" class="odd">{?if $payrows[i].buyname == ''?}{?$payrows[i].buyinfo?}{?else?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$payrows[i].buyid'?}" target="_blank">{?$payrows[i].buyname?}</a>{?/if?}</td>
+	<td align="center" class="even">{?$payrows[i].money?} {?if $payrows[i].moneytype==1?}美元{?else?}元{?/if?}</td>
+    <td align="center" class="even">{?$payrows[i].egold?}</td>
+    <td align="center">{?$payrows[i].from?}</td>
+    <td align="center" class="odd">{?if $paytyperows[$payrows[i].paytype] != null ?}{?$paytyperows[$payrows[i].paytype].name?}{?else?}{?$payrows[i].paytype?}{?/if?}</td>
+    <td class="even">{?$payrows[i].payflag_c?}</td>
+    <td align="center" class="odd">{?if $payrows[i].payflag == 0?}<a href="{?$jieqi_modules['pay']['url']?}/admin/?action=confirm&id={?$payrows[i].payid?}" ajaxclick="true" confirm="确定手工处理该条记录？" retruemsg="false">手工处理</a> | <a href="{?$jieqi_modules['pay']['url']?}/admin/?action=del&id={?$payrows[i].payid?}" ajaxclick="true" confirm="确定删除该条记录？" retruemsg="false">删除</a>{?/if?}</td>
+  </tr>
+  {?/section?}
+</table>
+<table class="hide" width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+<br /><br />

@@ -1,0 +1,14 @@
+<?php
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/function_common.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/function_cache.php');
+//include_once($GLOBALS['jieqiModules']['news']['path'].'/include/function_news.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/globaldata.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/view.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/model.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/category.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/content.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/position.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/power.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/html.class.php');
+include_once($GLOBALS['jieqiModules']['news']['path'].'/include/excel.class.php');
+?>

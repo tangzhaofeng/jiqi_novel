@@ -1,0 +1,73 @@
+<table class="tb" >
+                <thead>
+                  <tr style="height: 40px"> 
+                      <th class="all_border" style="font-size: 16pt; font-family: 宋体;" colspan="11"> 推客 2017-05 充值 </th> 
+                  </tr> 
+                  <tr>
+                    <th>推客id</th>
+                    <th>推客姓名</th>
+                    <th>经理备注</th>
+                    <th>月充值</th>
+                  </tr>
+                </thead>
+                <tbody><tr>
+          <td>8</td>
+          <td> </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><tr>
+          <td>13</td>
+          <td>fdsf </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><tr>
+          <td>37</td>
+          <td>erere </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><tr>
+          <td>38</td>
+          <td>rrrrrrrrrrrrrrr </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name></x:Name><x:WorksheetOptions><x:Selected/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--> <style type="text/css"> .td{width: 120px; } .gdtjContainer .tb tr{text-align: center; vertical-align: middle; } .gdtjContainer .tb th{border-left: 0.5pt solid #000; border-bottom: 0.5pt solid #000; text-align: center; font-weight: normal; font-size: 10pt; middle: ;; height:30px; } .gdtjContainer .header th {font-size: 12pt; } .gdtjContainer .tb tr .noleftborder {border-left: none; } .gdtjContainer .tb tr .rightborder {border-right: 0.5pt solid #000; } .gdtjContainer .tb td{border-left: 0.5pt solid #000; border-bottom: 0.5pt solid #000; text-align: center; font-weight: normal; font-size: 10pt; middle: ;; height:30px; }.all_border{border: 0.5pt solid #000; } </style> </head> <body> <div class="gdtjContainer"> <table class="tb" >
+                <thead>
+                  <tr style="height: 40px"> 
+                      <th class="all_border" style="font-size: 16pt; font-family: 宋体;" colspan="11"> 推客 2017-05 充值 </th> 
+                  </tr> 
+                  <tr>
+                    <th>推客id</th>
+                    <th>推客姓名</th>
+                    <th>经理备注</th>
+                    <th>月充值</th>
+                  </tr>
+                </thead>
+                <tbody><tr>
+          <td>8</td>
+          <td> </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><tr>
+          <td>13</td>
+          <td>fdsf </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><tr>
+          <td>37</td>
+          <td>erere </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr><tr>
+          <td>38</td>
+          <td>rrrrrrrrrrrrrrr </td>
+          <td> </td>
+          <td>0 </td>
+        </tr>
+      </tr></tbody></table> </div> </body> </html>

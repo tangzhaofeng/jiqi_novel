@@ -1,0 +1,32 @@
+/* SHUHAI.COM CSS v1.0 | 2014*/
+@import url(style.css);
+
+.search{ width:auto; height:auto;}
+.search .intxt{ float:left; width:586px; height:24px; border:1px solid #0eaff6; padding:5px;}
+.search .intxt input{ font-size:14px; color:#333; line-height:24px; border:0px; width:100%; height:24px;}
+.search .btn_so2{ width:100px; height:36px; background:url(../images/icon_so.png) no-repeat 0px -1px; cursor:pointer; border:0px;}
+.search .btn_so2:hover{ background-position:0px -48px;}
+.sohot2 a{ padding:0px 10px;}
+.resultop .tit{ border-left:2px solid #3caadb; height:50px; float:left; padding-left:4px;}
+.resultop .tit .zi{ font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; color:#040404; font-size:24px; line-height:30px;}
+.resultop .tit .zi2{ font-family: Tahoma, Geneva, sans-serif; color:#8b8a8a; font-size:20px; line-height:20px;}
+.resultop .num{ float:right; padding-top:30px; text-align:right; font-size:14px; color:#010101;}
+.resultop .num em{ color:#3caadb;}
+.dwn0{ width:auto; height:208px; margin:0px; border:1px solid #d2e1f1; border-top:0px; background:#fff; overflow:hidden;}
+.dwn0 .hotag{ padding:16px 10px;}
+.dwn0 .hotag a{ padding:0px 5px; line-height:220%; font-size:14px;}
+.list_img2 li{ width:auto; height:auto; border-top:1px solid #ddd; padding:25px 0px;}
+.list_img2 li .img{ float:left; display:block; width:17%;}
+.list_img2 li .img a img{ width:100px; height:134px; background:url(../images/icon_cover.gif) no-repeat 0px 0px;}
+.list_img2 li .info{ float:left; width:66%; height:auto; color:#555;}
+.list_img2 li .it{ float:left; width:140px; height:24px; line-height:24px; padding-right:10px; overflow:hidden;}
+.list_img2 li .it em{ font-weight:800; color:#5f5f5f;}
+.list_img2 li .txt{ float:left; width:83%; line-height:180%;}
+.list_img2 li .txt em{ float:left; display:block; width:40px;font-weight:800; color:#5f5f5f;}
+.list_img2 li .txt p{ float:left; width:93%; height:84px; overflow:hidden; color:#333;word-break:break-all;}
+.list_img2 li .name{ float:left; width:83%; height:30px; line-height:30px; font-size:14px; font-weight:800; position:relative; overflow:hidden;}
+.list_img2 li .name .opt{ position:absolute; right:0px; top:0px;}
+.opt .read2,.opt .download,.opt .add{ display:inline-block; width:68px; height:30px; line-height:30px; margin-left:10px; text-align:center; color:#fff; font-size:14px; font-weight:normal; background:url(../images/icon_so.png) no-repeat;}
+.opt .read2{ background-position:-1px -162px;}
+.opt .download{ background-position:-1px -98px;}
+.opt .add{ background-position:-1px -131px;}

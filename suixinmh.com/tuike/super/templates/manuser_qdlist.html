@@ -1,0 +1,78 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+            <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+          </div>
+          <div class="panel-header">
+            渠道明细(推客：{?$tuiInfo.uname?})
+          </div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th><i class="sortOr" _z="qid">ID</i></th>
+                  <th><i class="sortOr" _z="qmun">渠道号</i></th>
+                  <th><i class="sortOr" _z="qn">渠道名称</i></th>
+                  <th>文章</th>
+                  <th>点击</th>
+                  <th>注册用户</th>
+                  <th>充值笔数</th>
+                  <th>总充值RMB</th>
+                  <th><i class="sortOr" _z="qch">成本</i></th>
+                  <th>回报率</th>
+                  <th><i class="sortOr" _z="qtime">上线日期</i></th>
+                  <th>详情</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($qdList)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 11 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('super','manqd','SYS=method=qdpaylist');?}
+                {?section name=i loop=$qdList?}
+                <tr>
+                  <td>{?$qdList[i].id?}</td>
+                  <td>{?$qdList[i].qd?}</td>
+                  <td>{?$qdList[i].name?}</td>
+                  <td title="{?$qdList[i].arInfo?}">{?$qdList[i].arInfo|truncate:8:'…'?}</td>
+                  <td>{?$qdList[i].qdclick?}</td>
+                  <td>{?$qdList[i].qdreg?}</td>
+                  <td>{?$qdList[i].payusers?}</td>
+                  <td>{?$qdList[i].qdpay?}</td>
+                  <td>{?$qdList[i].fee?}</td>
+                  <td>{?$qdList[i].hb?}%</td>
+                  <td>{?$qdList[i].pdate?}</td>
+                  <td><a class="u-btn u-btn-primary" target="_blank" href="{?$url?}?qdId={?$qdList[i].id?}" >查看</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                  {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    {?eval $filter_jsobj=json_encode($filter);?}
+    <script type="text/javascript">
+      var filter=$.parseJSON('{?$filter_jsobj?}');  // jq
+      var q_main=$('#form_main');
+      var baseImgUrl='{?$jieqi_themeurl?}img/';
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}
+{?/if?}

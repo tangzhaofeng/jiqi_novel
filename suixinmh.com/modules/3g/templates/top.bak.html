@@ -1,0 +1,53 @@
+{?set $jieqi_pagetitle = "排行榜-最新原创小说大全-书海小说网"?}
+{?set $meta_keywords = "最新小说,原创小说,小说大全,小说库"?}
+{?set $meta_description = "书海小说书库提供最新的原创小说大全，提供各类网络小说在线阅读，希望大家支持$jieqi_sitename原创小说库!"?}
+<link href="{?$jieqi_themeurl?}style/rank.css" rel="stylesheet" type="text/css" />
+<div class="nav">
+    {?include file = "themes/3g/nav.html"?}
+</div>
+{?include file = "themes/3g/search.html"?}
+<div class="content">
+	<div class="title">
+		<img src="{?$jieqi_themeurl?}images/rank_icon.png" alt="" />
+		<p>排行榜</p>
+	</div>
+	<div class="man">
+	<div class="t2">
+        <h2 class="ico7">男生榜</h2>
+        <a href="{?function geturl:'3g':'shuku':SYS=siteid=0&sort=0&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_self" class="more">更多></a>
+    </div>
+    <ul class="list1">
+        {?tag_system_2_通用查询<{totalvisit,3,,0,0,0,0,,0}><{3g/block_toplist.html}>?}
+    </ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="man">
+		<div class="t2">
+	        <h2 class="ico8">女生榜</h2>
+	        <a href="{?function geturl:'3g':'shuku':SYS=siteid=100&sort=0&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_self" class="more">更多></a>
+	    </div>
+	    <ul class="list1">
+		{?tag_system_2_通用查询<{totalvisit,3,,0,0,0,0,,100}><{3g/block_toplist.html}>?}
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="man">
+	<div class="t2">
+        <h2 class="ico10">特色榜</h2>
+    </div>
+    	<ul class="man-ul">         
+    		<!--<li class="tese"><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=weekvipvote&sortid=0&page=1&siteid=400?}">月票榜</a></li>-->
+    		<li class="tese"><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=weekvisit&sortid=0&page=1&siteid=400?}">点击榜</a></li>
+    		<li class="tese"><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=weekvote&sortid=0&page=1&siteid=400?}">推荐榜</a></li>
+    		<!--<li class="tese teselast"><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=weeksale&sortid=0&page=1&siteid=400?}">销售榜</a></li>-->
+    		<li class="tese teselast"><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=weekgoodnum&sortid=0&page=1&siteid=400?}">收藏榜</a></li>
+    		<!--<li class="tese teselast"><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=lastupdate&sortid=0&page=1&siteid=400?}">更新榜</a></li>-->
+    	</ul>
+	</div>
+</div>
+
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{?$articlename?}首页,{?$author?},{?$sort?}-{?$jieqi_sitename?}</title>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/book.css" rel="stylesheet" type="text/css" />
+<!--<script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>-->
+<script type="text/javascript">
+	var _login = "{?function geturl:'3g':'login'?}";
+</script>
+{?include file="themes/3g/js.html"?}
+</head>
+<body oncontextmenu="return false" onselectstart="return false"
+ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<div class="header">
+	<div class="shouye"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+    <div class="title"><a href="javascript:;">{?$jieqi_sitename?}</a></div>
+    <div class="shujia"><a href="{?function geturl:'3g':'article':'SYS=method=bcView'?}">书架</a></div>
+</div>
+<div class="content1">
+    <div class="bok">
+    	<img src="{?$url_image?}" alt="{?$articlename?}" />
+        <ul class="li-bok">
+           <li><span>书名：</span>{?$articlename?}</li>
+           <li><span>类别：</span><a href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=$sortid&size=0&fullflag=0&operate=0&free=0&page=1?}" style="color: #27201f;">{?$sort?}</a></li>
+           <li><span>状态：</span>{?$fullflag_tag?}</li>
+           <li><span>字数：</span><em class="org">{?if intval($size_w)>=1?}{?$size_w?}</em>万{?else?}{?$size_c?}</em>{?/if?}</li>
+           <li><span>点击：</span><em class="org">{?if intval($visit_qw)>=1?}{?$visit_qw?}</em>千万{?elseif intval($visit_w)>=1?}{?$visit_w?}</em>万{?else?}{?$visit?}</em>{?/if?}</li>
+        </ul>
+        <div class="btn">
+             <a href="{?function geturl:'3g':'catalog':'SYS=aid=$articleid'?}" target="_self" class="btn1">免费阅读</a>
+             <a href="{?function geturl:'3g':'huodong':'SYS=method=addBookCase&aid=$articleid'?}" target="_self" class="btn2" data-act="add_bookcase">加入书架</a>
+        </div>
+        <div class="jianjie">
+            <em>简介：</em>
+            <p>{?$intro|truncate:'120':'……':'0'?}<a href="javascript:;" data-act="text_spread">展开</a></p>
+            <p style="display: none">{?$intro?}<a href="javascript:;" data-act="text_flod">折叠</a></p>
+        </div>
+    </div>
+    <div class="dian" data-act="j_act">
+    	<a href="{?function geturl:'3g':'huodong':'SYS=method=vote&aid=$articleid'?}" id="vote" class="tab"><span class="tabtop">推荐</span><span class="tabxia">{?$votenum?}次</span></a>
+        <a href="{?function geturl:'3g':'huodong':'SYS=method=reward&aid=$articleid'?}" id="reward" class="tab"><span class="tabtop1">打赏</span><span class="tabxia">{?$rewardnum?}次</span></a>
+        <a href="{?function geturl:'3g':'huodong':'SYS=method=vipvote&aid=$articleid'?}" id="vipvote" class="tab nomargin"><span class="tabtop2">月票</span><span class="tabxia">{?$vipvote?}张</span></a>
+    </div>
+    <div id="tab_box1" class="trendbox"></div>
+</div>
+<div class="content2">
+	<h2>本书目录<span>({?$chapters?}章)</span></h2>
+    <div class="news">
+    	<div class="new"><span>最新</span><a style="color: #27201f;" href="{?function geturl:'3g':'reader':'SYS=aid=$articleid&cid=$lastchapterid'?}">{?$lastchapter?}{?if $lastchaptervip == 1?}<img style="margin-left: 5px;" src="{?$jieqi_themeurl?}images/vip.jpg" />{?/if?}</a></div><div class="time">{?$lastupdate|date:Y-m-d H:i:s?}</div>
+    </div>
+    <div class="table">
+    	<div class="titbut" id="tabs1">
+        	<a href="javascript:void(0)" class="thistab">正序</a>
+             <a href="javascript:void(0)">倒序</a>
+        </div>
+        <div id="tab_conbox1">
+        	<div class="tab1 st">
+                <ul>
+                	{?section name=i loop=$indexrows?}
+                    <li>{?if $indexrows[i].ctype=='chapter'?}<a href="{?function geturl:'3g':'reader':'SYS=aid=$articleid&cid=$indexrows[i].cid'?}">{?$indexrows[i].cname?}{?if $indexrows[i].isvip == 1?}<img style="margin-left: 5px;" src="{?$jieqi_themeurl?}images/vip.jpg" />{?/if?}</a><span>{?$indexrows[i].size_c?}字</span>{?else?}{?$indexrows[i].vname?}{?/if?}</li>
+                    {?/section?}
+                </ul>
+                <div class="more">
+                	<a href="{?function geturl:'3g':'catalog':'SYS=aid=$articleid'?}">
+                    更多目录 >
+                    </a>
+                </div>
+            </div>
+            <div class="tab1" style="display:none;">
+                <ul>
+                    {?section name=i loop=$indexrows_d?}
+                    <li><a href="{?function geturl:'3g':'reader':'SYS=aid=$articleid&cid=$indexrows_d[i].cid'?}">{?$indexrows_d[i].cname?}{?if $indexrows_d[i].isvip == 1?}<img style="margin-left: 5px;" src="{?$jieqi_themeurl?}images/vip.jpg" />{?/if?}</a><span>{?$indexrows_d[i].size_c?}字</span></li>
+                    {?/section?}
+                </ul>
+                <div class="more">
+                    <a href="{?function geturl:'3g':'catalog':'SYS=aid=$articleid'?}">
+                    更多目录 >
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content3">
+	<h2>书评专区<a href="{?function geturl:'3g':'reviews':'SYS=aid=$articleid'?}">我要评论 ></a></h2>
+    <ul>
+    	{?if !empty($reviewrows)==1?}
+    	{?section name=i loop=$reviewrows?}
+    	<li>
+        	<div class="head">
+                <img src="{?function jieqi_geturl:'system':'avatar':'$reviewrows[i].posterid':'m':'$reviewrows[i].avatar'?}" alt="" class="faceimg" />
+                <span class="facezhe"><img src="{?$jieqi_themeurl?}images/headzhe.png" alt="" /></span>
+            </div>
+            <div class="right">
+                <p class="blue name">{?$reviewrows[i].poster?}</p>
+                <p class="summary">{?$reviewrows[i].posttext|truncate:'33':'……':'1'?}</p>
+                <p class="date">{?$reviewrows[i].posttime|date:"Y-m-d H:i:s"?}</p>
+                <p class="comment"><a href="{?function geturl:'3g':'reviews':'method=showReplies':'SYS=aid=$articleid&rid=$reviewrows[i].rid'?}">我要回复</a></p>
+            </div>
+            <span class="line"></span>
+        </li>
+        {?/section?}
+        {?else?}
+        <li>
+        	<div>啊哦~还没有评论，赶紧抢沙发吧！</div>
+        </li>
+		{?/if?}
+    </ul>
+    {?if !empty($reviewrows)==1?}
+    <div class="more">
+         <a href="{?function geturl:'3g':'reviews':'SYS=aid=$articleid'?}">更多评论 ></a>
+    </div>
+    {?/if?}
+</div>
+<div class="content4">
+	<div class="reci">
+    	<span>热词：</span><a href="{?function geturl:'3g':'search':'SYS=searchkey=与美合租'?}">与美合租</a><a href="{?function geturl:'3g':'search':'SYS=searchkey=黑道学生'?}">黑道学生</a><a href="{?function geturl:'3g':'search':'SYS=searchkey=风水先生'?}">风水先生</a>
+    </div>
+    {?include file = "themes/3g/search.html"?}
+</div>
+{?include file = "themes/3g/bottom.html"?}
+
+<script type="text/javascript">
+function act(num,obj){
+		$('dd.current'+num).removeClass("current"+num);
+		$(obj).parent().addClass("current"+num);
+		$('#current'+num).val($(obj).attr("id"));
+	  }
+	  
+	  function addLoad(abelId,ContainerId){
+		var i = 2;
+		$('#'+abelId).on('click',function(e){
+		  e.stopPropagation();
+	      e.preventDefault();
+	      var loadurl = this.href,
+	    	  tips = layer.open({type: 2,content: '加载中……'});
+	      loadurl = loadurl.indexOf("display=") < 0 ? this.href +"?page="+i : this.href +"&page="+i;
+	    
+	      GPage.getJson(urlParams(loadurl,'ajax_gets='+ContentTag),function(data){
+			if ($.trim(data) != ""){
+	    	  layer.close(tips);
+	          $('#'+ContainerId).html($('#'+ContainerId).html()+data);
+	          var isLast = data.split("<li>").length-1;
+	          if(isLast < '10'){$('#'+abelId).parent("p").remove();}
+		      i++;
+	        }else{
+	    	  layer.close(tips);
+		      $('#'+abelId).parent("p").remove();
+	        }
+	      });
+	    });
+	  }
+$(function(){
+	// 加入书签
+	$("[data-act=add_bookcase]").on("click", function(event){
+		event.preventDefault();
+		if(getUserId()<1){
+	    		location.href = _login;
+    		} else {
+    			var _url = $(this).attr("href");
+			GPage.getJson(_url, function(data){
+				if ("OK"===data.status) {
+					layer.open({
+					    content: data.msg,
+//					    btn: ['OK']，
+						time:2
+					});
+				} else {
+					layer.open({
+					    content: data.msg,
+//					    btn: ['OK'],
+						time:2
+					});
+				}
+			})
+    		}
+	})
+		
+		
+})
+	
+</script>
+</body>
+</html>

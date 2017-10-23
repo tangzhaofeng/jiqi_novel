@@ -1,0 +1,79 @@
+<script type="text/javascript" src="{?$jieqi_themeurl?}/js/jquery.cookie.js"></script> 
+<!--logined2  begin-->
+<div class="logined2">
+    <ul class="topmenu" clearfix="" id="jq_topmenu">
+     <li class="webnav" qxpp="" style="background:none">
+      <span class="icon_arr2"><a class="{?$_USER['vipphoto']?} vs" title="{?$_USER['vipgrade']?}级会员" href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}"></a><em>{?$jieqi_username?}</em></span>
+      <div class="jq_hidebox" id="jq_hidebox" style="display: none; " block;="">
+        <dl class="jq2">
+          <dd class="dd1"><a href="{?function geturl:'system':'userhub'?}" class="f_black">个人中心</a></dd>
+          <dd><a href="{?function geturl:'system':'userhub':'SYS=method=usereditView'?}" class="f_black">账号管理</a></dd>
+          <dd><a href="{?function geturl:'system':'userhub':'SYS=method=upaView'?}" class="f_black">修改头像</a></dd>
+          <dd><a href="{?function geturl:'system':'userhub':'SYS=method=pwdview'?}" class="f_black">修改密码</a></dd>
+          <dd><a href="{?function geturl:'pay':'home'?}" class="f_black">充值</a></dd>
+          <dd class="dd2"><a href="{?function geturl:'system':'userhub':'SYS=method=logout'?}" class="f_black">退出</a></dd>
+        </dl>
+      </div>     
+     </li>
+     <li class="webnav" qxpp="" style="background:none">
+      <span class="icon_arr2">消息{?if $jieqi_messagenum>0?}<em class="org">({?$jieqi_messagenum?})</em>{?/if?}</span>
+      <div class="jq_hidebox" id="jq_hidebox" style="display: none; " block;="">
+        <dl class="jq1">
+          <dd><a href="{?function geturl:'system':'userhub':'SYS=method=inbox'?}" class="f_black">查看私信</a>{?if $jieqiNewMessage >0?}<em class="g9">您有<em class="org">{?$jieqiNewMessage?}</em>条未读私信</em>{?/if?}</dd>
+          <dd><a href="{?function geturl:'system':'userhub': 'SYS=my=aname'?}" class="f_black">查看通知</a>{?if $jieqiNewTongZhi >0?}<em class="g9">您有<em class="org">{?$jieqiNewTongZhi?}</em>条通知</em>{?/if?}</dd>
+          <dd><a href="{?function geturl:'system':'userhub':'SYS=method=friend&fans=aname'?}" class="f_black">查看粉丝</a>{?if $jieqiNewFriend >0?}<em class="g9">您新增<em class="org">{?$jieqiNewFriend?}</em>粉丝</em>{?/if?}</dd>
+        </dl>
+      </div>   
+     </li>
+<!--     <li><a href="{?function geturl:'system':'userhub'?}" class="f_gray6">个人中心</a>|</li>-->
+     <li class="webnav" qxpp="" style="background:none">
+      <span class="icon_arr2">我的书架</span>
+      <div class="jq_hidebox" id="jq_hidebox" style="display: none; " block;="">
+       <div class="jq3 fix">
+        <ul id="tabs9" class="tabmenu2 fix" >
+          <li id="arl" class="brdl"><a href="javascript:;">书架记录</a></li>
+          <li><a href="javascript:;">最近阅读</a></li>
+        </ul>
+        <ul id="tab_conbox9">
+         <li style="display:none;" id="am">
+			{?tag_system_125_查询用户书架<{joindate,5,0,$uid,}><{block_minilist.html}>?}
+         </li>
+         <li>
+          <dl class="lisd fix" id="list">
+          </dl>
+         </li>
+        </ul>
+       </div>
+      </div>     
+     </li>
+     <li><!--|<a href="{?function geturl:'system':'userhub':'SYS=method=czView'?}" target="_blank" class="f_red2">充值</a>-->|<a href="{?function geturl:'system':'userhub':'SYS=method=logout'?}" class="f_black">退出</a></li>
+    </ul>
+</div><!--logined2 end-->
+<script type="text/javascript">
+$(document).ready(function(){
+	$("li.webnav").hover(function(){
+		$(this).addClass("hover").find("div#jq_hidebox").show();},function(){$(this).removeClass("hover").find("div.jq_hidebox").hide();
+	});
+	$.jqtab("#tabs9","#tab_conbox9","mouseenter");
+  $(function(){
+    var list ="";  
+   if($.cookie("history")){
+    var json = eval("("+$.cookie("history")+")"); 
+	for(var i = json.length-1; i >= json.length-5; i--){
+		if(i<0)break;
+		list = list + "<dd class='fix'><em class='nam'><a href='"+json[i].art_url+"' target='_blank' class='f_black'>《"+json[i].art_tit+"》</a></em><em class='nam2'><a href='"+json[i].chp_url+"' target='_blank' class='f_blue1'>继续阅读</a></em><p class='nam3'>上次您阅读到：<a href='"+json[i].chp_url+"' target='_blank' class='f_black'>"+json[i].chp_tit+"</a></p></dd>";
+	}
+	list = list + "<dd class='noline'><a href='javascript:;' class='f_blue1' id='clear' onclick='addclear();'>清除记录</a></dd>";
+   }else{
+   list = "<dd class='fix f14 g9 noline tc'>您最近没有阅读历史<a class='f_blue5' href='/shuku'>点击阅读</a></dd>";
+   }
+    $("#list").html(list);
+  }); 
+});
+function addclear(){
+	$.cookie("history", null,{path:"/"});
+    var list = "<dd class='fix f14 g9 noline tc'>您最近没有阅读历史<a class='f_blue5' href='/shuku'>点击阅读</a></dd>";
+    $("#list").html(list);
+}
+
+</script>

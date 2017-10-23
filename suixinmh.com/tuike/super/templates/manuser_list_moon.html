@@ -1,0 +1,115 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/laydate.css" />
+    <script src="{?$jieqi_themeurl?}js/laydate.js?1.2" type="text/javascript" charset="utf-8"></script>
+    <div class="g-main">
+      <h3>推客管理 </h3>
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+
+            <form style="display:inline" action="" onsubmit="form_ajax();return false;" method="post">
+              <span _o="{?$moon?}" id="test1">{?$moon?}</span>
+            </form>
+
+            <form style="display:inline;padding-left: 12px;" onsubmit="downloads_moon();return false;" method="post">
+              <button type="submit" class="u-btn u-btn-primary">下载该月数据</button>
+            </form>
+          </div>
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="tkuid">推客id</i></th>
+                <th><i class="sortOr" _z="tkunn">推客姓名</i></th>
+                <th><i class="sortOr" _z="tknot">经理备注</i></th>
+                <th><i class="sortOr" _z="rmoon">月充值</i></th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($ktList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 8 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('super','manuser');?}
+              {?section name=i loop=$ktList?}
+              <tr _i="{?$ktList[i].uid?}">
+                <td>{?$ktList[i].uid?}</td>
+                <td>{?$ktList[i].uname?}</td>
+                <td>{?$ktList[i].notes?}</td>
+                <td>{?$ktList[i].almoney?}</td>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+
+          <style>
+            .elementMan {
+
+              height: 27px;
+            }
+            #laydate_table{
+              display:none;
+            }
+            #test1{
+              padding-left:9px;
+              cursor:pointer;
+            }
+          </style>
+          <script>
+          laydate({
+            elem: '#test1',
+            format: 'YYYY-MM', // 分隔符可以任意定义，该例子表示只显示年月
+            festival: false, //显示节日
+            choose: function(datas){ //选择日期完毕的回调
+              var q_this=$("#test1");
+              if( datas !== q_this.attr('_o') ){
+                q_this.attr('_o',datas);
+                form_ajax();
+              }
+            }
+          });
+
+          function form_ajax(){
+            filter.moon=$("#test1").text();
+            filter.page=1;
+            get_content(location.href);
+            return false;
+          }
+
+          function downloads_moon(){
+           $.post(getUrl(['manuser','moon_download']),filter,function(obj){
+              if(obj.status==='OK'){
+                location.href=obj.jumpurl;
+              }else{
+                Users.ShowMsg(obj.msg);
+              }
+            },'json');
+          }
+
+
+          </script>
+
+
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    {?eval $filter_jsobj=json_encode($filter);?}
+    <script type="text/javascript">
+      var filter=$.parseJSON('{?$filter_jsobj?}');  // jq
+      var q_main=$('#form_main');
+      var baseImgUrl='{?$jieqi_themeurl?}img/';
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}
+{?/if?}

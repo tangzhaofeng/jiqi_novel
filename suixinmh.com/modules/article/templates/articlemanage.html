@@ -1,0 +1,214 @@
+<style type="text/css">
+<!--
+ul.chaplist{
+	list-style: none;
+	clear: both;
+	text-align: left;
+	width: 100%;
+}
+
+li.chapter{
+	float: left;
+	width: 49%;
+	line-height: 150%;
+}
+
+li.volume{
+	width: 100%;
+	clear: both;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 150%;
+	border-top: 1px solid #eaeaea;
+	border-bottom: 1px solid #eaeaea;
+}
+
+ul.packflag{
+	list-style: none;
+	clear: both;
+	text-align: left;
+	width: 100%;
+}
+
+ul.packflag li{
+	float: left;
+	width: 49%;
+	line-height: 150%;
+}
+-->
+</style>
+<table class="grid" cellspacing="1" width="100%" align="center">
+<form name="chapterdel" id="chapterdel" action="{?function geturl:'article':'chapter':'SYS=method=delChapters'?}" method="post">
+ <caption>《{?$articlename?}》[<a href="{?$url_articleinfo?}" target="_blank">信息</a>] [<a href="{?$url_articleindex?}" target="_blank">阅读</a>]</caption>
+ <tr>
+   <td align="center" class="head">
+   [<a href="{?function geturl:'article':'volume':'SYS=method=newVolumeView&aid=$articleid'?}">新建分卷</a>]
+   [<a href="{?function geturl:'article':'chapter':'SYS=method=newChapterView&aid=$articleid'?}">增加章节</a>] 
+   [<a href="{?function geturl:'article':'article':'SYS=method=editArticleView&aid=$articleid'?}">编辑文章</a>] 
+   [<a href="javascript:if(confirm('确实要删除该文章么？')) document.location='{?function geturl:'article':'article':'SYS=method=articleDelete&aid=$articleid'?}';">删除文章</a>] 
+   [<a href="javascript:if(confirm('确实要清空（删除所有章节）该文章么？')) document.location='{?function geturl:'article':'article':'SYS=method=articleClean&aid=$articleid'?}';">清空文章</a>] 
+   [<a href="{?$article_dynamic_url?}/reviews.php?aid={?$articleid?}">管理书评</a>] 
+   {?if $articlevote > 0?}
+   [<a href="{?$article_static_url?}/votearticle.php?id={?$articleid?}">管理投票</a>]
+   {?/if?}
+   </td>
+ </tr>
+ <tr>
+ <td class="odd">
+ <ul class="chaplist">
+ {?section name=i loop=$chapterrows?}
+ {?if $chapterrows[i].chaptertype == 0?}
+ <li class="chapter"><input type="checkbox" class="checkbox" name="chapterid[]" value="{?$chapterrows[i].chapterid?}" /><a href="{?$chapterrows[i].url_chapterread?}" target="_blank">{?$chapterrows[i].chaptername?}</a> <a href="{?$chapterrows[i].url_chapteredit?}">[编]</a> <a href="javascript:layerConfirm()">[删]</a>{?if $chapterrows[i].display!=2?}[<font color="red">显</font>]{?else?}[<font color="gray">隐</font>]{?/if?}</li>
+ {?else?}
+ <li class="volume"><input type="checkbox" class="checkbox" name="chapterid[]" value="{?$chapterrows[i].chapterid?}" /><a href="{?$chapterrows[i].url_chapterread?}" target="_blank">{?$chapterrows[i].chaptername?}</a> <a href="{?$chapterrows[i].url_chapteredit?}">[编]</a> <a href="javascript:layerConfirm('{?$chapterrows[i].url_chapterdelete?}')">[删]</a>{?if $chapterrows[i].display==0?}[<font color="red">显</font>]{?else?}[<font color="gray">隐</font>]{?/if?}</li>
+ {?/if?}
+ {?/section?}
+ </ul>
+ </td>
+ </tr>
+ <tr>
+   <td class="foot">
+   <input type="hidden" name="articleid" id="articleid" value="{?$articleid?}" />
+   <input type="button" name="allcheck" value="选择全部章节" class="button" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ this.form.elements[i].checked = true; }">&nbsp;&nbsp;<input type="button" name="nocheck" value="取消全部选中" class="button" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ this.form.elements[i].checked = false; }">&nbsp;&nbsp;<input type="button" name="delcheck" value="批量删除章节" class="button" onclick="">
+{?if $editchapterstatus==1?}   
+   &nbsp;&nbsp;
+   选中章节设为
+   <select class="select"  size="1" name="chapshowtype" id="chapshowtype">
+   	<option value="hide">&nbsp;隐藏&nbsp;</option>
+   	<option value="show">&nbsp;显示&nbsp;</option>
+   </select>&nbsp;
+   <input type="button" name="hidcheck" value=" 提 交 " id="sub" class="button" />
+   <input type="hidden" name="chapshow" value="">
+<script>
+document.onclick=function(e){
+	e=e?e:window.event;
+	var srcElem=(e.target)?e.target:e.srcElement;
+	if(srcElem.name=="hidcheck"||srcElem.name=="delcheck"){
+		$.layer({
+			shade : [0], //不显示遮罩
+			moveType : 1,
+			dialog : {
+				msg:'确实要批量执行此操作么？',
+				btns : 2, 
+				type : 4,
+				btn : ['确定','取消'],
+				yes : function(){
+					if(srcElem.name=="hidcheck"){
+						checkhid(document.forms['chapterdel']);
+					}else if(srcElem.name=="delcheck"){
+						document.forms['chapterdel'].submit();
+					}
+				}
+			}
+		});
+	}
+};
+function checkhid(theform){
+	var url_action = '{?function geturl:'article':'chapter':'SYS=method=hideChapter&aid=$articleid'?}';
+    theform.chapshow.value=theform.chapshowtype.value;
+    theform.action = url_action;//显示|隐藏的动作
+	theform.submit();
+}
+
+function layerConfirm(curl){
+	$.layer({
+    shade : [0], //不显示遮罩
+    area : ['auto','auto'],
+	title : '确认删除',
+    dialog : {
+        msg:'确实要删除该章节么？',
+        btns : 2, 
+        type : 4,
+        btn : ['确定','取消'],
+        yes : function(){
+            $.ajax({
+				type:'POST',
+				url:curl,
+				success:function(msg){
+					$('#content').load(location.href + ' #content>*');
+					layer.msg('删除成功',1);
+				}
+			});
+        },
+        no : function(){
+            layer.msg('删除失败',1);
+        }
+    }
+});
+}
+
+</script>{?/if?}
+   </td>
+ </tr>
+</form>
+</table>
+
+<br />
+<table width="100%" class="grid" cellspacing="1" align="center">
+<form name="chaptersort" id="chaptersort" action="{?$url_chaptersort?}" method="post">
+<caption>章节排序</caption>
+<tr valign="middle" align="left">
+  <td class="odd" width="25%">选择章节或分卷</td>
+  <td class="even">
+  <select class="select"  size="1" name="fromid" id="fromid">
+  {?section name=i loop=$chapterrows?}
+  {?if $chapterrows[i].chaptertype == 0?}
+  <option value="{?$chapterrows[i].chapterorder?}">|-{?$chapterrows[i].chaptername?}</option>
+  {?else?}
+  <option value="{?$chapterrows[i].chapterorder?}">{?$chapterrows[i].chaptername?}</option>
+  {?/if?}
+  {?/section?}
+  </select>
+  </td>
+</tr>
+  <tr valign="middle" align="left"><td class="odd" width="25%">移动到</td>
+  <td class="even">
+  <select class="select"  size="1" name="toid" id="toid">
+  <option value="0">--最前面--</option>
+  {?section name=i loop=$chapterrows?}
+  {?if $chapterrows[i].chaptertype == 0?}
+  <option value="{?$chapterrows[i].chapterorder?}">|-{?$chapterrows[i].chaptername?}</option>
+  {?else?}
+  <option value="{?$chapterrows[i].chapterorder?}">{?$chapterrows[i].chaptername?}</option>
+  {?/if?}
+  {?/section?}
+  </select>
+  <span class="hottext">之后</span>
+  </td>
+</tr>
+<tr valign="middle" align="left">
+  <td class="odd" width="25%">&nbsp;</td>
+  <td class="even">
+  	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+  	<input type="submit" class="button" name="dosubmit"  id="submit_sort" value="确 定" />
+  	<input type="hidden" name="aid" id="aid" value="{?$articleid?}" />
+  </td>
+</tr>
+</form>
+</table>
+<br/>
+
+<table width="100%" class="grid" cellspacing="1" align="center">
+<form name="repack" id="repack" action="{?$url_repack?}" method="post">
+<caption>重新生成</caption>
+<tr valign="middle" align="left">
+  <td class="odd" width="25%">生成选项</td>
+  <td class="even">
+  <ul class="packflag">
+  {?section name=i loop=$packflag?}
+  <li><input type="checkbox" class="checkbox" name="packflag[]" value="{?$packflag[i].value?}" />{?$packflag[i].title?} </li>
+  {?/section?}
+  </ul>
+  </td>
+</tr>
+<tr valign="middle" align="left">
+  <td class="odd" width="25%">&nbsp;</td>
+  <td class="even">
+  	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+  	<input type="submit" class="button" name="submit_repack" id="submit_repack" value="确 定" />
+  	<input type="hidden" name="id" id="id" value="{?$articleid?}" />
+  </td>
+</tr>
+</form>
+</table>

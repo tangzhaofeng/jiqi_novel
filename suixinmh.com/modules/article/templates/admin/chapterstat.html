@@ -1,0 +1,45 @@
+<!--<form name="frmsearch" method="post" action="?controller=salestat">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}"> <input name="keytype" type="radio" class="radio" value="0" {?if $keytype!=1?} checked="checked" {?/if?}>
+            文章名称
+            <input type="radio" name="keytype" class="radio" value="1" {?if $keytype==1?} checked="checked" {?/if?}>
+            文章作者 &nbsp;&nbsp;
+            <input type="submit" name="btnsearch" class="button" value="搜 索">         
+        </td>
+    </tr>
+</table>
+</form>
+<br />-->
+<table><tr><td><button onclick="history.back()">返回</button></td></tr></table>
+<table class="grid" width="100%" align="center">
+<caption>《{?$articlename?}》章节销售统计</caption>
+  <tr align="center" valign="middle">
+  	<th width="16%">章节名称</th>
+    <th width="16%">单价(书海币)</th>
+    <th width="12%">销售量</th>
+    <th width="12%">总销售(书海币)</th>
+	<th width="12%">状态</th>
+	<th width="12%">详细记录</th>
+  </tr>
+  {?section name=i loop=$pay?}
+  <tr valign="middle">
+  	<td align="left" class="even"><a href="{?function geturl:'article':'reader':'aid=$pay[i].articleid':'cid=$pay[i].chapterid'?}" target="_blank">{?$pay[i].chaptername?}</a></td>
+    <td align="center" class="odd">{?$pay[i].saleprice?}</td>
+	<td align="center" class="odd">{?$pay[i].num?}</td>
+	<td align="center" class="odd">{?$pay[i].sum?}</td>
+	<td align="center" class="odd">{?if $pay[i].display == 0?}销售中{?else if $pay[i].display == 1?}待审{?else if $pay[i].display == 2?}定时{?else if $pay[i].display == 9?}定时待审{?/if?}</td>
+	<td align="center" class="odd"><a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=chapterbuylog&cid={?$pay[i].chapterid?}">详细记录</a></td>
+  </tr>
+  {?/section?}
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+<br /><br />

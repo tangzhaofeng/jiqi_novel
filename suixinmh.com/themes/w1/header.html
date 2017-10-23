@@ -1,0 +1,60 @@
+<div class="top fix">
+  <!--top_mini begin-->
+  <div class="top_mini">
+    <div class="wrap fix">
+      <!--userbar begin-->
+      <div class="userbar" id="userbar">      
+        	{?include file = "modules/wenxue/templates/loginheader.html" ?}
+      </div><!--userbar end-->
+      <div class="mini_r f_gray3">
+       <a href="http://www.shuhai.com/" onClick="window.external.addFavorite(this.href,this.title);return false;" title='书海网' rel="sidebar" class="addfav">加入收藏</a>
+       |<a href="javascript:;"  onclick=this.style.behavior="url(#default#homepage)";this.setHomePage("http://www.shuhai.com/");  class="sethome"  title="书海网" >设为首页</a>
+       |<a href="#" id="StranLink" class="fan" title="繁体">繁体</a>
+      </div>
+    </div>
+  </div><!--top_mini end-->
+    <script type="text/javascript">loadheader();setInterval(loadheader,10000);</script>
+  <div class="wrap fix">
+    <div class="site">
+     <a href="{?$SITE_WENXUE_URL?}" target="_blank" title="书海文学网" class="logo_wx"></a>
+     <ul class="substation">
+       <li>┠<a href="http://www.shuhai.com" target="_blank" title="书海小说网">原创网</a></li>
+       <li>┠<a href="javascript:alert('建设中');" target="_blank" title="书海小说网">言情网</a></li>
+       <li>┠<a href="http://wap.shuhai.com" target="_blank" title="书海小说网">手机网</a></li>
+     </ul>     
+    </div>
+    <div class="ad1"><a href="javascript:void(0)" target="_blank" title=""><embed src="{?$jieqi_url?}/themes/v1/images/ad2.swf" width="480" height="95" type=application/x-shockwave-flash wmode="transparent" quality="high" ></embed></a></div>
+	
+    <!--<div class="logo_wx">
+     <a href="{?$SITE_WENXUE_URL?}"  title="书海小说文学网">书海小说文学网</a>
+    </div>--
+<!--    <div class="ad_m"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/ad534.jpg"/></a></div>-->
+    <div class="so2">{?include file = "themes/w1/search.html" ?}</div>
+  </div>
+  <!--nav begin-->
+  <div class="nav_wx">
+   <div class="mainav">
+    <ul>
+     <a href="{?$SITE_WENXUE_URL?}"><li class="on">网站首页</li></a>
+     <li class="line">|</li>
+     <li><a href="{?$SITE_WENXUE_URL?}/shuku/" >文学书库</a></li>
+     <li class="line">|</li>
+     <li><a href="{?$SITE_WENXUE_URL?}/top/" >书籍排行</a></li>
+	  <li class="line">|</li>
+     <!--<li><a href="#" >书海出版</a></li>
+     <li class="line">|</li>-->
+     <li><a href="{?function geturl:'article':'sort':SYS=sort=0&size=0&fullflag=0&operate=0&free=2&page=1?}">VIP小说</a></li>
+     <li class="line">|</li>
+     <li><a href="{?function geturl:'pay':'home'?}" >充值</a></li>
+     <li class="line">|</li>
+     <li><a href="{?function geturl:'article':'article':'SYS=method=masterPage'?}" >作者专区</a></li>
+     <li class="line">|</li>
+     <li><a href="{?function geturl:'system':'userhub'?}" >会员中心</a></li>
+     <li class="line">|</li>
+    </ul>
+   </div>
+   <div class="sortnav">
+   {?tag_system_220_文学头部分类<{}><{v1/block_wenxueheadsort.html}>?}
+   </div>
+  </div><!--nav end-->
+</div>

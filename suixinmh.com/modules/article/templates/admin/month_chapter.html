@@ -1,0 +1,74 @@
+<table class="grid" width="100%">
+<caption>{?$year?}-{?$month?}统计</caption>
+  <tr align="center">
+  	<th width="3%"></th>
+    <th width="25%">章节名称</th>
+    <th width="10%">发布日期</th>
+<!--     <th width="10%">批注时间</th> -->
+    <th width="">批注内容</th>
+  </tr>
+  
+  {?if $chapters|count > 0?}
+  {?section name=i loop=$chapters?}
+  <tr onmouseover="over(this)" onmouseout="out(this)">
+  	<td >{?$i['order']?}</td>
+    <td>{?$chapters[i].chaptername?}</td>
+    <td  align="center">{?$chapters[i].postdate|date:"m-d H:i"?}</td>
+<!--     <td  align="center">{?if $chapters[i].commentdate > 0 ?}{?$chapters[i].commentdate|date:"m-d H:i"?}{?/if?}</td> -->
+    <td style="padding:10px;line-height: 18px;"><span>{?section name=j loop=$chapters[i].comment?}<font color="red">@{?$chapters[i].comment[j]['username']?}</font>{?$chapters[i].comment[j]['date']?}  {?$chapters[i].comment[j]['comment']?}{?/section?}</span><span style="float:right;display:none;color:blue;" name="edit" id="{?$chapters[i].chapterid?}">批注</span></td>
+  </tr>
+  {?/section?}
+  {?else?}  <tr><td colspan="4">没有数据</td></tr> {?/if?}
+  
+</table>	
+
+<script language="javascript">
+	function over(obj){
+		obj.style.backgroundColor='#DDF2FF';
+		$(obj).find("span[name='edit']").show();  
+	}
+	function out(obj){
+		obj.style.backgroundColor='#ffffff';
+		$(obj).find("span[name='edit']").hide(); 
+	}
+	 $(document).ready(function(){  
+		$("span[name='edit']").bind("click",function(){
+			if(!$(this).prev().is(':has(input)')){
+// 				val = $(this).prev().text();
+// 				$(this).prev().text('');
+// 				$(this).prev().append("<input size='55' value='"+val+"'/>");
+// 				$(this).text('保存');
+				$(this).prev().append("<input size='55' value=''/>");
+				$(this).text('保存');
+			}else{
+				cid = $(this).attr("id");
+				val = $(this).prev().children("input").val();
+				if(!val){
+					layer.msg('批注不能为空！',1,{type:8,shade:false});
+					return;
+				}
+				GPage.getJson('{?$adminprefix?}&method=addComment&cid='+cid+'&comment='+encodeURIComponent(val),function(data){
+					if(data.status=='OK'){
+						layer.msg(data.msg['msg'],1,{type:1,shade:false},function(obj){
+							//ajax save val
+							//save success 
+							//1:设置时间
+							//2:保存->修改
+							//3:文本显示修改后的备注
+							//$("#"+cid).parent().prev().text(data.msg['commentdate'])
+							//移除input，追加新批注
+							$("#"+cid).prev().children("input").remove();
+							$("#"+cid).prev().prepend('<font color="red">@'+data.msg['username']+'</font>  '+data.msg['date']+'  '+data.msg['comment']+"  ");
+							$("#"+cid).text('批注');
+							makerCell(parseInt(data.msg['postdateday'])+7-1,rowIndex,'marker');
+						})
+					}else{
+						layer.alert(data.msg, 8, !1);
+					}
+				});
+			}
+			//alert($(this).before().parent().html());
+		}); 
+	})  
+
+</script>

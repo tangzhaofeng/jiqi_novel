@@ -1,0 +1,25 @@
+<!--<table width="200" border="0" cellspacing="0" cellpadding="0">javascript:if(confirm('确定删除该回复？')) document.location=' {?$article_dynamic_url?}&method=delReply&pid={?$replyrows[i].postid?}-->
+<table class="grid" width="880px" align="center">
+<caption>回复列表</caption>
+  <tr>
+    <td class="title" colspan="4">原文</td>
+  </tr>
+  <tr style="background-color:#fff;">
+    <td colspan="4">{?$reviewrow['posttext']?}</td>
+  </tr>
+{?if $count>0?}
+  <tr>
+    <td width="15%" class="title">回复人</td>
+    <td width="15%" class="title">时间</td>
+    <td width="65%" class="title">内容</td>
+    <td width="5%" class="title">管理</td>
+  </tr>
+{?section name=i loop=replyrows?}
+  <tr style="background-color:#{?if $nowid == $replyrows[i].postid?}EAF8FF{?else?}fff{?/if?};">
+    <td>{?$replyrows[i].poster?}</td>
+    <td>{?$replyrows[i].posttime?}</td>
+    <td>{?$replyrows[i].posttext?}</td>
+    <td><a href="javascript:if(confirm('确实要删除该书评么？')) delReply({?$replyrows[i].postid?});">[删除]</a></td>
+  </tr>
+{?/section?}{?else?}<tr style="background-color:#fff;"><td>米有回复o(╯□╰)o</td></tr>{?/if?}
+</table>

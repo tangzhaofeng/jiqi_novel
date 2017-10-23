@@ -1,0 +1,9 @@
+		<dd class="first">
+          <a href="#" target="_blank" class="img"><img src="{?$jieqi_themeurl?}images/cover68.jpg" alt="王爷从此不早朝" /></a>
+          <h3><a href="book.html" target="_blank" title="王爷从此不早朝" class="f_black">王爷从此不早朝</a></h3>
+          <p class="intro">为了心爱的男人，她以婚姻为条件与素昧谋面的腹……</p>
+          <p><a href="book.html" target="_blank" class="f_blue">阅读</a></p>
+        </dd>
+		{?section name=i loop=$articlerows?}
+        <dd><a href="{?$articlerows[i]['url_class']?}" class="sort" title="{?$articlerows[i]['sort']?}">[{?$articlerows[i]['shortcaption']?}]</a><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}" class="f_black">{?$articlerows[i]['articlename']?}</a></span></dd>
+		{?/section?}

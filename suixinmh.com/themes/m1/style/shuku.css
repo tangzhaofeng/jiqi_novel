@@ -1,0 +1,59 @@
+@charset "gb2312";
+/*
+ * @Description :书海女频书库样式shuku.css
+ * @Author :     zhuyunlong;
+ * @Updata :     zhuyunlong(2015-02-03 16:28)
+ */
+@import url("reset.css");
+@import url("comment.css");
+.aca {color: #04aca1;}
+/*头部作品类别*/
+.boxs2 {float: left;padding: 15px 0 8px;margin-top: 7px;}
+.boxs2 .boxs2_term {padding: 0 21px;}
+.boxs2 .boxs2_term .t {float: left;display: block;width: 68px;height: 33px;line-height: 33px;font-weight: 800;color: #5e5e5e;}
+.boxs2 .boxs2_term .sort {float: left;width: 92%;line-height: 33px;height: auto;}
+.boxs2 .boxs2_term .sort a{display: inline-block;padding: 0 9px;height: 19px;line-height: 19px;color: #333333;}
+.boxs2 .boxs2_term .sort a.on{background-color: #07b1a6;color: #fff;}
+/*书库列表*/
+.article2 {width: 742px;height: auto;}
+.article2 .t {border-bottom: 2px solid #07b1a6;}
+.article2 .t h2 {float: left;font-size: 20px;color: #333;line-height: 34px;margin: 15px 0 2px;padding-left: 5px;}
+.article2 .t .s_img {margin: 17px 0 7px;width: 24px;height: 25px;border: 1px solid #cccccc;background: url(../images/show_img.jpg) no-repeat 0 0;}
+.article2 .t .s_text {margin: 17px 0 7px;width: 24px;height: 25px;border-bottom: 1px solid #cccccc;border-top: 1px solid #cccccc;border-right: 1px solid #cccccc;background: url(../images/show_text.jpg) no-repeat 0 0;}
+.article2 .t .toimg {width: 51px;height: 27px;margin: 17px 18px 7px 0;background: url(../images/ico-f.gif) -216px -182px;}
+.article2 .t .totext {width: 51px;height: 27px;margin: 17px 18px 7px 0;background: url(../images/ico-f.gif) -216px -228px;}
+.article2 .t .to_img {width: 24px;height: 27px;margin-left: 1px;}
+.article2 .t .to_text {width: 24px;height: 27px;margin-left: 1px;}
+.article2 .show_li {width: auto;height: auto;margin: 0 8px 0 6px;}
+.article2 .show_li .tt {width: auto;height: 36px;line-height: 36px;font-size: 12px;font-weight: 800;color: #555;border-bottom: 1px dotted #e5e5e5;}
+.article2 .show_li .tt span {float: left;display: block;}
+.article2 .show_li .tt .sort {width: 10%;}
+.article2 .show_li .tt .name {width: 64%;}
+.article2 .show_li .tt .author {width: 14%;}
+.article2 .show_li .tt .date {width: 12%;}
+.article2 .show_li .list_td2 {width: auto;height: auto;/*padding-top: 10px;*/}
+.article2 .show_li .list_td2 .dbg{}
+.article2 .show_li .list_td2 dd {width: auto;font-size: 12px;overflow: hidden;border-bottom: 1px solid #e5e5e5;}
+.article2 .show_li .list_td2 dd span,.article2 .show_li .list_td2 dd p {display: block;float: left;height: 34px;line-height: 34px;overflow: hidden;}
+.article2 .show_li .list_td2 dd .sort {width: 6%;}
+.article2 .show_li .list_td2 dd .name {width: 67%;}
+.article2 .show_li .list_td2 dd .name .aca {font-size: 14px; float: left;}
+.article2 .show_li .list_td2 dd .author2 {width: 15%;}
+.article2 .show_li .list_td2 dd .date2 {width: 12%;color: #999;}
+.article2 .show_img {width: auto; height: auto; margin: 0 4px 0 2px;}
+.article2 .show_img .list_td6 dd {width: auto;height: auto;padding: 24px 0px 22px;border-bottom: 1px solid #e5e5e5;font-size: 12px;}
+.article2 .show_img .list_td6 dd .img {float: left;display: block;width: 112px;}
+.article2 .show_img .list_td6 dd .img img {width: 100px;height: 134px;}
+.article2 .show_img .list_td6 dd .name {float: left;width: 622px;height: 34px;line-height: 34px;font-size: 14px;font-weight: 800;overflow: hidden;margin-left: 2px;}
+.article2 .show_img .list_td6 dd .name  h6 {float: left;height: 28px;line-height: 28px;font-size: 14px;font-weight: 800;overflow: hidden;}
+.article2 .show_img .list_td6 dd .name .read {width: 65px; height: 30px;line-height: 30px;text-align: center;background-color: #91d05d;margin-top: 4px;font-size: 12px;color: #fff;margin-right: 12px;}
+.article2 .show_img .list_td6 dd .name .collect {width: 65px; height: 30px;line-height: 30px;text-align: center;background-color: #d89a33;margin-top: 4px;font-size: 12px;color: #fff;margin-right: 12px;}
+.article2 .show_img .list_td6 dd .info {float: left;width: 66%;height: auto;color: #555;}
+.article2 .show_img .list_td6 dd .it {float: left;width: 140px;height: 24px;line-height: 24px;padding-right: 10px;overflow: hidden;}
+.article2 .show_img .list_td6 dd em {color: #999;}
+.article2 .show_img .list_td6 dd .txt {float: left;width: 622px;line-height: 180%;}
+.article2 .show_img .list_td6 dd .txt em{float: left;display: block;width: 36px;}
+.article2 .show_img .list_td6 dd .txt p{float: left;width: 94%;height: 60px;overflow: hidden;color: #333;word-break: break-all;}
+.article2 .page3 {width: auto;height: auto;padding: 20px 0px;text-align: center;color: #666;font-size: 12px;}
+.article2 .page3 .on {padding: 10px 15px;font-size: 14px;background-color: #07b1a6;color: #fff;font-weight: 800;margin: 0px 3px;}
+.article2 .page3 a {background: #FDFDFD;color: #828282;border: 1px solid #e2e2e2;padding: 10px 15px;font-size: 14px;margin: 0px 3px;}

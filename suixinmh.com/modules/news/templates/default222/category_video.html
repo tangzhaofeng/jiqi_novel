@@ -1,0 +1,210 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_video.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title"?}
+{?set $meta_keywords = "$meta_keywords"?}{?set $meta_description = "$meta_description"?}
+	<div id="news_mid">
+	   <div id="v_top_1">
+         <div id="v_1">
+		    <SCRIPT language=javascript1.1>
+var Arr_big	= new Array();
+var Arr_small	= new Array();
+var Arr_link	= new Array()
+var Arr_title	= new Array()
+var Arr_context	= new Array()
+Arr_big[0]	="{?$_SGLOBAL['localurl']?}/images/news/images/0a1.jpg" //大图 380x260
+Arr_small[0]	="{?$_SGLOBAL['localurl']?}/images/news/images/sa1.jpg" //小图 75x50
+Arr_link[0]	=encodeURIComponent("http://www.yiyacn.com/") //链接
+Arr_big[1]	="{?$_SGLOBAL['localurl']?}/images/news/images/0a2.jpg"
+Arr_small[1]	="{?$_SGLOBAL['localurl']?}/images/news/images/sa2.jpg"
+Arr_link[1]	=encodeURIComponent("http://www.yiyacn.com/")
+Arr_big[2]	="{?$_SGLOBAL['localurl']?}/images/news/images/0a3.jpg"
+Arr_small[2]	="{?$_SGLOBAL['localurl']?}/images/news/images/sa3.jpg"
+Arr_link[2]	=encodeURIComponent("http://www.yiyacn.com/")
+Arr_big[3]	="{?$_SGLOBAL['localurl']?}/images/news/images/0a4.jpg"
+Arr_small[3]	="{?$_SGLOBAL['localurl']?}/images/news/images/sa4.jpg"
+Arr_link[3]	=encodeURIComponent("http://www.yiyacn.com/")
+Arr_big[4]	="{?$_SGLOBAL['localurl']?}/images/news/images/0a5.jpg"
+Arr_small[4]	="{?$_SGLOBAL['localurl']?}/images/news/images/sa5.jpg"
+Arr_link[4]	=encodeURIComponent("http://www.yiyacn.com/")
+Arr_big[5]	="{?$_SGLOBAL['localurl']?}/images/news/images/0a6.jpg"
+Arr_small[5]	="{?$_SGLOBAL['localurl']?}/images/news/images/sa6.jpg"
+Arr_link[5]	=encodeURIComponent("http://www.yiyacn.com/")
+var bigpics	=Arr_big.join("|")
+var smallpics	=Arr_small.join("|")
+var links	=Arr_link.join("|")
+var titles	=Arr_title.join("|")
+var context	=Arr_context.join("|")
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="380" height="340">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{?$_SGLOBAL['localurl']?}/images/news/flash/xixi.swf"><param name="quality" value="high"><param name="bgcolor" value="#000000">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="bigpics='+bigpics+'&smallpics='+smallpics+'&links='+links+'&titles='+titles+'&context='+context+'">');
+document.write('<embed src="{?$_SGLOBAL['localurl']?}/images/news/swf/xixi.swf" wmode="opaque" FlashVars="bigpics='+bigpics+'&smallpics='+smallpics+'&links='+links+'&titles='+titles+'&context='+context+'" menu="false" bgcolor="#000000" quality="high" width="380" height="340" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');	document.write('</object>');
+</SCRIPT>
+
+		 </div>
+		 <div id="v_2">
+{?tag_news_21_[新闻]通用查询<{hits_week,11,130,0,0,2,36}><{video/block_toptujian.html}>?}
+		 
+		 </div>
+		 <div id="v_3">
+		    <div id="v_guanggao"><a href="video_view.html"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_3.jpg" width="190" height="155" border="0" /></a></div>
+			<div id="xq">目前市面上玩家对于游戏视频，尤其是新游戏产品的视频的需求日趋强烈。然而目前市场上现有的游戏视频基本都是以玩家制作者自己制作为主，间杂着媒体作为平台，由运营商厂商邀约视频制作团队来制作专门的游戏宣传介绍...<a href="news_view.html">更多>></a></div>
+		 </div>
+	  </div>
+	   <div class="vid_mid_2">
+	      <div id="mid_2_1">
+		     <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/new_9.jpg" /></div>
+			 <div class="t_bt1" id="title_1">新游视频</div>
+			 <div id="title_2">
+			    <div class="t_blue" id="title_2_1"><a href="{?function jieqi_geturl:'news':'lists':94:1?}" target="_blank">大陆及港台新游</a> | <a href="{?function jieqi_geturl:'news':'lists':134:1?}" target="_blank">日韩新游</a> | <a href="{?function jieqi_geturl:'news':'lists':135:1?}" target="_blank">欧美新游</a> | <a href="{?function jieqi_geturl:'news':'lists':136:1?}" target="_blank">经典收藏</a></div>
+				<div style="float:left;"><a href="{?function jieqi_geturl:'news':'lists':130:1?}" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_4.jpg" border="0" /></a></div>
+			 </div>
+		  </div>
+		  <div id="pic_2">
+		    <div id="v_4">
+			   <div id="v_4_1">
+			       <div id="v_4_2"> <img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> <a href="{?function jieqi_geturl:'news':'lists':134:1?}" target="_blank">日韩新游</a></div>
+				   <div class="clear"></div>
+{?tag_news_21_[新闻]通用查询<{inputtime,5,134,0,0,0,42}><{video/block_rihan.html}>?}
+		  </div>
+			   <div id="v_4_3">
+			       <div id="v_4_2"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /><a href="{?function jieqi_geturl:'news':'lists':94:1?}" target="_blank"> 大陆及港台新游</a> </div>
+				   <div  id="vid3">
+					 <ul class="news_list_aq5">
+						{?tag_news_21_[新闻]通用查询<{inputtime,8,94,0,0,0,42}><{block_li.html}>?}
+					</ul>
+		   		</div>
+			   </div>
+			</div>
+			<div id="v_5">
+			   <div id="v_4_2"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /><a href="{?function jieqi_geturl:'news':'lists':135:1?}" target="_blank"> 欧美新游</a></div>
+			   <div id="vid_aq2">
+				   <ul class="vid_aq2">
+					{?tag_news_21_[新闻]通用查询<{inputtime,9,135,0,0,0,34}><{block_li.html}>?}
+				  </ul>
+			  </div>
+			</div>
+	     </div>
+		 <div id="pic_1" style="margin-top:3px;" class="splistL1">
+		 <div id="v_4_4"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> <a href="{?function jieqi_geturl:'news':'lists':136:1?}" target="_blank">经典收藏</a> </div>
+	<!-- cmschiptag:chiptag 首页国内视频 begin -->  		
+	<div class=splist1>
+
+	{?tag_news_21_[新闻]通用查询<{inputtime,24,136,0,0,0,22}><{video/block_jd.html}>?}
+
+ </div>
+		</div>
+		<div class="clear"></div> 
+		<!-- cmschiptag:chiptag 首页国内视频 end -->
+</div>
+	   </div>
+	   <div id="v_guanggao1"><a href="http://www.2100book.com/"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/li_1.jpg" border="0" /></a></div>
+	   <div class="news_mid_2">
+	      <div id="mid_2_1">
+		     <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/new_9_1.jpg" /></div>
+			 <div class="t_bt2" id="title_1">游戏动画CG</div>
+			 <div id="title_2">
+			    <div class="t_blue2" id="title_2_1"><a href="{?function jieqi_geturl:'news':'lists':131:1?}" target="_blank">更多>></a></div>
+				<div style="float:left;"><a href="{?function jieqi_geturl:'news':'lists':131:1?}" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_4.jpg" border="0" /></a></div>
+			 </div>
+		  </div>
+		  <div id="pic_2">
+		    <div id="v_4">
+			   <div id="v_4_1">
+			       <div id="v_4_2"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> 本周推荐动画</div>
+				   <div>
+				     <div><a href="#"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_7.jpg" border="0" /></a></div>
+					 <div id="view">
+				       <a href="#">现在你可以用iPhone和任何一台有浏览器的电脑使用远程拍卖行了。我必须承认我对这个系统将被玩家滥用有点担心，但是我确信暴雪的员工肯定已</a></div>
+		  </div>
+			   </div>
+			   <div id="v_4_3">
+			       <div id="v_4_2"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /><a href="{?function jieqi_geturl:'news':'lists':131:1?}" target="_blank"> 动画抢先看</a> </div>
+				   <div  id="vid3">
+					 <ul class="news_list_aq5">
+						{?tag_news_21_[新闻]通用查询<{inputtime,8,131,0,0,0,42}><{block_li.html}>?}
+					</ul>
+		   		</div>
+			   </div>
+			</div>
+			<div id="v_5">
+			   <div id="v_4_2">
+			   <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> 最热排行榜</div>
+			      <div id="vid_mid5">
+					  <ul id="menu4">
+						<li class="hover" onmouseover="setTab(4,0)"><a href="#">日</a> </li>
+						<li onmouseover="setTab(4,1)"><a href="#">周</a></li>
+						<li onmouseover="setTab(4,2)"><a href="#">月</a> </li>
+					  </ul>
+				  </div>
+			   </div>
+		<div class="main_lt_315">
+<div id="main4">
+	<ul>
+	{?tag_news_21_[新闻]通用查询<{hits_day,10,131,0,0,2,32}>?}
+	</ul>
+  <ul  style="display:none">
+	{?tag_news_21_[新闻]通用查询<{hits_week,10,131,0,0,2,32}>?}
+  </ul>
+  <ul  style="display:none">
+	{?tag_news_21_[新闻]通用查询<{hits_month,10,131,0,0,2,32}>?}
+  </ul>
+  </div></div>
+	     </div>
+		 <div class="clear"></div>
+	   <div class="news_mid_2">
+	      <div id="mid_2_1">
+		     <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/new_9_2.jpg" /></div>
+			 <div class="t_bt3" id="title_1">另类│恶搞</div>
+			 <div id="title_2">
+			    <div class="t_blue3" id="title_2_1"><a href="{?function jieqi_geturl:'news':'lists':132:1?}" target="_blank">更多>></a></div>
+				<div style="float:left;"><a href="{?function jieqi_geturl:'news':'lists':132:1?}" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_4.jpg" border="0" /></a></div>
+			 </div>
+		  </div>
+		  <div id="pic_2">
+		    <div id="v_4">
+			   <div id="v_4_1">
+			       <div id="v_4_2"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> 本周推荐动画</div>
+				   <div class="pic"><a href="#"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_6.jpg" border="0" /></a></div>
+				   <div><a href="#">唤醒沉睡的美女《迷惑馆》时钟等情报公开</a></div>
+				   <div>
+				     
+		  </div>
+			   </div>
+			   <div id="v_4_3">
+			       <div id="v_4_2"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /><a href="{?function jieqi_geturl:'news':'lists':132:1?}" target="_blank"> 热点抢先看 </a> </div>
+				   <div  id="vid3">
+					 <ul class="news_list_aq5">
+						{?tag_news_21_[新闻]通用查询<{inputtime,8,132,0,0,0,42}><{block_li.html}>?}
+					</ul>
+		   		</div>
+			   </div>
+			</div>
+			<div id="v_5">
+			   <div id="v_4_2">
+			   <div style="float:left;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> 最热排行榜</div>
+			      <div id="vid_mid5">
+					  <ul id="menu3">
+						<li class="hover" onmouseover="setTab(3,0)"><a href="#">日</a> </li>
+						<li onmouseover="setTab(3,1)"><a href="#">周</a></li>
+						<li onmouseover="setTab(3,2)"><a href="#">月</a> </li>
+					  </ul>
+				  </div>
+			   </div>
+			   <div class="main_lt_315">
+		<div id="main3">
+	<ul>
+	{?tag_news_21_[新闻]通用查询<{hits_day,10,132,0,0,2,32}>?}
+	</ul>
+  <ul  style="display:none">
+	{?tag_news_21_[新闻]通用查询<{hits_week,10,132,0,0,2,32}>?}
+  </ul>
+  <ul  style="display:none">
+	{?tag_news_21_[新闻]通用查询<{hits_month,10,132,0,0,2,32}>?}
+  </ul>
+  </div>
+		  </div>
+			</div>
+			<div class="clear"></div>
+			
+	     </div>
+	</div>
+

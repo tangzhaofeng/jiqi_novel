@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="{?$jieqi_charset?}">
+    <title>充值中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/extend.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+
+    <style>
+        .cardtype ul {
+            padding: 0 15px;
+        }
+
+        .cardtype ul li {
+            width: 50%;
+            text-align: center;
+            float: left;
+        }
+
+        .cardtype ul li a {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            border: #ddd 1px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cardtype ul li a img {
+            width: 100%;
+        }
+
+        .cardtype ul li a span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #3d95d5;
+            width: 100%;
+            font-size: 10px;
+            color: #fff;
+            padding: 2px;
+        }
+
+        .cardtype ul li p {
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+{?include file = "themes/3g/header.html"?}
+{?include file = "themes/3g/nav.html"?}
+<div class=" cardtype bgcfff pt10">
+    <div class="content2">
+        <h2 align="center" >关注“爱书坊阅读”</h2>
+        <div class="con" align="center">
+            <img src="/images/wx.jpg" /><br />
+        </div>
+    </div>
+    <div class="b bcddd m10 mt30 p10 lh25 c333 pt20 pr">
+        <span class="pa dib bgcfff top-13 w80 tc leftp50" style="margin-left: -40px;"><b>温馨提示</b></span>
+        方法一：在微信环境下可直接长按二维码关注我们的公众号<br />
+        方法二：在微信里搜索“爱书坊阅读”或者"ishufunx"搜索到我们并关注<br />
+        点击右下角粉丝频道-每日签到
+    </div>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

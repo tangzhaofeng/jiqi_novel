@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>{?section name=i loop=$rows?}
+<book>
+<id><![CDATA[{?$rows[i]['articleid']?}]]></id>
+<name><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename_old'],false);?}]]></name>
+</book>{?/section?}
+</books>

@@ -1,0 +1,115 @@
+{?include file="tuike/newadmin/templates/public/header.html" ?}
+{?include file="tuike/newadmin/templates/public/left.html" ?}
+    <div class="g-main">
+      <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+        <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+      </div>
+      <h3>添加订单 </h3>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <form method="post" id="form" class="m-form m-form-horizontal">
+            <div class="formitm">
+              <label class="lab">公司名</label>
+              <div class="ipt">
+                <input name="conmpay" type="text" class="form-element u-width-large  " id="conmpay" value="" maxlength="250">
+              </div>
+            </div>
+
+            <div class="formitm ">
+              <label class="lab">粉丝数（万）</label>
+              <div class="ipt">
+                <input name="fanshnum" type="text" class="form-element u-width-large  " id="fanshnum" value="" maxlength="250">
+              </div>
+            </div>
+            <div class="formitm">
+              <label class="lab">收款账号</label>
+              <div class="ipt">
+                <input name="receivenum" type="text" class="form-element u-width-large  " id="receivenum" value="" maxlength="250">
+              </div>
+            </div>
+            <div class="formitm">
+              <label class="lab">收款人</label>
+              <div class="ipt">
+                <input name="receiveperson" type="text" class="form-element u-width-large  " id="receiveperson" value="" maxlength="250">
+              </div>
+            </div>
+            <div class="formitm">
+              <label class="lab">金额/成本（￥）</label>
+              <div class="ipt">
+                <input name="moneycost" type="text" class="form-element u-width-large  " id="moneycost" value="" maxlength="250">
+              </div>
+            </div>
+            <div class="formitm">
+              <label class="lab">计费方式</label>
+              <div class="ipt pay_way" id='pay_way'>
+                <label>
+                  <input name="pay_way" type="radio" checked="checked" id="pack" value="pack" >打包价
+                </label>
+                <label>
+                  <input name="pay_way" type="radio" id="fansh" value="fansh" >万粉价
+                </label>
+                <label>
+                  <input name="pay_way" type="radio" id="perpri" value="perpri">单价
+                </label>
+              </div>
+              <div class="ipt" style="display: none;" id='fansh1'>
+                单价 <input name="pay_weixin" type="text" class="form-element" id="pay_weixin" value="" maxlength="250"> 
+              </div>
+            </div>
+            <div class="formitm">
+              <label class="lab">备注</label>
+              <div class="ipt">
+                <input name="introduct" type="text" class="form-element u-width-large  " id="introduct" value="" maxlength="250">
+              </div>
+            </div>
+            <div class="formitm form-submit">
+              <div class="ipt">
+                <input type="hidden" name="ajax_request" value="1" />
+                <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                <button class="u-btn u-btn-success u-btn-large" type="submit" id="btn-submit">保存</button>
+                <button class="u-btn u-btn-large" type="reset">重置</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      if($('input[name=pay_way]:checked').val() === 'fansh'){
+        $('#fansh1').css('display', 'block');
+      }
+
+
+      $('#pay_way input').click(function() {
+        if(this.value == 'fansh') {
+          $('#fansh1').css('display', 'block');
+        } else {
+          $('#fansh1').css('display', 'none');
+        }
+      });
+
+      $("#form").submit(function() { // 651780
+        Users.form = this;
+        Users.msg_err=false;
+        Users.checkempty('conmpay','请输入公司名！');
+        // if( !Users.msg_err && Users.form.elements.fanshnum.value <= 0 )Users.msg_err ='请输入粉丝数！';
+        Users.checkempty('receivenum','请输入收款账号！');
+        Users.checkempty('receiveperson','请输入收款人！');
+        // if( !Users.msg_err && Users.form.elements.moneycost.value <= 0 )Users.msg_err ='请输入金额（成本）！';
+        if( Users.msg_err !== false ){
+            Users.ShowMsg();
+            return false;
+        }
+        Users.SendForm(function(msgs) {
+          if(msgs.status === 'OK'){
+            setTimeout(function(){location.href='';},1500);
+          } 
+          Users.ShowMsg(msgs.msg);
+        });
+        return false;
+      });
+    </script>
+
+
+
+{?include file="tuike/newadmin/templates/public/footer.html"?}

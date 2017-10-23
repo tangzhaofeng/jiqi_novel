@@ -1,0 +1,73 @@
+    <div class="contact_suspension_frame">
+      <div class="suspension_frame_box" id="suspensionFrame">
+        <h2><span>立即联系你的客户经理</span></h2>
+        <div id="contactContent" class="contactContent" style="height: 0px; overflow: hidden; display: none;">
+          <table>
+            <tbody>
+              <tr>
+                <td width="60" valign="middle">
+                  客户经理：
+                </td>
+                <td>{?$co_name?}</td>
+              </tr>
+              <tr>
+                <td valign="middle">
+                  QQ：
+                </td>
+                <td>{?$co_qq?}</td>
+              </tr>
+              <tr>
+                <td valign="middle">
+                  电话：
+                </td>
+                <td>{?$co_phone?}</td>
+              </tr>
+              <tr>
+                <td valign="middle">
+                  微信：
+                </td>
+                <td><img src="{?$jieqi_url?}{?$co_img?}" alt="二维码"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <script type="text/javascript">
+    $("#suspensionFrame").hover(function() {
+      $("#contactContent").show();
+      $("#contactContent").stop().animate({
+        "height": "200px"
+      }, "normal", function() {});
+    }, function() {
+      $("#contactContent").stop().animate({
+        "height": 0
+      }, "normal", function() {
+        $("#contactContent").hide();
+      });
+    });
+
+    var q_run_on=$('.g-head .on').parent();
+    var q_main_left=$('#main_left');
+    var obj_tmp={};
+    if( q_run_on.find('ul').size()>0 ){
+      q_main_left.html(q_run_on.find('ul').html());
+    }else{
+      q_main_left.html(q_run_on.clone());
+    }
+    q_main_left.find('a').each(function(){
+      var q_this=$(this);
+      if( location.href.indexOf(q_this.prop('href')) !== -1 ){
+        if(q_this.prop('href').length< obj_tmp.l)return true;
+        obj_tmp.l=q_this.prop('href').length;
+        obj_tmp.q=q_this;
+      }
+    }); // js
+    if(obj_tmp.q)obj_tmp.q.addClass('on');
+
+
+  </script>
+
+  </body>
+</html>

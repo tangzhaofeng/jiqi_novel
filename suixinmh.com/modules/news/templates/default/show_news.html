@@ -1,0 +1,49 @@
+{?eval $pagetitle = $_PAGE['data']['title'];?}{?set $jieqi_pagetitle =$pagetitle?}
+{?set $meta_keywords =$pagetitle?}
+{?set $meta_description =$pagetitle?}<link href="{?$jieqi_themeurl?}style/news.css" type="text/css" rel="stylesheet" />
+{?eval $contentid = $_PAGE['data']['contentid'];$catid = $_PAGE['data']['catid'];?}
+<!--wrap begin-->
+<div class="wrap fix">
+   <!--news begin-->
+<!--   <div class="news">
+    <h2><span class="ito"></span>书海新闻<span class="ien">NEWS</span></h2>
+   </div>--><!--news end-->
+   <!--box_mid2 begin-->
+  <!--article5 begin-->
+  <div class="article5 fl mt5">
+   <div class="box_mid2">    
+    <div class="t">
+      <h3 class="g3"><a href="{?$jieqi_url?}" class="f_gray3">书海首页</a> &gt; <a href="{?$_PAGE['data']['url_catelist']?}" class="f_gray3">新闻频道</a> &gt; <em class="g3 b">动态</em></h3></div>
+    <div class="down fix pl20 pr20 pb20 zwen">
+     <h3 class="tit">{?$_PAGE['data']['title']?}</h3> 
+     <div class="fix info">
+      <span class="g0">来源：</span><span class="pr20 g0">{?if $_PAGE['data']['siteid']==0?}书海小说网{?else?}其他网站{?/if?}</span>
+      <span class="g0">发表时间：</span><span class="pr20 g0">{?$_PAGE['data']['inputtime']|date:'Y年m月d日 H:i'?}</span>
+<!--      <span class="pr20">浏览：36509次</span>
+      <span class="f_gray6">选择字体大小：<a href="#">小</a>|<a href="#" class="b">中</a>|<a href="#">大</a>|<a href="#">特大</a></span>-->
+     </div>
+     <div class="txt">
+      <p>{?$_PAGE['data']['__content']?}</p>
+     </div>
+	 {?block bid="100" module="news" filename="block_afterpage" classname="BlockNewsAfterpage" side="1" title="上下文" vars="$contentid,$catid" template="block_afterpage.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+     <div class="op f_blue"><a href="#">收藏</a>|<a href="#">打印</a>|<a href="#">关闭</a>|<a href="{?$jieqi_url?}">返回首页</a></div>
+    </div>    
+   </div><!--box_mid2 end-->
+   
+  </div><!--article5 end-->
+  
+  <!--sidebar3 begin-->
+  <div class="sidebar3 fr mt5">
+  <div class="box_side">
+    <div class="t2"><h2>书海强推</h2><ul class="tabm2" id="tabs3">
+        <li class="thistab"><a href="javascript:;">男频</a></li>
+        <li><a href="javascript:;">女频</a></li>
+       </ul></div><div class="dwn2 qh" id="tab_conbox3">
+        <dl class="ldt p10">       
+        <script language="javascript" type="text/javascript" src="/postion/216.html"></script>
+      </dl>
+        <dl class="ldt p10" style="display:none;"><script language="javascript" type="text/javascript" src="/postion/217.html"></script></dl>
+      </div>
+  </div>
+  </div><!--sidebar3 end-->
+</div><!--wrap end-->

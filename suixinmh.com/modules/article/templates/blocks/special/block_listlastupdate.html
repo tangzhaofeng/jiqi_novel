@@ -1,0 +1,5 @@
+{?section name=i loop=$articlerows?}
+<li>
+     <span class="name"><a href="/book/{?$articlerows[i].articleid?}.htm" target="_blank" class="f_blue f14">{?$articlerows[i].articlename?}</a>/<a href="/read/{?$articlerows[i].articleid?}/{?$articlerows[i].lastchapterid?}.html" target="_blank" class="f_gray3">{?$articlerows[i].lastchapter?}</a></span>
+     <span class="date">{?$articlerows[i].lastupdate|date:'m-d' ?}</span></li>
+{?/section?}

@@ -1,0 +1,21 @@
+/* SHUHAI.COM后台管理 LOGIN.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.bg1{ width:auto; height:auto; background: url(../images/bg1.jpg) repeat-x 0px 0px;}
+.logn{ width:340px; height:280px; margin:80px auto; padding:80px 50px; _padding:100px 50px;background:url(../images/bg_logn.png) no-repeat center top;}
+.logn .int,.logn .int2{ width:310px; height:44px; margin:20px auto; background:url(../images/ico_logn.gif) no-repeat;}
+.logn .int{background-position: 0px -127px;}
+.logn .int2{background-position: 0px -63px;}
+.logn .int label,.logn .int2 label{ float:left; height:44px; line-height:44px; color:#909090;}
+.logn .int label{ width:50px; padding-left:30px; background:url(../images/ico_logn.gif) no-repeat;}
+.logn .int .name{ background-position:-375px 15px;} 
+.logn .int .sn{ background-position:-374px -28px;} 
+.logn .int2 label{ width:50px; padding-left:10px;}
+.logn .int input,.logn .int2 input{ float:left; border:0px; margin-top:13px; background:none; color:#333; font-size:14px;}
+.logn .int input{ width:220px;}
+.logn .int2 input{ width:100px;}
+.logn .int2 .code{ margin-left:30px;}
+.logn .back{ width:auto; height:auto; text-align:center; color:#999; font-family:宋体; padding:10px 0px 20px;}
+.logn .back a{ font-size:14px; padding:0px 15px;}
+.btn_logn{ display:block; width:171px; height:48px; margin:0px auto; background:url(../images/ico_logn.gif) no-repeat 0px 0px; cursor:pointer; border:0px;}
+.btn_logn:hover{ background-position:-192px 0px;}

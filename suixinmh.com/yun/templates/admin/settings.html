@@ -1,0 +1,13 @@
+<h2 class="contentTitle">按钮设置：临时开启</h2>
+<form method="post" action="?action=admin&opt=settings&navTabId=settings" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+	<div class="pageFormContent" layoutH="98">
+	删除按钮：<input type="radio" name="del" value="1" <{if $del == 1}>checked="checked"<{/if}> />开&nbsp;&nbsp;<input type="radio" name="del" value="0" <{if $del == 0}>checked="checked"<{/if}> />关
+	</div>
+	<input type="hidden" name="submit" value="1" />
+	<div class="formBar">
+		<ul>
+			<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+			<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+		</ul>
+	</div>
+</form>

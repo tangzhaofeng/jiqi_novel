@@ -1,0 +1,10 @@
+<ul class="ulitem">
+	<li><a href="{?function geturl:'system':'userhub':'SYS=method=inbox'?}">收件箱</a></li>
+	<li><a href="{?function geturl:'system':'userhub':'SYS=method=outbox'?}">发件箱</a></li>
+	<li><a href="{?function geturl:'system':'userhub':'SYS=method=newmessage'?}">写新消息</a></li>
+	<!-- 管理员不显示 -->
+	{?if $_USER['groupid'] != 2?}
+		<li><a
+			href="{?function geturl:'system':'userhub':'SYS=method=newmessage&tosys=1'?}">写给管理员</a></li> 
+	{?/if?}
+</ul>

@@ -1,0 +1,12 @@
+{?section name=i loop=$articlerows?}
+	<!-- <dd {?if $i.order % 2 == 0?} class="dbg" {?/if?}>
+      <span class="sort"><a href="{?function geturl:'wenxue':'shuku':SYS=sort=$articlerows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}" class="sort" title="{?$articlerows[i].sort?}">[{?$articlerows[i].shortcaption?}]</a></span>
+      <span class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_brown f14 pr5>{?$articlerows[i]['articlename']?}</a>
+      {?if $articlerows[i].permission > 3?}<em class="q"></em>{?/if?}<a href="{?function geturl:'wenxue':'reader':SYS=aid=$articlerows[i].articleid&cid=$articlerows[i].lastchapterid?}" target="_blank" class="f_gray6">{?$articlerows[i]['lastchapter']?}</a>{?if $articlerows[i]['lastchaptervip']==1?}<em class="v"></em>{?/if?}</span>
+      {?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}"  ajaxhover="true" uid="{?$articlerows[i].authorid?}" class="author" target="_blank">{?$articlerows[i].author?}</a>{?else?} {?$articlerows[i].author?} {?/if?}
+     <span class="date">{?$articlerows[i]['lastupdate']|date:"m-d H:i"?}</span>
+     </dd> -->
+      <dd class="dgb"><span class="sort"><a class="f_gray6" href="{?function geturl:'wenxue':'shuku':SYS=sort=$articlerows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}
+" title="{?$articlerows[i].shortcaption?}">[{?$articlerows[i].shortcaption?}]</a></span><span class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_brown f14 pr5">{?$articlerows[i].articlename?}</a><a href="{?function geturl:'wenxue':'reader':SYS=aid=$articlerows[i].articleid&cid=$articlerows[i].lastchapterid?}" target="_blank" class="f_gray6">{?$articlerows[i].lastchapter?}</a></span><span class="author">{?$articlerows[i].author?}</span><span class="date">{?$articlerows[i].lastupdate|date:'m-d H:i'?}</span></dd>
+{?/section?} 
+

@@ -1,0 +1,15 @@
+<table width="97%" border="0" cellspacing="0" cellpadding="0" class="ta1">
+  <tr>
+    <td width="20%" height="23" class="t_411"><div align="center">日期</div></td>
+    <td width="45%" class="t_411"><div align="center">游戏名称</div></td>
+    <td width="23%" class="t_411"><div align="center">类型</div></td>
+    <td width="12%" class="t_411"><div align="center">下载</div></td>
+  </tr>{?section name=i loop=$articlerows?}
+  <tr>
+    <td height="23"><div align="center">{?$articlerows[i]['updatetime']|date:'m-d'?}</div></td>
+    <td class="t_blue"><div align="left"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}{?$articlerows[i]['version']?}下载" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></div></td>
+    <td><div align="center"><a href="{?$articlerows[i]['url_catelist']?}" target="_blank">{?$articlerows[i]['catname']?}</a></div></td>
+    <td><div align="center"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}{?$articlerows[i]['version']?}下载" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/ganyou_18.jpg" width="13" height="13" /></a></div></td>
+  </tr>
+{?/section?}
+</table>

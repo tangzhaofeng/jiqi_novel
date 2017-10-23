@@ -1,0 +1,11 @@
+{?section name=i loop=$userrows?}
+	<div class="box_user fix auto">
+	<div class="imghead fl"><img src="{?$jieqi_themeurl?}images/head2.jpg"/><span class="mask"></span></div>   
+		<dl>
+			<dd><a href="#" id='f_blue4' class="f_blue5 f14 b">{?$userrows[i].name?}</a></dd>
+			<dd>12个共同好友</dd>
+			<dd>1个共同群</dd>
+			<dd><a href="javascript:addatt({?$userrows[i].uid?});" class="gbtn" ><em class="adfrind" id="{?$userrows[i].uid?}">加关注</em></a></dd>
+		</dl>
+	</div><!--box_user2 end-->
+{?/section?}

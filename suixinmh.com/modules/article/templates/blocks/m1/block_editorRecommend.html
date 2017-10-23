@@ -1,0 +1,16 @@
+{?section name=i loop=$articlerows?}
+{?if $i.order == 1?}
+  <li class="ibk">
+   <span class="nb{?$i.order?}"></span>
+   <dl>
+    <dt class="img"><a target="_blank" href="{?$articlerows[i].url_articleinfo?}"><img alt="{?$articlerows[i].articlename?}" src="{?$articlerows[i].url_image?}"></a></dt>
+    <dd class="f-black name"><a class="f-gray3 b" target="_blank" href="{?$articlerows[i].url_articleinfo?}" title="{?$articlerows[i].articlename?}">{?$articlerows[i].articlename?}</a></dd>
+    <dd>作者：<a class="f-gray9" {?if$articlerows[i]["authorid"]>0?} target="_blank" ajaxhover="true" uid="{?$articlerows[i].authorid?}"  href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i]["authorid"]'?}"{?else?}href="javascript:void(0);"{?/if?}>{?$articlerows[i].author?}</a></dd>
+    <dd>类型：<a class="f-gray9" target="_blank" href="{?$articlerows[i].url_class?}">{?$articlerows[i].sort?}</a></dd>
+    <dd class="f-org"><a target="_blank" href="{?$articlerows[i].url_articleinfo?}">[阅读]</a><a href="javascript:void(0)" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">[收藏]</a></dd>
+   </dl>
+ </li>
+{?else?}
+ <li><span class="nb{?if $i.order < 4?}{?$i.order?}{?/if?}">{?if $i.order >3?}{?$i.order?}{?/if?}</span><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f-gray3">{?$articlerows[i].articlename?}</a></li>
+{?/if?}
+{?/section?}

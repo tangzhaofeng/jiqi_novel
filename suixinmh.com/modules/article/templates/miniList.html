@@ -1,0 +1,8 @@
+          <dl class="lisd fix">
+		  {?section name=i loop=$articlerows?}{?eval $aid=$articlerows[i].articleid;?}{?eval $cid=$articlerows[i].chapterid;?}
+           <dd class="fix"><em class="nam"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_gray3">《{?$articlerows[i].articlename?}》</a></em><em class="nam2"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue1">开始阅读</a></em>
+           {?if $articlerows[i].flag==1?}<p class="nam3">上次您阅读到：<a href="{?function geturl:'article':'reader':'SYS=aid=$aid':'cid=$cid'?}" target="_blank" class="f_gray3">{?$articlerows[i].chaptername?}</a></p>{?/if?}
+           </dd>
+		   {?/section?}{?if $i.order<1?}<dd class="fix f14 g9 noline tc">您还没有作品加入书架</dd>{?else?} 
+           <dd class="fix g9 noline tr"><a href="{?function geturl:'article':'article':'SYS=method=bcView'?}" class="f_blue1">查看更多&gt;&gt;</a></dd>{?/if?}
+          </dl>

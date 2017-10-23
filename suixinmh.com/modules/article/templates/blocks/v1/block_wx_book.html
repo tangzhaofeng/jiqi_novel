@@ -1,0 +1,10 @@
+{?section name=i loop=$articlerows?}
+<div class="bok2">
+	<dl>
+		<dt class="img"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank"><img src="{?$articlerows[i].url_image?}" width="90" height="120" /></a></dt>
+		<dd class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a><a href="javascript:void(0)" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');" class="collect">ÊÕ²Ø</a></dd>
+		<dd class="intro">{?$articlerows[i]['intro']|truncate:135:'......'?}<a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_brown">[ÔÄ¶Á]</a></dd>
+	</dl>
+</div>
+{?if $i.order==1?}<div class="line"></div>{?/if?}
+{?/section?}

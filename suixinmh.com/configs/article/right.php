@@ -1,0 +1,47 @@
+<?php
+$jieqiRight['article']['maxbookmarks']['caption'] = '书架最大收藏量';
+$jieqiRight['article']['maxbookmarks']['honors']['1'] = '20';
+$jieqiRight['article']['maxbookmarks']['honors']['2'] = '25';
+$jieqiRight['article']['maxbookmarks']['honors']['3'] = '30';
+$jieqiRight['article']['maxbookmarks']['honors']['4'] = '35';
+$jieqiRight['article']['maxbookmarks']['honors']['5'] = '40';
+$jieqiRight['article']['maxbookmarks']['honors']['6'] = '45';
+$jieqiRight['article']['maxbookmarks']['honors']['7'] = '50';
+$jieqiRight['article']['maxbookmarks']['honors']['8'] = '55';
+$jieqiRight['article']['maxbookmarks']['honors']['9'] = '60';
+$jieqiRight['article']['maxbookmarks']['honors']['10'] = '70';
+$jieqiRight['article']['maxbookmarks']['honors']['11'] = '80';
+$jieqiRight['article']['maxbookmarks']['honors']['12'] = '90';
+$jieqiRight['article']['maxbookmarks']['honors']['13'] = '100';
+$jieqiRight['article']['maxbookmarks']['honors']['14'] = '110';
+$jieqiRight['article']['maxbookmarks']['honors']['15'] = '120';
+$jieqiRight['article']['maxbookmarks']['honors']['16'] = '130';
+$jieqiRight['article']['maxbookmarks']['honors']['17'] = '140';
+$jieqiRight['article']['maxbookmarks']['honors']['18'] = '150';
+$jieqiRight['article']['maxbookmarks']['honors']['19'] = '170';
+$jieqiRight['article']['maxbookmarks']['honors']['20'] = '200';
+$jieqiRight['article']['maxbookmarks']['rescription'] = '';
+$jieqiRight['article']['dayvotes']['caption'] = '每天允许推荐次数';
+$jieqiRight['article']['dayvotes']['honors']['1'] = '1';
+$jieqiRight['article']['dayvotes']['honors']['2'] = '2';
+$jieqiRight['article']['dayvotes']['honors']['3'] = '3';
+$jieqiRight['article']['dayvotes']['honors']['4'] = '4';
+$jieqiRight['article']['dayvotes']['honors']['5'] = '5';
+$jieqiRight['article']['dayvotes']['honors']['6'] = '6';
+$jieqiRight['article']['dayvotes']['honors']['7'] = '7';
+$jieqiRight['article']['dayvotes']['honors']['8'] = '8';
+$jieqiRight['article']['dayvotes']['honors']['9'] = '9';
+$jieqiRight['article']['dayvotes']['honors']['10'] = '10';
+$jieqiRight['article']['dayvotes']['honors']['11'] = '11';
+$jieqiRight['article']['dayvotes']['honors']['12'] = '12';
+$jieqiRight['article']['dayvotes']['honors']['13'] = '13';
+$jieqiRight['article']['dayvotes']['honors']['14'] = '14';
+$jieqiRight['article']['dayvotes']['honors']['15'] = '15';
+$jieqiRight['article']['dayvotes']['honors']['16'] = '16';
+$jieqiRight['article']['dayvotes']['honors']['17'] = '17';
+$jieqiRight['article']['dayvotes']['honors']['18'] = '18';
+$jieqiRight['article']['dayvotes']['honors']['19'] = '19';
+$jieqiRight['article']['dayvotes']['honors']['20'] = '20';
+$jieqiRight['article']['dayvotes']['rescription'] = '';
+
+?>

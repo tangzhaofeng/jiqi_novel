@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="{?$jieqi_themeurl?}style/mod_shubao.css">
+<div class="wrap">
+    <div class="bao"> 
+        <dl class="li_bao">
+            <dd class="fix">
+                <a href="javascript:;" class="img"><img src="{?$bpinfo.coverimg?}" width="134" height="179" /></a>
+                <div class="baoinfo">
+                    <h4>书包名称：<a href="javascript:;">{?$bpinfo.name?}</a></h4>
+                    <p class="txt">书包介绍：{?$bpinfo.description?}</p>
+                    <p>总原价：<em class="del">{?$bpinfo.initinalPrice?}</em>书海币<span class="pl20">总字数：{?$bpinfo.totalsize?}</span></p>
+                    <p>包月价：<em class="org">{?$bpinfo.price?}</em>书海币</p>
+                    <p><a href="javascript:;" data-id="{?$bpinfo.id?}" data-price="{?$bpinfo.price?}" data-name="{?$bpinfo.name?}" class="btn_buy">立即购买</a></p>
+                </div>
+            </dd>
+        </dl>
+
+        <div class="baoml">
+            <h3>书包作品详情（共{?$bpinfo.booknumber?}本书）</h3>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th width="10%" scope="col">类别</th>
+                    <th width="28%" scope="col">书名</th>
+                    <th width="18%" scope="col">作者</th>
+                    <th width="15%" scope="col">单本原价</th>
+                    <th width="14%" scope="col">字数</th>
+                    <th width="15%" scope="col">加入书包时间</th>
+                </tr>
+                {?section name=i loop=$bpinfo['book']?}
+                <tr>
+                    <td align="left" valign="middle">{?$sortname[$bpinfo['book'][i].sortid].shortcaption?}</td>
+                    <td align="left" valign="middle"><a href="{?function geturl:'article':'articleinfo':'SYS=method=main&aid=$bpinfo['book'][i].articleid?}" class="f_blue1">{?$bpinfo['book'][i].articlename?}</a></td>
+                    <td align="left" valign="middle">{?$bpinfo['book'][i].author?}</td>
+                    <td align="left" valign="middle"><span style="text-decoration: line-through">{?$bpinfo['book'][i].saleprice?}</span>书海币</td>
+                    <td align="left" valign="middle">{?$bpinfo['book'][i].size?}</td>
+                    <td align="left" valign="middle">{?$bpinfo['book'][i].create_time|date:"Y-m-d"?}</td>
+                </tr>
+                {?/section?}
+            </table>
+
+
+        </div><!--baoml end-->
+    </div><!--bao end-->
+
+    <div class="bao-side">
+        <div class="boxside bg">
+            <h3>书包销量排行</h3>
+            <dl class="ldt2 f_black p10">
+                {?section name=i loop=$rankbp?}
+                <dd class="fix"><span class="name3"><em>{?$i['order']?}</em><a title="{?$rankbp[i].name?}" data-id="{?$rankbp[i].bpid?}" target="_blank" href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$rankbp[i].bpid'?}">{?$rankbp[i].name?}</a></span><span class="num">订购{?$rankbp[i].counts?}次</span></dd>
+                {?/section?}
+            </dl>
+
+        </div><!--boxside end-->
+        <div class="boxside bg">
+            <h3>更多包月书包推荐</h3>
+            <ul class="li_pic f_black pl10 pr10">
+                {?section name=i loop=$commends?}
+                <li class="fix">
+                    <a target="_blank" href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$commends[i].id'?}" class="img"><img src="{?$commends[i].coverimg?}" width="69" height="90" /></a>
+                    <dl>
+                        <dt><a target="_blank" href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$commends[i].id'?}">{?$commends[i].name?}</a></dt>
+                        <!--<dd class="f14">总字数：197万</dd>-->
+                        <dd>总原价：<em class="del">{?$commends[i].initinalprice?}</em>书海币</dd>
+                        <dd>包月价：<em class="org">{?$commends[i].price?}</em>书海币</dd>
+                    </dl>       
+                </li>
+                {?/section?}
+            </ul>
+        </div><!--boxside end-->
+    </div><!--baoside end-->
+
+
+
+
+    <div class="cl"></div>
+    <script>
+        $(function(){
+            // buy
+            $(".btn_buy").live("click", function(){
+                if(getUserId()<1){
+                    userLogin();
+                } else {
+                    var bpid=$(this).attr("data-id");
+                    var thisprice=$(this).attr("data-price");
+                    var thisname=$(this).attr("data-name");
+                    GPage.getJson("{?function geturl:'article':'bookpackage':'SYS=method=get_user_info&bpid='?}"+bpid,function(data){
+                        if(data.status=="OK"){
+                            if(parseInt(data.msg.money)<parseInt(thisprice)){
+                                var htms="对不起，您的账户余额不足！<br /><br />您正在购买的书包《"+thisname+"》，需要支付 <span style='color:#f60'>"+thisprice+"</span> 书海币，您的账户尚余 <span style='color:#f60'>"+data.msg.money+"</span> 书海币。<br /><br ><a href='{?function geturl:'pay':'home':'SYS=method=main'?}'>点击这里进行账户充值</a>";
+                                layer.alert(htms,0,!1);
+                                return false;
+                            }else{
+                                layer.confirm('您正在购买的包月书包《'+thisname+'》，需要支付 <span style="color:#f60">'+thisprice+'</span> 书海币，您的账户尚余 <span style="color:#f60">'+data.msg.money+'</span> 书海币。<br />您确定么？',function(index){
+                                    GPage.getJson("{?function geturl:'article':'bookpackage':'SYS=method=buybookpackage&bpid='?}"+bpid,function(data){
+                                        if(data.status=="OK"){
+                                            if(data.msg.owner=="OK"){
+                                                layer.alert(data.msg.msg,9,!1);
+                                                return false;
+                                            }else{
+                                                htmls="恭喜您！成功购买包月书包《"+thisname+"》，本次购买共支付 <span style='color:#f60'>"+thisprice+"</span> 书海币。<br />您可在<a href='{?function geturl:'article':'userbookpackage':'SYS=method=main'?}'>我的书包记录</a>中查看购买的书包"
+                                                layer.alert(htmls,9,!1);
+                                            }
+                                        }else{
+                                            layer.alert(data.msg,9,!1);
+                                            return false;
+                                        }
+                                    })
+                                })
+                            }
+                        }else{
+                            layer.alert(data.msg);
+                            return false;
+                        }
+                    })
+                }
+            })
+        })
+    </script>

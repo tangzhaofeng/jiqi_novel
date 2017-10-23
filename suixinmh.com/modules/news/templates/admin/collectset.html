@@ -1,0 +1,51 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>文章采集</caption>
+  <tr>
+    <td><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a></td>
+  </tr>
+</table>
+<form method="post" action="?ac=collectset&op=order" name="myform">
+<table align="center" cellpadding="2" cellspacing="1" class="grid " width="100%">
+<caption>采集规则配置 | <a href="?ac=collectset&op=add" class="white">添加新的采集规则</a></caption>
+ <tr align="center">
+    <th width="3%">选</th>
+    <th width="5%">排序</th>
+    <th width="5%">编号</th>
+	<th width="8%">绑定模型</th>
+    <th width="15%">网站名称</th>
+    <th width="15%">网站地址</th>
+    <th width="20%">站点描述</th>
+    <th width="*">批量采集规则</th>
+  </tr>
+  {?section name=i loop=$_PAGE['rows']?}
+  <tr>
+    <td class="align_c"><input type="checkbox" id="checkbox" name="collectid[]" value="{?$_PAGE['rows'][i]['collectid']?}"></td>
+    <td class="align_c"><input type="text" name="order[{?$_PAGE['rows'][i]['collectid']?}]" value="{?$_PAGE['rows'][i]['listorder']?}" size="5"></td>
+    <td class="align_c"><a href="?ac=collectset&op=add&collectid={?$_PAGE['rows'][i]['collectid']?}">{?$_PAGE['rows'][i]['collectid']?}</a></td>
+    <td class="align_c"><a href="?ac=model&op=add&modelid={?$_PAGE['rows'][i]['modelid']?}">{?$_SGLOBAL['model'][$_PAGE['rows'][i]['modelid']]['name']?}</a></td>
+    <td class="odd">{?$_PAGE['rows'][i]['sitename']?}</td>
+    <td class="odd"><a href="{?$_PAGE['rows'][i]['siteurl']?}" target="_blank">{?$_PAGE['rows'][i]['siteurl']?}</a></td>
+	<td class="odd">{?$_PAGE['rows'][i]['description']|truncate:32:'……'?}</td>
+	<td class="align_c">
+	<a href="?ac=collectset&op=add&collectid={?$_PAGE['rows'][i]['collectid']?}">编辑</a> 
+	<a href="javascript:confirmurl('?ac=collectset&op=del&collectid={?$_PAGE['rows'][i]['collectid']?}', '是否删除该采集规则')">删除</a>
+	<!--<a href="?mod=spider&amp;file=sitemgr&amp;action=siteout&amp;siteid=1&amp;sname=17173">导出站点规则</a> -->
+	<a href="?ac=collectset&op=task&collectid={?$_PAGE['rows'][i]['collectid']?}">管理任务</a>
+	<a href="?ac=collectset&op=task&step=add&collectid={?$_PAGE['rows'][i]['collectid']?}">添加任务</a>
+	<a href="?ac=collect&op=start&collectid={?$_PAGE['rows'][i]['collectid']?}&index=all" class=red>开始采集</a>
+	</td>
+  </tr>
+  {?/section?}
+</table>
+<div class="button_box">
+<input type="button" value=" 全选 " onClick="checkall()"> 
+<input type="button" onClick="if(confirm('此操作不可恢复，确定要继续吗？')) myform.action='?ac=collectset&op=del';myform.submit();" value=" 删除 ">
+<input type="hidden" name="formhash" value="{?eval echo formhash();?}" /><input name="dosubmit" type="submit" value=" 更新排序 " class="text"/></div>{?$_PAGE['url_jumppage']?}
+</form>
+

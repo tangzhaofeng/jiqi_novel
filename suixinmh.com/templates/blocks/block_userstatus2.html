@@ -1,0 +1,15 @@
+<ul class="ulrow">
+  <li>用户名：{?$jieqi_username?}</li>
+  <li>等　级：{?$jieqi_groupname?}</li>
+  <li>头  衔：{?$jieqi_honor?}</li>
+  {?if $jieqi_avatar > 0?}<li><img src="{?$jieqi_avatarurl?}" class="avatar" alt="头像"></li>{?/if?}
+  {?if $jieqi_use_badge == 1?}
+  <li>{?if $jieqi_group_imageurl != ""?}<img src="{?$jieqi_group_imageurl?}" border="0" alt="{?$jieqi_groupname?}">{?/if?}{?if $jieqi_honor_imageurl != ""?}<img src="{?$jieqi_honor_imageurl?}" border="0" alt="{?$jieqi_honor?}">{?/if?}</li>
+  <li>
+  {?section name=i loop=$jieqi_badgerows?}<img src="{?$jieqi_badgerows[i].imageurl?}" border="0" alt="{?$jieqi_badgerows[i].caption?}">{?/section?}
+  </li>
+  {?/if?}
+  <li>[<a href="{?$jieqi_url?}/message.php?box=inbox">短 消 息</a>]&nbsp;[<a href="{?$jieqi_url?}/ptopics.php?oid=self">会 客 室</a>]</li>
+  <li>[<a href="{?$jieqi_url?}/myfriends.php">我的好友</a>]&nbsp;[<a href="{?$jieqi_modules['article']['url']?}/bookcase.php">我的书架</a>]</li>
+  <li>[<a href="{?$jieqi_url?}/userdetail.php">个人资料</a>]&nbsp;[<a href="{?$jieqi_user_url?}/logout.php">退出登陆</a>]</li>
+</ul>

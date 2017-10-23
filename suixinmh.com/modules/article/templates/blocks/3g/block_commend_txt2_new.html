@@ -1,0 +1,9 @@
+<ul>
+    {?section name=i loop=$articlerows?}
+    <li class="p10 bt bceee clearfix tEllipsis">
+        <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="c666">
+            <span class="cOrange1 mr5">[{?$articlerows[i]['sort']?}]</span>{?$articlerows[i]['articlename']?}
+        </a>
+    </li>
+    {?/section?}
+</ul>

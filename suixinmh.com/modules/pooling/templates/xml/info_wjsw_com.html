@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<book>
+  <id>{?$article['articleid']?}</id>          
+  <channel>0</channel>
+  <category><![CDATA[{?eval echo gb2utf8XHSafeStr($article['sort'],false);?}]]></category>
+  <sort><![CDATA[{?eval echo gb2utf8XHSafeStr($article['shortcaption'],false);?}]]></sort>
+  <title><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></title>
+  <author><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></author>
+  <role><![CDATA[]]></role>
+  <tag><![CDATA[{?eval echo gb2utf8XHSafeStr($article['keywords'],false);?}]]></tag>
+  <isVip>{?$article['articletype']?}</isVip>
+  <isFull>{?$article['fullflag']?}</isFull>
+  <cover><![CDATA[{?$article['url_image_l']?}]]></cover>
+  <summary><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></summary>
+  <url><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$article['articleid']?}]]></url>
+</book>

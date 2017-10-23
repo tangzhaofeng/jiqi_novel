@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" style="font-size: 222.187px;">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;  charset={?$jieqi_charset?}" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<title></title>
+<link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css" />
+<link rel="stylesheet" href="{?$jieqi_themeurl?}css/jquery.alertable.css"/>
+<style>
+    body{
+       
+         padding-bottom: 20px; 
+         height:100%;
+    }  
+    *,
+    ::before,
+    ::after{
+        padding: 0;
+        margin: 0;
+    
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color:transparent;
+    }
+
+    html,body{
+        font-size: 14px;
+        font-family: "microsoft YaHei","sans-serif";
+        color: #333;
+        background:#ffb400;
+       
+    }
+    .zb_container{
+        width: 100%;
+        max-width: 640px;
+        min-width: 320px;
+        margin: 0 auto;
+        height:5rem;
+        background:url({?$jieqi_themeurl?}images/dial/roundlight.png) no-repeat center 1.5rem;
+        background-size:2.42rem 2.385rem;
+        overflow:hidden;
+        position: relative;
+    }
+    .zb_container .lucky{
+         background:url({?$jieqi_themeurl?}images/dial/lucky.png) no-repeat center;
+        background-size:1.915rem 1.29rem;
+        width:1.915rem;
+        height:1.29rem;
+        margin:0 auto;
+        margin-top:20px;
+    }
+    .zb_container .grass{
+        background:url({?$jieqi_themeurl?}images/dial/grass.png) no-repeat center;
+        background-size:2.665rem 1.2256rem;
+        width:2.665rem;
+        height:1.2256rem;
+        position: absolute;
+        top:3.45rem;
+        left:0.2rem;
+    } 
+    .birdL,.birdR{
+        position: absolute;
+
+    }
+    .birdL{
+        background:url({?$jieqi_themeurl?}images/dial/birdL.png) no-repeat;
+        background-size:0.72rem  1.79rem;
+        width:0.72rem;
+        height: 1.79rem;
+        top:0.585rem;
+        left:0.06rem;
+    }
+    .birdR{
+         background:url({?$jieqi_themeurl?}images/dial/birdR.png) no-repeat;
+        background-size:0.72rem  1.79rem;
+        width:0.855rem;
+        height: 2.06rem;
+        top:0.59rem;
+        right:0.06rem;
+    }
+    .plate{
+         position: absolute;
+         background:url({?$jieqi_themeurl?}images/dial/plate.png) no-repeat;
+         background-size:2.20rem 2.17rem;
+         width:2.20rem;
+         height:2.17rem;
+         top:1.5rem;
+         left:0.50rem;
+    }
+    .imgL{
+        position: absolute;
+         background:url({?$jieqi_themeurl?}images/dial/imgL.png) no-repeat;
+         background-size:0.735rem 0.82rem;
+         width:0.735rem;
+         height:0.82rem;
+         /*top:1.5rem;*/
+         top: -0.47rem;
+        z-index: 99;
+        left: 0.172rem;
+    }
+     .imgR{
+        position: absolute;
+         background:url({?$jieqi_themeurl?}images/dial/imgR.png) no-repeat;
+         background-size:0.515rem 0.545rem;
+         width:0.515rem;
+         height:0.545rem;
+         right: 0.26rem;
+         top: -0.05rem;
+         z-index: 99;
+        }
+    .leaf{
+        background:url({?$jieqi_themeurl?}images/dial/leaf.png) no-repeat;
+        background-size:1.51rem 0.92rem;
+        width:1.51rem;
+        height:0.92rem;
+        top:-0.05rem;
+        position: absolute;
+        left:0.6rem;
+        z-index: 99;
+    }
+    .pointer{
+          background:url({?$jieqi_themeurl?}images/dial/pointer.png) no-repeat;
+          background-size:0.76rem 0.95rem;
+          width:0.76rem;
+          height:0.95rem;
+          position: absolute;
+          top:2rem;
+          z-index: 99;
+          left:1.18rem;
+    }
+    .pointer span{
+          position: absolute;
+          top: 0.68rem;
+          left: 50%;
+          transform: translate(-50%,0);
+          font-size: 0.10rem;
+          font-weight: 900;
+          color: #fff;
+    }
+    .pointer i{
+          font-size: 0.24rem;
+          /* margin: 0 auto; */
+          position: absolute;
+          left: 0.16rem;
+          top: 0.37rem;
+          color: #fff;
+          font-style: normal;
+          text-shadow: 3px 3px 5px #ed240f;
+    }
+    .bnt{
+        
+        background: url({?$jieqi_themeurl?}images/dial/bnt.png) no-repeat;
+        background-size: 1.35rem 0.35rem;
+        width: 1.35rem;
+        height: 0.35rem;
+        position: absolute;
+        top: 4rem;
+        z-index: 999;
+        left: 0.85rem;
+        border: 0px;
+        vertical-align:middle;-webkit-appearance:none;
+    }
+ 
+    .plate ul li{
+        position: absolute;
+        font-size:0.12rem;
+    }
+    .plate li:nth-child(1){
+
+        transform: rotate(-30deg);
+        left: 0.50rem;
+        top: 0.21rem;
+    }
+    .plate li:nth-child(2){
+          
+      transform: rotate(30deg);
+         left: 1.2rem;
+      top: 0.2rem;
+        }
+  .plate li:nth-child(3){
+           left: 1.7rem;
+        top: 0.7rem;
+       transform: rotate(69deg);
+    }
+   .plate li:nth-child(4){
+            left: 1.76rem;
+    top: 1.35rem;
+        transform: rotate(110deg);
+     }
+    .plate li:nth-child(5){
+           left: 1.2rem;
+        top: 1.84rem;
+        transform: rotate(515deg);
+    }
+    .plate li:nth-child(6){
+        transform: rotate(565deg);
+            top: 1.83rem;
+    left: 0.55rem;
+    }
+    .plate  li:nth-child(7){
+       transform: rotate(611deg);
+    left: 0.02rem;
+    top: 1.35rem;
+    }
+    .plate li:nth-child(8){
+           left: 0.05rem;
+    top: 0.7rem;
+    transform: rotate(-70deg);
+
+    }
+    .message{
+         background: rgba(130,29,29,0.7);
+        box-shadow: 1px 1px 10px #821d1d;
+        width: 2rem;
+        z-index: 99;
+        position: absolute;
+        height: 0.2rem;
+        line-height: 0.2rem;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        left: 0.3rem;
+        top: 0.3rem;
+        font-size: 0.12rem;
+    }
+    .message i{
+       position: absolute;
+       width:0.254rem;
+       height:0.215rem;
+       background: url({?$jieqi_themeurl?}images/dial/y.png) no-repeat;
+       background-size: 0.254rem 0.215rem;
+       left:0.02rem;
+    }
+    .roll{
+        width: 90%;
+        height: 150px;
+        margin: 0 auto;
+        color:#651919;
+        border: 2px dashed #651919;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .roll h2{
+      height:30px;
+    }
+    .roll .connert{
+      height:120px;
+      overflow: hidden;
+      position: relative;
+    } 
+    .roll li{
+      height:25px;
+      line-height:25px;
+    }
+    .roll li i{
+        color: #e91c30;
+        font-weight: bold;
+        margin-right: 4px;
+        vertical-align: sub;
+    }
+    @-webkit-keyframes move
+    {
+      0%{
+        top:0;
+      }
+      100%
+      {
+        top:-120px;
+      } 
+    }
+    @keyframes move
+    {
+      0%{
+     
+        background: #f9710d;
+      }
+      100%
+      {
+    
+      } 
+    }
+    .roll .connert #list{
+      position: absolute;
+      width:100%;
+      text-align: center;
+      -webkit-animation:3s move infinite linear;
+    
+    }
+
+</style>
+</head>
+<body>
+    <div class="zb_container">
+    
+        <div class="lucky"></div>
+        <div class="grass">
+            <div class="imgL"></div>
+            <div class="imgR"></div>
+            <div class="leaf"></div>
+            <div class="message" style="display:none;"><i></i><span>{?$_USER['username']?},</span><em>恭喜您获得1888书卷</em></div>
+        </div>  
+          <div class="plate" id="plate">
+            <ul>
+            <li>谢谢参与</li>
+                <li>1888书券</li>
+                <li>再来一次</li>
+                <li>88书券</li>
+                <li>金鸡公仔</li>
+                <li>666书券</li>
+                <li>阿狸公仔</li>
+                <li>168书券</li>
+            </ul>
+         </div>
+        <div class="birdL"></div>
+        <div class="birdR"></div>
+        <div class="pointer" id="lotteryBtn">
+            <i>开始</i>
+            <span>{?$times?}次</span>
+        </div>
+        <input type="button" class="bnt" />
+
+        
+    </div>
+    <div class="roll">
+        <h2 >中奖名单</h2>
+        <div class="connert">
+            <div id="list">
+                  <ul>
+                  {?section name=i loop=$list?}
+                    <li><i>*</i><span>{?$list[i].info?}</span></li>
+             
+                    {?/section?}
+                  </ul>
+                
+            </div>
+         
+        </div>
+     
+      
+    </div>
+
+</body>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jqueryrotate.2.2.js"></script>
+<script src="{?$jieqi_themeurl?}js/share/jquery.alertable.min.js"></script>
+<script type="text/javascript">
+$(function(){
+     var num=0;
+  var tiem=setInterval(function(){
+      var connertH=$("#list").height()-120;
+      console.log(connertH);
+   
+        if(Math.abs(num)>=connertH){
+          num=0;
+        }
+        num++;
+        console.log(num);
+        $("#list").css("top","-"+num+"px");
+  },500)
+
+  var flag=true;
+     function fontRemCalculate(){
+         if($(window).width()>=320&&$(window).width()<=640)
+         {
+            console.log($(window).width());
+              var designWidth = 320, rem2px = 100;
+              document.documentElement.style.fontSize =((window.innerWidth / designWidth) * rem2px) + 'px';
+         }
+    }
+    fontRemCalculate();
+    $(window).on("resize",function(){
+       
+            fontRemCalculate();
+    })
+      var timeOut = function(){  //超时函数
+        $("#plate").rotate({
+            angle:0, 
+            duration: 10000, 
+            animateTo: 2160,  //这里是设置请求超时后返回的角度，所以应该还是回到最原始的位置，2160是因为我要让它转6圈，就是360*6得来的
+            callback:function(){
+              flag=true;
+                alert('网络超时')
+            }
+        }); 
+    }; 
+    var rotateFunc = function(awards,angle,text,data){  //awards:奖项，angle:奖项对应的角度，text:提示文字
+
+        $('#plate').stopRotate();
+        $("#plate").rotate({
+            angle:0, 
+            duration: 5000, 
+            animateTo: angle+1440, //angle是图片上各奖项对应的角度，1440是我要让指针旋转4圈。所以最后的结束的角度就是这样子^^
+            callback:function(){
+              flag=true;
+               $(".message").show(1000).find("em").text(text);
+               setTimeout(function(){
+                  $(".message").hide(2000);
+                    if(data.num!=1&&data.stat=="succ"){
+                                $(".connert ul").prepend( "<li><i>*</i><span>"+data.msg+"</span></li>");
+                    }
+               },4000);
+
+            }
+        }); 
+    };
+    
+    $("#lotteryBtn").rotate({ 
+       bind: 
+         { 
+            click: function(){
+                  if(flag==true){
+                    flag=false;
+                      $.ajax({
+                         type: 'POST',
+                         url: "/huodong/lunpan/" ,
+                         dataType:"json",
+                         data:{"action":1},
+                         success: function(data){
+                          console.log(data);
+                          if(data.stat=="succ")
+                          {
+                              $("#lotteryBtn span").text(data.times+"次数");
+                              if(data.num==1){
+                                 console.log(1);
+                                rotateFunc(1,24,'谢谢参与',data);
+                               }
+                              if(data.num==2){
+                                  console.log(2);
+                                  rotateFunc(2,340,'恭喜您获得1888书卷',data);
+
+                              }
+                              if(data.num==3){
+                                  console.log(3);
+                                  rotateFunc(3,-68,'恭喜您获再来一次',data);
+                              }
+                              if(data.num==4){
+                                  console.log(4);
+                                  rotateFunc(4,248,'恭喜您获88书卷',data);
+                              }
+                              if(data.num==5){
+                                  console.log(5);
+                                  rotateFunc(5,-155,'恭喜您获金鸡公仔',data);
+                              }
+                              if(data.num==6){
+                                  console.log(6);
+                                  rotateFunc(6,158,'恭喜您获666书卷',data);
+                              }
+                               if(data.num==7){
+                                  console.log(7);
+                                  rotateFunc(7,114,'恭喜您获阿里公仔',data);
+                              }
+                               if(data.num==8){
+                                  console.log(8);
+                                  rotateFunc(8,70,'恭喜您获168书卷',data);
+                              }  
+                          }
+                          else{
+                                  $("#lotteryBtn span").text("0次数");
+                               $.alertable.alert(data.msg);
+                             
+                          }
+                        
+                      
+                         
+                        } 
+                    }); 
+                  }
+                    
+
+            }
+         } 
+       
+    });
+ 
+    $(".bnt").on("click",function(){
+         $.alertable.alert("<h3>活动规则：</h3><p>1：每人每日免费获得一次抽奖机会。</p><p>2：充值赠送抽奖机会（50元一次，100元2次，200元5次，500元15次，1000元35次）</p>");
+
+    })
+})
+</script>
+
+</html>

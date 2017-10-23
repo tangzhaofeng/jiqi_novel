@@ -1,0 +1,67 @@
+<form name="frmsearch"  method="post" action="?controller=reviews">
+           关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50"> <input name="keytype" type="radio" class="radio" value="1" checked>
+            文章名称 
+            <input type="radio" name="keytype" class="radio" value="0">
+            发表人 &nbsp;&nbsp;
+       <input type="submit" name="btnsearch" class="button" value="搜 索">
+</form>
+<br />
+<form name="frmsearch" id="frmsearch" method="post" action="{?$article_dynamic_url?}/admin/?controller=reviews&method=batchDel" onSubmit="return check()">
+<table class="grid" width="100%" align="center">
+<caption><a href="{?$adminprefix?}">书评管理</a>|禁言记录</caption>
+  <tr align="center">
+  	<!-- <td width="5%" class="title"><input type="checkbox" id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ if (this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"></td> -->
+    <td width="15%" class="title">主题</td>
+    <td width="10%" class="title">书名</td>
+    <td width="10%" class="title">发表人</td>
+    <td width="10%" class="title">禁言时间</td>
+    <td width="10%" class="title">禁言时长</td>
+    <td width="10%" class="title">禁言范围</td>
+    <td width="10%" class="title">禁言人</td>
+	<td width="" class="title">操作</td>
+  </tr>
+  {?section name=i loop=$muterows?}
+  <tr>
+  	<!-- <td class="even" align="center"><input type="checkbox" id="muteid[]" name="muteid[]" value="{?$muterows[i].muteid?}"></td> -->
+    <td class="odd">{?$muterows[i].title?}</td>
+    <td class="even">{?$muterows[i].articlename?}</td>
+    <td class="even">{?$muterows[i].username?}</td>
+    <td align="center" class="odd">{?$muterows[i].startdate|date:"Y-m-d H:i:s"?}</td>
+    <td align="center" class="odd">{?if $muterows[i].day>0?}{?$muterows[i].day?}天{?else?}永久{?/if?}</td>
+    <td align="center" class="odd">{?if $muterows[i].articleid==0?}全站{?else?}本书{?/if?}</td>
+    <td align="center" class="odd">{?$muterows[i].activeusername?}</td>
+	<td align="center" class="even"><a href="{?$adminprefix?}&method=unmute&muteid={?$muterows[i].muteid?}" ajaxclick="true" retruemsg="false">解禁</a></td>
+  </tr>
+  {?/section?}
+</table>
+<!--  
+<div style="width:15%;float:left;text-align:left;padding:3px;"><input type="submit" name="Submit" value="批量删除" class="button"><input name="batchdel" type="hidden" value="1"></div>
+-->
+</form>
+<div style="width:84%;float:right;text-align:right;padding:3px;">{?$url_jumppage?}</div>
+<div style="display:none" id="hidden"></div>
+
+
+
+
+<script language="javascript" type="text/javascript">
+function check()
+{	 var k = -1;
+	 $("input:checkbox[name='checkid[]']:checked").each(function(i){
+				k = i;
+      });
+
+	  if (k >= 0)
+	  {
+	  	  if (confirm("确实要批量删除书评么？"))
+		  {
+		  	return true;
+		  }
+	  }else{
+	  	alert("请选择要删除的评论哦");
+		return false;
+	  }
+	  return false;
+}
+</script>

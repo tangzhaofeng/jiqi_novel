@@ -1,0 +1,45 @@
+/* SHUHAI.COM RANK.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.sidebar2{ width:150px; height:auto;}
+.article3{ width:828px; height:auto;}
+.list_b{ width:auto; height:auto; padding-top:5px; background:url(../images/bg_y.gif) repeat-y 0px 0px;}
+.list_b li{ width:auto; height:36px;}
+.list_b li a,.list_b2 li a{display:block; height:36px; line-height:39px; padding-left:15px; overflow:hidden; font-size:13px;}
+.list_b li a:link,.list_b li a:visited{ border-bottom:1px solid #dceffa;}
+.list_b li a:hover,.list_b li a:active{ background:url(../images/icon.gif) no-repeat -568px -32px; border-bottom:none;}
+.list_b li .on{background:url(../images/icon.gif) no-repeat -568px -32px; border-bottom:none;}
+.list_b2{ width:auto; height:auto; border:1px solid #bababa; border-top:0px; background:#fff;}
+.list_b2 li{ width:auto; height:34px;}
+.list_b2 li a{display:block; height:34px; line-height:34px; padding-left:15px; overflow:hidden; font-size:13px;}
+.list_b2 li a:link,.list_b2 li a:visited{ border-bottom:1px solid #e8dcce;}
+.list_b2 li a:hover,.list_b2 li a:active{ background:url(../images/icon_wenx.gif) no-repeat -224px -119px; border-bottom:none;}
+.list_b2 li .on{background:url(../images/icon_wenx.gif) no-repeat -224px -119px; border-bottom:none;}
+/*这组样式已被拆分整合进style.css 这里只是备份这组样式的全貌
+.list_t4d{ width:auto; height:auto; padding:10px 15px 0px; margin:0px auto; font-family:"宋体";}
+.list_t4d dt{ width:100%; height:116px; position:relative;}
+.list_t4d dt .first{ display:block; width:15px; height:16px; line-height:16px; padding-left:3px; position:absolute; left:0px; top:0px; font-size:12px; color:#fff; background: url(../images/icon.gif) no-repeat -398px -41px; z-index:30;}
+.list_t4d dt .img{ display:block; float:left; width:96px; height:112px; position:absolute; left:0px; top:0px; z-index:10;}
+.list_t4d dt .intro{ float:right; width:135px; height:auto; background:#fff}
+.list_t4d dt .intro .name,.list_t4d dt .intro .author{ display:block; height:24px; line-height:24px; overflow:hidden;}
+.list_t4d dt .intro .name{ font-size:14px; font-weight:800;}
+.list_t4d dt .intro .author{ color:#999;}
+.list_t4d dt .intro .author em{ color:#555;}
+.list_t4d dt .intro .txt{ height:60px; padding-top:3px; line-height:180%; color:#666; overflow:hidden;}
+.list_t4d dd{clear:both; height:26px; padding-top:4px; font-size:13px; overflow:hidden; border-bottom:1px dotted #c5c5c5;}
+.list_t4d dd .numb,.list_t4d dd .numb2{ float:left; display:block; font-size:12px; margin-top:5px; color:#fff;}
+.list_t4d dd .numb{ width:14px; height:14px; line-height:14px; margin-right:4px; text-align:center; background-color:#c0c1c3;}
+.list_t4d dd .numb2{ width:15px; height:16px; line-height:16px; text-align:left; padding-left:5px;  color:#fff; background:url(../images/icon.gif) no-repeat -398px -41px;}
+.list_t4d dd p{ float:left; width:200px; height:26px; line-height:26px; padding-left:6px; font-size:13px; overflow:hidden;}
+.list_t4d dd p .name{ display:block; float:left; width:80%; height:26px;}
+.list_t4d dd p .click{ display:block; float:right; width:18%; height:26px; color:#666; text-align:right;}*/
+/*排行列表页*/
+.tabox .box .tag_sort{ width:auto; height:auto; padding:6px 0px; background:#f5fbfe; font-size:14px;}
+.tabox .box .tag_sort a{padding:5px 10px 2px; line-height:180%; color:#757575; margin:10px 0px 0px 6px;}
+.tabox .box .tag_sort a:hover,.tabox .box .tag_sort .on_sort{ background:#3caadb; color:#fff;}
+.tab_wx .box{ border-left:1px solid #bababa; border-right:1px solid #bababa;}
+.tab_wx .box .tag_sort{ width:auto; height:auto; padding:6px 0px; background:#f5f5f5; font-size:14px;}
+.tab_wx .box .tag_sort a{padding:5px 10px 2px; line-height:180%; color:#757575; margin:10px 0px 0px 6px;}
+.tab_wx .box .tag_sort a:hover,.tab_wx .box .tag_sort .on_sort{ background:#9d5501; color:#fff;}
+
+

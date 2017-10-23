@@ -1,0 +1,22 @@
+/* CSS ÍÆ¼ö */
+.tjxwy_kuang{ width:313px; border:3px solid #C1DBF8; background:#F2F7FD; font-size:12px}
+.tjxwy_kuang a,.tjxwy_kuang p{ line-height:20px}
+.tjxwy_kuang p{font-size:12px; font-weight: normal; text-align: left; }
+.tjxwy_bt2{ height:28px; background-image: url(../images/tj_xw03.jpg); background:#2091FB; background-repeat: repeat-x;  background-position: left bottom; margin:10px; }
+.tjxwy_bt2 ul{height:28px;}
+.tjxwy_bt2 li{display: inline; }
+.tjxwy_bt2 li a{ float:left; width:43px; padding-top:2px;  height:22px; text-align:center; line-height:23px; color:#C4E8F7 ;background-image: url(../images/tj_xw02.jpg); background-repeat: no-repeat; margin:4px 5px 0 0}
+.tjxwy_bt2 .hover a{ background-image: url(../images/tj_xw01.jpg); color:#000000 ; background-repeat: no-repeat; }
+.tjxwy_bt2_nr{ padding:10px; height:200px; padding-top:0px}
+.tjxwy_bt2_nr img{ width:112px; height:90px; padding:3px; background-color:#FFFFFF; border:1px solid #CCCCCC; float:left; margin-right:8px;}
+.tjxwy_bt2_nr01{ height:110px;OVERFLOW: hidden}
+.tjxwy_bt2_nr .a1{ text-align:center; font-size:16px; color:#FF0000;font-weight:bold; height:30px}
+.tjxwy_bt2_nr02 p{ width:140px; margin-right:5px; float:left}
+.tjxwy_bt2_nr02 p a{ color:#16489a;}
+
+.tjxwy_bt2_nr03{ height:45px; padding:10px 0px 0 66px;
+	background-image: url(../images/tj_xw04.jpg);
+	background-repeat: no-repeat;
+	background-position: left bottom; border-top:1px solid #d9e4aa; 
+}
+.tjxwy_bt2_nr03 li{ width:230px; margin-right:3px; float:left; line-height:18px; text-align:left; OVERFLOW: hidden}

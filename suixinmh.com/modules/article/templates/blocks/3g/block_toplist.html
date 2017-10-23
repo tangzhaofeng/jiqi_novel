@@ -1,0 +1,8 @@
+{?section name=i loop=$articlerows?}
+<li class="pr pl10 pr10 bb bcddd">
+        <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self">
+                <span class="bgcPink cfff dib brp50 mr5 lh20 tc w20 h20 ">{?$i.order?}</span> {?$articlerows[i].articlename?}
+        </a>
+        <!--<span class="pa f12 c888 right10">187053</span>-->
+</li>
+{?/section?}

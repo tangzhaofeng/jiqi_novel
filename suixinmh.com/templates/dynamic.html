@@ -1,0 +1,15 @@
+{?eval if(count($dynamicrows)>0){ ?}
+{?section name=i loop=$dynamicrows?}
+	   <dd class="fix">
+              <div class="img">{?eval $uid=$dynamicrows[i].uid;?}<img src="{?function jieqi_geturl:'system':'avatar':'$uid':'l':'$dynamicrows[i].avatar'?}" width="54" height="50" /><span class="mask"></span></div>
+              <div class="info">
+               <p class="txt f_blue4">
+                 <a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$uid'?}" target="_blank" ajaxhover="true" uid="{?$uid?}" class="pr5">{?$dynamicrows[i].username?}</a>{?$dynamicrows[i].content_tag?}
+               </p>
+               <p class="date">{?$dynamicrows[i].addtime|date:Y-m-d H:i:s?}</p>
+              </div>
+             </dd>
+	{?/section?}<div class="page">{?$dynamic_jumppage?}</div>	
+{?eval }else{ ?}  <dd class="fix tips"> {? if $_REQUEST['mid'] == 'reward' ?} 亲，没有打赏信息哦…… {?elseif $_REQUEST['mid'] == 'sale'?} 亲，没有订阅信息哦…… {?elseif $_REQUEST['mid'] == 'goodnum'?}
+ 亲，没有收藏信息哦……{? elseif $_REQUEST['mid'] == 'vote'?}亲，没有推荐信息哦……{? elseif $_REQUEST['mid'] == 'my'?}亲，您还没有动态信息哦……
+{?/if?}</dd> {?eval }?}

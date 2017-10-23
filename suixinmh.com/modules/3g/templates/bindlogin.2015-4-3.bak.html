@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+
+<title>{? if $type=='sina'?}新浪微博登录{?else if $type=='qq' ?}QQ登陆{?/if?}</title>
+
+<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}style/qqbound.css" type="text/css" />
+<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}style/login.css" type="text/css" />
+
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/layer/layer.js"></script>
+
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/page.js"></script>
+
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+
+</head>
+
+<body class="bgm">
+
+ <!--bind begin-->
+
+ <div class="bind">
+
+  <h2><em class="io"></em><span>一键绑定书海网，实现信息同步</span></h2>
+
+  <p>如果您已有书海网账号，建议绑定；若不绑定，下次将无法通过{? if $type=='sina'?}<font color="red">新浪微博</font>{?else if $type=='qq' ?}<font color="red">QQ</font>{?/if?}登录此已有账号。</p>
+
+  <!--sbox begin-->
+
+  <div class="sbox fl">
+
+   <dl>
+
+    <dt><em class="qq"></em>{? if $type=='sina'?}新浪微博登录{?else if $type=='qq' ?}QQ登陆{?/if?}</dt>
+
+    <dd class="img"><img src="{?$figureurl_1?}"/></dd>
+
+    <dd>{? if $type=='sina'?}微博昵称：{?else if $type=='qq' ?}QQ昵称：{?/if?}<em class="g6">{?$nickname?}</em></dd>
+
+   </dl>
+
+  </div><!--sbox end-->
+
+  <div class="min"></div>
+
+  <!--sbox begin--><form id="qlogin_form" class="signup" action="{?$url_login?}" method="post" ajaxsubmit="true" retruemsg='false'>
+
+  <div class="sbox fr">
+
+   <dl>
+
+    <dt><em class="shai"></em>建议您绑定已有书海网账号</dt>
+
+    <dd class="img"><img src="{?$figureurl_2?}"/></dd>
+
+    <dd class="rad"><input name="username" type="text" class="name"/></dd>
+
+    <dd class="rad"><input name="password" type="password" class="sn"/></dd>
+
+    <input name="openid" type="hidden" value="{?$openid?}"/>
+
+    <input name="accesstoken" id="accesstoken" type="hidden" value="{?$access_token?}"/>
+
+	<input name="type"  type="hidden" value="{?$type?}"/>
+
+	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+
+	<input type="hidden" name="jumpurl" id="jumpurl" value="{?$jumpurl?}">
+
+    <dd class="bding"><input id="btn-submit" type="submit" value="绑定" /></dd>
+
+	
+
+   </dl>
+
+  </div></form><!--sbox end-->
+
+  <div class="cl"></div>
+
+  <div class="butn"> 
+
+   <form id="register_form" class="signup" action="{?$url_register?}" method="post" autocomplete="off" ajaxpost='true' retruemsg='false'>
+
+  <font color="#FF0000">*</font> 没有书海网账号？<input type="text" value=""  name="email"  id="J_search_suggest"  data-placeholder="请输入邮箱"  data-rule="邮箱: required;email;remote[{?function geturl:'system':'register':'SYS=method=checkEmail'?}]"/>
+
+   <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+
+   <input type="hidden" name="jumpurl" id="jumpurl" value="{?$jumpurl?}">
+
+   <input  class="input" type="submit" value="注册"  />
+
+   </form>
+
+  </div>
+
+ </div><!--bind end-->
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+document.oncontextmenu=function(){return false;}
+
+
+
+var index = parent.layer.getFrameIndex(window.name);
+
+parent.layer.iframeAuto(index);
+
+</script>
+
+
+

@@ -1,0 +1,39 @@
+
+@font-face {font-family: "xiontuti";
+  src: url('xiontu.ttf?t=1486358655272') format('truetype');/* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+@font-face {font-family: "californianFB";
+  src: url('californianFB.ttf?t=1486358655272') format('truetype');/* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+@font-face {font-family: "goobascript";
+  src: url('goobascript.ttf?t=1486358655272') format('truetype');/* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+}
+
+.fontFamily_0{
+  /*微软雅黑*/
+  font-family:"Microsoft YaHei !important";
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fontFamily_1{
+  /*熊兔字体*/
+  font-family:"xiontuti" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fontFamily_2{
+   /*熊兔字体*/
+    font-family:"californianFB" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fontFamily_3{
+   /*熊兔字体*/
+    font-family:"goobascript" !important;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

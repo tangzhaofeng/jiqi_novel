@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<booklist>{?section name=i loop=$rows?}
+<book>
+<id><![CDATA[{?$rows[i]['articleid']?}]]></id>
+<status><![CDATA[{?$rows[i]['fullflag']?}]]></status>
+<maxChapter><![CDATA[{?$rows[i]['chapters']?}]]></maxChapter>
+</book>{?/section?}
+</booklist>

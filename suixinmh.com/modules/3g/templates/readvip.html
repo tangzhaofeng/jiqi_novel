@@ -1,0 +1,7 @@
+{?if $jieqi_userid == 0?}<!-- Î´µÇÂ¼ -->{?eval $title=$chapter['title'];$articlename=$article['articlename'];?}
+	{?include file = "modules/3g/templates/login.html"?}
+{?elseif $chapter['content']!='' ?}<!-- ÒÑ¾­¹ºÂò -->
+{?include file = "modules/3g/templates/reader.html"?}
+{?else?}<!-- µÇÂ½Î´¹ºÂò -->
+{?include file = "modules/3g/templates/buychapter.html"?}
+{?/if?}

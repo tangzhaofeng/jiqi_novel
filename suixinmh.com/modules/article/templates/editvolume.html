@@ -1,0 +1,58 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <div class="article3 fr">
+  <div class="tabox">
+       <div class="t2 rel">
+       <h2>修改卷</h2>
+	 </div>
+	 <dl class="box_form pt20">
+<form name="chaptersort" id="chaptersort" action="{?function geturl:'article':'chapter':'SYS=method=editVolume'?}" ajaxpost="true">
+     <div class="box_note2 cl bg5">
+	 <dd class="fix">
+	          <em class="tt2">文章名称：</em>
+	          <div class="int">
+	           <p>{?$article.articlename?}</p>
+	 		  </div>
+         </dd>
+	 <dd class="fix">
+	  <em class="tt2">卷名：</em>
+	  <div class="int">
+		<input name="chaptername" id="chaptername" type="text" class="input1 fl"  value="{?$chapter.chaptername?}" data-rule="卷名称: required;chaptername;"/>
+	  </div>          
+	 </dd>
+	 <dd class="fix">
+		  <em class="tt2">说明：</em>
+		  <div class="int">
+		  <textarea name="manual" cols="" rows="" class="inp3">{?$chapter.manual?}</textarea>
+		  <span class="msg-box" style="margin:5px 0 0 0;" for="manual"></span>
+		  <span class="hint">此处填写的是卷的简介内容，之后会显示在卷的说明页面中。请不要超过140字。</span>
+		  </div>
+	 </dd>
+	 
+		<dd class="fix">
+			{?if $chapter.display == 9 || $chapter.display == 2?}
+       		  <em class="tt2">定时发布：</em>
+	          <div class="int">
+	           <input name="postdate" id="postdate" autocomplete="off" value="{?$chapter.postdate|date:'Y-m-d H:i:s'?}" type="text" class="input3 fl" readonly="readonly" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00',minDate:'%y-%M-%d #{%H+2}:%m:%s',maxDate:'%y-%M-{%d+15}'})"/>
+	           <span class="hint cl">定时发布，只能选择最近15天以内的时间进行发布。</span>
+	          </div>
+	       {?/if?} 
+	       <div class="int2"> 
+	         	<p class="pb20 cl"><input type="submit" value="修改" class="btn" /></p>
+	  		<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+		   <input type="hidden" name="aid" id="aid" value="{?$article['articleid']?}" />
+		   <input type="hidden" name="cid" id="cid" value="{?$chapter['chapterid']?}" />
+         </div>
+       </dd>
+     </div><!--box_note2 end-->
+     </form>
+     </dl>
+     </div>
+      </div>
+       </div>

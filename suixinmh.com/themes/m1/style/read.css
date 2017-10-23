@@ -1,0 +1,92 @@
+@charset "gb2312";
+/**
+*@Description: 书海女频阅读页样式read.css 
+*@Author:      tanjing  
+*@Update:      tanjing(2015-01-10 17:22)  
+**/ 
+
+@import url(reset.css);
+@import url(comment.css);
+
+
+.path2{padding:0px 5px 10px; font-size:13px; color:#888;}
+.path2 a{ padding:0px 5px;}
+.box_read{ width:auto; height:auto; border:1px solid #fff; border-top:none; margin:0px auto; background:#dff6f5;}
+.box_read .boxs{ border:0; background-color:transparent;}
+.box_read .boxs .t3{height:34px; line-height:34px; color:#07b1a6; padding-left:12px; font-size:14px; border-bottom:1px solid #07b1a6; background:#d0f1ef;}
+.box_read .topp{ width:auto; height:45px; background-color:#dff6f5; border-top:2px solid #07b1a6; border-bottom:1px solid #fff;}
+.box_read .topp .opt{ float:left; width:40%; height:40px; padding:5px 0px 0px 10px;}
+.selcetbox_yd{ float:left; z-index: 1; position:relative; width: 512px !important; padding:10px 0px 0px 10px;}
+.selcetbox_yd ul {	border-bottom: #ddd 1px solid; position: relative; border-left: #ddd 1px solid; padding-bottom: 0px; line-height: 20px; padding-left: 0px; width: 80px; padding-right: 0px; background: #bbb; FLOAT: left; height: 20px; margin-left: 4px; border-top: #ddd 1px solid; border-right: #ddd 1px solid; padding-top: 0px;}
+.selcetbox_yd .full2{display:block; float:left; width:76px; height:24px; line-height:24px; text-align:center; padding:0px 10px; font-size:14px; font-weight:800; color:#fff; background:url(../images/bg_wx.gif) repeat-x 0px 0px;}
+.selcetbox_yd .lll {overflow: hidden}
+.selcetbox_yd li {padding-bottom: 0px; line-height: 20px; padding-left: 0px; width: 80px; padding-right: 0px; overflow: hidden; padding-top: 0px;}
+.selcetbox_yd .select p{ border: 1px solid #ddd; border-top: none;cursor: pointer;height: 20px;line-height: 20px;overflow: hidden;padding-left: 5px;position: relative;}
+.textm {border-bottom: 0px; position: absolute; border-left: 0px; padding-bottom: 0px; line-height: 20px; padding-left: 5px; width: 75px; padding-right: 0px; background: #fff; height: 20px; border-top: 0px; TOP: 0px; cursor: default; border-right: 0px; padding-top: 0px; left: 0px}
+.btnn {	z-index: 99; position: absolute; width: 18px; display:inline-block; background: url(../images/icon_user.gif) no-repeat -7px -997px; height: 22px; TOP: -1px; right: -1px; padding-top: 0px}
+.btnhover {	background: url(../images//icon_user.gif) no-repeat -7px -1030px;}
+.select {position: absolute; display:none; background: #fff; height: auto; border-top: #ddd 1px solid; top: 20px;}
+.select p{border-bottom: #ddd 1px solid; position: relative; border-left: #ddd 1px solid; line-height:20px; padding-left: 5px; height: 20px; overflow:hidden; border-top:0px; cursor:pointer; border-right: #ddd 1px solid;}
+.select .hover {background: #f3f8f9;}
+.selcetbox_yd .s1 {	width:58px;}
+.selcetbox_yd .s1 li {width: 58px;}
+.selcetbox_yd .s1 .textm {width: 53px;}
+.selcetbox_yd .full{ display:block; float:left; width:96px; _width:76px; height:24px; line-height:24px; text-align:center; padding:0px 10px; font-size:14px; font-weight:800; color:#fff; background:url(../images/bg.gif) repeat-x 0px -231px;}
+
+.topp_r{ float:right; text-align:right; padding-right:5px; padding-top:10px; color:#b6b6b6; font-size:13px; }
+.topp_r a{ padding:0px 4px;}
+
+.read{ float:left; width:777px; _width:767px; height:auto; background:#f2f8fb; padding:0px 0px 20px; border-right:1px solid #fff;}
+.read .notice{ width:60%; padding-left:10px;}
+.read_top{ clear:both; width:auto; height:auto; border-bottom:1px solid #eee; padding:0 0px 10px;text-align:center;}
+.read_top h1{font-weight:bold; color:#e62a07; font-size:28px; padding:10px 0px; margin:0 auto; text-align:center;}
+.read_top .info{ width:auto; height:auto; color:#999;}
+.read .txt{ width:96%; _width:93%; height: auto !important; margin:0px auto; padding: 10px 20px;}
+.read .txt p{ text-indent:2em; line-height:160%; padding:10px 0px; word-break:break-all;}
+.read .read_dwn{width:auto; height:auto;text-align:center; color:#7d7d7d; padding:0px 20px;}
+.read .read_dwn p{ border-top:1px solid #eee; padding:25px 0px 5px; color:#c4c4c4; }
+.read .read_dwn p a{ display:inline-block; padding:0px 10px; margin:0px 20px; width:80px; _width:60px; height:34px; line-height:34px; font-size:14px; background:#fff; border:1px solid #dedede;}
+
+.box_read .ad_r{ width:auto; height:auto; clear:both; text-align:center; overflow:hidden;}
+.box_read .ad_r a img{ width:176px; height:470px; margin:10px auto;}
+
+.recombox ul li{ display:inline-block; padding:5px 10px; margin:0; border-right:1px solid #adebe8; border-left:1px solid #adebe8; border-top:1px solid #adebe8;border-bottom:1px solid #adebe8;font-size:14px; text-align:center; background:#f2f8fb;}
+.recombox ul li.thistab{ border-top:2px solid #07b1a6;border-bottom:1px solid #fff; background-color:#fff; color:#07b1a6; font-weight:800; position:relative; bottom:-1px; padding-top:6px;}
+.recombox div{ padding:10px 10px;}
+.list_img2{ float:left; width:25%; height:auto; font-size:13px;}
+.list_img2 dt{ float:left; width:112px; height:auto; text-align:center;}
+.list_img2 dt a{ display:block; margin:0px auto; line-height:180%;}
+.list_img2 dt a img{ width:112px; height:149px; padding-bottom:5px;}
+.list_img2 dd{ float:left; width:40%; height:24px; line-height:24px; padding-left:10px; color:#a3a3a3; overflow:hidden;}
+/*背景颜色*/
+.bg_yelw{ background-color:#ffffed;}
+.bg_yelw2{ background-color:#fffdc0;}
+.bg_blue{ background-color:#dff1ff;}
+.bg_pink{ background-color:#ffe7e7;}
+.bg_white{ background-color:#fff;}
+.bg_gray{ background-color:#f2f8fb;}
+
+
+
+.bg_huang { background:#FFFFED}
+.bg_lan {background:#E9FAFF;}
+.bg_lv {background:#efffeb;}
+.bg_fen {background:#FCEFFF;}
+.bg_bai {background:#fff;}
+.bg_hui {background:#efefef;}
+/*字体大小*/
+.fon_14 {font-size:14px; line-height:26px;}
+.fon_18 {font-size:18px; line-height:32px;}
+.fon_20 {font-size:20px; line-height:38px;}
+.fon_24 {font-size:24px; line-height:44px;}
+.fon_30 {font-size:30px; line-height:50px;}
+/*字体颜色*/
+.z_hei {color:#000;}
+.z_hui{color:#777;}
+.z_red {color:#ff0000;}
+.z_lan {color:#0066CC;}
+.z_lan {color:#0066CC;}
+.z_lv {color:#22b600;}
+.fon_size{ font-size:14px;}
+.commentbar .ttt{width:auto; height:32px; margin:0px; padding:0px; }
+.commentbar .ttt h3{ width:auto; height:31px; line-height:31px; border-bottom:1px solid #d2e1f1; padding-left:20px; font-size:14px; font-weight:800; color:#2974ab; background:#eaf7ff;}

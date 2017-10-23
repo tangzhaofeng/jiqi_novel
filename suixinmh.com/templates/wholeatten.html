@@ -1,0 +1,47 @@
+{?if $mid == 'add' || $seach == 'add'?}
+		  <div class="opit fix f12">
+		  <div class="so"><label>搜索好友</label>
+		  <form id="ajaxformseach" action="" method="post" onSubmit="return false;">		  
+		  <p class="input">
+		  <input type="hidden" value="{?function geturl:'system':'userhub':'SYS=method=searchF'?}" id="iact" nmae="iact"/>
+		  <input id="searchF" name="searchF"  type="text" placeholder="在这里输入你要搜索的昵称,如:小新" value="{?$smid?}" />
+		  </p>
+		  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+		  <button type="submit" class="btn" >搜索</button>
+		  </form> 
+		  </div> 
+		   </div><!--opit end-->
+		   <div class="opit f12">
+		  	全部<em class="red3"> {?if $nowfriends == ''?}0{?else?}{?$nowfriends?}{?/if?} </em>人
+		  </div><!--opit end-->
+{?else?}
+		  <div class="opit f12">
+		  	全部<em class="red3"> {?if $nowfriends == ''?}0{?else?}{?$nowfriends?}{?/if?} </em>人
+		  </div><!--opit end-->
+{?/if?} 
+{?section name=i loop=$friendsrows?}
+<!--box_user begin-->
+	<div class="box_user fix auto" id="box_user">
+	<div class="imghead fl" ajaxhover="true" uid="{?$friendsrows[i].uid?}"><img src="{?function jieqi_geturl:'system':'avatar':'$friendsrows[i].uid':'l':'$friendsrows[i].avatar'?}"  /><span class="mask"></span></div>
+		<dl>
+		<dd><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$friendsrows[i].uid'?}" target="_blank" ajaxhover="true" class="f_blue5 f14 b" uid="{?$friendsrows[i].uid?}">{?if $friendsrows[i].name!=''?}{?$friendsrows[i].name?}{?else?}{?$friendsrows[i].uname?}{?/if?}</a><a href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}" target="_blank" class="{?$friendsrows[i].vipphoto?} vs mr5" title="{?$friendsrows[i].vipgrade?}级会员"></a></dd>
+		<dd><a href="{?function geturl:'system':'userhub':'SYS=method=usermember'?}" class="{?$friendsrows[i].honorphoto?} vs" title="{?$friendsrows[i].honor?}"></a></a> /{?if $friendsrows[i].sex == '1'?}男{?elseif $friendsrows[i].sex == '2'?}女{?elseif $friendsrows[i].sex == '0'?}保密{?/if?}</dd>
+		<dd>粉丝：{?$friendsrows[i].num?}人</dd>
+		<dd><em class="b">简介：</em>{?if $friendsrows[i].sign == ''?}这家伙很懒，什么也没留下。{?else?}{?$friendsrows[i].sign?}{?/if?}</dd>
+		</dl>
+		<div class="opt fix">
+			<a {?if $friendsrows[i].name!=''?}href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].name|urlencode'?}"{?else?}href="{?function geturl:'system':'userhub':'SYS=method=newmessage&receiver=$friendsrows[i].uname|urlencode'?}"{?/if?} class="gbtn"><em class="mes">发私信</em></a>
+		{?if $mid == 'add' || $mid == 'author' || $friendsrows[i].e == 'no'|| $seach == 'add'?}
+			<a href="javascript:addatt({?$friendsrows[i].uid?},'{?$mid?}');" class="gbtn" ><em class="adfrind" id="{?$friendsrows[i].uid?}">加关注</em></a>
+		{?else?}
+			{?if $mid == 'whole'?}
+			<a href="{?function geturl:'system':'userhub':SYS=method=delAtten&myid=$uid&yid=$friendsrows[i].uid&mid=$mid?}" ajaxclick="true" retruemsg="false" targetid="friend" confirm="你确定要取消关注吗?" class="gbtn" ><em class="cancel">取消关注</em></a>
+			{?else?}
+			<a href="{?function geturl:'system':'userhub':SYS=method=delAtten&myid=$friendsrows[i].yourid&yid=$friendsrows[i].myid&mid=$mid?}" ajaxclick="true" retruemsg="false" targetid="friend" confirm="你确定要取消关注吗?" class="gbtn" ><em class="cancel">取消关注</em></a>
+			{?/if?}
+		{?/if?}
+		</div>
+	</div>
+<!--box_user end-->
+{?/section?}
+<div class="page3">{?$url_jumppage?}</div>

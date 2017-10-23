@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+ <webName>{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,true,'xml');?}</webName>
+ <webSite><![CDATA[{?eval echo JIEQI_URL;?}]]></webSite>
+ <pagesize>{?$pagesize?}</pagesize>
+ <totalcount>{?$totalcount?}</totalcount>
+ {?section name=i loop=$rows?}<item>
+  <bookid>{?$rows[i]['articleid']?}</bookid>
+  <Original_URL><![CDATA[{?$rows[i]['url_articleinfo']?}]]></Original_URL>
+  <title><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></title>
+  <author><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['author'],false);?}]]></author>
+  <size>{?eval echo $rows[i]['size']/2;?}</size>
+  <tag><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['keywords'],false);?}]]></tag>
+  <fullflag>{?$rows[i]['fullflag']?}</fullflag>
+  <isvip>{?$rows[i]['articletype']?}</isvip>
+  <price>0</price>
+  <comment><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['intro'],false);?}]]></comment> 
+  <imageLink><![CDATA[{?eval echo $rows[i]['url_image_l'];?}]]></imageLink>
+  <url><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$rows[i]['articleid']?}]]></url>
+ </item>{?/section?}
+</document>

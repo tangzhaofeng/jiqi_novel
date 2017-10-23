@@ -1,0 +1,66 @@
+{?set $meta_keywords = "小说,好看的小说,小说网,小说推荐,免费小说"?}
+{?set $jieqi_pagetitle = "$jieqi_sitename-免费小说,网络小说,最好看的小说推荐"?}
+{?set $meta_description = "$jieqi_sitename为最具影响力的原创小说门户,也是最有潜力的网络小说网站,$jieqi_sitename每天拥有海量免费小说更新,包括玄幻小说,穿越小说,都市小说,网游小说,武侠小说,修真小说,恐怖小说,军事小说,历史小说等各类热门小说在线阅读,我们致力于汇集八方作者,共享文学盛事,将好看的小说推荐给读者,做最好看的网络小说网站。"?}
+<!--<html xmlns:wb="http://open.weibo.com/wb">--><meta property="qc:admins" content="4365137120163056654" />
+<script>
+function login(o) {
+	alert('logout');
+    alert(o.screen_name)
+}
+ 
+function logout() {
+    alert('logout');
+}
+	WB2.anyWhere(function(W){
+    W.widget.connectButton({
+        id: "wb_connect_btn",	
+        type:"6,4",
+        callback : {
+            login:function(o){	//登录后的回调函数
+            },	
+            logout:function(){	//退出后的回调函数
+            }
+        }
+    });
+});
+</script>
+<div class="nav">
+	{?include file = "themes/3g/nav.html"?}
+    <!--iv class="banner">
+        {?tag_system_329_[3g][首页]banner?}
+    </div>-->
+</div>
+{?include file = "themes/3g/search.html"?}
+
+<div class="content1">
+    {?tag_system_330_[3g][首页]最热门?}
+</div>
+<div class="content">
+	{?tag_system_331_[3g][首页]强力推荐?}
+</div>
+<div class="content">
+	<div class="t2">
+        <h2 class="ico4">女频推荐</h2>
+        <a href="/shuku/12_0_0_0_0_1_0.html" target="_self" class="more">更多></a>
+    </div>
+	{?tag_system_334_[3g][首页]女频推荐?}
+</div>
+<div class="content">
+	<div class="t2">
+        <h2 class="ico3">男频推荐</h2>
+        <a href="{?function geturl:'3g':'shuku':SYS=siteid=0&sort=0&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_self" class="more">更多></a>
+    </div>
+	{?tag_system_333_[3g][首页]男频推荐?}
+</div>
+<div class="content">
+	<div class="t2">
+        <h2 class="ico8">最近更新</h2>
+        <a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=lastupdate&sortid=0&page=1?}" target="_self" class="more">更多></a>
+    </div>
+    <ul class="list1">
+	{?tag_system_2_通用查询<{lastupdate,5,,0,0,0,0,,main}><{3g/block_lastupdate.html}>?}
+	</ul>
+</div>
+<div align="center"><a href="http://wap.cmread.com/r/p/index.jsp?vt=3&cm=M21I0022"><img src="{?$jieqi_themeurl?}images/migu.png" /> </a></div>
+{?include file = "themes/3g/search.html"?}
+{?include file = "themes/3g/js.html"?}

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>账号绑定</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="copyright" content="" />
+<link rel="stylesheet" rev="stylesheet" href="{?$jieqi_themeurl?}style/qqbound.css" type="text/css" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/page.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye" style="visibility:hidden;"><a href="javascript:;">返回</a></div>
+    <div class="title"><a href="javascript:;">账号绑定</a></div>
+    <div class="shujia" style="visibility:hidden;"><a href="index.html">首页</a></div>
+</div>
+<div class="qqbound">
+	<p class="ljbd">立即绑定{?$jieqi_sitename?}</p>
+    <div class="head">
+        <img src="{?$figureurl_2?}" alt="" class="faceimg" />
+        <span class="facezhe"><img src="{?$jieqi_themeurl?}images/headzhe.png" alt="" /></span>
+        <span class="head_name">{?$nickname?}</span>
+    </div>
+    <p class="yiyuo">■ 如果您已有{?$jieqi_sitename?}账号，建议绑定；若不绑定，下次将无法通过{? if $type=='sina'?}<font color="red">新浪微博</font>{?else if $type=='qq' ?}<font color="red">QQ</font>{?/if?}登录已有账号。</p>
+	<form id="qlogin_form" name="qlogin_form" class="signup" action="{?$url_login?}" method="post" ajaxpost="true" retruemsg='false'>    
+	    <div class="landing">
+	        <div class="user">
+	            <span class="userico">账    号：</span>
+	            <input name="username" type="text" value="" maxlength="30" placeholder="请输入{?$jieqi_sitename?}账号" data-rule="账号: required;"/>
+	        </div>
+	        <div class="key">
+	            <span class="keyico">密    码：</span>
+	            <input name="password" type="password"  value="" maxlength="20" placeholder="请输入密码" data-rule="密码: required;"/>
+	        </div>
+	    </div>
+	    <div class="landing_but">
+	        <input type="hidden" name="openid"  value="{?$openid?}"/>
+		    <input type="hidden" name="accesstoken" id="accesstoken"  value="{?$access_token?}"/>
+			<input type="hidden" name="type"   value="{?$type?}"/>
+			<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+			<input type="hidden" name="jumpurl" id="jumpurl" value="{?$jumpurl?}">
+	        <!-- <a href="javascript:qlogin_form.submit();" class="dl">绑定</a> -->
+	        <input type="submit" class="dl" value="绑定"></input>
+	        <!--  <a href="#" class="zc">取消</a>-->
+	    </div>
+    </form>
+    <span class="mei">■ 没有{?$jieqi_sitename?}账号？</span>
+	<form id="register_form" name="register_form" class="signup" action="{?$url_register?}" method="post" autocomplete="off" ajaxpost='true' retruemsg='false'>
+	    <div class="landing">
+	        <div class="user">
+	            <span class="userico">邮    箱：</span>
+	            <input type="text" name="email" value="" maxlength="40" placeholder="请输入邮箱" data-rule="邮箱: required;email;remote[/register?method=checkEmail]"/>
+	        </div>
+	    </div>
+	    <div class="landing_but">
+			<input type="hidden" name="openid"  value="{?$openid?}"/>
+		    <input type="hidden" name="accesstoken" id="accesstoken"  value="{?$access_token?}"/>
+			<input type="hidden" name="type"   value="{?$type?}"/>
+			<input type="hidden" name="username"   value="{?$nickname?}"/>
+	    	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+   			<input type="hidden" name="jumpurl" id="jumpurl" value="{?$jumpurl?}">
+   			
+   			
+	        <input type="submit" class="jrsh" value="直接进入{?$jieqi_sitename?}"></input>
+	    </div>
+    </form>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{?section name=i loop=$reviewrows?}
+       <dd class="fix">
+        <div class="img">{?eval $mid=$reviewrows[i].posterid;?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$reviewrows[i].posterid'?}" target="_blank">
+		<img src="{?function jieqi_geturl:'system':'avatar':'$mid':'m':'$reviewrows[i].avatar'?}"/></a><a href="{?function geturl:'system':'userhub':'SYS=method=usermember'?}" class="{?$reviewrows[i].honorphoto?}" title="{?$reviewrows[i].honor?}"></a></div>
+        <!--comm begin-->
+        <div class="comm">
+         <div class="tt">
+          <span class="path3">{?if $reviewrows[i].posterid > 0?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$reviewrows[i].posterid'?}" target="_blank" class="f_blue4" ajaxhover="true" uid="{?$reviewrows[i].posterid?}">{?$reviewrows[i].poster?}</a><a href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}" target="_blank" class="{?$reviewrows[i].vipphoto?} vs" title="{?$reviewrows[i].vipgrade?}级会员"></a>{?else?} 游客 {?/if?}{?if $reviewrows[i].replyflag > 0?}/{?if $reviewrows[i].replierid > 0?}<a href="{?function jieqi_geturl:'system':'user':$reviewrows[i].replierid?}" target="_blank">{?$reviewrows[i].replier?}</a>{?else?}游客{?/if?}{?/if?}<span class="f12" style="color:#757575;">发表了评论</span></span>
+		{? if $display=='isgood' ?} {?set $go = 'goodreviewcontent'?} {?else?}{?set $go = 'reviewcontent'?}{?/if?}
+		 {?if $reviewrows[i].istop == 1?}<span class="hottext"><em class="toping"></em></span>{?/if?}{?if $reviewrows[i].isgood == 1?}<span class="hottext"><em class="good"></em></span>{?/if?}
+		  {?if $power>0  || $article.authorid == $_USER['uid']?}
+		  		<p class="tt_r" style="display:none;">
+		  		{?if $reviewrows[i].istop == 1?}<a href="{?$reviewrows[i].url_untop?}" ajaxclick=true  targetid="{?$go?}" class="f_blue2">取消置顶</a>{?else?}<a href="{?$reviewrows[i].url_top?}" ajaxclick=true  targetid="{?$go?}" class="f_blue2">置顶</a>{?/if?}{?if $reviewrows[i].isgood == 1?}|<a href="{?$reviewrows[i].url_normal?}" ajaxclick=true  targetid="{?$go?}" class="f_org">取消加精</a>{?else?}|<a href="{?$reviewrows[i].url_good?}" ajaxclick=true  targetid="{?$go?}" class="f_org">加精</a>{?/if?}|<a href="{?$reviewrows[i].url_del?}" class="f_gray6" ajaxclick=true confirm="确实要删除这条评论吗？" targetid="{?$go?}">删除</a>
+		  		<!-- 禁言 -->
+				{? if $display != 'isgood' ?}
+					{?if $reviewrows[i].url_mute != ""?}
+						|<a href="javascript:;" name="mute" url="{?$reviewrows[i].url_mute?}" class="f_gray6" >禁言</a>
+					{?else?}
+						|<a href="javascript:;" class="f_gray6">已禁言</a>
+					{?/if?}
+				{?/if?}
+		  	</p>
+		  {?/if?}
+         </div>         
+          <p class="txt">{?$reviewrows[i].posttext?}</p>
+         <div {?if $mute == 1?}class="ope f_gray7"{?else?}class="ope f_blue"{?/if?}>{?$reviewrows[i].posttime|date:"Y-m-d H:i:s"?}<!-- <a href="javascript:;">查看[{?$reviewrows[i].views?}]</a>| -->{?if $display=='isgood'?}{?eval $rid = 'good'.$reviewrows[i].topicid;?}{?else?} {?eval $rid = $reviewrows[i].topicid;?}{?/if?}<a href="javascript:;"  {?if $mute == 0?}onclick="return showReplies(this,'{?$reviewrows[i].url_showreview?}')" id="{?$rid?}" {?/if?}>回复[<span id="{?$rid?}span">{?$reviewrows[i].replies?}</span>]</a></div>
+		 
+		<div class="reply" style="display:none" id="show{?$rid?}"></div>
+    	</div>
+       </dd> 
+	{?/section?}
+	<input type="hidden" {?if $display=='isgood'?}name="loadgoodreview_has_next_page"{?else?}name="loadreview_has_next_page"{?/if?}   value="{?$has_next_page?}" />

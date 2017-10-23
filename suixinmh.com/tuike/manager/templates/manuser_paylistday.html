@@ -1,0 +1,63 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/manager/templates/public/header.html" ?}
+{?include file="tuike/manager/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>每日结算 </h3>
+      <div class="m-panel " id="form_main">
+      {?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+        <!--       <form action="{?function geturl:'manager':'manqd'?}" method="post">
+                <input type="text" class="form-element" name="keywordq" value="">
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form> -->
+            </div>
+          </div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th><i class="sortOr" _z="pdate">时间</i></th>
+                  <th><i class="sortOr" _z="pinfo">内容</i></th>
+                  <th><i class="sortOr" _z="pord">订单号</i></th>
+                  <th><i class="sortOr" _z="pmon">收支</i></th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($paylogList)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 11 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('manager','manuser','SYS=method=paysettle');?}
+                {?section name=i loop=$paylogList?}
+                <tr>
+                  <td>{?$paylogList[i].date?}</td>
+                  <td>{?$paylogList[i].notes?}</td>
+                  <td>{?$paylogList[i].ordernumber?}</td>
+                  <td>+{?$paylogList[i].money?}</td>
+                  <td>
+                    <a class="u-btn u-btn-primary" href="{?$url?}?payId={?$paylogList[i].payid?}">查看</a>
+                  </td> 
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                  {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+{?include file="tuike/manager/templates/public/footer.html"?}
+{?/if?}

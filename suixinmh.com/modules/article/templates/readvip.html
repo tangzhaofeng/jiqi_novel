@@ -1,0 +1,296 @@
+    {?if $jieqi_userid == 0?}<div class="v_note">亲，您已经阅读到VIP章节啦,想看更多精彩章节，马上登录吧</div>
+    <!--logn begin-->
+    <div class="logn fix">
+     <!--logn_l begin-->
+     <div class="logn_l fix">      
+     <h3>用户登录</h3>    
+	 <div id="result_14" class="tip-ok" style="display:none"></div>
+<form id="signup_form" class="signup" action="{?function geturl:'system':'login'?}" autocomplete="off" data-validator-option="{theme:'simple_right'}">
+<fieldset>
+    <div class="form-item">
+        <div class="field-name">用户名：</div>
+        <div class="field-input">
+          <input type="text" maxlength="20" name="username" data-rule="用户名: required;username" />
+        </div>
+    </div>
+    <div class="form-item">
+        <div class="field-name">密码：</div>
+        <div class="field-input">
+          <input type="password" name="password" autocomplete="off" data-rule="密码:required;length[3~]" />
+        </div>
+    </div>
+    <div class="form-item" id="code_div" {?if $show_checkcode == 0 ?} style="display: none;" {?/if?}>
+        <div class="field-name">验证码：</div>
+        <div class="field-input">
+           <input type="text" name="checkcode" autocomplete="off" class="yzm">
+         	<img src="{?eval echo JIEQI_URL;?}/checkcode.php" width="90" height="35" class="pic" id="checkcode" /><a class="f_org2 pl10" id="recode" onclick="$('#checkcode').attr('src','{?eval echo JIEQI_URL;?}/checkcode.php?rand='+Math.random());">换一张</a>
+        </div>
+    </div>
+    <div class="form-item">
+    	<div class="field-name"></div>
+        <div class="field-input">
+          <p><input name="usecookie" type="checkbox" value="1" checked="checked" class="check" />记住我(1个月免登录)</p>
+        </div>
+    </div>
+</fieldset>
+    <input type="hidden" name="jumpurl" value="{?$jumpurl|urlencode?}">
+    <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+<button id="btn-submit" class="btn-submit2" type="submit">登录</button>
+</form>
+     </div><!--logn_l end-->
+    <div class="logn_r">
+     <h3>用户注册</h3>
+     还没有书海小说网账号？
+     <a href="{?function geturl:'system':'register'?}" title="立即注册" class="reg"></a>
+     你也可以用站外账号登录:
+     <p class="o_login pt10"><!--<a href="javascript:;" title="新浪微博" onclick="alert('即将推送，敬请期待！');" class="sina"></a>--><a href="javascript:;" onclick="otherlogin('{?$jieqi_local_url?}/qqlogin/?jumpurl={?eval echo urlencode(JIEQI_REFER_URL);?}');" title="腾讯QQ" class="qq">{?$jumpurl?}</a></p>
+    </div>
+    </div><!--logn end-->
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript">
+    layer.ready(function(){
+		$('#signup_form').bind('valid.form', function(){
+			  GPage.postForm('signup_form', this.action,function(data){
+					if(data.status=='OK'){
+						GPage.loadpage('content', vurl);
+						loadheader("vip");
+					}else{
+						//document.getElementById("signup_form").reset();
+						$('#recode').click();
+						$('#result_14').html(data.msg.info).fadeIn(300).delay(2000).fadeOut(1000);
+						if(data.msg.show_checkcode == 1){
+							$("#code_div").show();
+						}
+					}
+			  });
+		});
+	});
+</script>
+{?elseif $chapter['content']!='' ?}
+{?eval echo preg_replace("/<p>\r\n<p>/",'<p>',str_replace('&nbsp;&nbsp;&nbsp;&nbsp;','<p>',preg_replace("/<br \/>\r\n<br \/>/","</p>\r\n<p>",$chapter['content'])));?}
+{?else?}
+<div class="pop-3year" style="display:none;">
+ <h3>书海迎来三年庆，免费好书读不停</h3>
+ <div>普通会员，每天仅能免费阅读1本限定的VIP作品；<br>
+VIP会员，享有全站VIP作品任选阅读的特权；<br>
+点击“确定”按钮，开始免费阅读这本书。</div>
+ <a class="btn-ok" href="{?function geturl:'article':'reader':'method=readvip':'aid=$article.articleid':'cid=$chapter.chapterid':'SYS=method=addFree'?}">确定</a>
+</div>
+<!--buy begin-->
+    <!-- <div class="buy fix">
+      <div class="t">此章节{?if $chapter['useshuquan'] > 0?}可以书卷购买{?else?}只能{?eval echo JIEQI_EGOLD_NAME;?}购买{?/if?},共{?eval echo ceil($chapter['size']/2);?}字,您是{?$vipgrade['caption']?}用户,{?if $vipgrade['setting']['dingyuezhekou']>0?}享受{?eval echo $vipgrade['setting']['dingyuezhekou']*10;?}折章节订阅优惠{?else?}不能享受章节订阅折扣{?/if?}</div>
+      <div class="account">
+       您的账户余额：<em>{?$_USER['egolds']?}</em>{?eval echo JIEQI_EGOLD_NAME;?}<a href="{?function geturl:'pay':'home'?}" target="_blank" class="pay">充值</a>
+      </div>
+      <div class="box yline">
+      <p>{?$chapter['chaptername']?}</p>
+       <p>{?eval echo ceil($chapter['size']/2);?}字/{?$chapter['saleprice']?}{?eval echo JIEQI_EGOLD_NAME;?}</p>{?eval $articleid = $chapter['articleid'];$cid=$chapter['chapterid'];?}
+	   <p>本章原价：{?$chapter['saleprice']?}{?eval echo JIEQI_EGOLD_NAME;?}</p>
+	   <p>折后价格：{?if $vipgrade['setting']['dingyuezhekou']>0?}{?eval echo $chapter['saleprice']*$vipgrade['setting']['dingyuezhekou'];?}{?eval echo JIEQI_EGOLD_NAME;?}{?else?}无折扣{?/if?}</p>
+       <a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=buychapter'?}" buychapter="true" class="btn" id="buychapter">购买本章</a>
+      </div>
+      <div class="box yline">
+       <p>还有{?$vip['num']?}章可以购买</p>
+       <p>原价约{?$vip['saleprice']?}{?eval echo JIEQI_EGOLD_NAME;?}{?if $vipgrade['setting']['dingyuezhekou']>0?},折后价约{?eval echo $vip['saleprice']*$vipgrade['setting']['dingyuezhekou'];?}{?eval echo JIEQI_EGOLD_NAME;?}{?/if?}</p>
+       <a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=batchbuychapter'?}" buychapter="true" class="btn">批量购买</a>
+      </div>
+      <div class="box">
+       <p>自动订阅VIP章节</p>
+	   <p>章节直接购买不提示</p>{? if $autobuy > 0?}
+       <a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=closebuy'?}" buychapter="true" class="btn">关闭自动阅读</a>
+	   {?else?}<a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=autobuy'?}" buychapter="true" class="btn">开启自动阅读</a>{?/if?}
+      </div>
+    </div> -->
+    <div class="buy2">
+     <h3 class="fix"><span>《{?$article['articlename']?}》</span>当前章节需要付费阅读</h3>
+     <div class="myac fix">
+     <p class="fl">
+     您的账户余额：<em>{?$_USER['egolds']?}</em>{?eval echo JIEQI_EGOLD_NAME;?}/<em>{?$_USER['esilvers']?}</em>书劵<a href="{?function geturl:'pay':'home'?}" target="_blank">充值</a></p><p class="fr">您是{?$vipgrade['caption']?}级用户,{?if $vipgrade['setting']['dingyuezhekou']>0?}享受{?eval echo $vipgrade['setting']['dingyuezhekou']*10;?}折章节订阅折扣{?else?}不能享受章节订阅折扣{?/if?}
+     </p>
+     </div>
+     <div class="radbox">
+      <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b> 
+      <h4 class="bcont">单章订阅信息</h4>
+      <ul class="li_dyue fix">
+       <li class="fix">
+        <span class="name">{?$chapter['chaptername']?}</span>
+        <span class="num1">{?eval echo ceil($chapter['size']/2);?}字</span>
+        <span class="num2">原价：{?$chapter['saleprice']?}{?eval echo JIEQI_EGOLD_NAME;?}</span>
+        <span class="num3">折后价：{?if $vipgrade['setting']['dingyuezhekou']>0?}{?eval echo $chapter['saleprice']*$vipgrade['setting']['dingyuezhekou'];?}{?else?}{?$chapter['saleprice']?}{?/if?}{?eval echo JIEQI_EGOLD_NAME;?}</span>
+       </li>
+      </ul>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl">
+  <tr>
+    <td width="40%" height="32" align="left" valign="middle">
+    订阅本章需要消费：<em class="o_num">{?if $vipgrade['setting']['dingyuezhekou']>0?}{?eval echo $chapter['saleprice']*$vipgrade['setting']['dingyuezhekou'];?}{?else?}{?$chapter['saleprice']?}{?/if?}</em>{?eval echo JIEQI_EGOLD_NAME;?}
+    </td>
+    <td width="35%" height="32" align="left" valign="middle">
+    (本次消费使用<em class="o_num"> {?if $chapter['shuquan'] == ''?}0{?else?}{?$chapter['shuquan']?}{?/if?} </em><span class="sq">书券</span>抵扣支付)
+    </td>
+    <td width="25%" height="32" align="right" valign="middle"><a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=buychapter'?}" buychapter="true" class="btn_pic" id="buychapter">购买本章</a><!-- <button name="" type="submit" class="btn_pic">购买本章</button> --></td>
+  </tr>
+  <tr>
+    <td height="32" colspan="2" align="left" valign="middle">自动订阅本书其他VIP章节，无需每次进行单章购买确认。</td>
+    <td height="32" align="right" valign="middle">
+    {? if $autobuy > 0?}
+    <a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=closebuy'?}" buychapter="true" class="btn_pic">关闭自动阅读</a>
+    {?else?}
+    <a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=autobuy'?}" buychapter="true" class="btn_pic">开启自动阅读</a>
+    {?/if?}
+    </td>
+  </tr>
+  <tr>
+    <td height="32" colspan="2" align="left" valign="middle">本书还有<em class="o_num">{?$vip['num']?}</em>章可以购买，原价：<em class="o_num">{?$vip['saleprice']?}</em>{?eval echo JIEQI_EGOLD_NAME;?}，折后价格：<em class="o_num">{?if $vipgrade['setting']['dingyuezhekou']>0?}{?$vip['salepriceAf']?}{?else?}{?$vip['saleprice']?}{?/if?}</em>{?$egoldname?}。<br />
+(本次消费使用<em class="o_num">{?$vip['shuquan']?}</em>书券抵扣支付)</td>
+    <td height="32" align="right" valign="middle">
+    <a href="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=batchbuychapter'?}" buychapter="true" class="btn_pic">订阅全部章节</a>
+    </td>
+  </tr>
+</table>
+     </div>
+     <div class="radbox">
+      <b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b> 
+      <h4 class="bcont">其他未订阅VIP章节（显示当前章节后面<em class="o_num">{?eval echo count($nobuychapters);?}</em>章）</h4><form id="form1" name="form1" method="post" target="_blank" action="{?function geturl:'article':'reader':'method=readvip':'aid=$articleid':'cid=$cid':'SYS=method=batchbuychapter'?}">
+      <div class="tbl2">
+       <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="11%" height="24" align="left" valign="middle" nowrap="nowrap" bgcolor="#e6e6e6" scope="col">
+      <input type="checkbox" id="checkall" name="checkall" value="checkall" onclick="javascript: for (var i=0;i<this.form.elements.length;i++){ if (this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }">
+      <label for="checkbox">全选</label>
+    </th>
+    <th width="40%" height="24" align="left" valign="middle" nowrap="nowrap" bgcolor="#e6e6e6" scope="col">章节名称</th>
+    <th width="16%" height="24" align="left" valign="middle" nowrap="nowrap" bgcolor="#e6e6e6" scope="col">字数</th>
+    <th width="16%" height="24" align="left" valign="middle" nowrap="nowrap" bgcolor="#e6e6e6" scope="col">原价</th>
+    <th width="17%" height="24" align="left" valign="middle" nowrap="nowrap" bgcolor="#e6e6e6" scope="col">折扣后价格</th>
+  </tr>
+  {?section name=i loop=$nobuychapters?}
+  <tr>
+    <td height="24" align="left" valign="middle" nowrap="nowrap"><input type="checkbox" id="cids[]" name="cids[]" value="{?$nobuychapters[i].chapterid?}" shuquan="{?$nobuychapters[i].shuquan?}"> </td>
+    <td height="24" align="left" valign="middle" nowrap="nowrap">{?$nobuychapters[i].chaptername?}</td>
+    <td height="24" align="left" valign="middle" nowrap="nowrap">{?$nobuychapters[i].size_c?}字</td>
+    <td height="24" align="left" valign="middle" nowrap="nowrap">{?$nobuychapters[i].saleprice?}{?eval echo JIEQI_EGOLD_NAME;?}</td>
+    <td height="24" align="left" valign="middle" nowrap="nowrap">{?$nobuychapters[i].zhekou?}{?eval echo JIEQI_EGOLD_NAME;?}</td>
+  </tr>{?/section ?}
+</table>
+
+      </div>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl">
+  <tr>
+    <td width="76%" height="32" align="left" valign="middle">已选择<em class="o_num">0</em>章，需要消费：<em class="o_num">0</em>{?eval echo JIEQI_EGOLD_NAME;?}     （本次消费使用<em class="o_num">0</em>书券抵扣支付）</td>
+    <td width="24%" height="32" align="right" valign="middle"><input type="hidden" name="formhash" value="{?eval echo form_hash();?}"><button type="submit" class="btn_pic">订阅已选章节</button></td>
+  </tr>
+</table></form>
+     </div>
+    </div><!-- buy2 end -->
+<!--buy end-->
+<script type="text/javascript">
+  $(function(){
+	$("[buychapter]").on('click',function(e){
+	     e.preventDefault();
+		 GPage.buychapter(this.href);
+	});
+	{? if $autobuy > 0?} GPage.buychapter($("#buychapter").attr('href'));{?/if?}
+	
+	$('#form1').bind('submit', function(e){
+		e.preventDefault();
+		if($(":checked").length<1){
+			layer.alert('请选择要订阅的章节！', 8, !1);
+			return;
+		}
+		GPage.postForm('form1', this.action,function(data){
+			if(data.status=='OK'){
+				layer.msg(data.msg, 1, 1,function(){
+					GPage.loadpage('content', vurl, true);
+				});
+			}else{
+				layer.msg(data.msg);
+			}
+		});
+	});
+	
+	{?if $showfree >0 ?} 
+	$.layer({
+	    type: 1,
+	    area: ['420px', 'auto'],
+	    title: false,
+	    border: [0],
+	    page: {dom : '.pop-3year'}
+	});
+	{?/if?}
+	//订阅已选章节
+	$(".tbl2 input:checkbox").click(function(){
+		var egold = 0;
+		var esilver = 0;
+		var num = 0;
+		$(":checked").each(function(){
+			if($(this).attr("name") == 'checkall' || this.name!='cids[]') return;
+			var egoldAf = parseFloat($(this).parents("tr").children("td:last").html());
+			var esilverAf = parseFloat($(this).attr('shuquan'));
+			egold = fixMath(egold,egoldAf,'+');
+			esilver = fixMath(esilver,esilverAf,'+');
+			//egold+=parseFloat($(this).parents("tr").children("td:last").html())*100;
+			//esilver+=parseFloat($(this).attr('shuquan'))*100;
+			num++;
+        });
+		$("#form1 .tbl td:first em:first").html(num);//已选章节数
+		$("#form1 .tbl td:first em:eq(1)").html(egold);///100
+		$("#form1 .tbl td:first em:eq(2)").html(esilver);//100
+	});
+	function fixMath(m, n, op){
+	  var a = (m+"");
+	  var b = (n+"");
+	  var x = 1;
+	  var y = 1;
+	  var c = 1;
+	  if(a.indexOf(".")>0) {
+	    x = Math.pow(10, a.length - a.indexOf(".") - 1);
+	  }
+	  if(b.indexOf(".")>0) {
+	    y = Math.pow(10, b.length - b.indexOf(".") - 1);
+	  }
+	  switch(op){
+	    case '+':
+	    case '-':
+	      c = Math.max(x,y);
+	      m = Math.round(m*c);
+	      n = Math.round(n*c);
+	      break;
+	    case '*':
+	      c = x*y
+	      m = Math.round(m*x);
+	      n = Math.round(n*y);
+	      break;
+	    case '/':
+	      c = Math.max(x,y);
+	      m = Math.round(m*c);
+	      n = Math.round(n*c);
+	      c = 1;
+	      break;
+	  }
+	  return eval("("+m+op+n+")/"+c);
+	}
+	$(".sq").mouseover(function(){
+		//var paynote = "";
+		layer.tips('书券使用说明<br>1.订阅前10章VIP章节,默认优先使用书券抵扣支付,若书券余额不足,则差额用书海币补齐;<br>2.前10章以外的VIP章节,在订阅时,书海币和书券按照9:1的比例扣除;若书券余额不足,则用书海币购买.',this,{
+		    style: ['background-color:#B9E5FD;border:1px solid #f2e2e1','#B9E5FD'],//数值第二个值为三角形的颜色
+		    guide: 1,
+		    maxWidth:280
+		});
+	}).mouseout(function(){
+		layer.closeTips();
+	});
+	
+	$('.btn-ok').click(function(e){
+		e.preventDefault();
+		GPage.getJson(this.href,function(data){
+			if(data.status=='OK'){
+				layer.msg(data.msg, 1, 1);
+				jumpurl(data.jumpurl);
+			}else{
+				layer.msg(data.msg);
+			}
+		});
+	});
+  });
+</script>
+{?/if?}

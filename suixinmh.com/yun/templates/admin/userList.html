@@ -1,0 +1,199 @@
+<{include file="sysmanage/head.html"}>
+
+<form action=?action=admin&opt=insertuser method="post">
+	<div class="modal fade" id="add_user" tabindex="-1" role="basic"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">添加</h4>
+				</div>
+				<div class="modal-body"  style="font-family: '宋体', Simsun;">
+					<p>
+						用户名：
+						<input name="account" type="text" datatype="*5-32"
+							nullmsg="请输入用户帐号！" errormsg="5~32位之间！">
+					</p>
+					<p>
+						密&nbsp;码：
+						<input name="password" type="text" datatype="*5-32"
+							nullmsg="请设置密码！" errormsg="密码范围在5~32位之间！">
+					</p>
+					<p>
+						使用者：
+						<input name="name" type="text" value="">
+					</p>
+					<p>
+						管理组：
+						<select name="groupid">
+							<option value="0">请选择</option>
+							<{foreach item=vo from =$grouplist}> <{if $vo.id > 1}>
+							<option value="<{$vo.id}>"><{$vo.title}></option>
+							<{/if}> <{/foreach}>
+						</select>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<input name="id" type="hidden" value="<{$vo.id}>">
+					<button type="button" class="btn btn-outline sbold red"
+						data-dismiss="modal">取消</button>
+					<button type="submit" class="btn btn-outline sbold blue">保存</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+</form>
+
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<div class="portlet box green">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-cogs"></i>
+					管理员列表
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse"> </a>
+					<!-- <a href="#portlet-config" data-toggle="modal" class="config"> </a> -->
+					<a href="javascript:;" class="reload"> </a>
+					<a href="javascript:;" class="remove"> </a>
+				</div>
+			</div>
+			<div class="portlet-body flip-scroll">
+
+				<div class="table-toolbar">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="btn-group">
+								<button class="btn green" data-target="#add_user"
+									data-toggle="modal">
+									Add New
+									<i class="fa fa-plus"></i>
+								</button>
+							</div>
+						</div>
+						<div class="col-md-6"></div>
+					</div>
+				</div>
+
+
+
+				<table
+					class="table table-bordered table-striped table-condensed flip-content">
+					<thead class="flip-content">
+						<tr>
+							<th>用户名</th>
+							<th>使用者</th>
+							<th>创建时间</th>
+							<th>上次登录</th>
+							<th>上次密码修改</th>
+							<th>IP</th>
+							<th>管理组</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<{foreach key=key item=vo from =$data}>
+						<tr>
+							<td><{$vo.account}></td>
+							<td><{$vo.name}></td>
+							<td><{$vo.createtime}></td>
+							<td><{$vo.logintime}></td>
+							<td><{$vo.uptime}></td>
+							<td><{$vo.loginip}></td>
+							<td><{if $vo.groupid == 1}>Admin<{else}><{$vo.title}><{/if}></td>
+							<td>
+								<{if $vo.groupid != 1}>
+								<a class="btn btn-xs default btn-editable"
+									data-target="#<{$vo.uid}>" data-toggle="modal">
+									<i class="fa fa-pencil"></i>
+									Edit
+								</a>
+								&nbsp;&nbsp;
+								<a href="?action=admin&opt=deluser&uid=<{$vo.uid}>"
+									class="btn btn-xs default btn-editable"
+									onclick="{if(confirm('确定删除吗？')){return true;}return false;}">
+									<i class="fa fa-trash-o"></i>
+									Del
+								</a>
+								<{/if}>
+							</td>
+						</tr>
+						<form action=?action=admin&opt=edituser method="post">
+							<div class="modal fade" id="<{$vo.uid}>" tabindex="-1" role="basic"
+								aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"
+												aria-hidden="true"></button>
+											<h4 class="modal-title">修改</h4>
+										</div>
+										<div class="modal-body"  style="font-family: '宋体', Simsun;">
+											<p>
+												用户名：
+												<input name="account" type="text" value="<{$vo.account}>"" readonly="readonly">
+											</p>
+											<p>
+												密&nbsp;码：
+												<input name="password" type="text" datatype="*5-32"
+													nullmsg="请设置密码！" errormsg="密码范围在5~32位之间！">
+											</p>
+											<p>
+												使用者：
+												<input name="name" type="text" value="<{$vo.name}>">
+											</p>
+											<p>
+												管理组：
+												<select name="groupid">
+														<option value="0">请选择</option>
+														<{foreach item=v from =$grouplist}>
+														<{if $v.id > 1}>
+														<option value="<{$v.id}>" <{if $vo.groupid == $v.id}>selected="selected"<{/if}>><{$v.title}></option>
+														<{/if}>
+														<{/foreach}>
+													</select>
+											</p>
+										</div>
+										<div class="modal-footer">
+											<input name="uid" type="hidden" value="<{$vo.uid}>" readonly="readonly">
+											<input name="createtime" type="hidden" value="<{$vo.createtime}>" readonly="readonly">
+											<button type="button" class="btn btn-outline sbold red"
+												data-dismiss="modal">取消</button>
+											<button type="submit" class="btn btn-outline sbold blue">保存</button>
+										</div>
+									</div>
+									<!-- /.modal-content -->
+								</div>
+								<!-- /.modal-dialog -->
+							</div>
+						</form>
+
+
+
+
+						<{/foreach}>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+
+	</div>
+</div>
+</div>
+<!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->
+
+
+
+
+<{include file="sysmanage/foot.html"}>

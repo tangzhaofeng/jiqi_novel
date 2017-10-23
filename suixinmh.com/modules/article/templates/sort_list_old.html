@@ -1,0 +1,169 @@
+<link href="{?$jieqi_themeurl?}style/sort.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.box_term .tag a.on {
+    background-color:#3CAADB;
+    color: #FFFFFF;
+}
+.test {
+	position:relative;
+}
+.pop3 {
+	position:absolute;
+	top:40px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	if('{?$sortid?}'!=''){
+		$("#sort a").removeClass();
+		$("#sort{?$sortid?}").addClass("on");
+	}
+	if('{?$type?}'!=''){
+		$("#flag a").removeClass();
+		$("#flag{?$type?}").addClass("on");
+	}
+});
+var sort = '{?$sortid?}';
+var flag = '{?$type?}';
+function address(s,f){
+	alert("{?function geturl:'article':'sort':'SYS=fullflag="+f+"&sortid="+s+"&page=1'?}");
+}
+</script>
+
+<!--wrap begin-->
+<div class="wrap fix">
+   <!--term begin-->
+   <div class="term fix mb10">
+     <div class="box_term fix">
+       <span class="t">作品类别：</span>
+<!--       <div class="sort">
+-->        <p class="tag f_gray3" id="sort"><a href="#" id="sort0">全部</a><a href="#" id="sort1">玄幻</a><a href="javascript:;" id="sort3" onclick="address(3,flag);">修真</a><a href="javascript:;" id="sort6" onclick="address();">武侠</a><a href="javascript:;" id="sort4" onclick="address();">网游</a><a href="#" id="sort7">竞技</a><a href="#" id="sort8">历史</a><a href="#" id="sort9">军事</a><a href="#" id="sort5">科幻</a><a href="#" id="sort10">恐怖</a><a href="#" id="sort2">都市</a><a href="#" id="sort11">同人</a><a href="#" id="sort12">言情</a></p>
+<!--        <div class="show"><em>全部</em><em>东方玄幻</em><em>异界大陆</em><em>异术超能</em><em>异世争霸</em></div >
+       </div>
+-->     </div>
+     
+<!--     <div class="box_term fix">
+       <span class="t">作品类别：</span>
+       <p class="tag f_gray3"><a href="#">全部</a><a href="#">30万以下</a><a href="#">30万-50万</a><a href="#">50万-100万</a><a href="#">100万-200万</a><a href="#">200万以上</a></p>
+     </div>
+-->     
+     <div class="box_term fix">
+       <span class="t">写作进度：</span>
+       <p class="tag f_gray3" id="flag"><a href="javascript:;" class="on" onclick="address(sort,'');">全部</a><a href="javascript:;" id="flag0" onclick="address(sort,0);">连载中</a><a href="javascript:;" id="flag1" onclick="address(sort,1);">已完本</a></p>
+     </div>
+     
+<!--     <div class="box_term fix">
+       <span class="t">排序方式：</span>
+       <p class="tag f_gray3"><a href="#">默认</a><a href="#">总字数</a><a href="#">周点击</a><a href="#">月点击</a><a href="#">总点击</a><a href="#">周收藏</a><a href="#">月收藏</a><a href="#">总收藏</a></p>
+     </div>
+-->     
+<!--     <div class="box_term fix">
+       <span class="t">作品状态：</span>
+       <p class="tag f_gray3"><a href="#">不限</a><a href="#">只看免费</a><a href="#">只看VIP</a></p>
+     </div>
+-->   </div><!--term end-->
+  <!--article2 begin-->
+  <div class="article2 fl fix">
+   <!--tabox begin-->
+   <div class="tabox">
+     <div class="t">
+      <h2 class="test">完本排行榜</h2>
+<!--      <div class="show">
+       <select name="" size="1">
+        <option>每页显示30条</option>
+        <option>每页显示20条</option>
+       </select>
+       <a href="{?function geturl:'article':'sort'?}" class="on_list on_img" title="切换显示"></a>
+      </div>
+-->     </div>
+     <!--show_li begin-->
+     <div class="show_li fix p5">
+          <div class="tt">
+           <span class="sort">类别</span><span class="name">书名/章节</span><span class="author">作者</span><span class="date">更新时间</span>
+          </div>
+          <dl class="list_td2">
+		  {?section name=i loop=$articlerows?}
+           <dd>
+            <span class="sort"><a href="{?$articlerows[i].url_class?}" target="_blank" class="f_gray5">[{?$articlerows[i].shortcaption?}]</a></span>
+            <p class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue f14">{?$articlerows[i].articlename?}</a><a href="{?$articlerows[i].url_lastchapter?}" target="_blank" class="f_gray3 pl5">{?$articlerows[i].lastchapter?}</a></p>
+            <span class="author2" data="{?$articlerows[i].authorid?}">{?$articlerows[i].author?}</span>
+            <span class="date2">{?$articlerows[i].lastupdate|date:'m-d H:i'?}</span>
+           </dd>
+		   {?/section?}
+          </dl>
+	  <div class="page3">{?$url_jumppage?}</div>
+<!--          <div class="page"><a href="#" class="end">首页</a><a href="#" class="end">上一页</a><em class="on">1</em><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">下一页</a><a href="#">尾页</a></div>         
+-->     </div><!--show_li end-->
+   </div><!--tabox end-->
+  </div><!--article2 end-->
+  <!--sidebar begin-->
+  <div class="sidebar fr">
+    <!--box_side begin-->
+    <div class="box_side mt5">
+      <div class="t1"><h2>新书榜</h2></div>
+          <div class="box_dwn2">
+            <dl class="list_t3d f_blue">
+              <dd><span class="num1">1</span><p><span class="name"><a href="#" target="_blank" title="霸上天降小萌妃">霸上天降小萌妃</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num1">2</span><p><span class="name"><a href="#" target="_blank" title="九婴邪仙">九婴邪仙</a></span><span class="click">4011</span></dd>
+              <dd><span class="num1">3</span><p><span class="name"><a href="#" target="_blank" title="采花到乡村">采花到乡村</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">4</span><p><span class="name"><a href="#" target="_blank" title="大罗金仙都市销魂记">大罗金仙都市销魂记大罗金仙都市销魂记大罗金仙都市销魂记大罗金仙都市销魂记</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">5</span><p><span class="name"><a href="#" target="_blank" title="女神养成计划">女神养成计划</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">6</span><p><span class="name"><a href="#" target="_blank" title="超牛都市兵神">超牛都市兵神</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">7</span><p><span class="name"><a href="#" target="_blank" title="女人，快到碗里来！">女人，快到碗里来！</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">8</span><p><span class="name"><a href="#" target="_blank" title="冷情CEO的">冷情CEO的</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">9</span><p><span class="name"><a href="#" target="_blank" title="大罗金仙都市销魂记">大罗金仙都市销魂记</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">10</span><p><span class="name"><a href="#" target="_blank" title="玩转娱乐">玩转娱乐</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">11</span><p><span class="name"><a href="#" target="_blank" title="女人，快到碗里来！">女人，快到碗里来！</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">12</span><p><span class="name"><a href="#" target="_blank" title="冷情CEO的">冷情CEO的</a></span><span class="click">4011</span></p></dd>
+            </dl>
+          </div>
+    </div><!--box_side end-->
+    <!--box_side begin-->
+    <div class="box_side mt10">
+      <div class="t1"><h2>新书榜</h2></div>
+          <div class="box_dwn2">
+            <dl class="list_t3d f_blue">
+              <dd><span class="num1">1</span><p><span class="name"><a href="#" target="_blank" title="霸上天降小萌妃">霸上天降小萌妃</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num1">2</span><p><span class="name"><a href="#" target="_blank" title="九婴邪仙">九婴邪仙</a></span><span class="click">4011</span></dd>
+              <dd><span class="num1">3</span><p><span class="name"><a href="#" target="_blank" title="采花到乡村">采花到乡村</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">4</span><p><span class="name"><a href="#" target="_blank" title="大罗金仙都市销魂记">大罗金仙都市销魂记大罗金仙都市销魂记大罗金仙都市销魂记大罗金仙都市销魂记</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">5</span><p><span class="name"><a href="#" target="_blank" title="女神养成计划">女神养成计划</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">6</span><p><span class="name"><a href="#" target="_blank" title="超牛都市兵神">超牛都市兵神</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">7</span><p><span class="name"><a href="#" target="_blank" title="女人，快到碗里来！">女人，快到碗里来！</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">8</span><p><span class="name"><a href="#" target="_blank" title="冷情CEO的">冷情CEO的</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">9</span><p><span class="name"><a href="#" target="_blank" title="大罗金仙都市销魂记">大罗金仙都市销魂记</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">10</span><p><span class="name"><a href="#" target="_blank" title="玩转娱乐">玩转娱乐</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">11</span><p><span class="name"><a href="#" target="_blank" title="女人，快到碗里来！">女人，快到碗里来！</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">12</span><p><span class="name"><a href="#" target="_blank" title="冷情CEO的">冷情CEO的</a></span><span class="click">4011</span></p></dd>
+            </dl>
+          </div>
+    </div><!--box_side end-->
+    <!--box_side begin-->
+    <div class="box_side mt10">
+      <div class="t1"><h2>新书榜</h2></div>
+          <div class="box_dwn2">
+            <dl class="list_t3d f_blue">
+              <dd><span class="num1">1</span><p><span class="name"><a href="#" target="_blank" title="霸上天降小萌妃">霸上天降小萌妃</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num1">2</span><p><span class="name"><a href="#" target="_blank" title="九婴邪仙">九婴邪仙</a></span><span class="click">4011</span></dd>
+              <dd><span class="num1">3</span><p><span class="name"><a href="#" target="_blank" title="采花到乡村">采花到乡村</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">4</span><p><span class="name"><a href="#" target="_blank" title="大罗金仙都市销魂记">大罗金仙都市销魂记大罗金仙都市销魂记大罗金仙都市销魂记大罗金仙都市销魂记</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">5</span><p><span class="name"><a href="#" target="_blank" title="女神养成计划">女神养成计划</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">6</span><p><span class="name"><a href="#" target="_blank" title="超牛都市兵神">超牛都市兵神</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">7</span><p><span class="name"><a href="#" target="_blank" title="女人，快到碗里来！">女人，快到碗里来！</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">8</span><p><span class="name"><a href="#" target="_blank" title="冷情CEO的">冷情CEO的</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">9</span><p><span class="name"><a href="#" target="_blank" title="大罗金仙都市销魂记">大罗金仙都市销魂记</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">10</span><p><span class="name"><a href="#" target="_blank" title="玩转娱乐">玩转娱乐</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">11</span><p><span class="name"><a href="#" target="_blank" title="女人，快到碗里来！">女人，快到碗里来！</a></span><span class="click">4011</span></p></dd>
+              <dd><span class="num">12</span><p><span class="name"><a href="#" target="_blank" title="冷情CEO的">冷情CEO的</a></span><span class="click">4011</span></p></dd>
+            </dl>
+          </div>
+    </div><!--box_side end-->
+    
+  </div><!--sidebar end-->
+</div><!--wrap end-->
+<script>
+$(".test").hover(function(){
+//alert("dfdfdfdf");
+//	$(this).load("http://www.mvc.com/user/?method=popuser #content>*");
+},function(){});
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="gbk">
+    <meta name="keywords" content="优阅云 小说 微信 阅读 流量" />
+    <meta name="description" content="优阅云丨让流量不再闲置" />
+    <title>优阅云-注册-输入手机号码</title>
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common_login_reg.css">
+  </head>
+  <body>
+    <div class="login register popup-step1">
+      <div class="login-inner">
+
+        <form action="" method="post">
+          <h1 class="login-title">注册</h1>
+          <div class="login-item">
+            <input type="text" name="phone" class="clearError" id="ipt_account" placeholder="请输入手机号码">
+          </div>
+          <p class="reg-helper"><i>*</i>请填写常用的手机号码，用于接收验证码</p>
+          <div>
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+            <input type="submit" class="login-btn" value="免费注册">
+          </div>
+          <div class="checkbox-group pdt15">
+            <label><input type="checkbox" name="agreement" value="1" id="rd_readme" checked="1">我已阅读并同意</label>
+            <a class="xieyi" href="{?function geturl:'tuike':'login':'SYS=method=agreement'?}" target="_blank">《优阅云用户注册协议》</a>
+          </div>
+          <div class="login-locationnow">
+            <a href="/">已有账号？立即登录</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>标签管理</caption>
+  <tr>
+    <td><a href='?ac=position&op=add&step=one'><font color="red">添加标签</font></a> | <a href='?ac=position'>返回标签列表</a></td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+<form action="?ac=position&op=add&posid={?$_PAGE['_GET']['posid']?}" method="post" name="myform" onSubmit="return CheckForm();">
+    <caption>{?if $_SGLOBAL['position']['posid']>0?}编辑{?else?}添加{?/if?}{?if $_SGLOBAL['position']['type']=='0'?}推荐位{?elseif $_SGLOBAL['position']['type']=='1'?}查询区块{?else?}自定义内容{?/if?}</caption>
+	<tr> 
+      <th width='15%'><font color="red">*</font> <strong>{?if $_SGLOBAL['position']['type']=='0'?}推荐位{?elseif $_SGLOBAL['position']['type']=='1'?}查询区块{?else?}自定义内容{?/if?}名称</strong></th>
+      <td><input type="text" name="info[name]" id="name" value="{?$_SGLOBAL['position']['name']?}" size="30" require="true" datatype="limit" min="2" max="30" msg="不得少于2个字符超过30个字符"></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>排序权值</strong></th>
+      <td><input type="text" name="info[listorder]" id="listorder"  value="{?$_SGLOBAL['position']['listorder']?}" size="10" require="true" datatype="number" msg="请输入数字"></td>
+    </tr>
+	
+	{?if $_SGLOBAL['position']['type']=='2'?}
+		<tr> 
+      <th><strong>区块内容</strong></th>
+      <td>
+	<textarea name="setting[content]" id="content" rows="20" cols="130">{?$_SGLOBAL['position']['setting']['content']?}</textarea></td>
+    </tr>	
+	{?/if?}
+	{?if $_SGLOBAL['position']['type']=='0'?}
+	<tr> 
+      <th><strong>推荐文章编号</strong></th>
+      <td><textarea  name="info[data]" id="data" rows="4" cols="50" style="width:80%">{?$_SGLOBAL['position']['data']?}</textarea><br /><span style="color:#ff0000">多个文章编号用“,”隔开</span></td>
+    </tr>
+	<tr> 
+      <th><strong>显示数据条数</strong></th>
+      <td><input type="text" name="setting[listnum]"  value="{?$_SGLOBAL['position']['setting']['listnum']?}" size="10" require="true" datatype="number" msg="请输入数字"> 条 <span style="color:#ff0000">不填或为"0"则显示全部</span></td>
+    </tr>
+	<tr> 
+      <th><strong>模板文件说明</strong></th>
+      <td>区块默认模板文件为“block_commend.html”，在/modules/news/templates/blocks目录下，如果您定义了另外模板文件，也必须在此目录。模板文件设置留空表示使用默认模板。</td>
+    </tr>
+
+	{?/if?}
+	{?if $_SGLOBAL['position']['type']=='2'?}
+	<tr> 
+      <th><strong>模板文件说明</strong></th>
+      <td>区块默认模板文件为“block_content.html”，在/modules/news/templates/blocks目录下，如果您定义了另外模板文件，也必须在此目录。模板文件设置留空表示使用默认模板。</td>
+    </tr>
+	{?/if?}
+	{?if $_SGLOBAL['position']['type']=='1'?}
+	<tr> 
+      <th><strong>区块文件</strong></th>
+      <td>{?if $_SGLOBAL['position']['setting']['filename']!=''?}{?$_SGLOBAL['position']['setting']['filename']?}.php{?else?}自定义区块{?/if?}</td>
+    </tr>
+	{?if $_SGLOBAL['position']['setting']['description']!=''?}
+	<tr> 
+      <th><strong>区块描述</strong></th>
+      <td>{?$_SGLOBAL['position']['setting']['description']?}</td>
+    </tr>
+	{?/if?}
+	{?if $_SGLOBAL['position']['setting']['filename']!=''?}
+	<tr> 
+      <th><strong>区块参数</strong></th>
+      <td><textarea  name="setting[vars]" id="vars" rows="3" cols="60">{?$_SGLOBAL['position']['setting']['vars']?}</textarea>
+	  </td>
+    </tr>
+	{?/if?}
+	{?if $_SGLOBAL['position']['setting']['filename']==''?}
+		<tr> 
+      <th><strong>区块内容</strong></th>
+      <td>
+	<textarea name="setting[content]" id="content" rows="15" cols="80">{?$_SGLOBAL['position']['setting']['content']?}</textarea></td>
+    </tr>	
+	{?/if?}
+	<input type="hidden" name="setting[bid]" value="{?$_SGLOBAL['position']['setting']['bid']?}"> 
+	<input type="hidden" name="setting[module]" value="{?$_SGLOBAL['position']['setting']['module']?}"> 
+	<input type="hidden" name="setting[filename]" value="{?$_SGLOBAL['position']['setting']['filename']?}"> 
+	<input type="hidden" name="setting[classname]" value="{?$_SGLOBAL['position']['setting']['classname']?}">
+	<input type="hidden" name="setting[contenttype]" value="{?$_SGLOBAL['position']['setting']['contenttype']?}"> 
+	<input type="hidden" name="setting[custom]" value="{?$_SGLOBAL['position']['setting']['custom']?}"> 
+	<input type="hidden" name="setting[publish]" value="{?$_SGLOBAL['position']['setting']['publish']?}"> 
+	<input type="hidden" name="setting[hasvars]" value="{?$_SGLOBAL['position']['setting']['hasvars']?}"> 
+	{?/if?}
+	
+	<tr> 
+      <th><font color="red">*</font> <strong>模板文件</strong></th>
+      <td><input type="text" name="setting[template]" id="template" value="{?$_SGLOBAL['position']['setting']['template']?}" size="25" require="true"></td>
+    </tr>
+
+	
+    <tr> 
+      <th></th>
+      <td> 
+	  <input type="hidden" name="info[type]" value="{?$_SGLOBAL['position']['type']?}"> 
+	  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+	  <input type="submit" name="dosubmit" value=" 确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+	</form>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+function CheckForm(){
+	if(document.myform.name.value==''){
+		alert('{?if $_SGLOBAL['position']['type']=='0'?}推荐位{?elseif $_SGLOBAL['position']['type']=='1'?}查询区块{?else?}自定义内容{?/if?}名称！');
+		document.myform.name.focus();
+		return false;
+	}
+	if(document.myform.listorder.value==''){
+		alert('请输入排序权值！');
+		document.myform.listorder.focus();
+		return false;
+	}
+	if(document.myform.template.value==''){
+		alert('请输入模板文件！');
+		document.myform.template.focus();
+		return false;
+	}
+}
+</script>

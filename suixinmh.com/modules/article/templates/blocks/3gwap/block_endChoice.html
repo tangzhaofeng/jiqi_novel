@@ -1,0 +1,8 @@
+{?section name=i loop=$articlerows?}
+<li {?if $i.order == 1?}class="noline"{?/if?}>
+  <a href="{?$articlerows[i].url_module_articleinfo?}">
+    <h4 class="name">[{?$articlerows[i].shortcaption?}] {?$articlerows[i].articlename?}</h4>
+    <span class="numb-f"><em>{?$articlerows[i].size_w?}</em>Íò×Ö</span>
+  </a>
+</li>
+{?/section?}

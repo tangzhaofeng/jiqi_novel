@@ -1,0 +1,47 @@
+{?include file="tuike/yuntest/templates/public/header.html" ?}
+{?include file="tuike/yuntest/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-panel ">
+        <div class="panel-body">
+
+          <div class="m-book-title">系统公告 </div>
+          <div class="to_leave"></div>
+          <div class="mp_news_area notices_box">
+
+
+            <div>
+              <ul class="mp_news_list">
+                {?eval $url=geturl('yuntest','help','SYS=method=notes');?}
+
+
+                <li class="mp_news_item">
+                  <div>
+                    <a href="{?$url?}?id=3" target="_blank"> <strong><b style="color:red;margin-left: -8px;">【置顶】</b>【坐享分成】年度返利活动正式上线! </strong> <span class="read_more">2016-10-30</span> </a>
+                  </div>
+                </li>
+                <li class="mp_news_item">
+                  <div>
+                    <a href="{?$url?}?id=2" target="_blank"> <strong><b style="color:red;margin-left: -8px;">【置顶】</b>为什么使用优阅云？ </strong> <span class="read_more">2016-10-30</span> </a>
+                  </div>
+                </li>
+                <li class="mp_news_item">
+                  <div>
+                    <a href="{?$url?}?id=1" target="_blank"> <strong>关于调整平台分成的公告   </strong> <span class="read_more">2016-11-1</span> </a>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+              {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/yuntest/templates/public/footer.html"?}

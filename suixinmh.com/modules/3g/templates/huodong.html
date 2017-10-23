@@ -1,0 +1,87 @@
+{?eval $articleid=$article['articleid'];?}
+{?if $_REQUEST['method']=='vipvote' || $_REQUEST['method']=='main'?}
+  <div class="yuep">
+	<p class="surplus">账户余额:<em class="b"> {?$egolds?} </em>{?eval echo JIEQI_EGOLD_NAME;?}<a href="{?function geturl:'3g':'pay'?}" class="fr f-org2">充值</a></p>
+	<p class="t">这本书写的实在太好了，我决定投月票</p>
+	<form name="vipvoteform" id="vipvoteform" action="{?function geturl:'3g':'huodong':'SYS=method=vipvote&aid=$articleid'?}" method="post">
+	  <dl class="group3-6 clearfix">
+	    <dd class="col-x-4 current"><a href="javascript:;" role="button" media="handheld" onclick="act('',this)" id="1" >1张月票</a></dd>
+	    <dd class="col-x-4"><a href="javascript:;" role="button" media="handheld" onclick="act('',this)" id="2" >2张月票</a></dd>
+	    <dd class="dwn"><button type="submit" class="btn01 btn-blue2">确认投票</button></dd>
+	  </dl>
+	  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+	  <input type="hidden" name="stat" id="current" value="1"/>
+	</form>
+	<dl class="li-txt">
+	  <dt>温馨提示：</dt>
+	  <dd>您当前的总月票数<em class="series"> {?$maxvote?} </em>张。本月您已使用<em class="series"> {?$pollnum?} </em>张月票，还可投<em class="series"> {?eval echo $maxvote-$pollnum;?} </em>张</dd>
+	  <dd>对单本作品投月票，投票上限为<em class="series"> 2 </em>张；</dd>
+	  <dd>本月您已对当前作品投过<em class="series"> {?$yitou?} </em>张月票，还可投<em class="series"> {?eval echo 2-$yitou;?} </em>张；</dd>
+	  <dd>每投1张月票，您即可获得<em class="series"> {?$getscore?} </em>积分。</dd>
+	  <dd>每一次性打赏本书<em class="series"> 1000 </em>{?$egoldname?}，即增加1张消费月票，没有上限。</dd>
+	  <dd><a href="{?function geturl:'3g':'help'?}" target="_blank" class="f_blue5">查看月票获得方法与使用规则>> </a></dd>
+	  <!-- <dd>您当前的总月票数<em class="red"> {?$maxvote?} </em>张</dd>
+	  <dd>对单本作品投月票，投票上限为<em class="red"> {?if $maxvote > 0?}{?$maxvote?} {?else?} 2{?/if?}</em>张</dd>
+	  <dd>本月您已使用<em class="red"> {?$pollnum?} </em>张月票，还可投<em class="red"> {?eval echo $maxvote-$pollnum;?} </em>张</dd>
+	  <dd>每投1张月票，您即可获得<em class="red"> {?$getscore?} </em>积分。</dd>
+	  <dd>每打赏本书<em class="red"> 1000 </em>{?$egoldname?}，可获得1张消费月票，没有上限。</dd> -->
+	</dl>
+  </div><!-- 订阅结束 -->
+{?elseif $_REQUEST['method']=='vote'?}
+  <div class="tuij">
+	<p class="surplus">账户余额:<em class="b"> {?$egolds?} </em>{?eval echo JIEQI_EGOLD_NAME;?}<a href="/pay" class="fr f-org2">充值</a></p>
+	<form name="voteform" id="voteform" action="{?function geturl:'3g':'huodong':'SYS=method=vote&aid=$articleid'?}" method="post">
+	  <dl class="group3-6 clearfix">
+	    <dt class="t">这本书写的实在太好了，我决定投推荐票</dt>
+	    <dd class="col-x-4 current2"><a href="javascript:;" role="button" media="handheld" onclick="act(2,this)" id="1">1张票</a></dd>
+		<dd class="col-x-4"><a href="javascript:;" role="button" media="handheld" onclick="act(2,this)" id="2">2张票</a></dd>
+		<dd class="col-x-4"><a href="javascript:;" role="button" media="handheld" onclick="act(2,this)" id="3">3张票</a></dd>
+		<dd class="col-x-4"><a href="javascript:;" role="button" media="handheld" onclick="act(2,this)" id="4">4张票</a></dd>
+		<dd class="col-x-4"><a href="javascript:;" role="button" media="handheld" onclick="act(2,this)" id="5">5张票</a></dd>
+		<dd class="col-x-4"><a href="javascript:;" role="button" media="handheld" onclick="act(2,this)" id="all">全部票</a></dd>
+	  	<dd class="dwn"><button type="submit" class="btn01 btn-org3">确认投票</button></dd>
+	  </dl>
+	  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	  <input type="hidden" name="stat" id="current2" value="1"/>
+	</form>
+	<dl class="li-txt">
+	  <dt>温馨提示：</dt>
+	  <dd>您每天能投推荐票为<em class="series"> {?$maxvote?} </em>张；今天已经使用<em class="series"> {?$pollnum?} </em>张；</dd>
+	  {?eval if(($maxvote-$pollnum)>0) {?}<dd>您今天剩余推荐票数为<em class="series"> {?eval echo $maxvote-$pollnum;?} </em>张</dd>{?eval }else{?}
+	 <dd class="series">抱歉，您今天的推荐票已用完，明天再来吧</dd>{?eval }?}
+	  <dd>每次1张推荐票，您即可获得<em class="series"> {?$getscore?} </em>积分。</dd>
+	  <dd class="series"><a href="{?function geturl:'3g':'help'?}" target="_blank" class="f_blue4">如何获得推荐票？</a></dd>
+	  <!-- <dd>每天投票上限为<em class="red"> {?$maxvote?} </em>张</dd>
+	  <dd>您今天已经使用<em class="red"> {?$pollnum?} </em>张</dd>
+	  {?eval $num = $maxvote-$pollnum;?}
+	  {?if $num > 0?}
+	  <dd>您今天剩余推荐票数为<em class="red"> {?$num?} </em>张</dd>
+	  {?else?}
+	  <dd class="red">抱歉，您今天的推荐票已用完，明天再来吧！</dd>
+	  {?/if?}
+	  <dd>每次1张推荐票，您即可获得<em class="red"> {?$getscore?} </em>积分。</dd> -->
+	</dl>
+  </div><!-- 推荐结束 -->
+{?elseif $_REQUEST['method']=='reward'?}
+{?include file = "modules/3g/templates/reward.html"?}
+{?/if?}
+<script>
+  $(function(){
+    $('form').on('submit', function(e){
+   	  e.preventDefault();
+	  GPage.postForm(this.name, this.action,function(data){
+		$("#tab_box1 *").remove();
+  		layer.open({
+		    content: data.msg,
+		    btn: ['OK'],
+//		    shadeClose: function(){
+//		    	window.location.reload();
+//		    },
+		    yes: function(){
+		    	window.location.reload();
+		    }
+		});
+	  });
+ 	});
+  });
+</script>

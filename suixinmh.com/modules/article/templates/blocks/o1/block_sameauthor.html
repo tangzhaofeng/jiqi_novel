@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+	<li><a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$articlerows[i].articleid?}">¡¤{?$articlerows[i]['articlename']?}</a></li>
+{?/section?}

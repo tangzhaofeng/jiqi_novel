@@ -1,0 +1,49 @@
+/*游戏界面-评论系统css*/
+/* creat by : houlijuan */
+/* creat time : 2010-09-07 */
+body{background-image: url(../images/plun_t02.jpg); background-repeat: repeat-x; background-position: left top; }
+#pl_top_gb { Z-INDEX: 3; POSITION: absolute; WIDTH: 100%; HEIGHT: 36px; OVERFLOW: hidden; TOP: 0px; LEFT: -18px; background-image: url(../images/plun_t01.jpg); padding: 0px; }
+.pl_top_kuang_gb { MARGIN: 0px auto; WIDTH: 1003px; HEIGHT: 36px; background-repeat: repeat-x;}
+#pl_pagebody { POSITION: absolute; OVERFLOW-X:auto; OVERFLOW-Y:scroll; WIDTH: 100%; HEIGHT: 100%; }
+.pl_pagebodydi{background-image: url(../images/plun_t03.jpg); background-repeat: no-repeat; background-position: center 36px; padding-top:150px}
+.pl_contain{ background-color:#FFFFFF; width:944px; height:auto; margin:10px auto; background-image: url(../images/plun_t04.jpg); background-repeat: repeat-x; background-position: left top; border:1px solid #D8D8D8 ; padding:10px 6px;}
+.pl_bt{ height:50px; text-align:center; padding-top:20px}
+.pl_left{ float:left; width:700px;}
+.pl_left_a{ border:1px solid #d8d8d8; border-top:0px;}
+.pl_right{ float:right; width:230px; border:1px solid #d8d8d8; margin-top:25px; padding-bottom:10px}
+
+.pl_top{ height:39px; background-image: url(../images/plun_logo.jpg); background-repeat: no-repeat; background-position: left top;width:944px ; margin:0 auto; line-height:39px}
+
+.pl_menu_tj01{ height:39px; background-image: url(../images/plun_t05.jpg); background-repeat: repeat-x; background-position: left bottom; padding:0 10px }
+.pl_menu_tj01 ul{height:30px;}
+.pl_menu_tj01 li{display: inline;}
+.pl_menu_tj01 li a{ float:left; width:75px; height:28px; font-size:12px; text-align:center; line-height:28px; color:#005782; margin-right:5px; 	background-image: url(../images/tj03.jpg); background-repeat: no-repeat; }
+.pl_menu_tj01 .hover a{height:30px;background-image: url(../images/tj02.jpg); background-repeat: no-repeat; color:#FFFFFF; font-weight:bold; }
+
+.pl_ul{ margin:0px }
+.pl_ul li{padding:5px 10px 0 10px;}
+.pl_ul .a1{ background-color:#fef1ec; height:26px;color:#FF0000; border-top:1px solid #f7e3db}
+.pl_ul .a2{ text-align:right; }
+.pl_ul .a3{ background-color:#e4f5ff; height:26px;color:#4082a9; border-top:1px solid #cfe5f2}
+.pl_ul .a4{ background-color:#feffed;border:1px solid #cccec3; padding:5px; margin:10px}
+
+.xzpl_ul2{ margin:20px; border-top:1px dashed #CCCCCC; padding-top:10px;}
+.xz_input01{ border:1px solid #b8daeb;height:18px; line-height:18px; font-size:12px; color:#999999}
+.xz_input02{border:1px solid #b8daeb; width:620px; height:100px;}
+.xzpl_ul2 li{ padding:5px 0}
+.xzpl_ul3{ padding:10px; background-color:#f5f5f5; border-top:1px solid #CCCCCC}
+
+.pl_bt01{height:26px; background-image: url(../images/d03.jpg); background-repeat: repeat-x;
+line-height:26px;border-bottom:1px solid #c1dbf8; text-align:center ; font-size:14px; font-weight:bold; color:#2a568f}
+.pl_pm{ border-bottom:1px dashed #d8d8d8; padding:5px 10px; color:#2a568f; height:50px}
+.pl_pm .a1{ float:left; width:30px; font-size:26px; font-weight:bold; color:#a4ccec; font-family:"微软雅黑"; height:30px; padding-top:10px}
+/*底部*/
+.pl_bottom{padding:10px 5px; text-align:center; color:#666666;width:auto; margin:8px auto 0 auto;}
+/*页码*/
+.yema2{padding:5px;text-align:right;}
+.yema2 span{float:right;}
+.yema2 a,.yema2 b{ margin-right:4px; font-family: "宋体"; line-height:12px; font-weight: bold; color: #3a799e; font-size:14px}
+.yema2 b {font-weight: bold;text-decoration: underline;color: #000000;}
+.yema2 .c{font-weight: bold;color:#FF0000;}
+.yema2 a:hover{ color:#FF0000}
+.xian{ border-bottom:1px solid #d8d8d8}

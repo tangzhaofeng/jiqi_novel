@@ -1,0 +1,146 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/newadmin/templates/public/header.html" ?}
+{?include file="tuike/newadmin/templates/public/left.html" ?}
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/laydate.css" />
+    <script src="{?$jieqi_themeurl?}js/laydate.js" type="text/javascript" charset="gbk"></script>
+    <div class="g-main">
+      <h3>渠道管理 </h3>
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+
+            <div class="tool-search f-cb">
+
+            
+              <form onsubmit="screenFormSubmit(this);return false;" method="post">
+
+                <select style="height: 29px;" name="screen_sort" id="screen_sort" class="form-element elementMan"> </select>
+                <div style="display:none;" class="screen_op screen_time">
+                  <input type="text" onclick="laydate();" class="form-element time_input" name="screen_t1" value="">-
+                  <input type="text" onclick="laydate();" class="form-element time_input" name="screen_t2" value="">
+                </div>
+  
+                <div class="screen_op screen_text" style="display:inline-block;">
+                  <input type="text" class="form-element" name="screen_text" value="">
+                </div>
+
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+
+            </div>
+
+
+            
+          </div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th><i class="sortOr" _z="qid">ID</i></th>
+                  <th><i class="sortOr" _z="qmun">渠道号</i></th>
+                  <th>同名渠道数</th>
+                  <th style="width: 129px;"><i class="sortOr" _z="qsta">开始</i></th>
+                  <th style="width: 129px;"><i class="sortOr" _z="qend">结束</i></th>
+                  <th><i class="sortOr" _z="oid">订单号</i></th>
+                  <th><i class="sortOr" _z="qn">渠道名称</i></th>
+                  <th><i class="sortOr" _z="qfan">粉丝数</i></th>
+                  <th>文章</th>
+                  <th>点击</th>
+                  <th>注册用户</th>
+                  <th>充值笔数</th>
+                  <th>总充值RMB</th>
+                  <th><i class="sortOr" _z="qch">成本</i></th>
+                  <th>回报率</th>
+                  <th>详情</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($qdList)==0?}
+                <tr>
+                  <td class="tl col-1" colspan = " 11 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('newadmin','manqd','SYS=method=qdpaylist');?}
+                {?eval $url2=geturl('newadmin','order');?}
+                {?section name=i loop=$qdList?}
+                <tr id="qdp_{?$qdList[i].id?}">
+                  <td>{?$qdList[i].id?}</td>
+                  <td>{?$qdList[i].qd?}</td>
+                  <td>{?$qdList[i].qdNameNum?}{?if $qdList[i].qdNameNum>1?} <i onclick="viewQd(this);" _q="{?$qdList[i].qd?}" _i="{?$qdList[i].id?}" style="color:#0000ff;cursor:pointer;">查看+</i>{?/if?}</td>
+                  <td>{?$qdList[i].statime|date:"Y-m-d H:i:s"?}</td>
+                  <td>{?if $qdList[i].endtime =='4294967295'?}到现在{?else?}{?$qdList[i].endtime|date:"Y-m-d H:i:s"?}{?/if?}</td>
+                  <td><a target="_blank" href="{?$url2?}?oid={?$qdList[i].oid?}">{?$qdList[i].ordersn?}</a></td>
+                  <td>{?$qdList[i].name?}</td>
+                  <td>{?$qdList[i].fans?}</td>
+                  <td title="{?$qdList[i].arInfo?}">{?$qdList[i].arInfo|truncate:8:'…'?}</td>
+                  <td>{?$qdList[i].qdclick?}</td>
+                  <td>{?$qdList[i].qdreg?}</td>
+                  <td>{?$qdList[i].payusers?}</td>
+                  <td>{?$qdList[i].qdpay?}</td>
+                  <td>{?$qdList[i].fee?}</td>
+                  <td>{?$qdList[i].hb?}%</td>
+                  <td>
+                    <a class="u-btn u-btn-primary" href="{?$url?}?qdId={?$qdList[i].id?}">查看</a>
+                  </td> 
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                  {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+<script type="text/javascript">
+  /**
+   * 查看同名渠道
+   * @param  {[type]} j_this [description]
+   * @return {[type]}        [description]
+   */
+  function viewQd(j_this){
+    var ar,id,q,q_this,q_tmp,showOrHide;
+    q_this=$(j_this);
+    id=q_this.attr('_i');
+    q_tmp=$('.qdp_'+id);
+    if( q_tmp.size() > 0 ){
+
+      if ($('.qdp_'+id+':hidden').size()) {             
+        q_tmp.show();
+        q_this.html('查看-');
+      } else {
+        q_tmp.hide();
+        q_this.html('查看+');
+      }    
+    }else{
+      q=q_this.attr('_q');
+      ar=location.pathname.split('/');
+      $.post('http://'+location.host+'/'+ar['1']+'/manqd/viewSynQdpaylist',$.extend(filter,{qd:q,id:id,ajax_request:1}),function(html){
+
+        var msg,ar=html.split("aj||ax");         
+        msg=$.parseJSON(ar['0']);              
+        if(msg.status==='OK'){
+          q_this.html('查看-');
+          q_this.parents('tr').after( ar['1'] ); // jq
+        }else{
+          Users.ShowMsg(msg.msg);
+        }
+
+      },'html');
+    }
+  }
+
+
+
+</script>
+      </div>
+    </div>
+{?include file="tuike/newadmin/templates/public/footer.html"?}
+{?/if?}

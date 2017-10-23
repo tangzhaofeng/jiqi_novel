@@ -1,0 +1,64 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+            <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+          </div>
+          <div class="panel-header">
+            渠道明细
+          </div>
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="pid">序号</i></th>
+                <th><i class="sortOr" _z="pbn">用户名</i></th>
+                <th><i class="sortOr" _z="psou">渠道号</i></th>
+                <th><i class="sortOr" _z="pbtime">日期</i></th>
+                <th><i class="sortOr" _z="ptype">充值方式</i></th>
+                <th><i class="sortOr" _z="pmon">充值金额</i></th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($payList)==0?}
+              <tr>
+                <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?section name=i loop=$payList?}
+              <tr>
+                <td>{?$payList[i].payid?}</td>
+                <td>{?$payList[i].buyname?}</td>
+                <td>{?$payList[i].source?}</td>
+                <td>{?$payList[i].rettime|date:"Y-m-d H:i"?}</td>
+                <td>{?$payList[i].paytype?}</td>
+                <td><span class="u-badge u-badge-success">{?$payList[i].money?}</span></td>
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    {?eval $filter_jsobj=json_encode($filter);?}
+    <script type="text/javascript">
+      var filter=$.parseJSON('{?$filter_jsobj?}');  // jq
+      var q_main=$('#form_main');
+      var baseImgUrl='{?$jieqi_themeurl?}img/';
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}
+{?/if?}

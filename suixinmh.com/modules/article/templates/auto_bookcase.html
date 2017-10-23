@@ -1,0 +1,45 @@
+<script language="JavaScript">
+//自动收藏,只针对登陆用户有效,免费章节有可能会缓存
+$(function(){
+	//登陆且未被书签
+	var a_aid = "{?$article['articleid']?}";
+	var a_cid = "{?$chapter['chapterid']?}";
+	var a_hostory_key = 'hostory_'+a_aid;
+	if(getUserId()>0 && a_aid > 0 && a_cid > 0){
+		//ajax获取书籍状态 收藏|未收藏
+		GPage.getJson('{?function geturl:'article':'huodong':'SYS=method=asyncBookcaseState&aid=$article["articleid"]'?}',function(data){
+			if(data.status=='OK' && data.msg == 'false'){
+				if(!$.cookie(a_hostory_key)){
+					$.cookie(a_hostory_key,"["+a_cid+"]",{expires:1, path: '/'});
+				}else{
+					var exist = false;
+					aid_hostory_string = $.cookie(a_hostory_key);
+					aid_hostory_array = eval(aid_hostory_string);//字符串转数组
+				 	for(var i =0;i<aid_hostory_array.length;i++){
+				 		if(aid_hostory_array[i] == a_cid){
+				 			exist = true;
+				 			break;
+				 		}
+			 		}
+					if(!exist){//add
+						if(aid_hostory_array.length >= 2){
+							//自动添加书签
+							GPage.getJson('{?function geturl:'article':'huodong':'SYS=method=autoAddBookCase&aid=$article["articleid"]&cid=$chapter['chapterid']'?}',function(data){
+								if(data.status=='OK'){
+									$.cookie(a_hostory_key, null,{path:"/"});
+								}
+							})
+						}else{
+							//add 历史记录
+							aid_hostory_string = aid_hostory_string.replace(/\]/g,","+a_cid+"]");
+							$.cookie(a_hostory_key,aid_hostory_string,{expires:1, path: '/'});
+						}
+					}
+				}
+			}else{
+				$.cookie(a_hostory_key, null,{path:"/"});
+			}
+		})
+	}
+})
+</script>

@@ -1,0 +1,123 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>关键词管理</caption>
+  <tr>
+    <td><a href='?ac=set&file={?$_PAGE['file']?}&op=add'><font color="red">添加关键词</font></a> | <a href='?ac=set&file={?$_PAGE['file']?}'>返回关键词列表</a></td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+<form action="?ac=set&file={?$_PAGE['file']?}&op=add&posid={?$_PAGE['data']['posid']?}" method="post" name="myform">
+    <caption>{?if $_PAGE['data']['id']>0?}编辑{?else?}添加{?/if?}关键词</caption>
+  <tr>
+  <th width="15%"><strong>所属词类</strong></th>
+  <td>
+<select name='parentids' id='parentids' size=80  style="height:120px;width:100px;">
+{?if $_PAGE['data']['id']>0?}<option value='' selected>无（保持不变）</option>{?/if?}
+<option value='0'{?if $_PAGE['data']['id']<1?} selected{?/if?}>无（作为一级分类）</option>
+{?section name=i loop=$_PAGE['rows']?}
+<option value='{?$_PAGE['rows'][i]['id']?}' >{?$_PAGE['rows'][i]['tag']?}</option>
+{?/section?}  
+</select>
+<span id="load_class"></span>
+  </td>
+  </tr>
+    <tr>
+      <th><font color="red">*</font> <strong>关键词名称</strong></th>
+      <td>{?if $_PAGE['data']['id']>0?}<input type=text name='info[tag]' id='tag' value="{?$_PAGE['data']['tag']?}" require="true" datatype="limit" msg="*">
+	  {?else?}<textarea name='info[tag]' id='tag' style="width:200px;height:36px;overflow:visible;" require="true" datatype="limit" msg="*"></textarea>{?/if?}
+		<select name="style_color1" id="style_color1" onchange="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value += ' '+document.all.style_strong1.value;">
+<option value="">颜色</option>
+<option value="c1"  class="bg1"></option>
+<option value="c2"  class="bg2"></option>
+<option value="c3"  class="bg3"></option>
+<option value="c4"  class="bg4"></option>
+<option value="c5"  class="bg5"></option>
+<option value="c6"  class="bg6"></option>
+<option value="c7"  class="bg7"></option>
+<option value="c8"  class="bg8"></option>
+<option value="c9"  class="bg9"></option>
+<option value="c10"  class="bg10"></option>
+<option value="c11"  class="bg11"></option>
+<option value="c12"  class="bg12"></option>
+<option value="c13"  class="bg13"></option>
+<option value="c14"  class="bg14"></option>
+<option value="c15"  class="bg15"></option>
+</select>
+ <label><input type="checkbox" name="style_strong1" id="style_strong1" value="b" onclick="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value += ' '+document.all.style_strong1.value;"> 加粗</label><input type="hidden" name="info[style]" id="style" value="{?$_PAGE['data']['style']?}"><br/>
+		{?if $_PAGE['data']['id']<1?}允许批量添加，一行一个，点回车换行{?else?}<script>if(document.all.style.value!=''){var temp=document.all.style.value;if(temp.indexOf("b")!=-1){document.all.style_strong1.checked=true;}var sint=temp.replace(/[^\d]*/ig,"");if(sint!=''){document.all.style_color1.selectedIndex = sint;}}</script>{?/if?}
+		</td>
+    </tr>{?if $_PAGE['data']['id']>0?}
+	<tr> 
+      <th><font color="red">*</font> <strong>系统定义</strong></th>
+      <td><input type="radio" value="1" name="info[issystem]"{?if $_PAGE['data']['issystem']>0?} checked="checked"{?/if?} /> 是
+	  <input type="radio" value="0" name="info[issystem]"{?if $_PAGE['data']['issystem']<1?} checked="checked"{?/if?} /> 否</td>
+    </tr>{?/if?}
+	<tr> 
+      <th><font color="red">*</font> <strong>排序权值</strong></th>
+      <td><input type="text" name="info[listorder]" id="listorder"  value="{?$_PAGE['data']['listorder']|defaultval:'0'?}" size="10" require="true" datatype="number" msg="请输入数字"></td>
+    </tr>
+    <tr> 
+      <th></th>
+      <td> 
+	  <input type="hidden" name="info[parentid]" id="parentid" value="{?$_PAGE['data']['parentid']|defaultval:'0'?}"> 
+	  {?if $_PAGE['data']['id']<1?}<input type="hidden" name="info[issystem]" value="1"> 
+	  {?else?}<input type="hidden" name="id" value="{?$_PAGE['data']['id']?}"><input type="hidden" name="jumpurl" value="{?$_SGLOBAL['refer']?}">{?/if?}
+	  <input type="hidden" id="_num" value="0"> 
+	  <input type="hidden" name="info[lastusetime]" value="{?$_SGLOBAL['timestamp']?}"> 
+	  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+	  <input type="submit" name="dosubmit" value=" 确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 重置 ">
+	  </td>
+    </tr>
+	</form>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+$().ready(function() {
+	  $('form').checkForm(1);
+	});
+$(
+	function(){
+	   $("#parentids").change(
+			 function(){
+			    $("#load_class").html('');
+				if($("#parentids").val()>=0) getList($("#parentids").val(),$("#_num").val())
+			 }
+		);
+	}
+);
+function getList(parentid,nn){
+    $("span[id*='temp_']").each(function(id){
+		var ids = this.id;
+		var t = ids.split('_');
+		if(t[1]>nn) this.innerHTML = '';//this.removeChild(this.firstChild);//alert(this.id+'-'+parentid);
+	});
+	$.getJSON('{?$_SGLOBAL['news']['url']?}/load.php?field=keyword&parentid='+parentid, function(data){
+	    $("#parentid").val(parentid);
+		var len = getJsonLength(data)-2;
+		if(len>0){
+		    $("#_num").val(parseInt($("#_num").val())+1);
+			var n = parseInt($("#_num").val());
+			var str = "<span id='temp_"+n+"'><select size=80 style='height:120px;width:100px;' onChange='javascript:if(this.value>0) getList(this.value,"+n+");'>";
+			str+="<option value='0' selected>(默认为上一级)</option>";
+			for( var i=0; i<len;i++){
+				str+="<option value="+data[i].id+">"+data[i].tag+"</option>";
+			}
+			str+="</select></span>";//alert(str);
+			$("#load_class").append(str);
+		}
+	});
+}
+function getJsonLength(jsonData){
+   var jsonLength = 0;
+   for(var item in jsonData) 
+      jsonLength++;
+   return jsonLength;
+}
+
+</script>

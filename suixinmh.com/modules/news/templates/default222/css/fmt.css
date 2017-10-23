@@ -1,0 +1,20 @@
+/* CSS 游戏富媒体窗口 */
+
+ul,li,img,div,p{margin:0px; padding:0px; border:0px; list-style:none;}
+.clear{clear:both; height:0px; overflow:hidden; line-height:0px; font-size:0px;}
+
+.fmt01{background-image: url(../images/fmt01.jpg); background-repeat: no-repeat; background-position: left top; width:329px ; height:215px; padding:0px 12px;}
+.fmt01_nr01{ height:28px}
+.fmt_searchbtn{ float:right; border:0; width:16px; height:16px; background-image: url(../images/gb.jpg); background-repeat: no-repeat; background-position: 0 0; cursor:pointer; margin-top:12px;}
+.fmt01 h1{ font-size:12px; font-weight:bold; padding:8px 0; margin:0}
+.fmt01_left{ float:left; width:100px;}
+.fmt01_left li{ text-align:center; line-height:24px}
+.fmt01_left img{ width:86px; height:108px; padding:4px; background-color:#FFFFFF; border:1px solid #d4d6d7}
+.fmt01_right{ float:right; width:220px;color:#2ca2e9}
+.fmt01_right li{ line-height:20px; height:20px}
+.fmt01 a{ font-size:12px;text-decoration:none;color:#333333; line-height:20px}
+.fmt01 A:hover { POSITION: relative;color:#FF0000; TOP: 1px; LEFT: 1px }
+.fmt01 ul,.fmt01 li{margin:0px; padding:0px; border:0px; list-style:none;}
+.fmt_ss{ margin-top:8px}
+.fmt_ss01{ width:145px; height:23px; line-height:23px; text-indent:30px; background-image: url(../images/ss01.jpg);background-repeat: no-repeat; background-position: left top; float:left; border:0; color:#969595 }
+.fmt_ss02{ float:left; border:0; width:50px; height:23px; background-image: url(../images/ss02.jpg); background-repeat: no-repeat; background-position: 0 0; }

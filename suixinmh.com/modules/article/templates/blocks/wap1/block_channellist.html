@@ -1,0 +1,7 @@
+
+{?section name=i loop=$articlerows?}
+<li>{?$i.order?}.<a href="{?function geturl:'wap':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self">{?$articlerows[i].articlename?}</a>£¨{?$articlerows[i].author?} Öø£©</li>
+<!--  <dd><span class="sort">[{?$articlerows[i].sort?}]</span><span class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue f14">{?$articlerows[i].articlename?}</a>{?if $articlerows[i].permission > 3?}<em class="q"></em>{?/if?}<a href="{?$articlerows[i].url_lastchapter?}" target="_blank" class="f_gray3">/{?$articlerows[i].lastchapter?}</a>{?if $articlerows[i]['lastchaptervip']==1?}<em class="v"></em>{?/if?}</span><span class="author">{?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}" ajaxhover="true" uid="{?$articlerows[i].authorid?}" class="f_gray6" target="_blank">{?$articlerows[i].author?}</a>{?else?}{?$articlerows[i].author?}{?/if?}</span><span class="date">{?$articlerows[i].lastupdate|date:'m-d H:i' ?}</span></dd>
+-->
+{?/section?}
+

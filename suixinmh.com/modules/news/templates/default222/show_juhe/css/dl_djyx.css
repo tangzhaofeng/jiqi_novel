@@ -1,0 +1,320 @@
+/* CSS 单机系列游戏 */
+.new_menu01{ height:69px; background-image: url(../images/new_01.jpg); background-repeat: no-repeat; background-position: left top; margin-top:8px; padding-left:180px;}
+
+.new_menu01_s{ height:34px}
+.new_menu01_s li{display: inline;}
+.new_menu01_s ul{ height:34px}
+.new_menu01_s li a{ font-size:14px; height:34px; line-height:34px; 	background-image: url(../images/new_jg.jpg); background-repeat: no-repeat; background-position: right center; float:left; padding:0 15px; color:#FFFFFF }
+.new_menu01_s li  .haver{ font-weight: bold; 	color: #fbf28f; background-image: url(../images/new_jb.jpg); background-repeat: repeat-x; background-position: left top; }
+.new_menu01_x{ height:29px; line-height:29px; padding-top:5px;}
+.new_input01{ width:180px; height:18px; border:1px solid #c2c2c2; line-height:18px; padding:0 5px; color:#999999;  margin-left:5px}
+.new_input02{ width:60px; height:20px; border:1px solid #c2c2c2;margin-left:5px }
+.new_menu01_x a{ margin-right:5px}
+.dl_searchbtn01{background:url(../images/dl.jpg) no-repeat 0 0; border:0; width:50px; height:21px; cursor:pointer; color:#666666; padding-left:10px}
+/*大型单机游戏*/
+.dl_dxdj{ border:1px solid #e3e3e3; margin-bottom:10px;
+	background-image: url(../images/dl_djyx05.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.dl_dxdj_l{ float:left; width:800px; padding:10px 10px 0 10px; font-family:"微软雅黑"; font-size:14px; font-weight:bold}
+.dl_dxdj_l img{ margin-right:5px;}
+.dl_dxdj_r{ width:102px; height:23px; line-height:23px; margin-right:12px; text-align:center; float:right; background-image: url(../images/dl_djyx02.jpg); background-repeat: no-repeat; 	background-position: left top;
+}
+.dl_dxdj_r a{ color:#FFFFFF}
+.dl_dxdj_nr{ padding:10px 10px 0 10px}
+.dl_dxdj_dh{ border:1px solid #e4e4e5; height:94px; padding:10px ; background-image: url(../images/dl_djyx01.jpg); background-repeat: repeat-x; background-position: left bottom; margin-bottom:10px; }
+.dl_dxdj_dh_l{ float:left; width:730px; color:#DCDCDC; 
+} 
+.dl_dxdj_dh_l .a1{  height:22px; line-height:22px}
+.dl_dxdj_dh_l a{ padding:0 2px}
+.dl_dxdj_dh_r img{ width:185px; height:61px;}
+.dl_dxdj_dh_r{ width:192px; height:83px; padding:4px 0;
+	float:right; text-align:center; color:#FFFFFF;
+	background-image: url(../images/dl_djyx04.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.dl_dxdj_dh_r li{ line-height:18px}
+.dl_dxdj_dh_r a{ color:#FFFFFF}
+.tpk_zsnr_l2{ float:left;  width:138px;  text-align:center; margin:0 5px 12px 12px}
+.tpk_zsnr_l2 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:130px; height:85px;display: block; margin:5px 0}
+.tpk_zsnr_l2 A:hover img,.tpk_zsnr_l2 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.tpk_zsnr_l2 p{ line-height:18px}
+/*单机游戏大全*/
+.dl_djdq_nr{ padding:10px 10px 0 10px}
+.dl_djdq_nr ul{ padding:10px; border-bottom:1px dotted #CCCCCC}
+.dl_djdq_nr .a1,.dl_djdq_nr .a2{ color:#CCCCCC;}
+.dl_djdq_nr .a1 a,.dl_djdq_nr .a2 a{ padding:0 5px}
+.dl_djdq_nr .a2{ background-color:#f2f2f2}
+.dl_djdq{ border:1px solid #e4e4e5; background-image: url(../images/gy_t01.jpg); background-repeat: repeat-x ;background-position: left bottom; padding:1px 10px; height:29px; line-height:29px; border-bottom:0; margin:10px 0; font-family:Arial; font-size:14px}
+.dl_djdq .haver{ width:42px; height:21px; 	line-height:21px; 	text-align:center; color:#FFFFFF; background-image: url(../images/djdq02.jpg); background-repeat: no-repeat; background-position: left top; padding:2PX ;margin:4px 5px 0 0; }
+.dl_djdq a{ width:34px;display: block; float:left; text-align:center; background-image: url(../images/djdq01.jpg); background-repeat: no-repeat; background-position: right center; }
+.dl_djdq01{ width:28px; height:28px; line-height:28px; text-align:center; background-image: url(../images/djdq03.jpg); background-repeat: no-repeat; color:#FFFFFF;font-family:Arial; font-size:20px; margin-bottom:5px}
+.dl_djdq02{ width:28px; height:28px; line-height:28px; text-align:center; background-image: url(../images/djdq04.jpg); background-repeat: no-repeat; color:#FFFFFF;font-family:Arial; font-size:20px;  margin-bottom:5px}
+.dl_djdq03{ width:28px; height:28px; line-height:28px; text-align:center; background-image: url(../images/djdq05.jpg); background-repeat: no-repeat; color:#FFFFFF;font-family:Arial; font-size:20px;  margin-bottom:5px}
+/*单机游戏资讯*/
+.dl_djzx_nr{ margin-top:8px; width:966px}
+.dl_djzx_nr2{width:966px}
+.dl_djzx_left{ width:260px; float:left; margin-right:8px;}
+.dl_djzx_left02{ float:left; width:431px;}
+.dl_djzx_left03{ float:left; width:700px;}
+.dl_djzx_right{ float:right; width:256px}
+.dl_djzx_gg02{ height:235px; border:1px solid #e4e4e5; padding:5px; background-color:#ededed}
+.dl_djzx_01{ background-image: url(../images/dl_djyx05.jpg); background-repeat: repeat-x; background-position: top; padding:5px 10px;  font-size:14px; font-weight:bold; border-bottom:1px solid #e4e4e4}
+.dl_djzx_01 img,.dl_djzx_02 img,.dl_djzx_bt2 img,new_1ping01_bt_l img{ margin-right:5px;}
+.dl_djzx_02{ background-image: url(../images/gy_t01.jpg); background-repeat: repeat-x; background-position: top; padding:5px 10px;  font-size:14px; font-weight:bold; }
+.dl_djzx_03{ background-image: url(../images/gy_t01.jpg); background-repeat: repeat-x; background-position: top; padding:5px 10px; }
+.dl_djzx_kuang{border:1px solid #e4e4e5; margin-top:8px}
+.dl_djzx_kuang2{ border:5px solid #f2f2f2; padding:10px 0 10px 10px }
+.dl_djzx_ul{ padding:10px 5px 0 5px}
+.dl_djzx_ul li{ height:24px; line-height:24px}
+.dl_djzx_bt2{ height:30px; line-height:30px; background-image: url(../images/djzx02.jpg); background-repeat: no-repeat; background-position: left bottom;  font-size:14px; font-weight:bold; color:#333333 }
+.dl_djzx_ul1{ float:left;  width:110px;  text-align:center; padding:5px 6px 5px 0px}
+.dl_djzx_ul1 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:100px; height:70px;display: block; margin-bottom:5px}
+.dl_djzx_ul1 A:hover img,.dl_djzx_ul1 A:hover img,.dl_djzx_ul5 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_djzx_ul1 p{ line-height:18px}
+.dl_djzx_ul2 { color:#999999; border-top:1px dotted #CCCCCC}
+.dl_djzx_ul3{ width:411px; padding:10px 10px 0 10px; background-image: url(../images/djzx01.jpg); background-repeat: no-repeat; background-position: left top; }
+.dl_djzx_ul3 .v01{line-height:45px; height:45px;text-align:center;}
+.dl_djzx_ul3 .v02{text-align:center; }
+.dl_djzx_ul3 .v02 *{ color:#787879}
+.dl_djzx_ul4{ padding:5px; margin:5px 0}
+.dl_djzx_ul4 li{ height:24px; line-height:24px; border-bottom:1px dotted #CCCCCC}
+.dl_djzx_ul5{color:#999999; padding:10px}
+.dl_djzx_ul5 img{ text-align:center; width:224px; height:154px; padding:3px; border:1px solid #CCCCCC}
+.dl_djzx_ul5 .a2{ text-align:center; color:#0c7cd3; font-weight:bold}
+.dl_djzx_ul5 .a2 a{color:#0c7cd3}
+.dl_djzx_ul6{ padding:5px 10px;height:110px; color:#999999}
+.dl_djzx_ul6_right{ float:left; width:280px;word-break:keep-all;/*   不换行   */ 
+white-space:nowrap;/*   不换行   */ 
+overflow:hidden;/*   内容超出宽度时隐藏超出部分的内容   */ 
+text-overflow:ellipsis;}
+.dl_djzx_ul6_right3{ float:left; width:250px;word-break:keep-all;/*   不换行   */ 
+white-space:nowrap;/*   不换行   */ 
+overflow:hidden;/*   内容超出宽度时隐藏超出部分的内容   */ 
+text-overflow:ellipsis;}
+.dl_djzx_ul6_right2{
+	float:right;
+	width:105px; height:88px;
+	background-image: url(../images/djzx05.jpg);
+	background-repeat: no-repeat;
+	background-position: left top; padding:5px 5px 5px 10px; line-height:18px
+}
+.dl_djzx_bt3{ height:33px; line-height:33px; background-image: url(../images/djzx04.jpg); background-repeat: no-repeat; background-position: left bottom;  font-size:14px; font-weight:bold; color:#FFFFFF; padding-left:23px}
+.dl_djzx_nr3_l,.dl_djzx_nr3_r{ width:320px; float:left ; padding:10px}
+.dl_djzx_nr3_l ul,.dl_djzx_nr3_r ul{ padding:5px; margin:5px 0}
+.dl_djzx_nr3_l li,.dl_djzx_nr3_r li{ height:24px; line-height:24px; border-bottom:1px dotted #CCCCCC}
+.new_1ping01_bt_l{ float:left; width:140px; font-size:14px; font-weight:bold; }
+.new_1ping01_bt_r{ float:right; width:60px; padding-top:2px}
+.new_1ping01_bt_r ul{height:24px;}
+.new_1ping01_bt_r li{display: inline;}
+.new_1ping01_bt_r li a{
+	float:left;
+	width:27px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+	background-image: url(../images/hl_qh02.jpg);
+	background-repeat: no-repeat;
+	background-position: right center; margin-right:2px
+}
+.new_1ping01_bt_r .hover a{
+	background-image: url(../images/hl_qh01.jpg);
+	font-weight: bold;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+.new_1ping01_2{ padding:10px}
+.new_1ping01_2 img{ margin-right:10px;}
+.new_1ping01_2 li{ width:210px;white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;}
+.lt_pm{ color:#FFFFFF;text-align:center; background-image: url(../images/pm_dt.jpg);background-repeat: no-repeat; background-position: left top; padding:0px 2px;margin-right:10px;font-family:Arial, Helvetica, sans-serif; font-size:9px  }
+/*最新单机游戏*/
+.dl_new_ul3{ width:466px; padding:10px 10px 0 10px; background-image: url(../images/dj_new01.jpg); background-repeat: no-repeat; background-position: left top; }
+.dl_new_ul3 .v01{ margin-top:47px;}
+.dl_new_ul3 .v01 img{ float:left; border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:100px; height:70px;display: block; margin-right:5px}
+.dl_new_ul3 .v01 A:hover img,.dl_new_ul3 .v01 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_djzx_ul1 p{ line-height:18px}
+.dl_new_left02{ float:left; width:482px;}
+.dl_new_right{ float:right; width:204px;}
+.dl_new_nr01{ width:228px; float:left; margin-right:5px}
+.dl_new_nr01 li{ line-height:18px}
+.dl_new_nr01 .01{ height:100px;}
+.dl_new_nr01 .02{ height:76px; background-color:#F2F2F2}
+.dl_new_nr01 .02 ul{ padding:10px}
+.dl_new_tj{ height:30px; background-image: url(../images/dj_new02.jpg); background-repeat: no-repeat; background-position: left top; margin:10px 0; line-height:30px}
+.dl_new_tj .b01{ float:left;
+	width:94px;
+	text-align:center;
+	color:#FFFFFF;
+	display: block;
+}
+.dl_new_tj a{ padding-left:10px}
+.dl_new_r01{ height:80px}
+.dl_new_r01 img{ float:left; border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:80px; height:60px;display: block; margin-right:5px}
+.dl_new_r01 A:hover img,.dl_new_r01 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_new_r01 li{ line-height:18px}
+.dl_new_zj01{ height:37px; line-height:37px; text-align:right; margin-top:10px;
+	background-image: url(../images/dj_new03.jpg);
+	background-repeat: no-repeat;
+	background-position: left top; padding:0 10px; color:#FFFFFF
+}
+.dl_new_zj01 a{ margin-right:5px; color:#FFFFFF}
+.dl_new_zj02{ border:1px solid #E4E4E5; border-top:0}
+.dl_new_zj02_l{ float:left; width:700px; border-right:1px solid #E5E2E2; padding:10px 0 10px 10px}
+.dl_new_zj02_r{ float:right; width:252px; background-color:#F7F7F7}
+.dl_new_zj02_bt{ height:32px; line-height:32px; padding-left:30px; font-size:14px; font-weight:bold;
+	background-image: url(../images/dj_new_a1.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.dl_new_zjul1{ float:left;  width:110px;  text-align:center; padding:5px 6px 5px 0px}
+.dl_new_zjul1 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:98px; height:130px;display: block; margin-bottom:5px}
+.dl_new_zjul1 A:hover img,.dl_new_zjul1 A:hover img,.dl_new_zj02_nr4  A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_new_zj02_nr4 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:98px; height:130px;display: block; margin-right:10px; float:left;}
+.dl_new_zjul1 p{ line-height:18px}
+.dl_new_zj02_bt2{ height:46px;  
+	background-image: url(../images/dj_new04.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.dl_new_zj02_nr2{ padding:10px}
+.dl_new_zj02_nr2 li{ margin-bottom:5px}
+.dl_new_zj02_nr2 a{ color:#1763AF; margin-right:10px}
+.dl_new_zj02_nr2 .haver{ width:42px; height:21px; 	line-height:21px; 	text-align:center; color:#FFFFFF; background-color:#1763AF;margin:4px 5px 0 0; padding:2px 4px }
+.dl_new_zj02_nr3{ background-color:#F2F2F2; padding:2px 10px; margin:10px 0}
+.dl_new_zj02_nr3 img{ padding-left:5px}
+.dl_new_zj02_nr4{ padding:10px;}
+.dl_new_zj02_nr4 .a1{ padding:10px 0; height:150px; border-bottom:1px dotted #D4D4D4}
+.dl_new_zj02_nr5{ padding:10px}
+.dl_new_zj02_nr6{ height:28px; margin:10px 10px 0 10px;
+	background-image: url(../images/dj_03.jpg);
+	background-repeat: repeat-x;
+	background-position: left;
+}
+.dl_new_zj02_nr6 ul{height:28px;}
+.dl_new_zj02_nr6 li{display: inline;}
+.dl_new_zj02_nr6 li a{
+	float:left;
+	width:80px;
+	height:28px;
+	text-align:center;
+	line-height:28px;
+	background-image: url(../images/dj_01.jpg);
+	background-repeat: no-repeat;
+	background-position: right center; margin-right:5px
+}
+.dl_new_zj02_nr6 .hover a{
+	background-image: url(../images/dj_02.jpg);
+	font-weight: bold;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+.dl_new_zj02_nr6m{ padding-left:10px}
+/**/
+
+DIV.sabrosus { height:40px;
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px 100px; PADDING-TOP: 3px; TEXT-ALIGN: center; 
+}
+DIV.sabrosus A {
+	BORDER-RIGHT: #9aafe5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #9aafe5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #9aafe5 1px solid; COLOR: #2e6ab1; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #9aafe5 1px solid; TEXT-DECORATION: none
+}
+DIV.sabrosus A:hover {
+	BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}
+DIV.sabrosus SPAN.current {
+	BORDER-RIGHT: navy 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: navy 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; BORDER-LEFT: navy 1px solid; COLOR: #fff; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: navy 1px solid; BACKGROUND-COLOR: #2e6ab1
+}
+DIV.sabrosus SPAN.disabled {
+	BORDER-RIGHT: #929292 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #929292 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #929292 1px solid; COLOR: #929292; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #929292 1px solid
+}
+
+/*好玩的单机游戏效果图*/
+.dl_hw_ul3{ width:411px; padding:10px 10px 0 10px; background-image: url(../images/dj_hw01.jpg); background-repeat: no-repeat; background-position: left top; }
+.dl_hw_ul3 .v01{ margin-top:47px;}
+.dl_hw_ul3 .v01 img{ float:left; border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:100px; height:70px;display: block; margin-right:5px}
+.dl_hw_ul3 .v01 A:hover img,.dl_hw_ul3 .v01 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_hw_ul6{ padding:5px 10px;height:110px; color:#999999; border-bottom:1px dotted #CCCCCC}
+.dl_hw_pm01{ width:232px; margin-top:10px; border:1px solid #D1D1D1; float:left; margin-right:10px}
+.dl_hw_pm01_bt{ height:45px; line-height:40px; padding-left:14px; font-size:14px; font-weight:bold;	background-image: url(../images/dj_hw02.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.dl_hw_pm01_table td{ padding-left:5px; padding-top:3px}
+.dl_hw_pm01_table a{ color:#336699}
+.dl_hw_nr2{ width:986px}
+.dl_hw_pm02{ height:5px; width:10px;
+	background-image: url(../images/dj_hw03.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.dl_hw_pm02ul1 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:80px; height:110px;display: block; margin-right:10px; float:left}
+.dl_hw_pm02ul1 A:hover img,.dl_hw_pm02ul1 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_hw_zj01{ height:34px; line-height:34px; text-align:right; margin-top:10px;
+	background-image: url(../images/dj_hw04.jpg);
+	background-repeat: no-repeat;
+	background-position: left top; padding:0 10px; color:#FFFFFF
+}
+.dl_hw_zj01 a{ margin-right:5px; color:#FFFFFF}
+.dl_hw_zj02{ height:30px; line-height:30px; padding:0 10px; color:#CCCCCC;
+	border:1px solid #E3E3E3;
+	border-top:0px;
+	background-image: url(../images/gy_t01.jpg);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.dl_searchbtn02{
+	border:0;
+	width:73px;
+	height:22px;
+	cursor:pointer;
+	background-image: url(../images/dj_hw05.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.dl_hw_l{ float: left;background-color:#C1E8FC; border:1px solid #8DC5F2; text-align:center; padding-bottom:5px; margin-right:5px}
+.dl_hw_l li{ line-height:18px}
+.dl_hw_l img{ width:290px; height:256px; padding:5px}
+.dl_hw_l a{ color:#3298BDA}
+.dl_hw_l2{ float: left; width:370px;}
+.dl_hw_r{ float:right; width:266px}
+.dl_hw_ul1{ float:left;  width:110px;  text-align:center; padding:0px 6px 5px 6px}
+.dl_hw_ul1 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:2px;  width:100px; height:110px;display: block; margin-bottom:5px}
+.dl_hw_ul1 A:hover img,.dl_jd_nr02_01 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_hw_ul1 p{ line-height:18px}
+
+.dl_hw_bt3{ height:36px;  background-image: url(../images/gy_t01.jpg); background-repeat: repeat-x; background-position: left bottom; padding:0 10px}
+.dl_hw_bt3 ul{height:36px;}
+.dl_hw_bt3 li{display: inline;}
+.dl_hw_bt3 li a{ float:left; width:100px; height:26px; text-align:center; line-height:26px; color:#FFFFFF; font-size:14px;background-image: url(../images/dl_hw_a1.jpg); background-repeat: no-repeat; margin:10px 0 0 5px}
+.dl_hw_bt3 .hover a{background-image: url(../images/dl_hw_a2.jpg); background-repeat: no-repeat; color:#333333; font-weight:bold; }
+.dl_hw_kuang{border:1px solid #e4e4e5;}
+/*经典单机游戏*/
+.dl_jd{ border:1px solid #E4E4E5; margin-bottom:10px; padding:10px 0 10px 2px}
+.dl_jd_nr{ width:68px; text-align:center; float:left; padding-top:5px;}
+.dl_jd_nr img{ width:60px; height:60px;}
+.dl_jd_nr li{ line-height:18px}
+.dl_jd_nr02{ border:1px solid #CCCCCC; border-top:0px; width:964px}
+.dl_jd_nr02_01{ width:300px; float:left; margin:5px; padding:5px 0 10px 10px; border-bottom:1px dotted #CCCCCC}
+.dl_jd_nr02_01 img{border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:2px;  width:80px; height:110px;display: block; margin-right:10px; float:left}
+.dl_jd_nr02_01 p{ line-height:18px}
+.dl_jd_nr02_01 a{ color:#1A5285}
+
+.dl_jd_nr02_ul1{ float:left;  width:110px;  text-align:center; padding:5px 10px 0px 26px;}
+.dl_jd_nr02_ul1 img{ border:1px solid #afacad; BACKGROUND:#FFFFFF; padding:3px;  width:100px; height:70px;display: block; margin-bottom:5px}
+.dl_jd_nr02_ul1 A:hover img{ BORDER: #afacad 1px solid;BACKGROUND: #2f8ddf;  }
+.dl_jd_nr02_ul1 p{ line-height:18px}
+
+.dl_jd_ul3{ width:411px; padding:10px 10px 0 10px; background-image: url(../images/dl_jd01.jpg); background-repeat: no-repeat; background-position: left top; }
+.dl_jd_ul3 .v01{ margin-top:47px;}
+.dl_jd_zj01{ height:35px; line-height:35px; text-align:center; margin-top:10px;
+	background-image: url(../images/dl_jd02.jpg);
+	background-repeat: no-repeat;
+	background-position: left top; padding:0 10px; color:#FFFFFF ; padding-left:260PX
+}
+.dl_jd_zj01 ul{height:36px;}
+.dl_jd_zj01 li{display: inline;}
+.dl_jd_zj01 li a{ float:left; width:80px; height:26px; text-align:center; line-height:26px; color:#FFFFFF; background-image: url(../images/dl_jd04.jpg); background-repeat: no-repeat; margin:9px 0 0 5px}
+.dl_jd_zj01 .hover a{background-image: url(../images/dl_jd03.jpg); background-repeat: no-repeat; color:#333333; font-weight:bold; }

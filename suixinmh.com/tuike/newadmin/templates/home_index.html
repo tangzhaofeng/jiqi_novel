@@ -1,0 +1,181 @@
+{?include file="tuike/newadmin/templates/public/header.html" ?}
+{?include file="tuike/newadmin/templates/public/left.html" ?}
+    <div class="g-main" style="padding-top: 6px;">
+        <p>&nbsp;<a _i="4" class="refreshPage" href="javascript:void();">刷新缓存</a></p>
+      <div class="g-grid div_cen">
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-info">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>当日充值: <span>{?$dayCz?}</span></p>
+                <p>当日派单: <span>{?$dayCzOrderFee?} ({?$dayCzOrder?})</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-danger">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>本周充值: <span>{?$WeekCz?}</span></p>
+                <p>本周派单: <span>{?$WeekCzOrderFee?} ({?$WeekCzOrder?})</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-success">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>本月充值: <span>{?$MonthCz?}</span></p>
+                <p>本月派单: <span>{?$MonthCzOrderFee?} ({?$MonthCzOrder?})</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1">
+          <div class="m-panel s-panel-success">
+            <div class="panel-headera">
+              <div class="f-cb">
+                <p>充值目标: <span>0</span></p>
+                <p>派单目标: <span>0</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="g-col-4-1 g-col-last">
+          <div class="m-panel s-panel-warning">
+            <div class="panel-header">
+              <div class="f-cb">
+                <p>上月充值: <span>{?$preMonthCz?}</span></p>
+                <p>上月派单: <span>{?$preMonthCzOrderFee?} ({?$preMonthCzOrder?})</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="g-grid">
+        <div class="m-panel leftasize">
+          <div class="panel-header"> 一周数据  &nbsp;<a _i="1" class="refreshPage" href="javascript:void();">刷新缓存</a></div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>当天充值</th>
+                  <th>派单</th>
+                  <th>当天新渠道</th>
+                  <th>当天新渠道成本</th>
+                  <th>当天新渠道回报比</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($weekdata)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?section name=i loop=$weekdata?}
+                <tr>
+                  <td>{?$weekdata[i].dateS?}</td>
+                  <td>￥{?$weekdata[i].payall?}</td>
+                  <td>￥{?$weekdata[i].orderFee"?} ({?$weekdata[i].orderN"?})</td>
+                  <td>￥{?$weekdata[i].payAllQd?}</td>
+                  <td>￥{?$weekdata[i].feeAll?}</td>
+                  <td>{?$weekdata[i].hix"?}%</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="m-panel rightasize">
+          <div class="panel-header">昨日数据详情  &nbsp;<a _i="2" class="refreshPage" href="javascript:void();">刷新缓存</a></div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>渠道号</th>
+                  <th>成本</th>
+                  <th>充值</th>
+                  <th>回报比</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($yesterdayqd)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('newadmin','manqd');?}
+                {?section name=i loop=$yesterdayqd?}
+                <tr>
+                  <td><a href="{?$url?}?keywordq={?$yesterdayqd[i].qd?}" target="_blank">{?$yesterdayqd[i].qd?}</a></td>
+                  <td>￥{?$yesterdayqd[i].fee?}</td>
+                  <td>{?$yesterdayqd[i].payAll"?}</td>
+                  <td>{?$yesterdayqd[i].hix"?}%</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="g-grid">
+        <div class="m-panel">
+          <div class="panel-header">7日前派单数据  &nbsp;<a _i="3" class="refreshPage" href="javascript:void();">刷新缓存</a></div>
+          <div class="m-table-mobile">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>成本</th>
+                  <th>新渠道总充值</th>
+                  <th>新渠道3天充值</th>
+                  <th>3天回报比</th>
+                  <th>新渠道7天充值</th>
+                  <th>7天回报比</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($preweekdata)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 4 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?section name=i loop=$preweekdata?}
+                <tr>
+                  <td>{?$preweekdata[i].dateS?}</td>
+                  <td>￥{?$preweekdata[i].feeAll?}</td>
+                  <td>￥{?$preweekdata[i].payall"?}</td>
+                  <td>￥{?$preweekdata[i].thdayPay"?}</td>
+                  <td>{?$preweekdata[i].thHix"?}%</td>
+                  <td>￥{?$preweekdata[i].wedayPay"?}</td>
+                  <td>{?$preweekdata[i].weHix"?}%</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.refreshPage').click(function(){
+        var i,ar;
+        i=$(this).attr('_i');
+        ar=location.pathname.split('/');
+        $.post('http://'+location.host+'/'+ar['1']+'/home/refreshPage',{refresh:i,ajax_request:1},function(msg){
+          if( msg.status === 'OK' ){
+            location.href='';
+          }else{
+            Users.ShowMsg(msg.msg);
+          }
+        },'json');
+      });
+
+    </script>
+{?include file="tuike/newadmin/templates/public/footer.html"?}

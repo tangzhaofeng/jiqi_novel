@@ -1,0 +1,155 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+     <div class="t2 rel">
+       <h2>修改章节</h2>
+	 </div>
+       <dl class="box_form pt20">
+<form id="editchapter" name="editchapter" method="post" action="{?function geturl:'article':'chapter':'SYS=method=editChapter'?}" enctype="multipart/form-data">
+         <dd class="fix">
+	          <em class="tt2">文章名称：</em>
+	          <div class="int">
+	           <p>{?$article.articlename?}</p>
+	 		  </div>
+         </dd>
+         <dd class="fix">
+			  <em class="tt2">章节名：</em>
+			  <div class="int">
+			   <input name="chaptername" id="chaptername" type="text" class="input3 fl" value="{?$chapter.chaptername?}"/>
+			   <span class="hint cl">章节命名不能超过20个字，且不能出现涉黄、涉政、涉暴等敏感词。</span>
+			  </div>
+         </dd>
+         <dd class="fix">
+			  <em class="tt2">作品状态：</em>
+			  <div class="int">
+			   <p class="rdo fl">
+			   {?section name=i loop=$fullflag['items']?}
+					<label><input name="fullflag" type="radio"  value="{?$i['key']?}" {?if $article.fullflag=='1'?}disabled{?/if?} {?if $i['key'] == $article.fullflag?}checked="checked" {?/if?}/>{?$fullflag['items'][i]?}</label>
+			   {?/section?}
+			   </p>
+			  </div>
+         </dd>
+         {?if $article.articletype == '1'?}<!-- 开v的文章，可以收费 -->
+		     <dd class="fix">
+		          <em class="tt2">收费：</em>
+		          <div class="int">
+		          	<p class="rdo fl">
+		             	<label>
+		             		<input name="isvip" type="radio" {?if $chapter.isvip == 0 ?}checked="checked"{?/if?}  value="0" />免费
+						</label>
+		             	<label>
+		             		<input name="isvip" type="radio" {?if $chapter.isvip == 1 ?}checked="checked"{?/if?} value="1" />收费
+		             	</label>
+		             </p>
+		          </div>
+		      </dd>
+		      {?if $article.customprice == 1?}<!-- 开v的文章，自定价 -->
+			       <dd class="fix">
+				          <em class="tt2">定价：</em>
+				          <div class="int">
+				           <input name="saleprice" id="saleprice" type="text" class="input3 fl" value="{?$chapter.saleprice?}"/>
+				           <span class="hint cl">默认使用系统定价。</span>
+				          </div>
+				   </dd>
+		       {?/if?}
+		       <dd class="fix">
+		         	<em class="tt2">题外话：</em>
+			          <div class="int">
+			           <input name="manual" id="manual" type="text" class="input3 fl" value="{?$chapter.manual?}"/>
+			           <span class="hint cl">收费章节的【作者有话说】。</span>
+			          </div>
+		        </dd>
+            {?/if?}
+         <dd class="fix">
+         {?if $authtypeset == 1?}
+	          	<em class="tt2">排版：</em>
+	            <div class="int">
+	             <p class="rdo fl">
+	             		<input name="typeset" type="radio" value="1" checked="checked"/>
+	             	<label>自动排版</label>
+	             	
+	             		<input name="typeset" type="radio" value="2" />
+	             	<label>无需排版</label>
+	             </p>
+	            </div>    
+         	{?/if?}
+         </dd>
+         <dd class="fix">
+          	<em class="tt2">已上传的附件：</em>
+            <div class="int">
+             <p class="rdo fl">
+             <span class="hint cl">*取消打勾表示删除该附件。</span>
+             <p class="count">
+             	{?section name=i loop=$chapter['attachary']?}
+             		<label><input name="oldattach[]" type="checkbox" value="{?$chapter['attachary'][i].attachid?}" checked="checked"/>{?$chapter['attachary'][i].name?}</label>
+             	{?/section?}
+             	</p>
+             </p>
+            </div>    
+         </dd>
+          <dd class="fix">
+	          <em class="tt2">章节内容：</em>
+	          <div class="int">
+	           <span class="hint cl">* 不能出现涉黄、涉政、涉暴、危害社会稳定、违反法律法规等有害信息的内容。</span>
+	           <textarea name="chaptercontent" id="chaptercontent" class="inp3">{?$chapter.context?}</textarea>
+	           <span class="hint cl">本章的【作者有话说】内容请章节上传成功后至【章节(卷)修改】单独创建</span>
+	           <p class="count">
+		           	<!-- 字数统计：<input name="" type="text" class="input4" />/2000 -->
+		           	{?if $maxfilenum != 0?}
+			           	{?eval $amax = range(1,$maxfilenum);?}
+		           		{?section name=i loop=$amax?}
+		           			<br><input type="file" class="text" size="60" name="attachfile[]" id="attachfile[]"/>
+		           		{?/section?}
+		           	{?/if?}
+					<!--<iframe name="ajaxUpload" src="" frameborder="0" SCROLLING="no" style="display:none"></iframe>
+					<input type="hidden" name="_AJAX_SUBMIT_" value="1">
+					<input type="hidden" name="_uploadFormId" value="upload">
+					<input type="hidden" name="_uploadFileResult" value="result">
+					<input type="hidden" name="_uploadResponse" value="uploadComplete"> -->
+		           	<span class="regain f_blue7">【<a href="#" target="_blank">恢复系统自动保存的章节内容</a>】</span>
+	           </p>
+	          </div>
+         </dd>
+         <dd class="fix">
+			 <em class="tt2">定时：</em>
+					  <div class="int">
+					   <input name="postdate" id="postdate" autocomplete="off" {?if $chapter.display == 9 || $chapter.display == 2 ?} value="{?$chapter.postdate|date:'Y-m-d H:i:s'?}" {?/if?}  type="text" class="input3 fl" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00',minDate:'%y-%M-{%d+1}'})"/>
+					   <span class="hint cl">定时发布，只能选择明天以后的时间进行发布。</span>
+					  </div>
+			  <div class="int2">
+			  <p class="cl">
+				<button class="btn" type="submit">修改章节</button>
+			  </p>
+			  <input type="hidden" name="aid" value="{?$article.articleid?}">
+			  <input type="hidden" name="cid" value="{?$chapter.chapterid?}">
+			  <input type="hidden" name="formhash" id="formhash" value="{?eval echo form_hash();?}" />
+			  </div>
+         </dd>
+        </form>
+       </dl>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+<!--<script type="text/javascript">
+	layer.ready(function(){
+		$('#editchapter').on('submit',function(event){
+			event.preventDefault();
+			 GPage.postForm('editchapter',this.action,function(data){
+					if(data.status == 'OK'){
+						jumpurl(data.jumpurl);
+						layer.msg(data.msg,2,{type:1,shade:false});
+					}else{
+						layer.alert(data.msg, 8, !1);
+					}
+			 });
+		});
+	});
+</script>-->

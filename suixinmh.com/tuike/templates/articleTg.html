@@ -1,0 +1,72 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>生成推广链接 </h3>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-filter f-cb">
+              <form action="#" method="post">
+                书名：<input type="text" class="form-element" name="keyword" value=""> 章节：
+                <input name="chapter" type="number" class="form-element u-width-mini  " id="chapter" value="7" maxlength="10">
+
+                渠道号：
+
+                <select name="qdselect" id="order_by" class="form-element ">
+                  {?if intval($qdList)==0?}
+                  <option value="0" selected="selected">===还没有渠道哦！===</option>
+                  {?else?}
+                  {?section name=i loop=$qdList?}
+                  <option value="{?$qdList[i].qd?}" >{?$qdList[i].name?}</option>
+                  {?/section?}
+                  {?/if?}qd
+                </select>
+
+                <button class="u-btn u-btn-primary" type="submit">筛选</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th width="30">书号</th>
+                  <th width="100">封面</th>
+                  <th>书名</th>
+                  <th>推广链接</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($articleList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 10 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $youyueUrl=YOUYUEBOOK_URL_M;?}
+                {?section name=i loop=$articleList?}
+                <tr>
+                  <td>{?$articleList[i].articleid?}</td>
+                  <td><img onerror="this.src='{?$imgDefault?}'"  src="{?$articleList[i].img?}" width="60"></td>
+                  <td>
+                    <a href="{?$youyueUrl?}/read/{?$articleList[i].articleid?}.htm" target="_blank">{?$articleList[i].articlename?}</a>
+                  </td>
+                  <td>{?$articleList[i].qdUrl?}</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/templates/public/footer.html"?}

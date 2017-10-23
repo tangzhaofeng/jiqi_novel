@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="gbk">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>{?$article.articlename?}-{?$jieqi_site_name?}</title>
+    <link href="{?$jieqi_themeurl?}css/read.css" type="text/css" rel="stylesheet">
+    <script src="{?$jieqi_themeurl?}js/jquery.js"></script>
+  </head>
+  <body>
+    <article id="pageletArticleContent" class="box">
+      <div class="article-detail">
+        <h1 class="title">{?$chapter.chaptername?}</h1>
+        <div class="pgc-bar-top clearfix">
+          <a href="javascript:void(0)" class="avatar-link vwo-media-profile">
+            <div class="avatar">
+              <img onerror="this.src='{?$imgDefault?}'" src="{?$article.img?}" class="avatar" alt="{?$article.articlename?}" style="border-radius: 24px;width:48px;height:48px">
+            </div>
+          </a>
+          <div class="subtitle">
+            <p class="name">
+              <a href="javascript:void(0)" ga_category="toutiaohao" ga_label="" ga_event="click" class="screen-name vwo-media-profile">
+                <span id="mediaName" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">{?$article.articlename?}</span>
+              </a>
+            </p>
+            <a href="javascript:void(0)" class="time vwo-media-profile" ga_category="toutiaohao" ga_label="" ga_event="click">
+              <span>紫烟</span>
+            </a>
+          </div>
+        </div>
+        <div class="article-content" id="mainCont">
+          {?$chapter.content?}
+        </div>
+        <script type="text/javascript">
+          (function(){
+            var con,q_main=$('#mainCont'),ar=[];
+            q_main.find('>br').each(function(){
+              if( this.previousSibling.nodeType == 3 ){
+                v=this.previousSibling.nodeValue;
+                v=v.replace(/[ \u00a0\s\n\r]/g,'');
+                v=v.replace(/(&nbsp;)/g,'');
+                if(v.length < 2){
+                  $(this).remove();
+                  return true;
+                }
+                ar.push( v );
+                $(this).remove();
+              }
+            }); 
+            con=q_main.html().replace(/(&nbsp;)/g,'');
+            con=con.replace(/[ \u00a0\s]/g,'');
+            $.each( ar, function(i, n){
+              con=con.replace(n,'<p>'+n+'</p>');
+            });
+            q_main.html(con);
+          })();
+        </script>
+        <table width="100%" class="qiehuan">
+          <tbody>
+            <tr>
+              <td width="25%">
+                {?if isset($chapter.pre_chapterid) == 1?}
+                <a href="{?$baseUrl?}&cid={?$chapter.pre_chapterid?}">上一章</a>
+                {?/if?}
+              </td>
+              <td width="50%">&nbsp;</td>
+              <td width="25%">
+                {?if $chapter.next_isvip == 0?}
+                <a href="{?$baseUrl?}&cid={?$chapter.next_chapterid?}">下一章</a>
+                {?/if?}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </body>
+
+</html>

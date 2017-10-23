@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>���Ŷ��ų�ֵ</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/unicom.css" rel="stylesheet" type="text/css" />
+{?include file="themes/3g/js.html"?}
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'pay'?}">����</a></div>
+    <div class="title"><a href="javascript:;">���Ŷ���</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">��ҳ</a></div>
+</div>
+{?include file = "themes/3g/paylogin.html"?}
+<form action="{?function geturl:'3g':'pay':SYS=method=telecom?}" method="post">
+	<div class="pay">
+		<input type="text" name="mobile" id="phone" value="" placeholder="������������ֵ���ֻ��" />
+		{?section name=i loop=$paylimit?}
+		<a href="javascript:;" data-egold="{?$i.key?}"><span class="orange">{?$paylimit[i]?}Ԫ</span><span>{?$i.key?}�麣��</span></a>
+		{?/section?}
+	</div>
+	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+	<input type="hidden" name="egold" id="egold" value="" />
+</form>
+<div class="warm_prompt">
+	<p>��ܰ��ʾ</p>
+	<span>1.��������Ķ�Ȩ��ֻ���ڱ�վʹ��!<br/>2.�˳�ֵ��ʽ�����й�����ֻ��û�ʹ�á�<br/>3.����ʱ��δ�յ���ֵ����ϵͳ��Ϣ�����˻�����ޱ仯��<br />���µ��麣�ͷ�029-83566520<br />�ͷ�QQ��724171887</span>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $("div.pay a").click(function(){
+    	var egold = $(this).attr("data-egold");//alert(egold);
+    	$("#egold").val(egold);
+    	$("form").submit();
+	});
+});
+</script>
+</body>
+</html>

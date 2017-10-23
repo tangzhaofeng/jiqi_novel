@@ -1,0 +1,196 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/membertab.html" ?}
+	  <ul id="tab_conbox" class="f0">
+        <li class="fix">
+         <div class="tips2 p10">您当前用户等级为<em class="org"> {?$_USER['honor']?} <!--{?eval print_r($_USER);?}--> </em>级，积分<em class="org"> {?$_USER['score']?} </em>个</div>
+         <div class="member">
+          <h3>会员成长体系</h3>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabl4">
+           <tr class="bgt g6">
+            <th width="157" rowspan="2" align="center" valign="middle" scope="col">用户等级</th>
+             <th width="157" rowspan="2" align="center" valign="middle" scope="col">积分</th>
+             <th height="30" colspan="4" align="center" valign="middle" scope="col">等级特权</th>
+             </tr>
+            <tr class="bgt">
+			 <td width="146" height="30" align="center" valign="middle">每天最大加关注数</td>
+             <td width="146" height="30" align="center" valign="middle">每天最大发消息数</td>
+             <td width="146" height="30" align="center" valign="middle">获赠推荐票</td>
+             <td width="147" height="30" align="center" valign="middle">自定义书架数量</td>
+            </tr>
+			{?section name=i loop=$honors?}
+            <tr>
+             <td width="157" height="30" align="center" valign="middle"><a href="javascript:;" title="{?$honors[i].caption?}级会员" class="{?$honors[i].photo?}"></a></td>
+             <td width="157" height="30" align="center" valign="middle">{?if $honors[i].minscore>0?}{?$honors[i].minscore?}{?else?}0{?/if?} </td>
+             <td width="146" height="30" align="center" valign="middle">{?$honors[i].maxfriends?}</td>
+			 <td width="146" height="30" align="center" valign="middle">{?$honors[i].maxdaymsg?}</td>
+             <td width="146" height="30" align="center" valign="middle">{?$honors[i].dayvotes?}</td>
+             <td width="147" height="30" align="center" valign="middle">{?$honors[i].maxbookmarks?}</td>
+            </tr>
+			{?/section?}
+           </table>
+           
+           <h3>积分获得途径</h3>
+           <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabl4">
+            <tr class="bgt g6">
+             <th width="151" height="30" align="center" valign="middle" scope="col">获得方式</th>
+             <th width="151" height="30" align="center" valign="middle" scope="col">单次积分</th>
+             <th width="151" height="30" align="center" valign="middle" scope="col">单日次数上限</th>
+             <th width="151" height="30" align="center" valign="middle" scope="col">单日积分上限</th>
+             <th width="154" height="30" align="center" valign="middle" scope="col">其他说明</th>
+             </tr>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">新用户注册</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['system']['scoreregister']?}</td>
+              <td width="151" height="30" align="center" valign="middle">1</td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['system']['scoreregister']?}</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">单日登陆</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['system']['scorelogin']?}</td>
+              <td width="151" height="30" align="center" valign="middle">1</td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['system']['scorelogin']?}</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">连续登陆3日以上</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?eval echo $score['system']['scorelogin']*3;?}</td>
+              <td width="151" height="30" align="center" valign="middle">1</td>
+              <td width="151" height="30" align="center" valign="middle">{?eval echo $score['system']['scorelogin']*3;?}</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">连续登陆7日以上</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?eval echo $score['system']['scorelogin']*7;?}</td>
+              <td width="151" height="30" align="center" valign="middle">1</td>
+              <td width="151" height="30" align="center" valign="middle">{?eval echo $score['system']['scorelogin']*7;?}</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">连续登陆15日以上</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?eval echo $score['system']['scorelogin']*15;?}</td>
+              <td width="151" height="30" align="center" valign="middle">1</td>
+              <td width="151" height="30" align="center" valign="middle">{?eval echo $score['system']['scorelogin']*15;?}</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			  <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="souc">发表文章</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scorearticle']?} </td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			 <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="souc">发表章节</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scorechapter']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="fsp">发表主题书评</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scorereview']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="fsp">发表书评回复</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scorereply']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="fsp">发表精华书评</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scoregoodreview']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="souc">收藏作品</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['addcasescore']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="das">打赏作品</em></td>
+              <td width="151" height="30" align="center" valign="middle">打赏{?$jieqi_sitename?}币*20%</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="tjp">投推荐票</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scoreuservote']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			 <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="jhp">购买VIP章节</em></td>
+              <td width="151" height="30" align="center" valign="middle">章节数*2</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			 <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="jhp">投月票</em></td>
+              <td width="151" height="30" align="center" valign="middle">{?$score['article']['scorevipvote']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+             <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="czhi">充值</em></td>
+              <td width="151" height="30" align="center" valign="middle">充值金额*50</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">赠送{?$jieqi_sitename?}币不获得积分</td>
+             </tr>
+			  <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">删除评论</em></td>
+              <td width="151" height="30" align="center" valign="middle">扣除{?$score['article']['scorereview']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			  <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">删除文章</em></td>
+              <td width="151" height="30" align="center" valign="middle">扣除{?$score['article']['scorearticle']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			  <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">删除章节</em></td>
+              <td width="151" height="30" align="center" valign="middle">扣除{?$score['article']['scorechapter']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+			  <tr>
+              <td width="151" height="30" align="left" valign="middle"><em class="qdao">下载书籍</em></td>
+              <td width="151" height="30" align="center" valign="middle">扣除{?$score['article']['scoretxtfulldown']?}</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="151" height="30" align="center" valign="middle">不限</td>
+              <td width="154" height="30" align="center" valign="middle">无</td>
+             </tr>
+</table>
+</div>
+        </li>
+		</ul>
+		
+	</div>
+  </div>
+</div>

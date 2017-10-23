@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="{?$jieqi_charset?}">
+        <title>书库</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+        <style>
+            .screening li {
+                line-height: 25px;
+            }
+            
+            .screening li a.current {
+              
+                color: #1fb3b6;
+            }
+            
+            .screening li span {
+                font-size: 15px;
+            }
+            
+            .screening li a {
+                padding: 0 5px;
+                float: left;
+                font-size: 15px;
+            }
+            .txt{
+                padding:2px 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--热门推荐-->
+        <div class="mt10  bgcfff">
+            <div class="mlf10 ptb10 f16" style="color: #1fb3b6;border-bottom: 1px solid #dad9d9;">书库</div>
+            <ul class="screening clearfix plf10">
+            <li class="clearfix ptb10 bb bcddd">
+                    <span class="fl">频道：</span>
+                      <a href="{?function geturl:'3g':'shuku':SYS=siteid=0&sort=0&size=$sel_size&fullflag=$sel_fullflag&operate=$sel_operate&free=$sel_free&page=1?}"{?if $siteid == "0" || !isset($_REQUEST['siteid'])==1?} class="current"{?/if?}>男频</a>
+                <a href="{?function geturl:'3g':'shuku':SYS=siteid=100&sort=0&size=$sel_size&fullflag=$sel_fullflag&operate=$sel_operate&free=$sel_free&page=1?}"{?if $siteid == "100"?} class="current"{?/if?}>女频</a>
+                </li>
+                <li class="clearfix ptb10 bb bcddd">
+                    <span class="fl">分类：</span>
+                    <a  href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=0&size=$sel_size&fullflag=$sel_fullflag&operate=$sel_operate&free=$sel_free&page=1?}" {?if !isset($_REQUEST['sort'])==1 || $sel_sort==0 ?}class="current"{?/if?}>不限</a>
+                    {?section name=i loop=$channel[$siteid]['sort']?}
+                    <a href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=$i.key&size=$sel_size&fullflag=$sel_fullflag&operate=$sel_operate&free=$sel_free&page=1?}" {?if $sel_sort == $i.key ?}class="current"{?/if?} >{?$sort[i].shortcaption?}</a>
+                {?/section?}
+                </li>
+                <li class="clearfix ptb10 bb bcddd">
+                    <span class="fl">字数：</span>
+                      {?section name=i loop=$size?}
+                    <a href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=$sel_sort&size=$i.key&fullflag=$sel_fullflag&operate=$sel_operate&free=$sel_free&page=1?}" {?if $sel_size == $i.key ?}class="current"{?/if?}>{?$size[i].text?}</a>
+                {?/section?}
+                </li>
+                <li class="clearfix ptb10 bb bcddd">
+                    <span class="fl">排序：</span>
+                    {?section name=i loop=$operate?}
+                    <a href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=$sel_sort&size=$sel_size&fullflag=$sel_fullflag&operate=$i.key&free=$sel_free&page=1?}" {?if $sel_operate == $i.key ?}class="current"{?/if?}>{?$operate[i].text?}</a>
+                {?/section?}
+                </li>
+                <li class="clearfix ptb10 bb bcddd">
+                    <span class="fl">进度：</span>
+                   {?section name=i loop=$fullflag?}
+                    <a href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=$sel_sort&size=$sel_size&fullflag=$i.key&operate=$sel_operate&free=$sel_free&page=1?}" {?if $sel_fullflag == $i.key ?}class="current"{?/if?}>{?$fullflag[i].text?}</a>
+                   {?/section?}
+                </li>
+                <li class="clearfix ptb10 bb bcddd">
+                    <span class="fl">类型：</span>
+                    {?section name=i loop=$free?}
+                    <a href="{?function geturl:'3g':'shuku':SYS=siteid=$siteid&sort=$sel_sort&size=$sel_size&fullflag=$sel_fullflag&operate=$sel_operate&free=$i.key&page=1?}" {?if $sel_free == $i.key ?}class="current"{?/if?}>{?$free[i].text?}</a>
+                {?/section?}
+                </li>
+            </ul>
+        </div>
+        <!--都市婚姻-->
+        <div class="mt10  bgcfff">
+            {?section name=i loop=$articlerows?}
+            <div class="p10 pr pl90 bb bcddd lastbb" style="min-height: 90px;">
+                <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}"><img class="w80 h110 pa left10" src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}"></a>
+                <div class="ml10">
+                    <h2 class="f16 fwn"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="cOrange1">{? eval echo str_replace($searchkey,'<span>'.$searchkey.'</span>' ,$articlerows[i].articlename); ?}</a></h2>
+                    <h2 class="f14 c333 fwn txt">分类：{?$articlerows[i].sort?}</h2>
+                    <h2 class="f14 c333 fwn txt">字数：{?$articlerows[i].size_w?}万</h2>
+
+                    <div class="lh25 c888 f14 overMore">{?$articlerows[i].intro?}</div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+             {?/section?}
+        </div>
+         <div class="skip">
+            <form method="post" action="">
+                <!--page-->
+                <div class="ptb10 tc">
+                   <a  class="dib f12" href="{?$prevpath'?}">上一页</a>
+                    <input type="number" name="page" placeholder="1" min="1" class="w30 tc b bcddd br0" style="padding: 6px;"  value="{?$page?}">
+                    <input type="submit" value="跳转" class="w45 tc p5 b bcddd br0 c666">
+                    <span class="plf5 dib">{?$page?}/{?$maxpage?}</span>
+                    <a class="dib f12" href="{?$nextpath'?}">下一页</a>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script src="{?$jieqi_themeurl?}js/jquery.min.js"></script>
+
+</html>

@@ -1,0 +1,129 @@
+{?set jieqi_page_template = "modules/news/themes/empty.html"?}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{?$_PAGE['tag']?}-{?$_SGLOBAL['sitename']?}</title>
+<meta name="keywords" content="{?$_PAGE['tag']?}">
+<meta name="description" content="{?$_PAGE['tag']|str_replace:' ':','?}列表">
+<link href="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/css/xjqxz1.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="background-image: url({?$_PAGE['data']['specialbanner']?});">
+<!--顶部文件 开始-->
+<div class="top1">
+  <span>
+  <a href="{?$_SGLOBAL['localurl']?}" target="_blank">首页</a> | 
+  <a href="#" target="_blank">电脑游戏</a> |
+  <a href="#" target="_blank">电视游戏</a> |
+  <a href="#" target="_blank">网络游戏</a> |
+  <a href="#" target="_blank">休闲游戏</a> |
+  <a href="http://news.ganyou.com/" target="_blank">新闻</a> | 
+  <a href="http://danji.ganyou.com/" target="_blank">下载</a> |
+  <a href="#" target="_blank">攻略秘籍</a> | 
+  <a href="#" target="_blank">图库</a>|
+  <a href="#" target="_blank">论坛</a>    </span>
+  <a href="www.ganyou.com" target="_blank">赶游网 www.ganyou.com</a>  </div>
+<!--顶部文件 结束-->
+<div class="xjqx">
+<!--导航 开始-->
+<div class="contain">
+<div class="top3">
+  <a href="{?$_PAGE['data']['url_articleinfo']?}">{?$_PAGE['data']['title']?}首页</a> |
+  <a href="{?$_PAGE['data']['s_news']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}新闻</a> |
+  <a href="{?$_PAGE['data']['s_gonglue']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}攻略/秘籍</a> |
+  <a href="{?$_PAGE['data']['s_down']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}相关下载</a> |
+  <a href="{?$_PAGE['data']['s_pic']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}截图</a> |
+  <a href="{?$_PAGE['data']['s_bizhi']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}壁纸</a> | 
+</div>
+<!--导航 结束-->
+<div class="zt_left">
+
+    <div class="zt_lanm01"><span><a href="#" target="_blank">我要投稿</a></span><strong>{?$_PAGE['tag']|str_replace:' ':'/'?}列表</strong></div>
+    <div class="zt_nr" >
+    <ul class="lby">
+	{?section name=i loop=$_PAGE['articlerows']?}
+    <li><span>{?$_PAGE['articlerows'][i]['updatetime']|date:'Y/m/d'?}</span><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank">·{?$_PAGE['articlerows'][i]['title']?}</a></li>
+	{?/section?}
+     </ul>
+    <div class="green-black">{?$_PAGE['url_jumppage']?}</div>
+    </div>
+</div>
+<div class="zt_right">
+<div class="zt_gg"><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/zt_dh06.jpg" /></a></div>
+<div class="zt_lanm02"><strong>攻略搜索</strong></div>
+<div class="zt_nr2"><table width="100%" border="0" cellspacing="0">
+  <tr>
+    <td height="30">搜索位置：</td>
+    <td><select name="select" id="select" class="input02">
+      <option>站内下载搜索</option>
+      </select> </td>
+  </tr>
+  <tr>
+    <td height="30">关键词：</td>
+    <td><input type="text" name="textfield" id="textfield" class="input01" />
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input name="" type="button"  class="zt_anniu"/></td>
+    </tr>
+</table>
+</div>
+<!--<div class="zt_di"></div>
+<div class="zt_lanm02"><strong>点评文章</strong></div>
+<div class="zt_nr2">
+<div class="zt_nr2_k">
+    <div class="zt_nr2_l2"><a href="#" target="_blank" title="游戏名"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg" /></a></div>
+    <div class="zt_nr2_r2">
+    <ul>
+    <li><a href="#" target="_blank" class="f02">《刺客信条2》家用版评测</a> </li>
+    <li><a href="#" target="_blank">刺客信条2在修改了前作一些硬伤后加入了不少新要素成功系列化....</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    </div>
+<div class="zt_nr2_k">
+    <div class="zt_nr2_l2"><a href="#" target="_blank" title="游戏名"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg" /></a></div>
+    <div class="zt_nr2_r2">
+    <ul>
+    <li><a href="#" target="_blank" class="f02">《刺客信条2》家用版评测</a> </li>
+    <li><a href="#" target="_blank">刺客信条2在修改了前作一些硬伤后加入了不少新要素成功系列化....</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    </div>
+</div>-->
+
+<div class="zt_di"></div>
+<div class="zt_lanm02"><strong>仙剑奇侠传1攻略秘籍推荐内容</strong></div>
+<div class="zt_nr2">
+    <ul>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    <li><a href="#" target="_blank">·《诛仙》美女玩家淡淡：不打不相识</a></li>
+    </ul>
+</div>
+<div class="zt_di"></div>
+</div>
+<div class="clear"></div>
+<div class="clear"></div>
+<!--底 开始-->
+<div class="bottom">
+		<a href="#" target="_blank">关于赶游网</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">诚聘英才</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">商务合作</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">友情链接</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#" target="_blank">法律声明</a><br />
+		本站所收录所有玄幻小说、言情小说、网游小说及其它各类小说作品、小说评论均属其个人行为，不代表本站立场。<br />
+		Copyright (C) 2004-2010 赶游网 All Rights Reserved 版权所有<br />
+		蜀ICP备05000570号 电信增值业务许可证：川B2-20100073
+  </div>
+<!--底 结束-->
+</div></div>
+</body>
+</html>

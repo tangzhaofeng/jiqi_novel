@@ -1,0 +1,166 @@
+{?include file="tuike/yuntest/templates/public/header.html" ?}
+{?include file="tuike/yuntest/templates/public/left.html" ?}
+  <div class="g-main">
+  <div class="m-book-title">提现功能 </div>
+    <div class="m-panel n-bg">
+    <div class="panel-body">
+
+      <div class="table_payout">
+        <div class="col-md-4 col-xs-4">
+          <div>待提现</div>
+          <div>
+              {?if $minimum_money > $_USER.userbalance?}
+                {?$_USER.userbalance?} &nbsp;&nbsp;
+                <input type="button" class="u-btn u-btn-large" value="提现">
+              {?else?}
+                <form class="payout_form" id="form" action="" onSubmit="payoutRun(); return false;" method="post">
+                  {?$_USER.userbalance?} &nbsp;&nbsp;
+                  <input type="hidden" name="ajax_request" value="1" />
+                  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                  <input type="text" style="height:30px;display:none;position: relative; top: 2px;" onkeyup="if(this.value>parseInt(this.value))this.value=parseInt(this.value);" onafterpaste="if(this.value>parseInt(this.value))this.value=parseInt(this.value);" _balan="{?$_USER.userbalance?}" name="money" class="txt" size="5" value=""/>
+                  <input type="button" class="u-btn u-btn-primary m_payout_btn btT" value="提现">
+                </form>    
+                <script type="text/javascript">
+                  var isShow=false;
+                  var minMoney='{?$minimum_money?}';
+                
+                  $('.payout_form .btT').click(function(event){
+                    event.stopPropagation();//阻止事件向上冒泡
+                    payoutRun();
+                  });
+
+                  function payoutRun(){
+                    isShow=$(".payout_form .txt:visible").size();
+                    if(isShow){
+                      // 提交
+                      Users.form=form;
+                      if( Users.form.elements.money.value < minMoney ){
+                          Users.ShowMsg('提现金额要大于或等于'+minMoney+'。');
+                          Users.form.elements.money.value=minMoney;
+                          return false; 
+                      }
+
+                      if( parseInt(Users.form.elements.money.value) > parseInt($(Users.form.elements.money).attr('_balan')) ){
+                          Users.ShowMsg('余额不足('+$(Users.form.elements.money).attr('_balan')+')。');
+                          Users.form.elements.money.value=minMoney;
+                          return false; 
+                      }
+
+                      Users.SendForm(function(msgs){
+                        if(msgs.status === 'OK'){
+                          Users.ShowMsg('申请提现成功');
+                          setTimeout(function(){
+                            location.href='';
+                          },2000);
+                        }else{
+                          isShow=!isShow;
+                          Users.ShowMsg(msgs.msg);
+                        }
+                      });
+                      $('.payout_form .txt').hide();
+                      return false;
+                    }else{
+                      $('.payout_form .txt').show();
+                    }
+                    isShow=!isShow;
+                  }
+
+
+                  $('.payout_form .txt').click(function(event){
+                    event.stopPropagation();//阻止事件向上冒泡
+                  });
+                  $(document).click(function (){
+                    if(isShow)$('.payout_form .txt').hide();
+                    isShow=!isShow;
+                  });
+                </script>
+              {?/if?}
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <div>已提现</div>
+          <div>{?$_USER.userbalancey?}</div>
+        </div>
+        <div class="col-md-4 col-xs-4">
+          <div>提现中</div>
+          <div>{?$_USER.userbalancer?}</div>
+        </div>
+      </div>
+
+
+      <div class="tixian">
+        <h4> 提现说明：</h4>
+        <p>
+          1、系统每天凌晨0:00进行结算，结算后将生成每日账单，您可点击查看；<br /> 2、待提现金额满100元方可提现，12:00前的提现将在当日18:00前到账，12:00后的提现将顺延至下个工作日；
+          <br /> 3、非工作日提现将在最近的工作日18:00前到账；
+          <br /> 4、请您认真核对金额及账户，一旦操作无法撤回；
+          <br /> 5、如有疑问请联系您的客户经理。
+        </p>
+      </div>
+      <div class="payout">
+      </div>
+
+      <div class="m-table-parent">
+        <table id="table" class="m-table  table_cen table_th">
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>内容</th>
+              <th>订单号</th>
+              <th>收支</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            {?if intval($payoutList)==0?}
+            <tr>
+                <td class="tl col-1" colspan = " 5 ">亲，当前还没有记录哦~</td>
+            </tr>
+            {?else?}
+            {?eval $url=geturl('yuntest','user','SYS=method=paysettle');?}
+            {?section name=i loop=$payoutList?}
+              <tr>
+                <td>
+                  {?if $payoutList[i].type ==3?}
+                    {?$payoutList[i].time|date:"Y-m-d H:i:s"?}
+                  {?else?}
+                    {?$payoutList[i].date?}
+                  {?/if?}
+                </td>
+                <td>{?$payoutList[i].info?}</td>
+                <td>{?$payoutList[i].ordernumber?}</td>
+                <td>{?if $payoutList[i].type ==3?}-{?else?}+{?/if?}{?$payoutList[i].money?}</td>
+                <td>
+                  {?if $payoutList[i].type ==3?}
+                    <span>
+                    {?if $payoutList[i].payflag ==1?}已提交
+                    {?elseif $payoutList[i].payflag ==2?}在处理
+                    {?elseif $payoutList[i].payflag ==3?}已完成
+                    {?elseif $payoutList[i].payflag ==8?}支付失败
+                    {?/if?}
+                    </span>
+                    {?if empty($payoutList[i].erinfo) != 1?}({?$payoutList[i].erinfo?}){?/if?}
+                  {?else?}
+                    <a class="u-btn u-btn-primary" href="{?$url?}?payId={?$payoutList[i].payid?}">查看</a>
+                  {?/if?}
+                </td>
+              </tr>
+            </tr>
+            {?/section?}
+            {?/if?}
+            </tbody>
+          </table>
+        </div>
+        <div class="m-table-bar">
+          <div class="bar-pages">
+            <div class="m-page">
+            {?$page?}
+            </div>
+          </div>
+          <div class="f-cb"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{?include file="tuike/yuntest/templates/public/footer.html"?}

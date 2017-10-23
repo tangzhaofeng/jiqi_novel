@@ -1,0 +1,114 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+ul#tab_con11 li div{ text-align:center; margin:0 auto;}
+</style>
+<script type="text/javascript">
+window.QRLogin = {};
+window.code = 408;
+/*请求 UUID,生成二维码*/ 
+var  changeQrcode  =  function(){
+  $.ajax({ 
+    url:'{?$code_url?}', 
+    type:'GET', 
+    dataType:'script', 
+    data:{ 
+      _:Math.random()  /*随机数,用以避免浏览器缓存*/ 
+    }, 
+    cache:false, 
+    success:function(){ 
+      var  _code  =  window.QRLogin.code; 
+      if(_code  ==  200  &&  window.QRLogin.uuid){ 
+        var  uuid  =  window.QRLogin.uuid; 
+        var  src  =  '{?$code_img_url?}'  +'&uuid='+uuid;
+		$('ul#tab_con11 li div.img img').remove();
+        $('ul#tab_con11 li div.img').append('<img src="'+src+'"  />'); /*请使用微信扫描<br>二维码以完成支付*/ 
+        statusCheck(); 
+      } 
+    } 
+  }); 
+} 
+/*状态支付检测伪代码*/ 
+var  statusCheck  =  function(){ 
+  $.ajax({ 
+    url:'{?$code_status?}', 
+    type:'GET', 
+    dataType:'script', 
+    data:{ 
+      uuid:window.QRLogin.uuid,  /*  changeQrcode 请求生成的 UUID*/ 
+      tip:  1, 
+      _:Math.random(), 
+      code:window.code  /*注意回传支付状态*/ 
+    }, 
+    cache:false, 
+    timeout:33  *  1000,//后台是30s 
+    success:function  ()  { 
+      switch(window.code){
+        case  408://扫描未知 
+		  //$('ul#tab_con11 li div[class^="iweix"]').html('扫描未知<br/>请重新支付').attr("class","iweix5"); 
+        case  200: 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('请使用微信扫描二维码<br/>以完成支付').attr("class","iweix1"); 
+          reStatusCheck(); 
+          break; 
+        case  203://扫描成功 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('扫描成功<br/>请在手机确认支付').attr("class","iweix2"); 
+          reStatusCheck(); 
+          break; 
+        case  205://扫描成功——取消 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('扫描成功<br/>已取消支付').attr("class","iweix4"); 
+          reStatusCheck(); 
+          break; 
+        case  204://支付未知 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('请使用微信扫描二维码<br/>以完成支付').attr("class","iweix1"); 
+          reStatusCheck(); 
+          break; 
+        case  201://支付成功 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('恭喜您<br/>支付成功').attr("class","iweix2"); 
+          //这里可以写成功的业务 
+          break; 
+        case  202://支付失败 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('支付失败<br/>请重新支付').attr("class","iweix3"); 
+          break; 
+        case  400://uuid失效 
+		  $('ul#tab_con11 li div[class^="iweix"]').html('二维码已失效<br/>将自动重新生成').attr("class","iweix3"); 
+          changeQrcode();  /*二维码失效了,重新生成 uuid,二维码*/ 
+          break; 
+        default: 
+          reStatusCheck(); 
+            } 
+    }, 
+    error:function(){ 
+      reStatusCheck(); 
+    } 
+  }); 
+} 
+var  reStatusCheck  =  function(){ 
+  setTimeout(statusCheck,  1000); 
+} 
+var  main  =  function(){changeQrcode();} 
+main();  //开始生成二维码、状态检测 
+ 
+</script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article3 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+          <!--pay begin-->
+          <div class="pay f12">
+		  {?include file = "modules/pay/templates/paytab.html" ?}
+            <ul id="tab_con11" class="pay_dwn fix">
+              <li><div class="img"></div><div class="iweix1">请使用微信扫描二维码<br/>以完成支付</div></li>
+            </ul>
+          </div><!--pay end-->
+        </li>
+      </ul>
+            
+    </div><!--tabox end-->
+  </div><!--article3 end-->
+</div><!--wrap2 end-->
+{?include file = "modules/pay/templates/tips.html" ?}

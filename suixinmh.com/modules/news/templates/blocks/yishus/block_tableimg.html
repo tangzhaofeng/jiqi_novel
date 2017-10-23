@@ -1,0 +1,8 @@
+{?eval print_r($articlerows);?}{?section name=i loop=$articlerows columns=5?}{?if $i['column'] == 1?}<li><table><tbody><tr>{?/if?}
+<td>
+<a class="book-thumb" target="_blank" href="/book/{?$articlerows[i].articleid?}.html" title="查看{?$articlerows[i].articlename?}">
+<img alt="{?$articlerows[i].articlename?}" title="查看{?$articlerows[i].articlename?}" src="{?$articlerows[i].url_image?}">
+</a>
+<a class="book-name" target="_blank" href="/book/{?$articlerows[i].articleid?}.html" title="查看{?$articlerows[i].articlename?}">{?$articlerows[i].articlename?}</a>
+</td>
+{?if $i['column'] == $i['columns']?}</tr></tbody></table></li>{?/if?}{?/section?}

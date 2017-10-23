@@ -1,0 +1,114 @@
+/* SHUHAI.COM LOGIN.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.regist{ float:left; width:600px; height:auto; padding:20px 0px 0px 20px;}
+.regist h4{ padding-bottom:10px; font-size:24px; color:#737373; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-weight:normal;}
+.regist .step,.regist .step_sn1{ width:562px; height:33px; background:url(../images/icon_login.gif) no-repeat;}
+.regist .step{ background-position: 0px 0px;}
+.regist .step_sn1{ background-position: 0px -51px;}
+.box_form{ padding:10px 0px 10px 20px;}
+.btn-sn{ width: 150px; margin-left:70px; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-size:18px; color:#fff; cursor:pointer;padding: 5px 0px;_padding:0px 0px;text-align: center; 
+border: 1px solid #33a4d6;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;box-shadow: none;
+background: #4ab5df;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4ab5df), to(#2d9bd1));
+background: -webkit-linear-gradient(#4ab5df, #2d9bd1);
+background: -moz-linear-gradient(#4ab5df, #2d9bd1);
+background: -ms-linear-gradient(#4ab5df, #2d9bd1);
+background: -o-linear-gradient(#4ab5df, #2d9bd1);
+background: linear-gradient(#4ab5df, #2d9bd1);
+-pie-background: linear-gradient(#4ab5df, #2d9bd1);
+behavior: url(js/pie.htc); position:relative; _top:10px;}
+.btn-sn:hover{
+border: 1px solid #f88d12;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;box-shadow: none;
+background: #ffa709;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffa709), to(#ff8a03));
+background: -webkit-linear-gradient(#ffa709, #ff8a03);
+background: -moz-linear-gradient(#ffa709, #ff8a03);
+background: -ms-linear-gradient(#ffa709, #ff8a03);
+background: -o-linear-gradient(#ffa709, #ff8a03);
+background: linear-gradient(#ffa709, #ff8a03);
+-pie-background: linear-gradient(#ffa709, #ff8a03);
+behavior: url(js/pie.htc); position:relative; _top:10px;}
+.box_form .back{ margin-left:10px; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-size:18px; color:#737373; cursor:pointer;padding: 5px 12px; text-align: center; 
+border: 1px solid #ddd;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;box-shadow: none;
+background: #F7F7F7;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#F7F7F7), to(#f2f2f2));
+background: -webkit-linear-gradient(#F7F7F7, #f2f2f2);
+background: -moz-linear-gradient(#F7F7F7, #f2f2f2);
+background: -ms-linear-gradient(#F7F7F7, #f2f2f2);
+background: -o-linear-gradient(#F7F7F7, #f2f2f2);
+background: linear-gradient(#F7F7F7, #f2f2f2);
+-pie-background: linear-gradient(#F7F7F7, #f2f2f2);
+behavior: url(js/pie.htc); position:relative; _top:7px;}
+.box_form .back:hover{ color:#3caadb;}
+.regist .remind{ width:auto; height:auto; line-height:22px; margin-top:180px; padding-left:26px; background:url(../images/icon_login.gif) no-repeat -580px -7px; color:#737373;}
+.box_mid .remark{ float:left; width:280px; height:auto !important; line-height: 26px; min-height:450px; padding:20px; background:#eaf8ff;}
+.remark .t{ width:auto; height:auto; margin:0px auto 20px; padding:20px 0px 10px; border-bottom:3px solid #b4dff5; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-size:18px; color:#646464;}
+.remark .t .dl{ display:inline-block; height:36px; line-height:36px; color:#fff; padding:0px 20px;
+border: 1px solid #f88d12;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;box-shadow: none;
+background: #ffa709;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffa709), to(#ff8a03));
+background: -webkit-linear-gradient(#ffa709, #ff8a03);
+background: -moz-linear-gradient(#ffa709, #ff8a03);
+background: -ms-linear-gradient(#ffa709, #ff8a03);
+background: -o-linear-gradient(#ffa709, #ff8a03);
+background: linear-gradient(#ffa709, #ff8a03);
+-pie-background: linear-gradient(#ffa709, #ff8a03);
+behavior: url(js/pie.htc); position:relative;}
+.remark .t .dl:hover{
+border: 1px solid #33a4d6;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;box-shadow: none;
+background: #4ab5df;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4ab5df), to(#2d9bd1));
+background: -webkit-linear-gradient(#4ab5df, #2d9bd1);
+background: -moz-linear-gradient(#4ab5df, #2d9bd1);
+background: -ms-linear-gradient(#4ab5df, #2d9bd1);
+background: -o-linear-gradient(#4ab5df, #2d9bd1);
+background: linear-gradient(#4ab5df, #2d9bd1);
+-pie-background: linear-gradient(#4ab5df, #2d9bd1);
+behavior: url(js/pie.htc); position:relative;}
+.remark dl{ width:94%; height:auto; margin:0px auto; padding-bottom:30px; color:#737373;}
+.remark dl dt{ font-size:14px; font-weight:800; color:#3caadb; padding:0px 0px 20px;}
+.remark dl .tt{ border-top:1px dotted #bbb; padding-top:5px; }
+.result{ width:auto; height:auto; margin:0px auto; color:#333;text-align:center; font-size:14px;}
+.result .suc{ display:block; width:98px; height:98px; margin:30px auto; background:url(../images/icon_login.gif) no-repeat 0px -202px;}
+.result h6,.result3 h6{ font-size:30px; color:#f60; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-weight:normal;}
+.result h6 .user,.result3 h6 .user{ color:#1b1b1b; padding-right:10px;}
+.result p{ line-height:180%; padding-bottom:80px; padding-top:10px;}
+.result3{ width:95%; height:auto; margin:0px auto; color:#333;}
+.result3 .tt{ height:90px; width:auto; border-bottom:1px solid #eee; padding-top:50px; margin-bottom:16px;}
+.result3 .tt .head{ display:block; float:left; width:80px; height:60px;}
+.result3 .tt .head img{  width:60px; height:60px;}
+.result3 .tt .origin{ font-size:16px; color:#434343;}
+.result3 .tt .origin .org{ padding:0px 5px;}
+.chek{ padding:10px 0px 5px 70px; font-size:14px; color:#666; vertical-align:middle;}
+.chek input{ margin-right:10px;}
+.bind{ width:810px; height:auto; margin:0px auto; padding-top:40px; position:relative;}
+.bind h2{ margin-top:0px; font-family:"Î¢ÈíÑÅºÚ", "ºÚÌå"; font-size:26px; color:#3a3a3a; position:relative; left:-45px; vertical-align:text-bottom;}
+.bind h2 em,.bind h2 span{ display:inline-block;height:36px;}
+.bind .io{ width:36px; vertical-align:middle; margin-right:10px; background:url(../images/ico.gif) no-repeat -380px -64px; }
+.bind p{ color:#777; font-size:14px; padding:15px 0px;}
+.bind .butn{width:auto; height:auto; margin:25px auto 0px; padding-top:10px; text-align:center; color:#777; border-top:1px dashed #d8dde0; font-size:14px;}
+.bind .butn .input{ display:block; width:214px; height:40px; margin:10px auto; background:url(../images/icon_login.gif) no-repeat -184px -144px; border:0px; cursor:pointer;}
+.bind .min{ width:84px; height:84px; background:url(../images/icon_login.gif) no-repeat -520px -220px; position:absolute; left:50%; margin-left:-42px; top:168px;}
+.bind .sbox{ width:314px; height:175px; border:1px solid #d7d7d7; background:#fff;-moz-box-shadow: 0 0 5px #eee; -webkit-box-shadow: 0 0 5px #eee;box-shadow: 0 0 5px #eee;}
+.sbox dl dt{ padding-top:2px; height:30px; line-height:30px; border-bottom:1px dashed #d8dde0; font-size:14px; color:#3a3a3a;}
+.sbox dl dd{ float:left; width:55%; height:30px; line-height:30px; margin-top:5px; font-size:14px;}
+.sbox dl .img{ float:left; width:100px; height:auto;margin-top:0px; padding:15px 10px; text-align:center;}
+.sbox dl .img img{ width:86px; height:86px;}
+.sbox dl .qq,.sbox dl .shai{ display:inline-block; height:30px;background:url(../images/ico.gif) no-repeat;}
+.sbox dl .qq{ width:40px; vertical-align:middle; background-position: -748px -92px;}
+.sbox dl .shai{ width:110px; vertical-align:middle; background-position: -182px 0px;}
+.sbox dl .rad,.sbox dl .bding{ height:26px; line-height:26px; text-align:center; border:1px solid #cecece;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+.sbox dl .rad{ margin-top:10px;background:url(../images/bg.gif) repeat-x 0px -5px;}
+.sbox dl .bding{ margin-top:15px; width:55%; background:#f2f2f2; cursor:pointer;}
+.sbox dl .bding input,.sbox dl .rad input{ display:block; height:26px;border:0px; line-height:26px;}
+.sbox dl .rad input{ padding:0px 5px 0px 24px;}
+.sbox dl .rad .name,.sbox dl .rad .sn{ background: url(../images/ico.gif) no-repeat;}
+.sbox dl .rad .name{ background-position:-761px -194px;}
+.sbox dl .rad .sn{background-position:-761px -227px;}
+.sbox dl .bding input{ text-align:center; width:100%;cursor:pointer;background-color:#f2f2f2;}
+.sbox dl .bding input:hover{ background-color:#ff870a; color:#fff; font-weight:800;}
+
+
+
+

@@ -1,0 +1,116 @@
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <div style="margin-bottom: 0;" class="m-table-tool f-cb">
+        <a class="u-btn u-btn-primary" onclick="history.go(-1)" href="javascript:void(0);">返回</a>
+      </div>
+      <h3>推客明细</h3>
+      <form method="post" id="form" onSubmit="return false;" class="m-form m-form-horizontal">
+        <fieldset>
+          <div class="formitm">
+            <label class="lab">
+              <select name="paychannel" id="moneyType" style=" height: 27px;" class="form-element" onchange="tobank(this)">
+                <option value="alipay" {?if $info.p_type == 1?}selected{?/if?}>支付宝</option>
+                <option value="bank" {?if $info.p_type == 3?}selected{?/if?}>银行卡</option>
+              </select>
+            </label>
+            <div class="ipt">
+              {?if $info.p_type == 1?}
+                  <input name="pay_account" type="text" class="form-element u-width-large  " id="pay_alipay_account" value="{?$info.p_ali?}" maxlength="250">
+              {?elseif $info.p_type == 3?}
+                  <input name="pay_account" type="text" class="form-element u-width-large  " id="pay_alipay_account" value="{?$info.p_bank?}" maxlength="250">
+              {?else?}
+                  <input name="pay_account" type="text" class="form-element u-width-large  " id="pay_alipay_account" value="" maxlength="250">
+              {?/if?}
+            </div>
+          </div>
+          <div class="formitm" style="display: none;" id='bankh'> 
+            <label class="lab">开户支行*</label>
+            <div class="ipt">
+              <input name="pay_bankh" type="text" class="form-element u-width-large  " id="pay_alipay_realname" value="{?$info.p_bankn?}" maxlength="250">
+            </div>
+          </div>
+          <div class="formitm backgrNam">
+            <label class="lab">真实姓名*</label>
+            <div class="ipt">
+              <input name="pay_realname" type="text" class="form-element u-width-large  " id="pay_alipay_realname" value="{?$info.p_uname?}" maxlength="250">
+            </div>
+          </div>
+
+          <div class="formitm" id='wehcatD'>
+            <label class="lab">微信号</label>
+            <div class="ipt">
+              <input name="pay_weixin" type="text" class="form-element u-width-large  " id="pay_weixin" value="{?$info.p_wechat?}" maxlength="250">
+            </div>
+          </div>
+          <div class="formitm conQQ">
+            <label class="lab">联系QQ</label>
+            <div class="ipt">
+              <input name="pay_qq" type="text" class="form-element u-width-large  " id="pay_qq" value="{?$info.p_qq?}" maxlength="250">
+            </div>
+          </div>
+
+          <div class="formitm"> 
+            <label class="lab">联系手机</label>
+            <div class="ipt">
+            <span>{?$info.mobile?}</span>
+            </div>
+          </div>
+
+    <!--       <div class="formitm">
+            <label class="lab">备注 </label>
+            <div class="ipt">
+              <textarea name="notes" value="" maxlength="80" style="width: 350px;height: 100px;padding: 5px;    border: 1px solid #ddd;">{?$info.notes?}</textarea>
+            </div>
+          </div> -->
+
+          <div class="formitm">
+            <label class="lab">上级推客</label>
+            <div class="ipt">{?$info.tkuidname?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">注册时间</label>
+            <div class="ipt">{?$info.reg_time|date:'Y-m-d H:i:s'?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab"> 待提现</label>
+            <div class="ipt">{?$info.balance?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">  已提现 </label>
+            <div class="ipt">{?$info.balancey?}</div>
+          </div>
+          <div class="formitm">
+            <label class="lab">  提现中 </label>
+            <div class="ipt">{?$info.balancer?}</div>
+          </div>
+
+          <div class="formitm form-submit">
+            <div class="ipt">
+              <div class="tip" id="tips"></div>
+              <input type="hidden" name="ajax_request" value="1" />
+              <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+              <button class="u-btn u-btn-success u-btn-large" type="submit" id="btn-submit">保存</button>
+              <button class="u-btn u-btn-large" type="reset">重置</button>
+            </div>
+          </div>
+        </fieldset>
+        <script type="text/javascript">
+          $("#form").submit(function() { // 651780
+            Users.form = this;
+            Users.SendForm(function(msgs) {
+              Users.ShowMsg(msgs.msg);
+              if(msgs.status === 'OK'){
+                setTimeout(function(){location.href='';},800);
+              }
+            });
+            return false;
+          });
+          tobank($('#moneyType').get(0));
+        </script>
+      </form>
+
+
+
+    </div>
+{?include file="tuike/super/templates/public/footer.html"?}

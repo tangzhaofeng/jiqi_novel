@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter>
+	<bookId>{?$chapter['articleid']?}</bookId>
+	<chapterId>{?$chapter['chapterid']?}</chapterId>
+	<name><![CDATA[{?eval echo gb2utf8XHSafeStr($chapter['chaptername'],false);?}]]></name>
+	<content><![CDATA[{?eval echo gb2utf8XHSafeStr($chapter['content'],false);?}]]></content>
+	<size>{?eval echo bcdiv($chapter['size'],2);?}</size> 
+	<md5>{?eval echo md5($chapter['content']);?}</md5> 
+</chapter>

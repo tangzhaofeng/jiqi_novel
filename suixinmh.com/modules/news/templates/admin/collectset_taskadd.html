@@ -1,0 +1,202 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>文章采集</caption>
+  <tr>
+    <td><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a> | <a href="?ac=collectset&op=task&collectid={?$_PAGE['collect']['collectid']?}">任务列表</a> | <a href="?ac=collectset&op=task&step=add&collectid={?$_PAGE['collect']['collectid']?}">添加任务</a></td>
+  </tr>
+</table>
+
+<div class="tag_menu" style="width:99%;margin-top:10px;">
+	<ul>
+		<li><a onClick="ShowTabs(0)" id="TabTitle0" href="###" class="selected">网址采集</a></li>
+		<li><a onClick="ShowTabs(2)" id="TabTitle2" href="###">站点规则</a></li>
+	</ul>
+</div>
+<table align="center" cellpadding="2" cellspacing="1" class="grid " width="100%">
+<caption>{?eval if(isset($_PAGE['_GET']['index'])){ echo '编辑';}else{ echo '添加';}?}采集任务</caption>
+<form name="myform" id="collectnew" action="?ac=collectset&op=task&step=add&collectid={?$_PAGE['collect']['collectid']?}&index={?$_PAGE['_GET']['index']?}" method="post">
+
+<tbody id='Tabs0' style='display:'>
+<tr>
+  <td colspan="2" class="head">基本信息</td>
+</tr>
+<tr valign="middle" align="left">
+  <th width="25%"><strong>规则说明</strong></th>
+  <td class="even">
+  <ul><li>系统默认变量：&lt;{articleid}&gt;  - 文章序号；&lt;{articleurl}&gt; - 文章内容页面地址<li>系统标签 * 可以替代任意字符串。</li><li>系统标签 ! 可以替代除了&lt;和&gt;以外的任意字符串。</li><li>系统标签 ~ 可以替代除了&lt;&gt;'&quot;以外的任意字符串。</li><li>系统标签 ^ 可以替代除了数字和&lt;&gt;之外字符串。</li><li>系统标签 $ 可以替代数字字符串。</li><li>采集规则中，需要获取的内容部分用四个以上系统标签代替，如 !!!!</li></ul></td>
+</tr>
+     <tr>
+      <th width="25%"><font color="red">*</font> <strong>所属站点</strong></th>
+      <td>{?$_SGLOBAL['collect'][$_PAGE['collect']['collectid']]['sitename']?}
+		</td>
+    </tr>
+<tr valign="middle" align="left">
+  <th><font color="red">*</font> <strong>任务名称</strong></td>
+  <td class="even"><input type="text" name="setting[taskname]" id="sitename" size="60" maxlength="50" value="{?$_PAGE['collect']['setting']['taskname']?}" require="true" datatype="limit" msg="字符长度范围必须为1到80位"/></td>
+</tr>
+
+  <tr>
+	<th><strong>发布栏目</strong></th>
+	<td>{?$_SGLOBAL['model'][$_PAGE['collect']['modelid']]['name']?} => 
+<select name='setting[catid]' id='catid' require="true" datatype="limit">
+{?section name=i loop=$_SGLOBAL['catelist']?}
+{?if $_SGLOBAL['catelist'][i]['type']<1 && $_PAGE['collect']['modelid']==$_SGLOBAL['catelist'][i]['modelid']?}
+{?if $_SGLOBAL['catelist'][i]['child']>0?}<optgroup label= "{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}"></optgroup>
+{?else?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}'{?if $_PAGE['collect']['setting']['catid']==$_SGLOBAL['catelist'][i]['catid']?} selected{?/if?}>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/if?}{?/if?}
+{?/section?}
+</select>
+  </tr>
+<tr valign="middle" align="left">
+  <th><strong>文章标题允许重复</strong></th>
+  <td class="even"><label><input type="radio"  name="setting[isrepeat]" id="isrepeat" value="1"> 允许</label>
+	  	  <label><input type="radio" n name="setting[isrepeat]" id="isrepeat" value="0" checked="checked"> 不允许</label>
+</td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>采集到的文章默认设置为</strong></th>
+  <td class="even"><label><input type="radio"  name="setting[status]" id="status" value="99" checked="checked"> 发布</label>
+	  	  <label><input type="radio" n name="setting[status]" id="status" value="3"> 审核</label>
+	  <label><input type="radio"  name="setting[status]" id="status" value="2"> 草稿</label>
+</td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>简单描述</strong></th>
+  <td class="even"><textarea  name="setting[description]" id="description" rows="5" cols="60">{?$_PAGE['collect']['setting']['description']?}</textarea></td>
+</tr>
+<tr>
+  <td colspan="2" class="head">网址采集</td>
+</tr>
+<tr valign="middle" align="left">
+  <th width="25%"><strong>文章内容页面地址</strong></th>
+  <td class="even"><input type="text" name="setting[urlarticle]" id="urlarticle" size="60" maxlength="250" value="{?$_PAGE['collect']['setting']['urlarticle']?}" />
+  <span class="hottext"><br />变量{articleid}、{articleurl}可用于此处。</span>
+  </td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>采集页面地址</strong></th>
+  <td class="even"><input type="text" class="text" name="setting[urlpage]" id="urlpage" size="60" maxlength="250" value="{?$_PAGE['collect']['setting']['urlpage']?}" /></td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th><strong>文章序号采集规则 </strong><br><{articleid}></th>
+  <td class="even"><textarea name="setting[articleid]" id="articleid" rows="3" cols="60">{?$_PAGE['collect']['setting']['articleid']?}</textarea>
+   <span class="hottext"><br />文章序号采集规则与文章内容页面采集规则任填一</span></td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>文章URL规则 </strong><br><{articleurl}></th>
+  <td class="even"><textarea name="setting[articleurl]" id="articleurl" rows="3" cols="60">{?$_PAGE['collect']['setting']['articleurl']?}</textarea></td>
+</tr>
+
+<tr valign="middle" align="left">
+  <th><strong>下一页的页码采集规则</strong></th>
+  <td class="even"><textarea name="setting[nextpageid]" id="nextpageid" rows="3" cols="60">{?$_PAGE['collect']['setting']['nextpageid']?}</textarea> <span class="hottext"><br />这里留空表示没有第二页，填入 ++ 则表示页面序号是加1方式递增的，否则输入页码的采集规则。</span></td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>起始页页码</strong></th>
+  <td class="even"><input type="text" name="setting[startpageid]" id="startpageid" size="60" maxlength="60" value="{?$_PAGE['collect']['setting']['startpageid']?}" /></td>
+</tr>
+<tr valign="middle" align="left">
+  <th><strong>最多采集页数</strong></th>
+  <td class="even"><input type="text" name="setting[maxpagenum]" id="maxpagenum" size="60" maxlength="10" value="{?$_PAGE['collect']['setting']['maxpagenum']?}" /></td>
+</tr>
+</tbody>
+<tbody id='Tabs2' style='display:none'>
+<tr>
+  <td colspan="2" class="head">自定义站点采集规则</td>
+</tr>
+<tr valign="middle" align="left">
+  <th width="25%"><strong>规则说明</strong></td>
+  <td class="even">
+  <font color="red">**因为一般站点的规则都比较统一，建议使用通用的站点采集规则，以下设置请不要修改即可！</font>
+  <ul><li>系统默认变量：&lt;{articleid}&gt;  - 文章序号；&lt;{articleurl}&gt; - 文章内容页面地址<li>系统标签 * 可以替代任意字符串。</li><li>系统标签 ! 可以替代除了&lt;和&gt;以外的任意字符串。</li><li>系统标签 ~ 可以替代除了&lt;&gt;'&quot;以外的任意字符串。</li><li>系统标签 ^ 可以替代除了数字和&lt;&gt;之外字符串。</li><li>系统标签 $ 可以替代数字字符串。</li><li>采集规则中，需要获取的内容部分用四个以上系统标签代替，如 !!!!</li></ul></td>
+</tr>
+
+<!--常用字段-->
+<tr>
+  <td colspan="2" class="head">文章基本信息采集规则</td>
+</tr>
+{?section name=i loop=$_PAGE['form']['base']?}
+{?$_PAGE['form']['base'][i]?}
+{?/section?}
+<tr>
+  <td colspan="2" class="head">文章高级设置采集规则</td>
+</tr>
+{?section name=i loop=$_PAGE['form']['senior']?}
+{?$_PAGE['form']['senior'][i]?}
+{?/section?}</tbody>
+<tr valign="middle" align="left">
+  <td>&nbsp;</td>
+  <td class="even">
+  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+  <input type="submit" class="button" name="dosubmit"  id="dosubmit" value="添加采集任务" />
+  </td>
+</tr>
+
+</form>
+</table>
+<br/>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<caption>提示信息</caption>
+  <tr>
+    <td class="tablerow">
+      因为一般站点的规则都比较统一，建议使用通用的站点采集规则，采集任务站点字段采集规则留空即可！
+    </td>
+  </tr>
+</table>
+<script language="javascript" type="text/javascript">
+<!--
+function HtmlTrimSelect(i,status)
+{
+
+	var elts= document.myform.elements["setting[fields]["+i+"][HtmlTrim][]"];
+	var elts_cnt  = (typeof(elts.length) != 'undefined')
+	? elts.length
+	: 0;
+
+	if (elts_cnt) {
+		for (var i = 0; i < elts_cnt; i++) {
+			elts[i].checked = (status=="all")?true:false;
+		} 
+	} else {
+		elts.checked        = true;
+	} 
+
+}
+function ShowLabel(objname)
+{
+	var obj = document.getElementById(objname);
+	var objtrim = document.getElementById(objname+"trim");
+	var objimg = document.getElementById(objname+"img");
+	var objtrimhtml = document.getElementById(objname+"trimhtml");
+	if(obj.style.display=="none")
+	{
+		obj.style.display = "block";
+		objtrim.style.display = "block";
+		objtrimhtml.style.display = "block";
+		objimg.src="{?$_SGLOBAL['news']['url']?}/images/open.gif";
+	}
+	else
+	{
+		obj.style.display="none";
+		objtrim.style.display="none";
+		objtrimhtml.style.display="none";
+		objimg.src="{?$_SGLOBAL['news']['url']?}/images/close.gif";
+	}
+}
+$().ready(function() {
+	  $('form').checkForm(1);
+	  {?if $_PAGE['_GET']['index']!=''?}
+	  $("input[name='setting[status]']").val(["{?$_PAGE['collect']['setting']['status']?}"]);
+	  $("input[name='setting[isrepeat]']").val(["{?$_PAGE['collect']['setting']['isrepeat']?}"]);
+	  {?/if?}
+	});
+//-->
+</script>

@@ -1,0 +1,38 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "modules/article/templates/incometab.html" ?}
+	  <ul id="tab_conbox" class="f0">
+	  {?if $articlecount > 0?}
+	  <li class="fix" style="display:none;">
+	  <div id="getincome">
+		 </div>
+<!--		 <dl class="list_t4">银行开户名:王文金</dl>
+		 <dl class="list_t4">开户行信息:中国工商银行贵州省兴义市场坝支行</dl>
+		 <dl class="list_t4">银行账号:6222022409003587673</dl>
+		 <dl class="list_t4">备注:显示"已经支付"状态的,就是钱已经汇出来了;显示"信息不全"状态的,就是作者的汇款资料不齐无法支付;显示"累计支付"状态的,就是当月稿酬没超过200元,将累计至下月一起支付</dl>
+		 <dl class="list_t4">备注2:目前无法查询当月的稿酬数据,次月方可查询</dl>-->
+        </li>
+		{?else?}
+		<div class="tips f14 p10 g3 mt10 mb10 tc">您还没有作品,快去<a class="f_blue5" href="{?function geturl:'article':'article':'SYS=method=step1View'?}">创建新作品</a>吧</div>
+		{?/if?}
+	  </ul>
+	</div>
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	var incomeurl = "{?function geturl:'article':'article':'SYS=method=getincome'?}";	//加载默认全部关注模版
+	incomeurl =  urlParams(incomeurl, "mid=whole");
+	GPage.loadpage("getincome", incomeurl);
+});
+function showfriend(_this, url, show)
+{
+    GPage.loadpage("getincome",url); 
+}
+</script>

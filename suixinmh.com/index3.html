@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style>
+	html,body{
+		height: 100%;
+	}
+	*,
+	::before,
+	::after{
+	    padding: 0;
+	    margin: 0;
+	    /*需要针对移动设备做设置*/
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-tap-highlight-color:transparent;
+	}
+	li{
+		list-style: none;
+	}
+	.banner{
+		height:100%;
+		position: relative;
+	    overflow: hidden;
+	}
+	 .banner p{
+	 	color: #333;
+	    padding: 5px 0;
+	    line-height: 1.8em;
+	    text-indent: 2em;
+	    width: 100%;
+	    /*最大宽度*/
+	    max-width: 966px;  /* 在行业当中长使用的设计稿 psd 的尺寸是 640px   750px*/
+	    /*最小宽度*/
+	    min-width: 300px;  /*保证最基本的布局*/
+	    margin: 0 auto;
+
+	 }
+	 .banner li{
+		background:#fff;
+	 	position: absolute;
+	 	width:100%;
+	 	height:100%;
+	 }
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<ul class="banner_ul">
+			<li><p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			</li>
+			<li>sdfsdfsdf</li>
+			<li>同意让他也突然有人一日游</li>
+		</ul>
+	</div>
+	<script src="node_modules/jquery/jquery.js"></script>
+	<script>
+		$(function(){
+			banner();
+			function banner(){
+			   var startX=0;
+			   var moveX=0;
+			   var distanceX=0;
+			   var isMove=false;
+			   
+			   var bannerUl=$(".banner_ul");
+			   bannerUl.on("touchstart",function(e){
+			   	startX=e.originalEvent.touches[0].clientX;
+			   		
+			   });
+			    bannerUl.on("touchmove",function(e){
+			   		moveX = e.originalEvent.touches[0].clientX;
+	        	   distanceX = moveX - startX;
+	        		isMove = true;
+			        /*当前的位子 加上  你改变的位子  就是 你将要定位的那个位子*/
+			        var $currentLi=$(e.target);
+			        if(e.target.localName!="li"){
+			        	$currentLi=$currentLi.parents("li");
+			        }
+			        // var translateX = $currentLi.width()+ distanceX;
+			        console.log(distanceX);
+			         removeTransition($currentLi[0]);
+			         setTranslateX($currentLi[0],distanceX);
+
+			   });
+			    bannerUl.on("touchend",function(e){
+				    var $currentLi=$(e.target);
+			        if(e.target.localName!="li"){
+			        	$currentLi=$currentLi.parents("li");
+			        }
+					 var width=$currentLi.width();
+				   if(Math.abs(distanceX) > width/3 && isMove){
+
+			            /*滑动超过了一定的距离*/
+			            /*往右  正  往左  负*/
+			            var w=width;
+			            mark=false;
+			            if(distanceX <0){
+			               w=-width;
+			               mark=true;
+
+			            }
+			            addTransition($currentLi[0]);
+
+			            setTranslateX($currentLi[0],w);
+			        }else{
+			            /*滑动不超过一定的距离*/
+			            addTransition($currentLi[0]);
+
+			            setTranslateX($currentLi[0],distanceX>=0?0:-width);
+			        }
+
+			        /*重置*/
+			        startX = 0;//记录刚刚触摸屏幕时候的坐标x
+			        moveX = 0; //记录滑动时候的坐标x
+			        distanceX = 0; //移动的距离
+			        isMove = false;//是否滑动过
+
+			})	
+			    var addTransition = function(page){
+			       
+			        page.style.transition = "all .2s";
+			         page.style.webkitTransition = "all .2s";
+				    page.addEventListener("webkitTransitionEnd",function(){
+				   		removeTransition($(this)[0]);
+				   		setTranslateX(page,0);
+				   		$(this).parent().prepend($(this));
+				   })
+				   page.addEventListener("transitionEnd",function(){
+				   		removeTransition($(this)[0]);
+				   		setTranslateX(page,0);
+				   		$(this).parent().prepend($(this));
+				   })
+	    		};
+			     /*清除过渡*/
+			    var removeTransition = function(page){
+			        page.style.webkitTransition = "none";
+			        page.style.transition = "none";
+
+			    };
+			    /*设置定位*/
+			    var setTranslateX = function(page,translateX){
+			        page.style.webkitTransform = "translateX("+translateX+"px)";
+			        page.style.transform = "translateX("+translateX+"px)";
+			    };
+			}
+			
+		})
+	
+	 </script>
+</body>
+</html>

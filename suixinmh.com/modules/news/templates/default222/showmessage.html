@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>信息提示 {?$_SGLOBAL['sitename']?}</title>
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/gongyong.css" rel="stylesheet" type="text/css" />
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/tsy.css" rel="stylesheet" type="text/css" />
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script>
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+<!--
+$().ready(function() {
+	  var setI=setInterval(function (){var i=parseInt($('#Time').text())-1;$('#Time').text(i);if(i==0){clearTimeout(setI);window.location.href=$("#Url").attr("href");}},1000)
+	});
+//-->
+</script>
+
+</head>
+
+<body onload="MM_preloadImages('{?$_SGLOBAL['TPL_DIR']?}/images/gb.jpg')">
+<div class="tsy">
+<Div class="tsy_g01">
+  <input type="button" class="tst_searchbtn tsy_g01_r" /> 
+  <span class="tst_01">{?$_SGLOBAL['sitename']?}</span></Div>
+  <div class="tsy_g02">
+  <img src="{?$_SGLOBAL['TPL_DIR']?}/images/th.jpg" />
+  <ul>
+  <li class="a1">恭喜您注册成功！！</li>
+  <li class="a2"><span class="tst_02" id="Time">3</span> 秒后将跳转到<a href="{?$_SGLOBAL['refer']?}" id='Url' class="tst_02">上一页</a></li>
+  <li class="a2"><a href="{?$_SGLOBAL['localurl']?}">点此跳转到本站首页</a></li>
+  <li class="a2">您还可以访问本网站其他栏目：</li>
+  </ul>
+  </div>
+  <div class="tsy_g03"><a href="{?$_SGLOBAL['localurl']?}" target="_blank">网站首页</a> | <a href="#" target="_blank">单机游戏</a> | <a href="#" target="_blank">网页游戏</a> | <a href="#" target="_blank">游戏下载</a> </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>栏目管理</caption>
+  <tr>
+    <td><a href='?ac=create&op=category'>更新栏目页</a> | <a href='?ac=create&op=show'>更新内容页</a> | <a href='?ac=create&op=index'>更新首页</a></td>
+  </tr>
+</table>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<form action="{?$_SGLOBAL['news']['url']?}/admin/?ac=create&op=index" method="post" name="myform">
+  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+    <caption>更新首页</caption>
+  <tr>
+	<th width="25%"><strong>选择首页位置</strong><br />相对根目录所处位置</th>
+	<td>
+	     <input type="radio" name="type" value="0" checked onClick='$("input[name=url]").val("index.html");$("input[name=url]").attr("readonly",true);'>根目录（{?$_SGLOBAL['localurl']?}/index.html）<br/>
+<!--	  <input type="radio" name="type" value="1" onClick='$("input[name=url]").val("modules/news/index.html");$("input[name=url]").attr("readonly",true);'>模块根目录（{?$_SGLOBAL['news']['url']?}/index.html）<br/>-->
+	  <input type="radio" name="type" value="2" onClick='$("input[name=url]").val("");$("input[name=url]").attr("readonly",false);$("input[name=url]").focus();'>自定义目录<br/>
+	</td>
+  </tr>
+	<tr> 
+      <th><strong>首页URL</strong></th>
+      <td>{?$_SGLOBAL['localurl']?}/<input type="text" name="url" readonly value="index.html" size="30"></td>
+    </tr>
+	<tr> 
+      <td></td>
+      <td><input type="submit" name="dosubmit" value=" 开始更新 "></td>
+    </tr>
+	</form>
+</table>

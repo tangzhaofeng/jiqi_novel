@@ -1,0 +1,146 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>数据模型管理</caption>
+  <tr>
+    <td><a href='?ac=model&op=add'><font color="red">添加数据模型</font></a> | <a href='?ac=model'>返回数据模型列表</a></td>
+  </tr>
+</table>
+
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<form action="?ac=model&op=add&modelid={?$_PAGE['_GET']['modelid']?}" method="post" name="myform">
+    <caption>{?if $_PAGE['_GET']['modelid']!=''?}修改{?else?}添加{?/if?}内容模型</caption>
+	<tr> 
+      <th><font color="red">*</font> <strong>内容模型名称</strong></th>
+      <td><input type="text" name="info[name]" size="30" require="true" datatype="limit" min="1" max="50" value="{?$_SGLOBAL['modelfield']['name']?}" msg="字符长度范围必须为1到50位"></td>
+    </tr>
+	<tr> 
+      <th><strong>内容模型描述</strong></th>
+      <td><textarea name="info[description]" rows="2" cols="20" id="description" class="inputtext" style="height:43px;width:208px;">{?$_SGLOBAL['modelfield']['description']?}</textarea></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>项目名称</strong></th>
+      <td><input type="text" name="info[itemname]" value="{?$_SGLOBAL['modelfield']['itemname']?}" size="30"> </td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>项目单位</strong></th>
+      <td><input type="text" name="info[itemunit]" value="{?$_SGLOBAL['modelfield']['itemunit']?}" size="30"> </td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>数据表名</strong></th>
+      <td>{?eval echo jieqi_dbprefix('news_');?}c_<input type="text" name="info[tablename]" size="12" min="1" max="50" value="{?$_SGLOBAL['modelfield']['tablename']?}"{?if $_PAGE['_GET']['modelid']!=''?} require="true" datatype="limit" readonly{?else?} require="true" datatype="limit|ajax" url="?ac=model&op=checktable&ajax_request=1" msg="字符长度范围必须为1到50位"{?/if?}> </td>
+    </tr>{?eval if($_SGLOBAL['pagefields']){?}
+     <tr>
+      <th><strong>频道文章分页字段</strong></th>
+      <td><select name="info[pagefield]" id="pagefield"  size="1"  >
+	  <option value="">无分页字段</option>
+	  {?section name=i loop=$_SGLOBAL['pagefields']?}
+	  <option value="{?$i.key?}"{?if $_SGLOBAL['modelfield']['pagefield']==$i.key?} selected{?/if?}>字段：({?$_SGLOBAL['pagefields'][i]?})</option>
+	  {?/section?}
+	   </select>
+	  （用于文章数据读取过程中对设定字段的分页显示,选择“无分页字段”则文章不分页。）</td>
+    </tr>{?eval }?}
+     <tr>
+      <th><strong>工作流方案</strong></th>
+      <td><select name="info[workflowid]" id="workflowid"  size="1"  >
+	     {?section name=i loop=$_SGLOBAL['workflow']?}
+	       <option value="{?$_SGLOBAL['workflow'][i]['workflowid']?}"{?if $_SGLOBAL['modelfield']['workflowid']==$_SGLOBAL['workflow'][i]['workflowid']?} selected{?/if?}>{?$_SGLOBAL['workflow'][i]['name']?}</option>
+		 {?/section?}
+	  </select>   <a href="?mod=phpcms&file=workflow&forward=<?=urlencode(URL)?>">管理工作流方案</a></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>栏目页模板</strong></th>
+      <td><input type="text" name="info[template_category]" value='{?$_SGLOBAL['modelfield']['template_category']?}' size='30' maxlength='100'></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>列表页模板</strong></th>
+      <td><input type="text" name="info[template_list]" value='{?$_SGLOBAL['modelfield']['template_list']?}' size='30' maxlength='100'></td>
+    </tr>
+	<tr> 
+      <th><font color="red">*</font> <strong>内容页模板</strong></th>
+      <td><input type="text" name="info[template_show]" value='{?$_SGLOBAL['modelfield']['template_show']?}' size='30' maxlength='100'> </td>
+    </tr>
+
+	<tr>
+      <th width='30%'><strong>栏目/列表浏览方式</strong></th>
+      <td>
+<select class="select"  size="1" name="info[ishtml]" onChange="javascript:if(this.value>0) $('#ishtml').show(); else $('#ishtml').hide();">
+<option value="0"{?eval if($_SGLOBAL['modelfield']['ishtml']=='0') echo ' selected';?}>系统默认路径</option>
+<option value="1"{?eval if($_SGLOBAL['modelfield']['ishtml']=='1') echo ' selected';?}>伪静态(不生成文件)</option>
+<option value="2"{?eval if($_SGLOBAL['modelfield']['ishtml']=='2') echo ' selected';?}>伪静态(生成文件)</option>
+<option value="3"{?eval if($_SGLOBAL['modelfield']['ishtml']=='3' || !isset($_SGLOBAL['modelfield']['ishtml'])) echo ' selected';?}>生成Html</option>
+</select>
+	  </td>
+	</tr>
+	<tr>
+      <th width='30%'><strong>内容页浏览方式</strong></th>
+      <td>
+<select class="select"  size="1" name="info[show_ishtml]" onChange="javascript:if(this.value>0) $('#show_ishtml').show(); else $('#show_ishtml').hide();">
+<option value="0"{?eval if($_SGLOBAL['modelfield']['show_ishtml']=='0') echo ' selected';?}>系统默认路径</option>
+<option value="1"{?eval if($_SGLOBAL['modelfield']['show_ishtml']=='1') echo ' selected';?}>伪静态(不生成文件)</option>
+<option value="2"{?eval if($_SGLOBAL['modelfield']['show_ishtml']=='2') echo ' selected';?}>伪静态(生成文件)</option>
+<option value="3"{?eval if($_SGLOBAL['modelfield']['show_ishtml']=='3' || !isset($_SGLOBAL['modelfield']['show_ishtml'])) echo ' selected';?}>生成Html</option>
+</select>
+	  </td>
+	</tr>
+	<tbody id="ishtml" style="display:'block'">
+	<tr>
+      <th><strong>栏目页URL规则</strong>
+	  </th>
+      <td><input type="text" name="info[category_urlrule]" value='{?$_SGLOBAL['modelfield']['category_urlrule']?}' size='30' maxlength='100'> 不填扩展名默认为：<font color="red">.html</font></td>
+    </tr></tbody>
+	<tbody id="show_ishtml" style="display:'block'">
+	<tr>
+      <th><strong>内容页URL规则</strong>
+      </th>
+      <td><input type="text" name="info[show_urlrule]" value='{?$_SGLOBAL['modelfield']['show_urlrule']?}' size='30' maxlength='100'> 不填扩展名默认为：<font color="red">.html</font></td>
+    </tr>
+	</tbody>
+	<tr> 
+      <th><strong>启用全站搜索</strong></th>
+      <td>
+	  <input type='radio' name='info[enablesearch]' value='1'{?eval if($_SGLOBAL['modelfield']['enablesearch']=='1' || !isset($_SGLOBAL['modelfield']['enablesearch'])) echo ' checked';?}/> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type='radio' name='info[enablesearch]' value='0'{?eval if($_SGLOBAL['modelfield']['enablesearch']=='0') echo ' checked';?}/> 否
+	  </td>
+    </tr>
+	<tr> 
+      <th><strong>前台发布信息是否需要审核</strong></th>
+      <td>
+	  <input type='radio' name='info[ischeck]' value='1'{?eval if($_SGLOBAL['modelfield']['ischeck']=='1' || !isset($_SGLOBAL['modelfield']['ischeck'])) echo ' checked';?}/> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type='radio' name='info[ischeck]' value='0'{?eval if($_SGLOBAL['modelfield']['ischeck']=='0') echo ' checked';?}/> 否
+	  </td>
+    </tr>
+	<tr> 
+      <th><strong>发布、编辑信息时更新相关信息</strong></th>
+      <td>
+	  <input type='radio' name='info[isrelated]' value='1'{?eval if($_SGLOBAL['modelfield']['isrelated']=='1' || !isset($_SGLOBAL['modelfield']['isrelated'])) echo ' checked';?}> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type='radio' name='info[isrelated]' value='0'{?eval if($_SGLOBAL['modelfield']['isrelated']=='0') echo ' checked';?}/> 否 
+	  （建议在信息量很大时，频繁添加和编辑信息时禁用此项）
+	  </td>
+    </tr>
+    <tr> 
+      <th></th>
+      <td>
+	  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+	  <input type="submit" name="dosubmit" value=" 确定 "> 
+      &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+	</form>
+</table>
+<script LANGUAGE="javascript">
+<!--
+$().ready(function() {
+	  $('form').checkForm(1);
+	});
+if($("select[name='info[ishtml]']").val()>0) $('#ishtml').show();
+else  $('#ishtml').hide();
+if($("select[name='info[show_ishtml]']").val()>0) $('#show_ishtml').show();
+else  $('#show_ishtml').hide();
+//-->
+</script>

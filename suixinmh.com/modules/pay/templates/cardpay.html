@@ -1,0 +1,84 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<script>
+function change(id){	
+//	$("dd[id^='c_']").removeClass();
+//	$('#c_'+id).addClass("hover");
+	$('#pd_FrpId').val($('#c_'+id).attr('payfrom'));
+}
+function chm(m,em){
+	$('#egold').val(em);
+	$('#money_yuan').val(m);
+}
+</script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/caiwutab.html" ?}
+      <ul id="tab_conbox" class="f0 fix">
+        <li class="fix">
+          <div class="pay f12">
+		  {?include file = "modules/pay/templates/paytab.html" ?}
+            <ul id="tab_con11" class="pay_dwn fix">
+              <li>
+			  <form id="payfrm" name="payfrm"  onSubmit="return checkForm(this, 0);"method="post" action="{?function geturl:'pay':'home':'SYS=method=cardpay'?}">
+                <!--box_note2 begin-->
+                <div class="box_note2 cl mt10">
+                 <h3 class="tit3">第一步：请选择充值卡的类别：</h3>
+                   <div class="tabm_card">
+					 <ul class="fix" id="tabs12">
+					  <li id="c_yd" onclick="change('yd');chm(10,800);" payfrom="SZX-NET">神州行</li>
+					  <li id="c_lt" onclick="change('lt');chm(20,1600);" payfrom="UNICOM-NET">联通卡</li>
+					  <li id="c_dx" onclick="change('dx');chm(50,4000);" payfrom="TELECOM-NET">电信卡</dd>
+					 </ul> 
+				   </div>
+                 <h3 class="tit3">第二步：请选择你要充值的金额：</h3>
+                 <ul id="tab_con12">
+                  <li><!--神州行-->
+					 <dl class="lisd_m fix">
+					 {?section name=i loop=$paylimit?}{?eval if($i.order==1){$egold=$i.key;$money_yuan=$paylimit[i];}?}
+					  <dd id="v_{?$i.key?}"{?if $i.order==1?} class="hover"{?/if?} onclick="tmpjiage({?$i.key?});" money_yuan="{?$paylimit[i]?}"><b>{?$paylimit[i]?}元</b><br />({?$i.key?}书海币)</dd>
+					  {?/section?}
+					 </dl>
+				  </li><!--联通-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_1600" onclick="tmpjiage(1600);" money_yuan="20"><b>20元</b><br />(1600书海币)</dd>
+                    <dd id="v_2400" onclick="tmpjiage(2400);" money_yuan="30"><b>30元</b><br />(2400书海币)</dd>
+                    <dd id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                    <dd id="v_24000" onclick="tmpjiage(24000);" money_yuan="350"><b>300元</b><br />(24000书海币)</dd>
+                    <dd id="v_40000" onclick="tmpjiage(40000);" money_yuan="500"><b>500元</b><br />(40000书海币)</dd>
+                   </dl>
+				  </li><!--电信-->
+                  <li style="display:none;">
+                   <dl class="lisd_m fix">
+                    <dd class="hover" id="v_4000" onclick="tmpjiage(4000);" money_yuan="50"><b>50元</b><br />(4000书海币)</dd>
+                    <dd id="v_8000" onclick="tmpjiage(8000);" money_yuan="100"><b>100元</b><br />(8000书海币)</dd>
+                   </dl>
+				  </li>
+				 </ul>
+				 <input type="hidden" name="egold" id="egold" value="{?$egold?}">
+				 <input type="hidden" name="money_yuan" id="money_yuan" value="{?$money_yuan?}">
+				 <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+				 <input type="hidden" name="pd_FrpId" id="pd_FrpId" value="SZX-NET" />
+                 <dl class="lisd_note">
+                  <dt>说明：</dt>
+                  <dd>1.兑换比例：1元 = 80{?$egoldname?}。</dd>
+<!--                  <dd>2.单次充值200元，送2500书海币；单次充值500元，送5800{?$egoldname?}。</dd>                  -->
+                 </dl>
+                </div><!--box_note2 end-->
+                <p class="pt20 cl pb10"><button type="submit" class="btn">开始充值&gt;&gt;</button></p>
+				</form>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+{?include file = "modules/pay/templates/tips.html" ?}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chaplist>
+	{?eval $volume = $chapter = 0;?}
+	{?section name=i loop=$chapters?}{?eval $chapter = $volume = 0;?}
+		{?if $chapters[i]['chaptertype']==0 && $i.order==1?}{?eval $volume++;?}{?eval $chapter++;?}
+		<volume>	
+		<volumeid><![CDATA[]]></volumeid>
+		<volumename><![CDATA[正文]]></volumename>
+		<chapters>	
+             <chap>			
+				<id><![CDATA[{?$chapters[i]['chapterid']?}]]></id>
+				<title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></title>				
+				<updatetime><![CDATA[{?$chapters[i]['lastupdate']?}]]></updatetime>
+				<words><![CDATA[{?eval echo bcdiv($chapters[i]['size'],2);?}]]></words>
+				<priceunit><![CDATA[3]]></priceunit>
+				<price><![CDATA[{?$chapters[i]['saleprice']?}]]></price>
+				<vip><![CDATA[{?$chapters[i]['isvip']?}]]></vip>
+				<chapterurl><![CDATA[{?$chapters[i]['url']?}]]></chapterurl>
+			</chap>
+		{?elseif $chapters[i]['chaptertype']==1?}{?eval $volume++;?}
+			<volume>
+			<volumeid><![CDATA[{?$chapters[i]['chapterid']?}]]></volumeid>
+			<volumename><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></volumename>
+			<chapters>	
+			{?eval $chapter = 0;?}
+		{?else?}
+			{?eval $chapter++;?}
+					<chap>			
+						<id><![CDATA[{?$chapters[i]['chapterid']?}]]></id>
+						<title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></title>				
+						<updatetime><![CDATA[{?$chapters[i]['lastupdate']?}]]></updatetime>
+						<words><![CDATA[{?eval echo bcdiv($chapters[i]['size'],2);?}]]></words>
+						<priceunit><![CDATA[3]]></priceunit>
+						<price><![CDATA[{?$chapters[i]['saleprice']?}]]></price>
+						<vip><![CDATA[{?$chapters[i]['isvip']?}]]></vip>
+						<chapterurl><![CDATA[{?$chapters[i]['url']?}]]></chapterurl>
+					</chap>
+		{?/if?}
+		{?if $chapters[$i.order]['chaptertype'] == "1" || $chapters[$i.order]['chaptername'] == ""?}
+			</chapters>
+			</volume>
+		{?/if?}
+	{?/section?}
+	
+</chaplist>

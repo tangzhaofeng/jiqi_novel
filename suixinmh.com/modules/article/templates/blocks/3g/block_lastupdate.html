@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}  
+        <li><a href="{?function geturl:'3g':'shuku':SYS=siteid=$articlerows[i].siteid&sort=$articlerows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_self">[{?$articlerows[i].shortcaption?}]</a><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self"class="f_0" class="text1">{?$articlerows[i].articlename?}</a> <span style="color:#CCCCCC">{?$articlerows[i].lastupdate|date:'Y-m-d H:i'?}</span></li>
+{?/section?}

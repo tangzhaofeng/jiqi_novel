@@ -1,0 +1,68 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script> 
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	{?include file = "templates/messagetab.html" ?}
+      <ul id="tab_conbox" class="zsy bg5 f0">
+       <li style="display:block;">        
+        <dl class="box_form">
+		<form name="frmnewmessage" id="frmnewmessage" action="{?function geturl:'system':'userhub':'SYS=method=sendMsg&do=submit'?}"  ajaxpost="true">
+          <dd class="fix">
+           <em class="tt2">收件人：</em>
+           <div class="int zx2">
+            	{?if $tosys == 1?}
+            		网站管理员
+            		<input name="tosys" value="{?$tosys?}" type="hidden"/>
+            	{?else?}
+            		<input name="receiver" id="receiver" value="{?$receiver?}" type="text" class="input2 fl" data-rule="收件人 :required;" />
+            		<div class="selt2"><!--selt2 begin-->
+		             <a class="a_menu" href="javascript:void(0);">选择好友</a>
+		            </div><!--selt2 end-->
+		            <div class="pop_friend f_gray6" style="display:none;">
+					{?section name=i loop=$friendsrows?}
+		             <a href="#" id="friend" ajaxhover="true" uid="{?$friendsrows[i].uid?}" onclick="showfriend('{?$friendsrows[i].name?}')">{?$friendsrows[i].name?}</a>
+					 {?/section?}
+		            </div>
+            	{?/if?}
+           </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">主题：</em>
+            <div class="int">
+              <input name="title" id="title" type="text" class="input2 fl" value="{?$title?}" data-rule="主题 :required;length[~80]"/>
+            </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">内容：</em>
+            <div class="int">
+              <textarea name="content" id="content" type="text" class="inp2 fl" data-rule="内容 :required;length[~100]">{?$content?}</textarea>
+              <p class="cl pt10"><label><input name="typeid" type="checkbox" value="1" class="mr5"/>不发送，只保存到草稿箱中</label></p>
+              <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+              <button type="submit" name="dosubmit"  id="submit" class="btn">提交</button>
+            </div>
+          </dd>
+		  </form>
+		  <script type="text/javascript">
+				$(".a_menu").live('click',function(){
+					$(".pop_friend").toggle();
+				});
+				$(".pop_friend").live('mouseleave',function(){
+					$(".pop_friend").hide();
+				});
+				function showfriend(name){
+					$("#receiver").val(name);
+					$(".pop_friend").hide();
+				}
+		  </script>
+         </dl>
+       </li>
+      </ul> 
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

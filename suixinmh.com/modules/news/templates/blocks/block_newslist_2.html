@@ -1,0 +1,8 @@
+{?section name=i loop=$articlerows?}
+{?if $i.order<4?}
+<li><span class="lt_pm4">{?$i.order|sprintf:"%02d"?}</span><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank">{?$articlerows[i]['title']|truncate:30?}</a></li> 
+{?else?}
+<li><span class="lt_pm2">{?$i.order|sprintf:"%02d"?}</span><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank">{?$articlerows[i]['title']|truncate:30?}</a></li>
+{?/if?}
+{?/section?}
+<li class="x01"><a href="{?$url_more?}" target="_blank">¸ü¶à>></a></li>

@@ -1,0 +1,69 @@
+{?include file="tuike/yuntest/templates/public/header.html" ?}
+{?include file="tuike/yuntest/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-book-title">下级推客明细({?$tkInfo.name?})</div>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-filter f-cb">
+              <form action="{?function geturl:'yuntest':'tkuser':'SYS=method=tkuserI&tkId=$tkId'?}" method="post">
+                <select name="order" id="finance_type" class="form-element ">
+                  <option value="0" selected="selected">===类型===</option>
+                  <option value="payid" {?if $order == 'payid'?}selected="selected"{?/if?}>序号</option>
+                  <option value="money" {?if $order == 'money'?}selected="selected"{?/if?}>充值金额</option>
+                  <option value="paytype" {?if $order == 'paytype'?}selected="selected"{?/if?}>充值方式</option>
+                  <option value="rettime" {?if $order == 'rettime'?}selected="selected"{?/if?}>充值时间</option>
+                </select>
+                <select name="sort" id="money" class="form-element ">
+                  <option value="1" {?if $sort == 1?}selected="selected"{?/if?}>升</option>
+                  <option value="0" {?if $sort == 0?}selected="selected"{?/if?}>降</option>
+                </select>
+                <button class="u-btn u-btn-while" type="submit">筛选</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th >序号</th>
+                  <th >用户名</th>
+                  <th >充值金额</th>
+                  <th>充值方式</th>
+                  <th >充值时间</th>
+                  <th >渠道号</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($ktList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 6 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?section name=i loop=$ktList?}
+                <tr>
+                  <td>{?$ktList[i].payid?}</td>
+                  <td>{?$ktList[i].buyname?}</td>
+                  <td><span class="u-badge u-badge-success">{?$ktList[i].money?}</span></td>
+                  <td>{?$ktList[i].paytype?}</td>
+                  <td>{?$ktList[i].rettime|date:"Y-m-d H:i"?}</td>
+                  <td>{?$ktList[i].source?}</td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/yuntest/templates/public/footer.html"?}

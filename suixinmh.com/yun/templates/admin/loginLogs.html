@@ -1,0 +1,99 @@
+<{include file="sysmanage/head.html"}>
+<script type="text/javascript" src="cframe/TimeControl/jedate/jedate.js"></script>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- BEGIN SAMPLE TABLE PORTLET-->
+                                <div class="portlet box green">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-cogs"></i>登录记录 </div>
+                                        <div class="tools">
+                                            <a href="javascript:;" class="collapse"> </a>
+                                            <!-- <a href="#portlet-config" data-toggle="modal" class="config"> </a> -->
+                                            <a href="javascript:;" class="reload"> </a>
+                                            <a href="javascript:;" class="remove"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body flip-scroll">
+                                        <form action=?action=admin&opt=loginLogs method="post" id="pagerForm">
+                                        <table class="table table-bordered table-striped table-condensed flip-content">
+                                            <thead class="flip-content">
+                                                <tr>
+													<th>
+														 帐号
+													</th>
+													<th>
+														 登录时间
+													</th>
+													<th>
+														 地区
+													</th>
+													<th>
+														 <button class="btn btn-sm yellow filter-submit margin-bottom" ><i class="fa fa-search"></i> Search</button>
+													</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+												<td>
+													<input size="11" type="text" name="account" value="<{$request.account}>"/>	
+												</td>
+												<td colspan="2">
+													<input placeholder="开始时间" id="start" type="text" name="from" value="<{$startime}>" readonly>
+													&nbsp;-&nbsp;
+														<input placeholder="结束时间" id="end" type="text" name="to"  value="<{$endtime}>" readonly>
+												</td>
+												<td>
+													<input size="12" type="text" name="ip" value="<{$request.ip}>"/>	
+												</td>
+											</tr>
+                                            <{foreach key=key item=vo from =$data}>
+                                                <tr>
+													<td>
+														 <{$vo.account}>
+													</td>
+													<td>
+														<{$vo.addtime}>
+													</td>
+													<td>
+														 <{$vo.address}>
+													</td>
+													<td>
+														 <{$vo.ip}>
+													</td>
+                                                </tr>
+                                             <{/foreach}>   
+                                            </tbody>
+                                        </table>
+                                        <input type="hidden" value=""  name="pageNum" id="pageNum">
+										<input type="hidden" value="<{$page.numPerPage}>"  name="numPerPage" id="numPerPage">
+                                        </form>
+                                        <{include file="sysmanage/page.html"}>
+                                    </div>
+                                </div>
+                                <!-- END SAMPLE TABLE PORTLET-->
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END CONTENT BODY -->
+                </div>
+                <!-- END CONTENT -->
+   
+ <script type="text/javascript">  
+        jeDate({
+		dateCell:"#start",
+		isinitVal:false,
+		isTime:true, //isClear:false,
+		minDate:"2016-09-19 00:00:00",
+		maxDate:"<{$maxDate}> 23:59:59"
+	})
+	jeDate({
+		dateCell:"#end",
+		isinitVal:false,
+		isTime:true, //isClear:false,
+		minDate:"2016-09-19 00:00:00",
+		maxDate:"<{$maxDate}> 23:59:59"
+	})
+  </script>	               
+<{include file="sysmanage/foot.html"}>

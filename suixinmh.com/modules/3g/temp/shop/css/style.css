@@ -1,0 +1,88 @@
+/*
+* @Author: suweiguo
+* @Date:   2017-02-13 14:07:27
+*/
+*,
+::before,
+::after{
+      padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+   -webkit-appearance: none; 
+   appearance: none;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   -webkit-touch-callout: none;
+   outline: none;
+
+     
+}
+.iconfont{
+   font-size:0.28rem;
+}
+html,body{
+  height:100%;
+
+
+}
+body{
+    font-size: 14px;
+    font-family: "microsoft YaHei","sans-serif";
+
+   
+    color: #000;
+}
+h1,h2,h3,h4,h5,h6,strong{
+   font-weight:normal;
+}
+i,b,em,strong{
+  font-weight:normal;
+  font-style:normal;
+}
+a{
+   
+    text-decoration: none;
+}
+a:hover{
+   
+}
+ol,ul,li{
+    list-style: none;
+}
+input,textarea,button{
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+/******************common css*************************/
+.f_right{
+    float: right;
+}
+.f_left{
+    float: left;
+}
+.clearfix::before,
+.clearfix::after{
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.tEllipsis{
+  display:block;overflow:hidden;text-overflow:ellipsis;
+}
+
+.shop_layout{
+    width: 100%;
+    height:100%;
+    /*最大宽度*/
+    max-width: 750px;  /* 在行业当中长使用的设计稿 psd 的尺寸是 640px   750px*/
+    /*最小宽度*/
+    min-width: 300px;  /*保证最基本的布局*/
+    margin: 0 auto;  
+
+}

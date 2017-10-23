@@ -1,0 +1,111 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_video.html"?}{?eval $title = $_PAGE['data']['title'];?}{?eval $author = $_PAGE['data']['author'];?}{?set $jieqi_pagetitle = " $title在线观看 - $jieqi_sitename视频频道"?}{?eval $contentid = $_PAGE['data']['contentid'];?}{?eval $catid = $_PAGE['data']['catid'];?}{?eval $keywords = $_PAGE['data']['keywords'];?}{?set $meta_keywords = "$keywords"?}{?set $meta_description = "$title在线观看"?}
+<script language="javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script language="javascript">
+<!--
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+var articleid = '{?$_PAGE['data']['contentid']?}';
+var videourl = '{?$_PAGE['data']['__content']['url']|base64_encode?}';
+//-->
+</script>
+	<div id="guanggao"><a href="http://www.2100book.com/" target="_blank"><img src="http://www.2100book.com/gg/02.jpg" width="980" /></a></div>
+	<div id="guanggao"> 您所在的位置：<a href="{?$_SGLOBAL['localurl']?}/">赶游首页</a> > <a href="{?function jieqi_geturl:'news':'lists':130:1?}">游戏视频</a> > <a href="{?$_PAGE['data']['url_catelist']?}">{?$_SGLOBAL['cate']['catname']?}</a> > <span class="cRed">{?$_PAGE['data']['title']?}</span></div>
+	<div class="clear"></div>
+  <div id="vid_view_mid">
+	  <div id="vid_mid">
+	     <div style="float:left;"><a href="http://mm.2100book.com/" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/guanggao_1.gif" width="175" height="515" border="0" /></a></div>
+		 <div id="vid_mid4"><li class="a2" id="showvideo">
+<img src="{?$_SGLOBAL['news']['url']?}/images/loading.gif"></li>
+		 </div>
+		 <div style="float:left;"><a href="http://www.2100book.com/dazhe/" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/guanggao_2.gif" width="175" height="515" border="0" /></a></div>
+	  </div>
+<div id="pic_1" style="margin-top:8px;" class="splistL1">
+		 <div id="v_4_4"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_5.jpg" /> <a href="{?function jieqi_geturl:'news':'lists':136:1?}">经典收藏</a> </div>
+	<!-- cmschiptag:chiptag 首页国内视频 begin -->  		
+	<div class=splist1>
+
+				{?tag_news_21_[新闻]通用查询<{inputtime,6,136,0,0,0,22}><{video/block_jd.html}>?}
+ </div>
+	</div> 
+		<div class="clear"></div>
+		<div id="view_all">
+	   <div id="view_left_all">
+	      <div id="view_left">
+	        <div id="view_left_a">
+		     
+			 <div id="date2">
+			   <div id="moodrank_div">
+	<script type="text/javascript" id="callmood_js" src='{?$_SGLOBAL['news']['url']?}/?ac=blockshow&bid=102&module=news&filename=block_mood&classname=BlockNewsMood&vars=1,{?$contentid?}&template=block_mood.html&contenttype=4&custom=0&publish=3&hasvars=1'></script>
+</div>
+	   </Div>
+	  
+		  </div>  
+	   </div>
+	      <div id="view_left">
+		     <span id=comment>评论加载中……</span>
+		  </div>
+		  <div class="clear"></div>
+		  </div>
+	   
+	   
+	   <div id="list_rig">
+	      <div id="vid_rig_1">
+		     <div id="rig_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/li_5.jpg" /></div>
+				<div class="t_410" id="rig_1_b"> <span class="vid_red">{?$_PAGE['data']['title']|truncate:26:'':0?}</span> 简介</div>
+			</div>
+		     <div id="vid_mid3">
+               {?$_PAGE['data']['content']|defaultval:'暂无!'?}
+		     </div>
+		  </div>
+		  <div id="list_rig_1">
+		     <div id="rig_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/li_5.jpg" /></div>
+				<div class="t_410" id="rig_1_b"> 今日热点榜</div>
+				<div id="more"><a href="{?function jieqi_geturl:'news':'lists':130:1?}">更多>></a></div>
+			 </div>
+			<div class="main_lt_315">
+			  <div id="main2">
+				<ul>
+				{?tag_news_21_[新闻]通用查询<{hits_day,10,$catid,0,0,2,40}>?}
+				</ul>
+			  </div>
+			</div>
+		  </div>
+		  <!--<div id="list_rig_3">
+		     <div id="rig_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/li_5.jpg" /></div>
+				<div class="t_410" id="rig_1_b"> 今日推荐视频</div>
+				<div id="more"><a href="#">更多>></a></div>
+			 </div>
+			 <ul id="newsMeinv2">
+	          <li><a href="http://www.wanyx.com/picnews/18348.html" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/j_1.jpg" alt="火辣性感！CJ美女小訫演绎桌球诱惑">火辣性感！CJ美女小訫</a></li>
+              <li><a href="http://www.wanyx.com/picnews/17930.html" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/j_2.jpg" alt="《西游记》美女玩家风采
+">《西游记》美女玩家风采
+</a></li>
+            </ul>
+			<div id="shipin">
+				   <ul class="news_list_shipin">
+					<li class="t_blue"><a href="view.html" >培养计划《西游世界》强力单刷五行实现转生</a></li>
+					<li class="t_blue"><a href="view.html" >那些特殊的战斗伙伴，《醉逍遥》可爱宠物宝宝秀</a></li>
+					<li class="t_blue"><a href="view.html" >《梦想世界》 最潮达人时装秀 现在玩的就是酷炫</a></li>
+					<li class="t_blue"><a href="view.html" >力量典范金属狂潮！陆战舰Z7突袭《跑跑卡丁车》</a></li>
+				  </ul>
+			</div>
+		  </div>-->
+		  <div id="vid_mid2"><a href="http://www.2100book.com/gonggao/vip.html" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/vid_9.jpg" border="0" /></a></div>
+	   </div>
+	</div>
+  </div>
+	<div class="clear"></div>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/player/youku.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+    $('#showvideo').html(ShowVideo(videourl,515));
+	GData.pageLoad();
+	GData.digg('show', null);
+});
+//-->
+</script>

@@ -1,0 +1,7 @@
+{?section name=i loop=$sortrows?}
+{?if $sortrows[i].sortid>200 ?}
+{?if $i.order % 3 == 1?}<tr>{?/if?}
+<td height="30" align="center" valign="middle"><a href="{?function geturl:'wap':'top':'method=toplist':SYS=type=weekvisit&sortid=$sortrows[i].sortid&page=1?}" target="_self">{?$sortrows[i].sortname?}</a></td>
+{?if $i.order % 3 == 0?}</tr>{?/if?}
+{?/if?}
+{?/section?}

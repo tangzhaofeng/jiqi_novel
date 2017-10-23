@@ -1,0 +1,30 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>内容采集</caption>
+
+  <tr>
+    <td>
+		<table align="center" cellpadding="2" cellspacing="1" class="grid" width="99%"> 
+    <caption>完成提示</caption>
+       <tr>
+        <td><table width="98%"  border="0"  class="tableborder">
+          <tr>
+            <td width="50%" align="center"><strong>当前任务: [{?$_PAGE['collect']['sitename']?}]{?$_PAGE['task']['taskname']?}</strong></td>
+            <td width="50%" align="center"><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a></td>
+			</tr>
+        </table>
+        </td>
+      </tr>
+	<tr>
+	<td style='font-size:14px;line-height:150%;'>
+	所有任务全部完成!<br>
+	您可以选择:<br>
+	1、管理文章内容 <a href='?ac=content&op=manage'><font color='blue'>管理文章</font></a><br/>
+	2、审核文章内容 <a href='?ac=content&op=manage&status=3'><font color='blue'>查看所有</font></a><br/>
+	</td>
+	</tr>
+	</table>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<booklist>
+	{?section name=i loop=$rows?}
+	<book>
+		<id>{?$rows[i]['articleid']?}</id>
+		<status>{?$rows[i]['fullflag']?}</status>
+		<maxChapter>{?$rows[i]['chapters']?}</maxChapter>
+	</book>
+	{?/section?}
+</booklist>

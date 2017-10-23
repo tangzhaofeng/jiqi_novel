@@ -1,0 +1,31 @@
+{?set $jieqi_pagetitle = "排行榜列表-最新原创小说大全-书海小说网"?}
+{?set $meta_keywords = "最新小说,原创小说,小说大全,小说库"?}
+<link href="{?$jieqi_themeurl?}style/rank_details.css" rel="stylesheet" type="text/css" />
+
+
+<div class="content">
+	<div class="title">{?$sitename?}{?$midname?}</div>
+	{?if $type!='lastupdate' && $type!='postdate'?}
+	<div class="list">
+		<ul>
+			<li><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=week$mid&sortid=$sortid&page=1&siteid=$siteid?}" {?if $order=='week'?} class="xuanzhong"{?/if?}>周榜</a></li>
+			<li><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=month$mid&sortid=$sortid&page=1&siteid=$siteid?}" {?if $order=='month'?} class="xuanzhong"{?/if?}>月榜</a></li>
+			<li><a href="{?function geturl:'3g':'top':'method=toplist':SYS=type=total$mid&sortid=$sortid&page=1&siteid=$siteid?}" {?if $order=='total'?} class="xuanzhong"{?/if?}>总榜</a></li>
+		</ul>
+	</div>
+	{?/if?}
+	<div class="zhou">
+		{?section name=i loop=$articlerows?}
+			<div class="rank">
+				<a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}"><img src="{?$articlerows[i].url_image?}" alt="{?$articlerows[i].articlename?}" /></a>
+				<p class="name"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}">{?$articlerows[i].articlename|truncate:20:'…'?}</a></p>
+				<p class="new"><a href="{?function geturl:'3g':'reader':SYS=aid=$articlerows[i].articleid&cid=$articlerows[i].lastchapterid?}">{?$articlerows[i].lastchapter|truncate:24:'…'?}</a></p>
+				<p class="info">作者：<a href="/search/{?$articlerows[i].author?}">{?$articlerows[i].author|truncate:'10':'…':'0'?}</a> 字数：{?$articlerows[i].size_c?}</p>
+			</div>
+		{?/section?}
+	</div>
+
+	<div class="fanye">
+    	{?$url_jumppage?}
+    </div> 
+</div>

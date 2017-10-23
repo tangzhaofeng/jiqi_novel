@@ -1,0 +1,3 @@
+{?section name=i loop=$sortrows?}
+<dd><a href="{?$sortrows[i].url_sort?}" target="_blank" {?if $sortrows[i]['sortid']==$_REQUEST['sortid']?} class="on"{?/if?}>{?$sortrows[i].sortname?}</a></dd>
+{?/section?}

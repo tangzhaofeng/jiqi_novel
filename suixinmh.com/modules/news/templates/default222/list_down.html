@@ -1,0 +1,92 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_pc.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+
+	<div id="guanggao"> 您所在的位置：<a href="{?$_SGLOBAL['localurl']?}">{?$_SGLOBAL['sitename']?}首页</a> > <a href="{?function jieqi_geturl:'news':'lists':64:1?}">单机首页</a> > <span class="cRed">{?$_SGLOBAL['cate']['catname']?}</span> </div>
+	<div class="clear"></div>
+	<div id="view_all">
+	  <div id="danji_0505_ta">
+		<div id="danji_0505_left">
+			<div id="view_1_a">
+						<div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+						<div class="t_410" id="rig_1_b"> {?$_SGLOBAL['cate']['catname']?}</div>
+					 </div>
+				<div id="dj_list1">
+						   <div class="dj_list2">
+									<ul id="menu4">
+										<li class="hover" onmouseover="this.className='hover';"><a href="{?eval echo jieqi_geturl('news', 'top', array('catid'=>$_SGLOBAL['cate']['catid'], 'm'=>$_PAGE['m']), 'supports', 1);?}">按日期排行</a></li>
+										<li onmouseover="this.className='hover';" onmouseout="this.className='';"><a href="{?eval echo jieqi_geturl('news', 'top', array('catid'=>$_SGLOBAL['cate']['catid'], 'm'=>$_PAGE['m']), 'supports', 1);?}">按推荐排行</a></li>
+										<li onmouseover="this.className='hover';" onmouseout="this.className='';"><a href="{?eval echo jieqi_geturl('news', 'top', array('catid'=>$_SGLOBAL['cate']['catid'], 'm'=>$_PAGE['m']), 'comments', 1);?}">按评论排行</a></li>
+										<li onmouseover="this.className='hover';" onmouseout="this.className='';"><a href="{?eval echo jieqi_geturl('news', 'top', array('catid'=>$_SGLOBAL['cate']['catid'], 'm'=>$_PAGE['m']), 'hits', 1);?}">按点击排行</a></li>
+									</ul>
+						  </div>
+						</Div>	
+				<div class="clear"></div>
+				<div class="main_lt_56">
+					<div id="main4">
+							<ul >
+							  <div id="dj_list3">
+							   <div id="dj_list3_1">[{?$_SGLOBAL['cate']['catname']?}] {?$_PAGE['url_jumppage']?} </div>
+			
+							   {?section name=i loop=$_PAGE['articlerows']?}
+							   <div id="dj_list3_2">
+								  <div id="dj_list3_2a"><span class="t_blue"><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}{?$_PAGE['articlerows'][i]['version']?}下载" target="_blank">《{?$_PAGE['articlerows'][i]['title']?}》{?$_PAGE['articlerows'][i]['version']?}下载</a></span><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}{?$_PAGE['articlerows'][i]['version']?}下载" target="_blank"><span class="cBlue">(已有</span><span class="cRed">{?$_PAGE['articlerows'][i]['comments_checked']|defaultval:'0'?}</span><span class="cBlue">人评论)</span></a></div>
+								  <div id="dj_list3_2b">
+									 <div id="dj_list3_3a">
+									   <table width="127" border="0" align="center" cellpadding="0" cellspacing="0" class="dj_tab_pp">
+										 <tr>
+										   <td height="178" align="center">{?if $_PAGE['articlerows'][i]['thumb']!=''?}
+			  <a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}{?$_PAGE['articlerows'][i]['version']?}下载" target="_blank"><img src="{?$_PAGE['articlerows'][i]['thumb']?}" alt="{?$_PAGE['articlerows'][i]['title']?}" border="0" /></a>{?/if?}</td>
+										 </tr>
+									   </table>
+									 </div>
+									 <div id="dj_list3_3b">
+										 <div id="dj_list3_3d">
+											 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="dj_list_t">
+				  <tr>
+					<td valign="top" class="dj_blue"><div id="dj_t1">{?$_PAGE['articlerows'][i]['description']|defaultval:'简介：暂无!'?}<a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" target="_blank" class="t_blue">[点击下载]</a></div></td>
+				  </tr>
+				  <tr>
+					<td height="24" class="dj_list_t"><strong class="cRed">提示：</strong><span class="cRed">大小超过4G</span> <a target="_blank" href="http://www.yxdown.com/gonglue/31696.html">硬盘需要NTFS格式</a> <span class="cRed">注意显卡配置</span></td>
+				  </tr>
+				</table>{?eval if($_PAGE['articlerows'][i]['supports']<1) $score = 0; else $score = $_PAGE['articlerows'][i]['supports']/($_PAGE['articlerows'][i]['supports']+$_PAGE['articlerows'][i]['againsts'])*100;?}
+										 </div>
+										 <div style="height:30px; font-size:12px; margin-top:10px; text-align:center;">时间：{?$_PAGE['articlerows'][i]['inputtime']|date:'Y-m-d'?}&nbsp;&nbsp;  大小：<span class="cRed">{?$_PAGE['articlerows'][i]['filesize']?}</span>  &nbsp;&nbsp;语言：{?$_PAGE['articlerows'][i]['language']?}&nbsp;&nbsp;  <span class="cRed">玩家好评率：{?$score|sprintf:"%.2f"?}%</span></div>
+									 </div>
+								  </div>
+							   
+							   
+							</div>{?/section?}
+							<div id="dj_list3_1">[{?$_SGLOBAL['cate']['catname']?}] {?$_PAGE['url_jumppage']?} </div>
+							</div>
+						  </div>
+						  </ul>
+					</div>	  
+				</div>
+		    </div>
+	 <div id="danji_0505_ta2">
+	     <div id="du_left_w1">
+			     <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 栏目导航</div>
+			 </div>
+				  <div id="danji_aq">
+				   <ul class="news_list_aq">
+					{?tag_news_42_首页单机栏目导航<{64,_parent}><{block_sort2.html}>?}
+				  </ul>
+				</div>
+       </div>
+       <div id="du_left_w2">
+           <div id="view_1_a">
+			    <div id="rig_1_b"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/tjxw_1.jpg" width="11" height="11" /></div>
+				<div class="t_410" id="rig_1_b"> 热门单机游戏</div>
+		 </div>
+           <div style="width:156px;">
+		   
+		   {?tag_news_21_[新闻]通用查询<{hits_week,10,64,0,0,3,48}><{danji/block_tablelist.html}>?}
+          
+          </div>
+       </div>
+	 </div>
+	</div>
+</div>
+

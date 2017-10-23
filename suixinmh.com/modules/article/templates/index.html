@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>{?$article['articlename']?}最新章节,小说{?$article['articlename']?}全文阅读-书海小说网</title>
+<meta name="keywords" content="{?$article['articlename']?},{?$article['articlename']?}小说,{?$article['articlename']?}全文阅读,{?$article['articlename']?}无弹窗">
+<meta name="description" content="{?$article['articlename']?}为{?$article['author']?}精心创作,书海小说网提供{?$article['articlename']?}最新章节与{?$article['articlename']?}全文阅读,请大家投票与收藏支持{?$article['articlename']?}小说,{?$article['articlename']?}无弹窗免费阅读尽在书海小说网www.shuhai.com。">
+<link href="{?$jieqi_themeurl?}style/list.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/page.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/swipe.js"></script>
+<script language="JavaScript">
+var preview_page = "{?$article['preview_page']?}";
+var next_page = "{?$article['next_page']?}";
+var article_id = "{?$article['articleid']?}";
+function jumpPage() {
+  var event = document.all ? window.event : arguments[0];
+  if (event.keyCode == 37) document.location = preview_page;
+  if (event.keyCode == 39) document.location = next_page;
+}
+document.onkeydown=jumpPage;
+</script>
+</head>
+{?eval $sortid = $article['sortid'];?}
+<body class="bg">
+<!--top begin-->
+<div class="top fix">
+ {?include file = "themes/v1/header.html" ?}
+</div><!--top end-->
+<!--wrap begin-->
+<div class="wrap fix">
+  <!--box_ns2 begin-->
+  <div class="box_ns2">
+    {?include file = "themes/v1/search.html" ?}
+  </div><!--box_ns2 end-->
+  <div class="ad2"><script type="text/javascript" src="{?$jieqi_url?}/js/sy1.js"></script></div>
+ <!--article2 begin-->
+ <div class="article2 fl fix">
+   <!--chapter begin-->
+   <div class="chapter">
+     <div class="path f_gray3 f14">
+      <span class="g6 pl5">当前位置：</span><a href="{?$jieqi_local_url?}" title=书海小说网 >书海小说网</a>&gt;<a href="{?$article['url_class']?}">{?$article['sort']?}</a>&gt;<a href="{?$article['url_articleinfo']?}" title={?$article['articlename']?} >{?$article['articlename']?}</a>
+	  <div class="fr"><a href="javascript:;" title="《{?$article['articlename']?}》全文阅读">全文阅读</a>|<a href="javascript:;" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$article["articleid"]'?}');" title="将《{?$article['articlename']?}》加入书架">加入书架</a>|<a href="javascript:;" title="《{?$article['articlename']?}》TXT下载">TXT下载</a>|<a href="{?$article['url_articleinfo']?}" title="返回《{?$article['articlename']?}》书页">返回书页</a></div>
+     </div>
+     <div class="chapter_top">
+      <h3><!--<script type="text/javascript" src="{?$jieqi_url?}/js/article_index.js"></script>-->{?$article['articlename']?}</h3>
+      <p class="info">作者：<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$article["authorid"]'?}" target="_blank" class="f_black">{?$article['author']?}</a><!-- 更新时间：{?$article['lastupdate']|date:'Y-m-d'?} [ <a href="{?$article['preview_page']?}">阅读最新章节</a> ]--><!--</p>-->
+<!--	  <p>--><!--分类：<a href="{?$article['url_class']?}" class="f_gray6">{?$article['sort']?}</a> --><em>状态：</em>{?if $article['fullflag']>0?}<span class="g0">{?$article['fullflag_tag']?}</span>{?else?}<span class="g0">{?$article['fullflag_tag']?}</span>{?/if?}<em>字数：</em><span class="g0">{?if $article['size_c'] < 10000 ?}{?$article['size_c']?}字{?else?}{?$article['size_w']?}万字{?/if?}</span><em>最后更新时间：</em><span class="g0">{?$article['lastupdate']|date:'Y-m-d H:i:s'?}</span></p><div style="margin:0 auto; width:30%; height:30px; padding-top:10px;"><em style="float:left; line-height:28px; color:#999;">分享到：</em><div class="bdsharebuttonbox" style="margin:0 auto;float:left;vertical-align:middle;"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a class="bds_renren" data-cmd="renren"></a><a class="bds_weixin" data-cmd="weixin"></a><a class="bds_count" data-cmd="count"></a></div></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"书海小说网首发作品《{?$article['articlename']?}》，全部章节目录，每天更新，推荐阅读。","bdMini":"2","bdMiniList":false,"bdPic":"{?$url_image_l?}","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!--      <div class="chapter_op">
+       <a href="{?$article['url_articleinfo']?}" target="_self" class="back" title=返回{?$article['articlename']?}信息页 ><em></em>返回书页</a><a href="javascript:void(0)" target="_blank" class="dwn" title={?$article['articlename']?}TXT下载 ><em></em>TXT下载</a><a href="javascript:void(0)" target="_blank" class="add" title=将{?$article['articlename']?}小说加入书架 ><em></em>加入书架</a><a href="javascript:void(0)" target="_blank" class="read" title={?$article['articlename']?}全文阅读 ><em></em>全文阅读</a>
+      </div>-->
+     </div>{?eval $havavip = 0;?}
+     {?section name=i loop=$indexrows?}{?if $indexrows[i].ctype == "volume"?}
+     <div class="box_chap fix">
+	 
+       <div class="t"><h4>{?if $indexrows[i].vname == ""?}&nbsp;{?else?}&nbsp;&nbsp;{?$indexrows[i].vname?}{?/if?}</h4>
+	   </div>
+       <ul class="f_gray3">{?else?}
+        <li>{?if $indexrows[i].cname1 == ""?}&nbsp;{?else?}<a href="{?$indexrows[i].curl1?}" title="{?$indexrows[i].cname1?}">{?$indexrows[i].cname1|truncate:'30':'…'?}</a>{?/if?}{?if $indexrows[i].isvip1>0?}<em>[VIP]</em>{?/if?}</li>  
+		<li>{?if $indexrows[i].cname2 == ""?}&nbsp;{?else?}<a href="{?$indexrows[i].curl2?}" title="{?$indexrows[i].cname2?}">{?$indexrows[i].cname2|truncate:'30':'…'?}</a>{?/if?}{?if $indexrows[i].isvip2>0?}<em>[VIP]</em>{?/if?}</li>  
+		<li>{?if $indexrows[i].cname3 == ""?}&nbsp;{?else?}<a href="{?$indexrows[i].curl3?}" title="{?$indexrows[i].cname3?}">{?$indexrows[i].cname3|truncate:'30':'…'?}</a>{?/if?}{?if $indexrows[i].isvip3>0?}<em>[VIP]</em>{?/if?}</li>{?/if?}  
+       {?if $indexrows[$i.order].ctype=='' || $indexrows[$i.order].ctype == "volume"?}</ul></div>{?/if?}
+{?/section?}
+    
+    <div class="tips_read fix">
+     <div class="t">阅读小贴士</div>
+     <p>
+      如果您喜欢<a href="{?$article['url_articleinfo']?}" target="_blank" class="f_blue">《{?$article['articlename']?}》</a>那么就点击这里把《{?$article['articlename']?}》<a href="javascript:;" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$article["articleid"]'?}');" class="f_org3">加入书架</a> 吧。</p>
+       <p>若您发现<a href="{?$article['url_articleinfo']?}" target="_blank" class="f_blue">《{?$article['articlename']?}》</a>有最新章节,而本站未能更新,请及时 <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage'?}" target="_blank" class="f_org3">联系我们</a>,您的热心是对我们最大的支持。</p>
+       <p>本站<a href="{?$article['url_articleinfo']?}" target="_blank" class="f_blue">《{?$article['articlename']?}》</a>全文阅读为免费功能，请推荐给您的朋友。 </p>
+     <p>小说<a href="{?$article['url_articleinfo']?}" target="_blank" class="f_blue">《{?$article['articlename']?}》</a>版权属书海小说网.如果对小说内容方面有质疑,请及时 <a href="{?function geturl:'system':'userhub':'SYS=method=newmessage'?}" target="_blank" class="f_org3">反馈给我们</a>,以便我们及时处理。</p>
+     <!--<p class="f_blue">
+     如果您喜欢<a href="{?$article['url_articleinfo']?}">《{?$article['articlename']?}》</a>那么就点击这里把<a href="{?$article['url_articleinfo']?}">《{?$article['articlename']?}》</a>加入书架 吧。<br />
+若您发现有小说<a href="{?$article['url_articleinfo']?}">《{?$article['articlename']?}》</a>最新章节,而本站未能更新,请及时联系我们,您的热心是对我们最大的支持。<br />
+本站<a href="{?$article['url_articleinfo']?}">《{?$article['articlename']?}》</a>全文阅读为免费功能，请推荐给您的朋友。<br />
+小说<a href="{?$article['url_articleinfo']?}">《{?$article['articlename']?}》</a>版权属于书海小说网.如果对小说内容方面有质疑,请及时反馈给 我们,以便我们及时处理。</p>-->
+    </div>
+   </div><!--chapter -->
+   <div class="recommend mt10">
+     <div class="t">百万精选作品<span class="adorn"></span></div>
+     <div class="box_dwn fix bg1" style="height:162px;">
+       {?tag_system_2_通用查询<{monthsale,4,$sortid,0,0,0}><{v1/block_mulu.html}>?}{?tag_system_2_通用查询<{size,4,$sortid,0,0,0}><{v1/block_mulu.html}>?}
+     </div>
+   </div>
+ </div><!--article2 end-->
+ 
+ <!--sidebar begin-->
+ <div class="sidebar fr">
+  <!--box_side begin-->
+  <div class="box_side">
+    <div class="t2"><h2>书海强推</h2><ul class="tabm2" id="tabs8">
+        <li class="thistab"><a href="javascript:;">男频</a></li>
+        <li><a href="javascript:;">女频</a></li>
+       </ul></div>
+    <ul class="dwn0 pb5 bg2" id="tab_conbox8">
+       <li class="fix">
+         <dl class="ldt p10">    
+        {?tag_system_216_[书页]-右上角-书海强推-男<{}><{block_commend.html}>?}
+      </dl>
+        </li>       
+        <li class="fix" style="display:none;"><dl class="ldt p10">    {?tag_system_217_[首页]左上角-书海强推-女<{}><{block_commend.html}>?}</dl>
+        </li>
+      </ul>
+    </div><!--box_side end-->
+    
+    
+    <div class="box_side mt10">
+      <div class="t1"><h2>百万风云榜</h2></div>
+          <div class="dwn0 pb5 pl10 pt10 bg2">
+            <dl class="list_t3d f_black">
+             {?tag_system_128_[首页]右上角-百万风云榜<{}><{v1/block_visit2.html}>?}
+            </dl>
+          </div>
+    </div>
+        
+    
+    <div class="box_side mt10">
+      <div class="t1"><h2>月票榜</h2></div>
+          <div class="dwn0 pb5 pl10 pt10 bg2">
+            <dl class="list_t3d f_black">
+             {?tag_system_2_通用查询<{monthvipvote,10,0,0,0,0}><{v1/block_visit2.html}>?}
+            </dl>
+          </div>
+    </div>
+    <div class="tabbox3 mt10">
+      <div class="t"><h2>点击榜</h2>
+       <ul class="tabs3" id="tabs3">
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=weekvisit&sortid=$sortid&page=1?}">周</a></li>
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=monthvisit&sortid=$sortid&page=1?}">月</a></li>
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=totalvisit&sortid=$sortid&page=1?}">总</a></li>
+       </ul>
+      </div>
+      <ul class="tab_conbox4" id="tab_conbox3">       
+        <li class="tab_con3">
+          <div class="dwn0 pb5 pl10 pt10 bg2">
+            <dl class="list_t3d f_black">
+              {?tag_system_2_通用查询<{weekvisit,12,$sortid,0,0,0}><{v1/block_visit2.html}>?}
+            </dl>
+          </div>
+        </li>       
+        <li class="tab_con3">
+          <div class="dwn0 pb5 pl10 pt10 bg2">
+            <dl class="list_t3d f_black">
+              {?tag_system_2_通用查询<{monthvisit,12,$sortid,0,0,0}><{v1/block_visit2.html}>?}
+            </dl>
+          </div>
+        </li>       
+        <li class="tab_con3">
+          <div class="dwn0 pb5 pl10 pt10 bg2">
+            <dl class="list_t3d f_black">
+              {?tag_system_2_通用查询<{totalvisit,12,$sortid,0,0,0}><{v1/block_visit2.html}>?}
+            </dl>
+          </div>
+        </li>
+      </ul>
+    </div>
+     <!--<div class="ad5"><script type="text/javascript" src="{?$jieqi_url?}/js/tb2.js"></script></div>-->
+<!--    <div class="box_side mt10">
+      <div class="t1"><h2>新书榜</h2></div>
+      <div class="box_dwn bg1">
+       <ul class="list_img">
+        <li class="fix">
+        <a href="javascript:void(0)" target="_blank"><img src="{?$jieqi_themeurl?}images/bk6.jpg" width="92" height="122" /></a>
+        <dl>
+         <dt><a href="javascript:void(0)" target="_blank" class="f_gray3">猛男公寓猛男公寓猛男公寓</a></dt>
+         <dd>类别：都市小说</dd>
+         <dd>作者：当年明</dd>
+         <dd><a href="javascript:void(0)" target="_blank" class="f_red3">[订阅]</a></dd>
+        </dl>        
+        </li>
+        <li class="fix">
+        <a href="javascript:void(0)" target="_blank"><img src="{?$jieqi_themeurl?}images/bk6.jpg" width="92" height="122" /></a>
+        <dl>
+         <dt><a href="javascript:void(0)" target="_blank" class="f_gray3">猛男公寓</a></dt>
+         <dd>类别：都市小说</dd>
+         <dd>作者：当年明</dd>
+         <dd><a href="javascript:void(0)" target="_blank" class="f_red3">[订阅]</a></dd>
+        </dl>        
+        </li>
+        <li class="fix">
+        <a href="javascript:void(0)" target="_blank"><img src="{?$jieqi_themeurl?}images/bk6.jpg" width="92" height="122" /></a>
+        <dl>
+         <dt><a href="javascript:void(0)" target="_blank" class="f_gray3">猛男公寓</a></dt>
+         <dd>类别：都市小说</dd>
+         <dd>作者：当年明</dd>
+         <dd><a href="javascript:void(0)" target="_blank" class="f_red3">[订阅]</a></dd>
+        </dl>        
+        </li>
+        <li class="fix">
+        <a href="javascript:void(0)" target="_blank"><img src="{?$jieqi_themeurl?}images/bk6.jpg" width="92" height="122" /></a>
+        <dl>
+         <dt><a href="javascript:void(0)" target="_blank" class="f_gray3">猛男公寓</a></dt>
+         <dd>类别：都市小说</dd>
+         <dd>作者：当年明</dd>
+         <dd><a href="javascript:void(0)" target="_blank" class="f_red3">[订阅]</a></dd>
+        </dl>        
+        </li>
+        <li class="fix">
+        <a href="javascript:void(0)" target="_blank"><img src="{?$jieqi_themeurl?}images/bk6.jpg" width="92" height="122" /></a>
+        <dl>
+         <dt><a href="javascript:void(0)" target="_blank" class="f_gray3">猛男公寓</a></dt>
+         <dd>类别：都市小说</dd>
+         <dd>作者：当年明</dd>
+         <dd><a href="javascript:void(0)" target="_blank" class="f_red3">[订阅]</a></dd>
+        </dl>        
+        </li>
+       </ul>
+      
+      </div>
+    </div>    -->
+ </div><!--sidebar end-->
+ 
+</div><!--wrap end-->
+  <div class="ad4"><script type="text/javascript" src="{?$jieqi_url?}/js/bd2.js"></script></div>
+{?include file = "themes/v1/bottom.html" ?}
+</body>
+</html>

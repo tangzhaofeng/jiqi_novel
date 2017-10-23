@@ -1,0 +1,99 @@
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>渠道管理</caption>
+  <tr>
+    <td><a href='{?$adminprefix?}&method=add'><font color="red">添加渠道</font></a></td>
+  </tr>
+</table>
+<form name="frmquery" method="post" action="{?$adminprefix?}">
+<table width="100%"  border="0" cellspacing="0" cellpadding="0" class="hide">
+      <tr>
+    <td class="even" align="left">
+渠道名称：
+      <input name="keyword" type="text" class="text" id="keyword" size="20" maxlength="50" value="{?$_PAGE['keyword']?}">
+      <input type="submit" name="Submit" value="搜 索" class="button">&nbsp;&nbsp;
+      </td>
+    </tr>
+    </table>
+</form>
+<form method="post" action="{?$adminprefix?}&method=order">
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+    <caption>渠道列表</caption>
+    <tr>
+        <th width="3%">排序</th>
+        <th width="3%">ID</th>
+        <th width="10%">渠道名称</th>
+		<th width="5%">渠道域名</th>
+		<th width="10%">管理人</th>
+		<th width="3%">类型</th>
+		<th width="3%">来源</th>
+		<th width="12%">添加时间</th>
+		<th width="3%">状态</th>
+        <th width="15%">管理操作</th>
+    </tr>
+    {?section name=i loop=$_PAGE['rows']?}
+    <tr onmouseover="this.style.backgroundColor='#EAF8FF';" onmouseout="this.style.backgroundColor='#ffffff';">
+      <td class="align_c"><input type="text" name="order[{?$_PAGE['rows'][i]['channelid']?}]" value="{?$_PAGE['rows'][i]['listorder']?}" size="5"></td>
+        <td class="align_c">{?$_PAGE['rows'][i]['channelid']?}</td>
+        <td class="align_c">{?$_PAGE['rows'][i]['channelname']?}</td>
+		<td class="align_c">{?$_PAGE['rows'][i]['url']?}</td>
+		<td class="align_c">{?$_PAGE['rows'][i]['unames']?}</td>
+		<td class="align_c" align="center">{?if $_PAGE['rows'][i]['type'] == 1?}<font color="green">展示</font>{?elseif $_PAGE['rows'][i]['type'] == 2?}<font color="blue">采集</font>{?else?}<font color="red">推送</font>{?/if?}</td>
+		<td class="align_c" align="center">{?if $_PAGE['rows'][i]['setting']['getdata']['chaptersource'] == 1?}<font color="#268CC6">缓冲池</font>{?else?}主站{?/if?}</td>
+		<td class="align_c" align="center">{?$_PAGE['rows'][i]['postdate']|date:'Y-m-d H:i:s'?}</td>
+		<td class="align_c" align="center">{?if $_PAGE['rows'][i]['statu']=='1'?}开启{?else?}<font color="red">关闭</font>{?/if?}</td>
+        <td class="align_c" align="center"> 																																																																																								
+        	{?if $_PAGE['rows'][i]['type'] == 1?}<a href="{?eval echo str_replace('{key}',$_PAGE['rows'][i]['url'],$_PAGE['apiurl']); ?}" target="_blank">预览</a> | {?else?}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{?/if?}<a href="{?$adminprefix?}&method={?if $_PAGE['rows'][i]['type'] == 2?}collectView{?else?}pushView{?/if?}&cid={?$_PAGE['rows'][i]['channelid']?}">文章</a> | <!--  <a href="{?$_SCONFIG['apijoinurl']?}" target="_blank">查询</a> |--> <a href="{?$adminprefix?}&method=add&cid={?$_PAGE['rows'][i]['channelid']?}">修改</a> | <a href="javascript:confirmurl('{?$adminprefix?}&method=del&cid={?$_PAGE['rows'][i]['channelid']?}', '是否删除该渠道及渠道内数据池文章：{?$_PAGE['rows'][i]['channelname']?}')">删除</a>
+        	{?if $_PAGE['manageallarticle'] == 1?}
+        	 | <a href="javascript:void(0)" name="schedule" onclick="schedule({?$_PAGE['rows'][i]['channelid']?},'{?$_PAGE['rows'][i]['uid']?}')">分配</a>
+        	 {?/if?}
+        </td>
+    </tr>{?/section?} 
+     
+</table>
+<div class="button_box"><input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /><input name="dosubmit" type="submit" value=" 更新排序 " class="text"/></div>{?$_PAGE['url_jumppage']?}
+</form>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+  <caption>提示信息</caption>
+  <tr>
+    <td>
+	</td>
+  </tr>
+</table>
+{?if $_PAGE['manageallarticle'] == 1?}
+	<form name="agent" id="agent" action="{?$adminprefix?}&method=schedule" style="display:none; position:fix;" ajaxsubmit retruemsg="true">
+		  {?section name=i loop=$_PAGE['agents']?}
+		  	<label ><input type="checkbox" id="uid_{?$_PAGE['agents'][i]['uid']?}" name="uids[]" value="{?$_PAGE['agents'][i]['uid']?}"/>{?$_PAGE['agents'][i]['uname']?}{?if $_PAGE['agents'][i]['realName'] != ''?}-{?$_PAGE['agents'][i]['realName']?}{?/if?}<br/></label>
+		  {?/section?} 
+		<input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+		<input type="hidden" name="channelid" id="channelid"/>
+		<br/><input type="submit" value="分配" class="text"/>
+	</form>
+	<script language="javascript">
+	function schedule(channelid,uid){
+		$("input[name='uids[]").attr("checked",false);
+			if(uid){
+				uid_arr = uid.split(',');
+			    for (i=0;i<uid_arr.length ;i++ ){
+			    	if ($("#uid_"+uid_arr[i]+"")){ 
+			    		$("#uid_"+uid_arr[i]+"").attr("checked",'true');
+			    	}
+			    } 
+			}
+			$("#channelid").val(channelid);
+			 $.layer({
+					shade : [0.5 , '#000' , true],
+					type : 1,
+	//				area : ['60%','560px'],
+					title : false,
+					offset : ['30px' , '50%'],
+					border : [10 , 0.3 , '#000', true],
+					zIndex : 1,
+					page : {dom : '#agent'},
+					close : function(index){
+						layer.close(index);
+						$('.ul_con').hide();
+					}
+				});	
+	}
+	</script>
+{?/if?}

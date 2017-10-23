@@ -1,0 +1,40 @@
+<link href="{?$jieqi_themeurl?}style/news.css" type="text/css" rel="stylesheet" />
+{?eval $articlerows = $_PAGE['articlerows'];?}
+<!--wrap begin-->
+<div class="wrap fix">
+   <!--news begin-->
+<!--   <div class="news">
+    <h2><span class="ito"></span>书海新闻<span class="ien">NEWS</span></h2>
+   </div>--><!--news end-->
+   <!--box_mid2 begin-->
+  <!--article5 begin-->
+  <div class="article5 fl mt5">
+   <div class="box_mid2">    
+    <div class="t"><h3>新闻公告</h3><!--<span class="adorn"></span>--></div>
+    <div class="down fix p20"> 
+     <ul class="list_tt fix">
+      {?section name=i loop=$articlerows?}<li><span class="name">·<!--<a href="#" target="_blank" class="f_gray6">【专题】</a> --><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_black f14">{?$articlerows[i]['title']?}</a><!--<em class="hot">hot</em>--></span><span class="date">{?$articlerows[i]['inputtime']|date:'Y-m-d H:i:s'?}</span></li>{?/section?}
+     </ul>
+     <div class="page3 mt20">
+	   {?$_PAGE['url_jumppage']?}
+<!--      <em class="on">1</em><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a>&#8230;&#8230;<a href="#">下一页</a><em class="pr10">共1/46页</em> 转到第<input name="" type="text" />页 <button name="" type="text">跳转</button>-->
+     </div>
+    </div>    
+   </div><!--box_mid2 end-->
+  </div><!--article5 end-->
+  
+  <!--sidebar3 begin-->
+  <div class="sidebar3 fr mt5">
+  <div class="box_side">
+    <div class="t2"><h2>书海强推</h2><ul class="tabm2" id="tabs3">
+        <li class="thistab"><a href="javascript:;">男频</a></li>
+        <li><a href="javascript:;">女频</a></li>
+       </ul></div><div class="dwn2 qh" id="tab_conbox3">
+        <dl class="ldt p10">       
+        <script language="javascript" type="text/javascript" src="/postion/216.html"></script>
+      </dl>
+        <dl class="ldt p10" style="display:none;"><script language="javascript" type="text/javascript" src="/postion/217.html"></script></dl>
+      </div>
+  </div>
+  </div><!--sidebar3 end-->
+</div><!--wrap end-->

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<data>
+<cname><![CDATA[{?eval echo gb2utf8XHSafeStr($article['sort'],false);?}]]></cname>
+<bookname><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></bookname>
+<bookid>{?$article['articleid']?}</bookid>
+<bookpic><![CDATA[{?$article['url_image_l']?}]]></bookpic>
+<intro><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></intro>
+<authorname><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></authorname>
+<createtime>{?$article['postdate']?}</createtime>
+<allsize>{?eval echo $article['size']/2;?}</allsize>
+<weekvisit>{?$article['weekvisit']?}</weekvisit>
+<monthvisit>{?$article['monthvisit']?}</monthvisit>
+<allvisit>{?$article['allvisit']?}</allvisit>
+<writestatus>{?$article['fullflag']?}</writestatus>
+<fullflag>{?$article['fullflag']?}</fullflag>
+<sortid>{?$article['sortid']?}</sortid>
+<isfree>{?if $article['articletype']>0?}1{?else?}0{?/if?}</isfree>
+</data>

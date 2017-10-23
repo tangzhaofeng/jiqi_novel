@@ -1,0 +1,44 @@
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>标签管理</caption>
+  <tr>
+    <td><a href='{?$adminprefix?}&method=add&step=one'><font color="red">添加标签</font></a> | <a href='{?$adminprefix?}'>返回标签列表</a></td>
+  </tr>
+</table>
+<form name="myform" method="post" action="{?$adminprefix?}&method=add">
+<table cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>添加标签</caption>
+
+     <tr>
+      <th><strong>标签类型</strong></th>
+      <td>
+	<!--  <input type="radio" name="type" value="0" onClick="$('#model').hide()">推荐位（可用于发布文章时选择推荐文章，并支持直接修改文章编号显示文章）<br/>-->
+	  <label><input type="radio" name="type" value="1" onClick="$('#model').show()" checked>查询区块（可根据自定查询条件显示相应内容）<br/></label>
+	  <label><input type="radio" name="type" value="2" onClick="$('#model').hide()">自定义内容（可自定义页面显示内容，支持HTML）<br/></label>
+	  </td>
+    </tr>
+    <tr>
+    	<th><strong>标签分类</strong></th>
+    	<td>
+    		<select name="ptypeid">
+    			{?section name=i loop=$ptypes?}
+    			<option value="{?$i.key?}">{?$ptypes[i].module?}&nbsp;|&nbsp;{?$ptypes[i].name?}</option>
+    			{?/section?}
+    		</select>
+    	</td>
+    </tr>
+<tbody id="model">
+     <tr>
+      <th><strong>区块文件</strong></td>
+      <td>	<select name="bid" id="bid" size="1">
+	{?section name=i loop=$_PAGE['block']?}
+	<option value="{?$_PAGE['block'][i]['bid']?}">{?$_PAGE['block'][i]['blockname']?}-{?$_PAGE['block'][i]['modname']?}</option>
+	{?/section?}
+	</select> <a href="?controller=blocks">管理区块</a></td>
+    </tr>
+</tbody>
+	<tr>
+	 <th></th>
+	 <td><input type="submit" name="next" value=" 下一步 ">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重置 "></td>
+	</tr>
+</table>
+</form>

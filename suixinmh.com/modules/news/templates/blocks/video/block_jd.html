@@ -1,0 +1,5 @@
+{?section name=i loop=$articlerows?}<div class="splistL1">
+   <div class="splistLbutton1"><img src="{?$jieqi_local_url?}/images/news/images/lha1.gif" width="20" height="20" /></div>
+   <div class="clearfix"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank"><img src="{?$articlerows[i]['thumb']?}" width="134" height="92" border="0" alt="{?$articlerows[i]['title']?}" /></a></div>
+   <div class="splistC1"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></div>
+</div>{?/section?}

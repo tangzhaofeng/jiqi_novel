@@ -1,0 +1,85 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>{?$_SGLOBAL['category'][$_PAGE['_GET']['catid']]['catname']?} 栏目管理</caption>
+  <tr>
+    <td><a href='?ac=content&op=add&catid={?$_PAGE['form']['catid']?}'><font color="red">发布信息</font></a> | <a href='?ac=content&op=manage&action=my&catid={?$_PAGE['form']['catid']?}'>我发布的信息</a> | <a href='?ac=content&op=check&status=3&catid={?$_PAGE['form']['catid']?}'>待审</a> | <a href='?ac=content&op=check&status=1&catid={?$_PAGE['form']['catid']?}'>退稿</a> | <a href='?ac=content&op=check&action=recycle&catid={?$_PAGE['form']['catid']?}'>回收站</a> | <a href='?ac=content&op=manage&catid={?$_PAGE['form']['catid']?}'>管理</a> | <a href='?ac=content&op=manage&action=search&catid={?$_PAGE['form']['catid']?}'>搜索</a></td>
+  </tr>
+</table><div class="tag_menu" style="width:99%;margin-top:10px;">
+<ul>
+  <li><a href="###" id='TabTitle0' onclick='ShowTabs(0)' class="selected">基本信息</a></li>
+  <li><a href="###" id='TabTitle1' onclick='ShowTabs(1)'>高级设置</a></li>
+</ul></div>
+<form action="{?$_PAGE['posturl']?}/modules/news/admin/?ac=content&op=add&catid={?$_PAGE['form']['catid']?}" method="post" name="myform"  enctype="multipart/form-data">
+<div id='Tabs0' style='display:'>
+<input type="hidden" name="dosubmit" value="1" />
+<table align="center" cellpadding="2" cellspacing="1" class="grid " width="100%">
+  <caption>{?if $_PAGE['_GET']['contentid']>0?}修改{?/if?}基本信息</caption>
+	
+  {?section name=i loop=$_PAGE['form']['base']?}
+ 	<tr>
+      <th width="20%">
+	   {?if $_PAGE['form']['base'][i]['star']>0?}<font color="red">*</font> {?/if?}<strong>{?$_PAGE['form']['base'][i]['name']?}</strong> <br />{?$_PAGE['form']['base'][i]['tips']?}
+	  	</th>
+      <td>{?$_PAGE['form']['base'][i]['form']?} {?$_PAGE['form']['base'][i]['forminfo']?}</td>
+    </tr>
+  {?/section?}  
+  
+	<tr>
+      <th width="20%"><strong>状态</strong><br />
+	  </th>
+      <td>
+	<input type="hidden"  name="info[contentid]" id="contentid" value="{?$_PAGE['data']['contentid']?}"/>
+	<input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+	<label><input type="radio"  name="info[status]" id="status" value="99" {?if $_PAGE['data']['status']==99 || $_PAGE['data']['status']==''?} checked{?/if?}/> 发布</label>
+	  	  <label><input type="radio" n name="info[status]" id="status" value="3" {?if $_PAGE['data']['status']==3?} checked{?/if?}> 审核</label>
+	  <label><input type="radio"  name="info[status]" id="status" value="2" {?if $_PAGE['data']['status']==2?} checked{?/if?}> 草稿</label>
+	  </td>
+    </tr>
+	
+    <tr>
+      <td></td>
+      <td>
+	  <input type="submit" name="dosubmit" value=" 确定 ">
+      &nbsp; <input type="button" name="preview" value=" 预览 " onclick="preview_content();">
+	  &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+</table>
+</div>
+<div id='Tabs1' style='display:none'>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<caption>高级设置</caption>
+  
+{?section name=i loop=$_PAGE['form']['senior']?}  
+<tr>
+  <th width="20%"> {?if $_PAGE['form']['senior'][i]['star']>0?}<font color="red">*</font> {?/if?}<strong>{?$_PAGE['form']['senior'][i]['name']?}</strong> <br /> {?$_PAGE['form']['senior'][i]['tips']?}</th>
+  <td>{?$_PAGE['form']['senior'][i]['form']?} {?$_PAGE['form']['senior'][i]['forminfo']?} </td>
+</tr>
+{?/section?} 
+
+    <tr>
+      <td></td>
+      <td>
+	  {?if $_PAGE['_GET']['contentid']>0?}<input type="hidden" name="jumpurl" value="{?$_SGLOBAL['refer']?}">{?/if?}
+	  <input type="submit" name="dosubmit" value=" 确定 ">
+      &nbsp; <input type="button" name="preview" value=" 预览 " onclick="preview_content();">
+	  &nbsp; <input type="reset" name="reset" value=" 清除 ">
+	  </td>
+    </tr>
+</table>
+</div>
+
+</form>
+<script LANGUAGE="javascript">
+<!--
+$().ready(function() {
+	  $('form').checkForm(1);
+	});
+//-->
+</script>

@@ -1,0 +1,23 @@
+<!-- 女频首页中间分类部分公用模板5本书，包含：现言·青春，古言·穿越，幻情·灵异，纯爱·同人 -->
+<!-- index:0 -->
+{?if $articlerows['0'] != ""?}
+<div class="img-t clearfix">
+      <a class="img" href="javascript:void(0);"><img src="{?$jieqi_themeurl?}images/cover135-1.jpg" alt="逍遥兵王"></a>
+      <h3><a class="f-black" target="_blank" href="javascript:void(0);">{?$articlerows['0']['articlename']?}</a></h3>
+      <p>{?$articlerows['0']['intro']?}</p>
+      <a href="javascript:void(0);" class="f-org">[立即收藏]</a><a href="javascript:void(0);" target="_blank" class="f-org">[开始阅读]</a>
+</div>
+{?/if?}
+
+
+<!-- index:1-4 -->
+{?if count|$articlerows > 2?}
+<ul class="list-t2 mx10 f14">
+	{?section name=i loop=$articlerows?}
+	       <li><a href="javascript:void(0);" target="_blank" class="f-gray9 sort">[言情]</a><a href="javascript:void(0);" class="f-gray3">非你我就不嫁：我只爱破产总裁</a></li>
+	{?/section?}
+</ul>
+{?/if?}
+
+
+      

@@ -1,0 +1,86 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>{?if $_SGLOBAL['cate']['catid']>0?}{?$_SGLOBAL['cate']['catname']?} 栏目管理{?else?}管理信息{?/if?}</caption>
+  <tr>
+    <td>{?if $_SGLOBAL['cate']['catid']>0?}<a href='?ac=content&op=add&catid={?$_SGLOBAL['cate']['catid']?}'><font color="red">发布信息</font></a> | <a href='?ac=content&op=manage&action=my&catid={?$_SGLOBAL['cate']['catid']?}'>我发布的信息</a> | <a href='?ac=content&op=check&status=3&catid={?$_SGLOBAL['cate']['catid']?}'>待审</a> | <a href='?ac=content&op=check&status=1&catid={?$_SGLOBAL['cate']['catid']?}'>退稿</a> | <a href='?ac=content&op=check&action=recycle&catid={?$_SGLOBAL['cate']['catid']?}'>回收站</a> | <a href='?ac=content&op=manage&catid={?$_SGLOBAL['cate']['catid']?}'>管理</a> | <a href='?ac=content&op=manage&action=search&catid={?$_SGLOBAL['cate']['catid']?}'>搜索</a>
+	{?else?}
+	<a href='?ac=content&op=manage'>所有通过信息</a> | <a href='?ac=content&op=check&status=3'><font color="#ff0000">审核信息</font></a> | <a href='?ac=content&op=check&status=1' >退稿</a> | <a href='?ac=content&op=check&action=recycle'>回收站</a> | <a href='?ac=content&op=manage&action=my' >我发布的信息</a> | <a href='?ac=content&op=manage&action=search'>搜索</a>
+	{?/if?}</td>
+  </tr>
+</table>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>信息查询</caption><form name="search_form" id="search_form" action="?" method="get">
+  <tr><input type="hidden" name="ac" id="ac" value='content' /><input type="hidden" name="op" id="op" value='manage' />
+    <td class="align_c">
+	频道：
+<select name="modelid" id="modelid" style="width:110px;">
+<option value="">请选择频道</option>{?section name=i loop=$_SGLOBAL['model']?}
+<option value="{?$_SGLOBAL['model'][i]['modelid']?}" {?if $_PAGE['modelid']==$_SGLOBAL['model'][i]['modelid']?}selected{?/if?}>{?$_SGLOBAL['model'][i]['name']?}</option>{?/section?}
+</select> <span id="load_catid"><input type="hidden" name="cid" id="cid" value="{?$_PAGE['catid']?}"> 
+  <select name="catid" id="catid" style="width:110px;">
+  <option value="">请选择栏目</option>
+  </select></span> 标题：<input type="text" name="key" value="{?$_PAGE['key']?}" size="20" />&nbsp;<input type="button" name="dosubmit" value=" 查询 " onClick="$('#search_form').submit();" /></td>
+  </tr></form>
+</table>
+<form name="myform" method="post" action="?ac=content&op=del">
+<table align="center" cellpadding="2" cellspacing="1" class="grid " width="100%">
+  <caption>信息管理</caption>
+<tr>
+<th width="30">选中</th>
+<th width="40">ID</th>
+<th>标题</th>
+<th width="80">模型</th>
+<th width="80">栏目</th>
+<th width="50">点击量</th>
+<th width="70">发布人</th>
+<th width="125">更新时间</th>
+<th width="150">管理操作</th>
+</tr>
+{?section name=i loop=$_PAGE['rows']?}
+<tr>
+<td><input type="checkbox" name="contentid[]" value="{?$_PAGE['rows'][i]['contentid']?}" id="content_{?$_PAGE['rows'][i]['contentid']?}" /></td>
+<td>{?$_PAGE['rows'][i]['contentid']?}</td>
+<td><a href="{?$_PAGE['rows'][i]['url_articleinfo']?}" target="_blank">{?$_PAGE['rows'][i]['alltitle']?}</a>
+&nbsp;&nbsp;</td>
+<td class="align_c">{?$_PAGE['rows'][i]['modelname']?}</td>
+
+<td class="align_c"><a href="{?$_PAGE['rows'][i]['url_catelist']?}" target="_blank">{?$_PAGE['rows'][i]['catname']?}</a></td>
+<td class="align_c">{?$_PAGE['rows'][i]['hits']|defaultval:'0'?}</td>
+<td class="align_c"><a href="/admin/usermanage.php?id={?$_PAGE['rows'][i]['userid']?}">{?$_PAGE['rows'][i]['username']?}</a></td>
+<td class="align_c">{?$_PAGE['rows'][i]['updatetime']|date:'Y-m-d H:i:s'?}</td>
+<td class="align_c">
+<a href="{?$_PAGE['rows'][i]['url_articleinfo']?}" target="_blank">查看</a> | 
+<a href="?ac=content&op=add&contentid={?$_PAGE['rows'][i]['contentid']?}">修改</a> | 
+<a href="javascript:delcontent('content_{?$_PAGE['rows'][i]['contentid']?}','?ac=content&op=del');">删除</a><!-- | <a href="#">评论</a>--> </td>
+</tr>
+{?/section?}  
+</table>
+<div class="button_box">
+<span style="width:60px"><a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a></span>
+	<input type="button" name="delete" value=" 删除 " onclick="myform.action='?ac=content&op=del';myform.submit();"> 
+	<!--	<input type="button" name="move" value=" 批量移动 " onclick="myform.action='#';myform.submit();">--> 添加至推荐位：<select name="posid" id="posid"   onchange="myform.action='#';myform.submit();"><option value="1" >首页推荐</option>
+<option value="2" >首页焦点</option>
+<option value="3" >首页头条</option>
+<option value="4" >列表页推荐</option>
+<option value="5" >内容页推荐</option>
+<option value="0" selected>不限推荐位</option>
+</select>  关键词：<input type="text" name="keywords" value="" size="20" /> <input type="button" name="delete" value="添加" onclick="myform.action='?ac=content&op=keywords';myform.submit();"></div>
+<div>{?$_PAGE['url_jumppage']?}</div>
+</form>
+<script language="javascript">
+$(
+  function(){
+	  $("#modelid").change(
+		 function(){  
+			$("#load_catid").load("/modules/news/load.php?field=modelcatid&optgroup=1&modelid="+$("#modelid").val()+"&catid="+$("#cid").val());
+		 }
+	  );
+	  {?if $_PAGE['modelid']>0?}$("#modelid").change(){?/if?}
+    }
+);
+</script>

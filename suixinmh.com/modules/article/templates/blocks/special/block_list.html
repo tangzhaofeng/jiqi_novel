@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+<li><a title="{?$articlerows[i].articlename?}" target="_blank" href="/book/{?$articlerows[i].articleid?}.htm" class="f_gray3">{?$articlerows[i].articlename?}</a>{?if $articlerows[i].authorid>0?}<a target="_blank" class="f_gray9" href="/author/{?$articlerows[i].authorid?}.htm">{?$articlerows[i].author?}</a>{?else?}{?$articlerows[i].author?}{?/if?}</li>
+{?/section?}

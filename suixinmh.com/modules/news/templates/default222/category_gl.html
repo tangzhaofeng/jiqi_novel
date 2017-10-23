@@ -1,0 +1,200 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_gonglue.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title"?}
+{?set $meta_keywords = "$meta_keywords"?}{?set $meta_description = "$meta_description"?}
+	<div id="guanggao" style="padding-bottom:7px;"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/li_1.jpg" /></div>
+	<div class="clear"></div>
+	<div id="gl_mid">
+	   <div id="gl_mid_1">
+	      <div id="gl_mid_left">
+		     <div id="gl_mid_left_1">
+			    <div id="mid_b_4">
+			    <div style="float:left;" class="t_white">快速通道</div>
+			 </div>
+			 <div id="gl_mid_left_3" class="t_blue">
+			   <p><img src="{?$_SGLOBAL['localurl']?}/images/news/images/0303_6.jpg" width="5" height="5" /><span class="t_411"> 栏目导航</span></p>
+			   <p>电脑游戏：<a href="{?function jieqi_geturl:'news':'lists':96:1?}">攻略</a> <a href="{?function jieqi_geturl:'news':'lists':122:1?}">秘籍</a> <a href="{?function jieqi_geturl:'news':'lists':123:1?}">心得</a></p>
+			   <p>电视游戏：<a href="{?function jieqi_geturl:'news':'lists':124:1?}">攻略</a> <a href="{?function jieqi_geturl:'news':'lists':125:1?}">秘籍</a> <a href="{?function jieqi_geturl:'news':'lists':126:1?}">金手指</a></p>
+			   <p>掌机游戏：<a href="{?function jieqi_geturl:'news':'lists':127:1?}">攻略</a> <a href="{?function jieqi_geturl:'news':'lists':128:1?}">秘籍</a> <a href="{?function jieqi_geturl:'news':'lists':129:1?}">金手指</a></p>
+			 </div>
+			 <div id="gl_mid_left_3" class="t_blue">
+			   <div><img src="{?$_SGLOBAL['localurl']?}/images/news/images/0303_6.jpg" width="5" height="5" /><span class="t_411"> 攻略搜索</span></div>
+			   <div class="ser mid">
+					<form name="SearchForm" method="Get" target="_blank">
+					  <select name="ClassID" class="inputser">
+                        <option value="" selected="selected">攻略秘籍搜索 </option>
+                        <option value="15">电脑游戏</option>
+                        <option value="18">　 ├ 攻略</option>
+                        <option value="19">　 └ 秘籍</option>
+						<option value="207">　 └ 心得</option>
+                        <option value="16">电视游戏</option>
+                        <option value="20">　 ├ 攻略</option>
+                        <option value="21">　 ├ 秘籍</option>
+                        <option value="22">　 └ 金手指</option>
+						<option value="336">掌机游戏</option>
+                        <option value="337">　 ├ 攻略</option>
+                        <option value="338">　 ├ 秘籍</option>
+                        <option value="339">　 └ 金手指</option>
+                      </select>
+
+                      <input id="Keyword" class="inputser" maxlength="50" size="10" value="游戏名称" onclick="if(this.value=='输入游戏名称')this.value=''" name="Keyword">
+                      <label>
+                      <input type="submit" name="Submit" value="搜索" />
+                      </label>
+					</form>
+                </div>
+			 </div>
+			 </div>
+			 <div id="gl_mid_left_2">
+			    <div id="mid_b_4">
+			    <div style="float:left;" class="t_white">新游戏攻略</div>
+			 </div>
+			 <div id="aq">
+				   <ul class="news_list_aq">
+					{?tag_news_21_[新闻]通用查询<{inputtime,4,110,0,0,0,40}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			 </div>
+		  </div>
+		  <div id="gl_mid_mid">
+		     <div id="mid_b_3">
+			    <div style="float:left;" class="t_black">最新资讯</div>
+				<div style="float:right; margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':77:1?}">更多</a></div>
+			 </div>
+			 <div id="gl_top_mid">
+				   <ul class="gl_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,11,110,0,0,0,48}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+		  </div>
+		  <div id="gl_mid_rig">
+		     <div id="mid_b_3">
+			    <div style="float:left;" class="t_black">本月浏览排行</div>
+				<div style="float:right; margin-right:10px;" class="t_blue"><!--<a href="#">更多>></a>--></div>
+			 </div>
+			 <div id="gl_rig">
+				<ul>
+				{?tag_news_21_[新闻]通用查询<{hits_month,10,110,0,0,2,40}>?}
+				</ul>
+			  </div>
+		  </div>
+	   </div>
+	   <div id="pic_1">
+		   <ul class="clearfix">
+			{?tag_news_24_[新闻]单机游戏图推?}
+		  </ul>
+		</div>
+		<div id="gl_mid_2">
+		   <div id="pic_2_1">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>电脑游戏攻略</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':96:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,96,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+			 <div id="pic_2_1">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>电视游戏攻略</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':124:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,124,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+			 <div id="pic_2_2">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>掌机游戏攻略</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':127:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,127,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+		</div>
+		<div id="gl_mid_2">
+		   <div id="pic_2_1">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>电脑游戏秘籍</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':122:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,122,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+			 <div id="pic_2_1">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>电视游戏秘籍</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':125:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,125,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+			 <div id="pic_2_2">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>掌机游戏秘籍</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':128:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,128,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+		</div>
+		<div id="gl_mid_2">
+		   <div id="pic_2_1">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>电脑游戏心得</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':123:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,123,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+			 <div id="pic_2_1">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>电视游戏金手指</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':126:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,126,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+			 <div id="pic_2_2">
+			    <div id="mid_b_3">
+			    <div style="float:left;" class="t_black"><strong>掌机游戏金手指</strong></div>
+				<div style="float:right;  margin-right:10px;" class="t_blue"><a href="{?function jieqi_geturl:'news':'lists':129:1?}" target="_blank">更多>></a></div>
+			   </div>
+			   <div id="gl_aq">
+				   <ul class="news_list_aq5">
+					{?tag_news_21_[新闻]通用查询<{inputtime,10,129,0,0,0,42}><{news/block_li.html}>?}
+				  </ul>
+				</div>
+			   
+			 </div>
+		</div>
+	</div>
+

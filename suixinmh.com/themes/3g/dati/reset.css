@@ -1,0 +1,73 @@
+/* css 重置 */
+html,body,div,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd,p,blockquote,pre,form,fieldset,table,th,td,input,textarea,hr,img,label,span,select,strong,b{
+  margin:0;
+  padding:0;
+}
+fieldset,img,abbr,acronym{ border:0;}
+address,caption,cite,code,dfn,em,px,strong,th,var{
+  font-style:normal;
+  font-weight:normal;
+}
+h1,h2,h3,h4,h5,h6{
+  font-size:100%;
+  font-weight:normal;
+}
+caption,th,td{
+  font-weight:normal;
+  text-align:left;
+}
+a,img,button{
+  border:none;
+  text-decoration:none;
+}
+a,button{ text-decoration:none;}
+a,img{
+  border: none; 
+  outline:none;
+}
+a{
+  color:#555;
+  outline:none;
+  text-decoration:none; 
+}
+ul,ol{ list-style:none;}
+::-webkit-input-placeholder{ color:#999;}
+:-moz-placeholder{ color:#999;}
+::-moz-placeholder{ color:#999;}
+:-ms-input-placeholder{ color:#999;}
+html{
+  font-size: 12px;
+  font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/ 
+  font-family: "微软雅黑","Microsoft YaHei",Tahoma,"宋体";
+}
+body{
+  background:#f8f8f8;
+    color: #333;
+    font-family:"Microsoft YaHei","微软雅黑", Tahoma,"宋体";
+  font-size: 12px;
+  font-size:1.2rem;/*1.4 × 10px = 14px */
+  font-weight:normal;
+  width:100%;
+  background-color: #FFFFFF;
+}
+.clearfix:after{
+               content:".";
+               display:block;
+               height:0;
+               clear:both;
+               visibility:hidden;
+}
+.clearfix{display:inline-block;zoom:1;}
+*html .clearfix{height:1%;}
+.clearfix{display:block}
+
+.radius{
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius: 5px;
+}
+.box-sizing{
+   -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}

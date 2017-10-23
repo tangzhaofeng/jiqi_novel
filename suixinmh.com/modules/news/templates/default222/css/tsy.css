@@ -1,0 +1,16 @@
+/* CSS Ã· æ“≥√Ê*/
+/*2010-07-06*/
+/*houlijuan*/
+
+.tsy{ background-image: url(../images/ts.gif); background-repeat: no-repeat; background-position: left top; width:410px ; height:235px; padding:10px 15px;}
+.tsy_g01{ height:28px;}
+.tsy_g01_r{ float:right; }
+.tst_01{ color:#FFFFFF; font-family:"Œ¢»Ì—≈∫⁄";font-size:14px;font-weight: bold; }
+.tst_02{color:#ff6704;}
+.tst_searchbtn{background:url(../images/gb.jpg) no-repeat 0 0; border:0; width:19px; height:19px; }
+.tsy_g02{ width:390px; height:120px; margin:40px 10px 0 10px}
+.tsy_g02 img{ float:left; margin-right:20px;}
+.tsy_g02 .a1{ color:#ff6704;font-family:"Œ¢»Ì—≈∫⁄"; font-size:22px;font-weight: bold; margin-bottom:10px ; padding-top:10px}
+.tsy_g02 .a2{ color:#888888;font-size:14px; }
+.tsy_g03{ border-top:1px solid #CCCCCC; text-align:center;color:#888888; padding-top:5px}
+.tsy_g03 a{color:#ff6704;}

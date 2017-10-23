@@ -1,0 +1,11 @@
+        {?section name=i loop=$articlerows?}
+				{?if  $i['index'] != 0 ?}<div class="line"></div>{?/if?}
+			   <div class="bok">
+		         <dl>
+		          <dt class="img"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank"><img src="{?$articlerows[i].url_image_l?}" width="90" height="120" alt="{?$articlerows[i]['articlename']?}" title="{?$articlerows[i]['articlename']?}"/></a></dt>
+		          <dd class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['author']?}：{?$articlerows[i]['articlename']?}">{?$articlerows[i]['author']?}：{?$articlerows[i]['articlename']?}</a><a href="javascript:;" class="collect" title="放入书架" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">收藏</a></dd>
+		          <dd class="intro" title="{?$articlerows[i]['intro']?}">{?$articlerows[i]['intro']|truncate:185:'……'?}<a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}" class="f_blue">[阅读]</a></dd>
+		          <dd class="recom">同类推荐：<a href="#" target="_blank" class="f_red2">《穿越之花神下凡》：变高富帅，香艳奋斗</a></dd>
+		         </dl>
+		        </div>
+        {?/section?}

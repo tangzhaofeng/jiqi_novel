@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="gbk">
+    <title>登录</title>
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common_login_reg.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/banner.css">
+  </head>
+  <body> 
+    <div class="dingwei">
+      <div class="content">
+        <a href="#" class="logo">
+          <img src="{?$jieqi_themeurl?}img/logo_a_2.png">
+        </a>
+      </div>
+    </div>
+    <div class="loginBox">
+      <div class="content">
+        <div class="loginBox_show">
+          <div id="banner" data-id="510000260045239" data-sort="1">
+            <div class="swiper-container swiper-container-horizontal banner_border">
+              <ul class="swiper-wrapper">
+                <li class="swiper-slide" data-swiper-slide-index="0">
+                  <a href="javascript:void(0);">
+                    <img src="{?$jieqi_themeurl?}img/banner1_2.jpg" />
+                  </a>
+                </li>
+                <li class="swiper-slide swiper-slide-prev" data-swiper-slide-index="1">
+                  <a href="javascript:void(0);">
+                    <img src="{?$jieqi_themeurl?}img/banner2_2.jpg" />
+                  </a>
+                </li>
+                <li class="swiper-slide swiper-slide-active" data-swiper-slide-index="2">
+                  <a href="javascript:void(0);">
+                    <img src="{?$jieqi_themeurl?}img/banner3_2.jpg" />
+                  </a>
+                </li>
+                <li class="swiper-slide swiper-slide-next" data-swiper-slide-index="3">
+                  <a href="javascript:void(0);">
+                    <img src="{?$jieqi_themeurl?}img/banner4_2.jpg" />
+                  </a>
+                </li>
+              </ul>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+        <div class="loginContent">
+
+          <form action="{?function geturl:'super':'login'?}" method="post">
+          <div class="login1">
+            <div class="login-inner">
+              <h1 class="login-title">登录</h1>
+              <div class="login-item mgb20">
+                <input type="text" class="clearError" name="username" id="ipt_account" placeholder="请输入用户名">
+              </div>
+              <div class="login-item mgb20">
+                <input type="password" class="clearError" id="ipt_pwd" name="password" placeholder="请输入密码">
+              </div>
+              <div class="clearfix mgb10">
+                <div class="login-item code fl">
+                  <input type="text" class="clearError" id="ipt_code" name="checkcode" placeholder="验证码">
+                </div>
+                <div class="code-img fl mgl5">
+                  <img src="{?$jieqi_url?}/checkcode.php?rand={?eval echo mt_rand(100000,999999); ?}" class="j-codeReresh" id="code-img-enti" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();">
+                </div>
+                <div class="fl mgl5">
+                  <a href="javascript:;" onclick="$('#code-img-enti').get(0).src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" class="j-codeReresh" id="code-refresh">换一张</a>
+                </div>
+              </div>
+              <div class="checkbox-group clearfix mgb20">
+                <label class="fl">&nbsp;</label>
+                <!-- <a href="register.html" class="fr login-forgetlink">忘记密码？</a> -->
+              </div>
+              <div>
+                <input type="submit" value="登录" class="login-btn" class="btn user-btn">
+                <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                <input type="hidden" name="usecookie" value="1" />
+              </div>
+              <!-- 科 -->
+              <div class="login-locationnow">
+                <span >&nbsp;</span>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- end login -->
+    <script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js" type="text/javascript" ></script>
+    <script src="{?$jieqi_themeurl?}js/banner.js"></script>
+  </body>
+</html>

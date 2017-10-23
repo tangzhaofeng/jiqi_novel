@@ -1,0 +1,82 @@
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<form name="frmquery" method="post" action="{?$jieqi_url?}/web_admin/?controller=users">
+<table class="grid" width="100%" align="center">
+  <tr class="odd" align="center">
+	<td>
+	<a href="?controller=users">全部会员</a>{?section name=i loop=$grouprows?} | <a href="?controller=users&groupid={?$grouprows[i].groupid?}">{?$grouprows[i].groupname?}</a>{?/section?}
+	</td>
+  </tr>
+  <tr>
+    <td class="even">
+	<table width="100%"  border="0" cellspacing="0" cellpadding="0" class="hide">
+      <tr>
+        <td width="5%" valign="middle">会员数：{?$rowcount?}</td>
+        <td width="80%" valign="middle">
+		起始注册时间：<input name="start" id="start" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$start?}" />
+		  &nbsp;&nbsp;&nbsp;&nbsp;结束注册时间：<input name="end" id="end" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$end?}" />&nbsp;&nbsp;&nbsp;
+		            来源：
+        <select name="sel_site" id="sel_site">
+                    <option value="-1">-全部来源-</option>
+                    {?section name=i loop=$sites?}
+                    <option value="{?$i.key?}" {?if $sel_site != "" && $sel_site==$i.key ?}selected{?/if?}>{?$i.value?}</option>
+                    {?/section?}
+                </select>
+		用户名称：
+        <input name="keyword" type="text" class="text" id="keyword" size="20" maxlength="50">
+	    <input name="keytype" type="radio" value="uname" checked="checked" />用户名 
+		<input name="keytype" type="radio" value="name" />昵称
+          <input name="keytype" type="radio" value="uid" />UID
+          <input type="submit" name="Submit" value="搜 索" class="button">&nbsp;&nbsp;
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</form>
+<br />
+<form action="" method="post" name="checkform" id="checkform">
+<table class="grid" width="100%" align="center">
+<caption>用户列表</caption>
+  <tr align="center" class="head">
+    <td width="10%" valign="middle">用户名</td>
+	<td width="10%" valign="middle">昵称</td>
+    <td width="10%" valign="middle">注册日期</td>
+	<td width="10%" valign="middle">最后登陆</td>
+	<td width="10%" valign="middle">最后登陆IP</td>
+    <td width="5%" valign="middle">等级</td>
+    <td width="5%" valign="middle">来源</td>
+    <td width="6%" valign="middle">经验值</td>
+    <td width="5%" valign="middle">积分</td>
+	<td width="6%" valign="middle">VIP积分</td>
+    <td width="10%" valign="middle">{?$jieqi_sitename?}币/银币</td>
+<td width="6%" valign="middle">渠道</td>
+    <td valign="middle">操作</td>
+  </tr>
+  {?section name=i loop=$userrows?}
+  <tr valign="middle">
+    <td class="even"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$userrows[i].userid'?}" target="_blank">{?$userrows[i].username?}</a></td>
+	<td align="center" class="odd"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$userrows[i].userid'?}" target="_blank">{?$userrows[i].name?}</a></td>
+    <td align="center" class="even">{?$userrows[i].regdate?}</td>
+	<td align="center" class="even">{?$userrows[i]['setting']['logindate']?}</td>
+	<td align="center" class="even">{?$userrows[i]['setting']['lastip']?}</td>
+    <td class="even">{?$userrows[i].group?}</td>
+    <td align="center" class="even">{?$userrows[i].from?}</td>
+    <td align="center" class="odd">{?$userrows[i].experience?}</td>
+    <td align="center" class="even">{?$userrows[i].score?}</td>
+	<td align="center" class="even">{?$userrows[i].isvip?}</td>
+    <td align="center" class="odd">{?$userrows[i].egold?}/{?$userrows[i].esilver?}</td><td align="center" class="even">{?$userrows[i].source?}</td>
+    <td align="center" class="even"><a href="{?$jieqi_url?}/web_admin/?controller=usermanage&id={?$userrows[i].userid?}">管理</a> <a href="{?$jieqi_url?}/web_admin/?controller=users&action=login&id={?$userrows[i].userid?}" target="_blank">登陆</a></td>
+  </tr>
+  {?/section?}
+</table>
+</form>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+

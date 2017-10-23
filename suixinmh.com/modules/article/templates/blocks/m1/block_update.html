@@ -1,0 +1,15 @@
+{?section name=i loop=$articlerows?}
+   <li>
+    <a href="{?function geturl:'mm':'shuku':SYS=sort=$articlerows[i].sortid&tag=0&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_blank" class="f-gray9">[{?$articlerows[i].sort?}]</a>
+    <span class="name"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f-black f14">¡¶{?$articlerows[i].articlename?}¡·</a>{?if $articlerows[i].permission > 3?}<em class="q"></em>{?/if?}{?if $articlerows[i]['lastchaptervip']==1?}<em class="v"></em>{?/if?}<a href="{?$articlerows[i]['url_lastchapter']?}" target="_blank" class="f-gray9">{?$articlerows[i]['lastchapter']?}</a></span>
+    <span class="author">
+    	{?if $articlerows[i].authorid>0?}
+			<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}" ajaxhover="true" uid="{?$articlerows[i].authorid?}" target="_blank" class="f-gray6" >{?$articlerows[i].author?}</a>
+		{?else?}
+			<a href="javascript:void(0)" class="f-gray6" style="cursor: default;">{?$articlerows[i].author?}</a>
+		{?/if?}
+    </span> 
+    <span class="date">{?$articlerows[i]['lastupdate']|date:"m-d H:i"?}</span>
+   </li>
+{?/section?}
+

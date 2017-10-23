@@ -1,0 +1,229 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>书币天天抢</title>
+    <meta charset="{?$jieqi_charset?}">
+    <meta charset="{?$jieqi_charset?}">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}dati//reset.css" />
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}dati//qalayout.css" />
+    <script type="text/javascript" src="{?$jieqi_themeurl?}dati//flexible_css.js?1122"></script>
+    <script type="text/javascript" src="{?$jieqi_themeurl?}dati//flexible.js?111"></script>
+</head>
+<body class="grab_body">
+{?if $action==0?}
+<div class="grab_box">
+    <form method="post" action="" id="ctl00">
+        <input type="hidden" name="action" value="1">
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['ctl00'];
+            if (!theForm) {
+                theForm = document.ctl00;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+            //]]>
+        </script>
+
+        <div class="grab_top">
+            <div class="grab_img"></div>
+
+
+            <div class="spare">
+                <div class="spare_money"><span class="spare_text">已有</span><span id="coinLeft" class="spare_coin">{?$num?}</span><span class="spare_text">小伙伴</span><br>
+                    <span class="spare_text">将书券收入囊中了哦！</span></div>
+            </div>
+            <div id="scroll">
+                <div id="scroll_do">
+                    <div id="scroll1">
+                        <ul id="resText">
+                            <li><a>书友2***452获得25书券</a></li><li><a>承载着梦想获得40书券</a></li><li><a>暮雪?***泉立方获得20书券</a></li><li><a>书友2***409获得20书券</a></li><li><a>书友2***648获得25书券</a></li><li><a>书友2***315获得100书券</a></li><li><a>书友2***639获得50书券</a></li><li><a>书友2***509获得30书券</a></li><li><a>书友2***533获得30书券</a></li><li><a>大红广告获得30书券</a></li><li><a>书友2***233获得25书券</a></li><li><a>书友2***355获得25书券</a></li><li><a>书友2***222获得30书券</a></li><li><a>书友2***903获得25书券</a></li><li><a>书友2***601获得25书券</a></li><li><a>潘秋红获得30书券</a></li><li><a>书友2***953获得25书券</a></li><li><a>书友2***305获得30书券</a></li><li><a>书友2***337获得25书券</a></li><li><a>书友2***146获得25书券</a></li><li><a>书友2***438获得30书券</a></li><li><a>书友2***520获得40书券</a></li><li><a>夏天的娃娃获得40书券</a></li><li><a>书友2***924获得25书券</a></li><li><a>书友2***748获得50书券</a></li><li><a>书友2***839获得30书券</a></li><li><a>书友2***449获得30书券</a></li><li><a>大喻获得30书券</a></li><li><a>书友2***433获得25书券</a></li><li><a>ofmt获得30书券</a></li><li><a>书友2***527获得40书券</a></li><li><a>~·谜·~获得50书券</a></li><li><a>书友2***646获得25书券</a></li><li><a>书友2***834获得20书券</a></li><li><a>?慧?获得30书券</a></li><li><a>书友2***127获得25书券</a></li><li><a>书友2***055获得30书券</a></li><li><a>书友2***034获得40书券</a></li><li><a>书友2***916获得30书券</a></li><li><a>书友2***020获得25书券</a></li><li><a>书友2***639获得30书券</a></li><li><a>徐萌阳获得25书券</a></li><li><a>书友2***412获得25书券</a></li><li><a>书友2***950获得20书券</a></li><li><a>书友2***835获得30书券</a></li><li><a>书友2***352获得30书券</a></li><li><a>书友2***610获得40书券</a></li><li><a>陪伴是***白 获得30书券</a></li><li><a>书友2***221获得30书券</a></li><li><a>书友2***444获得30书券</a></li>
+                        </ul>
+                    </div>
+                    <div id="scroll2"></div>
+                </div>
+            </div>
+
+            <div class="grad_result">
+                <div class="grad_money_ok act_show">
+                    <input name="selectItme" type="hidden" id="selectItme" />
+                    <div class="question">问：<span>{?$question?}</span></div>
+                    <div class="choose"><label><input type='radio' name='pay' value='a' class='choose_radio' ><span>A {?$c1?}</span></label><label><input type='radio' name='pay' value='b' class='choose_radio' ><span>B  {?$c2?}</span></label><label><input type='radio' name='pay' value='c' class='choose_radio' ><span>C {?$c3?}</span></label><label><input type='radio' name='pay' value='d' class='choose_radio' ><span>D  {?$c4?}</span></label></div>
+                    <div class="answer">
+                        <input onclick="if(!clickme()) return false;" name="btnSubmit" type="submit" id="btnSubmit" value="提  交" class="answer_button" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="grab_middle">
+            <div class="activity_title">
+                <span class="lineae"></span>
+                <span class="act_title">活动细则</span>
+                <span class="lineae"></span>
+            </div>
+            <p>1.用户需登录爱书坊账号后，才可参与本活动</p>
+            <p>2.每位用户每次至多可以抢一次书券</p>
+            <p>3.抢到的书券将存放入用户登录的账号中</p>
+            <p>4.书券数量有限，先到先得，抢完为止</p>
+            <p>5.抢到的书券不可提现</p>
+            <p>6.书券在爱书坊网站可用于订阅章节</p>
+            <p>7.活动不定期从爱书坊小说微信公众号推送消息，开放活动入口。</p>
+            <p>8.爱书坊保留法律范围内允许的对活动的解释权。</p>
+        </div>
+    </form>
+</div>
+{?else ?}
+<div class="grab_box">
+    <div class="grab_top">
+        <div style="margin: 0 auto;text-align: center;">
+            <img src="{?$jieqi_themeurl?}dati/gradheader.png" style="width: 100%;vertical-align: middle;">
+        </div>
+        {?if $errmsg==''?}
+        <div class="result_title">{?if $succ==1?}恭喜，回答正确！{?else?}很抱歉，您答错了{?/if?}</div>
+        <div class="result_text">
+            <p>本期正确答案为：<span>{?$answer?} </span>选项</p>
+        </div>
+        <div class="sucess_operate"><a class="go_up"href="/article/bcView">继续阅读</a><a class="sucess_see" style="float:right;" href="/user/">个人中心</a></div>
+        {?else?}
+        <div class="result_title">{?$errmsg?}</div>
+        <div class="sucess_operate"><a class="go_up"href="/article/bcView">继续阅读</a><a class="sucess_see" style="float:right;" href="/user/">个人中心</a></div>
+        {?/if?}
+
+        <div class="grad_result">
+            {?if $succ==1?}
+            <div class="grad_result_success act_show">
+                <div class="sucess_money">抢到<span>{?$gift?}</span>书券</div>
+                <div class="result_text" style="padding-top: 0.4rem;">
+                    币已到手，快去看小说吧!余额只有奖金币时，点击"立即订阅"订阅VIP章节，只会扣除奖金币哦!
+                </div>
+                <div class="sucess_operate"><a class="go_up"href="/article/bcView">继续阅读</a><a class="sucess_see" style="float:right;" href="/user/">个人中心</a></div>
+            </div>
+            {?else?}
+            <div class="grad_result_fail ">
+                <div class="two_codes">
+                    <img class="two_codes_img" src="{?$jieqi_themeurl?}dati/weixin.jpg">
+                    <p class="two_code_public">关注公众号[爱书坊小说]参与更多答题活动！</p>
+                    <p>长按右侧二维码，选择识别二维码，即可进行关注</p>
+                </div>
+            </div>
+            {?/if?}
+        </div>
+
+        <!-- 模块提取 -->
+
+        <!-- 模块提取 -->
+    </div>
+    <div class="grab_middle">
+        <div class="activity_title">
+            <span class="lineae"></span>
+            <span class="act_title">活动细则</span>
+            <span class="lineae"></span>
+        </div>
+        <p>1.用户需登录爱书坊账号后，才可参与本活动</p>
+        <p>2.每位用户每次至多可以抢一次书券</p>
+        <p>3.抢到的书券将存放入用户登录的账号中</p>
+        <p>4.书券数量有限，先到先得，抢完为止</p>
+        <p>5.抢到的书券不可提现</p>
+        <p>6.书券在爱书坊网站可用于订阅章节</p>
+        <p>7.活动不定期从爱书坊小说微信公众号推送消息，开放活动入口。</p>
+        <p>8.爱书坊保留法律范围内允许的对活动的解释权。</p>
+    </div>
+
+</div>
+{?/if?}
+</body>
+<script src="{?$jieqi_themeurl?}dati//jquery2.0.0.min.js?66"></script>
+<script src="{?$jieqi_themeurl?}dati//m.service.main.js"></script>
+<script src="{?$jieqi_themeurl?}dati//countUp.min.js"></script>
+<script src="{?$jieqi_themeurl?}dati//jquery_actqa.js"></script>
+<script type="text/javascript">
+    function clickme()
+    {
+        if ($("#selectItme").val() == "") {
+            alert("请至少选择一个选项");
+            return false;
+        }
+        return true;
+    }
+
+    $(document).ready(function () {
+
+        $(".grab_body").css("min-height", document.documentElement.clientHeight + "px");
+
+
+        var $box = $(".choose input");
+        $box.click(function () {
+            $("#selectItme").val($(this).val());
+
+        });
+
+        // 无缝循环
+        var speed = 20; //数字越大速度越慢
+        var scroll = document.getElementById("scroll");
+        var scroll1 = document.getElementById("scroll1");
+        var scroll2 = document.getElementById("scroll2");
+        scroll2.innerHTML = scroll1.innerHTML;
+        function Marquee() {
+            if (scroll2.offsetWidth - scroll.scrollLeft <= 0)
+                scroll.scrollLeft -= scroll1.offsetWidth
+            else {
+                scroll.scrollLeft++;
+            }
+        }
+        var MyMar = setInterval(Marquee, speed);
+
+        //获取实时奖励币余额
+        function leftquery()
+        {
+            //if($("#coinLeft").html()=="0")
+            //    return;
+            $.fn.WsAjax({
+                url: "/huodong/dati/",
+                data: { "action": "getBonusLeft", "actid":'81' },
+                success: function (data) {
+                    if (data[0].Success) {
+                        var coinfrom = $("#coinLeft").html().replace(",","");
+                        var nowleft = new CountUp("coinLeft", coinfrom, data[0].InnerResult, 0, 0.5, options);
+                        nowleft.start();
+
+                    }
+                },
+                error: function (error) {
+                    //alert("数据访问出错！");
+                }
+            });
+        }
+        //setInterval(leftquery, 5000);
+
+
+    });
+
+
+
+    var options = {
+        useEasing: true,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+        prefix: '',
+        suffix: ''
+    };
+
+
+
+</script>
+
+</html>

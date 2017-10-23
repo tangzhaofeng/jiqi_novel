@@ -1,0 +1,179 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css"
+	rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<!--wrap2 begin-->
+<div class="wrap2">
+	{?include file = "modules/article/templates/bookFunction.html" ?}
+	<!--article2 begin-->
+	<div class="article3 fr">
+		<!--tabox begin-->
+		<div class="tabox">
+			{?include file = "modules/article/templates/incometab.html" ?}
+			{?if $userext == null || ($userext != null && $userext['apply'] != null && $userext['apply']['state'] == 1)?}
+				<div class="tips f14 p10 g3 mt10 mb10 tl">在下面填写您的银行开户相关信息，请务必填写正确，以便您能及时收到稿费。</div>
+				<ul id="tab_conbox" class="f0 bg5">
+					<li class="fix">
+						<dl class="box_form pt20">
+							<form name="frmpassedit" id="frmpassedit"
+							{?if $userext == null?}
+								action="{?function geturl:'article':'article':'SYS=method=addFinance'?}"
+							{?else?}
+								action="{?function geturl:'article':'article':'SYS=method=editFinance'?}?}"
+							{?/if?}
+								method="post" ajaxpost="true" retruemsg="true">
+								<dd class="fix">
+									<em class="tt2">收款人姓名：</em>
+									<div class="int">
+										<input name="payee" id="payee" 
+											class="input3 fl" data-rule="required;" value="{?$userext['payee']?}"/><span class="hint"><em>*</em></span>
+									</div>
+								</dd>
+								<dd class="fix">
+									<em class="tt2">身份证号码：</em>
+									<div class="int">
+										<input name="sid" id="sid" 
+											class="input3 fl" data-rule="required;" value="{?$userext['sid']?}"/><span class="hint"><em>*</em></span>
+									</div>
+								</dd>
+								<dd class="fix">
+									<em class="tt2">身份证地址：</em>
+									<div class="int">
+										<input name="address" id="address" 
+											class="input3 fl" data-rule="required;" value="{?$userext['address']?}"/><span class="hint"><em>*</em></span>
+									</div>
+								</dd>
+								<dd class="fix">
+									<em class="tt2">通讯地址：</em>
+									<div class="int">
+										<input name="communication" id="communication" 
+											class="input3 fl" data-rule="required;" value="{?$userext['communication']?}"/><span class="hint"><em>*</em></span>
+									</div>
+								</dd>
+								<dd class="fix">
+									<em class="tt2">银行账号：</em>
+									<div class="int">
+										<input name="banknumber" id="banknumber" 
+											class="input3 fl" data-rule="required;" value="{?$userext['banknumber']?}"/><span class="hint"><em>*</em></span>
+									</div>
+								</dd>
+								<dd class="fix">
+									<em class="tt2">开户行地址：</em>
+									<div class="int">
+										<input name="bankaddress" id="bankaddress"  class="input3 fl"
+											data-rule="required;" value="{?$userext['bankaddress']?}"/><span class="hint"><em>*</em></span>
+									</div>
+								</dd>
+								<dd class="fix">
+									<em class="tt2"></em>
+									<div class="int">
+										<p class="pt10">
+											<button class="btn" type="submit">提交</button>
+										</p>
+										<input type="hidden" name="ueid"
+											value="{?$userext['ueid']?}" />
+										<input type="hidden" name="formhash"
+											value="{?eval echo form_hash();?}" />
+									</div>
+								</dd>
+							</form>
+						</dl>
+					</li>
+				</ul>
+			{?else?}
+				<div class="tips f14 p10 g3 mt10 mb10 tl">如需修改您的财务信息，请点击修改按钮，后台审批通过后，即可进行修改。</div>
+				<ul id="tab_conbox" class="f0 bg5">
+					<li class="fix">
+						<dl class="box_form pt20">
+							<dd class="fix">
+								<em class="tt2">收款人姓名：</em>
+								<div class="int">
+									{?$userext['payee']?}
+								</div>
+							</dd>
+							<dd class="fix">
+								<em class="tt2">身份证号码：</em>
+								<div class="int">
+									{?$userext['sid']?}
+								</div>
+							</dd>
+							<dd class="fix">
+								<em class="tt2">身份证地址：</em>
+								<div class="int">
+									{?$userext['address']?}
+								</div>
+							</dd>
+							<dd class="fix">
+								<em class="tt2">通讯地址：</em>
+								<div class="int">
+									{?$userext['communication']?}
+								</div>
+							</dd>
+							<dd class="fix">
+								<em class="tt2">银行账号：</em>
+								<div class="int">
+									{?$userext['banknumber']?}
+								</div>
+							</dd>
+							<dd class="fix">
+								<em class="tt2">开户行地址：</em>
+								<div class="int">
+									{?$userext['bankaddress']?}
+								</div>
+							</dd>
+							<dd class="fix">
+								<em class="tt2"></em>
+								<div class="int">
+									<p class="pt10">
+										{?if $userext['apply'] == null || $userext['apply']['state'] == 2?}
+											<!-- 没有申请记录，申请被拒绝 -->
+											<button class="btn" id="apply_edit">申请修改</button>
+										{?elseif $userext['apply']['state'] == 0?}
+									 		<!-- 有申请记录，提交了申请 -->
+											 <a href="javascript:;" class="f_blue5 f20" >后台审批中....</a>
+										{?/if?}
+									</p>
+									<input type="hidden" name="formhash"
+										value="{?eval echo form_hash();?}" />
+								</div>
+							</dd>
+						</dl>
+					</li>
+				</ul>
+				<script>
+						$(document).ready(function(){
+							$("#apply_edit").click(function(){
+									$.layer({
+										shade: [0], //不显示遮罩
+										area : ['auto','auto'],
+										dialog : {
+											msg:'申请修改财务信息？',
+											btns : 2, 
+											type : 4,
+											btn : ['确定','取消'],
+											yes : function(){
+												GPage.getJson('{?function geturl:'article':'article':'SYS=method=addEditApply&ueid=$userext['ueid']'?}',
+													function(data){
+														if(data.status=='OK'){
+															layer.msg(data.msg,1,{type:1,shade:false},function(){
+																//局部刷新
+																$("#tab_conbox").load(location.href + ' #tab_conbox>*');
+															});
+														}else{
+															layer.alert(data.msg, 8, !1);
+														}
+												});
+											},
+											no : function(){
+												$(".xubox_close").click();
+											}
+										}
+									});
+							});
+						})
+				</script>
+			{?/if?}
+		</div>
+	</div>
+</div>

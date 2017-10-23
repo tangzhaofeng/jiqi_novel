@@ -1,0 +1,148 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/manager/templates/public/header.html" ?}
+{?include file="tuike/manager/templates/public/left.html" ?}
+  <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}css/laydate.css" />
+  <script src="{?$jieqi_themeurl?}js/laydate.js" type="text/javascript" charset="utf-8"></script>
+    <div class="g-main">
+      <div class="m-panel " id="form_main">
+{?/if?}
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <form style="display:inline" action="" method="post">
+              <input class="form-element" size="10" type="text" name="t1" value="{?$t1?}" onclick="laydate()"> -
+              <input class="form-element" size="10" type="text" name="t2" value="{?$t2?}" onclick="laydate()">
+              <button type="submit" class="u-btn u-btn-primary">查看</button>
+            </form>
+          </div>
+          <table id="table" class="m-table  table_cen table_th">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="tkunn">推客姓名</i></th>
+                <th><i class="sortOr" _z="tknote">推客备注</i></th>
+                <th><i class="sortOr" _z="pdate">时间</th>
+                <th>订单号</th>
+                <th>提现金额</th>
+                <th>真实姓名</th>
+                <th>支付方式</th>
+                <th>支付信息</th>
+                <th>联系电话</th>
+                <th>状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($payList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 12 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('manager','manuser');?}
+              {?section name=i loop=$payList?}
+                <tr>
+                  <td><a target="_bank" href="{?$url?}?uid={?$payList[i].uid?}">{?$payList[i].uname?}</a></td>
+                  <td><span>{?if empty($payList[i].notes) == 1?}(无){?else?}{?$payList[i].notes?}{?/if?}</span></td>
+                  <td>
+                    {?if $payList[i].type ==3?}
+                      {?$payList[i].time|date:"Y-m-d H:i:s"?}
+                    {?else?}
+                      {?$payList[i].date?}
+                    {?/if?}
+                  </td>
+                  <td>{?$payList[i].ordernumber?}</td>
+                  <td>{?$payList[i].money?}￥</td>
+                  <td>{?$payList[i].p_uname?} </td>
+                  <td>{?$payList[i].type?} </td>
+                  <td>{?$payList[i].p_info?} </td>
+                  <td>{?$payList[i].p_mobil?} </td>
+                  <td>{?$payList[i].state?}</td>
+                  <td class="chSelect">
+                    <span _id="{?$payList[i].payid?}" _n="{?$payList[i].payusers?}" _t="{?$payList[i].updatetime?}" _u="{?$payList[i].uid?}" _ty="7">审核成功</span>
+                    <span _id="{?$payList[i].payid?}" _n="{?$payList[i].payusers?}" _t="{?$payList[i].updatetime?}" _u="{?$payList[i].uid?}" _ty="9">审核失败</span>
+                  </td>
+                </tr>
+              </tr>
+              {?/section?}
+              {?/if?}
+              </tbody>
+            </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+{?if $ajax_request == 0?}
+      </div>
+    </div>
+    <script type="text/javascript">
+      $("#form4").submit(function () { //
+        var j_this=this;
+          //询问框
+        layer.open({
+          content:'您确定要将所有待审核订单设置为审核通过吗! ',
+          btn: ['确定', '取消!'],
+          no:function(index){layer.close(index);},
+          yes: function(index){
+            layer.close(index);
+            Users.form=j_this;
+            Users.SendForm(function(msgs){
+              if(msgs.status === 'OK'){
+                Users.ShowMsg('设置成功！');
+                setTimeout(function(){
+                  location.href='';
+                },2000);
+              }else{
+                Users.ShowMsg(msgs.msg);
+              }
+            });
+          }
+        });
+        return false;
+      });
+      $('.chSelect span').click(function(){
+        var q_this=$(this);
+        var id=q_this.attr('_id');
+        var ty=q_this.attr('_ty');
+        var n=q_this.attr('_n');
+        var u=q_this.attr('_u');
+        var t=q_this.attr('_t');
+        $.post('http://'+location.host+location.pathname,{time:t,id:id,ty:ty,method:'ajax_action',ac:'setPa',ajax_request:'1',n:n,u:u},function(msgs){
+          if(msgs.status === 'OK'){
+            Users.ShowMsg('设置成功！');
+            setTimeout(function(){
+              location.href='';
+            },1000);
+          }else{
+            Users.ShowMsg(msgs.msg,1);
+          }
+        },'json');
+      });
+
+    </script>
+
+    <style>
+      .chSelect span{
+        color:#ccc;
+      }
+      .chSelect span:hover {
+          color: #b90000;
+          background-color: #dacfc2;
+      }
+      .chSelect span {
+          color: #d86b00;
+          background-color: #dcc9b6;
+          cursor: pointer;
+          font-size: 12px;
+          height: 25px;
+          display: inline-block;
+          text-align: center;
+          line-height: 25px;
+          padding: 0 6px;
+          border-radius: 3px;
+      }
+    </style>
+{?include file="tuike/manager/templates/public/footer.html"?}
+{?/if?}

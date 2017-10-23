@@ -1,0 +1,48 @@
+ <link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+ <style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style><base target='_self'>
+<table width='100%' border='0' cellspacing='0' cellpadding='0' >
+<tr>
+<td>当前目录：./{?$_PAGE['currentdir']?}</td>
+<td align='right'>
+<a href='?ac=selectfile&type={?$_PAGE['_GET']['filetype']?}&parentdir={?$_PAGE['backparentdir']?}&currentdir={?$_PAGE['parentdir']?}&filetype={?$_PAGE['_GET']['filetype']?}'>↑返回上级目录</a>
+</td>
+</tr>
+</table>
+<table align="center" cellpadding="0" cellspacing="1" class="table_list" width="100%">
+   <caption>文件选择</caption>
+    <tr>
+    <th class="align_c">文件名</th>
+    <th>大小</th>
+    {?eval if(count($_PAGE['listfiles'])){?}<th>尺寸</th>{?eval }?}
+    <th class="align_c">类型</th>
+    <th>上次修改时间</th>
+    </tr>
+{?section name=i loop=$_PAGE['listdirs']?}
+<tr>
+<td align='left' height='20'><img src='../images/ext/dir.gif'>
+<a href='?ac=selectfile&type={?$_PAGE['_GET']['filetype']?}&parentdir={?$_PAGE['currentdir']?}&currentdir={?$_PAGE['currentdir']?}{?$_PAGE['listdirs'][i]['name']?}&filetype={?$_PAGE['_GET']['filetype']?}'>{?$_PAGE['listdirs'][i]['name']?}</a></td>
+ <td width='55' class="align_c">{?$_PAGE['listdirs'][i]['size']?}&nbsp;</td>
+ <td class="align_c">&nbsp;{?$_PAGE['listdirs'][i]['type']?}</td>
+ <td width='140' class="align_c">{?$_PAGE['listdirs'][i]['mtime']?}</td>
+</tr>
+{?/section?}
+{?section name=i loop=$_PAGE['listfiles']?}
+<tr>
+<td align='left' height='20'><a href='#' onClick="window.returnValue='{?$_PAGE['listfiles'][i]['path']?}|{?$_PAGE['listfiles'][i]['size']?}';window.close();">{?$_PAGE['listfiles'][i]['name']?}</a></td>
+ <td width='60' class="align_c">{?$_PAGE['listfiles'][i]['size']?}&nbsp;K</td>
+ <td width='60' class='align_c'>{?$_PAGE['listfiles'][i]['imagesize']?}</td>
+ <td width='180' class="align_c">&nbsp;{?$_PAGE['listfiles'][i]['type']?}</td>
+ <td width='140' class="align_c">{?$_PAGE['listfiles'][i]['mtime']?}</td>
+</tr>
+{?/section?}
+</table>
+<div id="pages"></div>

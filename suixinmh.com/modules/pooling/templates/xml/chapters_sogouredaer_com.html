@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapterlist>
+	<bookId>{?$article['articleid']?}</bookId>
+	{?section name=i loop=$chapters?}		
+	<chapter>			
+		<chapterId>{?$chapters[i]['chapterid']?}</chapterId>
+		<chapterName><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chapterName>			
+		<chapterSize>{?eval echo bcdiv($chapters[i]['size'],2);?}</chapterSize>			
+		<updateTime>{?$chapters[i]['postdate']|date:'YmdHis'?}</updateTime>			
+	</chapter>
+	{?/section?}
+</chapterlist>

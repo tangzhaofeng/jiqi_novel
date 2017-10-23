@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>后台登陆-{?$jieqi_sitename?}</title>
+<link href="{?$jieqi_url?}/templates/admin/style/login_adm.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<!--[if IE 6]>
+<script src="{?$jieqi_themeurl?}js/DD_belatedPNG.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('div, ul, img, li, input,span,h3,h2,a');
+</script>
+<![endif]-->
+</head>
+
+<body class="bg1">
+ <!--logn begin-->
+<div class="logn">
+ <form action="{?$jieqi_modules['pooling']['url']?}/admin/?controller=sourcemanage&method=login" method="post" name="frmlogin" id="login_form" data-validator-option="{theme:'yellow_right_effect'}">
+  <div class="int"><label class="name">用户名</label><input id="username" name="username" type="text"  data-rule="用户名:required"/></div>
+  <div class="int"><label class="sn">密&nbsp;&nbsp;码</label><input name="password" type="password"  data-rule="密码:required;length[3~]" /></div>
+  <div class="int2"><label>验证码</label><input name="checkcode" type="text" /><img src="{?$jieqi_url?}/checkcode.php" class="code" width="109" height="40" style="cursor:pointer;" onclick="this.src='{?$url_checkcode?}?rand='+Math.random();" /></div>
+  <button name="submit" type="submit" class="btn_logn"></button><input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+ </form>
+</div><!--logn end-->
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/mod.pooling.sources.admin.js"></script>
+</body>
+</html>

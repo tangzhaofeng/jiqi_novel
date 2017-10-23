@@ -1,0 +1,42 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>栏目管理</caption>
+  <tr>
+    <td><a href='?ac=category&op=add&step=one'><font color="red">添加栏目</font></a></td>
+  </tr>
+</table>
+<form method="post" action="?ac=category&op=order">
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+    <caption>栏目列表</caption>
+	<tr>
+		<th width="5%">排序</th>
+		<th width="5%">ID</th>
+		<th>栏目名称</th>
+		<th width="8%">栏目类型</th>
+		<th width="10%">绑定模型</th>
+		<th width="8%">数据量</th>
+		<th width="5%">访问</th>
+		<th width="300">管理操作</th>
+	</tr>
+	{?section name=i loop=$_SGLOBAL['catelist']?}
+		<tr>
+		   <td align="center"><input name='order[{?$_SGLOBAL['catelist'][i]['catid']?}]' type='text' size='3' value="{?$_SGLOBAL['catelist'][i]['listorder']?}" class="text"></td>
+			<td align="center">{?$_SGLOBAL['catelist'][i]['catid']?}</td>
+			<td>&nbsp;{?$_SGLOBAL['catelist'][i]['layer']?}<a href='?ac=category&op=add&catid={?$_SGLOBAL['catelist'][i]['catid']?}'><span {?if $_SGLOBAL['catelist'][i]['layer']==''?}style="font-size:14px;font-weight:bold;"{?/if?}>{?$_SGLOBAL['catelist'][i]['catname']?}</span></a></td>
+			<td align="center">{?if $_SGLOBAL['catelist'][i]['type']<1?}内部栏目{?elseif $_SGLOBAL['catelist'][i]['type']==1?}<font color="blue">单网页</font>{?else?}<font color="red">外部链接</font>{?/if?}</td>
+			<td align="center"><a href="?ac=model&op=add&modelid={?$_SGLOBAL['catelist'][i]['modelid']?}">{?$_SGLOBAL['model'][$_SGLOBAL['catelist'][i]['modelid']]['name']?}</a></td>
+			<td align="center"><a href='?ac=content&op=manage&catid={?$_SGLOBAL['catelist'][i]['catid']?}' title='管理内容'>{?$_SGLOBAL['catelist'][i]['items']?}</a></td>
+			<td align="center"><a href="{?$_SGLOBAL['catelist'][i]['url_catelist']?}" target='_blank'>访问</a></td>
+			<td align="center" style="text-align:center"><a href='?ac=category&op=add&step=one&parentid={?$_SGLOBAL['catelist'][i]['catid']?}&modelid={?$_SGLOBAL['catelist'][i]['modelid']?}&type={?$_SGLOBAL['catelist'][i]['type']?}'>添加子栏目</a> | <a href='?ac=category&op=add&catid={?$_SGLOBAL['catelist'][i]['catid']?}'>修改</a><!-- | <a href='#'>移动</a>--> | <a href="javascript:confirmurl('?ac=category&op=recycle&catid={?$_SGLOBAL['catelist'][i]['catid']?}','确认清空栏目信息吗？');" >清空</a> | <a href="javascript:confirmurl('?ac=category&op=del&catid={?$_SGLOBAL['catelist'][i]['catid']?}','确认删除栏目\t{?$_SGLOBAL['catelist'][i]['catname']?}\t吗？此操作不可恢复!');">删除</a></td>
+		</tr>
+	{?/section?}
+</table>
+<div class="pages">
+<input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+<input name="dosubmit" type="submit" value=" 排序 " class="text">
+</div></form>

@@ -1,0 +1,15 @@
+<div class="logn">»¶Ó­·ÃÎÊ<!--<span class="b"> {?$jieqi_sitename?} </span>-->£¬<span class="g9">Çë<a href="{?function geturl:'system':'login'?}" class="f_blue5">µÇÂ¼</a>»ò<a href="{?function geturl:'system':'register'?}" class="f_blue5">×¢²á</a></span>{?eval $url= JIEQI_LOCAL_URL;?}<a href="javascript:;"  id="qqheadlogin" class="qq f_gray3r">QQµÇÂ¼</a><!---<a href="javascript:void(0)"  class="sina f_gray3r">Î¢²©µÇÂ¼</a>--></div>
+<script type="text/javascript">
+layer.ready(function(){
+	var jumpurl = $("#jumpurl").val();
+	var url = "{?$url?}/qqlogin/";
+	if (jumpurl && jumpurl!="undefined"){
+		url = url + "?jumpurl=" + jumpurl;
+	}
+	
+   $("#qqheadlogin").bind("click",function(){
+		otherlogin(url);
+	});
+	//onclick="otherlogin('{?$url?}/qqlogin')"
+});
+</script>

@@ -1,0 +1,13 @@
+{?if $goodnum != 0?}
+     <!--box0 begin-->
+     <div class="box0">
+      <div class="tbox mt20"><em class="books">我的藏书架</em><p class="fr"><a href="javascript:;" id="mb" class="f_blue5">更多藏书&gt;&gt;</a></p></div>
+      <dl class="lisd_sj mt10 fix">
+       <dt><em class="sort">类别</em><em class="name">作品名</em><em class="date">更新时间</em><em class="author">作者</em><em class="status">状态</em><em class="honor">粉丝荣誉</em></dt>
+	   {?section name=i loop=$bookcaserows?}
+       <dd {?eval if($i['order']%2 == 0){ echo 'class=\'dbg\'';}?}><em class="sort">[{?$bookcaserows[i].sort?}]</em><em class="name"><a href="{?$bookcaserows[i].url_articleinfo?}" target="_blank" class="f_blue">{?$bookcaserows[i].articlename?}</a></em><em class="date">{?$bookcaserows[i].lastupdate|date:"Y-m-d H:i"?}</em><em class="author">{?if $bookcaserows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$bookcaserows[i].authorid'?}" ajaxhover="true" uid="{?$bookcaserows[i].authorid?}" class="f_gray6" target="_blank">{?$bookcaserows[i].author?}</a>{?else?}{?$bookcaserows[i].author?}{?/if?}</em><em class="status">{?$bookcaserows[i].fullflag_tag?}</em><em class="honor"></em></dd>
+	   {?/section?} 
+
+      </dl>
+     </div><!--box0 end-->
+{?/if?}

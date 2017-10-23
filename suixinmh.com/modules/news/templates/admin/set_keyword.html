@@ -1,0 +1,55 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>关键词管理</caption>
+  <form method="get" action="?" name="search" id="search">
+  <tr>
+    <td width="25%"><a href='?ac=set&file={?$_PAGE['file']?}&op=add'><font color="red">添加关键词</font></a> | <a href='?ac=set&file={?$_PAGE['file']?}&keytype=issystem'>系统设定</a> | <a href='?ac=set&file={?$_PAGE['file']?}'>全部关键词</a></td>
+	<td>关键字：
+      <input id="keyword" maxlength="100" size="12" name="keyword" value="{?$_PAGE['keyword']?}" />
+      <input type="radio"{?if $_PAGE['keytype']=='' || $_PAGE['keytype']=='keyword'?} checked="checked"{?/if?} value="keyword" name="keytype" />
+      关键词
+      <input type="radio" value="parentid" name="keytype"{?if $_PAGE['keytype']=='parentid'?} checked="checked"{?/if?} />
+      上级ID
+	  <input type="radio" value="id" name="keytype"{?if $_PAGE['keytype']=='id'?} checked="checked"{?/if?} />
+      ID
+    <input type="hidden" value="set" name="ac" />
+	<input type="hidden" value="{?$_PAGE['file']?}" name="file" />
+	<input type="submit" value="搜 索" name="btnsearch" /></td>
+  </tr></form>
+</table>
+<form method="post" action="?ac=set&file={?$_PAGE['file']?}&op=order" name="myform" id="myform">
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+    <caption>关键词列表</caption>
+    <tr><th width="3%">选择</th>
+        <th width="5%">排序</th>
+        <th width="5%">ID</th>
+        <th width="8%">关键词</th>
+		<th width="8%">上级ID</th>
+		<th width="8%">关联文章数</th>
+		<th width="8%">点击</th>
+		<th width="10%">使用时间</th>
+		<th width="10%">点击时间</th>
+		<th width="4%">系统设定</th>
+        <th width="8%">管理操作</th>
+    </tr>{?section name=i loop=$_PAGE['rows']?}
+    <tr>
+	  <td><input type="checkbox" name="id[]" value="{?$_PAGE['rows'][i]['id']?}" id="id_{?$_PAGE['rows'][i]['id']?}" /></td>
+      <td class="align_c"><input type="text" name="order[{?$_PAGE['rows'][i]['id']?}]" value="{?$_PAGE['rows'][i]['listorder']?}" size="5"></td>
+        <td class="align_c">{?$_PAGE['rows'][i]['id']?}</td>
+        <td class="align_c">{?$_PAGE['rows'][i]['tag']?}</td>
+		<td class="align_c"><a href="?ac=set&file={?$_PAGE['file']?}&keytype=parentid&keyword={?$_PAGE['rows'][i]['parentid']?}">{?$_PAGE['rows'][i]['parentid']?}</a></td>
+		<td class="align_c">{?$_PAGE['rows'][i]['usetimes']?}</td>
+		<td class="align_c">{?$_PAGE['rows'][i]['hits']?}</td>
+		<td class="align_c">{?$_PAGE['rows'][i]['lastusetime']|date:'Y-m-d H:i'?}</td>
+		<td class="align_c">{?if $_PAGE['rows'][i]['lasthittime']>0?}{?$_PAGE['rows'][i]['lasthittime']|date:'Y-m-d H:i'?}{?/if?}</td>
+		<td class="align_c">{?if $_PAGE['rows'][i]['issystem']=='0'?}否{?else?}<font color=red>是</font>{?/if?}</td>
+        <td class="align_c"><a href="?ac=set&file={?$_PAGE['file']?}&op=add&id={?$_PAGE['rows'][i]['id']?}">修改</a> | <a href="javascript:confirmurl('?ac=set&file={?$_PAGE['file']?}&op=del&id={?$_PAGE['rows'][i]['id']?}', '是否删除该关键词')">删除</a></td>
+    </tr>{?/section?}  
+</table>
+<div class="button_box"><span style="width:60px"><a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', true)">全选</a>/<a href="###" onclick="javascript:$('input[type=checkbox]').attr('checked', false)">取消</a></span> <input type="button" name="delete" value=" 删除 " onclick="myform.action='?ac=set&file={?$_PAGE['file']?}&op=del';myform.submit();">  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" /><input name="dosubmit" type="submit" value=" 更新排序 " class="text"/></div>{?$_PAGE['url_jumppage']?}
+</form>

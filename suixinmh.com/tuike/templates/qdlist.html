@@ -1,0 +1,160 @@
+{?include file="tuike/templates/public/header.html" ?}
+{?include file="tuike/templates/public/left.html" ?}
+    <div class="g-main">
+      <div class="m-book-title">渠道管理</div>
+      <div class="m-panel " id="form_main">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form action="{?function geturl:'tuike':'qdlist'?}" method="post">
+                <input type="text" class="form-element n-bg" name="keyword" value="">
+                <button class="u-btn u-btn-while" type="submit">搜索</button>
+              </form>
+            </div>
+
+            <div class="tool-filter f-cb">
+              <form action="{?function geturl:'tuike':'qdlist'?}" method="post">
+                <select name="order" id="money" class="form-element ">
+                  <option value="0" selected="selected">==请选择==</option>
+                  <option value="id" {?if $order == 'id'?}selected="selected"{?/if?}>ID</option>
+                  <option value="name" {?if $order == 'name'?}selected="selected"{?/if?}>渠道名称</option>
+                  <option value="qd" {?if $order == 'qd'?}selected="selected"{?/if?}>渠道名号</option>
+                  <option value="fee" {?if $order == 'fee'?}selected="selected"{?/if?}>成本</option>
+                  <option value="pdate" {?if $order == 'pdate'?}selected="selected"{?/if?}>上线日期</option>
+                </select>
+                <select name="sort" id="money" class="form-element ">
+                  <option value="1" {?if $sort == 1?}selected="selected"{?/if?}>升</option>
+                  <option value="0" {?if $sort == 0?}selected="selected"{?/if?}>降</option>
+                </select>
+                <button class="u-btn u-btn-while u-btn-search" type="submit">筛选</button>
+              </form>
+            </div>
+          </div>
+          <div class="formitm form-submit">
+            <div class="ipt">
+       
+            </div>
+          </div>
+
+          <div class="m-table-parent">
+            <table id="table" class="m-table ">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>渠道名称</th>
+                  <th>渠道号</th>
+                  <th>点击</th>
+                  <th>注册用户</th>
+                  <th>充值笔数</th>
+                  <th>总充值RMB</th>
+                  <th>成本</th>
+                  <th>回报率</th>
+                  <th>上线日期</th>
+                  <th>详情</th>
+                </tr>
+              </thead>
+              <tbody>
+                {?if intval($qdList)==0?}
+                <tr>
+                    <td class="tl col-1" colspan = " 11 ">亲，当前还没有记录哦~</td>
+                </tr>
+                {?else?}
+                {?eval $url=geturl('tuike','qdlist','SYS=method=qdI');?}
+                {?section name=i loop=$qdList?}
+                <tr _i="{?$qdList[i].id?}">
+                  <td>{?$qdList[i].id?}</td>
+                  <td>
+                  <span _y="note" class="fieldRev qd_n" >{?if empty($qdList[i].name) == 1?}(无){?else?}{?$qdList[i].name?}{?/if?}</span>
+                  </td>
+                  <td class="qd_h">{?$qdList[i].qd?}</td>
+                  <td>{?$qdList[i].qdclick?}</td>
+                  <td>{?$qdList[i].qdreg?}</td>
+                  <td>{?$qdList[i].payusers?}</td>
+                  <td>{?$qdList[i].qdpay?}</td>
+                  <td>{?$qdList[i].fee?}</td>
+                  <td>{?$qdList[i].hb?}%</td>
+                  <td>{?$qdList[i].pdate?}</td>
+                  <td>
+                    <a class="u-btn u-btn-primary" href="{?$url?}?qdId={?$qdList[i].id?}">查看</a>
+                    <a class="u-btn u-btn-primary demoBtn2" style="margin-left:12px;" _href="{?$qdList[i].qdUrl?}" href="javascript:void(0);">推广链接</a>
+                    <button type="button" style=" margin-left: 12px;" class="u-btn u-btn-primary delete">删除</button>
+                  </td>
+                </tr>
+                {?/section?}
+                {?/if?}
+              </tbody>
+            </table>
+          </div>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+              {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hide_box" id="testBox" style="display: none; margin: 0px;">
+      <h4><a href="javascript:void(0)" title="x" id='close_dia'>×</a>链接</h4>
+      <p>http://m.mmd6666.com/read/10270/751043.html</p>
+      <div style="margin: 10px auto;width: 13%;">
+      </div>
+    </div>
+    <script type="text/javascript">
+      var q_main=$('#form_main');
+      window.GLO_D={"filter":{},"fieldRev_url":getUrl(['ajax_qd_n'])};
+
+      $('.delete').click(qd_delete);
+      $('.demoBtn2').click(function() {
+        $('#testBox p').html($(this).attr('_href'));
+        easyDialog.open({
+          container: 'testBox'
+        });
+      });
+
+      $('#overlay').live('click',function(){
+        easyDialog.close();
+      });
+      $('#close_dia').click(function() {
+        easyDialog.close();
+      });
+
+      function qd_delete() {
+
+
+        var q_par=$(this).parents("tr");
+        var id=q_par.attr("_i");
+
+
+
+        //询问框
+        layer.open({
+          title: ['删除提示', 'background-color:#d2322d; color:#fff;'] ,
+          anim: 'up',
+          content: '您确定要删 "'+q_par.find(".qd_n").text()+'('+q_par.find(".qd_h").text()+')" 渠道吗？',
+          btn: ['删除', '取消'],
+          yes: function(index){
+            layer.close(index);
+            $.post(getUrl(['delete_qd']),{"id":id,"ajax_request":1},function(msg){
+              if(msg.status==="OK"){
+                q_par.remove();
+              }else{                    
+                if(msg.msg.search(/[,，]/i)!==-1){                       
+                  Users.ShowMsg(msg.msg,10);
+                }else{
+                  Users.ShowMsg(msg.msg);
+                }
+              }
+            },"json");
+          }
+        });
+
+      }
+
+
+    </script>
+
+{?include file="tuike/templates/public/footer.html"?}
+

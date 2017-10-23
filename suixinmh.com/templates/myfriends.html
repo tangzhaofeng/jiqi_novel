@@ -1,0 +1,95 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article3 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+      <div class="t2">
+       <h2>我的关注</h2>
+       <ul class="tabs62" id="tabs">
+        <li id="whole"><a href="javascript:void(0)">全部关注</a></li>
+        <li id="eachother"><a href="javascript:void(0)">互相关注</a></li>
+        <li id="author"><a href="javascript:void(0)">关注作者</a></li>
+        <li id="add"><a href="javascript:void(0)">添加关注</a></li>
+		<li id="fans"><a href="javascript:void(0)">我的粉丝</a></li>
+       </ul>       
+      </div>
+      <ul id="tab_conbox" class="f0">
+        <li class="fix">
+		 <div id="friend"></div>
+		</li>
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article3 end-->
+</div><!--wrap2 end-->
+<script type="text/javascript">
+	var fans = '{?$_REQUEST['fans']?}';
+	$(document).ready(function(){
+		var ii = layer.load(0);
+		$.jqtab("#tabs","#tab_conbox","click");
+		if (fans) {
+			layer.close(ii);
+			$('#fans').click();
+		}else{
+			layer.close(ii);
+			var friendurl = "{?function geturl:'system':'userhub':'SYS=method=getfriend'?}";	//加载默认全部关注模版
+			friendurl =  urlParams(friendurl, "mid=whole");
+			GPage.loadpage("friend", friendurl);
+		}
+	});
+	
+	$('#whole').bind('click',myfriend);
+	$('#eachother').bind('click',myfriend);
+	$('#author').bind('click',myfriend);
+	$('#add').bind('click',myfriend);
+	$('#fans').bind('click',myfriend);
+
+	function myfriend(){
+		var ii = layer.load(0);
+		var friendurl = "{?function geturl:'system':'userhub':'SYS=method=getfriend'?}";
+		friendurl =  urlParams(friendurl, "mid=" +this.id);					//加载模版
+		GPage.loadpage("friend", friendurl);
+		layer.close(ii);
+	}
+	$("#ajaxformseach").live('submit',function(event){
+		var i = layer.load(0);
+		var val = $('#searchF').val();
+		if (!val){
+			layer.close(i);
+			alert('请输入关键词');
+		}else{
+			layer.close(i);
+			var url = $('#iact').val() +"/?smid="+encodeURI(val);
+			GPage.loadpage('friend',url);
+			 
+		}
+	});
+	
+	function addatt(uid,mid){
+		var loadurl = "{?function geturl:'system':'userhub':'SYS=method=addAttention&yuid="+uid+"'?}";
+			GPage.getJson(urlParams(loadurl,'ajax_gets='+ContentTag),function(data){
+				if(data.status=='OK'){
+					layer.msg(data.msg,2,{type:1,shade:false},function(){
+						if (mid && mid!='' && mid!=null){
+							$("#"+mid).click();
+						}else{
+							 var url = $('#iact').val() +"/?smid="+encodeURI($('#searchF').val());
+							 GPage.loadpage('friend',url);
+						}
+					});
+					
+				}else{
+					layer.alert(data.msg, 8, !1);
+				}
+			});
+	}
+	function showfriend(_this, url, show)
+	{
+	    GPage.loadpage('friend', url); 
+	}
+</script>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapterlist>
+	{?section name=i loop=$chapters?}
+	<chapter> 
+    	<book_id>{?$articleid?}</book_id> 
+		<chapter_id>{?$chapters[i]['chapterid']?}</chapter_id>
+    	<content>
+    		<![CDATA[<p>{?eval echo str_replace('&nbsp;&nbsp;&nbsp;&nbsp;','',preg_replace("/<br \/>\r\n<br \/>|<br \/>/","</p>\r\n<p>",jieqi_htmlstr(gb2utf8XHSafeStr($chapters[i]['content'],false))));?}</p>]]> 
+		</content>	
+	</chapter>
+	{?/section?}
+</chapterlist>

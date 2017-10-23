@@ -1,0 +1,62 @@
+@charset "gb2312";
+/**
+*@Description: 书海女频目录页样式catalog.css 
+*@Author:      tanjing  
+*@Update:      tanjing(2015-01-10 17:22)  
+**/ 
+
+@import url(reset.css);
+@import url(comment.css);
+
+.chapter{ background:#fff;}
+.chapter-top{ height:auto; padding:5px 10px 0; border:1px solid #fff; background:url(../images/bg-f.gif) repeat-x 0 -244px; position:relative;}
+.chapter-top .path .g8{ border-left:4px solid #07b1a6; padding-left:8px;}
+.chapter-top-r{ position:absolute; right:8px; top:8px; width:290px; text-align:right;}
+.chapter-top-r a{ padding:0px 5px;}
+.chapter_head{text-align:center;}
+.chapter_head h3{ width:auto; height:auto; margin:0px auto; padding:15px 20px 0px; font-size:28px;/* font-family:"微软雅黑", "黑体";*/ color:#e62a07; font-weight:bold;}
+.chapter_head .info{ color:#999; padding:10px 0px 0px;}
+.chapter_head .info em{ padding-left:20px;}
+.box_chap{ width:720px; height:auto; clear:both; margin:0px auto; padding-top:20px;}
+.box_chap .t{ width:auto; height:35px; line-height:35px; padding-left:12px; border-bottom:1px solid #eaeaea; position:relative; }
+.box_chap .t h4{ font-size:14px; font-weight:800; color:#07b1a6;}
+.box_chap .t h4 em{ display:inline-block; width:30px; height:35px; background:url(../images/ico-f.gif) no-repeat -366px -224px; vertical-align:middle;}
+.box_chap .t .upgrade{ position:absolute; right:0px; top:2px; width:335px; font-size:12px;}
+.box_chap .t .upgrade .vip{ display:inline-block; height:28px;background:url(../images/ico-f.gif) no-repeat -530px -270px; padding-left:22px; border:none;}
+.box_chap .t .upgrade input{ height:20px; line-height:20px; padding:0px 10px; _padding:0px 2px;margin:0px 0px 0px 5px; border:1px solid #a6ede8; background:url(../images/bg-f.gif) repeat-x 0px -245px; cursor:pointer; color:#07b1a6;}
+.box_chap ul{ width:auto; height:auto; padding:0px 0px 0px; font-size:12px; padding-left:5px;}
+.box_chap ul li{ float:left;; width:31.5%; height:35px; line-height:35px; padding-left:10px; border-bottom:1px dotted #b7dce8; margin:1px 1px 0px 0px; overflow:hidden;}
+.box_chap ul li input{ margin-right:5px; vertical-align: middle;}
+.box_chap ul li em{ color:#dc3535; font-family:"宋体"; padding-left:5px;}
+.recommend{ width:auto; height:auto; border-top:2px solid #41b7e1;}
+.recommend .t{ width:auto; height:24px; padding-top:6px; background:#eaf7ff; border-bottom:1px solid #d2e1f1; border-left:1px solid #d2e1f1; border-right:1px solid #d2e1f1; border-top:none; font-size:14px; font-weight:800; color:#2974ab; padding-left:20px; position:relative;}
+.recommend .t .adorn{ display:block; position: absolute; right:0px; top:0px; width:190px; height:30px; background:url(../images/icon.gif) no-repeat -568px -116px}
+.tips-read{ width:auto; height:auto; clear:both; padding:20px 0px 20px; margin:0px auto; color:#808080; font-size:14px;}
+.tips-read .t{ width:710px; _width:700px; padding:10px 0px 5px 10px; margin:0px auto; font-size:14px; border-bottom:1px solid #e5f2f7; color:#808080; font-weight:800; background:#fff;}
+.tips-read p{ display:block; float:left; width:182px; _width:145px; height:160px; _height:105px; padding:35px 5px 20px 32px; margin-left:5px; overflow:hidden; background:url(../images/ico-f.gif) no-repeat 0px -383px #fff; font-size:12px; color:#666;}
+
+.list_img2{ float:left; width:190px; _width:180px; height:auto; padding:20px 0px 0px 11px;}
+.list_img2 dt{ float:left; float:left; width:96px; height:142px;}
+.list_img2 dt a img{ width:92px; height:122px;}
+.list_img2 dd{ float:left; width:82px; height:20px; line-height:20px; color:#666; overflow:hidden;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

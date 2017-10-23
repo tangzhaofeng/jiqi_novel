@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+ <webName><![CDATA[{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,true,'xml');?}]]></webName>
+ <pubDate><![CDATA[{?if $begin_time != null?}{?eval echo  date('Y-m-d',strtotime($begin_time));?}{?/if?}]]></pubDate>
+ <books>
+ {?section name=i loop=$rows?}
+ <book>
+  <id><![CDATA[{?$rows[i]['articleid']?}]]></id>
+  <name><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></name>
+  <infourl><![CDATA[http://{?$HTTP_HOST?}/?ac=info&aid={?$rows[i]['articleid']?}]]></infourl>
+ </book>
+ {?/section?}
+ </books>
+</document>

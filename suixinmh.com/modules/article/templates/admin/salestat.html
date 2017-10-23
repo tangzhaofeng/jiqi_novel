@@ -1,0 +1,104 @@
+<style>
+.layer_notice{float:left; height:75px; width:170px;  overflow:hidden; display:none;  background:#78BA32; padding:10px; border:1px solid #628C1C;}
+</style>
+<form name="frmsearch" method="post" action="?controller=salestat">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}"> <input name="keytype" type="radio" class="radio" value="0" {?if $keytype!=1?} checked="checked" {?/if?}>
+            文章名称
+            <input type="radio" name="keytype" class="radio" value="1" {?if $keytype==1?} checked="checked" {?/if?}>
+            文章作者 &nbsp;&nbsp;
+			<select name="nowagent" id="nowagent"><option value="0">-选择责编-</option>{?section name=j loop=$agents?}<option value="{?$agents[j]['uid']?}" {?if $nowagent==$agents[j]['uid']?}selected{?/if?}>{?eval echo ($agents[j]['name'] ? $agents[j]['name'] : $agents[j]['uname']);?}</option>{?/section?}</select>
+            <select name="firstflag" id="firstflag">
+            	<option value="">-选择来源-</option>
+            	{?section name=j loop=$soruce?}
+            		<option value="{?$j.key?}" {?if $firstflag != ""  && $firstflag==$j.key ?}selected{?/if?}>{?$j.value?}</option>
+            	{?/section?}
+            </select>
+            <input type="submit" name="btnsearch" class="button" value="搜 索">
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=main&type=daysale&sortid=0&page=1">日榜</a>
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=main&type=weeksale&sortid=0&page=1">周榜</a>
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=main&type=monthsale&sortid=0&page=1">月榜</a>
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=main&type=totalsale&sortid=0&page=1">总榜</a>         
+        </td>
+    </tr>
+</table>
+</form>
+<br />
+<table class="grid" width="100%" align="center">
+<caption>文章销售统计(销售额单位:书海币)</caption>
+  <tr align="center" valign="middle">
+  	<th width="16%">文章名称</th>
+    <th width="8%">文章作者</th>
+	<th width="8%">责编</th>
+	<th width="5%">来源</th>
+    <th width="8%">日销售({?$days?})</th>
+    <th width="8%">周销售({?$weeks?})</th>
+	<th width="8%">月销售({?$months?})</th>
+	<th width="8%">总销售额</th>
+	<th >上架时间/最后更新</th>
+	<th width="6%">状态</th>
+	<th width="6%">连载状态</th>
+	<th width="8%">章节销售</th>
+  </tr>
+  {?section name=i loop=$pay?}
+  <tr valign="middle">
+  	<td align="left" class="even"><a href="{?$pay[i].url_articleinfo?}" target="_blank">{?eval echo str_replace($keyword,'<span class="blue">'.$keyword.'</span>' ,$pay[i].articlename);?}</a></td>
+    <td align="left" class="odd"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$pay[i].authorid'?}" target="_blank">{?eval echo str_replace($keyword,'<span class="blue">'.$keyword.'</span>' ,$pay[i].author);?}</a></td>
+	<td align="center" class="even">{?$pay[i].agent?}</td>
+	<td align="center" class="even">{?$soruce[$pay[i].firstflag]?}</td>
+    <td align="right" class="even">{?$pay[i].day?}</td>
+    <td align="right" class="odd">{?$pay[i].week?}</td>
+    <td align="right" class="odd">{?$pay[i].month?}</td>
+	<td align="right" class="odd">{?$pay[i].total?}</td>
+	<td align="center" class="odd">{?$pay[i].postdate|date:'Y-m-d H:i:s'?}<br/>{?$pay[i].lastupdate|date:'Y-m-d H:i:s'?}</td>
+	<td align="center" class="odd">{?if $pay[i].display == 0?}销售中{?else if $pay[i].display == 1?}待审{?else if $pay[i].display == 2?}定时{?else if $pay[i].display == 9?}定时待审{?/if?}</td>
+	<td align="center" class="odd">{?if $pay[i].fullflag ==1?}完本{?else?}连载中{?/if?}</td>
+	<td align="center" class="odd"><a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=chapterstat&aid={?$pay[i].articleid?}">章节销售</a></td>
+  </tr>
+  {?/section?}
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+<br /><br />
+<div>
+	<ul class="layer_notice"><li><b>[选择责编]</b><a href="{?$article_dynamic_url?}/admin/?controller=article&action=setagent&uid=-1" agentclick="true">清空</a></li>{?section name=j loop=$agents?}
+		<li style="height:25px; line-height:25px;">[{?$groups[$agents[j]['groupid']]?}]<a href="{?$article_dynamic_url?}/admin/?controller=article&action=setagent&uid={?$agents[j].uid?}" agentclick="true">{?eval echo ($agents[j]['name'] ? $agents[j]['name'] : $agents[j]['uname']);?}</a></li>
+		{?/section?}<input type="hidden" value="0" id='tmpid'>
+	</ul>
+</div>
+<script language="javascript">
+function selectAgent(_this, articleid){
+	var s = layer.tips($('.layer_notice').html(), _this, {
+        guide: 1,
+		maxWidth:190,
+		closeBtn:[0,true], //显示关闭按钮
+        style: ['background-color:#FFF8ED; color:#000; width:190;border:1px solid #FF9900', '#FF9900']//['background-color:#FFF8ED; color:#000; border:1px solid #FF9900', '#FF9900']
+    });
+	$('#tmpid').val(articleid);
+}
+layer.ready(function(){
+	$("[agentclick]").live('click',function(event){
+		event.preventDefault();
+		var id = $('#tmpid').val();
+		var i = layer.load();//layer.load(0);
+		GPage.getJson(urlParams(this.href, 'id='+id),
+			function(data){
+			    if(data.status=='OK'){			    	
+					GPage.loadpage('content', data.jumpurl, true, false);
+					layer.closeAll();
+				}else{
+					layer.alert(data.msg, 8, !1);
+				}
+			}
+		);
+	});			 
+});
+</script>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en" manifest="test.mainfest">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="animate.min.css">
+	<link rel="stylesheet" href="fontIcon/iconfont.css" />
+	<link rel="stylesheet" href="font/font.css" />
+	<style>
+	html,body{
+		height: 100%;
+		
+	}
+	*,
+	::before,
+	::after{
+	    padding: 0;
+	    margin: 0;
+	    /*需要针对移动设备做设置*/
+	    -webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	    -webkit-tap-highlight-color:transparent;
+	}
+	li{
+		list-style: none;
+	}
+	.banner{
+		height:100%;
+		position: relative;
+	    overflow: hidden; 
+	}
+	 .banner p{
+	 	
+	    padding: 5px 0;
+	    line-height: 1.8em;
+	    text-indent: 2em;
+	    width: 100%;
+	    /*最大宽度*/
+	    max-width: 966px;  /* 在行业当中长使用的设计稿 psd 的尺寸是 640px   750px*/
+	    /*最小宽度*/
+	    min-width: 300px;  /*保证最基本的布局*/
+	    margin: 0 auto;
+	 }
+	 .banner li{
+		background:#fff;
+		color: #333;
+	 	position: absolute;
+	 	width:100%;
+	 	height:100%;
+	 	padding-left: 10px;
+    	padding-right: 10px;
+    	overflow:hidden;
+	 }
+	 .banner li.active{
+	 	 border: 1px solid #eee;
+	    -webkit-box-shadow: 0 1px 20px rgba(0, 0, 0, 0.27), 0 0 70px rgba(0, 0, 0, 0.06) inset;
+	    -moz-box-shadow: 0 1px 20px rgba(0, 0, 0, 0.27), 0 0 70px rgba(0, 0, 0, 0.06) inset; 
+	    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.27), 0 0 70px rgba(0, 0, 0, 0.06) inset;
+	 }
+	 .banner li h3{
+	 	border-bottom:1px solid #f7147f;
+	 	margin:0 10px;
+	 	height:30px;
+	 	line-height:30px;
+	 	font-size:16px;
+	 	font-weight: 500;
+	 	color:#8a8989;
+	 }
+	 .setting,.setting_font{
+	 	position: fixed;
+	 	width:100%;
+	 	transition: all 0.5s;
+	 	bottom:-90px;
+	 	height:90px;
+	 	background:rgba(0,0,0,0.8);
+	 	color:#fff;
+	 	z-index:9999999999;
+	 }
+	 .settingShow{
+
+	 	bottom:0px;
+	 }
+	 .setting_t{
+		height:40px;
+		width:100%;
+		font-size:14px;
+		line-height: 40px;
+		border-bottom: 1px solid #fff;
+	 }
+	 .setting_t .l,.setting_t .c,.setting_t .r,.setting_b>div{
+		 float:left; 
+		 height:100%;
+		 text-align: center;
+	 }
+	 .setting_t .c{
+	 	width:60%;
+	 }
+	 .setting_t .l,.setting_t .r{
+		width:20%;
+	 }
+	 .setting_b{
+	 	height:50px;
+	 }
+	.setting_b>div{
+		width:25%;
+		position: relative;
+		padding-top:8px;
+	}
+	.setting_b>div i{
+	}
+	.setting_b>div span{
+		display: block;
+		position:absolute;
+
+		bottom:6px;
+		width:100%;
+		text-align: center;
+		font-size:12px;
+	}
+	.setting_b .fontSize23{
+		font-size:23px;
+	}
+	.setting_b .fontSize20{
+		font-size:20px;
+	}
+	.setting_b .ml a{
+		display: block;
+		width:100%;
+		height:100%;
+		text-decoration: none;
+		color:#fff;
+	}
+	.setting_shade{
+	    width: 100%;
+	    height: 100%;
+	    position: fixed;
+	    top: 0;
+	    bottom: 0;
+	    background: rgba(0,0,0,0.2);
+	    z-index: 9999999999;
+	}
+	/*字体设置样式*/
+	.setting_font{
+
+	}
+	.setting_font_t{
+		height:40px;
+		padding:0 10%;	
+
+	}
+	.setting_font_t .a_subtract,.setting_font_t .a_add,.setting_font_t .font{
+	   width:25%;
+	   height:30px;
+	   line-height: 30px;
+	   border:1px solid #fff;
+	   border-radius: 5px; 
+	  color:#fff;
+	  text-align: center;
+	  float:left;
+	  margin-top:5px;
+	  margin-right: 5%;
+
+	}
+	.setting_font_t .a_subtract{
+		margin-left:10%;
+	}
+	.setting_font_t .font{
+		  margin-right: 0%;
+		 width:20%;
+		 position: relative;
+
+	}
+	.setting_font_t  .font_List{
+		position: absolute;
+	    background: #fff;
+	    height: 150px;
+	    width: 140px;
+	    top: -165px;
+	    left: -35px;
+	    z-index: 999999999;
+	    border: 1px solid #cecbd1;
+	    border-radius: 4px;
+	    color: #545151;
+	    font-size: 15px;
+	}
+	.setting_font_t  .font_List:before{
+		    content: "";
+		    position: absolute;
+		    width: 0;
+		    height: 0;
+		    border-left: 16px solid transparent;
+		    border-right: 16px solid transparent;
+		    border-top: 16px solid #fff;
+		    bottom: -16px;
+		    left: 48px;
+	}
+
+	.setting_font_t  .font_List li{
+		height: 30px;
+		line-height:30px;
+		border-bottom: 1px dashed #cecbd1;
+		margin:0 4px;
+	}
+	.setting_font_t .font_List .active{
+		background: #423261;
+        color: #fff;
+	}
+	.setting_font_b>div{
+		width:20%;
+		height:50px;
+		float:left;
+
+	}
+
+	.setting_font_b span{
+		display: block;
+		margin-top:7px;
+		height:40px;
+		width:40px;
+		border-radius: 50%;
+		background:#fff;
+		margin:0 auto;
+		cursor: pointer;
+	}
+	
+	.setting_font_b .color1{
+	   background:#fcfcfc;
+	}
+	.setting_font_b .color2{
+		background:#ceebcd;
+	}
+	.setting_font_b .color3{
+		background:#ffe3df;
+	}
+	.setting_font_b .color4{
+		background:#f3e5cf;
+	}
+	.setting_font_b .color5{
+		background:#d5bef7;
+	}
+	/*二维码样式*/
+	.weix{
+		width:200px;
+		height:200px;
+		background:#fff;
+		border-radius:10px;
+		position: absolute;
+		z-index: 999999999999;
+		left:50%;
+		top:50%;
+		margin-left:-100px;
+		margin-top:-100px;
+		border:1px solid #cecbd1;
+	}
+	.weix i{
+		position: absolute;
+		font-size:16px;
+		height:30px;
+		width:30px;
+		top:-10px;
+		background:rgba(0,0,0,0.8);
+		border-radius: 50%;
+		color:#fff;
+		right:-10px;
+		text-align:center;
+		line-height: 30px;
+	}
+	.weix img{
+	    margin: 0 auto;
+	    display: block;
+	    margin-top: 20px;
+	}
+	.weix p{
+		color:#504d4d;
+		font-size:14px;
+		text-align: center;
+	}
+	</style>
+	<style id="beijing"></style>
+</head>
+<body class="fontFamily_0">
+	<div class="banner">
+		<ul class="banner_ul">
+		<!--
+			<li  sections="1">
+				<h3>第十章 龙的传人</h3>
+				<p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+				<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			</li>
+			<li sections="1">1sdfsdfsdf</li>
+			<li sections="1">1同意让他也突然有人一日游</li>
+			<li sections="1">1豆腐干豆腐干豆腐干地方官党规党法豆腐干大概sdfsdf</li>
+			<li style="z-index:999999;" sections="2"><p>2厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			<p>厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>
+			</li>
+			<li sections="2">2sdfsdfsdf</li>
+			<li sections="2">2同意让他也突然有人一日游</li>
+			<li sections="2">2豆腐干豆腐干豆腐干地方官党规党法豆腐干大概sdfsdf</li> 
+			-->
+		</ul>
+	
+	</div>
+	<div class="setting_shade" style="display: none;">
+	
+	</div>
+		<div class="setting">
+			 <div class="setting_t">
+			 	<div class="l">上一章</div>
+			 	<div class="c">1/34</div>
+			 	<div class="r">下一章</div>
+			 </div>
+			  <div class="setting_b">
+			 	<div class="ml"><a href="#"><i class="iconfont icon-xinwenmulu fontSize20"></i><span>目录</span></a></div>
+			 	<div class="ms"><i class="iconfont icon-moshi-01 fontSize20"></i><span>日间模式</span></div>
+			 	<div class="zt"><i class="iconfont icon-ziti fontSize20"></i><span>字体</span></div>
+			 	<div class="gz"><i class="iconfont icon-erweima fontSize20"></i><span>关注</span></div>
+			 </div>
+		</div>
+		<div class="setting_font">
+			<div class="setting_font_t">
+				<div class="a_subtract">A-</div>
+				<div class="a_add">A+</div>
+				<div class="font">
+					<ul class="font_List animated fadeInUp" style="display:none;">
+						<li class="active">微软雅黑</li>
+						<li>熊兔字体</li>
+						<li>CalifornianFB</li>
+						<li>Goobascript</li>
+						
+					</ul>
+					字体
+				</div>
+			</div>
+			<div class="setting_font_b">
+				<div>
+					<span class="color1"></span>
+				</div>
+				<div>
+					<span class="color2"></span>
+				</div>
+				<div>
+					<span  class="color3"></span>
+				</div>
+				<div>
+					<span  class="color4"></span>
+				</div>
+				<div>
+					<span  class="color5"></span>
+				</div>
+			</div>
+
+		</div>
+		<div class="weix animated fadeIn" style="display:none;">
+			<i class="colse">✘</i>
+			<img src="weixin.jpg" alt="">
+			<p>微信内可长按识别</p>
+		</div>
+	<script src="jquery.js"></script>
+	<script src="underscore-min.js"></script>
+	<!--模板引擎-->
+	<script type="text/template" id="template">
+    <% console.log(model); %>
+        <!-- _ 对象 索引  $ 索引 对象  -->
+        <%_.each(model,function(item,index){%>
+
+            <li sections='<%-zj%>'>
+              <h3>第十章 龙的传人</h3>
+              <%=item%> 
+            </li>
+        <%});%>
+</script>
+	<script>
+		$(function(){
+		//页面滑动开关
+		var flge=true;
+		//模拟移动端的单击事件
+		 function tap(dom,callback){
+			    if(typeof  dom == 'object'){
+			        var startTime = 0;
+			        var isMove = false;
+			        dom.addEventListener('touchstart',function(e){
+			            startTime = Date.now();/*时间戳*/
+			        });
+			        dom.addEventListener('touchmove',function(e){
+			            isMove = true;
+			        });
+			        dom.addEventListener('touchend',function(e){
+			            if(!isMove && (Date.now()-startTime) < 170 ){
+			                /*符合tap  才执行callback*/
+			                callback && callback(e);
+			            }
+			            /*重置*/
+			            startTime = 0;
+			            isMove = false;
+			        });
+			    }
+			}
+		  	//天加过渡
+		    function  addTransition(page){
+		        page.style.transition = "all .1s";
+		        page.style.webkitTransition = "all .1s";
+	    	};
+		     /*清除过渡*/
+		    function removeTransition(page){
+		    	console.log(page);
+		        page.style.webkitTransition = "none";
+		        page.style.transition = "none";
+
+		    };
+		    /*设置定位*/
+		    function setTranslateX(page,translateX){
+		        page.style.webkitTransform = "translateX("+translateX+"px)";
+		        page.style.transform = "translateX("+translateX+"px)";
+		    };
+		    /*过渡结束事件*/ 
+		     function myTransitionEnd($node,callback){
+			   	
+			   	 $node.on("webkitTransitionEnd",function(e){
+			   	 	 callback && callback(e,$node);
+
+				   })
+				   $node.on("transitionEnd",function(e){
+				  	 callback && callback(e,$node);
+				   })
+
+			   }
+			   //添加li列表
+			  function addTemplate(arrs,zj){
+			  	 var template = _.template($('#template').html());
+				var liList= $(template({model:arrs,zj:zj}));
+				for(i=0,length=liList.length;i<length;i++){
+
+						myTransitionEnd($(liList[i]),function(e,$node){
+							$node.css("z-index",0);				    	
+					   		removeTransition($node[0]);
+					   		setTranslateX($node[0],0);
+					   		flge=true;
+					    	$(".banner_ul li").removeClass("active");
+						});
+				}
+				$(".banner_ul").prepend(liList);
+			  }
+			banner()
+			setPanel();
+			/*设置面功能*/
+			function  setPanel(){
+
+				//默认设置
+				//背景色
+				var beijing=localStorage.getItem('beijing');
+				var msFage=false;
+				switch(beijing){
+				  case "read_style_1":
+				    setBackgrond(0,"#fcfcfc");
+				    break;
+				  case "read_style_2":
+				    setBackgrond(0,"#ceebcd");
+				    break;
+				 case "read_style_3":
+				
+				 	setBackgrond(0,"#ffe3df");
+				    break;
+				 case "read_style_4":
+					
+					setBackgrond(0,"#f3e5cf");
+					  break;
+				 case "read_style_5":
+					setBackgrond(0,"#d5bef7");
+					  break;
+					   case "read_style_6":
+						$("#beijing").html(".banner_ul li{background-color:#ffff;}");
+						$(".ms").find("i").addClass("icon-moshi-01");
+						$(".ms").find("i").removeClass("icon-yejianmoshi");
+						$(".ms").find("span").text("日间模式");
+						localStorage.setItem('beijing',"read_style_6");
+						msFage=true;
+					  break;
+					   case "read_style_7":
+						$("#beijing").html(".banner_ul li{background-color:#2d2d2d;color:#a0a0a0;}");
+						$(".ms").find("i").removeClass("icon-moshi-01");
+						$(".ms").find("i").addClass("icon-yejianmoshi");
+						$(".ms").find("span").text("夜间模式");
+						localStorage.setItem('beijing',"read_style_7");
+						msFage=false;
+					  break;
+				}
+				//字体
+				var font=localStorage.getItem("font");
+				if(font!=""&&font!=null&&typeof(font)!="undefined")	{
+					var fontIndex= font.substr(-1,1);
+					    $("body").removeClass();
+                   	  	$("body").addClass(font);
+                   	   $(".font_List li").removeClass("active");
+                   	   $(".font_List li").eq(parseInt(fontIndex)).addClass("active");
+				}
+			
+			
+				// 单击显示设置面板
+				tap($(".banner_ul")[0],function(){
+					$(".setting_shade").show();
+					setTimeout(function(){
+						$(".setting").addClass("settingShow");
+					},500);
+					
+				})
+				//单击遮罩层隐藏
+				tap($(".setting_shade")[0],function(){
+					$(".setting").removeClass("settingShow");
+					$(".setting_font").removeClass("settingShow");
+					$(".weix").hide();
+				    $(".font_List").hide();
+					setTimeout(function(){					
+						$(".setting_shade").hide();	
+					},500);
+				
+				})
+
+				/*点击白天模式或晚上模式，则改变背景色很字体色*/ 
+				$(".ms").on("touchstart",function(){
+					if(msFage==false){
+						$("#beijing").html(".banner_ul li{background-color:#ffff;}");
+						$(this).find("i").addClass("icon-moshi-01");
+						$(this).find("i").removeClass("icon-yejianmoshi");
+						$(this).find("span").text("日间模式");
+						localStorage.setItem('beijing',"read_style_6");
+						msFage=true;
+					}
+					else{
+						$("#beijing").html(".banner_ul li{background-color:#2d2d2d;color:#a0a0a0;}");
+						$(this).find("i").removeClass("icon-moshi-01");
+						$(this).find("i").addClass("icon-yejianmoshi");
+						$(this).find("span").text("夜间模式");
+						localStorage.setItem('beijing',"read_style_7");
+						msFage=false;
+					}
+				
+				})
+				/*点击字体图标显示字体面板*/
+				 tap($(".zt")[0],function(e){
+				 	$(".setting_font").addClass("settingShow");
+				 		$(".setting").removeClass("settingShow");
+
+				 })
+				 /*点击字体显示字体列表*/
+				 tap($(".setting_font .font")[0],function(e){
+				 	if($(".font_List").is(":hidden")){
+							$(".font_List").show();
+						}
+						else{
+				           $(".font_List").hide();
+						}
+
+				 })	
+				 /*字体颜色*/ 
+				 $(".setting_font_b>div").on("touchstart",function(){
+						var index=$(this).index()+1;
+				 	setBackgrond(index,$(this).find("span").css("background-color"));
+
+				 });	
+				  function setBackgrond(index,color){
+				  	if(index!=0){
+				  		$("#beijing").html(".banner_ul li{background-color:"+color+";}");
+				  		 localStorage.setItem('beijing', 'read_style_'+index);
+				  	}
+					else{
+						$("#beijing").html(".banner_ul li{background-color:"+color+";}");
+					}
+                    
+                }
+                   /*字体风格*/
+                   $(".font_List li").on("touchstart",function(e){
+                   	 var font="fontFamily_";
+                   
+                   	 	font=font+$(this).index();
+                   	  	$("body").removeClass();
+                   	  	$("body").addClass(font);
+                   	   $(".font_List li").removeClass("active");
+                   	   localStorage.setItem('font',font);
+                   	   $(this).addClass("active");
+                   });
+				 /*点击关注显示二维码*/	
+				 tap($(".gz")[0],function(){
+				 	  $(".weix").show();
+				 })	
+				 /*点击二维码的关闭按钮，隐藏*/
+				  tap($(".weix .colse")[0],function(){
+				 	  $(".weix").hide();
+				 })	
+			}
+			
+			/*翻页功能*/
+			function banner(){
+			   var startX=0;
+			   var moveX=0;
+			   var distanceX=0;
+			   var isMove=false;
+			   var flag=false;
+			   var bannerUl=$(".banner_ul"); 
+			   var arrs=[
+			   	'<p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p><p>1厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			   '<p>2厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			   '<p>3厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			   '<p>4厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			   '<p>5厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			   '<p>6厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			    '<p>7厉天睿处理完公事的时候，天色尚早。坐在车上，他想起昨天那个不符合“生子协议”的女人，不由开口吩咐开车的李安，说：“去趟六号酒吧。”</p>',
+			   ];
+			   /*第一次加载数据*/
+			   addTemplate(arrs,2);
+			  $(".banner_ul li").eq(0).css("z-index","99999999");
+			
+			   bannerUl.on("touchstart",function(e){
+			   	if(flge){
+			   		startX=e.originalEvent.touches[0].clientX;
+			   	}
+			 
+			   		
+			   });
+			    bannerUl.on("touchmove",function(e){
+			    	if(flge)
+			    	{
+			    		var $currentLi=$(e.target);
+				        if(e.target.localName!="li"){
+				        	$currentLi=$currentLi.parents("li");
+				        }
+				   		moveX = e.originalEvent.touches[0].clientX;
+		        	   distanceX = moveX - startX;
+		     			if(distanceX<0){
+		     				if($currentLi.next().index()==-1){
+				                setTranslateX($currentLi[0],0);
+				                return;
+		     				}
+		     				var nextPage=$currentLi.next();
+		     				
+		     				nextPage.css("z-index",parseInt($currentLi.css("z-index"))-1);
+		     				
+		     			}
+		     			else{
+		     			
+		     				if($currentLi.prev().index()==-1){
+		     			
+				                setTranslateX($currentLi[0],0);
+				                return;
+		     				}
+		     				var prevPage=$currentLi.prev();
+		     				prevPage.css("z-index",parseInt($currentLi.css("z-index"))-1);
+		     			}
+		        		isMove = true;
+				      
+						$currentLi.addClass("active");
+						removeTransition($currentLi[0]);
+				         setTranslateX($currentLi[0],distanceX);
+			    	}
+			    	
+
+			   });
+			    bannerUl.on("touchend",function(e){
+			    	if(flge){
+			    		 var $currentLi=$(e.target);
+			        if(e.target.localName!="li"){
+			        	$currentLi=$currentLi.parents("li");
+			        }
+					 var width=$currentLi.width();
+				   if(Math.abs(distanceX) > width/13 && isMove){
+
+			            /*滑动超过了一定的距离*/
+			            /*往右  正  往左  负*/
+			            var w=width;
+			            mark=false;
+			            if(distanceX <0){
+			               w=-width;
+			               mark=true;
+
+			            }
+			            flge=false;
+			            addTransition($currentLi[0]);
+			            setTranslateX($currentLi[0],w);
+			             var currentVal=$currentLi.index();
+				        var regionMaxVal=$("li").length-2;
+				        var regionMinVal=2;
+				    
+				        if(currentVal<regionMinVal){
+				        	 $.ajax({
+
+										   type: "GET",
+										   url: "http://test.m.ishufun.net/read/10051/661496.html",
+										   data: "mode=app",
+										   success: function(data){
+										   	var arrs=data.split("*|*");
+										      console.log(arrs);
+										      if(arrs.length>0){
+										      	addTemplate(arrs,1);
+				     
+										      }
+										   }
+
+										});				
+				        }
+				        else if(currentVal>regionMaxVal){
+				        	
+				        }
+			        }else{
+			            // /*滑动不超过一定的距离*/
+			            // addTransition($currentLi[0]);
+			           setTranslateX($currentLi[0],0);
+			           $currentLi.removeClass("active");
+			        }      
+			        /*重置*/
+			        startX = 0;//记录刚刚触摸屏幕时候的坐标x
+			        moveX = 0; //记录滑动时候的坐标x
+			        distanceX = 0; //移动的距离
+			        isMove = false;//是否滑动过
+			    	}
+				   
+
+			 })	
+			  
+			   
+			}
+			
+		})
+	
+	 </script>
+</body>
+</html>

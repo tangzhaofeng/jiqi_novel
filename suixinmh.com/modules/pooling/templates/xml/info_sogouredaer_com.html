@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bookinfo>	
+    <id>{?$article['articleid']?}</id>	
+	<status>{?$article['fullflag']?}</status>
+	<bookName><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></bookName>		
+	<authorName><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></authorName>		
+	<cpName><![CDATA[{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,false);?}]]></cpName>	
+	<intro><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></intro>		
+	<imgPath><![CDATA[{?$article['url_image_l']?}]]></imgPath>			
+	<bookType><![CDATA[{?eval echo gb2utf8XHSafeStr($article['shortcaption'],false);?}]]></bookType>		
+	<keyWord><![CDATA[{?eval echo gb2utf8XHSafeStr(str_replace(' ',';',$article['keywords']),true,'xml');?}]]></keyWord> 
+	<chargeType></chargeType>	
+	<chargePrice></chargePrice>		
+	<chargePoint></chargePoint>	
+</bookinfo>	

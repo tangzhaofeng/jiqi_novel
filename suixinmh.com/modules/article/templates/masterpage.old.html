@@ -1,0 +1,45 @@
+{?set jieqi_blocks_module = "article"?}
+{?set jieqi_blocks_config = "authorblocks"?}
+<form action="{?$url_article?}" method="post" name="checkform" id="checkform">
+<div class="gridtop">
+	{?$articletitle?} 
+	[<a href="{?function geturl:'article':'article':'SYS=method=masterPage&display=all'?}">全部文章</a>] 
+	[<a href="{?function geturl:'article':'article':'SYS=method=masterPage&display=author'?}">原创文章</a>] 
+	[<a href="{?function geturl:'article':'article':'SYS=method=masterPage&display=poster'?}">转载文章</a>] 
+	[<a href="{?function geturl:'article':'article':'SYS=method=masterPage&display=agent'?}">代管文章</a>]
+</div>
+<table width="100%" align="center" cellpadding="0" cellspacing="1" class="grid">
+  <tr align="center">
+    <th width="15%">文章名称</th>
+    <th width="25%">最新章节</th>
+    <th width="10%">作者</th>
+    <th width="10%">发表者</th>
+    <th width="10%">代管人</th>
+    <th width="10%">更新</th>
+	<th width="10%">收藏</th>
+    <th width="12%">操作</th>
+  </tr>
+  {?section name=i loop=$articlerows?}
+  <tr>
+    <td class="even"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank">{?$articlerows[i].articlename?}</a></td>
+    <td class="odd"><a href="{?$articlerows[i].url_articleindex?}" target="_blank">{?$articlerows[i].lastvolume?} {?$articlerows[i].lastchapter?}</a></td>
+    <td class="even">{?if $articlerows[i].authorid == 0?}{?$articlerows[i].author?}{?else?}<a href="{?$jieqi_modules['article']['url']?}/authorpage.php?id={?$articlerows[i].authorid?}" target="_blank">{?$articlerows[i].author?}</a>{?/if?}</td>
+    <td class="odd" align="center"><a href="{?function jieqi_geturl:'system':'user':$articlerows[i].posterid?}" target="_blank">{?$articlerows[i].poster?}</a></td>
+    <td class="even" align="center">{?if $articlerows[i].agentid == 0?}{?$articlerows[i].agent?}{?else?}<a href="{?function jieqi_geturl:'system':'user':$articlerows[i].agentid?}" target="_blank">{?$articlerows[i].agent?}</a>{?/if?}</td>
+    <td class="even" align="center">{?$articlerows[i].lastupdate?}</td>
+	<td class="odd" align="center">{?$articlerows[i].goodnum?}</td>
+    <td class="even" align="center">
+		<a href="{?function geturl:'article':'article':'SYS=aid=$articlerows[i].articleid&method=articleManage'?}" target="_blank">管理</a> 
+		<a href="{?$jieqi_modules['article']['url']?}/reviewforbidls.php?aid={?$articlerows[i].articleid?}" target="_blank">禁言</a>
+	</td>
+  </tr>
+  {?/section?}
+</table>
+</form>
+<table width="100%"  border="0" cellspacing="2" cellpadding="3">
+  <tr>
+   <!-- <td width="12%" align="right"></td>-->
+    <td width="88%" align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>
+

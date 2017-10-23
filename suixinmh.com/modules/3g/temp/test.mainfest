@@ -1,0 +1,11 @@
+CACHE MANIFEST
+#上面一句必须
+#v1.0.0
+#需要缓存的文件
+CACHE:
+font/xiontu.ttf
+font/californianFB.ttf
+font/goobascript.ttf
+#不需要缓存的文件
+NETWORK:
+*

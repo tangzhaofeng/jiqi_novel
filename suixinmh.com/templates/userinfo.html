@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>{?eval if($name!=''){$vname = $name;}else{$vname = $uname;}?}
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{?$vname?}作品集,{?$vname?}全部小说-{?$jieqi_sitename?}</title>
+<meta name="Keywords" content="{?$vname?},{?$vname?}全部小说,{?$vname?}作品集,{?$vname?}最新作品" />
+<meta name="description" content="{?$jieqi_sitename?}提供{?$vname?}全部小说，包括{?$vname?}作品集、{?$vname?}新书、{?$vname?}最新作品，并且提供{?$vname?}的小说下载及在线阅读。">
+<link href="{?$jieqi_themeurl?}style/style.css" type="text/css" rel="stylesheet" />
+<link href="{?$jieqi_themeurl?}style/pop.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/page.js"></script>
+<link href="{?$jieqi_themeurl?}style/home.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body class="bdy_home">
+<!--top begin-->
+<div class="top fix">
+  <!--top_mini begin-->
+  <div class="top_mini">
+    <div class="wrap fix">
+      <div class="userbar" id="userbar">      
+        	<div class="logn">欢迎访问{?$jieqi_sitename?}，<span class="g9">请<a href="{?function geturl:'system':'login'?}" class="f_blue5">登录</a>或<a href="{?function geturl:'system':'register'?}" class="f_blue5">注册</a></span><a href="javascript:;" class="qq f_gray3r" id="qqheadlogin">QQ登录</a></div>
+      </div>
+      <div class="mini_r f_gray3">
+       <a href="{?$jieqi_local_url?}/" onClick="window.external.addFavorite(this.href,this.title);return false;" title='{?$jieqi_sitename?}网' rel="sidebar" class="addfav">加入收藏</a>
+       |<a href="javascript:;"  onclick=this.style.behavior="url(#default#homepage)";this.setHomePage("{?$jieqi_local_url?}/");  class="sethome"  title="{?$jieqi_sitename?}网" >设为首页</a>
+       |<a href="#" id="StranLink" class="fan" target="_blank" title="繁体">繁体</a>
+      </div>
+    </div>
+  </div><!--top_mini end-->
+</div><!--top end-->
+{?eval $url= JIEQI_URL;?}
+<script type="text/javascript">
+layer.ready(function(){
+	var jumpurl = $("#jumpurl").val();
+	var url = "{?$url?}/qqlogin/";
+	if (jumpurl){
+		url = url + "?jumpurl=" + jumpurl;
+	}
+	
+   $("#qqheadlogin").bind("click",function(){
+		otherlogin(url);
+	});
+});
+</script>
+<script type="text/javascript">loadheader();</script>
+<!--search begin-->
+<div class="search">
+<div class="wrap rel">
+   <p class="navl"><a href="{?$jieqi_local_url?}" target="_blank">{?$jieqi_sitename?}首页</a>|<a href="javascript:alert('建设中');" title="{?$jieqi_sitename?}言情小说网">言情网</a>|<a href="http://wenxue.shuhai.com" target="_blank" title="{?$jieqi_sitename?}文学网">文学网</a>|<a href="/shuku" target="_blank">书库</a></p>
+      <!--so begin-->
+      <div class="so fix">
+        <div class="sohot wh f_white">
+         <span class="iso2"></span>搜索热词：<a href="/book/24740.htm" target="_blank" class="f_org">英雄联盟之君临天</a><a href="/book/9809.htm" target="_blank">美女养成师</a>
+        </div>
+          <div class="sop">
+            <div class="sopr">
+              <form action="/search" method="get" ajaxform="true" onsubmit='return false'>
+              <input type="text" name="searchkey"  id="J_search_suggest" value="{?$searchkey?}" data-placeholder="键入书名、作者名开始搜索" class="intxt"/>
+              <input name="dosubmit" type="submit" value="搜索" class="btn_so" /> </form>
+            </div>
+          </div>
+      </div><!--so end-->   
+  </div>
+</div><!--search end-->
+<!--homtop begin-->
+<div class="homtop">
+  <div class="orn"></div>
+  <!--wrap begin-->
+  <div class="wrap fix">
+    <div class="homtop_l">
+     <img src="{?function jieqi_geturl:'system':'avatar':'$uid':'l':'2'?}" width="170" height="170" onerror="this.src='/modules/article/images/nophoto_head.jpg'" />
+     <dl>
+      <dd><a href="javascript:void;"><em>{?$goodnum?}</em>收藏</a></dd>
+      <dd><a href="javascript:void;"><em>{?$worknum?}</em>作品</a></dd>
+      <dd><a href="javascript:void;"><em>{?$friendnum?}</em>粉丝</a></dd>
+     </dl>
+    </div>
+    
+    <div class="homtop_r fix">
+     <ul>
+      <li class="info"><span class="name"><em class="b">用户名：</em>{?$uname?}<a   href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}" target="_blank" class="{?$vipphoto?} vs" title="{?$vipgrade?}级会员"></a></span> <em class="pr20">|</em><span><em class="b">昵称：</em>{?$name?}</span><em class="pr20">|</em><span><em class="b">用户类型：</em>{?$group?}</span><em class="pr20">|</em><span><em class="b">会员级别：</em><a href="{?function geturl:'system':'userhub':'SYS=method=usermember'?}" class="{?$honorphoto?} rks" title="{?$honor?}"></a></span></li>
+      <li class="txt"><em class="b">个性签名：</em><p>{?if $sign!=''?}{?$sign?}{?else?}这家伙很懒，什么也没留下。{?/if?}</p></li>
+      <li class="data g6">
+       <p><em class="vote">使用月票：</em><em class="blue">{?$vipnum?}</em>票</p>
+       <p><em class="reward">使用打赏：</em><em class="blue">{?$rewardnum?}</em>次</p>
+       <p><em class="vote2">使用推荐票：</em><em class="blue">{?$votenum?}</em>票</p>
+       <p><em class="date">注册时间：</em>{?$regdate?}</p>
+       <p><em class="date2">最近上线：</em>{?$lastlogin?}</p>
+      </li>
+     </ul>
+    </div>
+  </div><!--wrap end-->
+</div><!--homtop end-->
+<!--wrap begin-->
+<div class="wrap">
+ <!--boxd begin-->
+ <div class="boxd fix p20">
+   <div class="tabt fix">
+     <ul id="tabs" class="fl f14">
+       <li id="hm"><a href="javascript:;">首页</a></li>
+       {?if $worknum != 0?}<li id="ar"><a href="javascript:;">作品</a></li>{?/if?}
+       {?if $goodnum != 0?}<li id="ub"><a href="javascript:;">藏书架</a></li>{?/if?}
+       {?if $reviewnum != 0?}<li id="ur"><a href="javascript:;">书评</a></li>{?/if?}
+     </ul>
+   </div>
+   <ul id="tab_conbox">
+    <li style="display:none;">
+	{?if ($votenum==0)&&($goodnum==0)&&($worknum==0)?}<p class="tips mt20 p10 tc f14 g3">这家伙不知在忙神马，暂无任何动态</p>{?/if?}
+	{?tag_system_124_查询用户作品<{lastupdate,2,0,$uid,0}><{block_uarticles2.html}>?}
+	{?tag_system_125_查询用户书架<{lastupdate,6,0,$uid,0}><{block_ubookcase1.html}>?}
+	{?if $votenum != 0?}
+     <!--box0 begin-->
+     <div class="box0">
+      <div class="tbox mt20"><em class="recom">我的推荐</em></div>
+      <div class="boxd fix pb20">
+       <dl class="lisd_img pt20">
+	   {?section name=i loop=$articlerows?}
+        <dd>
+        <a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}"/></a>
+        <a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_blue b">{?$articlerows[i].articlename?}</a>
+        </dd>
+		{?/section?}
+       </dl>
+      </div>
+     </div><!--box0 end-->
+	 {?/if?}
+    </li>    
+   </ul>
+ </div><!--boxd end-->
+</div><!--wrap end-->
+<div class="footer2">2011-2014 {?$jieqi_sitename?}<br />
+陕ICP备10012047号
+</div>
+<div class="dn"><script type="text/javascript" src="{?$jieqi_local_url?}/js/tj.js"></script><script type="text/javascript" src="{?$jieqi_local_url?}/scripts/gb.js"></script></div>
+<script>
+$('#ar').click(function(){
+	var ceng = layer.load(0);
+	$('#tab_conbox').load("{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$_REQUEST["uid"]&flag=article'?}",function(){
+		layer.close(ceng);
+	});
+});
+$('#ma').click(function(){
+	var ceng = layer.load(0);
+	$('#hm').removeClass();
+	$('#tabs li:eq(1)').addClass('thistab');
+	$('#tab_conbox').load("{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$_REQUEST["uid"]&flag=article'?}",function(){
+		layer.close(ceng);
+	});
+});
+$('#mb').click(function(){
+	var ceng = layer.load(0);
+	$('#hm').removeClass();
+	$('#ub').addClass("thistab");
+	$('#tab_conbox').load("{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$_REQUEST["uid"]&flag=bookcase'?}",function(){
+		layer.close(ceng);
+	});
+});
+$('#ub').click(function(){
+	var ceng = layer.load(0);
+	$('#tab_conbox').load("{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$_REQUEST["uid"]&flag=bookcase'?}",function(){
+		layer.close(ceng);
+	});
+});
+$('#ur').click(function(){
+	var ceng = layer.load(0);
+	$('#tab_conbox').load("{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$_REQUEST["uid"]&flag=review'?}",function(){
+		layer.close(ceng);
+	});
+});
+$('#hm').click(function(){
+	var ceng = layer.load(0);
+window.location.reload();
+});
+//显示回复和分页显示回复
+function showProducts(_this, url, show)
+{  
+	GPage.loadpage('tab_conbox', url); 
+}
+$(function(){
+	if('{?$aflag?}'==1){
+		$('#hm').parent().removeClass();
+		$('#tabs li:eq(1)').addClass('thistab');
+		$('#tab_conbox').load("{?function geturl:'system':'userhub':'SYS=method=userinfo&uid=$_REQUEST["uid"]&flag=article'?}");
+	}
+});
+</script>
+</body>
+</html>

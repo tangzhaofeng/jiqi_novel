@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+ <pagesize>{?$pagesize?}</pagesize>
+ <totalcount>{?$totalcount?}</totalcount>
+ <items>
+ {?section name=i loop=$rows?}
+ <item id="{?$i.order?}">
+  <bookid>{?$rows[i]['articleid']?}</bookid>
+  <title><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></title>
+  <url><![CDATA[http://{?$HTTP_HOST?}/?ac=info&aid={?$rows[i]['articleid']?}]]></url>
+ </item>
+ {?/section?}
+ </items>
+</document>

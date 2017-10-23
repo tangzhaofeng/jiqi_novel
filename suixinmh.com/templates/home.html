@@ -1,0 +1,157 @@
+{?set $meta_keywords = "小说,好看的小说,小说网,小说推荐,免费小说"?}
+{?set $jieqi_pagetitle = "$jieqi_sitename-免费小说,网络小说,好看的小说推荐"?}
+{?set $meta_description = "$jieqi_sitename为最具影响力的原创小说门户,也是最有潜力的网络小说网站,$jieqi_sitename每天拥有海量免费小说更新,包括玄幻小说,穿越小说,都市小说,网游小说,武侠小说,修真小说,恐怖小说,军事小说,历史小说等各类热门小说在线阅读,我们致力于汇集八方作者,共享文学盛事,将好看的小说推荐给读者,做最好看的网络小说网站。"?}
+<link href="{?$jieqi_themeurl?}style/index2.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.scroll-follow.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+   	$( function (){
+		$( '#aside' ).scrollFollow();
+	});
+</script>
+<style type="text/css">
+#gs { 
+_position: absolute; 
+_bottom: auto; 
+_top: expression(eval(document.documentElement.scrollTop)); 
+} 
+</style>
+<div class="wrap">
+
+
+  <div class="cl"></div>
+  <!--sidebar begin-->
+  <div class="sidebar fl mt10">
+   <!--box_side begin-->
+   <div class="box_side">
+    <div class="t1"><h2>完本小说推荐</h2></div>
+    <div class="dwn1">
+      <dl class="ldt p10">      
+        {?tag_system_134_[书页]左边-完本小说推荐?}
+      </dl>
+    </div>
+  </div><!--box_side end-->
+  
+   <!--box_side begin-->
+   <div class="box_side mt10">
+    <div class="t1"><h2>最新入库小说</h2></div>
+    <div class="dwn1">
+      <dl class="ldt p10">      
+        {?tag_system_2_通用查询<{postdate,10,0,0,0,0}><{block_commend.html}>?} 
+      </dl>
+    </div>
+  </div><!--box_side end--> 
+  
+  </div><!--sidebar end-->
+  
+  
+  <!--boxm begin-->
+  <div class="boxm mt10">
+   <div class="update2">
+       <div class="t">
+         <ul id="tabs6" class="tabs2">
+           <li><a href="javascript:void(0)">最新更新小说</a></li>
+           <li><a href="javascript:void(0)">VIP小说更新</a></li>
+           <li><a href="javascript:void(0)">文学作品更新</a></li>
+         </ul>
+		 <a href="{?function geturl:'article':'top':'method=toplist':SYS=type=lastupdate&sortid=0&page=1?}" target="_blank" class="more f_blue">更多&gt;&gt;</a>
+       </div>
+<!--    <div class="t"><h3>最新更新小说</h3><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=lastupdate&sortid=0&page=1?}" target="_blank" class="more f_blue">更多&gt;&gt;</a></div>-->
+	<ul id="tab_conbox6">
+	  <li>
+	    <dl class="ldt3">
+		<dt><span class="sort">类别</span><span class="name">书名/章节</span><span class="author">作者</span><span class="date">更新时间</span></dt>
+		{?tag_system_2_通用查询<{lastupdate,27,0,0,0,0,0}><{block_zuixingengxin.html}>?}
+	    </dl>
+	  </li>
+	  <li>
+    	<dl class="ldt3">
+		<dt><span class="sort">类别</span><span class="name">书名/章节</span><span class="author">作者</span><span class="date">更新时间</span></dt>
+		{?tag_system_2_通用查询<{lastupdate,27,0,0,0,0,1}><{block_zuixingengxin.html}>?}
+    	</dl>
+	  </li>
+	  <li>
+    	<dl class="ldt3">
+		<dt><span class="sort">类别</span><span class="name">书名/章节</span><span class="author">作者</span><span class="date">更新时间</span></dt>
+		{?tag_system_2_通用查询<{lastupdate,27,0,0,0,0,0,'',200}><{block_zuixingengxin.html}>?}
+    	</dl>
+	  </li>
+	</ul>
+   </div>
+  </div><!--boxm end-->
+  
+  <!--sidebar begin-->
+  <div class="sidebar fr mt10">
+    <!--box_side begin-->
+    <div class="box_side">
+      <div class="t2"><h2>小说推荐榜</h2>
+       <ul class="tabm21" id="tabs4">
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=weekvote&sortid=0&page=1?}" target="_blank">周</a></li>
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=monthvote&sortid=0&page=1?}" target="_blank">月</a></li>
+		<li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=totalvote&sortid=0&page=1?}" target="_blank">总</a></li>
+       </ul>
+      </div>
+      <ul class="dwn1" id="tab_conbox4">
+       <li class="fix">
+        <dl class="ldt2 p10 f_black">
+        {?tag_system_2_通用查询<{weekvote,10,0,0,0,0}><{v1/block_topli.html}>?}
+      </dl>
+        </li>       
+        <li class="fix" style="display:none;">
+		<dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{monthvote,10,0,0,0,0}><{v1/block_topli.html}>?}
+		</dl>
+        </li>      
+        <li class="fix" style="display:none;">
+		<dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{totalvote,10,0,0,0,0}><{v1/block_topli.html}>?}
+		</dl>
+        </li>
+      </ul>
+    </div><!--box_side end--> 
+
+    <!--box_side begin-->
+    <div class="box_side mt10">
+      <div class="t2"><h2>小说点击榜</h2>
+       <ul class="tabm21" id="tabs5">
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=weekvisit&sortid=0&page=1?}" target="_blank">周</a></li>
+        <li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=monthvisit&sortid=0&page=1?}" target="_blank">月</a></li>
+		<li><a href="{?function geturl:'article':'top':'method=toplist':SYS=type=totalvisit&sortid=0&page=1?}" target="_blank">总</a></li>
+       </ul>
+      </div>
+      <ul class="dwn1" id="tab_conbox5">
+       <li class="fix">
+        <dl class="ldt2 p10 f_black">
+        {?tag_system_2_通用查询<{weekvisit,10,0,0,0,0}><{v1/block_topli.html}>?}
+      </dl>
+        </li>       
+        <li class="fix" style="display:none;"><dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{monthvisit,10,0,0,0,0}><{v1/block_topli.html}>?} </dl>
+        </li>      
+        <li class="fix" style="display:none;">
+		<dl class="ldt2 p10 f_black">
+		{?tag_system_2_通用查询<{totalvisit,10,0,0,0,0}><{v1/block_topli.html}>?} </dl>
+        </li>
+      </ul>
+    </div><!--box_side end-->    
+    
+
+  </div><!--sidebar end-->
+   
+  <div class="cl"></div>
+  <div class="fdlink mt10">
+   <h3 class="t">友情链接</h3>
+   <div class="txt f_gray6">{?block bid="292" module="system" filename="" classname="BlockSystemCustom" side="" title="[首页]友链" vars="" template="" contenttype="1" custom="1" publish="3" hasvars="0"?}</div>
+  </div>
+</div>
+<!-- <div style="position:fixed; left:50%; top:321px; margin-left:-630px;">
+<a href="http://www.68wan.com/hazg/index_web.html?502a=" target="_blank">
+<img id="gs" src="{?$jieqi_themeurl?}images/130-300.jpg" alt="{?$jieqi_sitename?}推广位"></a>
+</div> -->
+  <script type="text/javascript">
+  $(function() {
+     $("img.lazy").lazyload({
+         effect : "fadeIn"
+     });
+  });
+  </script>

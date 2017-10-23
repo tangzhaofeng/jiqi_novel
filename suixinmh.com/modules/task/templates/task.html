@@ -1,0 +1,50 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link href="{?$jieqi_themeurl?}style/mod_task.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript">
+	var sendUrl = "{?function geturl:'task':'task':'SYS=method=taskComplete'?}";
+</script>
+<!--wrap2 begin-->
+<div class="wrap2">
+	{?include file = "modules/article/templates/bookFunction.html" ?}
+	<!--article2 begin-->
+	<div class="article3 fr">
+		<!--tabox begin-->
+		<div class="tabox">
+			{?include file = "modules/task/templates/tasktab.html" ?}
+			<div class="tips f14 p10 g3 mt10 mb10 pl20 b">完成相应的任务后，点击按钮即可领取奖励。</div>
+			<ul id="tab_conbox" class="f0">
+				<li class="fix">
+					<table width="98%" border="0" cellspacing="0" cellpadding="0" class="tabl2">
+						<tr class="bgt b">
+							<th width="18%" align="center" scope="col">任务名称</th>
+							<th width="69%" align="center" scope="col">任务描述</th>
+							{?if $_GET['userfinished']!=='userfinished'?}
+							<th width="13%" align="center" scope="col">领取奖励</th>
+							{?/if?}
+						</tr>
+						{?section name=i loop=$lists?}
+						<tr>
+							<td valign="middle" align="center">{?$lists[i].taskname?}</td>
+							<td valign="middle">{?$lists[i].description?}</td>
+							{?if $_GET['userfinished']!=='userfinished'?}
+							<td align="center" valign="middle">
+								{?if $lists[i].iscomplete == 1?}
+								<a data-id="{?$lists[i].taskid?}" class="take J_set_finish" href="javascript:;">点击完成</a> {?else?}
+								<a class="taked" href="javascript:;">{?if $lists[i].iscomplete==3?}未完成{?else?}已完成{?/if?}</a> {?/if?}
+							</td>
+							{?/if?}
+						</tr>
+						{?/section?}
+					</table>
+					<div class="bar fix tc">
+						<div class="page2 auto">{?$url_jumppage?}</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--tabox end-->
+	</div>
+	<!--article2 end-->
+</div>
+<!--wrap2 end-->
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/mod.task.js"></script>

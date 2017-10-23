@@ -1,0 +1,286 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article2 fr">
+	<!--boxm2 begin-->
+	<div class="boxm2">
+	  {?tag_system_125_查询用户书架<{joindate,3,0,$uid,0}><{block_ubookcaseindex.html}>?}
+      <!--box_mid2 begin-->
+      <div class="box_mid2 mt10">
+        <div class="t"><h3>动 态</h3></div>
+        <!--down begin-->
+        <div class="down p10">
+          <!--box begin-->
+          <div class="box p5">
+            <div class="tabs4box">
+          	  <ul class="tabs4" id="tabs0">
+           		<li id="dall"><a href="javascript:void(0)" >全部动态</a></li>
+           		<li id="sale"><a href="javascript:void(0)" >作品订阅</a></li>
+           		<li id="reward"><a href="javascript:void(0)" >作者打赏</a></li>
+           		<li id="goodnum"><a href="javascript:void(0)" >精品收藏</a></li>
+		   		<li id="vote"><a href="javascript:void(0)" >小说推荐</a></li>
+		   		<li id="my"><a href="javascript:void(0)" >我的动态</a></li>
+          	  </ul>
+            </div>
+          	<ul class="i_trend" id="tab_conbox0">
+           	  <li class="fix" id="allli">
+            	<dl class="list_img2" id="dalldyn"></dl>
+           	  </li>
+           	  <li class="fix" id="saleli" style="display:none;">
+            	<dl class="list_img2" id="saledyn">亲，你还没有订阅信息</dl>
+           	  </li>
+           	  <li class="fix" id="rewardli" style="display:none;">
+            	<dl class="list_img2" id="rewarddyn">亲，你还没有打赏信息</dl>
+           	  </li>
+           	  <li class="fix" id="goodnumli" style="display:none;">
+            	<dl class="list_img2" id="goodnumdyn">亲，你还没有收藏信息</dl>
+           	  </li>
+		      <li class="fix" id="voteli" style="display:none;">
+            	<dl class="list_img2" id="votedyn">亲，你还没有推荐信息</dl>
+           	  </li>
+		   	  <li class="fix" id="myli" style="display:none;">
+            	<dl class="list_img2" id="mydyn">亲，你还没有推荐信息</dl>
+           	  </li>
+            </ul>          
+          </div><!--box end-->
+          <!--<div class="page"><a href="#" class="end">首页</a><a href="#" class="end">上一页</a><em class="on">1</em><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">下一页</a><a href="#">尾页</a>共18页 第1页</div>-->
+      	</div><!--down end-->
+      </div><!--box_mid2 begin-->      
+	</div><!--boxm2 end-->
+    
+    <!--sidebar begin-->
+    <div class="sidebar fr">
+      <dl class="user_info">
+        <dt class="f_blue">帐号：<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$_USER["uid"]'?}">{?$_USER['useruname']?}</a><a class="{?$_USER['vipphoto']?} vs" href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}"></a></dt>
+        <dd><em>真实姓名：</em>{?$_USER['realname']?}</dd>
+        <dd><em>昵称：</em>{?$_USER['username']?}</dd>
+        <!-- <dd><em>类型：</em>读者/作者</dd> -->
+        <dd><em>余额：</em>{?$_USER['egolds']?}<a href="{?function geturl:'pay':'home'?}" class="recharge">立即充值</a></dd>
+      </dl>
+      <div class="box_re">
+		<div class="box_sign {?if $issign >0?}unable{?/if?}" id="sign">
+		  <div class="box_left">
+			<div class="box_pa">
+			  <p class="left_title">&nbsp;</p>
+			  <p>&nbsp;</p>
+			  <p class="left_bottom">&nbsp;</p>
+			</div>
+		  </div>
+		  {?if $issign > 0?}<div class="button">已签到</div>{?else?}<a class="button" href="{?function geturl:'system':'userhub':'SYS=method=signin'?}">签到</a>{?/if?}
+		</div>
+	    <input type="hidden" name="issign" value="{?$issign?}">
+	    <input type="hidden" name="totalsign" value="{?$totalsign?}">
+      </div>
+      <div class="box">
+        <div class="t"><h4>我的积分</h4></div>
+        <div class="box_dwn">
+		  <p class="intro">总积分：{?$_USER['score']?} 
+		  	<a href="{?function geturl:'system':'userhub':'SYS=method=usermember'?}" target="_blank" class="f_blue3">如何得到积分?</a>
+		  </p>
+        </div>
+      </div>     
+      <div class="box">
+        <div class="t"><h4>我的标签</h4></div>
+        <div class="box_dwn">
+          <p class="intro">
+        	{?if $_USER['setting']['hobby'] != null?}
+        	  {?eval $hobby = explode(',',$_USER['setting']['hobby']);?}
+           	  {?section name=i loop=$hobby?}
+           	    <a href="/{?$sort[$i.value].class?}/" target="_blank" class="f_blue4">{?$sort[$i.value].shortcaption?}</a>
+           	  {?/section?}
+        	{?else?}
+			  没有标签
+        	{?/if?}
+          </p>
+        </div>
+      </div>  <!--
+      <div class="box">
+        <div class="t" ><h4>火热作者</h4></div>
+        <div class="box_dwn">
+         <dl class="list_img3 fix">
+          <dd><p class="img"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/head4.jpg"/></a><span class="mask"></span></p><a href="#" target="_blank" class="f_blue4">h1190火热火热火热</a></dd>
+          <dd><p class="img"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/head4.jpg"/></a><span class="mask"></span></p><a href="#" target="_blank" class="f_blue4">火热火热h1190</a></dd>
+          <dd><p class="img"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/head4.jpg"/></a><span class="mask"></span></p><a href="#" target="_blank" class="f_blue4">h1190</a></dd>
+          <dd><p class="img"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/head4.jpg"/></a><span class="mask"></span></p><a href="#" target="_blank" class="f_blue4">h1190</a></dd>
+          <dd><p class="img"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/head4.jpg"/></a><span class="mask"></span></p><a href="#" target="_blank" class="f_blue4">h1190</a></dd>
+          <dd><p class="img"><a href="#" target="_blank"><img src="{?$jieqi_themeurl?}images/head4.jpg"/></a><span class="mask"></span></p><a href="#" target="_blank" class="f_blue4">h1190</a></dd>
+         </dl>
+         <div class="play"><a href="#" class="ilend"></a><a href="#" class="ir"></a></div>
+        </div>
+      </div>  -->   
+      <div class="box_side mt10">
+		<div class="t1"><h2>最新签约</h2></div>
+		<div class="dwn1">
+		  <dl class="ldt p10">      
+			{?tag_system_2_通用查询<{signdate,8,0,0,0,0}><{v1/block_viptui.html}>?}
+		  </dl>
+		</div>
+	  </div>
+	  <div class="box_side fr mt10">
+		<div class="t2"><h2>月票榜</h2>
+          <ul class="tabm2" id="tabs2">
+            <li><a href="javascript:;">男频</a></li>
+            <li><a href="javascript:;">女频</a></li>
+          </ul>
+        </div>
+        <ul class="dwn1" id="tab_conbox2">
+          <li class="fix">
+        	<dl class="ldt2 p10 f_black">
+			  {?tag_system_2_通用查询<{monthvipvote,10,1|2|3|4|5|6|7|8|9|10|11,0,0,0}><{v1/block_zhuant.html}>?}
+      		</dl>
+          </li>       
+          <li class="fix" style="display:none;">
+			<dl class="ldt2 p10 f_black">
+			  {?tag_system_2_通用查询<{monthvipvote,10,12,0,0,0}><{v1/block_zhuant.html}>?}
+			</dl>
+          </li>
+        </ul>
+	  </div> 
+    </div><!--sidebar end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+
+<script>
+  var weekday = new Array("周日","周一","周二","周三","周四","周五","周六"),
+  	   myDate = new Date(),
+	  	    y = myDate.getFullYear(),
+	  	    m = myDate.getMonth()+1 < 10 ? '0'+(myDate.getMonth()+1) : myDate.getMonth()+1,
+	  	    d = (myDate.getDate() < 10) ? '0'+myDate.getDate() : myDate.getDate(),
+	  	   md = m+'-'+d,//月日
+	  	    w = weekday[myDate.getDay()],//周
+	 daycount = new Date(y,m,0).getDate();
+  
+  $(".box_pa p:eq(1)").html(md);//签到按钮左边的月，日
+  $(".left_bottom").html(w);//签到按钮旁的星期
+  
+  function showDynamic(_this, url, show){//点击页码ajax翻页
+	var i = layer.load(0);
+	var midDynamic = _this.id + "dyn";
+	if(show!='1') $("#"+_this.id+"li").toggle();
+	GPage.loadpage(midDynamic, url);
+	layer.close(i);
+  }
+  
+  var my = '{?$_REQUEST['my']?}';
+  $(function() {
+  	if (!my) {
+		var dynamicurl = "{?function geturl:'system':'userhub':'SYS=method=myDynamic&mid=dall'?}";
+		GPage.loadpage('dalldyn', dynamicurl);
+	}
+	$.jqtab("#tabs0","#tab_conbox0","click");
+
+    $('#dall').bind('click',myDynamic);
+    $('#reward').bind('click',myDynamic);
+    $('#sale').bind('click',myDynamic);
+    $('#goodnum').bind('click',myDynamic);
+    $('#vote').bind('click',myDynamic);
+    $('#my').bind('click',myDynamic);
+	if (my) $('#my').click();
+	function myDynamic() {
+	  var i = layer.load(0);
+      var dynamicurl = "{?function geturl:'system':'userhub':'SYS=method=myDynamic'?}";
+	  dynamicurl =  urlParams(dynamicurl, "mid=" +this.id);
+	  var mid = this.id + "dyn";
+	  //加载模版
+	  GPage.loadpage(mid, dynamicurl);
+	  if (mid == 'mydyn') loadheader();
+	  layer.close(i);
+	}
+	var issign,totaosign,sign='',showDate1,signhref;
+	function creatrili(){
+	  issign = $("[name='issign']").prop("value"),//attr
+	  totalsign = $("[name='totalsign']").prop("value");//attr
+      if(issign > 0){
+		sign +='<div class="rili">';
+		sign +='<div class="sign_status">';
+		sign +='<div class="status_img"><img src="{?$jieqi_themeurl?}/images/sign.png" alt="签到"></div>';
+		sign +='<div class="sign_msg">签到成功!</div>';
+		sign +='</div>';
+		sign +='<div class="mt5 mb5 tc">2015年一月</div>';
+		sign +='<div class="data_box" id="data_box">';
+		sign +='<div class="sel_date">';
+		sign +='<table class="data_table">';
+		sign +='<thead><tr>';
+		sign +='<td class="red">日</td><td>一</td><td>二</td><td>三</td><td>四</td><td>五</td><td class="red">六</td>';
+		sign +='</tr></thead>';
+		sign +='<tbody>';
+		sign +='<tr><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td class="red"></td></tr>';
+		sign +='<tr><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td class="red"></td></tr>';
+		sign +='<tr><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td class="red"></td></tr>';
+		sign +='<tr><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td class="red"></td></tr>';
+		sign +='<tr><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td class="red"></td></tr>';
+		sign +='<tr><td class="red"></td><td></td><td></td><td></td><td></td><td></td><td class="red"></td></tr>';
+		sign +='</tbody>';
+		sign +='</table></div></div>';
+		sign +='<div class="ml10 mr5 mb5 mt5 pl5">累计签到满<span class="org">7</span>天，奖励<span class="org">20</span>书券。</div>';
+		sign +='<div class="ml10 mr5 mb5 pl5">累计签到满<span class="org">15</span>天，奖励<span class="org">30</span>书券。</div>';
+		sign +='<div class="ml10 mr5 mb5 pl5">累计签到<span class="org">一个月</span>，奖励<span class="org">50</span>书券。</div>';
+		sign +='</div>';
+		
+		$(".box_re").append(sign).children(".rili").hide();
+		//实例化日历对象
+		showDate1 = new showDate({id: "data_box"}),
+        signhref = '{?function geturl:"system":"userhub":"SYS=method=showSignView"?}';
+        //日历上的年，月
+        $(".rili .tc").html(y+"年"+m+"月");
+      }	
+	}
+
+	//签到操作ajax
+	$("a.button").click(function(e){
+	  e.preventDefault();
+	  var _self = this;
+	  GPage.getJson(this.href,function(data){
+	    if(data.status == 'OK'){
+		  //layer.msg(data.msg,1,{shade:false});
+		  $(_self).html("已签到");
+		  $(_self).removeAttr("href");
+		  $(_self).parent().addClass("unable");
+		  $("[name='issign']").prop("value","1");//attr
+		  $(".box_sign .button").mouseover();
+	    }else{
+		  layer.msg(data.msg);
+	    }
+	  });
+	});
+
+    $(".box_sign .button").mouseover(function(){
+      creatrili();
+	  if(issign > 0){
+	  	var rlcount = $(".rili").length;
+		//如果显示rili时已有rili，就删除最后一个rili
+		if(rlcount >0) { $(".rili:not(:eq(0))").remove(); }
+        $.ajax({
+    	  url:signhref,
+    	  dataType: 'json',
+    	  success: function(data){
+    		showDate1.init();
+    		var tmpArr = data.dates.split(",");
+    		$.each(tmpArr, function(i, n){
+    		  tmpArr[i] = parseInt(n);
+    		});
+    		$("tbody td").each(function(){
+    		  if($(this).html() == ''){return true;}
+    		  if($.inArray(parseInt($(this).html()),tmpArr)>-1){
+    		  	$(this).html($(this).html()+"<div class='mark'></div>");
+    		  }
+    		});
+    		setTimeout(function(){
+    		  $(".rili").show();
+    		},300);
+    	  },
+    	  error : function(data){
+			layer.alert(data.msg, 8, !1);
+	  	  }
+        });
+	  }
+    }).mouseout(function(){
+	  $(".rili").animate({opacity:'0'},"slow",function(){
+	  	$(this).remove();
+	  });
+    });
+  });
+</script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/mod.user.index.js"></script>

@@ -1,0 +1,17 @@
+  <dl class="list_t4d f_black">
+  {?section name=i loop=$articlerows?}
+    {?if $i.order==1?}
+	<dt>
+	 <div class="first">{?$i.order?}</div>
+	 <a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="img"><img src="{?$articlerows[i]['url_image']?}" width="84" height="112" /></a>
+	 <div class="intro">
+	  <span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}" class="f_blue3">{?$articlerows[i]['articlename']?}</a></span>
+	  <span class="author">×÷Õß£º<em>{?$articlerows[i]['author']?}</em></span>
+	  <p class="txt" title="{?$articlerows[i]['intro']?}">{?$articlerows[i]['intro']?}</p>
+	 </div>
+	</dt>
+	{?else?}
+	<dd><span class="numb">{?$i.order?}</span><p><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span><span class="click">{?$articlerows[i]['visitnum']?}</span></p></dd>
+	{?/if?}
+	{?/section?}
+  </dl>

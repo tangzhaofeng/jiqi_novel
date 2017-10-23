@@ -1,0 +1,66 @@
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>推客数据 &nbsp;<a _i="2" class="refreshPage" href="javascript:void();">刷新缓存</a></h3>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+
+            </div>
+          </div>
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th>经理名称</th>
+                <th>推客数量</th>
+                <th>上月充值</th>
+                <th>本月充值</th>
+                <th>近7日充值</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($ktList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 7 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('super','manusers');?}
+              {?section name=i loop=$ktList?}
+              <tr>
+                <td>{?$ktList[i].uname?}</td>
+                <td>{?$ktList[i].tk_num?}</td>
+                <td>{?$ktList[i].pre_month_pay?}</td>
+                <td>{?$ktList[i].month_pay?}</td>
+                <td>{?$ktList[i].seven_day_pay?}</td>                
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $('.refreshPage').click(function(){
+        var i,ar;
+        i=$(this).attr('_i');
+        ar=location.pathname.split('/');
+        $.post('http://'+location.host+'/'+ar['1']+'/home/refreshPage',{refresh:i,ajax_request:1},function(msg){
+          if( msg.status === 'OK' ){
+            location.href='';
+          }else{
+            Users.ShowMsg(msg.msg);
+          }
+        },'json');
+      });
+    </script>
+{?include file="tuike/super/templates/public/footer.html"?}

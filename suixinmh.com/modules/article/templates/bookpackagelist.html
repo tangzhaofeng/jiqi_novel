@@ -1,0 +1,270 @@
+<link rel="stylesheet" href="{?$jieqi_themeurl?}style/mod_shubao.css">
+<div class="wrap">
+    <span class="tarr"></span>
+    <div class="Div1">
+    	{?if $commends['0']['comcounts'] >4?}
+        	<b class="Div1_prev Div1_prev1" ><img src="{?$jieqi_themeurl?}images/s-l.gif" width="70" height="364" /></b>
+        	<b class="Div1_next Div1_next1" ><img src="{?$jieqi_themeurl?}images/s-r.gif" width="70" height="364" /></b>
+        {?/if?}
+        <div class="Div1_main">
+        {?section name=i loop=$commends columns=4?}
+            {?if $i['column']==1?}<div>{?/if?}
+            <span class="Div1_main_span1">
+                {?if $commends[i].id>0?}<a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$commends[i].id'?}" class="Div1_main_a1">{?else?}<a href="javascript:;" class="Div1_main_a1">{?/if?}
+                    <img src="{?$commends[i].coverimg?}" />
+                    <dl>
+                        <dt>{?$commends[i].name?}</dt>
+                        <dd>总原价：<em class="del">{?$commends[i].initinalprice?}</em>书海币</dd>
+                        <dd>包月价：<em class="org">{?$commends[i].price?}</em>书海币</dd>
+                    </dl>
+                </a>
+                <a href="javascript:void(0)" data-id="{?$commends[i].id?}" data-price="{?$commends[i].price?}" data-name="{?$commends[i].name?}" class="Div1_main_a2 j_buy_btn">立即抢购</a>
+            </span>
+            {?if $i['column']==$i['columns']?}</div>{?/if?}
+        {?/section?}
+        </div><!--Div1_main end-->    
+    </div><!--幻灯Div1 end-->
+
+    <div class="cl"></div>
+
+    <div class="bao">
+        <div class="bao_t">
+            <ul>
+                <li {?if isset($_REQUEST['siteis'])!=1?} class="thistab"{?/if?}><a href="{?function geturl:'article':'bookpackage':'SYS=method=main'?}">全部</a></li>
+                <li {?if isset($_REQUEST['siteis'])==1 && intval($_REQUEST['siteis'])==0?} class="thistab"{?/if?}><a href="{?function geturl:'article':'bookpackage':'SYS=method=main&siteis=0'?}">男生</a></li>
+                <li {?if isset($_REQUEST['siteis'])==1 && intval($_REQUEST['siteis'])==100?} class="thistab"{?/if?}><a href="{?function geturl:'article':'bookpackage':'SYS=method=main&siteis=100'?}">女生</li>
+            </ul>     
+        </div>
+
+        <ul>
+            <li class="fix" {?if isset($_REQUEST['siteis'])==1?} style="display:none;"{?/if?}>
+                <dl class="li_bao">
+                    {?section name=i loop=$bplist?}
+                    <dd class="fix">
+                        <a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bplist[i].id'?}" class="img"><img src="{?$bplist[i].coverimg?}" width="134" height="179" /></a>
+                        <div class="baoinfo" data-id="{?$bplist[i].id?}">
+                            <h4>书包名称：<a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bplist[i].id'?}">{?$bplist[i].name?}</a></h4>
+                            <p class="txt">书包介绍：{?$bplist[i].description?}</p>
+                            <p>总原价：<em class="del">{?$bplist[i].initinalprice?}</em>书海币<span class="pl20">总字数：{?$bplist[i].totalsize?}万</span></p>
+                            <p>包月价：<em class="org">{?$bplist[i].price?}</em>书海币</p>
+                            <p><a data-id="{?$bplist[i].id?}" data-price="{?$bplist[i].price?}" data-name="{?$bplist[i].name?}" href="javascript:;" class="btn_buy j_buy_btn">立即购买</a><a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bplist[i].id'?}" class="btn_bao">查看详情</a></p>
+                        </div>
+                    </dd>
+                    {?/section?}
+                </dl>
+                <div class="page3">{?$url_jumppage?}</div>
+            </li>
+            <li class="fix" {?if isset($_REQUEST['siteis'])==0 || $_REQUEST['siteis']!=0?} style="display:none;"{?/if?}>
+                <dl class="li_bao">
+                    {?section name=i loop=$bpmalelist?}
+                    <dd class="fix">
+                        <a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bpmalelist[i].id'?}" class="img"><img src="{?$bpmalelist[i].coverimg?}" width="134" height="179" /></a>
+                        <div class="baoinfo" data-id="{?$bpmalelist[i].id?}">
+                            <h4>书包名称：<a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bpmalelist[i].id'?}">{?$bpmalelist[i].name?}</a></h4>
+                            <p class="txt">书包介绍：{?$bpmalelist[i].description?}</p>
+                            <p>总原价：<em class="del">{?$bpmalelist[i].initinalprice?}</em>书海币<span class="pl20">总字数：{?$bpmalelist[i].totalsize?}万</span></p>
+                            <p>包月价：<em class="org">{?$bpmalelist[i].price?}</em>书海币</p>
+                            <p><a data-id="{?$bpmalelist[i].id?}" data-price="{?$bpmalelist[i].price?}" data-name="{?$bpmalelist[i].name?}" href="javascript:;" class="btn_buy j_buy_btn">立即购买</a><a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bpmalelist[i].id'?}" class="btn_bao">查看详情</a></p>
+                        </div>
+                    </dd>
+                    {?/section?}
+                </dl>
+                <div class="page3">{?$male_jumppage?}</div>
+            </li>
+            <li class="fix" {?if isset($_REQUEST['siteis'])==0 || $_REQUEST['siteis']!=100?} style="display:none;"{?/if?}>
+                <dl class="li_bao">
+                    {?section name=i loop=$bpfemalelist?}
+                    <dd class="fix">
+                        <a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bpfemalelist[i].id'?}" class="img"><img src="{?$bpfemalelist[i].coverimg?}" width="134" height="179" /></a>
+                        <div class="baoinfo" data-id="{?$bpfemalelist[i].id?}">
+                            <h4>书包名称：<a href="javascript:;">{?$bplist[i].name?}</a></h4>
+                            <p class="txt">书包介绍：{?$bpfemalelist[i].description?}</p>
+                            <p>总原价：<em class="del">{?$bpfemalelist[i].initinalprice?}</em>书海币<span class="pl20">总字数：{?$bpfemalelist[i].totalsize?}万</span></p>
+                            <p>包月价：<em class="org">{?$bpfemalelist[i].price?}</em>书海币</p>
+                            <p><a data-id="{?$bpfemalelist[i].id?}" data-price="{?$bpfemalelist[i].price?}" data-name="{?$bpfemalelist[i].name?}" href="javascript:;" class="btn_buy j_buy_btn">立即购买</a><a href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$bpfemalelist[i].id'?}" class="btn_bao">查看详情</a></p>
+                        </div>
+                    </dd>
+                    {?/section?}
+                </dl>
+                <div class="page3">{?$female_jumppage?}</div>
+            </li>
+        </ul>
+        
+    </div><!--bao end-->
+
+    <div class="bao-side">
+        <div class="mybao">
+            <a id="j_go_mybp" href="javascript:;" data-id="{?function geturl:'article':'userbookpackage':'SYS=method=main'?}"><h3>我的包月记录</h3></a>
+            <ul class="baotxt">
+                <li>
+                    <h5>问：什么是包月？</h5>
+                    <p>答：本站推出包含多部VIP作品的合集书包，包括3元5本小包、5元10本中包、8元20本大包等多种形式。书包中的书均为完本，既没有更新慢的情况也不用担心作品不能完结。</p>       
+                </li>
+                <li>
+                    <h5>问：订购书包后，能免费阅读多久？</h5>
+                    <p>答：30天。举例：您在8月8日购买书包，则有效阅读时间为8月8—9月7日。</p>       
+                </li>
+                <li>
+                    <h5>问：月底包月是不是不划算？</h5>
+                    <p>答：不是。您在任何时间购买书包，都能够免费阅读该书包30天。</p>       
+                </li>
+                <li>
+                    <h5>问：购买包月何时生效？</h5>
+                    <p>答：购买当天即时生效。</p>       
+                </li>
+                <li>
+                    <h5>问：包月是自动续订？</h5>
+                    <p>答：不是。每次书包的购买为读者手工操作，不存在自动续订，请放心使用。已经购买的书包，不能退订。</p>       
+                </li>
+                <li>
+                    <h5>问：如何查看自己购买的书包？</h5>
+                    <p>答：购买后您可以在“个人中心—我的包月—包月记录”中查看。</p>       
+                </li>
+                <li>
+                    <h5 class="red">==特别说明==</h5>
+                    <p>书海主站、手机Wap站和手机客户端均支持包月专区阅读服务，购买一次包月，手机电脑免费畅读！</p>       
+                </li>
+            </ul>
+        </div><!--mybao end-->
+        <div class="boxside">
+            <h3>书包销量排行</h3>
+            <dl class="ldt2 f_black p10">
+                {?section name=i loop=$rankbp?}
+                <dd class="fix"><span class="name3"><em>{?$i['order']?}</em><a data-id="{?$rankbp[i].bpid?}" target="_blank" href="{?function geturl:'article':'bookpackage':'SYS=method=showbookpackage&bpid=$rankbp[i].bpid'?}">{?$rankbp[i].name?}</a></span><span class="num">订购{?$rankbp[i].counts?}次</span></dd>
+                {?/section?}
+            </dl>
+
+        </div><!--boxside end-->
+    </div><!--baoside end-->
+
+
+
+
+    <div class="cl"></div>
+
+<!--    <div class="fdlink mt10">
+        <h3 class="t">友情链接</h3>
+        <div class="txt f_gray6">
+            <a href="#" target="_blank">腾讯读书</a>|<a href="#" target="_blank">网易云阅读</a>|<a href="#" target="_blank">搜狐网读书</a>|<a href="#" target="_blank">起点中文</a>|<a href="#" target="_blank">晋江原创网</a>|<a href="#" target="_blank">言情小说吧</a>|<a href="#" target="_blank">世纪书城小说网</a>|<a href="#" target="_blank">红袖小说网</a>|<a href="#" target="_blank">17k小说网</a>|<a href="#" target="_blank">凤鸣轩小说网</a>|<a href="#" target="_blank">纵横中文网</a> <a href="#" target="_blank">小说阅读网</a>|<a href="#" target="_blank">逐浪小说网</a>|<a href="#" target="_blank">3G小说网</a>|<a href="#" target="_blank">红杉中文网</a>|<a href="#" target="_blank">精品中文网</a>|<a href="#" target="_blank">幻文小说网</a>|<a href="#" target="_blank">搜狐网读书</a>|<a href="#" target="_blank">晋江原创网</a>|<a href="#" target="_blank">言情小说吧</a>|<a href="#" target="_blank">红袖小说网</a>|<a href="#" target="_blank">凤鸣轩小说网</a> <a href="#" target="_blank">言情小说吧</a>|<a href="#" target="_blank">超星读书</a>|<a href="#" target="_blank">红袖小说网</a>|<a href="#" target="_blank">17k小说网</a>|<a href="#" target="_blank">凤鸣轩小说网</a>|<a href="#" target="_blank">纵横中文网</a>|<a href="#" target="_blank">3G小说网</a>|<a href="#" target="_blank">逐浪小说网</a>|<a href="#" target="_blank">小说阅读网</a>|<a href="#" target="_blank">网易云阅读</a>|<a href="#" target="_blank">世纪书城小说网</a>
+        </div>
+    </div>-->
+</div><!--wrap end-->
+
+<script>
+  $(function(){ 
+      $("#j_no_click").live("click", function(){
+          return false;
+      })
+  $(".Div1_main div span").mouseover(function(){
+    $(this).addClass("Div1_main_span1").siblings("span").removeClass("Div1_main_span1");
+  }).mouseout(function(){
+    $(this).removeClass("Div1_main_span1").siblings("span");
+  })
+  
+  
+  var 
+     index = 0 ;
+     maxIndex = $(".Div1_main div").length-1;
+    Swidth = 840 ;
+     timer = null ;
+     changeTime = 4000;
+       len = $(".Div1_title span a").length ; 
+    
+    function NextPage()
+    { 
+      if(index>maxIndex)
+      {
+        index = 0 ;
+      }
+      $(".Div1_title span a").removeClass("Div1_title_a1").eq(index).addClass("Div1_title_a1");
+      $(".Div1_main").stop(true, false).animate({left: -index*Swidth+"px"},600);
+    }
+    
+    function PrevPage()
+    { 
+      if(index<0)
+      {
+        index = maxIndex ;
+      }
+      $(".Div1_title span a").removeClass("Div1_title_a1").eq(index).addClass("Div1_title_a1");
+      $(".Div1_main").stop(true, false).animate({left: -index*Swidth+"px"},600)   
+    }
+    
+    $(".Div1_title span a").each(function(a){
+            $(this).mouseover(function(){
+        index = a ;
+        NextPage();
+      });
+        });
+    //下一页
+    $(".Div1_next img").click(function(){
+       index++ ;
+       NextPage();
+        });
+        //上一页
+        $(".Div1_prev img").click(function () {
+            index--;
+            PrevPage();
+        });
+        //自动滚动
+        var timer = setInterval(function () {
+            index++;
+            NextPage();
+        }, changeTime);
+
+        $(".Div1_next img , .Div1_main , .Div1_prev img , .Div1_title span").mouseover(function () {
+            clearInterval(timer);
+        });
+        $(".Div1_next img , .Div1_main , .Div1_prev img , .Div1_title span").mouseleave(function () {
+            timer = setInterval(function () {
+                index++;
+                NextPage();
+            }, changeTime);
+        });
+        // mybp
+        $("#j_go_mybp").live("click", function(){
+            if(getUserId()<1){userLogin();}else{window.open("{?function geturl:'system':'userhub':'SYS=method=mybplist'?}")}
+        })
+        // buy
+        $(".j_buy_btn").live("click", function(){
+            var bpid=$(this).attr("data-id");
+            var thisprice=$(this).attr("data-price");
+            var thisname=$(this).attr("data-name");
+            if(bpid==0){return false;}
+            if(getUserId()<1){
+	        userLogin();
+            } else {
+                GPage.getJson("{?function geturl:'article':'bookpackage':'SYS=method=get_user_info&bpid='?}"+bpid,function(data){
+                    if(data.status=="OK"){
+                        if(parseInt(data.msg.money)<parseInt(thisprice)){
+                            var htms="对不起，您的账户余额不足！<br /><br />您正在购买的书包《"+thisname+"》，需要支付 <span style='color:#f60'>"+thisprice+"</span> 书海币，您的账户尚余 <span style='color:#f60'>"+data.msg.money+"</span> 书海币。<br /><br ><a href='{?function geturl:'pay':'home':'SYS=method=main'?}'>点击这里进行账户充值</a>";
+                            layer.alert(htms,0,!1);
+                            return false;
+                        }else{
+                            layer.confirm('您正在购买的包月书包《'+thisname+'》，需要支付 <span style="color:#f60">'+thisprice+'</span> 书海币，您的账户尚余 <span style="color:#f60">'+data.msg.money+'</span> 书海币。<br />您确定么？',function(index){
+                                GPage.getJson("{?function geturl:'article':'bookpackage':'SYS=method=buybookpackage&bpid='?}"+bpid,function(data){
+                                    if(data.status=="OK"){
+                                        if(data.msg.owner=="OK"){
+                                            layer.alert(data.msg.msg,9,!1);
+                                            return false;
+                                        }else{
+                                            htmls="恭喜您！成功购买包月书包《"+thisname+"》，本次购买共支付 <span style='color:#f60'>"+thisprice+"</span> 书海币。<br />您可在<a href='{?function geturl:'system':'userhub':'SYS=method=mybplist'?}'>我的书包记录</a>中查看购买的书包"
+                                            layer.alert(htmls,9,!1);
+                                        }
+                                    }else{
+                                        layer.alert(data.msg,9,!1);
+                                        return false;
+                                    }
+                                })
+                            })
+                        }
+                    }else{
+                        layer.alert(data.msg);
+                        return false;
+                    }
+                })
+            }
+        })
+    })
+</script>
+

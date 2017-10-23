@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<bookinfo> 
+        <bookId>{?$article['articleid']?}</bookId> 
+        <bookName><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],true,'xml');?}]]></bookName> 
+        <subTitle><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],true,'xml');?}]]></subTitle> 
+        <detail><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],true,'xml');?}]]></detail> 
+        <categoryId>{?$article['sortid']?}</categoryId> 
+        <keyWord>{?eval echo gb2utf8XHSafeStr($article['keywords'],true,'xml');?}</keyWord> 
+        <bookStatus>{?if $article['fullflag']<1?}2{?else?}1{?/if?}</bookStatus> 
+        <size>{?eval echo $article['size']/2;?}</size> 
+        <author>{?eval echo gb2utf8XHSafeStr($article['author'],false);?}</author> 
+        <isVip>{?if $article['articletype']<1?}1{?else?}0{?/if?}</isVip> 
+        <isFee>0</isFee> 
+        <maxFree>{?$article['chapters']?}</maxFree> 
+        <price>0</price> 
+        <categoryName>{?eval echo gb2utf8XHSafeStr($article['sort'],true,'xml');?}</categoryName> 
+        <imagePath><![CDATA[{?$article['url_image_l']?}]]></imagePath> 
+        <imageMidPath><![CDATA[{?$article['url_image_l']?}]]></imageMidPath> 
+        <imageMinPath><![CDATA[{?$article['url_image']?}]]></imageMinPath> 
+</bookinfo> 

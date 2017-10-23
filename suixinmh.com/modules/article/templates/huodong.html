@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>投票-活动</title>
+<link href="{?$jieqi_themeurl?}style/pop.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/page.js"></script>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style></head>
+{?eval $articleid=$article['articleid'];?}
+<body class="bg7" oncontextmenu="return false" onselectstart="return false"
+ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<!--pop2 begin-->
+<div class="pop2 fix">
+  <a href="javascript:;" id="close" class="close" title="关闭"></a>
+  <div class="pop_t">
+    <h3 class="p5">《{?$article['articlename']?}》读者互动</h3>    
+  </div>
+  <ul class="tab2 fix f14" id="tabs100">
+   <li{?if $_REQUEST['method']=='vote' || $_REQUEST['method']=='main'?} class="thistab"{?/if?}><a href="{?function geturl:'article':'huodong':'SYS=method=vote&aid=$articleid'?}"><em class="recom" style="cursor:pointer">推荐</em></a></li>
+   <li{?if $_REQUEST['method']=='vipvote'?} class="thistab"{?/if?}><a href="{?function geturl:'article':'huodong':'SYS=method=vipvote&aid=$articleid'?}"><em class="vote" style="cursor:pointer">月票</em></a></li>
+   <li{?if $_REQUEST['method']=='reward'?} class="thistab"{?/if?}><a href="{?function geturl:'article':'huodong':'SYS=method=reward&aid=$articleid'?}"><em class="reward" style="cursor:pointer">打赏</em></a></li>
+   <li{?if $_REQUEST['method']=='reviews'?} class="thistab"{?/if?}><a href="{?function geturl:'article':'huodong':'SYS=method=reviews&aid=$articleid'?}"><em class="review" style="cursor:pointer">发书评</em></a></li>
+  </ul>  
+  <ul id="tab_conbox100">
+  {?if $_REQUEST['method']=='vote' || $_REQUEST['method']=='main'?} <li>
+     <div class="po_box auto p20">
+	  <form  name="voteform" id="voteform"  action="{?function geturl:'article':'huodong':'SYS=method=vote&aid=$articleid'?}" method="post">
+       <div class="not b">这本书写的实在太好了，我决定<em class="red">推荐</em>它！</div>
+       <p class="rdo"><em class="f14 g6">我要投：</em>   
+       <input name="stat" type="radio" value="1" checked /><label>1张票</label>
+       <input name="stat" type="radio" value="2" /><label>2张票</label>
+       <input name="stat" type="radio" value="3" /><label>3张票</label>
+       <input name="stat" type="radio" value="4" /><label>4张票</label>
+       <input name="stat" type="radio" value="5" /><label>5张票</label>
+       <input name="stat" type="radio" value="all" /><label>全部票</label>
+       </p>
+     <div class="text"><textarea name="pcontent" id="pcontent" cols="" rows="" onkeyup="checkMsgLen(this.id)" onfocus="if(this.value=='您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示') this.value='';">您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示</textarea></div> 
+     <div class="comm_box">
+	<div class="face fix">
+      <div class="facep1" onclick="javascript:inface('呵呵','pcontent');"></div>	<!--呵呵-->
+      <div class="facep2" onclick="javascript:inface('偷笑','pcontent');"></div>	<!--偷笑-->
+      <div class="facep3" onclick="javascript:inface('花心','pcontent');"></div>	<!--花心-->
+      <div class="facep4" onclick="javascript:inface('思考','pcontent');"></div>	<!--思考-->	
+      <div class="facep5" onclick="javascript:inface('问号','pcontent');"></div>	<!--问号-->
+      <div class="facep6" onclick="javascript:inface('汗','pcontent');"></div>		<!--汗-->
+      <div class="facep7" onclick="javascript:inface('伤心','pcontent');"></div>	<!--伤心-->
+      <div class="facep8" onclick="javascript:inface('哼','pcontent');"></div>		<!--哼-->
+      <div class="facep9" onclick="javascript:inface('吃惊','pcontent');"></div>	<!--吃惊-->
+      <div class="facep10" onclick="javascript:inface('怒','pcontent');"></div>	<!--怒-->
+      <div class="facep11" onclick="javascript:inface('睡','pcontent');"></div>	<!--睡-->
+      <div class="facep12" onclick="javascript:inface('闭嘴','pcontent');"></div>	<!--闭嘴-->
+      <div class="facep13" onclick="javascript:inface('爱你','pcontent');"></div>	<!--爱你-->
+      <div class="facep14" onclick="javascript:inface('泪','pcontent');"></div>	<!--泪-->
+      <div class="facep15" onclick="javascript:inface('鄙视','pcontent');"></div>	<!--鄙视-->
+      <div class="facep16" onclick="javascript:inface('鼓掌','pcontent');"></div>	<!--鼓掌-->
+      <div class="facep17" onclick="javascript:inface('ok','pcontent');"></div>	<!--ok-->
+      <div class="facep18" onclick="javascript:inface('握手','pcontent');"></div>	<!--握手-->
+      <div class="facep19" onclick="javascript:inface('求','pcontent');"></div>	<!--求-->
+      <div class="facep20" onclick="javascript:inface('可怜','pcontent');"></div>	<!--可怜-->
+     </div>
+     <div class="not3 fix">
+      <p class="fl g6" id="pcontentmsgLen">您还可以输入<em class="red">150</em>字</p>
+    <div class="deliver">
+      <p><img src="{?$jieqi_url?}/checkcode.php" id="code" style="cursor:pointer;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" width="60" height="24" /></p>
+      <input name="checkcode" id="checkcode"  type="text" class="tit"  />
+     <label>验证码：</label>
+      </div>
+     </div>
+     </div>
+	 <p class="auto tc p20"><button type="submit" class="btn4">确定推荐</button><input type="hidden" name="formhash" value="{?eval echo form_hash();?}"></p>
+	 </form> 
+	 <dl class="not2 g6">
+         <dd>您每天能投推銎蔽?em class="red"> {?$maxvote?} </em>张；今天已经使用<em class="red"> {?$pollnum?} </em>张；</dd>
+		 {?eval if(($maxvote-$pollnum)>0) {?}<dd>您今天剩余推荐票数为<em class="red"> {?eval echo $maxvote-$pollnum;?} </em>张</dd>{?eval }else{?}
+         <dd class="red">抱歉，您今天的推荐票已用完，明天再来吧！</dd>{?eval }?}
+		 <dd>每次1张推荐票，您即可获得<em class="red"> {?$getscore?} </em>积分。</dd>
+		 <dd class="red"><a href="{?function geturl:'system':'userhub':'SYS=method=usermember'?}" target="_blank" class="f_blue4">如何获得推荐票？</a></dd>
+        </dl>
+     </div>    
+   </li>
+   {?elseif $_REQUEST['method']=='vipvote'?}<li>
+     <div class="po_box auto p20">
+	 <form  name="vipvoteform" id="vipvoteform"  action="{?function geturl:'article':'huodong':'SYS=method=vipvote&aid=$articleid'?}" method="post">
+       <div class="not b">这本书写的实在太好了，我决定<em class="red">投月票</em></div>
+       <p class="rdo"><em class="f14 g6">我要投：</em>   
+       <input name="stat" type="radio" value="1" checked /><label>1张月票</label>
+       <input name="stat" type="radio" value="2" /><label>2张月票</label>
+<!--       <input name="stat" type="radio" value="3" /><label>3张月票</label>
+       <input name="stat" type="radio" value="4" /><label>4张月票</label>
+       <input name="stat" type="radio" value="5" /><label>5张月票</label>
+       <input name="stat" type="radio" value="all" /><label>全部月票</label>-->
+       </p>
+     <div class="text"><textarea name="pcontent" id="pcontent" cols="" rows=""  onkeyup="checkMsgLen(this.id)" onfocus="if(this.value=='您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示') this.value='';">您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示</textarea></div> 
+     <div class="comm_box">
+	<div class="face fix">
+      <div class="facep1" onclick="javascript:inface('呵呵','pcontent');"></div>	<!--呵呵-->
+      <div class="facep2" onclick="javascript:inface('偷笑','pcontent');"></div>	<!--偷笑-->
+      <div class="facep3" onclick="javascript:inface('花心','pcontent');"></div>	<!--花心-->
+      <div class="facep4" onclick="javascript:inface('思考','pcontent');"></div>	<!--思考-->	
+      <div class="facep5" onclick="javascript:inface('问号','pcontent');"></div>	<!--问号-->
+      <div class="facep6" onclick="javascript:inface('汗','pcontent');"></div>		<!--汗-->
+      <div class="facep7" onclick="javascript:inface('伤心','pcontent');"></div>	<!--伤心-->
+      <div class="facep8" onclick="javascript:inface('哼','pcontent');"></div>		<!--哼-->
+      <div class="facep9" onclick="javascript:inface('吃惊','pcontent');"></div>	<!--吃惊-->
+      <div class="facep10" onclick="javascript:inface('怒','pcontent');"></div>	<!--怒-->
+      <div class="facep11" onclick="javascript:inface('睡','pcontent');"></div>	<!--睡-->
+      <div class="facep12" onclick="javascript:inface('闭嘴','pcontent');"></div>	<!--闭嘴-->
+      <div class="facep13" onclick="javascript:inface('爱你','pcontent');"></div>	<!--爱你-->
+      <div class="facep14" onclick="javascript:inface('泪','pcontent');"></div>	<!--泪-->
+      <div class="facep15" onclick="javascript:inface('鄙视','pcontent');"></div>	<!--鄙视-->
+      <div class="facep16" onclick="javascript:inface('鼓掌','pcontent');"></div>	<!--鼓掌-->
+      <div class="facep17" onclick="javascript:inface('ok','pcontent');"></div>	<!--ok-->
+      <div class="facep18" onclick="javascript:inface('握手','pcontent');"></div>	<!--握手-->
+      <div class="facep19" onclick="javascript:inface('求','pcontent');"></div>	<!--求-->
+      <div class="facep20" onclick="javascript:inface('可怜','pcontent');"></div>	<!--可怜-->
+     </div>
+     <div class="not3 fix">
+      <p class="fl g6" id="pcontentmsgLen">您还可以输入<em class="red">150</em>字</p>
+    <div class="deliver">
+      <p><img src="{?$jieqi_url?}/checkcode.php" id="code" style="cursor:pointer;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" width="60" height="24" /></p>
+      <input name="checkcode" id="checkcode"  type="text" class="tit"  />
+     <label>验证码：</label>
+      </div>
+     </div>
+     </div>
+	 <p class="auto tc p20"><button type="submit" class="btn4">确定投票</button><input type="hidden" name="formhash" value="{?eval echo form_hash();?}"></p>
+	 </form>
+        <dl class="not2 g6">
+        <dd>您当前的总月票数<em class="red"> {?$maxvote?} </em>张。本月您已使用<em class="red"> {?$pollnum?} </em>张月票，还可投<em class="red"> {?eval echo $maxvote-$pollnum;?} </em>张</dd>
+        <dd>对单本作品投月票，投票上限为<em class="red"> 2 </em>张；</dd>
+        <dd>本月您已对当前作品投过<em class="red"> {?$yitou?} </em>张月票，还可投<em class="red"> {?eval echo 2-$yitou;?} </em>张；</dd>
+        <!--<dd>月票获取规则详见：<a href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}" target="_blank">如何获得月票？</a>当月每订阅<em class="red"> 1 </em>章VIP章节，您即可获得月票<em class="red"> 1 </em>张。对单本作品投月票，没有投票上限。</dd>-->
+		<dd>每投1张月票，您即可获得<em class="red"> {?$getscore?} </em>积分。</dd>
+        <dd>每一次性打赏本书<em class="red"> 1000 </em>书海币，即增加1张消费月票，没有上限。</dd>
+        <dd><a href="/help/?wz=q33" target="_blank" class="f_blue5">查看月票获得方法与使用规则>> </a></dd>
+        </dl>
+     </div>
+    </li>
+   {?elseif $_REQUEST['method']=='reward'?}<li>
+    <div class="po_box auto p20">
+	<form  name="rewardform" id="rewardform"  action="{?function geturl:'article':'huodong':'SYS=method=reward&aid=$articleid'?}" method="post">
+       <div class="not">
+        <p class="b">作者实在太优秀了，我决定<em class="red">打赏作品</em>支持作者</p>
+        </div><div class="rdo f12"><em class="f14 g6">我要投：</em>    
+       <input value="100" type="radio" name="stat" checked /><label>100{?eval echo JIEQI_EGOLD_NAME;?}</label>
+       <input value="200" type="radio" name="stat" /><label>200{?eval echo JIEQI_EGOLD_NAME;?}</label>
+       <input value="500" type="radio" name="stat" /><label>500{?eval echo JIEQI_EGOLD_NAME;?}</label>
+       <input value="1000" type="radio" name="stat" /><label>1000{?eval echo JIEQI_EGOLD_NAME;?}</label>
+       <input value="all" type="radio" name="stat" /><label>全部{?eval echo JIEQI_EGOLD_NAME;?}</label>
+       </div>
+     <div class="text"><textarea name="pcontent" id="pcontent" cols="" rows="" onkeyup="checkMsgLen(this.id)" onfocus="if(this.value=='您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示') this.value='';">您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示</textarea></div> 
+     <div class="comm_box">
+	<div class="face fix">
+      <div class="facep1" onclick="javascript:inface('呵呵','pcontent');"></div>	<!--呵呵-->
+      <div class="facep2" onclick="javascript:inface('偷笑','pcontent');"></div>	<!--偷笑-->
+      <div class="facep3" onclick="javascript:inface('花心','pcontent');"></div>	<!--花心-->
+      <div class="facep4" onclick="javascript:inface('思考','pcontent');"></div>	<!--思考-->	
+      <div class="facep5" onclick="javascript:inface('问号','pcontent');"></div>	<!--问号-->
+      <div class="facep6" onclick="javascript:inface('汗','pcontent');"></div>		<!--汗-->
+      <div class="facep7" onclick="javascript:inface('伤心','pcontent');"></div>	<!--伤心-->
+      <div class="facep8" onclick="javascript:inface('哼','pcontent');"></div>		<!--哼-->
+      <div class="facep9" onclick="javascript:inface('吃惊','pcontent');"></div>	<!--吃惊-->
+      <div class="facep10" onclick="javascript:inface('怒','pcontent');"></div>	<!--怒-->
+      <div class="facep11" onclick="javascript:inface('睡','pcontent');"></div>	<!--睡-->
+      <div class="facep12" onclick="javascript:inface('闭嘴','pcontent');"></div>	<!--闭嘴-->
+      <div class="facep13" onclick="javascript:inface('爱你','pcontent');"></div>	<!--爱你-->
+      <div class="facep14" onclick="javascript:inface('泪','pcontent');"></div>	<!--泪-->
+      <div class="facep15" onclick="javascript:inface('鄙视','pcontent');"></div>	<!--鄙视-->
+      <div class="facep16" onclick="javascript:inface('鼓掌','pcontent');"></div>	<!--鼓掌-->
+      <div class="facep17" onclick="javascript:inface('ok','pcontent');"></div>	<!--ok-->
+      <div class="facep18" onclick="javascript:inface('握手','pcontent');"></div>	<!--握手-->
+      <div class="facep19" onclick="javascript:inface('求','pcontent');"></div>	<!--求-->
+      <div class="facep20" onclick="javascript:inface('可怜','pcontent');"></div>	<!--可怜-->
+     </div>
+     <div class="not3 fix">
+      <p class="fl g6" id="pcontentmsgLen">您还可以输入<em class="red">150</em>字</p>
+    <div class="deliver">
+      <p><img src="{?$jieqi_url?}/checkcode.php" id="code" style="cursor:pointer;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" width="60" height="24" /></p>
+      <input name="checkcode" id="checkcode"  type="text" class="tit"  />
+     <label>验证码：</label>
+      </div>
+     </div>
+     </div>
+	 <p class="auto tc p20"><button type="submit" class="btn4">确定打赏</button><input type="hidden" name="formhash" value="{?eval echo form_hash();?}"></p>
+	 </form>
+        <dl class="not2 g6">
+        <dd>您已对当前作品打赏过<em class="red"> {?$pollnum?} </em>{?eval echo JIEQI_EGOLD_NAME;?}，您的账户还余<em class="red"> {?$egolds?} </em>{?eval echo JIEQI_EGOLD_NAME;?}</dd>
+        <dd>每次打赏作品<em class="red"> 100 </em>{?eval echo JIEQI_EGOLD_NAME;?}，您即可获得<em class="red"> {?$getscore?} </em>积分。对单本作品打赏，没有额度上限。</dd>
+        <dd>每打赏本书作者<em class="red"> 1000 </em>{?eval echo JIEQI_EGOLD_NAME;?}，增加消费月票<em class="red"> 1 </em>张，无上限。</dd>
+        <dd><a href="/help/?wz=q33" class="f_blue5" target="_blank">查看月票获得方法与使用规则>> </a></dd>
+        </dl>
+     </div>
+   </li>
+   {?elseif $_REQUEST['method']=='cuigeng'?}<li>
+    <div class="po_box auto p20">
+       <div class="not">
+        <p class="b">作者只在太优秀了，我决定<em class="red">催更作者</em></p></div>
+        <div class="rdo f12"><em class="f14 g6">我要投：</em>                                    
+       <input name="" type="radio" value="" /><label>3000字</label>
+       <input name="" type="radio" value="" /><label>6000字</label>
+       <input name="" type="radio" value="" /><label>9000字</label>
+       <input name="" type="radio" value="" /><label>12000字</label>
+        <p class="pt10 pb10">更新票：<input name="" type="text" class="mr10" />张</p>
+        <p class="pt10 pb10">当前使用： {?eval echo JIEQI_EGOLD_NAME;?}（剩余{?eval echo JIEQI_EGOLD_NAME;?}<em class="red">333</em>） </p>
+        </div>
+       
+       <p class="auto tc p20"><button type="submit" class="btn4">确定催更</button><input type="hidden" name="formhash" value="{?eval echo form_hash();?}"></p>
+	   </form>
+        <dl class="not2 g6">
+        <dd>您当前的剩余更新票<em class="red"> 0 </em>票</dd>
+        <dd>您当前剩余{?$egoldname?}<em class="red"> 0 </em>点 <a href="#" target="_blank" class="f_blue5">我要充值</a></dd>
+        <dd>您可以消费<em class="red"> 100 </em>书海币/张 购买更新票 </dd>
+        </dl>
+     </div>
+   </li>
+   {?elseif $_REQUEST['method']=='reviews'?}<li>
+    <div class="po_box auto p20">
+	<form  name="reviewsform" id="reviewsform"  action="{?function geturl:'article':'huodong':'SYS=method=reviews&aid=$articleid'?}" method="post">
+     <div class="text"><textarea name="pcontent" id="pcontent" cols="" rows="" onkeyup="checkMsgLen(this.id)" onfocus="if(this.value=='您可输入6-500字寄语给作者') this.value='';">您可输入6-500字寄语给作者</textarea></div> 
+     <div class="comm_box">
+	<div class="face fix">
+      <div class="facep1" onclick="javascript:inface('呵呵','pcontent');"></div>	<!--呵呵-->
+      <div class="facep2" onclick="javascript:inface('偷笑','pcontent');"></div>	<!--偷笑-->
+      <div class="facep3" onclick="javascript:inface('花心','pcontent');"></div>	<!--花心-->
+      <div class="facep4" onclick="javascript:inface('思考','pcontent');"></div>	<!--思考-->	
+      <div class="facep5" onclick="javascript:inface('问号','pcontent');"></div>	<!--问号-->
+      <div class="facep6" onclick="javascript:inface('汗','pcontent');"></div>		<!--汗-->
+      <div class="facep7" onclick="javascript:inface('伤心','pcontent');"></div>	<!--伤心-->
+      <div class="facep8" onclick="javascript:inface('哼','pcontent');"></div>		<!--哼-->
+      <div class="facep9" onclick="javascript:inface('吃惊','pcontent');"></div>	<!--吃惊-->
+      <div class="facep10" onclick="javascript:inface('怒','pcontent');"></div>	<!--怒-->
+      <div class="facep11" onclick="javascript:inface('睡','pcontent');"></div>	<!--睡-->
+      <div class="facep12" onclick="javascript:inface('闭嘴','pcontent');"></div>	<!--闭嘴-->
+      <div class="facep13" onclick="javascript:inface('爱你','pcontent');"></div>	<!--爱你-->
+      <div class="facep14" onclick="javascript:inface('泪','pcontent');"></div>	<!--泪-->
+      <div class="facep15" onclick="javascript:inface('鄙视','pcontent');"></div>	<!--鄙视-->
+      <div class="facep16" onclick="javascript:inface('鼓掌','pcontent');"></div>	<!--鼓掌-->
+      <div class="facep17" onclick="javascript:inface('ok','pcontent');"></div>	<!--ok-->
+      <div class="facep18" onclick="javascript:inface('握手','pcontent');"></div>	<!--握手-->
+      <div class="facep19" onclick="javascript:inface('求','pcontent');"></div>	<!--求-->
+      <div class="facep20" onclick="javascript:inface('可怜','pcontent');"></div>	<!--可怜-->
+     </div>
+     <div class="not3 fix">
+      <p class="fl g6" id="pcontentmsgLen">您还可以输入<em class="red">150</em>字</p>
+    <div class="deliver">
+      <p><img src="{?$jieqi_url?}/checkcode.php" id="code" style="cursor:pointer;" onclick="this.src='{?$jieqi_url?}/checkcode.php?rand='+Math.random();" width="60" height="24" /></p>
+      <input name="checkcode" id="checkcode"  type="text" class="tit"  />
+     <label>验证码：</label>
+      </div>
+     </div>
+     </div>
+	 <p class="auto tc p20"><button type="submit" class="btn4">发表书评</button><input type="hidden" name="formhash" value="{?eval echo form_hash();?}"></p>
+	 </form>
+        <dl class="not2 g6 mt20">
+        <dd>请确认您发表的言论遵守国家法律法规、本站规则；</dd>
+        <dd>文责自负，{?$jeiqi_sitename?}有权删除一切妨碍正常评论的主题及回复。</dd>
+        </dl>     
+    </div>
+   </li>{?/if?}
+  </ul>     
+</div><!--pop2 end-->
+<script>
+layer.ready(function(){
+	$('#close').on('click', function(){
+		var i = parent.layer.getFrameIndex(window.name);
+		parent.layer.close(i);
+	});
+	$('form').on('submit', function(event){
+	event.preventDefault();
+	if(this.pcontent.value=='您可输入6-500字寄语给作者' || this.pcontent.value=='您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示') this.pcontent.value='';
+		  GPage.postForm(this.name, this.action,
+			   function(data){
+					if(data.status=='OK'){loadheader();
+						layer.msg(data.msg,2,{type:1,shade:false});
+						picTimer = setInterval(function() {
+						    clearInterval(picTimer);
+							parent.layer.close(parent.layer.getFrameIndex(window.name));
+						},2000); //此3000代表自动播放的间隔，单位：毫秒
+						
+					}else{
+						layer.alert(data.msg, 8, !1);
+					}
+			   }
+		  );
+	});
+})
+	function inface(str,tag){
+		if(str!=''){
+			var str = "["+str+"]";
+			var obj=document.getElementById(tag);
+			if(obj.value=='您可输入6-500字寄语给作者' || obj.value=='您可输入6-500字寄语给作者，投票成功后您的寄语将在书评区显示') obj.value='';
+			if(document.selection){
+				obj.focus();
+				var sel=document.selection.createRange();
+				document.selection.empty();
+				sel.text=str;
+			}else{
+				var prefix,main,suffix;
+				prefix=obj.value.substring(0,obj.selectionStart);
+				main=obj.value.substring(obj.selectionStart,obj.selectionEnd);
+				suffix=obj.value.substring(obj.selectionEnd);
+				obj.value=prefix+str+suffix;
+			}
+			obj.focus();
+		}
+		checkMsgLen(tag);
+	}
+	//判定字数
+	function checkMsgLen(tag){
+		var content=$('#'+tag).val();
+		try{
+				var len=GetLength(content);
+				var strTag = tag+'msgLen';
+				if(len>150){
+					$('#'+strTag).html('已超出<b style="color:red;">'+(len-150)+'</b>字');
+					//$('#btn_'+tag).attr('disabled',true);
+				}else{
+					var n=150-len;
+					$('#'+strTag).html('您还可以输入<b style="color:red;">'+n+'</b>字');
+				   
+				}
+			}catch(e){
+				return false;
+			}
+			
+		}
+	
+	//获取字符长度，中文为2个字符
+	function GetLength(str){
+		var realLength=0;
+		var n=str.length;
+		var len=0;
+		for(var i=0;i<n;i++){
+			var ns=str[i];
+			if(ns==null){
+				ns=str.substring(i,i+1);
+			}
+			if(ns.match(/[^\x00-\xff]/ig)!=null){
+				len+=2;
+			}else{
+				len+=1;
+			}
+		}
+		len=parseInt(len/2);
+		return len;
+	}
+
+</script>
+</body>
+</html>

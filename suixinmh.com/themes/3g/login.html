@@ -1,0 +1,4 @@
+<div class="top">
+    {?if $jieqi_username != ''?}<div class="login_h"><span class="vv v{?$_USER['vipphoto']?}"></span><a class="name" href="{?function geturl:'3g':'userhub'?}">{?$jieqi_username?}</a><a href="{?function geturl:'3g':'userhub':'SYS=method=logout'?}">ÍË³ö</a></div>
+    {?else?}<div class="login"><div class="kjdl"><a href="javascript:;" onclick="location.href='{?$SITE_WAP_URL?}/qqlogin/?jumpurl={?eval echo JIEQI_CURRENT_URL;?}'" class="qq"></a><a href="javascript:;" onclick="location.href='{?$SITE_WAP_URL?}/sinalogin/?jumpurl={?eval echo JIEQI_CURRENT_URL;?}'" class="weibo"></a><a href="{?function geturl:'3g':'register'?}" target="_self">×¢²á</a>/<a href="{?function geturl:'3g':'login'?}" target="_self">µÇÂ¼</a></div></div>{?/if?}
+</div>

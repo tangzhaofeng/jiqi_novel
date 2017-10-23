@@ -1,0 +1,15 @@
+    <div class="user2 f_blue fix">
+      <dl>
+       <dt class="img"><img src="{?function jieqi_geturl:'system':'avatar':'$_USER["uid"]':'l':'$_USER["avatar"]'?}" onerror="javascript:this.src='{?$jieqi_themeurl?}images/head502.gif'"/><span class="mask"></span></dt>
+       <dd><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$_USER["uid"]'?}">{?$_USER['username']?}</a>
+       </dd>
+       <dd><a class="{?$_USER['vipphoto']?} vs" title="{?$_USER['vipgrade']?}级会员" href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}"></a><!--{?$_USER['usergroup']?}--></dd>
+       <dd><a class="rk{?$_USER['honorid']?} rks" title="{?$_USER['honor']?}" href="{?function geturl:'system':'userhub':'SYS=method=usermember'?}"></a><!--<a href="{?function geturl:'system':'userhub':'SYS=method=logout'?}" class="exit">退出</a>--></dd>
+      </dl>
+    </div>
+    <dl class="assets">
+     <dd><em>余额：</em>{?$_USER['egolds']?}{?$egoldname?}<a href="{?function geturl:'pay':'home'?}" target="_blank" class="recharge2">充值</a></dd>
+     <dd><em>书券：</em>{?$_USER['esilvers']?}书券&nbsp;<a href="/help/?wz=q38" target="_blank" class="f_blue5">使用说明&gt;&gt;</a></dd>
+     <dd><em>积分：</em>{?$_USER['score']?}</dd>
+     <dd><em>小提示：</em>1元=100书海币</dd>
+    </dl>

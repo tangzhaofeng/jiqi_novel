@@ -1,0 +1,55 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javascript">
+<!--
+function doCheck() 
+{
+	if(upload.uploadfile.value == '') {
+		alert('请选择文件!');
+		return false;
+	}
+	return true;
+}
+function previewimage()
+{
+	if(upload.uploadfile.value) $("#previewpic").attr("src", upload.uploadfile.value);
+}
+//-->
+</script>
+<form name="upload" method="post" action="?action=upload&module={?$_SGLOBAL['model'][$_PAGE['_GET']['modelid']]['tablename']?}&catid={?$_PAGE['_GET']['catid']?}&modelid={?$_PAGE['_GET']['modelid']?}&uploadtext={?$_PAGE['_GET']['uploadtext']?}&filetype=image&from=imagefield" enctype="multipart/form-data" onSubmit="return doCheck();">
+<table cellpadding="2" cellspacing="1" class="table_form">
+    <caption>图片上传</caption>
+  <tr>
+     <td>
+             <input name="uploadfile" type="file" size="15" onChange="previewimage()">
+             <input type="hidden" name="upload_filename" value="{?$_PAGE['_GET']['filename']?}">
+             <input type="submit" name="dosubmit" value=" 上传 ">
+			 </td>
+   </tr>
+  <tr>
+     <td>
+	 允许上传扩展：{?$_PAGE['setting']['fileextname']?}<br />
+	 允许上传大小：{?$_PAGE['setting']['maxsize']?} KB<br />
+	 缩略图大小：宽 <input type="text" name="thumb_width" value="{?$_PAGE['setting']['thumb_width']?}" size="3"> px，高 <input type="text" name="thumb_height" value="{?$_PAGE['setting']['thumb_height']?}" size="3"> px
+	 </td>
+   </tr>
+  <tr>
+     <td>
+<img id="previewpic" onload="setpicWH(this,{?$_PAGE['setting']['thumb_width']?},{?$_PAGE['setting']['thumb_height']?})">
+<script type="text/javascript">
+<!--
+if($(window.opener.document).find("form[@name='myform'] #{?$_PAGE['_GET']['uploadtext']?}").val())
+{
+    $("#previewpic").attr("src", $(window.opener.document).find("form[@name='myform'] #{?$_PAGE['_GET']['uploadtext']?}").val()); 
+}
+else
+{
+	$("#previewpic").attr("src","images/nopic.gif"); 
+}
+//-->
+</script>
+			 </td>
+   </tr>
+</table>
+</form>

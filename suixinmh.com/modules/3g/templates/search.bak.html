@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>搜索结果</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/search_result.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+    <div class="title"><a href="javascript:;">搜索结果</a></div>
+    <div class="shujia"><a href="{?function geturl:'3g':'article':'SYS=method=bcView'?}">书架</a></div>
+</div>
+{?include file = "themes/3g/search.html"?}
+
+<div class="content">
+	{?if isset($searchnonum)==1?}
+	<div class="ss_tit"><span class="keyword">-</span>&nbsp;&nbsp;搜索结果（<span class="shu">-</span>）</div>
+	<div class="rank">
+		<p class="name" style="color: #a31000;">{?$searchnonum?}</p>
+	</div>
+	{?else?}
+	<div class="ss_tit"><span class="keyword">{?$searchkey?}</span>&nbsp;&nbsp;搜索结果（<span class="shu">{?$allresults?}</span>）</div>
+	{?section name=i loop=$articlerows?}
+	<div class="rank">
+		<p class="name"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}">{? eval echo str_replace($searchkey,'<span>'.$searchkey.'</span>' ,$articlerows[i].articlename); ?}</a></p>
+		<p class="new"><a href="{?function geturl:'3g':'reader':SYS=aid=$articlerows[i].articleid&cid=$articlerows[i].lastchapterid?}">{?$articlerows[i].lastchapter|truncate:'24':'……':'0'?}</a></p>
+		<p class="info">作者：<span class="info_zz"><a href="{?function geturl:'3g':'search':'SYS=searchkey=$articlerows[i].author'?}">{? eval echo str_replace($searchkey,'<span>'.$searchkey.'</span>' ,$articlerows[i].author); ?}</a></span> 字数：{?$articlerows[i].size_c?}</p>
+	</div>
+	{?/section?}
+	{?/if?}
+	<div class="fanye">
+		{?if $articlerows|count > 0?}
+			{?$url_jumppage?}
+		{?/if?}
+    </div> 
+</div>
+{?include file = "themes/3g/bottom.html"?}
+{?include file = "themes/3g/js.html"?}
+</body>
+<script type="text/javascript">
+$(function(){
+	$("[data-act=search_sub]").live("click", function(event){
+		event.preventDefault();
+		var _val=$("#searchkey").val();
+		if(_val.length<2){
+			layer.open({
+				type:0,
+				content:"搜索关键字必须大于2个字符",
+				time:2
+//				btn:["OK"]
+			})
+			return false;
+		}else{
+			$("[data-name=search_form]").submit();
+		}
+	})
+})
+</script>
+</html>

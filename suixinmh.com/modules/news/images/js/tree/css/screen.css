@@ -1,0 +1,64 @@
+html, body {height:100%; margin: 0; padding: 0; }
+
+html>body {
+	font-size: 16px; 
+	font-size: 68.75%;
+} /* Reset Base Font Size */
+
+body {
+	font-family: Verdana, helvetica, arial, sans-serif;
+	font-size: 68.75%;
+	background: #fff;
+	color: #333;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+h1, h2 { font-family: 'trebuchet ms', verdana, arial; padding: 10px; margin: 0 }
+h1 { font-size: large }
+
+#banner { padding: 15px; background-color: #06b; color: white; font-size: large; border-bottom: 1px solid #ccc;
+    background: url(bg.gif) repeat-x; text-align: center }
+#banner a { color: white; }
+
+#main { padding: 1em; }
+
+a.black{ 
+color:#000; 
+text-decoration:none; 
+font-family:Arial, "宋体", sans-serif; width:100px;
+} 
+/*a.black:visited{ 
+color:#000; 
+text-decoration:none; 
+font-family:Arial, "宋体", sans-serif; font-size: 13px;
+} 
+a.black:hover{ 
+color:#000; 
+text-decoration:none; 
+font-family:Arial, "宋体", sans-serif; font-size: 13px;
+} 
+a.black:active{ 
+color:#000; 
+text-decoration:none; 
+font-family:Arial, "宋体", sans-serif; font-size: 13px;
+} */
+
+a {
+	color: #1f3a87; background-color: transparent; text-decoration: none
+}
+
+a:hover {
+	color: #ff6600;background-image: url("/templates/admin/images/bg04_hover.gif");
+}
+.block {
+    width:140px;
+    margin-top:0px;
+	margin-bottom:0px;
+}
+.block li{
+   width:120px;
+}
+

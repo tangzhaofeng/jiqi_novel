@@ -1,0 +1,14 @@
+<div>
+<div class="xzbt09">&nbsp; <span class="xfont05">阅读本文后已经有</span><span class="xfont04" id="mood_all">{?$mood.total|defaultval:0?}</span><span class="xfont05">人给出评价，选您认同的表情后可以看结果</span></div>
+<table border="0" cellspacing="0" cellpadding="0" class="gyw_table">
+  <tr valign="bottom">
+    {?section name=i loop=$items?}
+    <td><span id="mood_{?$i.order?}num">{?$items[i]['value']?}</span>人<br />
+	<div class="a{?$i.order?}" style="height:{?$items[i]['height']?}px;" id="mood_{?$i.order?}height"></div>
+	<img src="{?$jieqi_local_url?}/modules/news/{?$items[i]['img']?}" style="padding-top:5px;"/><br />
+	{?if $ispost==1?}<span  id="mood_submit_{?$i.order?}"><input type="radio" value="" onClick="javascript:GData.moodVote({?$mood.moodid?}, {?$mood.contentid?}, {?$i.order?});return false;"/> </span>{?/if?}{?$items[i]['name']?}
+	</td>
+    {?/section?}
+  </tr>
+</table>
+</div>

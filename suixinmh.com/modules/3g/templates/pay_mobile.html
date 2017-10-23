@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+<title>移动短信充值</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/unicom.css" rel="stylesheet" type="text/css" />
+{?include file="themes/3g/js.html"?}
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'pay'?}">返回</a></div>
+    <div class="title"><a href="javascript:;">移动短信</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+{?include file = "themes/3g/paylogin.html"?}
+
+<div class="canal">移动短信充值渠道</div>
+<form action="{?function geturl:'3g':'pay':SYS=method=mobile?}" method="post">
+	<div class="pay">
+		<!--<input type="text" id="phone" value="" placeholder="请输入用来充值的手机号" />-->
+		{?section name=i loop=$paylimit?}
+		<a href="javascript:;" data-egold="{?$i.key?}"><span class="orange">{?$paylimit[i]?}元</span><span>{?$i.key?}书海币</span></a>
+		 {?/section?}
+	</div>
+	<input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+	<input type="hidden" name="egold" id="egold" value="" />
+</form>
+
+<!--<div class="canal">移动短信充值渠道--2</div>
+<div class="pay">
+	<input type="text" id="phone" value="" placeholder="请输入用来充值的手机号" />
+	<a href="javascript:;"><span class="orange">10元</span><span>380书海币</span></a>
+	<a href="javascript:;"><span class="orange">20元</span><span>780书海币</span></a>
+</div>-->
+<div class="warm_prompt">
+	<p>温馨提示</p>
+	<span>1.您所购买的阅读权限只限在本站使用!<br/>2.此充值方式仅限中国移动手机用户使用。<br />3.单日交易限额50元，每月交易限额200元。<br/>4.若长时间未收到充值结果的系统消息，且账户余额无变化。<br />请联系微信公众号 pinshunet<br />客服QQ：724171887</span>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $("div.pay a").click(function(){
+    	var egold = $(this).attr("data-egold");//alert(egold);
+    	$("#egold").val(egold);
+    	$("form").submit();
+	});
+});
+</script>
+</body>
+</html>

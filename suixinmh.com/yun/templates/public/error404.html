@@ -1,0 +1,30 @@
+<{config_load file="smarty.conf" section="setup"}>
+<{include file="sysmanage/head.html"}>
+<link href="<{#root_url_cframe#}>assets/pages/css/error.min.css" rel="stylesheet" type="text/css" />
+<div class="row">
+            <div class="col-md-12 page-404">
+                <div class="number font-green"> 404 </div>
+                <div class="details">
+                    <h3>Oops! You're lost.</h3>
+                    <p> 无法找到此页面，或无权限访问。
+                        <br/>
+                        <a href="index.php"> 返回首页 </a>  </p>
+                  		<form  action="?action=users&opt=userinfo" method="POST">
+                        <div class="input-group input-medium">
+                            <input type="text" class="form-control" placeholder="用户名..." name="username">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn green">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT BODY -->
+</div>
+<!-- END CONTENT -->
+<{include file="sysmanage/foot.html"}>

@@ -1,0 +1,16 @@
+RewriteEngine on
+
+
+RewriteRule ^Wxpay/(.*)$ modules/3g/Wxpay/$1 [QSA,PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^.*$ index.php [QSA,PT,L]
+
+
+
+
+
+

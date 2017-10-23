@@ -1,0 +1,65 @@
+<style type="text/css">
+.logout{text-decoration: underline;}
+</style>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+  <table width="100%" align="center" cellpadding="0" cellspacing="1" class="grid">
+  <form name="frmsearch" method="post" action="{?$jieqi_modules['pooling']['url']?}/hezuo/?controller=home">  <tr>
+      <td>交易状态：
+		  <select name="payflag">
+		    <option value="all" {?if $payflag=='all'?}selected{?/if?}>-未选择-</option>
+		    <option value="3" {?if $payflag==3?}selected{?/if?}>未确认</option>
+		    <option value="1" {?if $payflag==1?}selected{?/if?}>支付成功</option>
+		    <option value="2" {?if $payflag==2?}selected{?/if?}>手工确认</option>
+		  </select>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支付方式：
+		  <select name="paytype">
+		    <option value="all">-未选择-</option>
+		    {?section name=j loop=$paytyperows?}
+		    	<option value="{?$j.key?}" {?if $paytype==$j.key?}selected{?/if?}>{?$paytyperows[j].name?}</option>
+			{?/section?}
+		  </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  起始时间：<input name="start" id="start" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$start?}" />
+		  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;结束时间：<input name="end" id="end" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" value="{?$end?}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" name="btnsearch" class="button" value="确 定" />
+		</td>
+		<td>当前用户：<span class="blue">{?$source?}</span>&nbsp;&nbsp;<a href="{?$jieqi_modules['pooling']['url']?}/hezuo/?controller=home&method=logout" class="logout">退出登录</a></td>
+    </tr>
+</form>
+  </table>
+
+<br />
+<table class="grid" width="100%" align="center">
+  <caption>充值记录 （总金额：{?$sum?}） （总点数：{?$sumegold?}书海币）（共{?$totalnum?}条记录）</caption>
+  <tr align="center" valign="middle">
+    <th width="10%">序号</th>
+    <th width="8%">日期</th>
+    <th width="8%">时间</th>
+    <th width="12%">用户名</th>
+	<th width="10%">金额</th>
+    <th width="12%">购买点数</th>
+    <th width="12%">支付方式</th>
+    <th width="12%">交易状态</th>
+<!--    <th width="16%">操作</th>-->
+  </tr>
+  {?section name=i loop=$payrows?}
+  <tr valign="middle" onmouseover="this.style.backgroundColor='#EAF8FF'" onmouseout="this.style.backgroundColor='#ffffff'">
+    <td align="center">{?$i.order?}</td>
+    <td align="center">{?$payrows[i].buytime|date:"Y-m-d"?}</td>
+    <td align="center">{?$payrows[i].buytime|date:"H:i:s"?}</td>
+    <td align="center">{?if $payrows[i].buyname == ''?}{?$payrows[i].buyinfo?}{?else?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$payrows[i].buyid'?}" target="_blank">{?$payrows[i].buyname?}</a>{?/if?}</td>
+	<td align="center">{?$payrows[i].money?} {?if $payrows[i].moneytype==1?}美元{?else?}元{?/if?}</td>
+    <td align="center">{?$payrows[i].egold?}</td>
+    <td align="center">{?if $paytyperows[$payrows[i].paytype] != null ?}{?$paytyperows[$payrows[i].paytype].name?}{?else?}{?$payrows[i].paytype?}{?/if?}</td>
+    <td><span class="{?if $payrows[i].payflag==1?}blue{?else?}green{?/if?}">{?$payrows[i].payflag_c?}</span></td>
+<!--    <td align="center">{?if $payrows[i].payflag == 0?}<a href="{?$jieqi_modules['pay']['url']?}/admin/?action=confirm&id={?$payrows[i].payid?}" ajaxclick="true" confirm="确定手工处理该条记录？" retruemsg="false">手工处理</a> | <a href="{?$jieqi_modules['pay']['url']?}/admin/?action=del&id={?$payrows[i].payid?}" ajaxclick="true" confirm="确定删除该条记录？" retruemsg="false">删除</a>{?/if?}</td>
+  </tr>-->
+  {?/section?}
+</table>
+<table class="hide" width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right">{?$url_jumppage?}</td>
+  </tr>
+</table>

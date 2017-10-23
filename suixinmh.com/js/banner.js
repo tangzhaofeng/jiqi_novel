@@ -1,0 +1,1 @@
+document.writeln("<a href=\"http:\/\/www.68wan.com\/hazg\/index_web.html?502a=\" target=\"_blank\"><img src=\"http:\/\/www.shuhai.com\/themes\/v1\/images\/980-60.png\" alt=\"书海推广位\" title=\"书海推广位\" width=\"960\" height=\"60\"><\/a>");

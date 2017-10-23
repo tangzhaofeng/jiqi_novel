@@ -1,0 +1,52 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "modules/article/templates/incometab.html" ?}
+	  <ul id="tab_conbox" class="f0">
+	  {?if $articlecount >0?}
+	  <li class="fix" style="display:none;">
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabl2">
+			<tr class="bgt">
+				<td>书号</td>
+				<td>作品</td>
+				<td>总订阅</td>
+				<td>月订阅</td>
+				<td>周订阅 </td>
+				<td>日订阅</td>
+				<td>详情</td>
+			</tr>
+			{?section name=i loop=$incomerows?}
+			<tr>
+				<td>{?$incomerows[i].articleid?}</td>
+				<td class="g6"><a class="f_blue5" href="{?function geturl:'article':'articleinfo':'SYS=aid=$incomerows[i].articleid'?}" target="_blank">{?$incomerows[i].articlename?}</a></td>
+				<td>{?$incomerows[i].total?}次</td>
+				<td>{?$incomerows[i].month?}次</td>
+				<td>{?$incomerows[i].week?}次</td>
+				<td>{?$incomerows[i].day?}次</td>
+				<td><a href="{?function geturl:'article':'article':'SYS=method=incomedetail&articleid=$incomerows[i].articleid&months=0&years=2014'?}" class="f_blue5">详情>></a></td>
+			</tr>
+			{?/section?}
+         </table>
+		{?if $incomecount == 0?}
+		<div class="tips f14 p10 g3 mt10 mb10 tc">您的作品还没收入,快去<a class="f_blue5" href="{?function geturl:'article':'article':'SYS=method=step1View'?}">创建新作品</a>吧</div>
+		{?/if?}
+		 <div class="page3">{?$url_jumppage?}</div>
+<!--		 <dl class="list_t4">银行开户名:王文金</dl>
+		 <dl class="list_t4">开户行信息:中国工商银行贵州省兴义市场坝支行</dl>
+		 <dl class="list_t4">银行账号:6222022409003587673</dl>
+		 <dl class="list_t4">备注:显示"已经支付"状态的,就是钱已经汇出来了;显示"信息不全"状态的,就是作者的汇款资料不齐无法支付;显示"累计支付"状态的,就是当月稿酬没超过200元,将累计至下月一起支付</dl>
+		 <dl class="list_t4">备注2:目前无法查询当月的稿酬数据,次月方可查询</dl>-->
+        </li>
+		{?else?}
+		<div class="tips f14 p10 g3 mt10 mb10 tc">您还没有作品,快去<a class="f_blue5" href="{?function geturl:'article':'article':'SYS=method=step1View'?}">创建新作品</a>吧</div>
+		{?/if?}
+	  </ul>
+	</div>
+	
+  </div>
+</div>

@@ -1,0 +1,29 @@
+{?set jieqi_page_template = "/modules/news/themes/default/theme_video.html"?}{?eval $meta_title = $_SGLOBAL['cate']['setting']['meta_title'];?}{?eval $meta_keywords = $_SGLOBAL['cate']['setting']['meta_keywords'];?}{?eval $meta_description = $_SGLOBAL['cate']['setting']['meta_description'];?}{?set $jieqi_pagetitle = "$meta_title $jieqi_sitename"?}
+{?set $jieqi_keywords = "$meta_keywords"?}{?set $jieqi_description = "$meta_description"?}
+{?eval $catid = $_SGLOBAL['cate']['catid'];?}
+	<div id="guanggao"><a href="http://www.2100book.com/" target="_blank"><img src="http://www.2100book.com/gg/02.jpg" width="980" /></a></div>
+	<div id="guanggao"> 您所在的位置：<a href="{?$_SGLOBAL['localurl']?}/">赶游首页</a> > <a href="{?function jieqi_geturl:'news':'lists':130:1?}">游戏视频</a> > <span class="cRed">{?$_SGLOBAL['cate']['catname']?}</span></div>
+	<div class="clear"></div>
+	<div id="list_all">
+	   <div id="list_left">
+	      <div class="t_bt1" id="list_left_1">{?$_SGLOBAL['cate']['catname']?}</div>
+		  <div id="list_left_mid">
+		  {?section name=i loop=$_PAGE['articlerows']?}
+		     <div id="liebyj_b_5">
+			      <div id="liebyj_b_6"><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}" target="_blank"><img src="{?$_PAGE['articlerows'][i]['thumb']?}" alt="{?$_PAGE['articlerows'][i]['title']?}" /></a></div>
+				  <div style="float:right; width:450px;">
+				  <div id="liebyj_b_7">
+				    <p class="t_blue gyt_5"><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}" target="_blank">{?$_PAGE['articlerows'][i]['title']?}</a></p>
+				    <p><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}" target="_blank">{?$_PAGE['articlerows'][i]['description']?}</a></p>
+				  </div>
+				  <div style="float:right;"><a href="{?$_PAGE['articlerows'][i]['url_articleinfo']?}" title="{?$_PAGE['articlerows'][i]['title']?}" target="_blank"><img src="{?$_SGLOBAL['localurl']?}/images/news/images/zaixian.gif" border="0" /></a></div>
+				  </div>
+			  </div>
+			   {?/section?}
+			 
+		  </div>
+		  <div id="fenye">[{?$_SGLOBAL['cate']['catname']?}] {?$_PAGE['url_jumppage']?} </div>
+	   </div>
+	   {?include file = "modules/news/templates/default/right_news.html" ?}
+	</div>
+

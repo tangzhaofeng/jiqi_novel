@@ -1,0 +1,10 @@
+<div id="v_09_b">{?section name=i loop=$articlerows?}{?if $i.order==1?}
+	<div class="t_bt1"><img src="{?$jieqi_local_url?}/images/news/images/vid_2.jpg" /><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></div>
+	{?elseif $i.order==2?}{?eval $n = $length+10;?}<div class="t_blue"><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">[{?$articlerows[i]['title']|truncate:$n:'':0?}]</a></div>
+</div>
+<div  id="vid3">
+	<ul class="news_list_aq5">{?else?}
+		<li>¡¤<a href="{?$articlerows[i]['url_catelist']?}" class="blue14" target="_blank">[{?$_SGLOBAL['category'][$articlerows[i]['catid']]['catname']?}]</a><a href="{?$articlerows[i]['url_articleinfo']?}" title="{?$articlerows[i]['title']?}" target="_blank">{?$articlerows[i]['title']|truncate:$length:'':0?}</a></li>
+	{?/if?}{?/section?}
+	</ul>
+</div>

@@ -1,0 +1,48 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" /> 
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	{?include file = "templates/messagetab.html" ?}
+      <ul id="tab_conbox" class="zsy bg5 f0">
+       <li>
+	   <form action="{?function geturl:'system':'userhub':'SYS=method=delMsg&op=draft'?}" method="post" name="checkform" id="checkform" confirm="确定要删除选中记录吗?" delajax="true" targetid="tab_conbox">
+         <div class="bar f_blue4 fix">
+           <dl class="tit">
+			 <dd class="sender">收件人</dd>
+			 <dd class="name">标题</dd>
+			 <dd class="date">日期</dd>
+		   </dl>
+        </div>
+        {?if $messagerows != null?}
+	        <dl class="list_t4">
+			{?section name=i loop=$messagerows?}
+	         <dd class="fix">
+	          <em class="check"><input type="checkbox"  id="checkid[]" name="checkid[]" value="{?$messagerows[i].messageid?}"/></em>
+	          <em class="status status1"></em>
+	          <em class="origin">{?eval $toid=$messagerows[i].toid;?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$toid'?}" target="_blank" class="f_blue4" ajaxhover="true" uid="{?$toid?}">{?$messagerows[i].toname?}</a></em>
+	          <p class="info"><a href="{?function geturl:'system':'userhub':'SYS=method=messagedetail&id=$messagerows[i].messageid'?}" class="f_blue4">{?$messagerows[i].title?}</a></p>
+	          <em class="date">{?$messagerows[i].postdate|date:"Y-m-d"?}</em> 
+	        </dd>
+			{?/section?}
+	         </dl>
+		       <div class="bar f_blue4 fix">
+		        <div class="opt"><input type="checkbox" class="check"  id="checkall" name="checkall" value="checkall" onclick="javascript: for(var i=0;i<this.form.elements.length;i++){ if(this.form.elements[i].name != 'checkkall') this.form.elements[i].checked = form.checkall.checked; }"/><a class="abtn f_blue5 mr5" href="javascript:void(0)" onclick="javascript: for (var i=0;i<document.forms['checkform'].elements.length;i++){  document.forms['checkform'].elements[i].checked = 'checked'; }">全选</a><a href="javascript:void(0)" onclick="javascript:$('#checkform').submit();" class="abtn f_blue5" >删除</a></div>
+		        <div class="page">
+		        	{?$url_jumppage?}
+		        </div>
+		       </div>
+        {?else?}
+			<div class="tips f14 p10 g3 mt10 mb10 pl20">您还没有任何私信保存在草稿箱.</div>
+       	{?/if?}
+	   </form>
+        </li>
+      </ul> 
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

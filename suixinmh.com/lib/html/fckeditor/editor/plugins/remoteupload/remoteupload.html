@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta content="noindex, nofollow" name="robots">
+    <style type="text/css">
+    body { margin: 0px; overflow: hidden;  background-color: buttonface;  }
+    td { font-size: 11pt; font-family: Arial;text-align: left;}
+    #domProgressBarId{
+        width: 100%;
+        height: 15px;  
+        border-right: buttonhighlight 1px solid;
+        border-top: buttonshadow 1px solid; 
+        border-left: buttonshadow 1px solid; 
+        border-bottom: buttonhighlight 1px solid;
+        background: #b7d2ec url(loading.gif) center no-repeat;
+		text-align: center;
+		color:#fff;
+    }
+	#Uploading{
+	width:300px;
+	height:20px;
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:-150px;
+	text-align:center;
+	display:none;
+	}
+</style>
+
+    <script type="text/javascript" language="javascript">
+    window.parent.SetOkButton( false ) ; 
+function $(element){
+  if (arguments.length>1){
+    for (var i=0, elements=[], length=arguments.length; i<length; i++)
+	  elements.push($(arguments[i]));
+	return elements;
+  }
+  if (typeof element =='string') element=document.getElementById(element);
+  return element;
+}
+
+	var oEditor = window.parent.InnerDialogLoaded() ;
+
+	function OnLoad()
+	{
+
+	oEditor.FCKLanguageManager.TranslatePage( document ) ;
+	var innerTxt="";//alert(oEditor.FCK.GetData());
+	var imgs = oEditor.FCK.EditorWindow.document.body.all.tags("img") ;
+	var a = oEditor.FCK.EditorWindow.document.body.all.tags("a") ;
+	//var imgs = window.opener.document.body.all.tags("img") ;
+	if (imgs.length>0 || a.length>0)
+	{var remoteList = new Array();
+	var localList = new Array();
+	var flag;
+	var index = 0;
+	for (var i=0; i<imgs.length; i++){
+		if(i==0){remoteList[index] = imgs[i].src;}
+		else{flag=false;
+			for (var j=0; j<remoteList.length; j++)
+			{
+			if(remoteList[j]==imgs[i].src){flag=true;break;}
+			}
+			if(!flag) {remoteList[index]=imgs[i].src;}
+		}
+		if(!flag) index++;
+	}
+	for (var j=0; j<a.length; j++){
+	    var aimg = a[j].href;
+		var flag=false;
+		for (var l=0; l<remoteList.length; l++){
+		     if(remoteList[l]==aimg){flag=true;break;}
+		}
+		if(!flag){
+			var reg = /\.(gif|jpg|jpeg|bmp|png)$/i;            // i表示不区分大小写
+			if(aimg.search(reg)>0){
+			   remoteList[index] = aimg;
+			   index++;
+			}
+		}
+	}
+	//alert(remoteList.length);
+	for (var k=0; k<remoteList.length; k++)
+	{
+		if(!(typeof remoteList[k] == "undefined"))
+		var isremote = IsRemotePic(remoteList[k]);
+		if(isremote){
+		innerTxt += (k+1)+"<input name=\"imgs\" type=\"checkbox\" value=\""+remoteList[k]+"\""+(IsRemotePic(remoteList[k])?" checked":"")+" onclick=\"btnStat()\" />"+remoteList[k]+"<br />";
+		}
+	}
+	}else{innerTxt+="没有找到图片资料";$("btnSaveRemote").disabled=true;}
+	$("Anylysis").innerHTML = innerTxt;
+	btnStat();
+	//document.write(GetCheckNum("imgs"));
+	//window.parent.SetAutoSize( true ) ;
+	}
+	function IsRemotePic(ss){
+	if(typeof ss=="undefined" || ss==null) return false;
+	var local=window.location.protocol+"//"+window.location.host;
+	if(ss.substr(0,local.length)!=local){return true;}else{return false;}
+	}
+
+function btnStat()
+{
+	$('btnSaveRemote').disabled =
+		( GetCheckNum("imgs")==0 ) ;
+	$("domAllFilesCount").innerHTML=GetCheckNum("imgs");
+
+}
+function GetCheckNum(objName){
+var ii=0;
+//obj=eval("document.all."+objName)
+obj=eval("document.getElementsByName('"+objName+"')");
+if(typeof obj != "object") return ii;
+var inum=obj.length;
+for(var i=0; i<inum; i++){
+if(obj[i].checked == 1) ii=ii+1;
+}
+return ii;
+}
+function createXMLHttpRequest() {
+  if (window.ActiveXObject) {
+    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+  } 
+  else if (window.XMLHttpRequest) {
+    xmlHttp = new XMLHttpRequest();                
+  }
+}
+function Ok()
+{
+	if ( document.getElementsByName('imgs').length == 0 ) return ;
+	$("Uploading").style.display="block";
+	$("btnSaveRemote").disabled=true;
+	var imgs=document.getElementsByName("imgs");
+
+	var xmlDoc = new ActiveXObject("msxml2.FreeThreadedDOMDocument");
+	//xmlDoc.LoadXML('?xml version="1.0" encoding="utf-8"?><root><img>img1111</img><img>img222</img></root');
+	var p=xmlDoc.createProcessingInstruction("xml","version='1.0' encoding='utf-8'");
+	xmlDoc.appendChild(p);
+	var root=xmlDoc.createNode(1,"imgs","");
+
+	var status=xmlDoc.createNode(1,"status","");
+
+	var total=xmlDoc.createAttribute("total");
+	total.value=imgs.length+1;
+	status.setAttributeNode(total);
+	var curr=xmlDoc.createAttribute("curr");
+	curr.value="";
+	status.setAttributeNode(curr);
+	var currfile=xmlDoc.createAttribute("currfile");
+	currfile.value="";
+	status.setAttributeNode(currfile);
+
+	root.appendChild(status);
+	for(var i=0;i<imgs.length;i++){
+	  if(imgs[i].checked==1){
+	    var n=xmlDoc.createNode(1,"img","");
+		var r=xmlDoc.createAttribute("src");
+		r.value=imgs[i].value;//alert(imgs[i].value);
+		n.setAttributeNode(r);
+		root.appendChild(n);
+	  }
+	}
+	xmlDoc.appendChild(root);
+
+	var myAjax=new Ajax();
+	var url=oEditor.FCKConfig.Uploadfile+'&dosubmit=1';
+	if(myAjax.Create(true)){//alert(xmlDoc);
+	  myAjax.Send(url, $("data"), $("domProgressBarId"), xmlDoc);
+	}
+
+}
+function Ajax(){
+var XmlHttp = null;
+var DataObject = null;//数据接收对象
+var LoadingBar = null;//状态显示对象
+var LoadingMax = 100;//进度条最大值
+var LoadingWidth = null;//保存宽度,还原初始属性
+var LoadingTimer = 10;//刷新时间
+var LoadingTimerID = null;//时间ID
+var FinishTimer = 10;//完成停留时间,等候进度条完成
+var FinishTimerID = null;//时间ID 
+var HttpState = 0;
+var CanFree = false;//释放
+this.Create = function(free){
+   try{
+    if(free)CanFree = true;
+    if(navigator.appName.indexOf("Netscape")==-1){
+     try{
+            XmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+     }catch(e){
+      XmlHttp = new ActiveXObject("Msxml2.XMLHTTP");   
+     }
+        }else{
+           XmlHttp=new XMLHttpRequest();
+        }
+     return true;
+   }catch(e2){
+    return false;
+   }
+}
+this.Send = function(url, obj1, obj2, data){ 
+   try{
+    DataObject = obj1;
+    LoadingBar = obj2;
+    if(LoadingBar){
+     LoadingMax = LoadingBar.offsetWidth;//保存可见宽度
+     LoadingWidth = LoadingBar.style.width;//可能会没有设置宽度,这时数据为空
+     LoadingBar.style.width = "0px";
+     LoadingBar.innerHTML = "0%";
+     LoadingBar.style.display = "";
+     DataObject.style.display = "none";
+     HttpState = 0;
+     if(LoadingTimerID)clearInterval(LoadingTimerID);//清空时钟 
+     LoadingTimerID = setInterval(this.StatusBar, LoadingTimer);
+    }
+      XmlHttp.open("POST", url, true);
+	  XmlHttp.SetRequestHeader("content-type", "text/xml");
+      XmlHttp.onreadystatechange = this.StateChange; 
+    XmlHttp.send(data);
+    return true;
+   }catch(e){
+    return false;
+   }
+}
+this.StateChange = function(){
+   try{
+    if(XmlHttp.readyState)HttpState = XmlHttp.readyState; 
+      if (XmlHttp.readyState == 4) {
+     if(LoadingTimerID)clearInterval(LoadingTimerID);//清空时钟
+     if(LoadingBar){
+      LoadingBar.style.width = LoadingWidth;
+      LoadingBar.innerHTML = "100%";
+      if(FinishTimerID)clearInterval(FinishTimerID);//清空时钟
+      FinishTimerID = setInterval(this.Finish, FinishTimer);
+     }else{
+      //DataObject.innerHTML = XmlHttp.responseText;
+      if(CanFree)this.Destroy();
+     }
+      }
+  
+    this.Finish = function(){//放到外面访问不了
+     if(FinishTimerID)clearInterval(FinishTimerID);//清空时钟 
+     //LoadingBar.style.display = "none";
+     //DataObject.style.display = "";
+     //DataObject.innerHTML = XmlHttp.responseXML.xml;
+	var items=XmlHttp.responseXML.selectNodes("//imgs/img");
+	var old=oEditor.FCK.EditorWindow.document.body.innerHTML;//alert(items.length);
+	for (var i=0; i<items.length; i++){
+	  var ss=items[i].attributes[0].nodeValue;
+	  var dd=items[i].attributes[1].nodeValue;//alert(ss+' '+dd);
+/*	  ss=ss.replace(/\//gi,"\/");
+	  ss=ss.replace(/\./gi,"\.");
+	  ss=ss.replace(/\+/gi,"\+");
+	  ss=ss.replace(/\*\/gi,"\*");
+	  ss=ss.replace(/\?/gi,"\?");
+	  var re=new RegExp(ss,"gi");*/
+	  old=old.replace(ss,dd);//alert(old);
+	  }
+	  //oEditor.FCK.EditorWindow.document.body.innerHTML=old;alert(oEditor.FCK.EditorWindow.document.body.innerHTML);
+	  oEditor.FCK.SetHTML(old);
+	  var status=XmlHttp.responseXML.selectSingleNode("//imgs/status");
+	  if(status!=null){
+	  var curr=status.selectSingleNode("./@curr");
+	  var currfile=status.selectSingleNode("./@currfile");//alert(curr.nodeValue+'f');
+	  $("domAlreadyDownloadFilesCount").innerHTML=curr.nodeValue;
+	  $("domCurrentFile").innerHTML=currfile.nodeValue;}
+	  $("Uploading").style.display="none";
+     if(CanFree)this.Destroy();
+    }
+   
+    this.Destroy = function(){
+     if(LoadingTimerID)clearInterval(LoadingTimerID);//清空时钟
+     if(FinishTimerID)clearInterval(FinishTimerID);//清空时钟
+     XmlHttp = null;
+    }
+   
+   }catch(e){} 
+}
+this.StatusBar = function(){
+   try{
+    if(LoadingBar.offsetWidth >= LoadingMax){
+     LoadingBar.innerHTML = "100%";
+     LoadingBar.style.width = LoadingWidth;
+     return;//返回
+    } 
+   
+    if(LoadingBar.offsetWidth < (HttpState + 1) * Math.floor(LoadingMax / 4)){
+     var loading = LoadingBar.offsetWidth + Math.floor(LoadingMax / 40);//十分之一
+     LoadingBar.style.width = loading + "px";
+     var percen = Math.floor(loading / LoadingMax * 100);
+     LoadingBar.innerHTML = (percen>100?100:percen) + "%";
+    }else{
+     LoadingBar.style.width = (HttpState + 1) * Math.floor(LoadingMax / 4) + "px";
+     LoadingBar.innerHTML = Math.floor(100 / (4 - HttpState)) + "%";
+    }
+   }catch(e){}
+}
+this.Destroy = function(){
+   if(LoadingTimerID)clearInterval(LoadingTimerID);//清空时钟
+   if(FinishTimerID)clearInterval(FinishTimerID);//清空时钟
+   XmlHttp = null;
+}
+}
+    </script>
+
+</head>
+<body onload="OnLoad()" style="overflow: hidden">
+<div id="Uploading"><span fckLang="DlgRemoteUploading"></span><marquee style="border:1px solid #000000" direction="right" width="200" scrollamount="5" scrolldelay="10" bgcolor="#ECF2FF">
+  <table cellspacing="1" cellpadding="0">
+  <tr height=8>
+  <td bgcolor=#3399FF width=8></td>
+  <td></td>
+  <td bgcolor=#3399FF width=8></td>
+  <td></td>
+  <td bgcolor=#3399FF width=8></td>
+  <td></td>
+  <td bgcolor=#3399FF width=8></td>
+  <td></td>
+  </tr></table></marquee></div>
+	<form id="RemoteUPloadForm">
+        <div style="padding-left: 10px;">
+            <table border="0" cellspacing="0" cellpadding="2">
+                <tr>
+                    <td nowrap="nowrap">
+                        <label fckLang="DlgRemoteUploadCurrFile">Current Files</label>:&nbsp;<span id="domCurrentFile" style="display: inline; text-overflow: ellipsis"></span></td>
+                </tr>
+                <tr>
+                    <td style="text-align: left; width:500px;">
+						<div id="domProgressBarId"></div><div id="data"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td nowrap="nowrap">
+                        <label fckLang="DlgRemoteUploadTotal">Total</label>:&nbsp;<span id="domAllFilesCount"></span>&nbsp;&nbsp;<label fckLang="DlgRemoteUploadUnit">Unit</label></td>
+                </tr>
+                <tr>
+                    <td nowrap="nowrap">
+                        <label fckLang="DlgRemoteUploadDownloaded">Downloaded</label>:&nbsp;<span id="domAlreadyDownloadFilesCount">0</span>&nbsp;&nbsp;<label fckLang="DlgRemoteUploadUnit">Unit</label>。</td>
+                </tr>
+                <tr>
+                    <td><div id="Anylysis"><span fckLang="DlgRemoteUploadAnalysis">Analysis...</span></div></td>
+                </tr>
+				<tr>
+					<td><input id="btnSaveRemote" style="padding-right: 5px; padding-left: 5px" onclick="Ok();" type="submit" value="Save Remote Pics" fcklang="DlgRemoteUploadBtn" /></td>
+				</tr>
+				</label>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

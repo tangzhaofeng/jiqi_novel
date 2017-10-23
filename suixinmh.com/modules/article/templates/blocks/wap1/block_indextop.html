@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+<img src="{?$jieqi_themeurl?}images/ico-{?$i.order?}.gif"><a href="{?function geturl:'wap':'channel':'class=$articlerows[i].class'?}" target="_self"><em class="org">[{?$articlerows[i].shortcaption?}] </em></a><a href="{?function geturl:'wap':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self">{?$articlerows[i].articlename?}</a><br>
+{?/section?}

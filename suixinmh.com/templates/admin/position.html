@@ -1,0 +1,62 @@
+<table class="grid" width="100%" align="center">
+  <caption>标签管理</caption>
+  <tr>
+    <td style="width: 20%;"><a href='{?$adminprefix?}&method=add&step=one'><font color="red">添加标签</font></a></td>
+    <td style="width: 80%;overflow: hidden;">
+    	<form action="{?$adminprefix?}" method="post" style="float: right;">
+			<label for="">标签ID：</label>
+			<input type="text" name="search_id" placeholder="按标签id查询" value="{?$_REQUEST['search_id']?}" />
+    		<label for="">查询名称：</label>
+    		<input type="text" name="search_name" placeholder="按标签名称查询" value="{?$_REQUEST['search_name']?}" />
+    		<label for="">分类名称：</label>
+    		<select name="search_ptype">
+    			<option value="0" {?if $_REQUEST['search_ptype']==0?} selected="selected"{?/if?}>全部分类</option>
+    			{?section name=i loop=$ptypes?}
+    			<option value="{?$i.key?}" {?if $_REQUEST['search_ptype']==$i['key']?} selected="selected"{?/if?}>{?$ptypes[i].module?}&nbsp;|&nbsp;{?$ptypes[i].name?}</option>
+    			{?/section?}
+    		</select>
+    		<input type="submit" value="按条件查询" class="button" style="cursor: pointer;" />
+    		<a href="{?$adminprefix?}">查询全部</a>
+    	</form>
+    </td>
+  </tr>
+</table>
+<form method="post" action="{?$adminprefix?}&method=order">
+<table class="grid" width="100%" align="center">
+    <caption>标签列表</caption>
+    <tr>
+        <th width="4%">排序</th>
+        <th width="4%">ID</th>
+        <th width="12%">标签名称</th>
+        <th width="5%">标签分类</th>
+		<th width="13%">模板调用标签</th>
+		<th width="25%">远程调用js</th>
+		<th width="7%">标签类型</th>
+        <th width="7%">管理操作</th>
+    </tr>{?section name=i loop=$_PAGE['rows']?}{?eval $posid=$_PAGE['rows'][i]['posid'];?}
+    <tr onmouseover="this.style.backgroundColor='#EAF8FF'" onmouseout="this.style.backgroundColor='#ffffff'">
+      <td class="align_c"><input type="text" name="order[{?$_PAGE['rows'][i]['posid']?}]" value="{?$_PAGE['rows'][i]['listorder']?}" size="5"></td>
+        <td class="align_c">{?$_PAGE['rows'][i]['posid']?}</td>
+        <td class="align_c"><a href="?ac=position&op=view&posid={?$_PAGE['rows'][i]['posid']?}">{?$_PAGE['rows'][i]['name']?}</a></td>
+        <td style="text-align: center;">{?if $_PAGE['rows'][i]['ptypeid']!=0?}{?$ptypes[$_PAGE['rows'][i]['ptypeid']].module?}|{?$ptypes[$_PAGE['rows'][i]['ptypeid']].name?}{?else?}empty|未定义{?/if?}</td>
+		<td class="align_c"><input name="tagconfig" type="text" size="35" value="{?$_PAGE['ltag']?}tag_system_{?$_PAGE['rows'][i]['posid']?}_{?$_PAGE['rows'][i]['name']?}{?$_PAGE['rtag']?}" onFocus="this.select()"></td>
+		<td class="align_c"><input name="tagconfig" type="text" size="55" value="{?function jieqi_geturl:'system':'tags':'$posid':'js'?}" onFocus="this.select()"></td>
+		<td class="align_c">{?if $_PAGE['rows'][i]['type']=='0'?}推荐位{?elseif $_PAGE['rows'][i]['type']=='1'?}查询区块{?else?}自定义内容{?/if?}</td>
+        <td class="align_c"><a href="{?$adminprefix?}&method=view&posid={?$_PAGE['rows'][i]['posid']?}">预览</a>  | <a href="{?$adminprefix?}&method=add&posid={?$_PAGE['rows'][i]['posid']?}">修改</a>  | <a href="javascript:confirmurl('{?$adminprefix?}&method=del&posid={?$_PAGE['rows'][i]['posid']?}', '是否删除该推荐位')">删除</a> </td>
+    </tr>{?/section?}  
+</table>
+<div class="button_box"><input type="hidden" name="formhash" value="{?eval echo form_hash();?}" /><input name="dosubmit" type="submit" value=" 更新排序 " class="text"/></div>{?$_PAGE['url_jumppage']?}
+</form>
+<table cellpadding="0" cellspacing="1" class="grid" width="100%">
+  <caption>提示信息</caption>
+  <tr>
+    <td>标签功能支持完全手动更新，并且可以搜索内容，常用于区块、专题制作和首页频繁推荐更新的内容。<br />
+	您可以在模板中直接插入"<font color="red">{?$_PAGE['ltag']?}tag_system_1_栏目页图片文章{?$_PAGE['rtag']?}</font>"格式的标签，即可显示标签设置的相应内容。<br />
+	标签格式说明：<br />
+	1、第一个部分"<font color="red">tag</font>"是系统定义标识，不能修改；<br />
+	2、第二个部分"<font color="red">system</font>"是当前模块的名称，系统根据此来调用相应模块下的处理程序。<br />
+	4、第三个部分"<font color="red">1</font>"是当前标签的编号ID，保证该编号存在即可。<br />
+	4、第四个部分"<font color="red">栏目页图片文章</font>"是标签名称，对页面标签的一个说明。
+	</td>
+  </tr>
+</table>

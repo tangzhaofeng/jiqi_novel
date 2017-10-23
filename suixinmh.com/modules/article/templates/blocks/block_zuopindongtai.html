@@ -1,0 +1,21 @@
+{?eval if( count($logrows) > 0){ ?}		
+		{?section name=i loop=$logrows?}
+        	<dd><span class="name">{?if $logrows[i].uid>0?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$logrows[i].uid'?}" ajaxhover="true" uid="{?$logrows[i].uid?}" target="_blank">{?$logrows[i].username?}</a>{?else?}{?$logrows[i].username?}{?/if?}</span>
+        		<p class="data">
+        			{?if $logrows[i]['mid'] == 'vote'?}
+        				<span class="nm">投推荐</span>{?$logrows[i]['stat']?}张
+        			{?elseif $logrows[i]['mid'] == 'goodnum'?}
+        				<span class="nm">收藏</span>{?$logrows[i]['stat']?}次
+        			{?elseif $logrows[i]['mid'] == 'vipvote'?}
+        				<span class="nm">投月票</span>{?$logrows[i]['stat']?}张
+        			{?elseif $logrows[i]['mid'] == 'sale'?}
+        				<span class="nm">订阅</span>{?$logrows[i]['stat']?}{?eval echo(JIEQI_EGOLD_NAME);?}
+        			{?elseif $logrows[i]['mid'] == 'reward'?}
+        				<span class="nm">捧场</span>{?$logrows[i]['stat']?}{?eval echo(JIEQI_EGOLD_NAME);?}
+        			{?/if?}
+        		</p>
+        	</dd>
+        {?/section?}
+{?eval } else{ ?}
+<a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=vipvote&aid=$articleid'?}');" class="tips_mov"></a>
+{?eval }?}

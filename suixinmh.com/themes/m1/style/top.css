@@ -1,0 +1,73 @@
+/* SHUHAI.COM RANK.CSS v1.0 | 2014*/
+@import url(reset.css);
+@import url(comment.css);
+
+.topside{ width:150px; height:auto; border:1px solid #d0f1ef;}
+.box_side .t{ height:34px; line-height:34px; background:url(../images/ico-f.gif) no-repeat; background-position: 0 -132px;}
+.box_side .t h3{ color:#07b1a6; font-size:14px; padding-left:15px;}
+.box_side ul{ background-color:#fff;}
+.box_side li{ width:auto; height:34px;}
+.box_side li a{display:block; height:34px; line-height:37px; padding-left:15px; overflow:hidden; font-size:13px;}
+.box_side li a:link,.box_side li a:visited{ border-bottom:1px solid #dceffa;}
+.box_side li a:hover,.box_side li a:active{ background:url(../images/ico-f.gif) no-repeat -280px -329px; border-bottom:none;}
+.box_side li .on{background:url(../images/ico-f.gif) no-repeat -280px -329px; border-bottom:none;}
+/*排行列表页*/
+.toplist{ width:820px; height:auto; border:1px solid #d0f1ef; background-color:#fff; padding:10px;}
+.toplist .box .tag_sort{ width:auto; height:auto; padding:6px 0px; background:#f5fbfe; font-size:14px;}
+.toplist .box .tag_sort a{padding:5px 10px 2px; line-height:180%; color:#757575; margin:10px 0px 0px 6px;}
+.toplist .box .tag_sort a:hover,.toplist .box .tag_sort .on_sort{ background:#07b1a6; color:#fff;}
+
+.toplist .t{ width:auto; height:40px; position:relative;}
+.toplist .t{ border-bottom:2px solid #07b1a6;}
+/*标题*/
+.toplist .t h2{ float:left; height:40px; line-height:40px; padding:0px 30px 0px 5px; font-size:16px; font-family:"微软雅黑", "黑体"; color:#333; font-weight:normal;}
+/*日周月总*/
+.toplist .tab{ float:left; height: 40px;}
+.toplist .tab li{ float:left; height:40px;line-height:40px; margin-right:4px; position: relative;}
+.toplist .tab li a{display: block; padding: 0 8px; outline: none; color:#333; font-size:13px;}
+.toplist .tab li a:hover{background:#07b1a6; font-weight:800; color:#fff;}
+.toplist .tab .thistab{background:#07b1a6; color:#fff; font-weight:bold;}
+.toplist .tab .thistab a{ color:#fff;background:#07b1a6;}
+/*图文*/
+.toplist .t .show{ position:absolute; right:0px; top:5px; width:196px;}
+.show select{ float:left; width: 136px; height:27px; line-height:27px; padding:3px; background:#fff; font-size: 14px; color:#333; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-right-colors: none; -moz-border-top-colors: none; background: none repeat scroll 0 0 #fff; border-color: #abadb3 #e1e1e1 #e1e1e1; border-image: none; border-right: 1px solid #e1e1e1; border-style: solid; border-width: 1px; color: #333; _margin-top:3px;}
+.show .on_img,.show .on_list{ display:block; float:right; width:51px; height:27px; line-height:27px; font-size:16px;text-align:center; color:#333;font-weight:bold;/*background:url(../images/icon.gif) no-repeat #CC0;*/}
+/*列表*/
+.list dd{ width:auto; font-size:12px; overflow:hidden; border-bottom:1px solid #e5e5e5;}
+.list dd em,.list dd span,.list dd p{ display:block; float:left; height:34px; line-height:34px; overflow:hidden;}
+.list dd p a{ float:left;}
+.list dd .numb{ width:42px; text-align:center; color:#999; padding:0px 10px; font-family:Arial;}
+.list dd .sort{ width:52px; text-align:left; color:#555;padding:0 0 0 5px;}
+.list dd .name{ width:62%; font-size:14px; padding-right:10px;}
+.list dd .author{ padding-right:10px; color:#666; width:10%;}
+.list dd .date{width:10%; color:#999;}
+/*图列表*/
+.imglist dd{ width:auto; height:auto; padding:20px 0px; border-bottom:1px solid #e5e5e5; font-size:12px; overflow:hidden;}
+.imglist dd .img{ float:left; display:block; width:114px;}
+.imglist dd .img img{ width:100px; height:134px;}
+.imglist dd .info{ float:left; width:66%; height:auto; color:#555;}
+.imglist dd .it{ float:left; width:140px; height:24px; line-height:24px; padding-right:10px; overflow:hidden;}
+.imglist dd em{ color:#999;}
+.imglist dd .txt{ float:left; width:85%; line-height:180%;}
+.imglist dd .txt em{ float:left; display:block; width:36px;}
+.imglist dd .txt p{ float:left; width:94%; height:60px; overflow:hidden; color:#333;word-break:break-all;}
+.imglist dd .name{ float:left; width:85%; height:30px; line-height:30px; font-size:14px; font-weight:800; position:relative; overflow:hidden;}
+.imglist dd .name .opt{ position:absolute; right:0px; top:0px;}
+.opt .read,.opt .collect{ display:inline-block; width:66px; height:30px; line-height:30px; text-align:center; color:#fff; font-size:12px; font-weight:normal;}
+.opt .read{ background:#91d05d; margin-right:10px;}
+.opt .read:hover{ background:#fa5b48; font-weight:800;}
+.opt .collect{ background:#d89a33;}
+.opt .collect:hover{ background:#eb6100;}
+/*分页*/
+.page3{ width:auto; height:auto; padding:20px 0px; text-align:center; color:#666; font-size:12px;}
+.page3 a{ padding:10px 15px; font-size:14px; background:#FDFDFD; margin:0px 3px; color:#828282; border:1px solid #e2e2e2;}
+.page3 a:hover{background:#07b1a6; color:#fff;}
+.page3 em.on{ padding:10px 15px; font-size:14px; background:#07b1a6; color:#fff; font-weight:800; margin:0px 3px;}
+.page3 input{ width:40px; height:18px; margin:0px 5px; border:1px solid #999; text-align:center; color:#333; background:#f8fdff;}
+.page3 button{ width:50px; height:20px; margin-top:-10px; border:1px solid #999; text-align:center; color:#333; cursor:pointer; background:#f8fdff;}
+
+a.f-gray5:link,a.f-gray5:visited{ color:#555;}
+a.f-gray5:hover,a.f-gray5:active{ color:#3cabdb;}
+.f12{ font-size:12px;}
+.pl5{padding-left:5px;}
+.org{ color:#f60;}

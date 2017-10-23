@@ -1,0 +1,52 @@
+ <span class="shut" onclick="$(this).parent().hide();">x</span>
+	  <p class="g6 pb5 pl15">共{?$totalcount?}条回复</p>
+	  {?if $isgood == 'good'?} {?eval $rid = 'good'.$rid;?} {?else?} {?/if?}
+	  
+	  <form id="reply{?$rid?}" method="post" action="{?$url_addreplies?}" onSubmit="return submit_reply(this);">
+	  <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	  <input type="hidden" id="get_reply_url" value="{?$url_showreplies?}" />
+	  <input type="hidden" id="rid" value="{?$rid?}" />
+	  <textarea cols="" rows="" class="text3" id="rcontent{?$rid?}" name="rcontent" onkeyup="checkMsgLen(this.id)" onfocus="this.style.height='72px'"></textarea>
+	    <div class="cl"></div>
+	  <div class="face2 fix">
+	   <em class="iface fl" id="em{?$rid?}" onclick="$('#box{?$rid?}').toggle();"></em><div class="fr"><em class="ibt"><font id="rcontent{?$rid?}msgLen">您还可以输入<b style="color:red;" id="fontnum">150</b>字</font></em><button name="dosubmit" type="submit" class="btn42 f14" id="btn_rcontent{?$rid?}">评论</button></div>
+	   <div class="box_face" id="box{?$rid?}"  style="display:none" onclick="$('#box{?$rid?}').hide();">
+		<img src="{?$jieqi_url?}/images/ubb/20.gif" onclick="javascript:inface('呵呵','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/21.gif"  onclick="javascript:inface('偷笑','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/22.gif"  onclick="javascript:inface('花心','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/23.gif"  onclick="javascript:inface('思考','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/24.gif"  onclick="javascript:inface('问号','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/25.gif"  onclick="javascript:inface('汗','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/26.gif"  onclick="javascript:inface('伤心','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/27.gif"  onclick="javascript:inface('哼','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/28.gif"  onclick="javascript:inface('吃惊','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/29.gif"  onclick="javascript:inface('怒','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/30.gif"  onclick="javascript:inface('睡','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/31.gif"  onclick="javascript:inface('闭嘴','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/32.gif"  onclick="javascript:inface('爱你','rcontent{?$rid?}');"/>  
+		<img src="{?$jieqi_url?}/images/ubb/33.gif"  onclick="javascript:inface('泪','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/34.gif"  onclick="javascript:inface('鄙视','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/35.gif"  onclick="javascript:inface('鼓掌','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/36.gif"  onclick="javascript:inface('ok','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/37.gif"  onclick="javascript:inface('握手','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/38.gif"  onclick="javascript:inface('求','rcontent{?$rid?}');"/>
+		<img src="{?$jieqi_url?}/images/ubb/39.gif"  onclick="javascript:inface('可怜','rcontent{?$rid?}');"/>
+	   </div>
+	  </div></form>
+	  <dl class="list_comm2">
+	  {?section name=i loop=$replyrows?}
+	   <dd class="fix">
+		<p class="txt"><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$replyrows[i].posterid'?}" target="_blank" class="f_blue5" ajaxhover="true" uid="{?$replyrows[i].posterid?}">{?$replyrows[i].poster?}</a><a href="{?function geturl:'system':'userhub':'SYS=method=uservip'?}" target="_blank" class="{?$replyrows[i].vipphoto?} vs"></a>：{?$replyrows[i].posttext?}</p>
+		<div class="ope f_gray6"><em class="date">{?$replyrows[i].posttime|date:"Y-m-d H:i:s"?}</em><em class="op"><a href="javascript:;" class="ding" onclick="GPage.addbook('{?function geturl:'article':'reviews':SYS=method=dianzan&aid=$replyrows[i].ownerid&pid=$replyrows[i].postid&action=dianzan?}','dianzan',this)">({?$replyrows[i].dianzan?})</a>|<a href="#show{?$rid?}" onclick="showat('{?$replyrows[i].poster?}',{?$rid?});">回复</a></em></div>
+	   </dd>
+	  {?/section?}
+	  </dl>
+	  <div class="dwn fix"><p class="pages">{?$replies_jumppage?}</p>
+	  <span class="tips" onclick="$(this).parent().parent().hide();"></span></div>
+<script type="text/javascript">
+	function showat(poster,rid){
+		if(rid && poster){
+		$("#rcontent"+rid).val("回复@"+poster+" :");
+		}
+	}
+</script>

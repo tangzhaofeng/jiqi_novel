@@ -1,0 +1,79 @@
+body {
+	font-size: 62.5%; /* Resets 1em to 10px */
+	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	text-align: center;
+	color:#FFF
+} 
+#login {
+	background-image: url(login_screen.png);
+	background-repeat: no-repeat;
+	height: 300px;
+	width: 375px;
+	margin-top: 25px;
+	margin-right: auto;
+	margin-bottom: 65px;
+	margin-left: auto;
+	padding: 175px 0 0 50px;
+	text-align: left;
+	color: #FFFFFF;
+	font-size:1.4em;
+}
+#login input {
+	font-size: 1.8em;
+	width: 100%;
+	margin: 10px;
+}
+#login form {
+	width: 78%;
+}
+.e2_photo_gallery {
+ width:600px;
+ margin:0px auto;
+ min-width:600px;
+ color:#000000;
+}
+
+.e2_photo_gallery .hd .c,
+.e2_photo_gallery .ft .c {
+ font-size:1px; /* ensure minimum height */
+ height:13px;
+}
+
+.e2_photo_gallery .ft .c {
+ height:14px;
+}
+
+.e2_photo_gallery .hd {
+ background:transparent url(tl.gif) no-repeat 0px 0px;
+}
+
+.e2_photo_gallery .hd .c {
+ background:transparent url(tr.gif) no-repeat right 0px;
+}
+
+.e2_photo_gallery .bd {
+ background:transparent url(ml.gif) repeat-y 0px 0px;
+}
+
+.e2_photo_gallery .bd .c {
+ background:transparent url(mr.gif) repeat-y right 0px;
+}
+
+.e2_photo_gallery .bd .c .s {
+	margin:0px 8px 0px 4px;
+	padding:1em;
+	text-align: left;
+}
+
+.e2_photo_gallery .ft {
+ background:transparent url(bl.gif) no-repeat 0px 0px;
+}
+
+.e2_photo_gallery .ft .c {
+ background:transparent url(br.gif) no-repeat right 0px;
+}
+.float50 {
+	float: left;
+	width: 48%;
+}
+.clear{clear:both}

@@ -1,0 +1,46 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>数据模型管理</caption>
+  <tr>
+    <td><a href='?ac=model&op=add'><font color="red">添加数据模型</font></a></td>
+  </tr>
+</table>
+
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+    <caption>内容模型列表</caption>
+<tr>
+<th width="10%">名称</th>
+<th width="24%">描述</th>
+<th width="10%">数据表</th>
+<th width="6%">数据量</th>
+<th width="12%">栏目/列表浏览方式</th>
+<th width="12%">内容页浏览方式</th>
+<th width="25%">管理操作</th>
+</tr>
+{?section name=i loop=$_SGLOBAL['model']?}
+<tr>
+<td style="text-align:center">{?$_SGLOBAL['model'][i]['name']?}</td>
+<td>{?$_SGLOBAL['model'][i]['description']?}</td>
+<td><a href="?ac=model&op=fields&modelid={?$_SGLOBAL['model'][i]['modelid']?}">{?eval echo jieqi_dbprefix('news_c_'.$_SGLOBAL['model'][i]['tablename']);?}</a></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">{?if $_SGLOBAL['model'][i]['ishtml']==1?}伪静态(不生成文件){?elseif $_SGLOBAL['model'][i]['ishtml']==2?}伪静态(生成文件){?elseif $_SGLOBAL['model'][i]['ishtml']==3?}生成Html{?else?}系统默认路径{?/if?}</td>
+<td style="text-align:center">{?if $_SGLOBAL['model'][i]['show_ishtml']==1?}伪静态(不生成文件){?elseif $_SGLOBAL['model'][i]['show_ishtml']==2?}伪静态(生成文件){?elseif $_SGLOBAL['model'][i]['show_ishtml']==3?}生成Html{?else?}系统默认路径{?/if?}</td>
+<td style="text-align:center">
+<a href="?ac=model&op=fields&modelid={?$_SGLOBAL['model'][i]['modelid']?}">字段管理</a> | 
+<a href="?ac=model&op=add&modelid={?$_SGLOBAL['model'][i]['modelid']?}">修改</a> | 
+{?if $_SGLOBAL['model'][i]['disabled']>0?}
+<a href="?ac=model&op=disable&modelid={?$_SGLOBAL['model'][i]['modelid']?}&disabled=0"><font color="red">启用</font></a>
+{?else?}
+<a href="?ac=model&op=disable&modelid={?$_SGLOBAL['model'][i]['modelid']?}&disabled=1">禁用</a>{?/if?} | 
+<a href="javascript:if(confirmurl('?ac=model&op=del&modelid={?$_SGLOBAL['model'][i]['modelid']?}','确认要删除‘{?$_SGLOBAL['model'][i]['name']?}’模型吗？'))">删除</a><!-- | 
+<a href="?ac=model">导出为模板</a>-->
+</td>
+</tr>
+{?/section?}
+</table>
+<div id="pages"></div>

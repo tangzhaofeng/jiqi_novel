@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bookinfo>
+<bookid>{?$article['articleid']?}</bookid>
+<bookname><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></bookname>
+<authorname><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></authorname>
+<intro><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></intro>
+<genre><![CDATA[{?eval echo gb2utf8XHSafeStr($article['shortcaption'],false);?}]]></genre>
+<bookstatus>{?$article['fullflag']?}</bookstatus>
+<keywords><![CDATA[{?eval echo gb2utf8XHSafeStr($article['keywords'],false);?}]]></keywords>
+<coverpath><![CDATA[{?$article['url_image_l']?}]]></coverpath>
+</bookinfo>

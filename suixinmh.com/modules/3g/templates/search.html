@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+    <title>搜索</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta name="keywords" content="{?$meta_keywords?}" />
+    <meta name="description" content="{?$meta_description?}" />
+    <meta name="author" content="{?$meta_author?}" />
+    <meta name="copyright" content="{?$meta_copyright?}" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/extend.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+
+    {?include file="themes/3g/js.html"?}
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+{?include file="themes/3g/header.html"?}
+{?include file="themes/3g/nav.html"?}
+{?include file="themes/3g/search.html"?}
+
+{?if isset($searchnonum)==1?}
+    <div class="ss_tit"><span class="keyword">-</span>&nbsp;&nbsp;搜索结果（<span class="shu">-</span>）</div>
+    <div class="rank">
+        <p class="name" style="color: #a31000;">{?$searchnonum?}</p>
+    </div>
+    {?else?}
+    <div class="ss_tit"><span class="keyword">{?$searchkey?}</span>&nbsp;&nbsp;搜索结果（<span class="shu">{?$allresults?}</span>）</div>
+    {?section name=i loop=$articlerows?}
+
+    <div class="pr bb bcddd bgcfff addList1">
+        <a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}" class="db p10" style="height:85px">
+            <img class="pa w60 b bcddd h85" src="{?$articlerows[i].url_image?}" alt="">
+            <div class="pl75 mt10">
+                <h2 class="f14 c333 mb10 clearfix">{? eval echo str_replace($searchkey,'<span>'.$searchkey.'</span>' ,$articlerows[i].articlename); ?}</h2>
+                <p class="c999 f12 tEllipsis">{?$articlerows[i].intro?}</p>
+            </div>
+        </a>
+    </div>
+{?/section?}
+{?/if?}
+<div class="fanye">
+    {?if $articlerows|count > 0?}
+    {?$url_jumppage?}
+    {?/if?}
+</div>
+{?include file = "themes/3g/bottom.html"?}
+{?include file = "themes/3g/js.html"?}
+</body>
+<!--<script type="text/javascript">-->
+    <!--$(function(){-->
+        <!--$("[data-act=search_sub]").live("click", function(event){-->
+            <!--event.preventDefault();-->
+            <!--var _val=$("#searchkey").val();-->
+            <!--if(_val.length<2){-->
+                <!--layer.open({-->
+                    <!--type:0,-->
+                    <!--content:"搜索关键字必须大于2个字符，" + _val,-->
+                    <!--time:2-->
+<!--//				btn:["OK"]-->
+                <!--})-->
+                <!--return false;-->
+            <!--}else{-->
+                <!--$("[data-name=search_form]").submit();-->
+            <!--}-->
+        <!--})-->
+    <!--})-->
+<!--</script>-->
+</html>

@@ -1,0 +1,32 @@
+<div class="pageContent">
+	<form method="post" action="?action=admin&opt=insertgroup&callbackType=closeCurrent&navTabId=groupList" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<div class="pageFormContent nowrap" layoutH="50">
+			<div class="unit">
+				<label>用户组名：</label>
+				<input class="required" name="title" type="text" size="20" value=""/>
+			</div>
+			<div class="unit">
+				<label>组名描述：</label>
+				<textarea rows="" cols="" name="grant" style="width: 340px; height: 25px;"></textarea>
+			</div>
+			<{foreach item=vo from =$data}>	
+			<{if $vo.key < 3000}>				
+			<{if $vo.option}>
+			<input name="<{$vo.module}>[]" type="checkbox" value="<{$vo.option}>"/><{$vo.title}>&nbsp;&nbsp;
+			<{elseif $vo.module}>
+			<div class="unit">
+			<label><{$vo.title}></label>
+			</div>
+			<{/if}>
+			<{/if}>
+			<{/foreach}>
+
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+</div>

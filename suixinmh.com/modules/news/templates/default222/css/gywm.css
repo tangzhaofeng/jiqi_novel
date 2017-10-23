@@ -1,0 +1,16 @@
+/* CSS 关于我们 */
+
+.fn_kuang{ border:1px solid #C0DBF8;  margin-top:10px;}
+.fn{padding:2px 10px; background-color:#E9F7FE;color:#005782; height:20px; }
+.fn img{ margin-right:8px;}
+.fn *{ color:#005782}
+.gywm_left{ float:left; width:160px;}
+.gywm_left_s{ height:27px; background-image: url(../images/gywm_s.jpg); 	background-repeat: no-repeat; background-position: left bottom; padding-top:4px; text-align:center; font-size:14px; color:#FFFFFF; font-weight:bold}
+.gywm_left_z{ background-color:#f5fbfe; border-left:1px solid #c0dcf8; border-right:1px solid #c0dcf8; padding:15px 10px}
+.gywm_left_z li{ padding:10px 0; font-size:14px}
+.gywm_left_z img{ margin-right:10px; border-right:1px solid #bfd6e9; padding-right:10px}
+.gywm_left_x{ background-image: url(../images/gywm_x.jpg); background-repeat: no-repeat; background-position: left top; height:7px}
+.gywm_right{ float:right; width:790px; border:1px solid #e8eaec}
+.gywm_bt{height:28px; background-image: url(../images/d03.jpg); background-repeat: repeat-x;  padding:3px 10px 0 15px; border-bottom:1px solid #c1dbf8;  }
+.gy_ul{ padding:15px}
+.gy_ul li{ text-indent:24px; font-size:14px; line-height:30px}

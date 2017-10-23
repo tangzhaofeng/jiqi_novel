@@ -1,0 +1,6 @@
+{?section name=i loop=$articlerows?}
+ <li>
+ 	<span class="nb{?if $i.order < 4?}{?$i.order?}{?/if?}">{?if $i.order >3?}{?$i.order?}{?/if?}</span><a href="{?$articlerows[i].url_articleinfo?}" class="f-gray3" target="_blank">{?$articlerows[i].articlename?}</a>
+ 	<div style="float: right;">{?$articlerows[i].month?}</div>
+ </li>
+{?/section?}

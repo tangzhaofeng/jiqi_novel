@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的书评</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/book_review.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'userhub'?}">返回</a></div>
+    <div class="title"><a href="javascript:;">我的书评</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+
+<div class="content">
+	<div class="ss_tit">我的评论<span class="shu">（{?$count?}）</span></div>
+	{?section name=i loop=$reviewrows?}
+	<div class="rank">
+		<a href="{?function geturl:'3g':'articleinfo':SYS=aid=$reviewrows[i].ownerid?}" class="name">《{?$reviewrows[i].articlename?}》</a>
+		<p class="time"><span></span>{?$reviewrows[i].replytime|date:"m-d H:i"?}</p>
+        <p class="text">{?$reviewrows[i].posttext|truncate:44:'……'?}</p>
+	</div>
+	{?/section?}
+	<div class="fanye">
+    	{?$url_jumppage?}
+    </div> 
+</div>
+{?include file = "themes/3g/bottom.html"?}
+</body>
+</html>

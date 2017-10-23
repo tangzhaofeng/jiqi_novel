@@ -1,0 +1,5 @@
+{?section name=i loop=$sortrows?}
+{?if $sortrows[i].sortid < 200 && $sortrows[i].sortid > 100?}
+<dd class="col-x-4 {?if $i.order==12||$i.order==15||$i.order==18?}tl{?else if $i.order==13||$i.order==16||$i.order==19?}tc{?else?}tr{?/if?}"><a href="{?function geturl:'3gwap':'shuku':SYS=siteid=100&sort=$sortrows[i].sortid&size=0&fullflag=0&operate=0&free=0&page=1?}" target="_self">{?$sortrows[i].sortname?}</a></dd>{?if $i.order==14||$i.order==17?}<dd class="line"></dd>{?/if?}
+{?/if?}
+{?/section?}

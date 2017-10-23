@@ -1,0 +1,95 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<script type="text/javascript" language="JavaScript" >
+
+function del_customer()
+{
+	var mycoler = document.getElementsByName("commentid[]");
+	var flag = false;
+	for(var i = 0; i< mycoler.length ;i++){
+		if(mycoler[i].checked){
+			flag = true;
+			break;
+		}
+	}
+	if(!flag){
+		alert("请选择要操作的对象");
+		return false;
+	}
+	var msg = "你确定要操作吗!";
+	if(! window.confirm(msg)){
+		return false;
+	}
+	document.getElementsByName("thisForm").submit();
+}
+</script>
+<body>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<form method="get" action="?">
+<input name="ac" type="hidden" value="comment">
+  <caption>搜索评论</caption>
+  <tr>
+    <td>
+	&nbsp;<input name='status' type='radio' onclick="location='?ac=comment'"{?eval if(!isset($_PAGE['status']) || $_PAGE['status']=='') echo ' checked';?} value=''>&nbsp;<a href="?ac=comment">所有评论</a>&nbsp;
+	<input name='status' type='radio' value='1' onclick="location='?ac=comment&status=1'"{?eval if($_PAGE['status']=='1') echo ' checked';?}>
+	<a href='?ac=comment&status=1'>已审核的评论</a>&nbsp;
+	<input name='status' type='radio' value='0' onclick="location='?ac=comment&status=0'"{?eval if($_PAGE['status']=='0') echo ' checked';?}>
+	<a href='?ac=comment&status=0'>未审核的评论</a>&nbsp;
+	关键字：<input name='keywords' type='text' size='20' value='{?$_PAGE['keywords']?}'>&nbsp;
+	<select name="timeid" id="srchfrom">
+	<option value="0">时间段</option>
+	<option value="1" >1 天内</option>
+	<option value="2" >2 天内</option>
+	<option value="3" >3 天内</option>
+	<option value="7" >1 周内</option>
+	<option value="14" >2 周内</option>
+	<option value="30" >1 月内</option>
+	<option value="60" >2 月内</option>
+	<option value="90" >3 月内</option>
+	<option value="180" >6 月内</option>
+	<option value="365" >1 年内</option>
+	</select>
+	<input name='submit' type='submit' value='搜索'>
+    </td>
+  </tr>
+  </form>
+</table>
+<form method="post"  name="thisform" id="thisform" onsubmit="return del_customer();">
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>{?$_PAGE['data']['title']?}  管理评论</caption>
+  <tr>
+    <th style="width:5%;">选择</th>
+	<th style="width:120px">用户名</th>
+    <th>内容</th>
+	<th style="width:45px"><a href="?ac=comment&sort=support&order=desc" title="点击排序">支持数</a></th>
+	<th style="width:45px"><a href="?ac=comment&sort=against&order=desc" title="点击排序">反对数</a></th>
+	<th style="width:66px"><a href="?ac=comment&sort=addtime&order=desc" title="点击排序">评论时间</a></th>
+	<th style="width:170px">管理操作</th>
+  </tr>
+  {?section name=i loop=$_PAGE['rows']?}
+  	<tr>
+	<td class="align_c"><input type="checkbox" name="commentid[]"  id="commentid" value="{?$_PAGE['rows'][i]['commentid']?}"></td>
+    <td class="align_c">{?if $_PAGE['rows'][i]['userid']>0?}<a href="/admin/usermanage.php?id={?$_PAGE['rows'][i]['userid']?}">{?/if?}{?$_PAGE['rows'][i]['username']?}{?if $_PAGE['rows'][i]['userid']>0?}</a>{?/if?}</td>
+    <td class="align_l">{?$_PAGE['rows'][i]['content']|truncate:'150':'...':0?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['support']?}</td>
+	<td class="align_c">{?$_PAGE['rows'][i]['against']?}</td>
+	<td title="{?$_PAGE['rows'][i]['addtime']|date:'Y/m/d H:i:s'?}">{?$_PAGE['rows'][i]['addtime']|date:'Y/m/d'?}</td>
+	<td>
+	  <a href='http://www.ip138.com/ips.asp?ip={?$_PAGE['rows'][i]['ip']?}&action=2' target="_blank" title="点击查看IP">IP</a> | <a href="{?function jieqi_geturl:'news':'show':$_PAGE['rows'][i]['contentid']?}" target='_blank' title="该评论所属文章">原文</a> | <a href='?ac=comment&contentid={?$_PAGE['rows'][i]['contentid']?}' title="与该评论所属文章相同的评论">相关评论</a> | {?if $_PAGE['rows'][i]['status']>0?}已审{?else?}<font color=red>待审</font>{?/if?}
+	</td>
+	</tr>
+{?/section?}  
+</table>
+<div class="button_box">
+	<input name='chkall' type='button' id='chkall' onclick="javascript:CheckedRev();" value="全选">&nbsp;
+			<input name="submit1" type="submit"  value="删除选定的评论" onClick="document.thisform.action='?ac=comment&op=del'"/>&nbsp;
+		<input name="submit1" type="submit"  value="审核选定的评论" onClick="document.thisform.action='?ac=comment&op=pass'"/>&nbsp;
+	</div><div>{?$_PAGE['url_jumppage']?}</div>
+</form>
+<script language="javascript">
+{?if $_PAGE['timeid']>0?}$("select[name='timeid']").val(["{?$_PAGE['timeid']?}"]);{?/if?}
+</script>

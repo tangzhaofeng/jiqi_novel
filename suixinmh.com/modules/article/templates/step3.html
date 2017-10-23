@@ -1,0 +1,38 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox fix">
+	 {?include file = "modules/article/templates/newarticletab.html" ?}
+     <dl class="list_note2">
+      <dd class="org3 pb10">恭喜您新书创建完成！</dd>
+      <dd>创建的新书：<a href="{?$article.url_articleinfo?}" class="f_blue5" target="_blank">{?$article.articlename?}</a>
+      		首章节：<a href="javascript:void(0)" class="f_blue5">{?$firstchaptername?}</a> 字数：{?$firstchaptersize?} ！ </dd>
+      <dd><span class="org3">新书审核时间为1-3个工作日</span>，请您请耐心等待，并且随时关注作品审核情况。审核通过后再继续添加章节。 </dd>
+     </dl>
+     <dl class="list_note rel">
+      <dd>点击这里<a href="{?function geturl:'article':'article':'SYS=method=masterPage'?}" class="f_blue5">我的作品库</a>可以查看作品审核情况。</dd>
+      <dd>点击这里<a href="{?function geturl:'system':'userhub':'SYS=method=usereditView'?}" class="f_blue5">修改我的资料</a>进行个人资料补充，让您的读者更了解您。</dd>
+      <dd>点击这里<a href="javascript:alert('建设中...')" class="f_blue5">书海币说明</a>，了解书海币的获取方式以及消费范围。 </dd>
+      <dd class="pt10"><a href="{?function geturl:'article':'chapter':'SYS=method=newChapterView'?}" class="btn">上传章节</a></dd>
+      <dd class="zqu">
+       <p><a href="javascript:alert('建设中...')" class="f_blue5">作者专区</a>最新的作者相关新闻信息</p>
+       <p><a href="javascript:alert('建设中...')" class="f_blue5">作者福利保障</a>了解书海福利保障</p>
+       <p><a href="javascript:alert('建设中...')" class="f_blue5">新人指南</a>网络文学写作攻略</p>
+       <p><a href="javascript:alert('建设中...')" class="f_blue5">青训营</a>作者写作心得，编辑讲课</p>
+      </dd>
+     </dl>
+     <div class="box_note">
+      <div class="tt3">亲爱的作者朋友，有任何需要顾问MM帮助的事情，请随时联系书海小说可爱的顾问MM：</div>
+      <dl class="list_note rel">
+       <dd>零星小雨 QQ：997342568 </dd>
+       <dd>小米 QQ：1282458533 （女生网）</dd>
+       <dd>柒柒 QQ：2897812024 （女生网） </dd>
+      </dl>     
+     </div>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

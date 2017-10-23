@@ -1,0 +1,45 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>栏目管理</caption>
+  <tr>
+    <td><a href='?ac=create&op=category'>更新栏目页</a> | <a href='?ac=create&op=show'>更新内容页</a> | <a href='?ac=create&op=index'>更新首页</a></td>
+  </tr>
+</table>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+<form action="{?$_PAGE['cateurl']?}/modules/news/admin/?ac=create&op=category" method="post" name="myform">
+  <input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+  <input type="hidden" name="dosubmit" value="1"> 
+  <tr>
+    <caption>更新栏目页</caption>
+  <tr>
+	<th width="25%"><strong>选择栏目</strong><br />可以同时选择多个栏目</th>
+	<td>
+<select name='catids[]' id='catids' multiple="multiple"  style="height:200px;width:250px;" title="按住“Ctrl”或“Shift”键可以多选，按住“Ctrl”可取消选择">
+<option value='0'>===所有栏目===</option>
+{?section name=i loop=$_SGLOBAL['catelist']?}
+{?if $_SGLOBAL['catelist'][i]['type']<2?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}'>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/if?}
+{?/section?}
+</select>
+  </tr>
+	<tr> 
+      <th><strong>列表页每页信息条数</strong></th>
+      <td>{?$_SCONFIG['pagenum']?} 条（<a href="/admin/configs.php?mod=news#catorder1">修改设置</a>）注意：相关栏目设置中的参数会覆盖此设置！</td>
+    </tr>
+	<tr> 
+      <th><strong>列表页最大更新页数</strong></th>
+      <td>{?$_SCONFIG['maxpage']?} 页（<a href="/admin/configs.php?mod=news#catorder1">修改设置</a>）</td>
+    </tr>
+	<tr> 
+      <th><strong>每轮更新页数</strong></th>
+      <td><input type="text" name="pagesize" value="50" size="4"> 页</td>
+    </tr>
+	<tr> 
+      <td></td>
+      <td><input type="submit" name="dosubmit" value=" 开始更新 "></td>
+    </tr>
+	</form>
+</table>

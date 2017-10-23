@@ -1,0 +1,148 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+     <div class="t2 rel">
+       <h2>修改章节</h2>
+	 </div>
+       <dl class="box_form pt20">
+<form id="editchapter" name="editchapter" method="post" action="{?function geturl:'article':'chapter':'SYS=method=editChapter'?}" ajaxpost="true" class="jNice">
+		 <dd class="fix">
+	          <em class="tt2">文章名称：</em>
+	          <div class="int">
+	           <p>{?$article.articlename?}</p>
+	 		  </div>
+         </dd>
+         <dd class="fix">
+			  <em class="tt2">章节名：</em>
+			  <div class="int">
+			 <!-- 
+			  {?if $chapter.chaptername_prefix != ""?}
+          		<div class="selt4" style="width:80px;">
+	              	<select id="chaptername_prefix" name="chaptername_prefix" style="display:none;">
+	              		{?section name=i loop=$chapter.chaptername_prefix?}
+	              			<option value="{?$i.value?}">{?$i.value?}</option>
+	              		{?/section?}
+	               </select>
+	         	</div>
+          	{?/if?}-->
+			  
+			   <input name="chaptername" id="chaptername" type="text" class="input3 fl"  value="{?$chapter.chaptername?}" data-rule="章节名: required;length[~20];chaptername;remote[{?function geturl:'article':'chapter':'SYS=method=checkChapterName&aid=$article.articleid&cid=$chapter.chapterid'?}]"/>
+			   <span class="hint cl">章节命名不能超过20个字，且不能出现涉黄、涉政、涉暴等敏感词。</span>
+			  </div>
+         </dd>
+         <dd class="fix">
+			  <em class="tt2">作品状态：</em>
+			  <div class="int">
+			   <p class="rdo fl">
+			   {?section name=i loop=$fullflag['items']?}
+					<label><input name="fullflag" type="radio"  value="{?$i['key']?}" {?if $article.fullflag=='1'?}disabled{?/if?} {?if $i['key'] == $article.fullflag?}checked="checked" {?/if?}/>{?$fullflag['items'][i]?}</label>
+			   {?/section?}
+			   </p>
+			   <span class="hint">选定‘已完成’后，不能再修改。</span>
+			  </div>
+         </dd>
+         {?if $chapter.isvip == '1'?}
+		     <dd class="fix">
+		          <em class="tt2">收费：</em>
+		          <div class="int">
+		          	<p class="rdo fl">
+		             	<label>
+		             		<input name="isvip" type="radio" {?if $chapter.isvip == 0 ?}checked="checked"{?/if?}  value="0" />免费
+						</label>
+		             	<label>
+		             		<input name="isvip" type="radio" {?if $chapter.isvip == 1 ?}checked="checked"{?/if?} value="1" />收费
+		             	</label>
+		             </p>
+		             <span class="hint">系统定价：1{?eval echo(JIEQI_EGOLD_NAME);?}{?$wordsperegold?}字。</span>
+		          </div>
+		      </dd>
+		      {?if $article.customprice == 1?}
+				   <dd class="fix">
+			          <em class="tt2">定价：</em>
+			          <div class="int">
+			           <input name="saleprice" maxlength="2" id="saleprice" type="text" value="{?$chapter.saleprice?}" class="input3 fl" data-rule="价格: required;digits" data-rule-digits="[/^\d{1,2}$/, '请输入0-99的数字']" />
+			           <span class="hint cl">300字一单位，不填写默认使用系统定价。</span>
+			          </div>
+		          </dd>
+		       {?/if?}
+         {?/if?}
+         {?if $chapter['attachary'] != null?}
+         	<dd class="fix">
+	          	<em class="tt2">已上传的附件：</em>
+	            <div class="int">
+	             <p class="rdo fl">
+	             <span class="hint cl">*取消打?幢硎旧境酶郊?/span>
+	             <p class="count">
+	             	{?section name=i loop=$chapter['attachary']?}
+	             		<label><input name="oldattach[]" type="checkbox" value="{?$chapter['attachary'][i].attachid?}" checked="checked"/>{?$chapter['attachary'][i].name?}</label>
+	             	{?/section?}
+	             	</p>
+	             </p>
+	            </div>    
+         	</dd>
+         {?/if?}
+         <dd class="fix">
+	          <em class="tt2">题外话：</em>
+	          <div class="int">
+	           <span class="hint cl">【作者有话说】不计入正文字数，100字以内。</span>
+	           <textarea  class="inp32"   maxlength="200" name="manual" id="manual">{?$chapter.manual?}</textarea>
+	          </div>
+         </dd>
+          <dd class="fix">
+	          <em class="tt2">章节内容：</em>
+	          <div class="int">
+		           	{?if $authtypeset == 1?}
+		           		<p class="rdo fl">
+			             		<input name="typeset" type="radio" value="1" checked="checked"/>
+			             	<label>自动排版</label>
+			             	
+			             		<input name="typeset" type="radio" value="2" />
+			             	<label>无需排版</label>
+		             	</p>
+		             {?/if?}
+	           <textarea name="chaptercontent" id="chaptercontent" class="inp4" data-rule="章节内容: required;length[~12000]">{?$chapter.context?}</textarea>
+			   <span class="msg-box" style="margin:5px 0 0 0;" for="chaptercontent"></span>
+	           <span class="hint cl">* 不能出现涉黄、涉政、涉暴、危害社会稳定、违反法律法规等有害信息的内容。</span>
+	           <p class="count">
+		           	{?if $maxfilenum != 0?}
+			           	{?eval $amax = range(1,$maxfilenum);?}
+		           		{?section name=i loop=$amax?}
+		           			<br><input type="file" class="text" size="60" name="attachfile" id="attachfile"/>
+		           		{?/section?}
+		           	{?/if?}
+	           </p>
+	          </div>
+         </dd>
+         <dd class="fix">
+         	{?if $chapter.display == 9 || $chapter.display == 2?}
+				 <em class="tt2">定时：</em>
+				  <div class="int">
+				   <input name="postdate" id="postdate" autocomplete="off" value="{?$chapter.postdate|date:'Y-m-d H:i:s'?}" readonly="readonly" type="text" class="input3 fl" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00',minDate:'%y-%M-{%d+1}'})"/>
+				   <span class="hint cl">定时发布，只能选择最近15天以内的时间进行发布。</span>
+				  </div>
+			{?/if?}
+			  <div class="int2">
+			  <p class="cl">
+				<button class="btn" type="submit">修改章节</button>
+			  </p>
+			  <input type="hidden" name="aid" value="{?$article.articleid?}">
+			  <input type="hidden" name="cid" value="{?$chapter.chapterid?}">
+			  <input type="hidden" name="formhash" id="formhash" value="{?eval echo form_hash();?}" />
+			  </div>
+         </dd>
+        </form>
+		<iframe name="upload" id="upload" style="display:none"></iframe>
+       </dl>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

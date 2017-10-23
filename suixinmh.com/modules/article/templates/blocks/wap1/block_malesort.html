@@ -1,0 +1,7 @@
+{?section name=i loop=$sortrows?}
+{?if $sortrows[i].sortid < 100 ?}
+{?if $i.order % 3 == 1?}<tr>{?/if?}
+<td height="30" align="center" valign="middle"><a href="{?$sortrows[i].url_sort?}" target="_self">{?$sortrows[i].sortname?}</a></td>
+{?if $i.order % 3 == 0?}</tr>{?/if?}
+{?/if?}
+{?/section?}

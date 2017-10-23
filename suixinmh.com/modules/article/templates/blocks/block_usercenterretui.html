@@ -1,0 +1,11 @@
+{?section name=i loop=$articlerows?}
+<li class="fix">
+	  <a href="#" target="_blank"><img src="{?$articlerows[i].url_image?}" width="92" height="122" /></a>
+	  <dl>
+		<dt><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_gray3 f14">{?$articlerows[i]['articlename']?}</a></dt>
+		<dd>类别：{?$articlerows[i]['sort']?}</dd>
+		<dd{?if $articlerows[i]['authorid'] > 0?} ajaxhover="true" uid="{?$articlerows[i]['authorid']?}"{?/if?}>作者：{?$articlerows[i]['author']?} </dd>
+		<dd><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_red3">[阅读]</a></dd>
+	  </dl>        
+</li>
+{?/section?}

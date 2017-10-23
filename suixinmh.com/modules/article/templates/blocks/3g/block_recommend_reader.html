@@ -1,0 +1,7 @@
+<div class="br5 p10 bgcfff">
+    <ul class="f14">
+        {?section name=i loop=$articlerows?}
+        <li class="bb bcddd lastbb ptb10 tEllipsis"><a href="{?function geturl:'3g':'articleinfo':SYS=aid=$articlerows[i].articleid?}">¡¾{?$articlerows[i]['sort']?}¡¿{?$articlerows[i]['articlename']?}</a></li>
+        {?/section?}
+    </ul>
+</div>

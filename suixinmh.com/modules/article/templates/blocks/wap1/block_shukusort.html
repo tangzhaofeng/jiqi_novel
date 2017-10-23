@@ -1,0 +1,5 @@
+{?section name=i loop=$sortrows?}
+{?if $sortrows[i].sortid<100?}
+<a href="{?$sortrows[i].url_sort?}" target="_self">{?$sortrows[i].sortname?}</a>{?if $i.order % 3 != 0?}|{?/if?}{?if $i.order % 3 == 0?}<br />{?/if?}
+{?/if?}
+{?/section?}

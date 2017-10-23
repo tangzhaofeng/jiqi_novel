@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapters>{?eval $volume='';$chapterOrder=0;?}
+{?section name=i loop=$chapters?}
+{?if $chapters[i]['chaptertype']>0?}{?eval $volume=gb2utf8XHSafeStr($chapters[i]['chaptername'],false);$chapterOrder++;?}{?else?}<chapter>
+    <id>{?$chapters[i]['chapterid']?}</id>
+	<chapterid_old >{?$chapters[i]['vchapterid']?}</chapterid_old>
+    <title><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></title>
+    <volume><![CDATA[{?$volume?}]]></volume>
+    <volumeOrder>{?$chapterOrder?}</volumeOrder>
+    <isVip>{?$chapters[i]['isvip']?}</isVip>
+    <chapterLength>{?eval echo ceil($chapters[i]['size']/2);?}</chapterLength>
+    <chapterOrder>{?$i.order?}</chapterOrder>
+    <updatetime><![CDATA[{?$chapters[i]['lastupdate']|date:'Y-m-d H:i:s'?}]]></updatetime>
+    <url><![CDATA[http://{?$HTTP_HOST?}/?ac=content&aid={?$article['articleid']?}&cid={?$chapters[i]['chapterid']?}]]></url>
+  </chapter>{?/if?}
+{?/section?}
+</chapters>

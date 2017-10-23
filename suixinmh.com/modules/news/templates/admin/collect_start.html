@@ -1,0 +1,189 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/thickbox.js"></script>
+<link rel="stylesheet" href="{?$_SGLOBAL['news']['url']?}/images/js/thickbox.css" type="text/css" media="screen" />
+<script LANGUAGE="javascript">
+<!--
+var key = '{?$_PAGE['key']?}';
+var _tnum = {?eval echo count($_PAGE['urls']);?}; //执行次数
+var _nextpageid = '{?$_PAGE['nextpageid']?}';//下一页参数
+var _nextjumpurl = '{?$_PAGE['nextjumpurl']?}';//下一页URL
+-->
+</script>
+<style type="text/css">
+/* 简单进度条 */
+.graph { 
+	position: relative; 
+	width: 200px; 
+	border: 1px solid #000; 
+	padding: 2px; 
+	float:left;
+	line-height:5px;
+}
+.graph .bar { 
+	display: block;	
+	position: relative;
+	background: #555555; 
+	text-align: center; 
+	color: blue; 
+	height: 10px;
+	line-height: 10px;	
+}
+.graph .bar span { position: absolute; left: 14em; font-size:12px;} 
+</style>
+{?if $_PAGE['nextpageid']!=''?}
+<input alt="#TB_inline?height=100&width=360&inlineId=myOnPageContent" title="信息提示" class="thickbox" type="hidden" value="Show" id="abcd"/>
+<div id="myOnPageContent" style="display:none;">
+			<p>本页采集完成，继续采集下一页的文章......<br>
+			   下一页：<a href='{?$_PAGE['nextpageurl']?}' target="_blank">{?$_PAGE['nextpageurl']?}</a><br>
+			   自动跳转中<img src="../images/loadingAnimation.gif"><br>
+			   如不能自动跳转,请点此<a href="javascript:location.href=_nextjumpurl;" class=red>采集下一页</a>。
+			</p>
+</div>
+{?/if?}
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%"> 
+<caption>采集提示</caption>
+  <tr>
+    <td><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a></td>
+	<td>网址采集过程中页面内自动循环，建议不要关闭浏览器....</td>
+  </tr>
+</table>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>内容采集</caption>
+  <tr>
+  <td colspan="2" class="head">{?if $_PAGE['pageurl']!=''?}正在分析：{?$_PAGE['pageurl']?}{?else?}单篇采集{?/if?} </td>
+</tr>
+  <tr>
+    <td>
+		<table align="center" cellpadding="2" cellspacing="1" class="grid" width="99%">
+				<tr>
+			     <th width='10%' height='20'>采集进度：</th>
+				 <td height='20'>
+				 <div class="graph">
+					<strong class="bar" id="bar" style="width: 0%;"><span id="bar_bak">0%</span></strong>
+				 </div>
+				 </td>
+			 </tr>
+			<tr>
+				<td colspan="2">
+					<table width="99%"  border="0" align="center"  class="grid">
+						<tr>
+							<td width="48%" align="center"><strong>当前任务: [{?$_PAGE['collect']['sitename']?}]{?$_PAGE['task']['taskname']?}            </strong></td>
+							<td width="52%" align="right">
+							需采集文章总数：{?eval echo count($_PAGE['urls']);?}  
+							线程数:{?$_PAGE['collect']['setting']['senior']['threadnum']?} 
+							单线程请求连接数：{?$_PAGE['collect']['setting']['senior']['threadrequest']?} 
+							间隔时间：{?$_PAGE['collect']['setting']['senior']['threadsleep']?} 
+							已采集：<span id="_oknum" style="color:red">0</span>
+							{?if $_PAGE['page']>0?}正采集：第<span style="color:red">{?$_PAGE['page']?}</span>页{?if $_PAGE['maxpagenum']>0?}/共<span style="color:red">{?$_PAGE['maxpagenum']?}</span>页{?/if?}{?/if?}
+							</td>
+						</tr>
+				  </table>
+				</td>
+			 </tr>
+			 <tr>
+				 <td height='20' colspan="2">如果采集的站点与当前服务器编码不一致，需要编码转换，而服务器不支持mb_string或iconv扩展，转换将需要一段时间......<br>
+				 如果因网络或服务器意外出现采集停止的情况，请直接刷新该页面，采集器将续采，不影响已采集结果。
+				 <input type="button" onClick="javascript:play(this);" name="ac_play" id="ac_play" value="暂停采集"> 
+				 <input type="button" onClick="location.reload();" name="ac_reload" id="ac_reload" value=" 刷新页面 "> 
+				 <input type="button" onClick="javascript:location.href=_nextjumpurl;" name="c_next" id="c_next" value="采集下一页"{?if $_PAGE['nextpageid']==''?} disabled="disabled"{?/if?}> 
+				 </td>
+			 </tr>
+			 <tr>
+				 <td height='20' colspan="2">
+					 <table width="99%"  border="0" align="center"  class="grid">
+					    <tr >
+						     <th width='5%'>编号</th>
+						     <th width='40%'>内容网址</th>
+							 <th>状态</th>
+						</tr>
+					    {?section name=i loop=$_PAGE['urls']?}
+						 <tr >
+						     <td class="align_c">{?$i.order?}</td>
+						     <td><a href="{?$_PAGE['urls'][i]?}" target="_blank">{?$_PAGE['urls'][i]?}</a></td>
+							 <td>&nbsp;&nbsp;<span id="setting{?$i.index?}">参数加载中……</span></td>
+						 </tr>
+						{?/section?}
+				   </table>
+				 </td>
+			 </tr>
+		</table>
+    </td>
+  </tr>
+</table>
+
+<script LANGUAGE="javascript">
+<!--
+var urls = new Array({?eval echo count($_PAGE['urls']);?});
+{?section name=i loop=$_PAGE['urls']?}urls[{?$i.index?}] = '{?$_PAGE['urls'][i]?}';
+{?/section?}
+var currentid = Cookie.get(key);
+var _t1 = 0; //打开页面时等待时间，单位为秒，可以设置为0
+var _t2 = {?$_PAGE['collect']['setting']['senior']['threadsleep']?}; //线程间隔时间
+var _threadnum = {?$_PAGE['collect']['setting']['senior']['threadnum']?}; //线程数
+var _tn = (currentid && currentid<_tnum) ? currentid :0;//当前索引
+var _nn =  _tn ? _tn: 0;
+var _tl =null;
+
+$().ready(function() {
+	//var _tt1 = setTimeout('next_url()',_t1*1000);
+	next_url();
+	//getPage(_tn);
+});
+function next_url(){
+    var ret = EXE(_tn);
+	if(ret=='OK'){ Cookie.del(key);return true;}
+	var _tt1 = setTimeout('next_url()',_t2*1000);
+}
+function EXE(i){
+	if(i>=_tnum){return 'OK';}
+	var _c = i+_threadnum;
+	for(j=i;j<_c;j++){
+	    if(j>=_tnum){break;return 'OK';}
+		_tn++;
+		getPage(j);//发送请求
+		_tl=j;
+	}
+}
+//发送请求
+function getPage(j){
+	$('#setting'+j).html('<font color=red>正在分析页面……</font>【<a href="javascript:getPage('+j+');"><font color=blue>重试</font></a>】');
+	$('#setting'+j).load('{?$_PAGE["geturl"]?}', 
+		{ "collectid" : "{?$_PAGE['collect']['collectid']?}", "key" : j, "tnum" : _tnum, "articleurl": urls[j] }, 
+		function(responseText, textStatus, XMLHttpRequest)
+		{ 
+		     $(this).html(responseText);
+			 _nn++;
+			 Cookie.set(key,_nn);
+			 $('#_oknum').html(_nn);
+			 var percentage = Math.round((($('#_oknum').html())/_tnum)*100);
+			 percentage = percentage>100 ?100 : percentage;
+			 $('#bar').attr("style","width: "+percentage+"%");
+			 $('#bar_bak').html(percentage+"%");
+			 if($('#_oknum').html()>=_tnum){
+			     {?if $_PAGE['nextjumpurl']!=''?}
+			     if(_nextpageid!='') $("#abcd").click();
+				 location.href=_nextjumpurl;{?/if?}
+			 }//else getPage(_nn);
+		}
+	);
+}
+//暂停继续
+function play(obj){
+    if(obj.value=='暂停采集'){
+	    $('#ac_play').val('开始采集');
+		_tn = _tnum;
+		clearTimeout(_tt1);
+	}else{
+	    $('#ac_play').val('暂停采集');
+		_tn = Cookie.get(key);
+		var _tt1 = setTimeout('next_url()',_t2*1000)
+	}
+}
+//-->
+</script>

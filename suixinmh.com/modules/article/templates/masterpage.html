@@ -1,0 +1,71 @@
+{?include file="templates/autor_head.html"?} 
+<!--迷你登陆 end--> 
+<!--header star-->
+<div id="main">
+{?include file="templates/autor_left.html"?} 
+  <div class="right fl ov">
+    <div class="right_nav ov"> <span class="fl black">作者中心</span> <span class="fr"><a href="http://www.deishu.com/modules/pay/" target="_blank">充 值>></a> <a href="http://www.deishu.com/welfare/welfare.html" target="_blank">查看作家福利>></a></span> </div>
+    <div class="right_c">
+      <div class="right_c_list">
+        <div class="introdu">
+          <div class="bg"></div>
+          <div class="text">
+            <div>亲爱的作者们：</div>
+            <ul>
+              <li>得书网作家福利计划震撼公布！</li>
+              <li>如果在使用作家后台过程中遇到任何问题，您都可以通过在线客服来咨询:</li>
+              <li>如果您有任何的意见和建议，或者有需要举报、投诉的内容，可以点击左边管理员通道直接给管理员发站内短信，也可以发邮件至总编邮箱：zihan@deishu.com 由于信件量大，可能无法一一回复，但一定会认真阅读。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="introdu">
+          <div class="bg"></div>
+          <div class="text">
+            <ul>
+              <li>在写作过程中遇到难题？有问题不知道如何咨询？</li>
+              <li>如果您已经有1万字以上的作品，并且有志于在本站写作，能够保持更新，请联系作者咨询—艾薇，QQ:358312399，我们会根据您的情况为您分配编辑。 ps.验证请注明得书作者咨询。 </li>
+            </ul>
+          </div>
+        </div>
+        <div class="in_menu">
+          <h2 class="fl">最近发布的作品</h2>
+          <span class="fr"><a href="#">所有作品>></a></span></div>
+        <div class="draft ov">
+          <ul class="ul">
+            <li style="width:10%">类别</li>
+            <li style="width:20%">作品名称</li>
+            <li style="width:10%">审核状态</li>
+            <li style="width:15%">更新时间</li>
+            <li class="li2">操作</li>
+          </ul>
+          {?section name=i loop=$articlerows?}
+          <ul class="ul1">
+            <li style="width:10%">{?$articlerows[i].sort?}</li>
+			<li style="width:20%">{?if $articlerows[i].lastviptype !=1?}<a href="{?$articlerows[i].url_articleinfo?}">{?if $articlerows[i].display==1?}<span style="color:#979797">{?$articlerows[i].articlename?}</span>{?else?}{?$articlerows[i].articlename?}{?/if?}</a>
+           {?else?}
+           <a href="{?$articlerows[i].url_articleinfo?}" class="ico1">{?$articlerows[i].articlename?}</a><span class="ico"> </span>
+           {?/if?}
+           </li>        
+            <li style="width:10%">{?if $articlerows[i].display == 0?}已审核{?else?}<span style="color:#979797">未审核</span>{?/if?}</li>
+            <li style="width:15%">{?$articlerows[i].lastupdate?}</li>
+            <li class="li2">
+              <a href="{?function geturl:'article':'chapter':'SYS=method=cmView&aid=$articlerows[i].articleid'?}" class="f_blue5" title="章节修改">[管理]</a> <a href="{?function geturl:'article':'article':'SYS=method=editArticleView&aid=$articlerows[i].articleid'?}" class="f_blue5" title="修改文章">[编辑]</a>
+            </li>
+          </ul>
+          {?/section?} </div>
+        <div class="tips">
+          <div>友情提示：</div>
+          <ul>
+            <li>□ 欢迎光临得书网作家专区，在这里，你可以把你的大作发表出来。<span style=" color:#F5821F">我们会认真对待每一位作者！</span></li>
+            <li><span style=" color:#000">关于作品审核：</span>如果作品篇状态为未审核，因为编辑人员尚未对您的作品进行审核或者您的作品章节或者字数太少，未达到审核
+              的标准。这将不会显示在网站上，但完全不影响你的创作。你完全可以继续添加新的章节，如果已经达到审核的标准，将会第一
+              时间进行审核。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="right_f"><img src="{?$jieqi_local_url?}/modules/article/templates/style/images/right_f.jpg" width="733" height="42" /></div>
+  </div>
+</div>
+<!--header end--> 
+{?include file="templates/autor_footer.html"?}

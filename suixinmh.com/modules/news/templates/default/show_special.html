@@ -1,0 +1,108 @@
+{?eval $t_style=$_PAGE['data']['t_style'] ? $_PAGE['data']['t_style'] : 'v1';?}{?eval $jieqi_themeurl=str_replace('v1',$t_style,$jieqi_themeurl);?}{?eval $title = $_PAGE['data']['title'];?}{?eval $contentid = $_PAGE['data']['contentid'];?}{?eval $catid = $_PAGE['data']['catid'];?}{?eval $jieqi_pagetitle=$_PAGE['data']['meta_title'];?}{?eval $meta_keywords = $_PAGE['data']['meta_keywords'];?}{?eval $meta_description=$_PAGE['data']['meta_description'];?}{?set $jieqi_pagetitle = "$jieqi_pagetitle"?}{?set $meta_keywords = "$meta_keywords"?}{?set $meta_description = "$meta_description"?}<script language="javascript">
+<!--
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+var articleid = '{?$_PAGE['data']['contentid']?}';
+//-->
+</script>
+<div class="box urhere">您现在的位置：<a href="{?$jieqi_url?}/">{?$jieqi_sitename?}首页</a> &gt; <a href="{?$_PAGE['data']['url_catelist']?}">{?$_SGLOBAL['cate']['catname']?}</a> &gt; {?$title?}</div>
+<div class="box" id="mainbox">
+<div class="bigleft">
+    <div class="oneleft" id="faqbox">
+<div class="inbox">
+<div class="pinktt">
+ <h2>{?$title?}说明</h2>
+</div>
+<div class="p10  listbox arow">
+<ul>
+   {?$_PAGE['data']['__content']?}
+ </ul>
+</div>
+</div>
+    </div>
+   	{?if $_PAGE['data']['vars']['专题点击榜']!=''?}
+   <div class="oneleft">
+     <div class="pinktt2">
+       <h3>{?$title?}点击榜</h3>
+     </div>
+     <div class="listbox rankbox p5">
+       <ul>{?eval $visitvars = $_PAGE['data']['vars']['专题点击榜'];?}
+         {?block bid="bid100" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="1" title="总" vars="$visitvars" template="block_li.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+       </ul>
+     </div>
+   </div>
+   {?/if?}
+   	{?if $_PAGE['data']['vars']['专题推荐榜']!=''?}
+   <div class="oneleft">
+     <div class="pinktt2">
+       <h3>{?$title?}推荐榜</h3>
+     </div>
+     <div class="listbox rankbox p5">
+       <ul>{?eval $votevars = $_PAGE['data']['vars']['专题推荐榜'];?}
+         {?block bid="bid100" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="1" title="总" vars="$votevars" template="block_li.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+       </ul>
+     </div>
+   </div>
+   {?/if?}
+      	{?if $_PAGE['data']['vars']['专题收藏榜']!=''?}
+   <div class="oneleft">
+     <div class="pinktt2">
+       <h3>{?$title?}收藏榜</h3>
+     </div>
+     <div class="listbox rankbox p5">
+       <ul>{?eval $goodvars = $_PAGE['data']['vars']['专题收藏榜'];?}
+         {?block bid="bid100" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="1" title="总" vars="$goodvars" template="block_li.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+       </ul>
+     </div>
+   </div>
+   {?/if?}
+   <div class="oneleft">
+     <div class="pinktt2">
+       <h3>最新专题</h3>
+     </div>
+     <div class="listbox arow p5">
+       <ul>
+       {?tag_news_22_[新闻]通用查询<{inputtime,20,63}>?}
+       </ul>
+     </div>
+   </div>
+    <div class="ad240_80" style="margin-bottom:15px;height:300px;"><img src="http://img.xunshuba.com/images/temp/ad240-80.jpg" width="240" height="300" alt="asd" /></div>
+ </div>
+ <div class="bigright">
+ {?if $_PAGE['data']['vars']['专题封面推荐']!=''?}
+<!--推荐专区-->{?eval $commendvars = $_PAGE['data']['vars']['专题封面推荐'];?}
+  <div class="oneright">
+   <div class="pinktt">
+    <h2>{?$title?}推荐</h2>
+   </div>
+   <div class="fengtuibox">
+ {?block bid="10000020" module="article" filename="block_commend" classname="BlockArticleCommend" side="1" title="专题封面推荐" vars="$commendvars" template="special/block_commend.html" contenttype="4" custom="0" publish="3" hasvars="1"?} 
+   </div>
+  </div><!--封推结束-->{?/if?}{?if $_PAGE['data']['vars']['专题小说列表']!=''?}
+ <div class="catlistbox">
+   <div class="cattab idTabs">
+<a href="{?$jieqi_local_url?}/xiaoshuo/" xslink="#newbooks" class="on">{?$title?}最新更新</a>
+   </div>
+   <div class="catlist listbox" id="newbooks">
+   <ul>
+    <li class="liname">
+        <span class="sort">类别</span>
+        <span class="name">书名/<i>最新更新章节</i></span>
+        <span class="author">作者</span>
+        <span class="time">更新时间</span>
+      </li>{?eval $lvars = $_PAGE['data']['vars']['专题小说列表'];?}
+     {?block bid="10000021" module="article" filename="block_articlelist" classname="BlockArticleArticlelist" side="1" title="最近更新" vars="$lvars" template="special/block_listlastupdate.html" contenttype="4" custom="0" publish="3" hasvars="1"?}<li class="limore"><a href="{?$jieqi_local_url?}/xiaoshuo/" target="_blank">更多{?$title?}>></a></li>
+      </ul>
+   </div>
+  </div>
+  <!--CATLIST END-->{?/if?}
+ </div>
+</div>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+    var GData = new DataLoad();
+	GData.pageLoad();
+});
+//-->
+</script>

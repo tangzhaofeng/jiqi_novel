@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{?$chapter['title']?}-{?$article['articlename']?}-书海小说网首发</title>
+<meta name="keywords" content="{?$article['articlename']?},{?$article['articlename']?}在线阅读">
+<meta name="description" content="{?$chapter['title']?}由书海小说网独家抢先发布了,欢迎大家阅读{?$chapter['title']?}这一章,{?$article['articlename']?}首发书海小说网www.shuhai.com。">
+<link href="{?$jieqi_themeurl?}style/vip.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/layer/layer.js"></script>
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/page.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery-ht.js"></script>
+<script type="text/javascript" src="{?$jieqi_themeurl?}/js/jquery.cookie.js"></script> 
+<script type="text/javascript" src="{?$jieqi_local_url?}/scripts/read.js"></script>
+<!--[if IE 6]>
+<script src="{?$jieqi_themeurl?}js/DD_belatedPNG.js" type="text/javascript"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('div, ul, img, li, input,span,h3,h2,a');
+</script>
+<![endif]-->
+<script language="JavaScript">
+var preview_page = "{?$chapter['preview_page']?}";
+var next_page = "{?$chapter['next_page']?}";
+var index_page = "{?$chapter['index_page']?}";
+var article_id = "{?$chapter['articleid']?}";
+var chapter_id = "{?$chapter['chapterid']?}";
+var vurl = '{?$chapter['readvip']?}';
+function jumpPage() {
+  var event = document.all ? window.event : arguments[0];
+  if (event.keyCode == 37) document.location = preview_page;
+  if (event.keyCode == 39) document.location = next_page;
+  if (event.keyCode == 13 && getUserId()>0) document.location = index_page;
+}
+document.onkeydown=jumpPage;
+
+
+  $(function(){
+   var art_tit = "{?$article['articlename']?}";
+   var chp_tit = "{?$chapter['title']?}";
+   var chp_url = document.URL;
+   //var art_url = "{?$jieqi_url?}/book/{?$article['articleid']?}.htm";
+   var art_url = "{?$article['url_articleinfo']?}";
+   var history;
+   var json="[";
+   //json1是第一次注入cookie以后的第一个json，"此时还不是数组" 以点带面的处理
+   var json1;
+   var canAdd= true;
+   if(!$.cookie("history")){
+    //第一次的时候需要初始化
+    history = $.cookie("history","[{art_tit:\""+art_tit+"\""+",art_url:\""+art_url+"\""+",chp_tit:\""+chp_tit+"\""+",chp_url:\""+chp_url+"\"}]",{expires:1, path: '/'});
+   }else {
+    //已经存在
+    history = $.cookie("history");
+    json1 = eval("("+history+")");
+    $(json1).each(function(){
+     if(this.art_tit==art_tit&&this.chp_tit==chp_tit){
+      canAdd=false;
+      return false;
+     }
+    })
+    if(canAdd){
+     $(json1).each(function(){
+	 if(this.art_tit!=art_tit){
+      json = json + "{\"art_tit\":\""+this.art_tit+"\",\"art_url\":\""+this.art_url+"\",\"chp_tit\":\""+this.chp_tit+"\",\"chp_url\":\""+this.chp_url+"\"},";
+	  }
+     })
+     json = json + "{\"art_tit\":\""+art_tit+"\",\"art_url\":\""+art_url+"\",\"chp_tit\":\""+chp_tit+"\",\"chp_url\":\""+chp_url+"\"}]";
+     $.cookie("history",json,{expires:1, path: '/'});
+    }
+   }
+  });
+  
+</script>
+
+</head>
+
+<body class="bg6 high" oncontextmenu="return false" onselectstart="return false"
+ondragstart="return false" onbeforecopy="return false" oncopy=document.selection.empty() onselect=document.selection.empty()>
+<!--top_mini3 begin-->
+<div class="top_mini3">
+  <div class="wrap">
+   <div class="logo"><a href="{?$jieqi_local_url?}" target="_blank">书海小说网</a></div>
+   <ul class="topmenu3">
+    <li><a href="{?$jieqi_local_url?}" target="_blank">书海首页</a></li>
+    <li><a href="/top/" target="_blank">排行榜</a></li>
+    <li><a href="/shuku" target="_blank">书库</a></li>
+    <li><a href="http://www.shuhai.com/wap/" target="_blank">手机版</a></li>
+    <li><a href="{?function geturl:'pay':'home'?}" target="_blank">充值</a></li>
+    <li><a href="/fuli/" target="_blank">福利</a></li>
+   </ul>
+   <div class="so"> <form action="/search" method="get" ajaxform="true" onsubmit='return false'>
+              <input type="text" name="searchkey"  id="J_search_suggest" value="{?$searchkey?}" data-placeholder="键入书名、作者名开始搜索" class="intxt"/>
+              <input name="dosubmit" type="submit" class="btn0" value="" /></form></div>
+  </div>
+</div><!--top_mini3 end-->
+<!--wrap begin-->
+<div class="wrap fix">
+  <!--box begin-->
+  <div class="boxv fix">
+    <div class="vtop">
+      <div class="place f_blue6 f14">
+        <p>当前位置：<a href="{?$jieqi_local_url?}">书海首页</a>&gt;<a href="{?$article['url_class']?}">{?$article['sort']?}</a>&gt;<a href="{?$article['url_articleinfo']?}">{?$article['articlename']?}</a></p>
+      </div>
+    </div>
+    <div class="vtop">
+      <div class="my f_blue7">
+        <a href="{?function geturl:'article':'article':'SYS=method=bcView'?}" target="_blank">我的收藏</a> <a href="{?function geturl:'article':'article':'SYS=method=masterPage'?}" target="_blank">我的作品</a>
+      </div>
+    </div>
+	<div id="userbar">
+    <div class="vtop">
+      <div class="user">
+        <div class="img"><img src="{?$jieqi_local_url?}/themes/v1/images/head5.jpg"/><span class="mask"></span></div>
+        <p class="yke" style="display:;">游客，您好</p>
+      </div>
+    </div>
+	</div>
+  </div><!--box end-->
+  <script type="text/javascript">loadheader("vip");</script>
+  <!--v_cont beggin-->
+  <div class="v_cont fix">
+    <div class="add">将本书添加到我的收藏
+      <p class="add_r"><a href="javascript:;" onclick="addBookcase();" class="sc">加入书签</a><a href="javascript:;" class="hu">忽略</a></p>
+    </div>
+    <div class="v_readtop">
+      <h1>{?$chapter['title']?}</h1>
+      <div class="info">小说：<em>{?$article['articlename']?}</em>作者：<em>{?if $article['authorid']>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$article["authorid"]'?}" class="f_gray6" target="_blank">{?$article['author']?}</a>{?else?}{?$article['author']?}{?/if?}</em><span class="pr20">更新时间：{?$chapter['postdate']|date:'Y-m-d'?} </span>字数：{?eval echo ceil($chapter['size']/2);?}</div>
+    </div>
+    <!--txt begin-->
+    <div class="txt" id='content'>内容加载中……</div><!--txt end class="txt"-->  
+	{?if $chapter['intro']!=''?}
+    <div class="talk">
+     <p>作者 <a href="#" class="f_blue8">{?$article['author']?}</a> 说：</p>
+{?$chapter['intro']?}
+    </div>{?/if?}
+	<div class="read_dwn">
+       <p class="f_gray7">(&larr;快捷键)<a href="{?$chapter['preview_page']?}">&lt;&lt;上一章</a><a href="{?$chapter['index_page']?}">目录</a><a href="{?$chapter['next_page']?}">下一章>></a> (快捷键&rarr;)</p>
+      小提示：按【空格键】返回目录，按（键盘左键←）返回上一章 按（键盘右键→）进入下一章
+      </div>
+    <div class="v_down f_black">
+     <a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=reviews&aid=$article["articleid"]'?}');" class="icomm">书评</a>|<a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=vote&aid=$article["articleid"]'?}');" class="imp">推荐</a>|<a href="javascript:;"class="marks" onclick="GPage.addbook('{?$chapter['addBookCase']?}');">加入书签</a>|<a href="javascript:;" onclick="huodong('{?function geturl:'article':'huodong':'SYS=method=reward&aid=$article["articleid"]'?}');" class="author">打赏作者</a>
+    </div>
+  </div><!--v_cont end-->
+</div><!--wrap end-->
+<script type="text/javascript">
+	GPage.loadpage('content', vurl);
+$(document).ready(function(){
+	if($.cookie('tips'+'{?$article["articleid"]?}')!=null&&$.cookie('tips'+'{?$article["articleid"]?}')!=''){
+		$(".add").hide();
+	}
+	$(".hu").click(function(){
+		$.cookie("tips"+'{?$article["articleid"]?}',"hide",{expires:1, path: '/'});
+		$(".add").slideToggle();
+	});
+});
+</script>
+<script type="text/javascript">
+function addBookcase(){
+	if(getUserId()<1){
+		layer.msg("亲，请先登录",1);
+	}else{
+		GPage.addbook('{?$chapter['addBookCase']?}','vip');
+	}
+}
+</script>
+</body>
+</html>

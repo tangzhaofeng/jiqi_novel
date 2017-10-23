@@ -1,0 +1,14 @@
+{?section name=i loop=$articlerows?}
+<li {?if $i.order == 2?}class="noline"{?/if?}>
+	<a href="{?$articlerows[i].url_module_articleinfo?}" media="handheld">
+     <dl class="book-img clearfix">
+       <dt class="thumb-img"><img src="{?$articlerows[i].url_image?}"></dt>
+       <dd>
+         <h4>{?$articlerows[i].articlename?}</h4>
+       </dd>
+       <dd class="sort">{?$articlerows[i].sort?} | {?$articlerows[i].author?}</dd>
+       <dd class="txt">{?$articlerows[i].intro?}</dd>
+     </dl>
+     </a>
+</li>
+{?/section?}

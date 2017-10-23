@@ -1,0 +1,11 @@
+{?section name=i loop=$articlerows?}
+   <dl class="list_img21">
+	 <dt><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank"><img src="{?$articlerows[i]['url_image']?}" width="92" height="122" /></a></dt>
+	 <dd><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="b f_gray3">{?$articlerows[i]['articlename']?}</a></dd>
+	 <dd>作者：{?$articlerows[i]['author']?}</dd>
+	 <dd>类别：{?$articlerows[i]['sort']?}</dd>
+	 <dd>点击：{?$articlerows[i]['visitnum']?}</dd>
+	 <dd>更新：{?$articlerows[i].lastupdate|date:'m-d'?}</dd>
+	 <dd class="f_red3"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank">[阅读]</a></dd>
+   </dl>
+{?/section?}

@@ -1,0 +1,5 @@
+{?section name=i loop=$sortrows?}
+{?if $sortrows[i].sortid<100?}
+<dd class="col-x-3 {?if $i.order==1||$i.order==5||$i.order==9?}tl{?else if $i.order==4||$i.order==8||$i.order==12?}tr{?else?}tc{?/if?}"><a href="{?$sortrows[i].url_sort?}" target="_self">{?$sortrows[i].sortname?}</a></dd>{?if $i.order==4||$i.order==8?}<dd class="line"></dd>{?/if?}
+{?/if?}
+{?/section?}

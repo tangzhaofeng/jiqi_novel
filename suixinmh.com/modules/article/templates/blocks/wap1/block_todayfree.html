@@ -1,0 +1,3 @@
+{?section name=i loop=$articlerows?}
+<li><span class="name2"><a href="{?function geturl:'wap':'shuku':'class=$articlerows[i].class'?}" target="_self">[{?$articlerows[i].shortcaption?}] </a><a href="{?function geturl:'wap':'articleinfo':SYS=aid=$articlerows[i].articleid?}" target="_self" class="f_0">{?$articlerows[i].articlename?}</a></span><span class="free2">√‚</span></li>
+{?/section?}

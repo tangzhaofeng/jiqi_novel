@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chapter>
+<id><![CDATA[{?$chapter['chapterid']?}]]></id>
+<content><![CDATA[{?eval echo str_replace('&nbsp;&nbsp;&nbsp;&nbsp;','<p>',preg_replace("/<br \/>\r\n<br \/>|<br \/>/","</p>\r\n",jieqi_htmlstr(gb2utf8XHSafeStr($chapter['content'],false))));?}</p>]]></content>
+</chapter>

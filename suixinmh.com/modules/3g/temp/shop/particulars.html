@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <meta charset="UTF-8">
+	  <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+	  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+	  <meta HTTP-EQUIV="expires" CONTENT="0">
+	  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	  <!-- uc强制竖屏 -->
+	  <meta name="screen-orientation" content="portrait">
+	  <!-- QQ强制竖屏 -->
+	  <meta name="x5-orientation" content="portrait">
+	  <!-- UC强制全屏 -->
+	  <meta name="full-screen" content="yes">
+	  <!-- QQ强制全屏 -->
+	  <meta name="x5-fullscreen" content="true">
+	  <!-- UC应用模式 -->
+	  <meta name="browsermode" content="application">
+	  <!-- QQ应用模式 -->
+	  <meta name="x5-page-mode" content="app">
+	  <!-- windows phone 点击无高光 -->
+	  <meta name="msapplication-tap-highlight" content="no">
+	<title>商户名待定</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" href="static/swiper-3.4.2.min.css" type="text/css" />
+   <style>
+		.swiper-pagination-bullet-active{
+          background:#fff;
+    	}
+    	.swiper-slide img{
+    		width:100%;
+    	}
+    	.swiper-pagination-bullet {
+		    width: 10px;
+		    height: 10px;
+			  
+		}
+		.price{
+			height:50px;
+			line-height: 50px;
+
+		}
+		.price i{
+			 font-size:25px;
+			 color:#ce1010;
+		}
+		.price_l{
+			height:50px;
+			float:left;
+		}
+		.price_l span{
+			margin-left:5px;
+			text-decoration:line-through;
+		}
+		.price_r{
+			padding-top:8px;
+			float:right;
+		}
+	
+		.commodity_name{
+			font-size:16px;
+			font-weight:bold;
+		}
+		.box{
+			padding: 0 10px;
+		}
+		.box h4{
+			 height: 40px;
+			 line-height: 40px;
+			border-bottom: 1px  solid #e0dddd;
+		}
+		.box{
+			border-bottom:20px solid #f1f0f0;
+		}
+		.particulars_main{
+			background:#fff;
+		}
+		.paddngLr10{
+			padding:0 10px;
+		}
+		.box{
+			line-height: 30px;
+		}
+		.box .client{
+			line-height: 60px;
+		}
+		.box .client img{ width:50px;height:50px; vertical-align: middle;}
+		.box .client span{
+			margin-left:10px;
+		}
+		.box .client em{ float:right;}
+		.details img{
+			width:100%;
+		}
+		.bnts{
+			position: fixed;
+			bottom: 0px;
+			width:100%;
+			height:60px;
+
+		}
+		.bnts a{
+			float:left;
+			height:100%;
+			color:#fff;
+			text-align: center;
+		}
+		.bnts a:nth-child(1){
+			width:40%;
+			background:#f69f9f;
+		}
+		.bnts a:nth-child(1) p{
+			line-height: 30px;
+		}
+		.bnts a:nth-child(2){
+				width:60%;
+			background:#e73838;
+			line-height: 60px;
+		}
+		.buy{
+			position: fixed;
+			top: 0px;
+			bottom: 0px;
+			width:100%;
+		  background: rgba(58, 55, 55, 0.41);
+		}
+		.buy img{
+			width:90px;
+		
+			position: absolute;
+			top:-20px;
+			
+		}
+		.buy_box{
+			width:100%;
+			height:180px;
+			background:#fff;
+			position: absolute;
+			bottom:0px;
+			padding:0 20px;
+		}
+		.buy .price{
+			position: relative;
+			height:60px;
+		}
+		.buy .price	 span{
+			 color:#ce1010;
+			 font-size: 30px;
+			 margin-left:120px;
+		}
+		.buy .number{
+			line-height:40px;
+	font-size: 16px;
+		}
+		.buy .number .input{
+			float:right;
+		
+		}
+		.buy .number .input button{
+			padding:4px 10px;
+		}
+		.buy .number .input button,.buy .number .input input{
+			height:25px;
+			font-weight: bold;
+
+		}
+		.buy .number .input button.bntBgColor{
+		 background: #bbbaba;
+		}
+		.number .input input{
+			width:40px;
+			background:#dddddd;
+			text-align: center;
+			
+		}
+		.buy p{
+			line-height: 30px;
+		}
+		.buy .queding{
+			width:100%;
+			color:#fff;
+			background:#e73838;
+			display: block;
+			height:40px;
+			line-height: 40px;
+			text-align: center;
+			font-size:20px;
+		}
+
+   </style>
+ 
+
+	
+</head>
+<body>
+	<div class="shop_layout">
+		<header>
+			<a></a>
+		</header>
+		<div class="swiper-container">
+	        <div class="swiper-wrapper">
+	           <div class="swiper-slide"><img src="./images/l4.jpg" /></div>
+             <div class="swiper-slide"><img src="./images/l5.jpg" /></div>
+            <div class="swiper-slide"><img src="./images/l6.jpg" /></div>
+	        </div>
+	        <!-- Add Pagination -->
+	        <div class="swiper-pagination"></div>
+    	</div>
+    	<div class="particulars_main">
+    		<div class="price paddngLr10">
+				<div class="price_l"><i>¥39</i><span>¥200</span></div>
+				<div class="price_r">已团100000件</div>
+		   </div>
+		   	<div class="commodity_name paddngLr10">研友轻薄透气卫生棉  卫生棉  卫生棉  真的是卫生棉  超好用</div>
+		   	<div class="box">
+		   			<h4>商品简介</h4>
+		   			<p>
+		   				产品参数：
+							产品名称：SuSen/舒珊 舒珊24cm常规...包装数量(片): 10卫生巾厚薄: 超薄型品牌: SuSen/舒珊型号: 舒珊24cm常规日用是否量贩装: 是适用时间: 日用规格: 240mm表面材质: 棉柔亲肤是否有香味: 有香味产地: 中国大陆卫生巾分类: 日用是否进口: 国产是否有护翼: 有护翼
+
+		   			</p>
+		   	</div>
+		   	<div class="box">
+		   			<h4>商品评价（12）</h4>
+		   			<ul>
+		   				<li>
+		   					<div class="client"><img src="./images/sb.png"/><span>5+2sb</span><em>2017.11.19</em></div> 
+		   					<p>不错不错，这是我用过最好的，这品牌值得信任·····</p>
+		   				</li>
+		   				<li>
+		   					<div class="client"><img src="./images/sb.png"/><span>5+2sb</span><em>2017.11.19</em></div> 
+		   					<p>不错不错，这是我用过最好的，这品牌值得信任·····</p>
+		   				</li>
+		   			</ul>
+		   	</div>
+		   		<div class="box">
+		   			<h4>商品详情</h4>
+		   			<div class="details">
+		   				<img src="./images/xiangq.jpg" alt="">
+		   			</div>
+		   	</div>
+    	</div>
+    	<div class="bnts">
+    		<a href="javascript:void(0)" class="bnt1">
+    			<p>¥200</p>
+    			<p>单独购买</p>
+    		</a>
+    		<a href="javascript:void(0)" class="bnt2">
+    			<p>¥39 一键团购</p>
+    		</a>
+    	</div>
+    	<div class="buy" style="display: none;">
+    		<div class="buy_box">
+    			<div class="price">
+					<img src="images/dn.jpg"/>
+					<span>¥39</span>
+    			</div>
+				<div class="number">
+					数量
+					<div class="input">
+						<button class="subtract">-</button>
+						<input type="text" value="1" class="numberVal"/>
+						<button class="add bntBgColor" >+</button>
+					</div>
+				</div>
+					<p>活动期间只能买一件</p>
+				<a href="#" class="queding">确定</a>
+    		</div>
+    	</div>
+	</div>
+	<script src="./static/jquery.min.js"></script>
+	<script src="./static/swiper-3.4.2.jquery.min.js"></script>
+	<script type="text/javascript">
+		
+			var numberVal=1;
+			 var swiper  = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        paginationClickable: true
+    		});
+			 //一键团购 单独购买
+			$(".bnt1,.bnt2").on("touchstart",function(){
+				$(".buy").show(500);
+			});
+			 //一弹窗遮罩
+			$(".buy").on("touchstart",function(){
+				$(".buy").hide(500);
+			});
+			$(".buy_box").on("touchstart",function(){
+			   return false;
+			});
+			//加减按钮
+			$(".subtract").on("touchstart",function(){
+			
+				if(numberVal>1)
+				{
+					$(".numberVal").val(--numberVal);
+				}
+			});
+
+			$(".add").on("touchstart",function(){
+				
+					$(".numberVal").val(++numberVal);
+			});
+
+	</script>
+</body>
+</html>

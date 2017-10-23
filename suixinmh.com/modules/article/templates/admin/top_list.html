@@ -1,0 +1,44 @@
+<link href="{?$jieqi_themeurl?}style/rank.css" type="text/css" rel="stylesheet" />
+<link href="{?$jieqi_themeurl?}style/style.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}/js/jquery.cookie.js"></script> 
+<form name="frmsearch" method="post" action="?controller=salestat">
+<table class="grid" width="100%" align="center">
+    <tr>
+        <td class="odd">关键字：
+            <input name="keyword" type="text" id="keyword" class="text" size="0" maxlength="50" value="{?$keyword?}"> <input name="keytype" type="radio" class="radio" value="0" {?if $keytype!=1?} checked="checked" {?/if?}>
+            文章名称
+            <input type="radio" name="keytype" class="radio" value="1" {?if $keytype==1?} checked="checked" {?/if?}>
+            文章作者 &nbsp;&nbsp;
+            <input type="submit" name="btnsearch" class="button" value="搜 索">
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=toplist&type=daysale&sortid=0&page=1">日榜</a>
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=toplist&type=weeksale&sortid=0&page=1">周榜</a>
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=toplist&type=monthsale&sortid=0&page=1">月榜</a>
+			<a href="{?$jieqi_url?}/modules/article/admin/?controller=salestat&method=toplist&type=totalsale&sortid=0&page=1">总榜</a>
+        </td>
+    </tr>
+</table>
+</form>
+<br />
+<table class="grid" width="100%" align="center">
+<caption>文章{?if $type == "daysale"?}日{?elseif $type == "weeksale"?}周{?elseif $type == "monthsale"?}月{?elseif $type == "totalsale"?}总{?/if?}销售榜</caption>
+  <tr align="center" valign="middle">
+  	<th width="6%">序号</th>
+	<th width="20%">文章名称</th>
+    <th width="14%">文章作者</th>
+	<th width="16%">来源</th>	
+	<th width="16%">{?if $type == "daysale"?}日{?elseif $type == "weeksale"?}周{?elseif $type == "monthsale"?}月{?elseif $type == "totalsale"?}总{?/if?}销售(书海币)</th>
+	<th width="18%">最后更新时间</th>
+  </tr>
+  {?section name=i loop=$articlerows?}
+  <tr valign="middle">
+  	<td align="center" class="odd">{?$i.order?}</td>
+  	<td align="left" class="even">[<a href="{?$articlerows[i].url_class?}" target="_blank">{?$articlerows[i].shortcaption?}</a>]<a href="{?$articlerows[i].url_articleinfo?}" target="_blank">{?$articlerows[i].articlename?}</a></td>
+    <td align="left" class="odd">{?if $articlerows[i].authorid == 0?}{?$articlerows[i].author?}{?else?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$articlerows[i].authorid'?}" target="_blank">{?$articlerows[i].author?}</a>{?/if?}</td>
+	<td align="center" class="odd">{?$articlerows[i].firstflag_tag?}</td>
+    <td align="right" class="odd">{?if $type == "daysale"?}{?$articlerows[i].day?}{?elseif $type == "weeksale"?}{?$articlerows[i].week?}{?elseif $type == "monthsale"?}{?$articlerows[i].month?}{?elseif $type == "totalsale"?}{?$articlerows[i].total?}{?/if?}</td>
+	<td align="center" class="odd">{?$articlerows[i].lastupdate|date:'Y-m-d H:i:s'?}</td>
+  </tr>
+  {?/section?}
+</table>
+<div class="page">{?$url_jumppage?}</div>
+<br /><br />

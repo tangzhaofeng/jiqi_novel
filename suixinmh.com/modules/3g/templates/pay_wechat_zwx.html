@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+    <title>微信充值</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta name="keywords" content="{?$meta_keywords?}" />
+    <meta name="description" content="{?$meta_description?}" />
+    <meta name="author" content="{?$meta_author?}" />
+    <meta name="copyright" content="{?$meta_copyright?}" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/newextend.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+    {?include file="themes/3g/js.html"?}
+</head>
+<body>
+{?include file="themes/3g/header.html"?}
+{?include file="themes/3g/paylogin.html"?}
+<div class="bgcfff">
+    <div class="p10 clearfix bb bceee">
+        微信支付：选择充值金额<a href="/user/"><span class="fr cPink">个人中心</span></a>
+    </div>
+    <div class="checkbox mt10 ptb10 clearfix">
+        <form action="{?function geturl:'3g':'pay':SYS=method=wechat_zwx?}" method="post" id="payform">
+            {?section name=i loop=$paylimit?}{?eval if($i.key>$paylimit[i]*100){$duo=$i.key-$paylimit[i]*100;}else{$duo=0;}?}
+            {?if $paylimit[i] == 365 ?}
+            <a data-egold="36500" class="label2 pr dib fl c555 f12 tc b bcddd" href="javascript:;" onclick="pay(36500)">
+                <p><font color="#f86a6a">包年VIP {?$paylimit[i]?}元</font></p>
+                <p class="f12">有效期365天，全站书籍不限量阅读</p>
+            </a>
+            {?else?}
+            <a data-egold="{?$i.key?}" class="label pr dib fl c555 f12 tc b bcddd" href="javascript:;" onClick="pay({?$i.key?})">
+                <p><font color="#f86a6a">{?$paylimit[i]?}元</font></p>
+                <p class="f12">{?eval echo $paylimit[i]*100+$duo;?}书币</p>
+                <!--<img class="pa right0 bottom0 w15" src="{?$jieqi_themeurl?}images/sright.png" />-->
+            </a>
+            {?/if?}
+            {?/section?}
+
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}">
+            <input type="hidden" name="egold" id="egold" value="" />
+        </form>
+    </div>
+    {?include file = "modules/3g/templates/pay_notify.html"?}
+</div>
+
+
+
+
+{?include file="themes/3g/bottom.html"?}
+<script type="text/javascript">
+    function pay(gold){
+        document.getElementById('egold').value=gold;
+        document.getElementById('payform').submit();
+    }
+</script>
+<body>

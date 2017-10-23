@@ -1,0 +1,8 @@
+{?section name=i loop=$articlerows?}
+<dl class="ld_it d_line fix">
+       <dt><a href="book.html" target="_blank"><img src="{?$articlerows[i].url_image_l?}" alt="{?$articlerows[i]['articlename']?}" title="{?$articlerows[i]['articlename']?}"/></a></dt>
+       <dd class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_gray3" title="{?$articlerows[i]['author']?}：{?$articlerows[i]['articlename']?}">{?$articlerows[i]['author']?}：{?$articlerows[i]['articlename']?}</a><a href="javascript:;" target="_blank" class="collect" title="放入书架" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">收藏</a></dd>
+       <dd class="intro" title="{?$articlerows[i]['intro']?}">{?$articlerows[i]['intro']|truncate:185:'……'?}<a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" class="f_blue" title="{?$articlerows[i]['articlename']?}">[阅读]</a></dd>
+       <dd class="recom">同类推荐：<a href="javascript:void(0)" target="_blank" class="f_red2">《穿越之花神下凡》：变高富帅，香艳奋斗</a></dd>
+</dl>
+{?/section?}

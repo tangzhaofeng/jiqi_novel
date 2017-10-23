@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <meta charset="UTF-8">
+	  <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+	  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+	  <meta HTTP-EQUIV="expires" CONTENT="0">
+	  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	  <!-- uc强制竖屏 -->
+	  <meta name="screen-orientation" content="portrait">
+	  <!-- QQ强制竖屏 -->
+	  <meta name="x5-orientation" content="portrait">
+	  <!-- UC强制全屏 -->
+	  <meta name="full-screen" content="yes">
+	  <!-- QQ强制全屏 -->
+	  <meta name="x5-fullscreen" content="true">
+	  <!-- UC应用模式 -->
+	  <meta name="browsermode" content="application">
+	  <!-- QQ应用模式 -->
+	  <meta name="x5-page-mode" content="app">
+	  <!-- windows phone 点击无高光 -->
+	  <meta name="msapplication-tap-highlight" content="no">
+	<title>商户名待定</title>
+	<link href="./css/style.css" rel="stylesheet" type="text/css" /> 
+	<link rel="stylesheet" href="./static/LArea.css" type="text/css" />
+	<style>
+	
+		body{
+			background: #f4f3f3;
+			 margin: 0 auto;
+	        width: 100%;
+	        min-height: 100%;
+	        overflow-x: hidden;
+	        -webkit-user-select: none;
+		
+		}
+		.text{
+			height: 30px;
+		    line-height: 30px;
+		    font-size: 16px;
+		    padding-left: 20px;
+		    color: #5a4747;
+
+		}
+		.title{
+			height:80px;
+			line-height: 80px;
+			background:#e73838;
+			color:#fff;
+			font-size: 22px;
+			text-align: center;
+		}
+		.message{line-height: 35px;height:35px;}
+		.message span{ width:15%;display: inline-block;color:#989292;padding-left:10px; }
+		.message input{width:32%;height: 30px;padding-left: 10px;background: transparent;border-bottom: 1px solid #d2caca;}
+		.area{height:35px;}
+		.area input{
+		
+			float:left;
+			width:100%;
+			height:35px;
+			margin-top:10px;
+			padding-left:20px;
+			background: transparent;border-bottom: 1px solid #d2caca;
+		}
+		.location{
+			width:100%;
+			height:40px;
+			padding-left:20px;
+			background: transparent;border-bottom: 1px solid #d2caca;
+		}
+		.save{
+			background: #e73838;
+			display: block;
+			width:100%;
+			height:50px;
+			line-height: 50px;
+			text-align: center;
+			color:#fff;
+			font-size:22px;
+			margin-top: 10px;
+		}
+	</style>
+ 
+
+	
+</head>
+<body>
+	<div class="shop_layout">
+	   	<p class="text">您已成功订购商品，请务必准确填写收货地址</p>
+	   	<h4 class="title">添加收货地址</h4>
+	   	<form  action="#">
+	   		<div class="message"><span>姓名</span><input type="text" /><span>电话</span><input type="text" /></div>
+		   	<div class="area" >
+		   		<input type="text" name=""  readonly=""  placeholder="请选择省份  |  请选择城市  |  请选择地区" ame="input_area"  id="address" value="" />
+		   
+		   		<input type="hidden" name="" id="address1"/>
+
+		   	</div>
+		   	<input type="text" class="location" placeholder="请填写详细地址"/>
+		   		<a href="#" class="save">保存</a>
+	   	</form>
+	   
+	  
+	</div>
+	<script src="./static/jquery.min.js"></script>
+
+	
+		<script src="./static/LAreaData1.js"></script>
+		<script src="./static/LArea.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var area1=new LArea();
+			area1.init({
+				"trigger":"#address",
+				"valueTo":"#address1",
+				"keys":{
+					id:"id",
+					name:"name"
+				},
+				   'type':1,//数据源类型
+	    		'data':LAreaData//数据源
+
+
+			});
+		
+		})
+		
+	</script>
+</body>
+</html>

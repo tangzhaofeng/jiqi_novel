@@ -1,0 +1,25 @@
+<div class="xz_p">{?eval $avg = explode('.', $mood.avg);?}
+<div class="xz_pj_left1 xz_pj01" id='gradevote_avg1'>{?$avg.0|defaultval:0?}</div>
+<div class="xz_pj_left2 xz_pj02" id='gradevote_avg2'>.{?$avg.1|defaultval:0?}</div>
+<div class="xz_pj_right01">
+<ul>
+<li class="xfont03" id="GradeVoteScore"></li>
+<li id="GradeVoteArea"></li>
+</ul>
+</div>
+<div class="xz_pj_right02">
+<ul>
+<li>总评分人数：<span class="xfont04" id='gradevote_total'>{?$mood.total|defaultval:0?}</span></li>
+<li>移动星星可评分 </li>
+</ul>
+</div>
+<div class="clear"></div>
+</div>
+<script language="javascript">
+{?section name=i loop=$items?}
+WindowVote.AddContent("{?$items[i]['name']?}");
+{?/section?}
+WindowVote.Moodid = {?$mood.moodid?};
+WindowVote.ContentId = {?$mood.contentid?};
+WindowVote.CreateVote({?$mood.number?},7);
+</script>

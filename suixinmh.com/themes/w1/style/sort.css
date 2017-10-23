@@ -1,0 +1,23 @@
+/* SHUHAI.COM SORT.CSS v1.0 | 2014*/
+@import url(style.css);
+
+.show_li,show_img{ width:auto; height:auto;}
+.term,.term2{ width:auto; height:auto; padding:10px 20px; font-size:13px;}
+.term{ background:#f5fbfe;}
+.term2{ border:1px solid #bababa; background:#fffeee;}
+.box_term{ padding-top:10px;}
+.box_term .t{ float:left; display:block; width:70px; height:30px; line-height:30px; text-align:right; font-weight:800; color:#5e5e5e;}
+.box_term .sort,.box_term .sort2,.box_term .tag{ float:left; width:92%; line-height:30px; height:auto;}
+.box_term .sort{ background:#d9effc;}
+.box_term .sort2{ background:#eaeae8;}
+.box_term .sort a,.box_term .sort2 a,.box_term .tag a,.box_term .tag2 a{ display:inline-block; height:30px; line-height:30px; padding:0px 8px; color:#333;}
+.box_term .sort a:hover,.box_term .sort2 a:hover,.box_term .tag a:hover{ color:#fff; margin:0px 2px;}
+.box_term .sort a:hover,.box_term .tag a:hover{ background:#3caadb;}
+.box_term .sort2 a:hover,.box_term .tag2 a:hover{ background:#c48b49; color:#fff;}
+.box_term .sort a.on,.box_term .tag a.on{ background:#3caadb; color:#fff;}
+.box_term .sort2 a.on,.box_term .tag2 a.on{ background:#9d5501; color:#fff;}
+.box_term .sort .show,.box_term .sort2 .show{ width:auto; height:auto; background:#fff; color:#333; padding:5px 10px; line-height:180%;}
+.box_term .sort .show { border:1px solid #99c8e1;}
+.box_term .sort2 .show { border:1px solid #bababa;}
+.box_term .sort .show em,.box_term .sort2 .show em{ padding:0px 10px;}
+

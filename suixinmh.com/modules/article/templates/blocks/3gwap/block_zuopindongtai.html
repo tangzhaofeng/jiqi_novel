@@ -1,0 +1,12 @@
+{?if count($logrows) > 0?}
+{?section name=i loop=$logrows?}
+<div><em>{?$logrows[i].username?}</em>
+{?if $logrows[i]['mid'] == 'vote'?}投推荐{?$logrows[i]['stat']?}张
+{?elseif $logrows[i]['mid'] == 'goodnum'?}收藏{?$logrows[i]['stat']?}次
+{?elseif $logrows[i]['mid'] == 'vipvote'?}投月票{?$logrows[i]['stat']?}张
+{?elseif $logrows[i]['mid'] == 'sale'?}订阅{?$logrows[i]['stat']?}{?eval echo(JIEQI_EGOLD_NAME);?}
+{?elseif $logrows[i]['mid'] == 'reward'?}捧场{?$logrows[i]['stat']?}{?eval echo(JIEQI_EGOLD_NAME);?}
+{?/if?}
+</div>
+{?/section?}
+{?/if?}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<book> 
+    <volumes> {?eval $volume = $chapter = 0;?}
+	{?section name=i loop=$chapters?}{?eval $chapter = $volume = 0;?}
+	{?if $chapters[i]['chaptertype']==0 && $i.order==1?}{?eval $volume++;?}{?eval $chapter++;?}
+        <volume> 
+            <volumeId>0</volumeId> 
+            <volumeName>正文</volumeName> 
+            <volumeOrder>{?$volume?}</volumeOrder> 
+                <chapters> 
+				   <chapter> 
+                        <chapterNo>{?$chapter?}</chapterNo> 
+                        <chapterId>{?$chapters[i]['chapterid']?}</chapterId> 
+                        <chapterName>{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],true,'xml');?}</chapterName> 
+                        <chapterSize>{?eval echo ceil($chapters[i]['size']/2);?}</chapterSize> 
+                        <price>{?$chapters[i]['saleprice']?}</price> 
+                        <isVip>{?$chapters[i]['isvip']?}</isVip> 
+						<chapterUrl><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['url'],false);?}]]></chapterUrl> 
+                    </chapter> 
+	{?elseif $chapters[i]['chaptertype']==1?}{?eval $volume++;?}
+        <volume> 
+            <volumeId>{?$chapters[i]['chapterid']?}</volumeId> 
+            <volumeName>{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],true,'xml');?}</volumeName> 
+            <volumeOrder>{?$volume?}</volumeOrder> 
+                <chapters> 
+	{?else?}{?eval $chapter++;?}
+                    <chapter> 
+                        <chapterNo>{?$chapter?}</chapterNo> 
+                        <chapterId>{?$chapters[i]['chapterid']?}</chapterId> 
+                        <chapterName>{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],true,'xml');?}</chapterName> 
+                        <chapterSize>{?eval echo ceil($chapters[i]['size']/2);?}</chapterSize> 
+                        <price>{?$chapters[i]['saleprice']?}</price> 
+                        <isVip>{?$chapters[i]['isvip']?}</isVip> 
+						<chapterUrl><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['url'],false);?}]]></chapterUrl> 
+                    </chapter> 
+	{?/if?}{?if $chapters[$i.order]['chaptertype'] == "1" || $chapters[$i.order]['chaptername'] == ""?}
+                </chapters> 
+        </volume> {?/if?}
+		{?/section?}
+    </volumes> 
+</book> 

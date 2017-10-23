@@ -1,0 +1,17 @@
+      <div class="t2">
+       <h2>收入管理</h2>
+       <ul class="tabs62">
+       	<li id="t_article_finance"><a href="{?function geturl:'article':'article':'SYS=method=finance'?}">财务信息</a></li>
+        <li id="t_article_income"><a href="{?function geturl:'article':'article':'SYS=method=income'?}">收入月报</a></li>
+		<li id="t_article_incomedetail"><a href="{?function geturl:'article':'article':'SYS=method=incomedetail'?}">收入详情</a></li>
+       <!-- <li id="t_article_rewards"><a href="{?function geturl:'article':'article':'SYS=method=rewards'?}">奖励保障</a></li>-->
+        <li id="t_article_exceptional"><a href="{?function geturl:'article':'article':'SYS=method=exceptional'?}">打赏明细</a></li>
+        <!--<li id="t_article_channelIncome"><a href="{?function geturl:'article':'article':'SYS=method=channelIncome'?}">渠道收入</a></li>-->
+       </ul>       
+      </div>
+      
+      <script>
+	//防止tab ID和accordion id 冲突，tabID加t_
+	var id ='{?$_REQUEST['controller']?}'+'_'+'{?$_REQUEST['method']?}';
+	 $('#t_'+id).addClass("thistab");
+	</script>

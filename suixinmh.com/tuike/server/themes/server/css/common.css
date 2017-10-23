@@ -1,0 +1,48 @@
+html,body,div,p,span,em,i,u,del,strong,a,b,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,iframe,form,label,button,input,textarea,pre,hr,table,tbody,th,td{margin:0;padding:0;word-wrap:break-word;word-break:break-all}
+html,body{width:100%}
+html{font-size:62.5%}
+body{background:#F1F1F1;line-height:1.6;color:#666}
+body,button,input,select,textarea{font-family:'Hiragino Sans GB', 'Microsoft Yahei',sans-serif}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea{font-size:100%}
+h1,h2,h3,h4,h5,h6,th{font-weight:normal}
+em,i{font-style:normal}
+ul{list-style:none}
+img{border:none;vertical-align:middle}
+input[type=text]{-webkit-border-radius:0}
+a:link,a:visited{text-decoration:none;color:#666}
+.gray,a.gray,.gray a{color:#666}
+.gray9,a.gray9,.gray9 a{color:#999}
+.red,a.red,.red a{color:#b90000}
+.orange,a.orange,.orange a{color:#be9155}
+.u-table,.page table,.search,.bookbutton,.supportlinks li img,.reviewform,.reviewform .review-btn,.rechargeform .recharge-btn,.viporder-btn,.userform .user-btn{width:100%}
+div:before {content:"";display:table;}
+div:after,ul:after {content:"";display: table;clear: both;}
+ul {list-style:none;}
+a:hover {color:#EB6100;}
+input,button {outline:none;border:1px #e5e5e5 solid;}
+input{width: 100%;line-height: 32px;border: none;outline: none;}
+.v-icon{display:inline-block;width:12px;height:12px;background:url(../img/v-icon.png) no-repeat;vertical-align:middle;overflow:hidden}
+.pt-icon,.lv-icon{display:inline-block;text-align:center;font-size:1.2rem;overflow: hidden;margin-left: 5px;}
+.pt-icon{width:18px;height:18px;line-height:18px;color: #fff;vertical-align: text-bottom;}
+.lv-icon{width:33px;height:16px;line-height:16px;border:1px solid #eb0000;color:#eb0000}
+.isTop{background:#dc147d}
+.isDigset{background:#cd8c14}
+.isAuthor{background:#37a5f0}
+.lv_0{background:#5acde6}
+.lv_1{background:#96b946}
+.lv_2{background:#f05a8c}
+.clear {clear:both;}
+.hidden {display:none;}
+.mt5{margin-top:5px}
+.mt10{margin-top:10px}
+.mt15{margin-top:15px}
+.mt20{margin-top:20px}
+.mt50{margin-top:50px}
+.ml5{margin-left:5px}
+.ml10{margin-left:10px}
+.ml15{margin-left:15px}
+.mb10{margin-bottom: 10px}
+.mb50{margin-bottom: 50px}
+
+.fl{float:left;}
+.fr{float:right;}

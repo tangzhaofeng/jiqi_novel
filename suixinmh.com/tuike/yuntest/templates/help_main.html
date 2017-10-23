@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>youyue小说云</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/base.css?1.0">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/style.css?1.7">
+    <link href="{?$jieqi_themeurl?}js/layer_mobile/need/layer.css" rel="stylesheet" >
+    <script src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+    <script src="{?$jieqi_themeurl?}js/easydialog.min.js"></script>
+    <script src="{?$jieqi_themeurl?}js/layer_mobile/layer.js"></script>
+    <script src="{?$jieqi_themeurl?}js/users.js?1.2"></script>
+  </head>
+  <body>
+    <div class="g-head">
+      <div class="g-logo">
+        <a href="/yuntest/" class="m-logo">
+          <img src="{?$jieqi_themeurl?}img/logo_c.png" />
+        </a>
+        <div class="m-user">
+          <a href="{?function geturl:'yuntest':'help'?}">帮助中心</a>
+          <a href="/yuntest/">{?$_USER.useruname?}</a>
+          <a href="{?function geturl:'yuntest':'user':'SYS=method=logout'?}">退出</a>
+        </div>
+      </div>
+      <div class="main-nav">
+        <a href="javascript:;" id="m_menu_toggle_sun" class="m_menu_toggle"></a>
+        <ul class="m-nav f-fl u-menu-mobile" id="main-nav">
+          <li>
+            <a class="m_submenu_toggle {?if $nav == 1?}on{?/if?}" href="/yuntest/">首页</a>
+          </li>
+          <li>
+            <a href="{?function geturl:'yuntest':'article'?}" class="m_submenu_toggle one_nav_m {?if $nav == 3?}on{?/if?}">图书管理 </a>
+            <ul class="m-pulldown">
+              <li class="u-divider">
+                <a href="{?function geturl:'yuntest':'article'?}">图书管理 </a>
+              </li>
+              <li class="u-divider">
+                <a href="{?function geturl:'yuntest':'article':'SYS=method=picture'?}">图片素材 </a>
+              </li>
+              <li class="u-divider">
+                <a href="{?function geturl:'yuntest':'article':'SYS=method=caption'?}">标题素材</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="{?function geturl:'yuntest':'qdlist'?}" class="m_submenu_toggle {?if $nav == 4?}on{?/if?}">渠道管理 </a>
+          </li>
+  {?if $is_tuike == 1?}
+          <li>
+            <a  class="m_submenu_toggle {?if $nav == 5?}on{?/if?}" href="{?function geturl:'yuntest':'tkuser'?}">邀请返佣 </a>
+          </li>
+  {?/if?}
+          <li>
+            <a href="{?function geturl:'yuntest':'user':'SYS=method=paydetail'?}" class="m_submenu_toggle one_nav_m {?if $nav == 6?}on{?/if?}">财务管理</a>
+            <ul class="m-pulldown">
+              <li class="u-divider">
+                <a href="{?function geturl:'yuntest':'user':'SYS=method=paydetail'?}">充值明细</a>
+              </li>
+              <li class="u-divider">
+                <a href="{?function geturl:'yuntest':'user':'SYS=method=payreceive'?}">收款信息</a>
+              </li>
+              <li class="u-divider">
+                <a href="{?function geturl:'yuntest':'user':'SYS=method=payout'?}">提现功能</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="{?function geturl:'yuntest':'help':'SYS=method=notes'?}" class="m_submenu_toggle {?if $nav == 8?}on{?/if?}">平台公告 </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="g-sidebar u-menu-mobile" id="sd-nav">
+      <ul id="main_left">
+        <li class="u-divider">
+          <a class="on" href="#to_help1">平台介绍</a>
+        </li>
+        <li class="u-divider">
+          <a href="#to_help2">账户操作指引</a>
+        </li>
+        <li class="u-divider">
+          <a href="#to_help3">推广操作指引 </a>
+        </li>
+        <li class="u-divider">
+          <a href="#to_help4">渠道管理 </a>
+        </li>
+        <li class="u-divider">
+          <a href="#to_help5">财务管理 </a>
+        </li>
+      </ul>
+    </div>
+    <div class="g-main">
+      <div class="m-book-title" id='m_help_title'>平台介绍 </div>
+      <div class="to_leave"></div>
+      <div class="m-panel">
+        <div class="panel-body" style="background: #e5f3fc;">
+          <div class="m-help-content" id="to_help1">
+            <img src="{?$jieqi_themeurl?}img/n_help1.png" width="100%" />
+          </div>
+          <div class="m-help-content" id="to_help2">
+            <img src="{?$jieqi_themeurl?}img/n_help2.png" width="60%" />
+          </div>
+          <div id="to_help3">
+            <div class="m-help-content">
+              <img src="{?$jieqi_themeurl?}img/n_help31.png" width="100%" />
+            </div>
+            <div class="m-help-content">
+              <img src="{?$jieqi_themeurl?}img/n_help32.png" width="60%" />
+            </div>
+            <div class="m-help-content">
+              <img src="{?$jieqi_themeurl?}img/n_help33.png" width="100%" />
+            </div>
+          </div>
+          <div class="m-help-content" id="to_help4">
+            <img src="{?$jieqi_themeurl?}img/n_help4.png" width="100%" />
+          </div>
+          <div id="to_help5">
+            <div class="m-help-content">
+              <img src="{?$jieqi_themeurl?}img/n_help51.png" width="100%" />
+            </div>
+            <div class="m-help-content">
+              <img src="{?$jieqi_themeurl?}img/n_help52.png" width="100%" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact_suspension_frame">
+      <div class="suspension_frame_box" id="suspensionFrame">
+        <h2><span>立即联系你的客户经理</span></h2>
+        <div id="contactContent" class="contactContent" style="height: 0px; overflow: hidden; display: none;">
+          <table>
+            <tbody>
+              <tr>
+                <td width="60" valign="middle">
+                  客户经理：
+                </td>
+                <td>{?$co_name?}</td>
+              </tr>
+              <tr>
+                <td valign="middle">
+                  QQ：
+                </td>
+                <td>{?$co_qq?}</td>
+              </tr>
+              <tr>
+                <td valign="middle">
+                  电话：
+                </td>
+                <td>{?$co_phone?}</td>
+              </tr>
+              <tr>
+                <td valign="middle">
+                  微信：
+                </td>
+                <td><img src="{?$jieqi_url?}{?$co_img?}" alt="二维码"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  <script type="text/javascript">
+    $('#main_left a').click(function(e){
+      e.preventDefault()
+      $('#m_help_title').html($(this).html())
+      $(this).addClass('on').parent().siblings().children('a').removeClass('on')
+      $(this.hash).css('display','block').siblings().css('display','none')
+    })
+  
+    $("#suspensionFrame").hover(function() {
+      $("#contactContent").show();
+      $("#contactContent").stop().animate({
+        "height": "200px"
+      }, "normal", function() {});
+    }, function() {
+      $("#contactContent").stop().animate({
+        "height": 0
+      }, "normal", function() {
+        $("#contactContent").hide();
+      });
+    });
+    $('.m-nav').find('li').hover(function() {
+          $(this).find('.m-pulldown').slideDown();
+      },function() {
+          $(this).find('.m-pulldown').slideUp();
+      });
+    $('.m_menu_toggle').click(function(){ 
+      if($(this).hasClass('on')){
+        $('#main-nav').slideUp()
+        $(this).removeClass('on') 
+      }else{
+        $('#main-nav').slideDown()
+        $(this).addClass('on')
+      } 
+    })
+    $('.m_submenu_toggle').click(function(){ 
+      if($(this).hasClass('on')){
+      }else{
+        $(this).siblings().slideDown()
+        $('.m_submenu_toggle').removeClass('on') 
+        $(this).addClass('on')
+      } 
+    }) 
+
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,3 @@
+<p class="f_white">
+	 {?section name=i loop=$sortrows?}{?if $i.order<50?}<a href="{?$sortrows[i].url_sort?}"{?if $sortrows[i]['sortid']==$_REQUEST['sortid']?} class="on"{?/if?}>{?$sortrows[i].sortname?}</a>{?/if?}{?/section?}
+</p>

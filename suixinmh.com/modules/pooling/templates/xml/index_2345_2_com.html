@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+ <webName>{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,true,'xml');?}</webName>
+  <webSite><![CDATA[{?eval echo JIEQI_URL;?}]]></webSite>
+ <totalcount>{?$totalcount?}</totalcount>
+ {?section name=i loop=$rows?}
+ <item id ="{?$i.order?}">
+  <word>{?eval echo $rows[i]['size_c'];?}</word>
+  <over>{?eval echo $rows[i]['fullflag'];?}</over>
+  <title><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}]]></title>
+  <author><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['author'],false);?}]]></author>
+  <vip>{?$rows[i]['articletype']?}</vip>
+  <type><![CDATA[{?eval echo gb2utf8XHSafeStr(getCategory_2345($rows[i]['sortid']),false);?}]]></type>
+  <tag>{?eval echo gb2utf8XHSafeStr($rows[i]['keywords'],true,'xml');?}</tag>
+  <downlink></downlink>
+  <comment><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['intro'],false);?}]]></comment>
+  <imageLink><![CDATA[{?eval echo $rows[i]['url_image_l'];?}]]></imageLink>
+  <viewLink><![CDATA[{?$rows[i]['url_articleinfo']?}]]></viewLink>
+  <readLink> {?eval $aid =$rows[i]['articleid'];?}<![CDATA[{?function geturl:'article':'index': aid=$aid?}]]></readLink>
+  <m_readLink></m_readLink>
+  <chapter><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$rows[i]['articleid']?}]]></chapter>
+  <latest_chapter><![CDATA[{?eval echo gb2utf8XHSafeStr($rows[i]['lastchapter'],false);?}]]></latest_chapter>
+  <latest_url>{?$rows[i]['url_lastchapter']?}</latest_url>
+  <m_latest_url></m_latest_url>
+  <latest_date>{?$rows[i]['lastupdate']?}</latest_date> 
+ </item>
+ {?/section?}
+</data>

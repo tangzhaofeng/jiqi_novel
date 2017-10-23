@@ -1,0 +1,21 @@
+     <div class="box0 fix">
+	  {?section name=i loop=$articlerows?}
+      <!--workbox begin-->
+      <div class="workbox">
+        <div class="img fix"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}" onerror="this.src='/modules/article/images/nophoto.jpg'" /></a>
+         <a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="f_gray3 db tc">{?$articlerows[i].articlename?}</a>
+        </div>
+        <dl>
+         <dd>作品类型：<em class="b g3">{?$articlerows[i].sort?}</em></dd>
+         <dd>文章字数：<em class="blue2">{?if $articlerows[i].size_c < 10000 ?}{?$articlerows[i].size_c?}{?else?}{?$articlerows[i].size_w?}万字{?/if?}</em></dd>
+         <dd>最近更新：{?$articlerows[i].lastupdate|date:"Y-m-d H:i:s"?}</dd>
+         <dd class="txt" title="{?$articlerows[i].intro?}">{?$articlerows[i].intro|truncate:200:'……'?}</dd>
+         <dd>
+          <div class="ope mt10">
+           <a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="on mr10">立即阅读</a><a href="javascript:;" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">加入收藏</a>
+       </div></dd>
+        </dl>
+      </div><!--workbox end-->
+	  {?/section?}
+	  <div class="page3" style="clear:left;">{?$url_jumppage?}</div>
+     </div><!--box0 end-->

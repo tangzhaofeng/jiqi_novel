@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	  	<webName>{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME,true,'xml');?}</webName>	  	
+	  	<webSite><![CDATA[{?eval echo JIEQI_URL;?}]]></webSite>	  
+	  	<info>		
+	  		<title><![CDATA[{?eval echo gb2utf8XHSafeStr($article['articlename'],false);?}]]></title>	
+	  		<category><![CDATA[{?eval echo gb2utf8XHSafeStr($article['sort'],false);?}]]></category>		
+	  		<image_big><![CDATA[{?eval echo $article['url_image_l'];?}]]></image_big>		
+	  		<image_small><![CDATA[{?eval echo $article['url_image'];?}]]></image_small>		
+	  		<comment><![CDATA[{?eval echo gb2utf8XHSafeStr($article['intro'],false);?}]]></comment>			
+			<author><![CDATA[{?eval echo gb2utf8XHSafeStr($article['author'],false);?}]]></author>		
+			<postdate>{?$article['postdate']|date:'Y-m-d H:i:s'?}</postdate>		
+			<lastupdate>{?$article['lastupdate']|date:'Y-m-d H:i:s'?}</lastupdate>		
+			<size>{?$article['size_c']?}</size>
+			<dayvisit>{?$article['dayvisit'])?}</dayvisit>		
+			<weekvisit>{?$article['weekvisit'])?}</weekvisit>		
+			<monthvisit>{?$article['monthvisit'])?}</monthvisit>	
+			<allvisit>{?$article['allvisit'])?}</allvisit>	
+			<fullflag>{?eval echo gb2utf8XHSafeStr($article['fullflag_tag'],false);?}</fullflag>		
+			<isvip>{?$article['articletype'])?}</isvip>		
+			<chaptersurl><![CDATA[http://{?$HTTP_HOST?}/?ac=chapters&aid={?$article['articleid']?}]]></chaptersurl>	  
+		</info>	
+	<items>
+		{?section name=i loop=$chapters?}
+		{?if $chapters[i]['chaptertype'] == 0?}
+			<item>		
+				<aid>{?$article['articleid']?}</aid>	
+				<chapterid_old>{?$chapters[i]['vchapterid']?}</chapterid_old>
+				<cid>{?$chapters[i]['chapterid']?}</cid>			
+				<isvip>{?$chapters[i]['isvip']?}</isvip>
+	            <size>{?eval echo bcdiv($chapters[i]['size'],2);?}</size>
+				<postdate>{?$chapters[i]['postdate']?}</postdate>				
+				<saleprice>{?$chapters[i]['saleprice']?}</saleprice>			
+				<chaptername><![CDATA[{?eval echo gb2utf8XHSafeStr($chapters[i]['chaptername'],false);?}]]></chaptername>			
+				<chaptertype>{?$chapters[i]['chaptertype']?}</chaptertype>
+				<chapterurl><![CDATA[{?if $chapters[i]['chaptertype'] == 0?}{?eval echo gb2utf8XHSafeStr($chapters[i]['url'],false);?}{?/if?}]]></chapterurl>
+			</item>
+		{?/if?}		
+		{?/section?}
+	</items>			
+</document>

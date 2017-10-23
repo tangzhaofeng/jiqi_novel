@@ -1,0 +1,158 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="alert alert-info">
+			<button type="button" class="close" data-dismiss="alert">
+				<i class="icon-remove"></i>
+			</button>
+			<strong>提示：</strong>充值记录
+			<br />
+		</div>
+	</div><!-- /span -->
+	<div class="col-xs-12 dataTables_wrapper">
+		<div class="row">
+			<form class="form-search" method="post" action="{?$jieqi_modules['pay']['url']?}/admin/" >
+				<div class="col-sm-1">
+					<label for="form-field-select-1">来源</label>
+
+					<select class="form-control" id="form-field-select-1" name="sel_site">
+	                    <option value="-1">-全部来源-</option>
+	                    {?section name=i loop=$sites?}
+	                    <option value="{?$i.key?}" {?if $sel_site != "" && $sel_site==$i.key ?}selected{?/if?}>{?$i.value?}</option>
+	                    {?/section?}
+					</select>
+				</div>
+				<div class="col-sm-1">
+					<label for="form-field-select-1">交易状态</label>
+					<select class="form-control" id="form-field-select-1" name="payflag">
+					    <option value="all" {?if $payflag=='all'?}selected{?/if?}>-未选择-</option>
+					    <option value="3" {?if $payflag==3?}selected{?/if?}>未确认</option>
+					    <option value="1" {?if $payflag==1?}selected{?/if?}>支付成功</option>
+					    <option value="2" {?if $payflag==2?}selected{?/if?}>手工确认</option>
+					</select>
+				</div>
+				<div class="col-sm-2">
+					<label for="form-field-select-1">支付方式</label>
+					<select class="form-control" id="form-field-select-1" name="paytype">
+					    <option value="all">-未选择-</option>
+					    {?section name=j loop=$paytyperows?}
+					    	<option value="{?$j.key?}" {?if $paytype==$j.key?}selected{?/if?}>{?$paytyperows[j].name?}</option>
+						{?/section?}
+					</select>
+				</div>
+
+				<div class="col-sm-2">
+
+					<label>起始时间</label>
+
+					<input type="text" placeholder="" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" />
+				</div>
+				<div class="col-sm-2">
+
+					<label>结束时间</label>
+
+					<input type="text" placeholder="" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:00'})" />
+				</div>
+				<div class="col-sm-1">
+					<div class="control-group">
+						<label class="control-label bolder blue">关键字类型</label>
+
+						<div class="radio">
+							<label>
+								<input name="form-field-radio" type="radio" class="ace" name="keytype" value="0"{?if $keytype!=1?} checked="checked" {?/if?} />
+								<span class="lbl">交易序号</span>
+							</label>
+						</div>
+
+						<div class="radio">
+							<label>
+								<input name="form-field-radio" type="radio" class="ace" name="keytype" value="1"{?if $keytype==1?} checked="checked" {?/if?} />
+								<span class="lbl">用户名</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2">
+					<div class="input-group">
+						<input type="text" class="form-control search-query" placeholder="输入关键字" name="keyword" />
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-purple btn-sm">
+								Search
+								<i class="icon-search icon-on-right bigger-110"></i>
+							</button>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div><!-- /span -->
+	<div class="col-xs-12">
+		<h3 class="header smaller lighter blue">jQuery dataTables</h3>
+		<div class="table-header">
+			Results for "Latest Registered Domains"
+		</div>
+
+		<div class="table-responsive">
+			<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th><i class="icon-th-list bigger-110 hidden-480"></i>序号</th>
+						<th>日期</th>
+						<th><i class="icon-time bigger-110 hidden-480"></i>时间</th>
+						<th><i class="icon-user bigger-110 hidden-480"></i>用户名</th>
+						<th><i class="icon-money bigger-110 hidden-480"></i>金额</th>
+						<th>购买点数</th>
+						<th class="hidden-480">来源</th>
+
+						<th>支付方式</th>
+						<th class="hidden-480">交易状态</th>
+
+						<th><i class="icon-cog bigger-110 hidden-480"></i>操作</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{?section name=i loop=$payrows?}
+					<tr>
+						<td>{?$payrows[i].payid?}</td>
+						<td>{?$payrows[i].buytime|date:"Y-m-d"?}</td>
+						<td>{?$payrows[i].buytime|date:"H:i:s"?}</td>
+						<td>
+							<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$payrows[i].buyid'?}">{?$payrows[i].buyname?}</a>
+						</td>
+						<td>{?$payrows[i].money?} {?if $payrows[i].moneytype==1?}美元{?else?}元{?/if?}</td>
+						<td>{?$payrows[i].egold?}</td>
+						<td class="hidden-480">{?$payrows[i].from?}</td>
+						<td>{?if $paytyperows[$payrows[i].paytype] != null ?}{?$paytyperows[$payrows[i].paytype].name?}{?else?}{?$payrows[i].paytype?}{?/if?}</td>
+
+						<td class="hidden-480">
+							<span class="label label-sm {?if $payrows[i].payflag == 0?}label-warning{?elseif $payrows[i].payflag == 1?}label-success{?else?}label-inverse{?/if?}">{?$payrows[i].payflag_c?}</span>
+						</td>
+
+						<td>
+							{?if $payrows[i].payflag == 0?}
+							<div data-id="{?$payrows[i].payid?}" data-url="{?$adminprefix?}" class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+
+								<a class="green" href="javascript:;" data-name="list_act" data-type="edit">
+									<i class="icon-pencil bigger-130"></i>
+								</a>
+
+								<a class="red" href="javascript:;" data-name="list_act" data-type="del">
+									<i class="icon-trash bigger-130"></i>
+								</a>
+							</div>
+							{?/if?}
+						</td>
+					</tr>
+					{?/section?}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-sm-12">
+		<div class="col-sm-6">合计:<span data-name="count_num">{?$totalnum?}</span>项</div>
+		<div class="col-sm-offset-3 col-sm-3">{?$url_jumppage?}</div>
+	</div>
+</div>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/calendar/WdatePicker.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/admindemo/js/mod.pay.admin.home.js"></script>

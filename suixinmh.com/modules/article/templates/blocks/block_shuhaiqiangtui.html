@@ -1,0 +1,7 @@
+<!--		{?section name=i loop=$articlerows?}
+        	<li><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span><span class="chapter">{?$articlerows[i]['chapters']?}уб</span></li>
+        {?/section?} -->
+		{?section name=i loop=$articlerows?}
+			<dd class="fix"><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span><span class="num">{?$articlerows[i]['chapters']?}уб</span></dd>
+        	<!--<li><span class="name"><a href="{?$articlerows[i]['url_articleinfo']?}" target="_blank" title="{?$articlerows[i]['articlename']?}">{?$articlerows[i]['articlename']?}</a></span><span class="chapter">{?$articlerows[i]['chapters']?}уб</span></li>-->
+        {?/section?} 

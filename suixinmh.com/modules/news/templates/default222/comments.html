@@ -1,0 +1,207 @@
+{?set jieqi_page_template = "modules/news/themes/empty.html"?}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{?$_PAGE['data']['title']?} {?$_SGLOBAL['sitename']?}评论系统</title>
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/plxt.css" rel="stylesheet" type="text/css" />
+<link href="{?$_SGLOBAL['TPL_DIR']?}/css/gongyong.css" rel="stylesheet" type="text/css" />
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/modules/news/images/js/top.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+</head>
+<script language="javascript">
+<!--
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+var articleid = '{?$_PAGE['data']['contentid']?}';
+//-->
+</script> 
+<body>
+<div id="pl_top_gb">
+<div class="pl_top_kuang_gb">
+<div class="pl_top">
+<div class="top1_l1">
+<a href="#" target="_blank">首页</a>|
+<a href="#" target="_blank">动作体</a>|
+<a href="#" target="_blank">育益智</a>|
+<a href="#" target="_blank">射击</a>|
+<a href="#" target="_blank">搞笑</a>|
+<a href="#" target="_blank">首页</a>|
+<a href="#" target="_blank">动作体</a>|
+<a href="#" target="_blank">育益智</a>|
+<a href="#" target="_blank">射击</a>|
+<a href="#" target="_blank">搞笑</a>|
+<a href="#" target="_blank">首页</a>|
+</div>
+<div class="top1_l2"><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/images/gy_t02.jpg" border="0" /></a></div>
+<div class="top1_r"><a href="#" target="_blank">2D角色扮演</a> <a href="#" target="_blank">回合战斗</a> <a href="#" target="_blank" class="xfont06">FPS射击</a> <a href="#" target="_blank">体育运动</a></div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<div id="pl_pagebody"><div class="pl_pagebodydi">
+<div class="pl_contain">
+<div class="pl_bt"><a href="{?$_PAGE['data']['url_articleinfo']?}" class="xfont02">{?$_PAGE['data']['title']?}</a><a href="{?$_PAGE['data']['url_articleinfo']?}" class="xfont06">[查看原文]</a> </div>
+<!--左边 start-->
+<div class="pl_left">
+<div class="pl_menu_tj01">
+	<ul id="menu1">
+	<li class="hover" onmouseover="setTab(1,0)"><a href="#">全部评论</a></li>
+	<!--<li><a href="#">热门评论</a></li>
+	<li><a href="#">相关文章</a></li>-->
+	</ul>
+  </div>
+  <Div class="pl_left_a">
+   <div class="yema2">
+	  {?$_PAGE['url_jumppage']?}
+   </div>
+  <div id="main1">
+  <ul class="block">
+  {?section name=i loop=$_PAGE['rows']?}
+		<div class="pl_ul">
+			<li class="a3"><span class="xfont_right2">{?$_PAGE['rows'][i]['addtime']|date:'Y-m-d H:i:s'?}发表</span>  <span class="xfont_bold">{?if $_PAGE['rows'][i]['username']!=''?}{?$_PAGE['rows'][i]['username']?}{?else?}{?$_SGLOBAL['sitename']?}火星网友{?/if?} ip：</span>{?eval $ip=$_PAGE['rows'][i]['ip'];$ip=explode('.',$ip);unset($ip[2]);unset($ip[3]);$ip=implode('.',$ip);?}{?$ip?}.*.*：说:  </li>
+			<!--<li class="a4"><span class="xfont03">回复：多玩火星网友 ip：180.174.*.*</span><br/> 是至今为止获得荣誉最早且最多的绿色休闲网络游戏《泡泡堂》是至今为止获得荣誉最早且最多的绿色休闲网络游戏《泡泡堂》是至今为止获得荣誉最早且最多的绿色休闲网络游戏《泡泡堂》是至今为止获得荣誉最早且最多的绿色休闲网络游戏</li>-->
+			<li>{?$_PAGE['rows'][i]['content']?}</li>
+			<li class="a2">
+			<a href="javascript:void(0);" class="xfont05">回复</a> 
+			<a href="javascript:void(0);" class="xfont06">支持（0）</a> 
+			<a href="javascript:void(0);" class="xfont05">举报</a>
+			</li>
+		</div>
+  {?/section?}
+  </ul>
+  <ul style="display:none">
+  
+	<div class="pl_ul">
+		<li class="a1"><span class="xfont_right2">2010-06-10 18:59:40发表</span>  <span class="xfont_bold">多玩火星网友 ip：</span>180.174.*.*：说: </li>
+		<li>《泡泡堂》是至今为止获得荣誉最早且最多的绿色休闲网络游戏。</li>
+		<li class="a2">
+		<a href="#" target="_blank" class="xfont05">回复</a> 
+		<a href="#" target="_blank" class="xfont06">支持（0）</a> 
+		<a href="#" target="_blank" class="xfont05">举报</a>
+		</li>
+	</div>
+
+  </ul>
+  <ul style="display:none">
+	<div class="pl_ul">
+		<li class="a1"><span class="xfont_right2">2010-06-10 18:59:40发表</span>  <span class="xfont_bold">多玩火星网友 ip：</span>180.174.*.*：说: </li>
+		<li>《泡泡堂》是至今为止获得荣誉最早且最多的绿色休闲网络游戏。</li>
+		<li class="a2">
+		<a href="#" target="_blank" class="xfont05">回复</a> 
+		<a href="#" target="_blank" class="xfont06">支持（0）</a> 
+		<a href="#" target="_blank" class="xfont05">举报</a>
+		</li>
+	</div>
+  </ul>
+  </Div>
+  <Div class="xian"></Div>
+ <div class="yema2">
+	  {?$_PAGE['url_jumppage']?}</div>
+<!--评论框 start-->
+<ul class="xzpl_ul2" >
+<li>
+<span class="xfont_bold xfont_14">■文字凝聚力量 评论点播生活</span> 
+<span class="xfont05">已有（</span><span class="xfont04" id="comments_count">{?$_PAGE['totalcount']?}条</span><span class="xfont05">）回复</span>，<a href="#" target="_blank"  class="xfont05">请点击查看</a></li>
+<li style="height:18px;">
+{?if $_SGLOBAL['supe_uid']>0?}<span class="xfont04">{?$_SN[$_SGLOBAL['supe_uid']]?}</span> 发言{?else?}<span id="nologin">
+{?$_SGLOBAL['sitename']?}
+通行证：<input type="text" id="comment_username" value="" size="12" class="xz_input01" />
+密码：<input type="password" id="comment_password" size="12" class="xz_input01" />
+{?if $_SCONFIG['_SYSTEM']['checkcodelogin']>0?}
+验证码：<input type="text" class="xz_input01" size="6" maxlength="8" id="comment_checkcode">&nbsp;<img src="{?$_SGLOBAL['localurl']?}/checkcode.php" style="cursor:pointer;" onclick="this.src='{?$_SGLOBAL['localurl']?}/checkcode.php?rand='+Math.random();">
+{?/if?}
+<input type="checkbox" checked="checked" value="1" id="comment_usecookie" /> 自动登录
+<input type="button" class="xz_searchbtn01" id="comment_login" value=" 登 陆 " />
+</span>{?/if?}</li>
+ <li><textarea name="comment_content" id="comment_content" class="xz_input02"></textarea>
+ </li>
+ <li style="text-align:right; padding-right:55px;">
+<span style="float:left" class="xfont03">[小提示：完成后可按 Ctrl+Enter 或 Alt+S 提交]</span>
+<span id="ccode" name="ccode"></span>
+<input name="hidename" id="hidename" type="checkbox" value="1" /> 匿名
+<input type="button" value="发表留言" id="comment_submit"> </li>
+</ul>
+<!--评论框 end-->
+<script language="javascript">
+<!--
+     $(function(){
+	      var GData = new DataLoad();
+	      $('#pcontent').focus(function(){
+		       $('#ccode').html('<strong>验证码 </strong><img onclick="this.src = \'{?$_SGLOBAL['localurl']?}/checkcode.php?rand=\'+Math.random();" src="{?$_SGLOBAL['localurl']?}/checkcode.php" /> <input id="checkcode" size="6" name="checkcode" /> ');
+		  });
+		  $('#comment_login').click(function(){
+		       var username = $("input[id=comment_username]").val();
+			   var password = $("input[id=comment_password]").val();
+			   var checkcode = $("input[id=comment_checkcode]").val();
+		       var usecookie = $("input[id=comment_usecookie]:checked").val();//是否自动登陆
+			   usecookie = usecookie==undefined ? 0 :usecookie;
+			   if(username=='' || password==''){
+			      alert('请将用户名和密码填写');
+				  return false;
+			   }
+			   {?if $_SCONFIG['_SYSTEM']['checkcodelogin']>0?}
+			   var checkcode = $("input[id=comment_checkcode]").val();
+			   if(checkcode==''){
+			      alert('请填写验证码');
+				  return false;
+			   }
+			   {?/if?}
+			   var jumpurl = '{?$_SGLOBAL['localurl']?}/login.php?do=submit&username='+username+'&password='+password+'&checkcode='+checkcode+'&usecookie='+usecookie+'&action=login&ajax_request=jieqi_contents&jumpurl={?$_SGLOBAL['refer']|urlencode?}';
+			   GData.getpage(jumpurl,
+			        function(data) { 
+					     if(data) alert(data);
+					     window.location.reload()
+					}
+			   );
+		  });
+		  $('#comment_submit').click(function(){
+		       var content = $("textarea[id=comment_content]").val();
+			   var hidename = $("input[id=hidename]:checked").val();//是否自动登陆
+			   hidename = hidename==undefined ? 0 :hidename;
+			   if(content==''){
+			      alert('既然来了总要说点什么吧！^--^');
+				  $("textarea[id=comment_content]").focus();
+				  return false;
+			   }
+			   GData.getpage('{?$_SGLOBAL['localurl']?}/modules/news/?ac=comment&op=add&contentid={?$_PAGE['contentid']?}&ajax_request=jieqi_contents&hidename='+hidename+'&content='+content, 
+			        function(data) { 
+					     if(data) alert(data);
+					     window.location.reload()
+					}
+			   );
+		  });
+	 });
+//-->
+</script> 
+   <div class="xzpl_ul3">
+  <ul>
+  <li><span class="xfont_right">提示：赶游网下载站是当前最流行游戏下载中心，所有游戏都经过杀毒软件严格检测,<span class="xfont06">请大家放心下载安装</span></span> <span class="xfont_bold xfont_14">■ 网友评论</span></li>
+  <li>·如果出现该页无法显示,请多试几次;如果总是不能下载,请点击“检举报错”联系管理员,谢谢!</li>
+  <li>·由于网站服务器承受能力有限,请其他网站不要盗链我们提供的软件。本公司保留对侵犯我公司知识产权的任何单位及个人采取任何行政和法律途径的维权行动的权利。</li>
+  <li>·52PK提供的游戏及软件下载资源来源互联网，并由网友上传分享，52PK不承担任何法律责任。如有侵权，请来电来函告之。</li>
+  </ul>
+  </div>
+  </Div>
+ 
+</div>
+<!--左边 end-->
+<!--右边 start-->
+<div class="pl_right">
+<div class="pl_bt01">每日跟贴热榜</div>
+{?block bid="100" module="news" filename="block_newslist" classname="BlockNewsNewslist" side="1" title="热门资讯" vars="comments,10,12,0,0,2" template="block_hotscomments.html" contenttype="4" custom="0" publish="3" hasvars="1"?}
+</ul>
+
+<!--右边 end-->
+<div class="clear"></div>
+</div>
+</div>
+
+<div class="pl_bottom">
+ 关于我们  |  联系我们  |  帮助中心  |  投稿说明<br/>
+Copyright (C) 2002-2010 看书网 All Rights Reserved | 蜀ICP备05000570号 电信增值业务许可证：川BZ-20070003<br/>
+本站所收录所有玄幻小说、言情小说、网游小说及其它各类小说作品、社区话题、小说评论及本站所做之广告均属其个人行为，与本站立场无关，本站努力为大家创造<br/>
+一个优秀的小说阅读网络平台和小说创作平台 <a href="#"  title=我的强悍酷老公 target="_blank">站长统计</a><br/>
+</div>
+</div>
+</body>
+</html>

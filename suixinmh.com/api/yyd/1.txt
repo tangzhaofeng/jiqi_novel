@@ -1,0 +1,3068 @@
+Array
+(
+    [chapterinfo] => Array
+        (
+            [bookid] => 4091
+            [volume] => Array
+                (
+                    [0] => Array
+                        (
+                            [volumeid] => 185049
+                            [volname] => 第一卷  青娘篇
+                            [chapters] => Array
+                                (
+                                    [chapter] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [chapterid] => 185053
+                                                    [chaptername] => 第一章   青娘
+                                                )
+
+                                            [1] => Array
+                                                (
+                                                    [chapterid] => 186508
+                                                    [chaptername] => 第二章 追 道难
+                                                )
+
+                                            [2] => Array
+                                                (
+                                                    [chapterid] => 186511
+                                                    [chaptername] => 第三章  仙师收徒
+                                                )
+
+                                            [3] => Array
+                                                (
+                                                    [chapterid] => 185057
+                                                    [chaptername] => 第四章 昆仑山
+                                                )
+
+                                            [4] => Array
+                                                (
+                                                    [chapterid] => 186515
+                                                    [chaptername] => 第五章----第六章  小七筑元
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [volumeid] => 186499
+                            [volname] => 第二卷 小七篇
+                            [chapters] => Array
+                                (
+                                    [chapter] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [chapterid] => 186519
+                                                    [chaptername] => 第一章 筑元第二重
+                                                )
+
+                                            [1] => Array
+                                                (
+                                                    [chapterid] => 186522
+                                                    [chaptername] => 第二章  道心艰难
+                                                )
+
+                                            [2] => Array
+                                                (
+                                                    [chapterid] => 186523
+                                                    [chaptername] => 第三章   道心圆满
+                                                )
+
+                                            [3] => Array
+                                                (
+                                                    [chapterid] => 185064
+                                                    [chaptername] => 第四章  该走了
+                                                )
+
+                                            [4] => Array
+                                                (
+                                                    [chapterid] => 185066
+                                                    [chaptername] => 第五章   昆仑山的青娘
+                                                )
+
+                                            [5] => Array
+                                                (
+                                                    [chapterid] => 186528
+                                                    [chaptername] => 第六章  桃花林
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [volumeid] => 186500
+                            [volname] => 第三卷  相逢
+                            [chapters] => Array
+                                (
+                                    [chapter] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [chapterid] => 186530
+                                                    [chaptername] => 第一章   进殿
+                                                )
+
+                                            [1] => Array
+                                                (
+                                                    [chapterid] => 186533
+                                                    [chaptername] => 第二章  海鼎真人
+                                                )
+
+                                            [2] => Array
+                                                (
+                                                    [chapterid] => 185077
+                                                    [chaptername] => 第三章  别苑
+                                                )
+
+                                            [3] => Array
+                                                (
+                                                    [chapterid] => 186538
+                                                    [chaptername] => 第四章   霞姑
+                                                )
+
+                                            [4] => Array
+                                                (
+                                                    [chapterid] => 185082
+                                                    [chaptername] => 第五章 人面 桃花
+                                                )
+
+                                            [5] => Array
+                                                (
+                                                    [chapterid] => 185084
+                                                    [chaptername] => 第六章   霞姑现身
+                                                )
+
+                                            [6] => Array
+                                                (
+                                                    [chapterid] => 185086
+                                                    [chaptername] => 第七章  洞女、小七
+                                                )
+
+                                            [7] => Array
+                                                (
+                                                    [chapterid] => 185088
+                                                    [chaptername] => 第八章   赌注
+                                                )
+
+                                            [8] => Array
+                                                (
+                                                    [chapterid] => 185089
+                                                    [chaptername] => 第九章   你行
+                                                )
+
+                                            [9] => Array
+                                                (
+                                                    [chapterid] => 186546
+                                                    [chaptername] => 第十章   出马
+                                                )
+
+                                            [10] => Array
+                                                (
+                                                    [chapterid] => 185091
+                                                    [chaptername] => 第十一章  输赢
+                                                )
+
+                                            [11] => Array
+                                                (
+                                                    [chapterid] => 186550
+                                                    [chaptername] => 第十二章   名声在外
+                                                )
+
+                                            [12] => Array
+                                                (
+                                                    [chapterid] => 186554
+                                                    [chaptername] => 第十三章   青娘心思
+                                                )
+
+                                            [13] => Array
+                                                (
+                                                    [chapterid] => 185094
+                                                    [chaptername] => 第十四章    尘缘
+                                                )
+
+                                            [14] => Array
+                                                (
+                                                    [chapterid] => 185095
+                                                    [chaptername] => 第十五章   不明来历
+                                                )
+
+                                            [15] => Array
+                                                (
+                                                    [chapterid] => 186560
+                                                    [chaptername] => 第十六章  汉中
+                                                )
+
+                                            [16] => Array
+                                                (
+                                                    [chapterid] => 185097
+                                                    [chaptername] => 第十七章  欲语还休
+                                                )
+
+                                            [17] => Array
+                                                (
+                                                    [chapterid] => 185099
+                                                    [chaptername] => 第十八章   种子
+                                                )
+
+                                            [18] => Array
+                                                (
+                                                    [chapterid] => 185100
+                                                    [chaptername] => 第十九章  石算盘
+                                                )
+
+                                            [19] => Array
+                                                (
+                                                    [chapterid] => 185101
+                                                    [chaptername] => 第二十章  不死道人
+                                                )
+
+                                            [20] => Array
+                                                (
+                                                    [chapterid] => 186568
+                                                    [chaptername] => 第二十一章  百家争鸣
+                                                )
+
+                                            [21] => Array
+                                                (
+                                                    [chapterid] => 186569
+                                                    [chaptername] => 第二十二章   杨戬到了
+                                                )
+
+                                            [22] => Array
+                                                (
+                                                    [chapterid] => 186574
+                                                    [chaptername] => 第二十三 章   送客
+                                                )
+
+                                            [23] => Array
+                                                (
+                                                    [chapterid] => 186582
+                                                    [chaptername] => 第二十四章  记名赛
+                                                )
+
+                                            [24] => Array
+                                                (
+                                                    [chapterid] => 186584
+                                                    [chaptername] => 第二十五章  进阶
+                                                )
+
+                                            [25] => Array
+                                                (
+                                                    [chapterid] => 185105
+                                                    [chaptername] => 第二十六章  情债
+                                                )
+
+                                            [26] => Array
+                                                (
+                                                    [chapterid] => 186589
+                                                    [chaptername] => 第二十七章 迷茫
+                                                )
+
+                                            [27] => Array
+                                                (
+                                                    [chapterid] => 186592
+                                                    [chaptername] => 第二十八章   金梭
+                                                )
+
+                                            [28] => Array
+                                                (
+                                                    [chapterid] => 186593
+                                                    [chaptername] => 第二十九章   武达
+                                                )
+
+                                            [29] => Array
+                                                (
+                                                    [chapterid] => 186597
+                                                    [chaptername] => 第三十章  胡长老
+                                                )
+
+                                            [30] => Array
+                                                (
+                                                    [chapterid] => 186601
+                                                    [chaptername] => 第三十一章  心动
+                                                )
+
+                                            [31] => Array
+                                                (
+                                                    [chapterid] => 186604
+                                                    [chaptername] => 第三十二章  茅山道士
+                                                )
+
+                                            [32] => Array
+                                                (
+                                                    [chapterid] => 185115
+                                                    [chaptername] => 第三十三章   青城胜
+                                                )
+
+                                            [33] => Array
+                                                (
+                                                    [chapterid] => 186607
+                                                    [chaptername] => 第三十四章   输赢感悟
+                                                )
+
+                                            [34] => Array
+                                                (
+                                                    [chapterid] => 186608
+                                                    [chaptername] => 第三十五章 武达
+                                                )
+
+                                            [35] => Array
+                                                (
+                                                    [chapterid] => 186611
+                                                    [chaptername] => 第三十六章  比试广元子
+                                                )
+
+                                            [36] => Array
+                                                (
+                                                    [chapterid] => 186613
+                                                    [chaptername] => 第三十七章  赢
+                                                )
+
+                                            [37] => Array
+                                                (
+                                                    [chapterid] => 186618
+                                                    [chaptername] => 第三十八章   峨眉秦汉
+                                                )
+
+                                            [38] => Array
+                                                (
+                                                    [chapterid] => 186626
+                                                    [chaptername] => 第三十九章  清风
+                                                )
+
+                                            [39] => Array
+                                                (
+                                                    [chapterid] => 181040
+                                                    [chaptername] => 第四十章  偷袭
+                                                )
+
+                                            [40] => Array
+                                                (
+                                                    [chapterid] => 186630
+                                                    [chaptername] => 第四十一章   劳散道长
+                                                )
+
+                                            [41] => Array
+                                                (
+                                                    [chapterid] => 186634
+                                                    [chaptername] => 第四十二章 我的力量
+                                                )
+
+                                            [42] => Array
+                                                (
+                                                    [chapterid] => 186638
+                                                    [chaptername] => 第四十三章   观众
+                                                )
+
+                                            [43] => Array
+                                                (
+                                                    [chapterid] => 186640
+                                                    [chaptername] => 第四十四章    烧鹅
+                                                )
+
+                                            [44] => Array
+                                                (
+                                                    [chapterid] => 185130
+                                                    [chaptername] => 第四十五章   我要赢
+                                                )
+
+                                            [45] => Array
+                                                (
+                                                    [chapterid] => 185131
+                                                    [chaptername] => 第四十六章   水离丹
+                                                )
+
+                                            [46] => Array
+                                                (
+                                                    [chapterid] => 186645
+                                                    [chaptername] => 第四十七章  再战
+                                                )
+
+                                            [47] => Array
+                                                (
+                                                    [chapterid] => 186648
+                                                    [chaptername] => 第四十八章  捆仙绳
+                                                )
+
+                                            [48] => Array
+                                                (
+                                                    [chapterid] => 186651
+                                                    [chaptername] => 第四十九章  对话
+                                                )
+
+                                            [49] => Array
+                                                (
+                                                    [chapterid] => 186654
+                                                    [chaptername] => 第五十章  孩子你不想吗？
+                                                )
+
+                                            [50] => Array
+                                                (
+                                                    [chapterid] => 544295
+                                                    [chaptername] => 第三百九十四章  高台
+                                                )
+
+                                            [51] => Array
+                                                (
+                                                    [chapterid] => 544789
+                                                    [chaptername] => 第三百九十五章   悠风
+                                                )
+
+                                            [52] => Array
+                                                (
+                                                    [chapterid] => 547180
+                                                    [chaptername] => 第三百九十六章  没法
+                                                )
+
+                                            [53] => Array
+                                                (
+                                                    [chapterid] => 547262
+                                                    [chaptername] => 第三百九十八章  佳节
+                                                )
+
+                                            [54] => Array
+                                                (
+                                                    [chapterid] => 548366
+                                                    [chaptername] => 第三百九十八章  倍思亲
+                                                )
+
+                                            [55] => Array
+                                                (
+                                                    [chapterid] => 547525
+                                                    [chaptername] => 第三百九十九章  遥知
+                                                )
+
+                                            [56] => Array
+                                                (
+                                                    [chapterid] => 547705
+                                                    [chaptername] => 第四百章  兄弟
+                                                )
+
+                                            [57] => Array
+                                                (
+                                                    [chapterid] => 550194
+                                                    [chaptername] => 第四百零一章  登高处
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [volumeid] => 186501
+                            [volname] => 第四卷  相见难
+                            [chapters] => Array
+                                (
+                                    [chapter] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [chapterid] => 186658
+                                                    [chaptername] => 第一章　只想见到你
+                                                )
+
+                                            [1] => Array
+                                                (
+                                                    [chapterid] => 186666
+                                                    [chaptername] => 第二章  又是比试
+                                                )
+
+                                            [2] => Array
+                                                (
+                                                    [chapterid] => 186670
+                                                    [chaptername] => 第三章  定情物
+                                                )
+
+                                            [3] => Array
+                                                (
+                                                    [chapterid] => 186674
+                                                    [chaptername] => 第四章   吴道子
+                                                )
+
+                                            [4] => Array
+                                                (
+                                                    [chapterid] => 186677
+                                                    [chaptername] => 第五章   危险来临
+                                                )
+
+                                            [5] => Array
+                                                (
+                                                    [chapterid] => 186680
+                                                    [chaptername] => 第六章   桂少
+                                                )
+
+                                            [6] => Array
+                                                (
+                                                    [chapterid] => 186684
+                                                    [chaptername] => 第七章  酒入愁肠
+                                                )
+
+                                            [7] => Array
+                                                (
+                                                    [chapterid] => 186687
+                                                    [chaptername] => 第八章   仙凡有别
+                                                )
+
+                                            [8] => Array
+                                                (
+                                                    [chapterid] => 186691
+                                                    [chaptername] => 第九章   桂少的心
+                                                )
+
+                                            [9] => Array
+                                                (
+                                                    [chapterid] => 186695
+                                                    [chaptername] => 第十章   罢了
+                                                )
+
+                                            [10] => Array
+                                                (
+                                                    [chapterid] => 186699
+                                                    [chaptername] => 第十一章   茅山外
+                                                )
+
+                                            [11] => Array
+                                                (
+                                                    [chapterid] => 186704
+                                                    [chaptername] => 第十二章   殷刀门
+                                                )
+
+                                            [12] => Array
+                                                (
+                                                    [chapterid] => 186708
+                                                    [chaptername] => 第十三章    阿修罗
+                                                )
+
+                                            [13] => Array
+                                                (
+                                                    [chapterid] => 186714
+                                                    [chaptername] => 第十四章
+                                                )
+
+                                            [14] => Array
+                                                (
+                                                    [chapterid] => 186718
+                                                    [chaptername] => 第十五章    阿修罗的鬼仆
+                                                )
+
+                                            [15] => Array
+                                                (
+                                                    [chapterid] => 186721
+                                                    [chaptername] => 第十六章   鬼幡
+                                                )
+
+                                            [16] => Array
+                                                (
+                                                    [chapterid] => 186724
+                                                    [chaptername] => 第十七章   恶鬼
+                                                )
+
+                                            [17] => Array
+                                                (
+                                                    [chapterid] => 186730
+                                                    [chaptername] => 第十八章——第十九章   黑
+                                                )
+
+                                            [18] => Array
+                                                (
+                                                    [chapterid] => 186732
+                                                    [chaptername] => 第二十章  无霜
+                                                )
+
+                                            [19] => Array
+                                                (
+                                                    [chapterid] => 186737
+                                                    [chaptername] => 第二十一章  担心
+                                                )
+
+                                            [20] => Array
+                                                (
+                                                    [chapterid] => 186744
+                                                    [chaptername] => 第二十二章——第二十三章   偷袭
+                                                )
+
+                                            [21] => Array
+                                                (
+                                                    [chapterid] => 186750
+                                                    [chaptername] => 第二十四章  虚幻
+                                                )
+
+                                            [22] => Array
+                                                (
+                                                    [chapterid] => 186754
+                                                    [chaptername] => 第二十五章   避开
+                                                )
+
+                                            [23] => Array
+                                                (
+                                                    [chapterid] => 186757
+                                                    [chaptername] => 第二十六章    道行弱
+                                                )
+
+                                            [24] => Array
+                                                (
+                                                    [chapterid] => 186760
+                                                    [chaptername] => 第二十七章    不宁
+                                                )
+
+                                            [25] => Array
+                                                (
+                                                    [chapterid] => 186764
+                                                    [chaptername] => 第二十八章  无果
+                                                )
+
+                                            [26] => Array
+                                                (
+                                                    [chapterid] => 186768
+                                                    [chaptername] => 第二十九章   信息
+                                                )
+
+                                            [27] => Array
+                                                (
+                                                    [chapterid] => 186771
+                                                    [chaptername] => 第三十章    恶神
+                                                )
+
+                                            [28] => Array
+                                                (
+                                                    [chapterid] => 186775
+                                                    [chaptername] => 第三十一章   抗衡
+                                                )
+
+                                            [29] => Array
+                                                (
+                                                    [chapterid] => 186778
+                                                    [chaptername] => 第三十二章  目标
+                                                )
+
+                                            [30] => Array
+                                                (
+                                                    [chapterid] => 186784
+                                                    [chaptername] => 第三十三章  仙丹
+                                                )
+
+                                            [31] => Array
+                                                (
+                                                    [chapterid] => 186789
+                                                    [chaptername] => 第三十四章  寻找
+                                                )
+
+                                            [32] => Array
+                                                (
+                                                    [chapterid] => 186794
+                                                    [chaptername] => 第三十五章  举手之劳
+                                                )
+
+                                            [33] => Array
+                                                (
+                                                    [chapterid] => 186799
+                                                    [chaptername] => 第三十六章 特权
+                                                )
+
+                                            [34] => Array
+                                                (
+                                                    [chapterid] => 186802
+                                                    [chaptername] => 第三十七章   面子
+                                                )
+
+                                            [35] => Array
+                                                (
+                                                    [chapterid] => 186804
+                                                    [chaptername] => 第三十八章  令旗
+                                                )
+
+                                            [36] => Array
+                                                (
+                                                    [chapterid] => 186807
+                                                    [chaptername] => 第三十九章   巧合
+                                                )
+
+                                            [37] => Array
+                                                (
+                                                    [chapterid] => 186809
+                                                    [chaptername] => 第四十章  虚情假意
+                                                )
+
+                                            [38] => Array
+                                                (
+                                                    [chapterid] => 186812
+                                                    [chaptername] => 第四十二章   幸会
+                                                )
+
+                                            [39] => Array
+                                                (
+                                                    [chapterid] => 186814
+                                                    [chaptername] => 第四十二章  速度
+                                                )
+
+                                            [40] => Array
+                                                (
+                                                    [chapterid] => 185155
+                                                    [chaptername] => 第四十三章   百花谷
+                                                )
+
+                                            [41] => Array
+                                                (
+                                                    [chapterid] => 186818
+                                                    [chaptername] => 第四十四章   冷汗
+                                                )
+
+                                            [42] => Array
+                                                (
+                                                    [chapterid] => 186821
+                                                    [chaptername] => 第四十五章   卖符
+                                                )
+
+                                            [43] => Array
+                                                (
+                                                    [chapterid] => 186825
+                                                    [chaptername] => 第四十六章   泛黄的薄纸
+                                                )
+
+                                            [44] => Array
+                                                (
+                                                    [chapterid] => 186829
+                                                    [chaptername] => 第四十七章   石头的难处（一）
+                                                )
+
+                                            [45] => Array
+                                                (
+                                                    [chapterid] => 185157
+                                                    [chaptername] => 第四十七章   石头的难处（二）
+                                                )
+
+                                            [46] => Array
+                                                (
+                                                    [chapterid] => 185159
+                                                    [chaptername] => 第四十八章  喜咒
+                                                )
+
+                                            [47] => Array
+                                                (
+                                                    [chapterid] => 186839
+                                                    [chaptername] => 第四十九章  看似安全
+                                                )
+
+                                            [48] => Array
+                                                (
+                                                    [chapterid] => 186842
+                                                    [chaptername] => 第五十章   银蛋
+                                                )
+
+                                            [49] => Array
+                                                (
+                                                    [chapterid] => 186845
+                                                    [chaptername] => 第五十一章  灵石山
+                                                )
+
+                                            [50] => Array
+                                                (
+                                                    [chapterid] => 186848
+                                                    [chaptername] => 第五十二章   金梭
+                                                )
+
+                                            [51] => Array
+                                                (
+                                                    [chapterid] => 186853
+                                                    [chaptername] => 第五十三章——第五十四章   青娘练符
+                                                )
+
+                                            [52] => Array
+                                                (
+                                                    [chapterid] => 186864
+                                                    [chaptername] => 第五十五章——第五十六章   计划
+                                                )
+
+                                            [53] => Array
+                                                (
+                                                    [chapterid] => 185173
+                                                    [chaptername] => 第五十七章   货源
+                                                )
+
+                                            [54] => Array
+                                                (
+                                                    [chapterid] => 186873
+                                                    [chaptername] => 第五十八章  想得美
+                                                )
+
+                                            [55] => Array
+                                                (
+                                                    [chapterid] => 186878
+                                                    [chaptername] => 第五十九章  匪气
+                                                )
+
+                                            [56] => Array
+                                                (
+                                                    [chapterid] => 185177
+                                                    [chaptername] => 第六十章  蛇鞭
+                                                )
+
+                                            [57] => Array
+                                                (
+                                                    [chapterid] => 186893
+                                                    [chaptername] => 第六十一章  倾国倾城
+                                                )
+
+                                            [58] => Array
+                                                (
+                                                    [chapterid] => 186895
+                                                    [chaptername] => 第六十二章  从长计议
+                                                )
+
+                                            [59] => Array
+                                                (
+                                                    [chapterid] => 186898
+                                                    [chaptername] => 第六十三章   天外灵石
+                                                )
+
+                                            [60] => Array
+                                                (
+                                                    [chapterid] => 186903
+                                                    [chaptername] => 第六十四章  天生法器
+                                                )
+
+                                            [61] => Array
+                                                (
+                                                    [chapterid] => 186906
+                                                    [chaptername] => 第六十五章  价值几何
+                                                )
+
+                                            [62] => Array
+                                                (
+                                                    [chapterid] => 186909
+                                                    [chaptername] => 第六十六章   灵石矿右边
+                                                )
+
+                                            [63] => Array
+                                                (
+                                                    [chapterid] => 185183
+                                                    [chaptername] => 第六十七章   龙姑与青娘
+                                                )
+
+                                            [64] => Array
+                                                (
+                                                    [chapterid] => 186914
+                                                    [chaptername] => 第六十八章   一脸倦容
+                                                )
+
+                                            [65] => Array
+                                                (
+                                                    [chapterid] => 186918
+                                                    [chaptername] => 第六十九章  谁下的毒手
+                                                )
+
+                                            [66] => Array
+                                                (
+                                                    [chapterid] => 185187
+                                                    [chaptername] => 第七十章   举棋不定
+                                                )
+
+                                            [67] => Array
+                                                (
+                                                    [chapterid] => 185189
+                                                    [chaptername] => 第七十一章    小七，杀了他
+                                                )
+
+                                            [68] => Array
+                                                (
+                                                    [chapterid] => 186928
+                                                    [chaptername] => 第七十二章  是谁？
+                                                )
+
+                                            [69] => Array
+                                                (
+                                                    [chapterid] => 185192
+                                                    [chaptername] => 第七十三章   仙气缭绕
+                                                )
+
+                                            [70] => Array
+                                                (
+                                                    [chapterid] => 186934
+                                                    [chaptername] => 第七十四章 杨戬说媒
+                                                )
+
+                                            [71] => Array
+                                                (
+                                                    [chapterid] => 185194
+                                                    [chaptername] => 第七十五章  三级妖兽
+                                                )
+
+                                            [72] => Array
+                                                (
+                                                    [chapterid] => 185196
+                                                    [chaptername] => 第七十六章  蟾蜍
+                                                )
+
+                                            [73] => Array
+                                                (
+                                                    [chapterid] => 186939
+                                                    [chaptername] => 第七十七章  死里逃生
+                                                )
+
+                                            [74] => Array
+                                                (
+                                                    [chapterid] => 186942
+                                                    [chaptername] => 第七十八章   九尾狐的尾巴
+                                                )
+
+                                            [75] => Array
+                                                (
+                                                    [chapterid] => 186945
+                                                    [chaptername] => 第七十九章  摩严师兄
+                                                )
+
+                                            [76] => Array
+                                                (
+                                                    [chapterid] => 186948
+                                                    [chaptername] => 第八十章   无法移动
+                                                )
+
+                                            [77] => Array
+                                                (
+                                                    [chapterid] => 186950
+                                                    [chaptername] => 第八十一章 静观其变
+                                                )
+
+                                            [78] => Array
+                                                (
+                                                    [chapterid] => 186953
+                                                    [chaptername] => 第八十二章  文君现
+                                                )
+
+                                            [79] => Array
+                                                (
+                                                    [chapterid] => 186955
+                                                    [chaptername] => 第八十三章 羽毛舟
+                                                )
+
+                                            [80] => Array
+                                                (
+                                                    [chapterid] => 186956
+                                                    [chaptername] => 第八十四章  金砖
+                                                )
+
+                                            [81] => Array
+                                                (
+                                                    [chapterid] => 186958
+                                                    [chaptername] => 第八十五章  难分难解
+                                                )
+
+                                            [82] => Array
+                                                (
+                                                    [chapterid] => 185207
+                                                    [chaptername] => 第八十六章   金光圣母
+                                                )
+
+                                            [83] => Array
+                                                (
+                                                    [chapterid] => 186961
+                                                    [chaptername] => 第八十七章  白玉尺
+                                                )
+
+                                            [84] => Array
+                                                (
+                                                    [chapterid] => 186962
+                                                    [chaptername] => 第八十八章  恨长锋
+                                                )
+
+                                            [85] => Array
+                                                (
+                                                    [chapterid] => 186963
+                                                    [chaptername] => 第八十九章   让我好找
+                                                )
+
+                                            [86] => Array
+                                                (
+                                                    [chapterid] => 186966
+                                                    [chaptername] => 第九十章  昨天小七
+                                                )
+
+                                            [87] => Array
+                                                (
+                                                    [chapterid] => 186969
+                                                    [chaptername] => 第九十一章 御风而逃
+                                                )
+
+                                            [88] => Array
+                                                (
+                                                    [chapterid] => 186971
+                                                    [chaptername] => 第九十二章  差了一个境界
+                                                )
+
+                                            [89] => Array
+                                                (
+                                                    [chapterid] => 186975
+                                                    [chaptername] => 第九十三章  金蛟翦有毒
+                                                )
+
+                                            [90] => Array
+                                                (
+                                                    [chapterid] => 185210
+                                                    [chaptername] => 第九十四章  小七的驱毒
+                                                )
+
+                                            [91] => Array
+                                                (
+                                                    [chapterid] => 185212
+                                                    [chaptername] => 第九十五章  筑元面临失败
+                                                )
+
+                                            [92] => Array
+                                                (
+                                                    [chapterid] => 186980
+                                                    [chaptername] => 第九十六章   直接灭杀
+                                                )
+
+                                            [93] => Array
+                                                (
+                                                    [chapterid] => 186984
+                                                    [chaptername] => 第九十七章 小凤凰
+                                                )
+
+                                            [94] => Array
+                                                (
+                                                    [chapterid] => 186985
+                                                    [chaptername] => 第九十八章  云霞峰山腰
+                                                )
+
+                                            [95] => Array
+                                                (
+                                                    [chapterid] => 185213
+                                                    [chaptername] => 第九十九章  如此大任
+                                                )
+
+                                            [96] => Array
+                                                (
+                                                    [chapterid] => 186990
+                                                    [chaptername] => 第一百章  如此的对待
+                                                )
+
+                                            [97] => Array
+                                                (
+                                                    [chapterid] => 186992
+                                                    [chaptername] => 第一百零一章 龙珠
+                                                )
+
+                                            [98] => Array
+                                                (
+                                                    [chapterid] => 186996
+                                                    [chaptername] => 第一百零二章   放我出去
+                                                )
+
+                                            [99] => Array
+                                                (
+                                                    [chapterid] => 186998
+                                                    [chaptername] => 第一百零三章   一叶轻舟
+                                                )
+
+                                            [100] => Array
+                                                (
+                                                    [chapterid] => 186999
+                                                    [chaptername] => 第一百零四章  万壑松涛
+                                                )
+
+                                            [101] => Array
+                                                (
+                                                    [chapterid] => 187001
+                                                    [chaptername] => 第一百零五章  满心欢喜
+                                                )
+
+                                            [102] => Array
+                                                (
+                                                    [chapterid] => 187004
+                                                    [chaptername] => 第一百零六章  琉璃谷
+                                                )
+
+                                            [103] => Array
+                                                (
+                                                    [chapterid] => 187008
+                                                    [chaptername] => 第一百零七章   出言训斥
+                                                )
+
+                                            [104] => Array
+                                                (
+                                                    [chapterid] => 187010
+                                                    [chaptername] => 第一百零八章   回昆仑山
+                                                )
+
+                                            [105] => Array
+                                                (
+                                                    [chapterid] => 187012
+                                                    [chaptername] => 第一百零九章  臭乌鸦
+                                                )
+
+                                            [106] => Array
+                                                (
+                                                    [chapterid] => 187014
+                                                    [chaptername] => 第一百一十章  保护自己
+                                                )
+
+                                            [107] => Array
+                                                (
+                                                    [chapterid] => 187015
+                                                    [chaptername] => 第一百一十一章  相差无几
+                                                )
+
+                                            [108] => Array
+                                                (
+                                                    [chapterid] => 187018
+                                                    [chaptername] => 第一百一十二章  桃花枝
+                                                )
+
+                                            [109] => Array
+                                                (
+                                                    [chapterid] => 187020
+                                                    [chaptername] => 第一百一十三章   石中火
+                                                )
+
+                                            [110] => Array
+                                                (
+                                                    [chapterid] => 187023
+                                                    [chaptername] => 第一百一十四章   一路走来
+                                                )
+
+                                            [111] => Array
+                                                (
+                                                    [chapterid] => 187025
+                                                    [chaptername] => 第一百一十五章  掐头去尾
+                                                )
+
+                                            [112] => Array
+                                                (
+                                                    [chapterid] => 187028
+                                                    [chaptername] => 第一百一十六章 失落
+                                                )
+
+                                            [113] => Array
+                                                (
+                                                    [chapterid] => 187030
+                                                    [chaptername] => 第一百一十七章 琢磨不透
+                                                )
+
+                                            [114] => Array
+                                                (
+                                                    [chapterid] => 187033
+                                                    [chaptername] => 第一百一十八章  侥幸
+                                                )
+
+                                            [115] => Array
+                                                (
+                                                    [chapterid] => 185222
+                                                    [chaptername] => 第一百一十九章  师叔，救命
+                                                )
+
+                                            [116] => Array
+                                                (
+                                                    [chapterid] => 187036
+                                                    [chaptername] => 第一百二十章 董天君
+                                                )
+
+                                            [117] => Array
+                                                (
+                                                    [chapterid] => 187040
+                                                    [chaptername] => 第一百二十一章  铠甲
+                                                )
+
+                                            [118] => Array
+                                                (
+                                                    [chapterid] => 187043
+                                                    [chaptername] => 第一百二十二章  霸气十足
+                                                )
+
+                                            [119] => Array
+                                                (
+                                                    [chapterid] => 187047
+                                                    [chaptername] => 第一百二十三章  一张羊皮
+                                                )
+
+                                            [120] => Array
+                                                (
+                                                    [chapterid] => 187050
+                                                    [chaptername] => 第一百二十四章  道友
+                                                )
+
+                                            [121] => Array
+                                                (
+                                                    [chapterid] => 187053
+                                                    [chaptername] => 第一百二十五章  整整衣冠
+                                                )
+
+                                            [122] => Array
+                                                (
+                                                    [chapterid] => 187056
+                                                    [chaptername] => 第一百二十六章  若有所思
+                                                )
+
+                                            [123] => Array
+                                                (
+                                                    [chapterid] => 185227
+                                                    [chaptername] => 第一百二十七章  翩翩少年郎
+                                                )
+
+                                            [124] => Array
+                                                (
+                                                    [chapterid] => 185232
+                                                    [chaptername] => 第一百二十八章  灵力不济
+                                                )
+
+                                            [125] => Array
+                                                (
+                                                    [chapterid] => 187063
+                                                    [chaptername] => 第一百二十九章  遗憾
+                                                )
+
+                                            [126] => Array
+                                                (
+                                                    [chapterid] => 187068
+                                                    [chaptername] => 第一百三十章  鬼市
+                                                )
+
+                                            [127] => Array
+                                                (
+                                                    [chapterid] => 185236
+                                                    [chaptername] => 第一百三十一章   修云镇
+                                                )
+
+                                            [128] => Array
+                                                (
+                                                    [chapterid] => 439906
+                                                    [chaptername] => 第一百三十二章  轰然倒塌
+                                                )
+
+                                            [129] => Array
+                                                (
+                                                    [chapterid] => 185238
+                                                    [chaptername] => 第一百三十三章  无伤公子
+                                                )
+
+                                            [130] => Array
+                                                (
+                                                    [chapterid] => 187079
+                                                    [chaptername] => 第一百三十四章  修道者如蚂蚁
+                                                )
+
+                                            [131] => Array
+                                                (
+                                                    [chapterid] => 187082
+                                                    [chaptername] => 第一百三十五章  岩前滴水、绿树成荫
+                                                )
+
+                                            [132] => Array
+                                                (
+                                                    [chapterid] => 187085
+                                                    [chaptername] => 第一百三十六章  一抹冷笑
+                                                )
+
+                                            [133] => Array
+                                                (
+                                                    [chapterid] => 185239
+                                                    [chaptername] => 第一百三十七章  珍珍和莲莲
+                                                )
+
+                                            [134] => Array
+                                                (
+                                                    [chapterid] => 187092
+                                                    [chaptername] => 第一百三十八章  不愿意你也变傻
+                                                )
+
+                                            [135] => Array
+                                                (
+                                                    [chapterid] => 187095
+                                                    [chaptername] => 第一百三十九章   正邪之分
+                                                )
+
+                                            [136] => Array
+                                                (
+                                                    [chapterid] => 187101
+                                                    [chaptername] => 第一百四十章  茫然之中
+                                                )
+
+                                            [137] => Array
+                                                (
+                                                    [chapterid] => 187106
+                                                    [chaptername] => 第一百四十一章  谁也不想
+                                                )
+
+                                            [138] => Array
+                                                (
+                                                    [chapterid] => 187108
+                                                    [chaptername] => 第一百四十二章  鬼玺
+                                                )
+
+                                            [139] => Array
+                                                (
+                                                    [chapterid] => 187111
+                                                    [chaptername] => 第一百四十三章   魔吞不夜城
+                                                )
+
+                                            [140] => Array
+                                                (
+                                                    [chapterid] => 185244
+                                                    [chaptername] => 第一百四十四章  面若淡金
+                                                )
+
+                                            [141] => Array
+                                                (
+                                                    [chapterid] => 187114
+                                                    [chaptername] => 第一百四十五章  前事和解
+                                                )
+
+                                            [142] => Array
+                                                (
+                                                    [chapterid] => 185249
+                                                    [chaptername] => 第一百四十六章  麝月
+                                                )
+
+                                            [143] => Array
+                                                (
+                                                    [chapterid] => 185251
+                                                    [chaptername] => 第一百四十七章  伏魔牙
+                                                )
+
+                                            [144] => Array
+                                                (
+                                                    [chapterid] => 187117
+                                                    [chaptername] => 第一百四十八章  洞穴寻宝
+                                                )
+
+                                            [145] => Array
+                                                (
+                                                    [chapterid] => 187120
+                                                    [chaptername] => 第一百四十九章   万千鬼魂
+                                                )
+
+                                            [146] => Array
+                                                (
+                                                    [chapterid] => 187124
+                                                    [chaptername] => 第一百五十章   又能如何
+                                                )
+
+                                            [147] => Array
+                                                (
+                                                    [chapterid] => 187128
+                                                    [chaptername] => 第一百五十一章  美人鱼作伴
+                                                )
+
+                                            [148] => Array
+                                                (
+                                                    [chapterid] => 187130
+                                                    [chaptername] => 第一百五十二章  天地万物
+                                                )
+
+                                            [149] => Array
+                                                (
+                                                    [chapterid] => 187135
+                                                    [chaptername] => 第一百五十三章  娓娓道来
+                                                )
+
+                                            [150] => Array
+                                                (
+                                                    [chapterid] => 187139
+                                                    [chaptername] => 第一百五十四章  符墙
+                                                )
+
+                                            [151] => Array
+                                                (
+                                                    [chapterid] => 187142
+                                                    [chaptername] => 第一百五十五章
+                                                )
+
+                                            [152] => Array
+                                                (
+                                                    [chapterid] => 187144
+                                                    [chaptername] => 弟一百五十六章  搜魂
+                                                )
+
+                                            [153] => Array
+                                                (
+                                                    [chapterid] => 187148
+                                                    [chaptername] => 第一百五十七章   传说中的鬼方慈明坟墓
+                                                )
+
+                                            [154] => Array
+                                                (
+                                                    [chapterid] => 187152
+                                                    [chaptername] => 第一百五十八章  兰蔻
+                                                )
+
+                                            [155] => Array
+                                                (
+                                                    [chapterid] => 185255
+                                                    [chaptername] => 第一百五十九章  煅云裳
+                                                )
+
+                                            [156] => Array
+                                                (
+                                                    [chapterid] => 185256
+                                                    [chaptername] => 第一百六十章  吸食魂魄
+                                                )
+
+                                            [157] => Array
+                                                (
+                                                    [chapterid] => 187158
+                                                    [chaptername] => 第一百六十一章   分毫不惜法力
+                                                )
+
+                                            [158] => Array
+                                                (
+                                                    [chapterid] => 187163
+                                                    [chaptername] => 第一百六十二章  面目可憎
+                                                )
+
+                                            [159] => Array
+                                                (
+                                                    [chapterid] => 185257
+                                                    [chaptername] => 第一百六十三章  不是死了吗？
+                                                )
+
+                                            [160] => Array
+                                                (
+                                                    [chapterid] => 187169
+                                                    [chaptername] => 第一百六十四章   做给青娘看
+                                                )
+
+                                            [161] => Array
+                                                (
+                                                    [chapterid] => 185259
+                                                    [chaptername] => 第一百六十五章  眼中惧意
+                                                )
+
+                                            [162] => Array
+                                                (
+                                                    [chapterid] => 185261
+                                                    [chaptername] => 第一百六十六章  解释无用
+                                                )
+
+                                            [163] => Array
+                                                (
+                                                    [chapterid] => 185265
+                                                    [chaptername] => 第一百六十七章  水族妖魅
+                                                )
+
+                                            [164] => Array
+                                                (
+                                                    [chapterid] => 187176
+                                                    [chaptername] => 第一百六十八章  隐形黑衣
+                                                )
+
+                                            [165] => Array
+                                                (
+                                                    [chapterid] => 185269
+                                                    [chaptername] => 第一百六十九章  见势不妙
+                                                )
+
+                                            [166] => Array
+                                                (
+                                                    [chapterid] => 187184
+                                                    [chaptername] => 第一百七十章 独角兽
+                                                )
+
+                                            [167] => Array
+                                                (
+                                                    [chapterid] => 185272
+                                                    [chaptername] => 第一百七十一章  杳无尽头
+                                                )
+
+                                            [168] => Array
+                                                (
+                                                    [chapterid] => 187187
+                                                    [chaptername] => 第一百七十二章  金蛟翦与白玉尺
+                                                )
+
+                                            [169] => Array
+                                                (
+                                                    [chapterid] => 185274
+                                                    [chaptername] => 第一百七十三章  青娘丰采依旧
+                                                )
+
+                                            [170] => Array
+                                                (
+                                                    [chapterid] => 187190
+                                                    [chaptername] => 第一百七十四章   青娘此刻的心情
+                                                )
+
+                                            [171] => Array
+                                                (
+                                                    [chapterid] => 187191
+                                                    [chaptername] => 第一百七十五章  阴冥怪兽
+                                                )
+
+                                            [172] => Array
+                                                (
+                                                    [chapterid] => 187194
+                                                    [chaptername] => 第一百七十六章  死路一条
+                                                )
+
+                                            [173] => Array
+                                                (
+                                                    [chapterid] => 185280
+                                                    [chaptername] => 第一百七十七章  花红似火
+                                                )
+
+                                            [174] => Array
+                                                (
+                                                    [chapterid] => 187197
+                                                    [chaptername] => 第一百七十八章   修炼佳所
+                                                )
+
+                                            [175] => Array
+                                                (
+                                                    [chapterid] => 187200
+                                                    [chaptername] => 第一百七十九章  电闪雷鸣
+                                                )
+
+                                            [176] => Array
+                                                (
+                                                    [chapterid] => 185285
+                                                    [chaptername] => 第一百八十章  金丹期大圆满
+                                                )
+
+                                            [177] => Array
+                                                (
+                                                    [chapterid] => 185286
+                                                    [chaptername] => 第一百八十一章  什么缘由
+                                                )
+
+                                            [178] => Array
+                                                (
+                                                    [chapterid] => 187204
+                                                    [chaptername] => 第一百八十二章   不攻自破
+                                                )
+
+                                            [179] => Array
+                                                (
+                                                    [chapterid] => 185291
+                                                    [chaptername] => 第一百八十三章——第一百八十四章  迷失意识
+                                                )
+
+                                            [180] => Array
+                                                (
+                                                    [chapterid] => 187208
+                                                    [chaptername] => 第一百八十五章  金梭和无心
+                                                )
+
+                                            [181] => Array
+                                                (
+                                                    [chapterid] => 187211
+                                                    [chaptername] => 第一百八十六章   眼睛满是疑惑
+                                                )
+
+                                            [182] => Array
+                                                (
+                                                    [chapterid] => 187215
+                                                    [chaptername] => 第一百八十七章  结果如何
+                                                )
+
+                                            [183] => Array
+                                                (
+                                                    [chapterid] => 187217
+                                                    [chaptername] => 第一百八十八章   有些不解
+                                                )
+
+                                            [184] => Array
+                                                (
+                                                    [chapterid] => 187219
+                                                    [chaptername] => 第一百八十九章   贪煞、吞魔
+                                                )
+
+                                            [185] => Array
+                                                (
+                                                    [chapterid] => 187221
+                                                    [chaptername] => 第一百九十章  不易察觉
+                                                )
+
+                                            [186] => Array
+                                                (
+                                                    [chapterid] => 187224
+                                                    [chaptername] => 第一百九十一章  绿孔雀妖雀封光（一）
+                                                )
+
+                                            [187] => Array
+                                                (
+                                                    [chapterid] => 439908
+                                                    [chaptername] => 第一百九十一章  绿孔雀妖雀封光（二）
+                                                )
+
+                                            [188] => Array
+                                                (
+                                                    [chapterid] => 185305
+                                                    [chaptername] => 第一百九十二章   有福消受
+                                                )
+
+                                            [189] => Array
+                                                (
+                                                    [chapterid] => 185307
+                                                    [chaptername] => 第一百九十三章  鬼爪(一)
+                                                )
+
+                                            [190] => Array
+                                                (
+                                                    [chapterid] => 185308
+                                                    [chaptername] => 第一百九十三章  鬼爪(二)
+                                                )
+
+                                            [191] => Array
+                                                (
+                                                    [chapterid] => 187231
+                                                    [chaptername] => 第一百九十四章   如在梦中(一)
+                                                )
+
+                                            [192] => Array
+                                                (
+                                                    [chapterid] => 187232
+                                                    [chaptername] => 第一百九十四章   如在梦中(二)
+                                                )
+
+                                            [193] => Array
+                                                (
+                                                    [chapterid] => 187234
+                                                    [chaptername] => 第一百九十五章   九转炉(一)
+                                                )
+
+                                            [194] => Array
+                                                (
+                                                    [chapterid] => 187235
+                                                    [chaptername] => 第一百九十五章   九转炉(二)
+                                                )
+
+                                            [195] => Array
+                                                (
+                                                    [chapterid] => 185317
+                                                    [chaptername] => 第一百九十六章   圣印(一)
+                                                )
+
+                                            [196] => Array
+                                                (
+                                                    [chapterid] => 185318
+                                                    [chaptername] => 第一百九十六章   圣印(二)
+                                                )
+
+                                            [197] => Array
+                                                (
+                                                    [chapterid] => 187239
+                                                    [chaptername] => 第一百九十七章   蚩龙族(一)
+                                                )
+
+                                            [198] => Array
+                                                (
+                                                    [chapterid] => 187240
+                                                    [chaptername] => 第一百九十七章   蚩龙族(二)
+                                                )
+
+                                            [199] => Array
+                                                (
+                                                    [chapterid] => 185323
+                                                    [chaptername] => 第一百九十八章  前辈庇护(一)
+                                                )
+
+                                            [200] => Array
+                                                (
+                                                    [chapterid] => 185324
+                                                    [chaptername] => 第一百九十八章  前辈庇护(二)
+                                                )
+
+                                            [201] => Array
+                                                (
+                                                    [chapterid] => 187324
+                                                    [chaptername] => 第一百九十九章  帝罗(一)
+                                                )
+
+                                            [202] => Array
+                                                (
+                                                    [chapterid] => 187326
+                                                    [chaptername] => 第一百九十九章  帝罗(二)
+                                                )
+
+                                            [203] => Array
+                                                (
+                                                    [chapterid] => 185340
+                                                    [chaptername] => 第一百九十九章  帝罗(三)
+                                                )
+
+                                            [204] => Array
+                                                (
+                                                    [chapterid] => 185327
+                                                    [chaptername] => 第二百章   不喜欢你(一)
+                                                )
+
+                                            [205] => Array
+                                                (
+                                                    [chapterid] => 185328
+                                                    [chaptername] => 第二百章   不喜欢你(二)
+                                                )
+
+                                            [206] => Array
+                                                (
+                                                    [chapterid] => 187258
+                                                    [chaptername] => 第二百零一章  我连累了你(一)
+                                                )
+
+                                            [207] => Array
+                                                (
+                                                    [chapterid] => 187259
+                                                    [chaptername] => 第二百零一章  我连累了你(二)
+                                                )
+
+                                            [208] => Array
+                                                (
+                                                    [chapterid] => 187262
+                                                    [chaptername] => 第二百零二章  雷音兽(一)
+                                                )
+
+                                            [209] => Array
+                                                (
+                                                    [chapterid] => 187265
+                                                    [chaptername] => 第二百零二章  雷音兽(二)
+                                                )
+
+                                            [210] => Array
+                                                (
+                                                    [chapterid] => 185331
+                                                    [chaptername] => 第二百零三章   问天童子(一)
+                                                )
+
+                                            [211] => Array
+                                                (
+                                                    [chapterid] => 187269
+                                                    [chaptername] => 第二百零三章   问天童子(二)
+                                                )
+
+                                            [212] => Array
+                                                (
+                                                    [chapterid] => 185333
+                                                    [chaptername] => 第二百零四章   拜月族(一)
+                                                )
+
+                                            [213] => Array
+                                                (
+                                                    [chapterid] => 187275
+                                                    [chaptername] => 第二百零四章   拜月族(二)
+                                                )
+
+                                            [214] => Array
+                                                (
+                                                    [chapterid] => 187279
+                                                    [chaptername] => 第二百零五章   燕归巢(一)
+                                                )
+
+                                            [215] => Array
+                                                (
+                                                    [chapterid] => 187281
+                                                    [chaptername] => 第二百零五章   燕归巢(二)
+                                                )
+
+                                            [216] => Array
+                                                (
+                                                    [chapterid] => 187282
+                                                    [chaptername] => 第二百零六章  祭台(一)
+                                                )
+
+                                            [217] => Array
+                                                (
+                                                    [chapterid] => 187287
+                                                    [chaptername] => 第二百零六章  祭台(二)
+                                                )
+
+                                            [218] => Array
+                                                (
+                                                    [chapterid] => 187290
+                                                    [chaptername] => 第二百零七章   佛门真楂(一)
+                                                )
+
+                                            [219] => Array
+                                                (
+                                                    [chapterid] => 187291
+                                                    [chaptername] => 第二百零七章   佛门真楂(二)
+                                                )
+
+                                            [220] => Array
+                                                (
+                                                    [chapterid] => 187297
+                                                    [chaptername] => 第二百零八章  吞魔童子(一)
+                                                )
+
+                                            [221] => Array
+                                                (
+                                                    [chapterid] => 187299
+                                                    [chaptername] => 第二百零八章  吞魔童子(二)
+                                                )
+
+                                            [222] => Array
+                                                (
+                                                    [chapterid] => 187301
+                                                    [chaptername] => 第二百零九章   萧萧竹域(一)
+                                                )
+
+                                            [223] => Array
+                                                (
+                                                    [chapterid] => 187304
+                                                    [chaptername] => 第二百零九章   萧萧竹域(二)
+                                                )
+
+                                            [224] => Array
+                                                (
+                                                    [chapterid] => 187305
+                                                    [chaptername] => 第二百一十章  黑雾中(一)
+                                                )
+
+                                            [225] => Array
+                                                (
+                                                    [chapterid] => 187306
+                                                    [chaptername] => 第二百一十章  黑雾中(二)
+                                                )
+
+                                            [226] => Array
+                                                (
+                                                    [chapterid] => 187309
+                                                    [chaptername] => 第二百一十一章  叶怨无痕(一)
+                                                )
+
+                                            [227] => Array
+                                                (
+                                                    [chapterid] => 187312
+                                                    [chaptername] => 第二百一十一章  叶怨无痕(二)
+                                                )
+
+                                            [228] => Array
+                                                (
+                                                    [chapterid] => 185336
+                                                    [chaptername] => 第二百一十二章   绿藤君(一)
+                                                )
+
+                                            [229] => Array
+                                                (
+                                                    [chapterid] => 187317
+                                                    [chaptername] => 第二百一十二章   绿藤君(二)
+                                                )
+
+                                            [230] => Array
+                                                (
+                                                    [chapterid] => 187319
+                                                    [chaptername] => 第二百一十三章  盘桓(一)
+                                                )
+
+                                            [231] => Array
+                                                (
+                                                    [chapterid] => 187320
+                                                    [chaptername] => 第二百一十三章  盘桓(二)
+                                                )
+
+                                            [232] => Array
+                                                (
+                                                    [chapterid] => 188652
+                                                    [chaptername] => 第二百二十四章   拜月峡谷(一)
+                                                )
+
+                                            [233] => Array
+                                                (
+                                                    [chapterid] => 188653
+                                                    [chaptername] => 第二百二十四章   拜月峡谷(二)
+                                                )
+
+                                            [234] => Array
+                                                (
+                                                    [chapterid] => 189123
+                                                    [chaptername] => 第二百一十五章  与自己无缘(一)
+                                                )
+
+                                            [235] => Array
+                                                (
+                                                    [chapterid] => 180734
+                                                    [chaptername] => 第二百一十五章  与自己无缘(二)
+                                                )
+
+                                            [236] => Array
+                                                (
+                                                    [chapterid] => 188716
+                                                    [chaptername] => 第二百一十六章  不是夜叉(一)
+                                                )
+
+                                            [237] => Array
+                                                (
+                                                    [chapterid] => 188717
+                                                    [chaptername] => 第二百一十六章  不是夜叉(二)
+                                                )
+
+                                            [238] => Array
+                                                (
+                                                    [chapterid] => 180847
+                                                    [chaptername] => 第二百一十七章   法力了得(一)
+                                                )
+
+                                            [239] => Array
+                                                (
+                                                    [chapterid] => 180848
+                                                    [chaptername] => 第二百一十七章   法力了得(二)
+                                                )
+
+                                            [240] => Array
+                                                (
+                                                    [chapterid] => 188848
+                                                    [chaptername] => 第二百一十八章   木头疙瘩(一)
+                                                )
+
+                                            [241] => Array
+                                                (
+                                                    [chapterid] => 188849
+                                                    [chaptername] => 第二百一十八章   木头疙瘩(二)
+                                                )
+
+                                            [242] => Array
+                                                (
+                                                    [chapterid] => 181262
+                                                    [chaptername] => 第二百一十九章   瞪大了眼睛(一)
+                                                )
+
+                                            [243] => Array
+                                                (
+                                                    [chapterid] => 181263
+                                                    [chaptername] => 第二百一十九章   瞪大了眼睛(二)
+                                                )
+
+                                            [244] => Array
+                                                (
+                                                    [chapterid] => 188847
+                                                    [chaptername] => 第二百二十章  与天同寿(一)
+                                                )
+
+                                            [245] => Array
+                                                (
+                                                    [chapterid] => 188850
+                                                    [chaptername] => 第二百二十章  与天同寿(二)
+                                                )
+
+                                            [246] => Array
+                                                (
+                                                    [chapterid] => 181264
+                                                    [chaptername] => 第二百二十一章   刁蛮(一)
+                                                )
+
+                                            [247] => Array
+                                                (
+                                                    [chapterid] => 181265
+                                                    [chaptername] => 第二百二十一章   刁蛮(二)
+                                                )
+
+                                            [248] => Array
+                                                (
+                                                    [chapterid] => 212820
+                                                    [chaptername] => 第二百二十二章  瞠目结舌(一)
+                                                )
+
+                                            [249] => Array
+                                                (
+                                                    [chapterid] => 212821
+                                                    [chaptername] => 第二百二十二章  瞠目结舌(二)
+                                                )
+
+                                            [250] => Array
+                                                (
+                                                    [chapterid] => 212907
+                                                    [chaptername] => 第二百二十三章——第二百二十四章   借你
+                                                )
+
+                                            [251] => Array
+                                                (
+                                                    [chapterid] => 217008
+                                                    [chaptername] => 第二百二十五章   魔丹(一)
+                                                )
+
+                                            [252] => Array
+                                                (
+                                                    [chapterid] => 217009
+                                                    [chaptername] => 第二百二十五章   魔丹(二)
+                                                )
+
+                                            [253] => Array
+                                                (
+                                                    [chapterid] => 215066
+                                                    [chaptername] => 第二百二十六章(一)
+                                                )
+
+                                            [254] => Array
+                                                (
+                                                    [chapterid] => 216032
+                                                    [chaptername] => 第二百二十六章(二)
+                                                )
+
+                                            [255] => Array
+                                                (
+                                                    [chapterid] => 217124
+                                                    [chaptername] => 第二百二十七章  金螯黄蜂(一)
+                                                )
+
+                                            [256] => Array
+                                                (
+                                                    [chapterid] => 217125
+                                                    [chaptername] => 第二百二十七章  金螯黄蜂(二)
+                                                )
+
+                                            [257] => Array
+                                                (
+                                                    [chapterid] => 217184
+                                                    [chaptername] => 第二百二十八章  玉罗纱(一)
+                                                )
+
+                                            [258] => Array
+                                                (
+                                                    [chapterid] => 217185
+                                                    [chaptername] => 第二百二十八章  玉罗纱(二)
+                                                )
+
+                                            [259] => Array
+                                                (
+                                                    [chapterid] => 217268
+                                                    [chaptername] => 第二百二十九章   皱起了眉头
+                                                )
+
+                                            [260] => Array
+                                                (
+                                                    [chapterid] => 439915
+                                                    [chaptername] => 第二百三十章   怨灵(一)
+                                                )
+
+                                            [261] => Array
+                                                (
+                                                    [chapterid] => 439916
+                                                    [chaptername] => 第二百三十章   怨灵(二)
+                                                )
+
+                                            [262] => Array
+                                                (
+                                                    [chapterid] => 218233
+                                                    [chaptername] => 第二百三十一章   灰蛾(一)
+                                                )
+
+                                            [263] => Array
+                                                (
+                                                    [chapterid] => 215356
+                                                    [chaptername] => 第二百三十一章   灰蛾(二)
+                                                )
+
+                                            [264] => Array
+                                                (
+                                                    [chapterid] => 216438
+                                                    [chaptername] => 第二百三十二章   相信自己(一)
+                                                )
+
+                                            [265] => Array
+                                                (
+                                                    [chapterid] => 216439
+                                                    [chaptername] => 第二百三十二章   相信自己(二)
+                                                )
+
+                                            [266] => Array
+                                                (
+                                                    [chapterid] => 216486
+                                                    [chaptername] => 第二百三十三章   荷叶有翠竹
+                                                )
+
+                                            [267] => Array
+                                                (
+                                                    [chapterid] => 215540
+                                                    [chaptername] => 第三百三十四章  道心坚强
+                                                )
+
+                                            [268] => Array
+                                                (
+                                                    [chapterid] => 220373
+                                                    [chaptername] => 第三百三十五章
+                                                )
+
+                                            [269] => Array
+                                                (
+                                                    [chapterid] => 221082
+                                                    [chaptername] => 第三百三十六章 鼓鼓
+                                                )
+
+                                            [270] => Array
+                                                (
+                                                    [chapterid] => 221191
+                                                    [chaptername] => 第二百三十七章  不平等
+                                                )
+
+                                            [271] => Array
+                                                (
+                                                    [chapterid] => 264101
+                                                    [chaptername] => 第二百三十八章  心无旁骛
+                                                )
+
+                                            [272] => Array
+                                                (
+                                                    [chapterid] => 261171
+                                                    [chaptername] => 第二百三十九章  七彩水滴
+                                                )
+
+                                            [273] => Array
+                                                (
+                                                    [chapterid] => 261822
+                                                    [chaptername] => 第二百四十章  妖气
+                                                )
+
+                                            [274] => Array
+                                                (
+                                                    [chapterid] => 263979
+                                                    [chaptername] => 第二百四十一章  念咒语
+                                                )
+
+                                            [275] => Array
+                                                (
+                                                    [chapterid] => 267510
+                                                    [chaptername] => 第二百四十二章  打开结界
+                                                )
+
+                                            [276] => Array
+                                                (
+                                                    [chapterid] => 269212
+                                                    [chaptername] => 第二百四十三章   大大的土堆
+                                                )
+
+                                            [277] => Array
+                                                (
+                                                    [chapterid] => 267654
+                                                    [chaptername] => 第二百四十四章   黑河封路
+                                                )
+
+                                            [278] => Array
+                                                (
+                                                    [chapterid] => 272951
+                                                    [chaptername] => 第二百四十五章   赤手抓了火炭
+                                                )
+
+                                            [279] => Array
+                                                (
+                                                    [chapterid] => 267797
+                                                    [chaptername] => 第二百四十六章   右眼皮一跳
+                                                )
+
+                                            [280] => Array
+                                                (
+                                                    [chapterid] => 278797
+                                                    [chaptername] => 第二百四十七章  施展幻术
+                                                )
+
+                                            [281] => Array
+                                                (
+                                                    [chapterid] => 295197
+                                                    [chaptername] => 第二百四十八章  无尽的杀意
+                                                )
+
+                                            [282] => Array
+                                                (
+                                                    [chapterid] => 295334
+                                                    [chaptername] => 第二百四十九章    发动攻击
+                                                )
+
+                                            [283] => Array
+                                                (
+                                                    [chapterid] => 296255
+                                                    [chaptername] => 第二百五十章   好香啊
+                                                )
+
+                                            [284] => Array
+                                                (
+                                                    [chapterid] => 294935
+                                                    [chaptername] => 第二百五十一章   南海龙君
+                                                )
+
+                                            [285] => Array
+                                                (
+                                                    [chapterid] => 295626
+                                                    [chaptername] => 第二百五十二章  水族蚌女
+                                                )
+
+                                            [286] => Array
+                                                (
+                                                    [chapterid] => 313527
+                                                    [chaptername] => 第二百五十三章  白矮星
+                                                )
+
+                                            [287] => Array
+                                                (
+                                                    [chapterid] => 313670
+                                                    [chaptername] => 第二百五十四章  投胎
+                                                )
+
+                                            [288] => Array
+                                                (
+                                                    [chapterid] => 331893
+                                                    [chaptername] => 第二百五十五章  龙君
+                                                )
+
+                                            [289] => Array
+                                                (
+                                                    [chapterid] => 334576
+                                                    [chaptername] => 第二百五十六章  美姬
+                                                )
+
+                                            [290] => Array
+                                                (
+                                                    [chapterid] => 335480
+                                                    [chaptername] => 第二百五十七章 翻来覆去
+                                                )
+
+                                            [291] => Array
+                                                (
+                                                    [chapterid] => 339134
+                                                    [chaptername] => 第二百五十八章  可是美姬
+                                                )
+
+                                            [292] => Array
+                                                (
+                                                    [chapterid] => 340006
+                                                    [chaptername] => 第二百五十九章  幽暗森林
+                                                )
+
+                                            [293] => Array
+                                                (
+                                                    [chapterid] => 337598
+                                                    [chaptername] => 第二百六十章  白额飞熊
+                                                )
+
+                                            [294] => Array
+                                                (
+                                                    [chapterid] => 355706
+                                                    [chaptername] => 第二百六十一章  大鹏鸟
+                                                )
+
+                                            [295] => Array
+                                                (
+                                                    [chapterid] => 354572
+                                                    [chaptername] => 第二百六十二章  美姬
+                                                )
+
+                                            [296] => Array
+                                                (
+                                                    [chapterid] => 339692
+                                                    [chaptername] => 第二百六十三章  灌木丛中
+                                                )
+
+                                            [297] => Array
+                                                (
+                                                    [chapterid] => 353642
+                                                    [chaptername] => 第二百六十四章  美人鱼
+                                                )
+
+                                            [298] => Array
+                                                (
+                                                    [chapterid] => 354927
+                                                    [chaptername] => 第二百六十五章  东海龙族
+                                                )
+
+                                            [299] => Array
+                                                (
+                                                    [chapterid] => 366501
+                                                    [chaptername] => 第二百六十六章  玉简拿到手
+                                                )
+
+                                            [300] => Array
+                                                (
+                                                    [chapterid] => 387711
+                                                    [chaptername] => 第二百六十七章  风华绝代
+                                                )
+
+                                            [301] => Array
+                                                (
+                                                    [chapterid] => 406418
+                                                    [chaptername] => 第二百六十八章  如梦似幻
+                                                )
+
+                                            [302] => Array
+                                                (
+                                                    [chapterid] => 408278
+                                                    [chaptername] => 第二百六十九章  空无一物
+                                                )
+
+                                            [303] => Array
+                                                (
+                                                    [chapterid] => 405871
+                                                    [chaptername] => 第二百七十章  恨长锋
+                                                )
+
+                                            [304] => Array
+                                                (
+                                                    [chapterid] => 411188
+                                                    [chaptername] => 第二百七十一章  沉香阁
+                                                )
+
+                                            [305] => Array
+                                                (
+                                                    [chapterid] => 405995
+                                                    [chaptername] => 第二百七十二章  不说
+                                                )
+
+                                            [306] => Array
+                                                (
+                                                    [chapterid] => 407379
+                                                    [chaptername] => 第二百七十三章  浓雾
+                                                )
+
+                                            [307] => Array
+                                                (
+                                                    [chapterid] => 407396
+                                                    [chaptername] => 第二百七十四章  眼花缭乱
+                                                )
+
+                                            [308] => Array
+                                                (
+                                                    [chapterid] => 415126
+                                                    [chaptername] => 第二百七十五章  黑水潭
+                                                )
+
+                                            [309] => Array
+                                                (
+                                                    [chapterid] => 413856
+                                                    [chaptername] => 第二百七十六章  琵琶音
+                                                )
+
+                                            [310] => Array
+                                                (
+                                                    [chapterid] => 412460
+                                                    [chaptername] => 第二百七十七章  刀无情
+                                                )
+
+                                            [311] => Array
+                                                (
+                                                    [chapterid] => 425605
+                                                    [chaptername] => 第二百七十八章  贪嘴的熊
+                                                )
+
+                                            [312] => Array
+                                                (
+                                                    [chapterid] => 424607
+                                                    [chaptername] => 第二百七十九章   内幕
+                                                )
+
+                                            [313] => Array
+                                                (
+                                                    [chapterid] => 424824
+                                                    [chaptername] => 第二百八十章  黑蛇
+                                                )
+
+                                            [314] => Array
+                                                (
+                                                    [chapterid] => 428305
+                                                    [chaptername] => 第二百八十一章  不紧不慢
+                                                )
+
+                                            [315] => Array
+                                                (
+                                                    [chapterid] => 429523
+                                                    [chaptername] => 第二百八十二章  好胜童子
+                                                )
+
+                                            [316] => Array
+                                                (
+                                                    [chapterid] => 432142
+                                                    [chaptername] => 第二百八十三章  爱慕
+                                                )
+
+                                            [317] => Array
+                                                (
+                                                    [chapterid] => 433224
+                                                    [chaptername] => 第二百八十四章   哑然失笑
+                                                )
+
+                                            [318] => Array
+                                                (
+                                                    [chapterid] => 430182
+                                                    [chaptername] => 第二百八十五章  一言不发
+                                                )
+
+                                            [319] => Array
+                                                (
+                                                    [chapterid] => 430309
+                                                    [chaptername] => 第二百八十六章   只是片刻功夫
+                                                )
+
+                                            [320] => Array
+                                                (
+                                                    [chapterid] => 430361
+                                                    [chaptername] => 第二百八十七章   好像游动的鱼
+                                                )
+
+                                            [321] => Array
+                                                (
+                                                    [chapterid] => 432795
+                                                    [chaptername] => 第二百八十八章  笑逐颜开
+                                                )
+
+                                            [322] => Array
+                                                (
+                                                    [chapterid] => 432999
+                                                    [chaptername] => 第二百八十九章  杀鸡儆猴
+                                                )
+
+                                            [323] => Array
+                                                (
+                                                    [chapterid] => 430672
+                                                    [chaptername] => 第二百九十章  鬼大、鬼二和鬼三
+                                                )
+
+                                            [324] => Array
+                                                (
+                                                    [chapterid] => 430764
+                                                    [chaptername] => 第二百九十一章  白云洞
+                                                )
+
+                                            [325] => Array
+                                                (
+                                                    [chapterid] => 430957
+                                                    [chaptername] => 第二百九十二章  峰峦叠嶂
+                                                )
+
+                                            [326] => Array
+                                                (
+                                                    [chapterid] => 435039
+                                                    [chaptername] => 第二百九十三章   双手掐诀
+                                                )
+
+                                            [327] => Array
+                                                (
+                                                    [chapterid] => 434595
+                                                    [chaptername] => 第二百九十四章  伤心表情
+                                                )
+
+                                            [328] => Array
+                                                (
+                                                    [chapterid] => 440695
+                                                    [chaptername] => 第二百九十五章  窃窃私语
+                                                )
+
+                                            [329] => Array
+                                                (
+                                                    [chapterid] => 439103
+                                                    [chaptername] => 第二百九十六章  鬼家兄弟
+                                                )
+
+                                            [330] => Array
+                                                (
+                                                    [chapterid] => 438407
+                                                    [chaptername] => 第二百九十七章  随波飘飞
+                                                )
+
+                                            [331] => Array
+                                                (
+                                                    [chapterid] => 443784
+                                                    [chaptername] => 第二百九十八章  让人胆颤
+                                                )
+
+                                            [332] => Array
+                                                (
+                                                    [chapterid] => 438592
+                                                    [chaptername] => 第二百九十九章  没有放松警惕
+                                                )
+
+                                            [333] => Array
+                                                (
+                                                    [chapterid] => 443965
+                                                    [chaptername] => 第三百章  不必猜想
+                                                )
+
+                                            [334] => Array
+                                                (
+                                                    [chapterid] => 444045
+                                                    [chaptername] => 第三百零一章  我的银孔雀
+                                                )
+
+                                            [335] => Array
+                                                (
+                                                    [chapterid] => 445094
+                                                    [chaptername] => 第三百零二章  百分灵活（一）
+                                                )
+
+                                            [336] => Array
+                                                (
+                                                    [chapterid] => 438964
+                                                    [chaptername] => 第三百零二章  百分灵活（二）
+                                                )
+
+                                            [337] => Array
+                                                (
+                                                    [chapterid] => 439886
+                                                    [chaptername] => 第三百零三章  越说脸色越难看
+                                                )
+
+                                            [338] => Array
+                                                (
+                                                    [chapterid] => 445295
+                                                    [chaptername] => 第三百零四章  效果相差极大
+                                                )
+
+                                            [339] => Array
+                                                (
+                                                    [chapterid] => 447170
+                                                    [chaptername] => 第三百零五章  有些不放心
+                                                )
+
+                                            [340] => Array
+                                                (
+                                                    [chapterid] => 445700
+                                                    [chaptername] => 第三百零六章  随时策应
+                                                )
+
+                                            [341] => Array
+                                                (
+                                                    [chapterid] => 444940
+                                                    [chaptername] => 第三百零七章  脾气暴躁
+                                                )
+
+                                            [342] => Array
+                                                (
+                                                    [chapterid] => 448100
+                                                    [chaptername] => 第三百零八章   飞龙在天
+                                                )
+
+                                            [343] => Array
+                                                (
+                                                    [chapterid] => 449597
+                                                    [chaptername] => 第三百零九章  公鸡被捏住了嗓子
+                                                )
+
+                                            [344] => Array
+                                                (
+                                                    [chapterid] => 452098
+                                                    [chaptername] => 第三百一十章  理理道袍
+                                                )
+
+                                            [345] => Array
+                                                (
+                                                    [chapterid] => 450949
+                                                    [chaptername] => 第三百一十一章  痛哭不已
+                                                )
+
+                                            [346] => Array
+                                                (
+                                                    [chapterid] => 456247
+                                                    [chaptername] => 第三百一十二章  法力不稳
+                                                )
+
+                                            [347] => Array
+                                                (
+                                                    [chapterid] => 456636
+                                                    [chaptername] => 第三百一十三章  非常纠结
+                                                )
+
+                                            [348] => Array
+                                                (
+                                                    [chapterid] => 457014
+                                                    [chaptername] => 第三百一十四章------第三百一十五章   一团笑意
+                                                )
+
+                                            [349] => Array
+                                                (
+                                                    [chapterid] => 460075
+                                                    [chaptername] => 第三百一十六章   解毒丹药
+                                                )
+
+                                            [350] => Array
+                                                (
+                                                    [chapterid] => 463127
+                                                    [chaptername] => 第三百一十七章   护身黑雾
+                                                )
+
+                                            [351] => Array
+                                                (
+                                                    [chapterid] => 463271
+                                                    [chaptername] => 第三百一十八章  念动咒语
+                                                )
+
+                                            [352] => Array
+                                                (
+                                                    [chapterid] => 461284
+                                                    [chaptername] => 第三百一十九章  白玉屏
+                                                )
+
+                                            [353] => Array
+                                                (
+                                                    [chapterid] => 462651
+                                                    [chaptername] => 第三百二十章  稀薄的黑气
+                                                )
+
+                                            [354] => Array
+                                                (
+                                                    [chapterid] => 463678
+                                                    [chaptername] => 第三百二十一章   什么事情
+                                                )
+
+                                            [355] => Array
+                                                (
+                                                    [chapterid] => 463840
+                                                    [chaptername] => 第三百三十二章 入了魔道
+                                                )
+
+                                            [356] => Array
+                                                (
+                                                    [chapterid] => 460831
+                                                    [chaptername] => 第三百三十三章  储物袋不好
+                                                )
+
+                                            [357] => Array
+                                                (
+                                                    [chapterid] => 464076
+                                                    [chaptername] => 三百二十四章  全部神通
+                                                )
+
+                                            [358] => Array
+                                                (
+                                                    [chapterid] => 465670
+                                                    [chaptername] => 第三百二十五章  解答
+                                                )
+
+                                            [359] => Array
+                                                (
+                                                    [chapterid] => 466704
+                                                    [chaptername] => 第三百二十六章  九天云外
+                                                )
+
+                                            [360] => Array
+                                                (
+                                                    [chapterid] => 466791
+                                                    [chaptername] => 第三百二十七章  玉面蝙蝠
+                                                )
+
+                                            [361] => Array
+                                                (
+                                                    [chapterid] => 464477
+                                                    [chaptername] => 第三百二十八章  灵气浓郁
+                                                )
+
+                                            [362] => Array
+                                                (
+                                                    [chapterid] => 475490
+                                                    [chaptername] => 第三百二十九章   剪不断理还乱(一)
+                                                )
+
+                                            [363] => Array
+                                                (
+                                                    [chapterid] => 475491
+                                                    [chaptername] => 第三百二十九章   剪不断理还乱(二)
+                                                )
+
+                                            [364] => Array
+                                                (
+                                                    [chapterid] => 475652
+                                                    [chaptername] => 第三百三十章  年华易逝
+                                                )
+
+                                            [365] => Array
+                                                (
+                                                    [chapterid] => 470286
+                                                    [chaptername] => 第三百三十一章  灵光闪耀
+                                                )
+
+                                            [366] => Array
+                                                (
+                                                    [chapterid] => 476039
+                                                    [chaptername] => 第三百三十二章   四面八方不停翻飞
+                                                )
+
+                                            [367] => Array
+                                                (
+                                                    [chapterid] => 476281
+                                                    [chaptername] => 第三百三十三章  佩服我心机了得
+                                                )
+
+                                            [368] => Array
+                                                (
+                                                    [chapterid] => 472351
+                                                    [chaptername] => 第三百三十四章  众目睽睽之下
+                                                )
+
+                                            [369] => Array
+                                                (
+                                                    [chapterid] => 477476
+                                                    [chaptername] => 第三百三十五章  严肃的神态
+                                                )
+
+                                            [370] => Array
+                                                (
+                                                    [chapterid] => 477709
+                                                    [chaptername] => 第三百三十六章  看到的轻烟
+                                                )
+
+                                            [371] => Array
+                                                (
+                                                    [chapterid] => 470700
+                                                    [chaptername] => 第三百三十七章  大口一张
+                                                )
+
+                                            [372] => Array
+                                                (
+                                                    [chapterid] => 492985
+                                                    [chaptername] => 第三百三十八章  口中讷讷不止
+                                                )
+
+                                            [373] => Array
+                                                (
+                                                    [chapterid] => 501130
+                                                    [chaptername] => 第三百三十九章  灵鹫绝望
+                                                )
+
+                                            [374] => Array
+                                                (
+                                                    [chapterid] => 500973
+                                                    [chaptername] => 第三百四十章 火冒三丈
+                                                )
+
+                                            [375] => Array
+                                                (
+                                                    [chapterid] => 500974
+                                                    [chaptername] => 第三百四十章 火冒三丈
+                                                )
+
+                                            [376] => Array
+                                                (
+                                                    [chapterid] => 495645
+                                                    [chaptername] => 第三百四十一章  一节枯木刚刚露出水面
+                                                )
+
+                                            [377] => Array
+                                                (
+                                                    [chapterid] => 495790
+                                                    [chaptername] => 第三百四十二章  地狱荷花
+                                                )
+
+                                            [378] => Array
+                                                (
+                                                    [chapterid] => 503774
+                                                    [chaptername] => 第三百四十三章  鬼鬼祟祟
+                                                )
+
+                                            [379] => Array
+                                                (
+                                                    [chapterid] => 502787
+                                                    [chaptername] => 第三百四十四章  没有丝毫预兆
+                                                )
+
+                                            [380] => Array
+                                                (
+                                                    [chapterid] => 507006
+                                                    [chaptername] => 第三百四十五章  相互依存
+                                                )
+
+                                            [381] => Array
+                                                (
+                                                    [chapterid] => 504633
+                                                    [chaptername] => 第三百四十六章  欲语还休
+                                                )
+
+                                            [382] => Array
+                                                (
+                                                    [chapterid] => 506484
+                                                    [chaptername] => 第三百四十七章   灵光闪耀
+                                                )
+
+                                            [383] => Array
+                                                (
+                                                    [chapterid] => 508060
+                                                    [chaptername] => 第三百四十八章  又羞又恼
+                                                )
+
+                                            [384] => Array
+                                                (
+                                                    [chapterid] => 509143
+                                                    [chaptername] => 第三百四十九章   毒瘴
+                                                )
+
+                                            [385] => Array
+                                                (
+                                                    [chapterid] => 507670
+                                                    [chaptername] => 第三百五十章   可能吗
+                                                )
+
+                                            [386] => Array
+                                                (
+                                                    [chapterid] => 509402
+                                                    [chaptername] => 第三百五十一章   心劫
+                                                )
+
+                                            [387] => Array
+                                                (
+                                                    [chapterid] => 510214
+                                                    [chaptername] => 第三百五十二章  麻烦
+                                                )
+
+                                            [388] => Array
+                                                (
+                                                    [chapterid] => 508710
+                                                    [chaptername] => 第三百五十三章   霸气
+                                                )
+
+                                            [389] => Array
+                                                (
+                                                    [chapterid] => 508895
+                                                    [chaptername] => 第三百五十四章  小昆仑山
+                                                )
+
+                                            [390] => Array
+                                                (
+                                                    [chapterid] => 512100
+                                                    [chaptername] => 第三百五十五章  毒窟
+                                                )
+
+                                            [391] => Array
+                                                (
+                                                    [chapterid] => 511483
+                                                    [chaptername] => 第三百五十六章  捉弄
+                                                )
+
+                                            [392] => Array
+                                                (
+                                                    [chapterid] => 513143
+                                                    [chaptername] => 第三百五十七章  破坏
+                                                )
+
+                                            [393] => Array
+                                                (
+                                                    [chapterid] => 512505
+                                                    [chaptername] => 第三百五十八章  四下散落
+                                                )
+
+                                            [394] => Array
+                                                (
+                                                    [chapterid] => 513549
+                                                    [chaptername] => 第三百五十九章  思量
+                                                )
+
+                                            [395] => Array
+                                                (
+                                                    [chapterid] => 514251
+                                                    [chaptername] => 第三百六十章  相铺相成
+                                                )
+
+                                            [396] => Array
+                                                (
+                                                    [chapterid] => 515154
+                                                    [chaptername] => 第三百六十一章  何人
+                                                )
+
+                                            [397] => Array
+                                                (
+                                                    [chapterid] => 516438
+                                                    [chaptername] => 第三百六十二章  三眼金蟾
+                                                )
+
+                                            [398] => Array
+                                                (
+                                                    [chapterid] => 514655
+                                                    [chaptername] => 第三百六十三章  旋转分割
+                                                )
+
+                                            [399] => Array
+                                                (
+                                                    [chapterid] => 514784
+                                                    [chaptername] => 第三百六十四章  毒气
+                                                )
+
+                                            [400] => Array
+                                                (
+                                                    [chapterid] => 514968
+                                                    [chaptername] => 第三百六十五章  杀意
+                                                )
+
+                                            [401] => Array
+                                                (
+                                                    [chapterid] => 519212
+                                                    [chaptername] => 第三百六十六章  善念常存
+                                                )
+
+                                            [402] => Array
+                                                (
+                                                    [chapterid] => 515881
+                                                    [chaptername] => 第三百六十七章    快速翻飞
+                                                )
+
+                                            [403] => Array
+                                                (
+                                                    [chapterid] => 518334
+                                                    [chaptername] => 第三百六十八章   猎杀
+                                                )
+
+                                            [404] => Array
+                                                (
+                                                    [chapterid] => 518497
+                                                    [chaptername] => 第三百六十九章   气急败坏
+                                                )
+
+                                            [405] => Array
+                                                (
+                                                    [chapterid] => 519873
+                                                    [chaptername] => 第三百七十章  远古传送阵
+                                                )
+
+                                            [406] => Array
+                                                (
+                                                    [chapterid] => 521192
+                                                    [chaptername] => 第三百七十一章  意外和疑惑
+                                                )
+
+                                            [407] => Array
+                                                (
+                                                    [chapterid] => 521337
+                                                    [chaptername] => 第三百七十二章   驱虫
+                                                )
+
+                                            [408] => Array
+                                                (
+                                                    [chapterid] => 522333
+                                                    [chaptername] => 第三百七十三章  表情不变
+                                                )
+
+                                            [409] => Array
+                                                (
+                                                    [chapterid] => 522582
+                                                    [chaptername] => 第三百七十四章  按照计划
+                                                )
+
+                                            [410] => Array
+                                                (
+                                                    [chapterid] => 522718
+                                                    [chaptername] => 第三百七十五章   黑鱼妖的记忆
+                                                )
+
+                                            [411] => Array
+                                                (
+                                                    [chapterid] => 523378
+                                                    [chaptername] => 第三百七十六章 躲開
+                                                )
+
+                                            [412] => Array
+                                                (
+                                                    [chapterid] => 524285
+                                                    [chaptername] => 第三百七十七章  灵气冲天
+                                                )
+
+                                            [413] => Array
+                                                (
+                                                    [chapterid] => 523475
+                                                    [chaptername] => 第三百七十八章
+                                                )
+
+                                            [414] => Array
+                                                (
+                                                    [chapterid] => 525450
+                                                    [chaptername] => 第三百七十八章  身子一抖
+                                                )
+
+                                            [415] => Array
+                                                (
+                                                    [chapterid] => 523740
+                                                    [chaptername] => 第三百七十九章
+                                                )
+
+                                            [416] => Array
+                                                (
+                                                    [chapterid] => 526294
+                                                    [chaptername] => 第三百八十章   蝴蝶
+                                                )
+
+                                            [417] => Array
+                                                (
+                                                    [chapterid] => 527059
+                                                    [chaptername] => 第三百八十一章  一梦
+                                                )
+
+                                            [418] => Array
+                                                (
+                                                    [chapterid] => 525931
+                                                    [chaptername] => 第三百八十二章  历历在目
+                                                )
+
+                                            [419] => Array
+                                                (
+                                                    [chapterid] => 524814
+                                                    [chaptername] => 第三百八十三章  心头一沉
+                                                )
+
+                                            [420] => Array
+                                                (
+                                                    [chapterid] => 529896
+                                                    [chaptername] => 第三百八十四章  娇羞一笑
+                                                )
+
+                                            [421] => Array
+                                                (
+                                                    [chapterid] => 534031
+                                                    [chaptername] => 第三百八十五章  自由活动
+                                                )
+
+                                            [422] => Array
+                                                (
+                                                    [chapterid] => 534155
+                                                    [chaptername] => 第三百八十六章  快活
+                                                )
+
+                                            [423] => Array
+                                                (
+                                                    [chapterid] => 541031
+                                                    [chaptername] => 第三百八十七章  难啊
+                                                )
+
+                                            [424] => Array
+                                                (
+                                                    [chapterid] => 538297
+                                                    [chaptername] => 第三百八十八章  老家
+                                                )
+
+                                            [425] => Array
+                                                (
+                                                    [chapterid] => 541323
+                                                    [chaptername] => 第三百八十九章  说什么
+                                                )
+
+                                            [426] => Array
+                                                (
+                                                    [chapterid] => 542574
+                                                    [chaptername] => 第三百九十章
+                                                )
+
+                                            [427] => Array
+                                                (
+                                                    [chapterid] => 538654
+                                                    [chaptername] => 第三百九十一章  豪情万丈
+                                                )
+
+                                            [428] => Array
+                                                (
+                                                    [chapterid] => 542849
+                                                    [chaptername] => 第三百九十二章  行囊
+                                                )
+
+                                            [429] => Array
+                                                (
+                                                    [chapterid] => 545025
+                                                    [chaptername] => 第三百九十三章  登临
+                                                )
+
+                                            [430] => Array
+                                                (
+                                                    [chapterid] => 538901
+                                                    [chaptername] => 第三百九十四章  高台
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)

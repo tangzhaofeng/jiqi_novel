@@ -1,0 +1,198 @@
+{?include file="templates/autor_head.html"?}
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.css" />
+<script type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.jNice.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/jquery.validator.js"></script>
+<script type="text/javascript" src="{?$jieqi_url?}/scripts/validator-0.7.0/local/zh_CN.js"></script>
+<div id="main"> {?include file="templates/autor_left.html"?}
+  <div class="right fl ov">
+    <div class="right_nav ov"> <span class="fl black">发表作品</span> <span class="fr"><a href="http://www.deishu.com/modules/pay/" target="_blank">充 值>></a> <a href="http://www.deishu.com/welfare/welfare.html" target="_blank">查看作家福利>></a></span> </div>
+
+	
+    <div class="right_c">
+      <div class="right_c_menu ov"><span class="span_nav"><a href="{?$jieqi_modules['article']['url']?}/newarticle.php">发表作品</a></span><span><a href="{?$jieqi_modules['article']['url']?}/masterpage.php">作品管理</a></span><span><a href="{?$article_static_url?}/ytuijian.php">申请推荐</a></span><span><a href="{?$article_static_url?}/yqiany.php">申请签约</a></span><span><a href="{?$article_static_url?}/ymyapply.php">我的申请</a></span><span ><a href="{?$article_static_url?}/newdraft.php">草稿箱定时发布</a></span></div>
+      <div class="right_c_list">
+        <div class="introdu">
+          <div class="bg"></div>
+          <div class="text">
+            <div>说明：</div>
+            <ul>
+              <li>1、新作品建立后30天之内如未能上传5000字，我们将做删除处理。</li>
+              <li>2、如已有1万字以下未完成作品，不能再建立新作品,如果需要删除作品请联系客服或编辑。</li>
+              <li>3、新建作品总字数超过3000字后，请点击"提交审核"。</li>
+              <li>4、新作品提交审核后，我们将在24小时内进行审核。通过的作品可以在页面上显示。 </li>
+            </ul>
+          </div>
+        </div>
+          <form  id="signup_form" action="{?function geturl:'article':'article':'SYS=method=step1'?}"  method="post" enctype="multipart/form-data" class="jNice" >
+              <dd class="fix">
+                  <em class="tt3">作品类别：</em>
+                  <div class="int">
+                      <!--selt3 begin-->
+                      <div class="selt3">
+                          <select id="siteid" name="siteid" onchange="showtypes(this)" style="display:none;">
+                              {?section name=i loop=$channel?}
+                              <option value="{?$i['key']?}">{?$channel[i].name?}</option>
+                              {?/section?}
+                          </select>
+                      </div>
+                      <!--selt3 end-->
+                      <div class="selt3">
+                          <select id="sortid" name="sortid" style="display:none;">
+                              <!-- 默认当前模块所在频道的分类 -->
+                              {?section name=i loop=$sortrows?}
+                              <option value="{?$i['key']?}">{?$sortrows[i].caption?}</option>
+                              {?/section?}
+                          </select>
+                      </div><!--selt3 end-->
+                      <span class="hint">一经选定，不能修改。 </span>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">作品书名：</em>
+                  <div class="int">
+                      <input type="text" class="input1"  name="articlename" id="articlename"  maxlength="20" data-rule="书名: required;articlename;remote[{?function geturl:'article':'article':'SYS=method=checkArticlename'?}]" />
+                      <span class="hint cl">请不要在书名里加标点、标识符等异形字符，最多20个汉字。一经选定，不能修改。 </span>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">关键字：</em>
+                  <div class="int">
+                      <input type="text" class="input1 fl" name="keywords" id="keywords" value="" maxlength="30"/><span class="hint">关键字之间用空格隔开,最多十组</span>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">标签：</em>
+                  <div class="int">
+                      <div id="tags">
+                          {?section name=i loop=$tags['0']?}
+                          <label><input name="tag[]" type="checkbox" value="{?$tags['0'][i]['id']?}" data-rule="checked[1~4]"/>{?$tags['0'][i]['name']?}</label>&nbsp;
+                          {?/section?}
+                      </div>
+                      <span class="hint cl">最少选择一个标签，最多选择4个标签。 </span>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">编辑：</em>
+                  <div class="int">
+                      <input type="text" class="input1 fl" name="agent" id="agent" value="" maxlength="20" data-rule="agent;remote[{?function geturl:'article':'article':'SYS=method=checkAgent'?}]"/><span class="hint cl">可以指定一个本站现有用户作为管理员</span>
+                  </div>
+              </dd>
+              {?if $allowtrans > 0?}
+              <dd class="fix">
+                  <em class="tt3">作者：</em>
+                  <div class="int">
+                      <!-- 	           <input type="text" class="input1 fl" name="author" id="author" value="" maxlength="20" data-rule="author;remote[{?function geturl:'article':'article':'SYS=method=checkAuthor'?}]"><span class="hint cl">发表自己作品请留空</span> -->
+                      <input type="text" class="input1 fl" name="author" id="author" value="" maxlength="10" ><span class="hint cl">发表自己作品请留空</span>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">管理授权：</em>
+                  <div class="int">
+                      {?section name=i loop=$authorflag['items']?}
+                      <input type="radio" class="radio" name="authorflag" value="{?$i['key']?}" {?if $i['key'] == $authorflag['default']?}checked="checked" {?/if?}/>{?$authorflag['items'][i]?}
+                      {?/section?}
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">授权级别：</em>
+                  <div class="int">
+                      {?section name=i loop=$permission['items']?}
+                      <p class="rdo fl">
+                          <input type="radio" name="permission" value="{?$i['key']?}" {?if $i['key'] == $permission['default']?}checked="checked" {?/if?} /><label>{?$permission['items'][i]?}</label>
+                      </p>
+                      {?/section?}
+                      <!--<span class="hint">授权性质请详见投稿须知一经选定，不能再更改 </span> -->
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">首发状态：</em>
+                  <div class="int">
+                      {?section name=i loop=$firstflag['items']?}
+                      <p class="rdo fl">
+                          <input type="radio" name="firstflag" value="{?$i['key']?}" {?if $i['key'] == $firstflag['default']?}checked="checked" {?/if?} /><label>{?$firstflag['items'][i]?}</label>
+                      </p>
+                      {?/section?}
+                      <span class="hint">一经选定，不能再更改</span>
+                  </div>
+              </dd>
+              {?/if?}
+              <dd class="fix">
+                  <em class="tt3">内容简介：</em>
+                  <div class="int">
+                      <span class="hint">请不要超过400字，此处填写的不是章节内容。</span>
+                      <textarea name="intro" id="intro" class="inp31" maxlength="400" data-rule="简介: required;intro;remote[{?function geturl:'article':'article':'SYS=method=checkIntro'?}]"></textarea>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">作者公告：</em>
+                  <div class="int">
+                      <span class="hint">此处填写的是作品的公告内容，之后会显示在新作品首页的作品公告版块中。请不要超过140字。</span>
+                      <textarea name="notice" cols="" rows="" class="inp31" maxlength="140"></textarea>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">上传大封面：</em>
+                  <div class="int">
+                      <input type="file" class="text" size="60" name="articlelpic" id="articlelpic"/>
+                      <span class="hint cl">大封面用于PC端，可在封面管理修改。 </span>
+                  </div>
+              </dd>
+              <dd class="fix">
+                  <em class="tt3">上传小封面：</em>
+                  <div class="int">
+                      <input type="file" class="text" size="60" name="articlespic" id="articlespic"/>
+                      <span class="hint cl">小封面用于移动端，默认使用大封面缩小图。 </span>
+                  </div>
+              </dd>
+
+              <dd class="fix">
+                  <em class="tt3">验证码：</em>
+                  <div class="int">
+                      <input type="text" name="checkcode" class="input1 fl" style="width:160px;" maxlength="4" autocomplete=”off”/><img src="{?$jieqi_local_url?}/checkcode.php" height="28" class="pic" id="checkcode2" /><a class="f_org2 pl10" href="javascript:;" onclick="$('#checkcode2').attr('src','{?$jieqi_local_url?}/checkcode.php?rand='+Math.random());">换一张</a>
+                  </div>
+              </dd>
+
+              <dd class="fix">
+                  <em class="tt3"></em>
+                  <div class="int">
+                      <p class="pb20 cl"><button type="submit" class="btn">保存</button></p>
+                      <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+                  </div>
+              </dd>
+          </form>
+
+      </div>
+    </div>
+    <div class="right_f"><img src="{?$jieqi_local_url?}/modules/article/templates/style/images/right_f.jpg" width="733" height="42" /></div>
+  </div>
+</div>
+<script language="javascript">
+    function showtypes(obj){
+        var temp,tag_html = '';
+        {?section name=i loop=$channel?}
+        if(obj.options[obj.selectedIndex].value == {?$i['key']?}){
+            {?section name=k loop=$channel[i].sort?}
+            temp += '<option value="{?$k['key']?}" >{?$channel[i].sort[k].caption?}</option>';
+            {?/section?}
+
+            {?section name=l loop=$tags[i]?}
+            tag_html += '<label><input name="tag[]" type="checkbox" value="{?$tags[i][l]['id']?}" data-rule="checked[1~4]"/>{?$tags[i][l]["name"]?}</label>&nbsp;';
+            {?/section?}
+        }
+        {?/section?}
+        $("#sortid").html(temp);
+        $("#tags").html(tag_html);
+        bindselectOnId('sortid');
+    }
+</script>
+<!--header end--> 
+<!--foot star-->
+<div class="bottom ov">&nbsp;</div>
+<div id="footer"><a href="#">关于得书网</a> | <a href="#">联系我们</a> | <a href="#">联系编辑</a> | <a href="#">加入我们</a> | <a href="#">友情链接</a> | <a href="#">法律声明</a><br />
+  <p style="font-size:12px; color:#727272;">Copyright (C) 2006-2011 www.deishu.com All Rights Reserved 得书文化传播版权所有，言情小说、玄幻小说、校园小说、悬疑小说等在线小说</p>
+    <p style="font-size:12px; color:#727272;">阅读网站，提供在线阅读、言情小说下载、小说排行榜，未经许可不得擅自转载本站内容。皖ICP备11015649号。</p>
+	<p style="font-size:12px; color:#727272;">得书网所收录免费小说作品、社区话题、书库评论及得书网网所做之广告均属用户个人行为，与得书网无关。--得书网权利声明 </p>
+</div>
+<!--foot end-->
+</body></html>

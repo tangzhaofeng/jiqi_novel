@@ -1,0 +1,90 @@
+{?set $jieqi_pagetitle = "我的账户"?}
+{?set $meta_keywords = "最新小说,原创小说,小说大全,小说库"?}
+{?set $meta_description = ""?}
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=" />
+<title>{?$jieqi_pagetitle?}</title>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta http-equiv="Cache-Control" content="no-transform " /> 
+<meta name="keywords" content="{?$meta_keywords?}" />
+<meta name="description" content="{?$meta_description?}" />
+<meta name="author" content="{?$meta_author?}" />
+<meta name="copyright" content="{?$meta_copyright?}" />
+<link href="{?$jieqi_themeurl?}style/account.css" rel="stylesheet" type="text/css" />
+{?include file="themes/3g/js.html"?}
+</head>
+
+<body>
+<div class="header">
+	<div class="shouye"><a href="{?function geturl:'3g':'userhub'?}">返回</a></div>
+    <div class="title"><a href="javascript:;">我的账户</a></div>
+    <div class="shujia"><a href="{?$SITE_WAP_URL?}">首页</a></div>
+</div>
+<div class="userinfo">
+	<div class="usr"><img src="{?function jieqi_geturl:'system':'avatar':'$_USER["uid"]':'l':'$_USER["avatar"]'?}" /></div>
+    <div class="name">
+    	<div>{?$_USER['username']?}</div>
+        <span class="lb lb{?$_USER['honorid']?}"></span><span class="v {?$_USER['vipphoto']?}"></span>
+    </div>
+    <div class="tui"><a href="{?function geturl:'system':'userhub':'SYS=method=logout'?}">退出</a></div>
+</div>
+<div class="content1">
+    <div class="yu_e">
+    	<div class="yu_e_tit">我的余额：</div>
+        <div class="yu_e_con"><span>{?$_USER['egolds']?}</span>{?$egoldname?}/<span>{?$_USER['esilvers']?}</span>书券</div>
+    </div>
+    <div class="chongzhi"><a href="{?function geturl:'3g':'pay'?}">充值</a></div>
+</div>
+
+<div class="content2">
+    <div class="dengji">
+    	<div class="dengji_tit">我的等级：</div>
+        <div class="dengji_con"><span class="vv v{?$_USER['vipphoto']?}"></span>{?$_USER['vipgrade']?}级</div>
+        <div class="tixi"><a href="{?function geturl:'3g':'userhub':SYS=method=uservip?}">VIP成长体系</a></div>
+    </div>
+    <div class="jifen">
+    	<div class="jifen_tit">我的积分：<span>{?$_USER['score']?}</span></div>
+        <div class="tixi"><a href="{?function geturl:'3g':'userhub':SYS=method=usermember?}">会员积分体系</a></div>
+    </div>
+</div>
+<div class="content3">
+	<span class="key">修改密码</span>
+    <a href="javascript:;" class="keybut">&nbsp;&nbsp;</a> 
+    <form action="{?function geturl:'3g':'userhub':SYS=method=updatePwd?}" method="post">
+	    <div class="xgmm" style="display: none;">
+	    	<span>旧的密码</span>
+	        <input type="password" name="oldpass" placeholder="请输入旧的密码" />
+	        <span>新的密码</span>
+	        <input type="password" name="newpass" placeholder="请输入新的密码" />
+	        <span>重复密码</span>
+	        <input type="password" name="repass" placeholder="请再次输一次新的密码" />
+	        <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+	        <input type="hidden" name="action" id="action" value="update" />
+	        <input type="submit" class="submit" value="提交" />
+	    </div>  
+    </form>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+  <script type="text/javascript">
+$(document).ready(function(e) {
+    $("a.keybut").click(function(){
+    	var box = $("div.xgmm");
+    	if(box.is(":hidden")){
+    		box.show();
+    	}else{
+    		box.hide();
+    	}
+//		$(this).addClass("ahover").parents("div.maintit").addClass("maintithover").next().show();
+//		$(this).parents("li").siblings().find("div.maincon").hide();
+//		$(this).parents("li").siblings().find("div.maintit").removeClass("maintithover");
+//		$(this).parents("li").siblings().find("a").removeClass("ahover");
+	});
+	
+});
+</script>
+</body>
+</html>
+

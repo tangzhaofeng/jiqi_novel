@@ -1,0 +1,20 @@
+  <div class="box_mid2">
+        <div class="t"><h3>我的书架</h3><a href="{?function geturl:'article':'article':'SYS=method=bcView'?}" class="fr f_blue4">更多&gt;&gt;</a></div>
+        <div class="down">
+         <div class="tt"><span class="name">作品名</span><span class="status">状态</span><span class="date">更新日期</span>
+         </div>
+         <dl class="list_td3 pt10 pb10">
+         {?section name=i loop=$bookcaserows?}
+	          <dd>
+	          	<span class="name">
+	          		<a href="{?$bookcaserows[i].url_articleinfo?}" target="_blank" class="f_blue4 f14">{?$bookcaserows[i].articlename?}</a>
+	          		<a href="{?$bookcaserows[i].url_lastchapter?}" target="_blank" class="f_gray9">{?$bookcaserows[i].lastchapter?}</a>
+	          	</span>
+	          	<span class="status">{?$bookcaserows[i].fullflag_tag?}</span>
+	          	<span class="date">{?$bookcaserows[i].lastupdate|date:"m-d H:i"?}</span>
+	          	<a href="{?$bookcaserows[i].url_articleindex?}" class="more">立即阅读&gt;&gt;</a>
+	          </dd>
+         {?/section?}
+         </dl>
+        </div>
+      </div>

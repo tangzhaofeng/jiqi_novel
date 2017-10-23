@@ -1,0 +1,299 @@
+{?set jieqi_page_template = "/modules/news/themes/empty.html"?}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{?$_PAGE['data']['meta_title']?}</title>
+<meta name="keywords" content="{?$_PAGE['data']['meta_keywords']?}">
+<meta name="description" content="{?$_PAGE['data']['meta_description']?}">
+<link href="{?$_SGLOBAL['TPL_DIR']?}/show_special2/{?$_PAGE['data']['t_style']|defaultval:'purplefull'?}/css/ztmb.css" rel="stylesheet" type="text/css" />
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script language="javascript">
+<!--
+var articleid = '{?$_PAGE['data']['contentid']?}';
+var siteurl = '{?$_SGLOBAL['localurl']?}';
+//-->
+</script> 
+</head>
+
+<body style="background-image: url({?$_PAGE['data']['specialbanner']?});">
+<!--顶部文件 开始-->
+<div class="top1">
+  <span>
+  <a href="{?$_SGLOBAL['localurl']?}" target="_blank">赶游网首页</a> | 
+  <a href="{?function jieqi_geturl:'news':'lists':77:1?}" target="_blank">游戏资讯</a> |
+  <a href="{?function jieqi_geturl:'news':'lists':64:1?}" target="_blank">单机游戏</a> |
+  <a href="{?function jieqi_geturl:'news':'lists':98:1?}" target="_blank">电视游戏</a> |
+  <a href="{?function jieqi_geturl:'news':'lists':100:1?}" target="_blank">网络游戏</a> |
+  <a href="{?function jieqi_geturl:'news':'lists':88:1?}" target="_blank">访谈</a> | 
+  <a href="{?function jieqi_geturl:'news':'lists':130:1?}" target="_blank">视频</a> |
+  <a href="{?function jieqi_geturl:'news':'lists':110:1?}" target="_blank">攻略秘籍</a> | 
+  <a href="{?function jieqi_geturl:'news':'lists':14:1?}" target="_blank">图库</a>|
+  <a href="{?function jieqi_geturl:'news':'lists':9:1?}" target="_blank">百科</a>    </span>
+  <a href="{?$_SGLOBAL['localurl']?}" target="_blank">{?$_SGLOBAL['sitename']?} www.ganyou.com</a>  </div>
+<!--顶部文件 结束-->
+<div class="xjqx">
+<!--导航 开始-->
+<div class="contain">
+<div class="top3">
+  <a href="{?$_PAGE['data']['url_articleinfo']?}">{?$_PAGE['data']['title']?}首页</a> |
+  <a href="{?$_PAGE['data']['s_news']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}新闻</a> |
+  <a href="{?$_PAGE['data']['s_gonglue']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}攻略/秘籍</a> |
+  <a href="{?$_PAGE['data']['s_down']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}相关下载</a> |
+  <a href="{?$_PAGE['data']['s_pic']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}截图</a> |
+  <a href="{?$_PAGE['data']['s_bizhi']['url_more']?}" target="_blank">{?$_PAGE['data']['title']?}壁纸</a> | 
+</div>
+<!--导航 结束-->
+<div class="zt_left">
+    <!--图片推荐 开始-->
+    <div class="zt_left_l">
+        {?$_PAGE['data']['vars']['左上角图推']?}
+        <div class="clear"></div>
+    </div>
+    <!--图片推荐 结束-->
+    <!--游戏资讯 开始-->
+    <div class="zt_left_r">
+    <div class="zt_lanm01"><span><a href="{?$_PAGE['data']['s_news']['url_more']?}" target="_blank">更多>></a></span><strong>{?$_PAGE['data']['title']?}游戏新闻</strong></div>
+    <div class="zt_nr" style="height:480px !important; height:490px;">
+    <ul>{?section name=i loop=$_PAGE['data']['s_news']['rows']?}<li{?if $i.order % 5 ==0?} class="a1"{?/if?}><a href="{?$_PAGE['data']['s_news']['rows'][i]['url_articleinfo']?}" target="_blank">·{?$_PAGE['data']['s_news']['rows'][i]['title']|truncate:40:'':0?}</a></li>{?/section?}
+    </ul>
+    </div>
+    </div>
+    <!--游戏资讯 结束-->
+    <div class="clear"></div>
+    <div>
+    <!--游戏攻略 开始-->
+    <div class="zt_nr3_l">
+        <div class="zt_lanm04">
+        <span><a href="{?$_PAGE['data']['s_gonglue']['url_more']?}" target="_blank">更多>></a></span>
+        <strong>{?$_PAGE['data']['title']?}攻略</strong></div>
+        <div class="zt_nr3_k" style="height:510px">
+          <div class="zt_nr3_k_n">
+                {?$_PAGE['data']['vars']['攻略']?}
+                <div class="clear"></div>
+          </div>
+          <ul>
+            {?section name=i loop=$_PAGE['data']['s_gonglue']['rows']?}<li><a href="{?$_PAGE['data']['s_gonglue']['rows'][i]['url_articleinfo']?}" target="_blank">·{?$_PAGE['data']['s_gonglue']['rows'][i]['title']|truncate:44:'':0?}</a></li>{?/section?}
+          </ul>
+        </div>
+		
+    </div>
+    <!--游戏攻略 结束-->
+    <div class="zt_nr3_r">
+        <div class="zt_lanm04">
+<span><a href="{?$_PAGE['data']['s_down']['url_more']?}" target="_blank">更多>></a></span>
+        <strong>附件/补丁下载</strong></div>
+        <div class="zt_nr3_k" style="height:510px">
+        <div class="zt_nr3_k_n">
+			  {?$_PAGE['data']['vars']['附件']?}
+                <div class="clear"></div>
+          </div>
+              <ul>
+            {?section name=i loop=$_PAGE['data']['s_down']['rows']?}<li><a href="{?$_PAGE['data']['s_down']['rows'][i]['url_articleinfo']?}" target="_blank">·{?$_PAGE['data']['s_down']['rows'][i]['title']|truncate:40?}</a></li>{?/section?}
+          </ul>
+        </div>
+		
+    </div>
+    <div class="clear"></div>
+    </div> 
+    <!--精华文章推荐 开始-->
+    <div class="top10">
+	<div class="zt_lanm01">
+    <span><a href="{?$_PAGE['data']['s_pic']['url_more']?}" target="_blank">更多>></a></span>
+    <strong>{?$_PAGE['data']['title']?}游戏截图</strong>
+    </div>
+    <div class="zt_nr3_k2">
+    {?$_PAGE['data']['vars']['游戏截图']?}<div class="clear"></div></div>
+    </div>
+    <!--精华文章推荐 结束-->
+   <!--截图 开始-->
+    <div class="top10">
+ <div class="zt_lanm01">
+    <span><a href="{?$_PAGE['data']['s_bizhi']['url_more']?}" target="_blank">更多>></a></span>
+    <strong>{?$_PAGE['data']['title']?}游戏壁纸</strong>    </div>
+    <div class="zt_nr3_k2">
+   {?$_PAGE['data']['vars']['游戏壁纸']?}<div class="clear"></div></div>
+    </div>
+    <!--截图 结束-->
+    <!--壁纸 开始-->
+
+    <div class="top10">
+    <div class="zt_lanm01">
+    <span><a href="{?function jieqi_geturl:'news':'comment':$_PAGE['data']['contentid']?}" target="_blank">进入{?$_PAGE['data']['title']?}论坛　</a></span>
+    <strong>游戏评论</strong>    </div>
+<span id=comment>评论加载中……</span>
+    </div>
+    <!--评论 结束-->
+</div>
+<!--right 开始-->
+<div class="zt_right">
+<div class="zt_lanm02"><strong>游戏资讯</strong></div>
+<div class="zt_nr2"> 
+    <div class="zt_nr2_k">
+    {?$_PAGE['data']['vars']['游戏资迅']?}
+    <div class="clear"></div>
+    </div>
+    <p> <strong>游戏介绍：</strong></p>
+    <ul class="zt_ul01">
+    <li>{?$_PAGE['data']['__content']|truncate:500:'……':0?}</li></ul>
+</div>
+<div class="zt_di"></div>
+
+<div class="zt_lanm02"><strong>仙剑奇侠传一相关下载</strong></div>
+<div class="zt_nr2">
+<table width="100%" border="0" cellspacing="0" class="table01">
+  <tr>
+    <td colspan="2" class="a1">仙剑一下载版本</td>
+    </tr>
+  <tr>
+    <td><a href="http://danji.ganyou.com/19852/" target="_blank">· 仙剑奇侠传Dos版</a></td>
+    <td><a href="http://danji.ganyou.com/news/19881.html" target="_blank">· 新仙剑奇侠传电视剧纪念XP版</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://danji.ganyou.com/19892/" target="_blank">· 仙剑奇侠传98柔情版</a></td>
+    <td><a href="http://danji.ganyou.com/19857/" target="_blank">· 仙剑奇侠传95版</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://danji.ganyou.com/3801/" target="_blank">· 仙剑奇侠传一</a></td>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table01">
+  <tr>
+    <td colspan="2" class="a1">仙剑历代下载</td>
+    </tr>
+  <tr>
+    <td><a href="http://danji.ganyou.com/3801/" target="_blank">· 仙剑奇侠传1</a></td>
+    <td><a href="http://danji.ganyou.com/1107/" target="_blank">· 仙剑奇侠传2</a></td>
+  </tr>
+  <tr>
+    <td><a href="http://danji.ganyou.com/1113/" target="_blank">· 仙剑奇侠传3</a></td>
+    <td><a href="http://danji.ganyou.com/1122/" target="_blank">· 仙剑奇侠传4</a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table01">
+  <tr>
+    <td colspan="2" class="a1">下载</td>
+    </tr>
+  <tr>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+  </tr>
+  <tr>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+    <td><a href="#" target="_blank">· 免安装中文硬盘版</a></td>
+  </tr>
+</table>
+</div>
+<div class="zt_di"></div>
+
+<div class="zt_lanm02"><strong>点评文章</strong></div>
+<div class="zt_nr2">
+<div class="zt_nr2_k">
+    <div class="zt_nr2_l2"><a href="#" target="_blank" title="游戏名"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg" /></a></div>
+    <div class="zt_nr2_r2">
+    <ul>
+    <li><a href="#" target="_blank" class="f02">《刺客信条2》家用版评测</a> </li>
+    <li><a href="#" target="_blank">刺客信条2在修改了前作一些硬伤后加入了不少新要素成功系列化....</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    </div>
+<div class="zt_nr2_k">
+    <div class="zt_nr2_l2"><a href="#" target="_blank" title="游戏名"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg" /></a></div>
+    <div class="zt_nr2_r2">
+    <ul>
+    <li><a href="#" target="_blank" class="f02">《刺客信条2》家用版评测</a> </li>
+    <li><a href="#" target="_blank">刺客信条2在修改了前作一些硬伤后加入了不少新要素成功系列化....</a></li>
+    </ul>
+    </div>
+    <div class="clear"></div>
+    </div>
+</div>
+<div class="zt_di"></div>
+
+<div class="zt_gg"><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/zt_dh06.jpg" /></a></div>
+
+<div class="zt_lanm02"><strong>最新热门游戏</strong></div>
+<div class="zt_nr2">
+<table width="100%" border="0" cellspacing="0" class="table02">
+  <tr>
+    <td colspan="2"><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg" title="游戏名"/></a></td>
+    </tr>
+  <tr>
+    <td width="51%">游戏名称：极品飞车14      </td>
+    <td width="49%">游戏类型：竞速 
+游戏</td>
+  </tr>
+  <tr>
+    <td>上市：2010.11.16</td>
+    <td>游戏平台：PC X360</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table02">
+  <tr>
+    <td colspan="2"><a href="#" target="_blank"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg" title="游戏名"/></a></td>
+    </tr>
+  <tr>
+    <td width="51%">游戏名称：极品飞车14      </td>
+    <td width="49%">游戏类型：竞速 
+游戏</td>
+  </tr>
+  <tr>
+    <td>上市：2010.11.16</td>
+    <td>游戏平台：PC X360</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" class="table02">
+  <tr>
+    <td colspan="2"><a href="#" target="_blank" title="游戏名"><img src="{?$_SGLOBAL['TPL_DIR']?}/show_special2/purplefull/images/i0124_1.jpg"/></a></td>
+    </tr>
+  <tr>
+    <td width="51%">游戏名称：极品飞车14      </td>
+    <td width="49%">游戏类型：竞速 
+游戏</td>
+  </tr>
+  <tr>
+    <td>上市：2010.11.16</td>
+    <td>游戏平台：PC X360</td>
+  </tr>
+</table>
+</div>
+<div class="zt_di"></div>
+
+</div>
+<!--right 结束-->
+<div class="clear"></div>
+<!--底 开始-->
+<div class="bottom">
+		<a href="#" target="_blank">关于赶游网</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">诚聘英才</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">商务合作</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" target="_blank">友情链接</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="#" target="_blank">法律声明</a><br />
+		本站所收录所有玄幻小说、言情小说、网游小说及其它各类小说作品、小说评论均属其个人行为，不代表本站立场。<br />
+		Copyright (C) 2004-2010 赶游网 All Rights Reserved 版权所有<br />
+		蜀ICP备05000570号 电信增值业务许可证：川B2-20100073
+  </div>
+<!--底 结束-->
+</div>
+</div>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/dataload.js"></script>
+<script language="javascript">
+<!--
+$().ready(function() {
+    GData.CommentUrl = siteurl+'/modules/news/?ac=comment&t=comment_special_3&contentid='+articleid;
+	GData.pageLoad();
+});
+//-->
+</script> 
+</body>
+</html>

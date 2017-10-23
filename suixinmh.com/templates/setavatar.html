@@ -1,0 +1,78 @@
+<script type="text/javascript">
+   function uploadevent(status,picUrl,callbackdata){
+        status += '';
+     switch(status){
+     case '1':
+    	 window.location.reload();
+	break;
+     case '-1':
+    	var dataObj=eval("("+callbackdata+")");
+    	 alert(dataObj['tip']);
+     break;
+     default:
+     window.location.reload();
+    } 
+   }
+  </script>
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr bg5">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/usertab.html" ?}
+      <ul id="tab_conbox" class="f0 bg5">
+        <li class="fix">
+  		<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+			codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+			WIDTH="650" HEIGHT="450" id="myMovieName">
+			<PARAM NAME=movie VALUE="{?$avatarswf?}">
+			<PARAM NAME=quality VALUE=high>
+			<PARAM NAME=bgcolor VALUE=#FFFFFF>
+			<param name="flashvars" value="imgUrl={?$avatardefault?}&uploadUrl={?function geturl:'system':'userhub':'SYS=method=saveAvatar'|urlencode?}&uploadSrc=true" />
+			<EMBED src="{?$avatarswf?}" style="border:1px green solid;" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="imgUrl={?$avatardefault?}&uploadUrl={?function geturl:'system':'userhub':'SYS=method=saveAvatar'|urlencode?}&uploadSrc=true"
+			NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always"
+			PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+			</EMBED>
+		</OBJECT>
+			<div id="avatar_priview"></div>
+			<div id="xmp"></div>
+        </li>
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

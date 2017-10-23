@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="{?$jieqi_charset?}">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <title>签到</title>
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}/sign/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="{?$jieqi_themeurl?}/sign/css/extend.css" />
+    <style>
+        html,
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .signTable td {
+            border-bottom: #eee 1px solid;
+        }
+    </style>
+    <style>
+        .listBox ul li {
+            border-top: #ddd 1px solid;
+            padding: 10px 60px 10px 0;
+            position: relative;
+            line-height: 22px;
+            font-size: 15px;
+        }
+
+        .listBox ul li .photo {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+        .listBox ul li .photo img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<header class="bgcRed h45 lh45 f18 tc cfff bb bceee" id="header">
+    <a href="{?$SITE_WAP_URL?}"><span class="dib lh45 oh h45 pa left0 top0"><img src="{?$jieqi_themeurl?}/sign/images/back.png" alt="" width="25" /><span style="color: white">首页</span></span></a> 签到领书券
+</header>
+<div class="bgcRed pt30 pb30 mb10">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tc">
+        <tr>
+            <td class="wp20"><img class="w55" src="{?$jieqi_themeurl?}/sign/images/ji.png" alt="" /></td>
+            <td class="wp50">
+                <div class="f13 cfff tl ml10">我的书券：<span class="cOrange f20" id="signtotal">{?$my_sliver?}</span> 个</div>
+                <div class="f13 cfff tl ml10">已签到：<span id="signnum">{?$sign_days?}</span>天</div>
+                <div class="f13 cfff tl ml10">累积已领取：<span id="quan">{?$total_award?}</span>书券</div>
+            </td>
+            <td class="wp30">
+                {?if $signed==0?}
+                <a href="/index.php?controller=sign&method=sign"><span><img class="w80" src="{?$jieqi_themeurl?}/sign/images/sign1.png" alt="" /></span></a>
+                <!--签到-->
+                {?else?}
+                <span ><img class="w80" src="{?$jieqi_themeurl?}/sign/images/sign2.png" alt="" /></span>
+                <!--已签到-->
+                {?/if?}
+            </td>
+        </tr>
+    </table>
+</div>
+<!--type-->
+<div class="bt bcddd">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="lh40 h40 tc f13 c666 signTable" bgcolor="#FFFFFF">
+        <thead>
+        <tr bgcolor="#f0f0f0" class="f15">
+            <th>日期</th>
+            <th>奖励</th>
+            <th>累积奖励</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        {?section name=i loop=$sign_data?}
+        <tr>
+            <td>{?$sign_data[i].sign_date?}</td>
+            <td>{?$sign_data[i].award?}</td>
+            <td>{?$sign_data[i].total_award?}</td>
+            <td>{?$sign_data[i].status?}</td>
+        </tr>
+        {?/section?}
+        </tbody>
+    </table>
+</div>
+<div class="br5 m10 bgcfff">
+    <div class="plf10">
+        <div class="f12 c999 lh40">推荐阅读</div>
+        <div class="pr mb10">
+            <a href="http://m.ishufun.net/read/10022/558904.html?qd=sign"><img src="{?$jieqi_themeurl?}/sign/images/1.jpg" class="wp100" alt="" />
+            <div class="pa wp100 left0 right0 bottom0 black05 cfff f12 lh1_6 pt5 pb5 plf10 bsi f14 overMore2">
+                前夫离婚后逼我再次恩爱，却让我找回了当初的感觉！
+            </div></a>
+        </div>
+        <div class="listBox">
+            <ul>
+                <li><a href="http://m.ishufun.net/read/10051/661496.html?qd=sign">
+                    <p class="overMore2"> 我一度认为无能的老公，竟在离婚前弄得我死去活来！</p>
+                    <span class="photo"><img src="{?$jieqi_themeurl?}/sign/images/2.jpg" alt="" /></span>
+                </li>
+                <li>
+                    <a href="http://m.ishufun.net/read/11640/1148503.html?qd=sign"><p class="overMore2">揭秘：古代那些变态避孕法，让人直冒冷汗! </p>
+                    <span class="photo"><img src="{?$jieqi_themeurl?}/sign/images/3.jpg" alt="" /></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{?eval require_once './../../cs.php';echo '<img src="'._cnzzTrackPageView(1258827042).'" width="0" height="0"/>';?}
+</body>
+</html>

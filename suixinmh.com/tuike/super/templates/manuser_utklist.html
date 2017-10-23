@@ -1,0 +1,72 @@
+{?include file="tuike/super/templates/public/header.html" ?}
+{?include file="tuike/super/templates/public/left.html" ?}
+    <div class="g-main">
+      <h3>推客管理 </h3>
+      <div class="m-panel ">
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+            <div class="tool-search f-cb">
+              <form action="{?function geturl:super:manuser?}" method="post">
+                <input type="text" class="form-element" name="keyword" value="">
+                <button class="u-btn u-btn-primary" type="submit">搜索</button>
+              </form>
+            </div>
+          </div>
+          <div class="panel-header">
+            推广明细(推客：{?$tuiInfo.uname?})
+          </div>
+          <table id="table" class="m-table ">
+            <thead>
+              <tr>
+                <th>用户ID</th>
+                <th>用户名</th>
+                <th>渠道管理</th>
+                <th>充值明细</th>
+                <th>广告分成</th>
+                <th>推广明细</th>
+                <th>详情</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($ktList)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 7 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('super','manuser');?}
+              {?section name=i loop=$ktList?}
+              <tr>
+                <td>{?$ktList[i].uid?}</td>
+                <td>{?$ktList[i].uname?}</td>
+                <td>
+                  {?$ktList[i].qdNum?}&nbsp;&nbsp;<a class="u-btn u-btn-primary" href="{?$url?}qdlist?uid={?$ktList[i].uid?}">查看</a>
+                </td>
+                <td>
+                  {?$ktList[i].money?}&nbsp;&nbsp;<a class="u-btn u-btn-primary" href="{?$url?}paylist?uid={?$ktList[i].uid?}">查看</a>
+                </td>
+                <td>
+                  {?$ktList[i].payG?}
+                </td>
+                <td>
+                  {?$ktList[i].payTNum?}/{?$ktList[i].payT?}&nbsp;&nbsp;<a class="u-btn u-btn-primary" href="{?$url?}tkulist?uid={?$ktList[i].uid?}">查看</a>
+                </td>
+                <td>
+                  <a class="u-btn u-btn-primary" href="{?$url?}tkuinfo?uid={?$ktList[i].uid?}">查看</a>
+                </td>
+              </tr>
+              {?/section?}
+              {?/if?}
+            </tbody>
+          </table>
+          <div class="m-table-bar">
+            <div class="bar-pages">
+              <div class="m-page">
+                {?$page?}
+              </div>
+            </div>
+            <div class="f-cb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+{?include file="tuike/super/templates/public/footer.html"?}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<books> {?section name=i loop=$rows?}
+    <book> 
+        <bookId>{?$rows[i]['articleid']?}</bookId> 
+        <categoryId>{?$rows[i]['sortid']?}</categoryId> 
+        <categoryPid>0</categoryPid> 
+        <bookName>{?eval echo gb2utf8XHSafeStr($rows[i]['articlename'],false);?}</bookName> 
+    </book> {?/section?}
+</books> 

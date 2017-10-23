@@ -1,0 +1,93 @@
+<{config_load file="smarty.conf" section="setup"}>
+<div style="text-align: left; width: 400px;">共 <{$page.count}> 条 , 
+	当前 <{$page.pageNum}> / <{$page.total}> 页&nbsp;&nbsp;&nbsp;&nbsp;
+<select onChange="keyFrom(this)">
+	<{foreach key=key item=vo from =$pagekey}>
+	<option value="<{$key}>" <{if $page.numPerPage == $key}>selected="selected"<{/if}>><{$vo}></option>
+	<{/foreach}>
+</select>	
+</div>	
+<div style="float: right;">
+	<ul class="pagination pagination-sm" style="margin-top: -30px;">
+		<{if $page.pageNum > 1}>
+		<li>
+			<a href="javascript:pageFrom(1);"> &lt;&lt; </a>
+		</li>
+		<{/if}>
+		
+<!-- 		<{if $page.pageNum -4 > 0}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum-4}>);"> <{$page.pageNum -4}> </a>
+		</li>
+		<{/if}>
+		
+		<{if $page.pageNum -3 > 0}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum-3}>);"> <{$page.pageNum -3}> </a>
+		</li>
+		<{/if}> -->
+		
+		<{if $page.pageNum -2 > 0}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum -2}>);"> <{$page.pageNum -2}> </a>
+		</li>
+		<{/if}>
+		
+		<{if $page.pageNum -1 > 0}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum -1}>);"> <{$page.pageNum -1}> </a>
+		</li>
+		<{/if}>
+		
+		<li class="disabled">
+			<a href="javascript:pageFrom(<{$page.total}>);"> <{$page.pageNum}> </a>
+		</li>
+		
+		<{if $page.pageNum < $page.total}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum +1}>);"> <{$page.pageNum+1}> </a>
+		</li>
+		<{/if}>
+		
+		<{if $page.pageNum + 1 < $page.total}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum +2}>);"> <{$page.pageNum+2}> </a>
+		</li>
+		<{/if}>
+		
+<!-- 		<{if $page.pageNum + 2 < $page.total}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum +3}>);"> <{$page.pageNum+3}> </a>
+		</li>
+		<{/if}>
+		
+		<{if $page.pageNum + 3 < $page.total}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.pageNum +4}>);"> <{$page.pageNum+4}> </a>
+		</li>
+		<{/if}> -->
+		
+		<{if $page.pageNum < $page.total}>
+		<li>
+			<a href="javascript:pageFrom(<{$page.total}>);"> &gt;&gt; </a>
+		</li>
+		<{/if}>
+	</ul>
+</div>
+
+<script>
+function pageFrom(num){
+	var page = document.getElementById("pageNum");
+	
+	page.value = num;
+	
+	document.getElementById("pagerForm").submit();
+}
+
+function keyFrom(key){
+	var num = document.getElementById("numPerPage");
+	num.value = key.value;
+	
+	document.getElementById("pagerForm").submit();
+}
+</script>

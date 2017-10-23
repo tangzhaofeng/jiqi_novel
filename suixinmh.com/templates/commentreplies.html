@@ -1,0 +1,42 @@
+<link href="{?$jieqi_themeurl?}style/user.css" type="text/css" rel="stylesheet" />
+<!--wrap2 begin-->
+<div class="wrap2">
+  {?include file = "modules/article/templates/bookFunction.html" ?}
+  <!--article2 begin-->
+  <div class="article3 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+	  {?include file = "templates/commenttab.html" ?}
+      <ul id="tab_conbox1" class="booksel">
+       <li class="fix">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tabl3 g3 f12">
+		  <tr class="bg4 g6">
+		    <td width="40%" height="30" align="left" valign="middle" scope="col">回复内容</td>
+		    <td width="12%" height="30" align="left" valign="middle" scope="col">楼主</td>
+		    <td width="8%" height="30" align="left" valign="middle" scope="col">点击</td>
+		    <td width="5%" height="30" align="left" valign="middle" scope="col">精华</td>
+		    <td width="7%" height="30" align="left" valign="middle" scope="col">回复</td>
+		    <td width="14%" height="30" align="left" valign="middle" scope="col">时间</td>
+		    <td width="14%" height="30" align="left" valign="middle" scope="col">所在书评区</td>
+		  </tr>
+		  {?section name=i loop=$reviewrows?}
+		  <tr>
+		    <td width="40%" align="left" valign="middle"><a href="{?function geturl:'article':'articleinfo':'SYS=aid=$reviewrows[i].articleid'?}#maodian" target="_blank" class="f_blue5" >{?$reviewrows[i].posttext|truncate:44:'……'?}</a></td>
+		    <td width="12%" align="left" valign="middle">{?eval $posterid=$reviewrows[i].posterid;?}<a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$posterid'?}" target="_blank" class="f_gray3" ajaxhover="true" uid="{?$posterid?}">{?$reviewrows[i].poster?}</a></td>
+		    <td width="8%" align="left" valign="middle">{?$reviewrows[i].views?}</td>
+		    <td width="5%" align="left" valign="middle">{?if $reviewrows[i].isgood == 1?}是{?else?}否{?/if?}</td>
+		    <td width="7%" align="left" valign="middle">{?$reviewrows[i].replies?}</td>
+		    <td width="14%" align="left" valign="middle"><em class="g9">{?$reviewrows[i].posttime|date:"Y-m-d H:i"?}</em> </td>
+		    <td width="14%" align="left" valign="middle"><a href="{?function geturl:'article':'articleinfo':'SYS=aid=$reviewrows[i].articleid'?}#maodian" target="_blank" class="f_blue4">《{?$reviewrows[i].articlename?}》</a></td>
+		  </tr>
+		  {?/section?} 
+		</table>
+		{?if $reviewrows != null?}
+          		<div class="page">{?$url_jumppage?}</div>
+		{?else?}
+			<div class="tips f12 p10 g3 mt10 mb10">没有数据。</div>
+		{?/if?}
+      </ul>
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

@@ -1,0 +1,17 @@
+      {?if $jieqi_userid != 0?}
+    <div class="vtop">
+      <div class="user">
+        <div class="img"><img src="{?function jieqi_geturl:'system':'avatar':'$_USER["uid"]':'m':'$_USER["avatar"]'?}"/><span class="mask"></span></div>
+        <dl>
+          <dt><a href="{?function geturl:'system':'userhub'?}" target="_blank">{?$jieqi_username?}</a></dt>
+          <dd class="f_blue6"><a href="{?function geturl:'system':'userhub':'SYS=method=inbox'?}" target="_blank">提醒</a><a href="{?function geturl:'system':'userhub':'SYS=method=usereditView'?}" target="_blank">设置</a><a href="{?function geturl:'system':'userhub':'SYS=method=logout'?}">退出</a></dd>
+        </dl>        
+      </div>
+	</div>
+	  {?else?}
+    <div class="vtop">
+      <div class="user">
+        <p class="yke">游客，您好</p>
+      </div>
+	</div>{?/if?}
+

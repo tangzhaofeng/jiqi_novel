@@ -1,0 +1,10 @@
+{?section name=i loop=$articlerows?}
+<div class="bok4">
+ <div class="img"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank"><img src="{?$articlerows[i].url_image?}"/></a></div>
+ <dl>
+  <dd class="name"><a href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" target="_blank" class="f_gray3">¡¶{?$articlerows[i].articlename?}¡·</a></dd>
+  <dd class="txt">{?$articlerows[i]['intro']?}</dd>
+  <dd class="author">×÷Õß£º<em>{?$articlerows[i].author?}</em></dd>
+ </dl>
+</div>
+{?/section?}

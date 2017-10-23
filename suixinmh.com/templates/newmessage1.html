@@ -1,0 +1,120 @@
+  <!--article2 begin-->
+  <div class="article2 fr">
+   <!--tabox begin-->
+    <div class="tabox">
+      <div class="t2"><h2>我的消息</h2><p class="count">(共 325 封，其中 <em class="green2">未读邮件</em> 73 封)</p></div>      
+      <ul class="tabs7" id="tabs">
+       <li><a href="#">发件箱</a></li>
+<!--       <li><a href="#">收件箱（10）</a></li>
+       <li><a href="#">系统消息</a></li>
+       <li><a href="#">草稿箱</a></li>
+       <li><a href="#">已发送</a></li>
+       <li><a href="#">写给管理员</a></li>
+-->      </ul> 
+      <ul id="tab_conbox" class="zsy bg5 f0">
+       <li style="display:block;">        
+        <dl class="box_form">
+		<form name="frmnewmessage" id="frmnewmessage" action="{?function geturl:'system':'userhub':'SYS=method=newmessage&do=submit'?}" method="post" onsubmit="return frmnewmessage_validate();">
+          <dd class="fix">
+           <em class="tt2">收件人：</em>
+           <div class="int zx2">
+            <input name="receiver" id="receiver" value="{?$receiver?}" type="text" class="input2 fl" />
+            <span class="hint"><em>*</em>请输入好友的昵称</span>
+            <!--selt2 begin-->
+            <div class="selt2">
+             <a class="a_menu" href="javascript:void(0);">选择好友</a>
+            </div><!--selt2 end-->
+            <div class="pop_friend f_gray6" style="display:none;">
+             <a href="#" target="_blank">小铁蛋</a><a href="#" target="_blank">樱桃小丸子</a><a href="#" target="_blank">ttddsky</a><a href="#" target="_blank">叮当猫</a>
+            </div>
+           </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">主题：</em>
+            <div class="int">
+              <input name="title" id="title" type="text" class="input2 fl" value="{?$title?}" /><span class="hint"><em>*</em>已输入0/20字</span>
+            </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">内容：</em>
+            <div class="int">
+              <textarea name="content" id="content" type="text" class="inp2 fl" />{?$content?}</textarea><span class="hint"><em>*</em>已输入0字</span>
+              <p class="cl pt10"><input name="" type="checkbox" value="" /> 不发送，只保存到草稿箱中</p>
+              <button type="submit" name="dosubmit"  id="submit" class="btn">提交</button>
+            </div>
+          </dd>
+		    <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+			<input type="hidden" name="action" id="action" value="newmessage" />
+		  </form>
+         </dl>
+       </li>
+<!--       <li style="display:none;">
+        <div class="bar f_blue4 fix">
+         <div class="opt">
+           <input name="" type="checkbox" value="" class="check" />
+           <a href="#">全选</a><a href="#">删除</a><a href="#">清空</a>
+         </div>
+        </div>
+        <dl class="list_t4">
+         <dd class="fix">
+          <em class="check"><input name="" type="checkbox" value="" /></em>
+          <em class="status status2"></em>
+          <em class="origin">{?$jieqi_sitename?}管理员</em>
+          <p class="info"><a href="#" class="f_blue4">{?$jieqi_sitename?}六月新启航计划开始啦！</a> - 来自宝宝树的孕育周刊，如果您... 来自宝宝树的孕育周刊，如果您... 来自宝宝树的孕育周刊，如果您... 来自宝宝树的孕育周刊，如果您...</p>
+          <em class="date">05-09 12:38</em> 
+-->         <!--full begin-->
+<!--         <div class="full fix">
+          <div class="img"><img src="images/head3.jpg" width="54" height="54" /><span class="mask"></span></div>
+          <div class="detail">
+           <span class="orn"></span>
+           <div class="tit">系统消息：落情泪倾力打造，仙侠类必看神书</div>
+           <p class="txt">卑微者，恒该死？凡人如草，强者如林的世界。卑微的庶子一路饮血，狂杀逆天。灭道乾坤，夺天造地。一柄魔刀，杀出个通天大道！请看《灭道夺天》，抢读地址：{?$jieqi_local_url?}/artinfo/43333.htm</p>
+           <p class="date2">2014-04-15 23:33:13</p>
+           <p class="ope f_blue4"><a href="#">关闭</a><a href="#">删除</a></p>
+          </div>
+         </div><!--full end-->
+<!--        </dd>
+        <dd class="fix">
+         <em class="check"><input name="" type="checkbox" value="" /></em>
+         <em class="status status2"></em>
+         <em class="origin">交通银行信用卡交通银行信用卡交通银行信用卡</em>
+         <p class="info"><a href="#" class="f_blue4">{?$jieqi_sitename?}六月新启航计划开始啦！</a> - 来自宝宝树的孕育周刊，如果您... 来自宝宝树的孕育周刊，如果您... 来自宝宝树的孕育周刊，如果您... 来自宝宝树的孕育周刊，如果您...</p>
+         <em class="date">05-09 12:38</em>         
+        </dd>
+       </dl>
+       <div class="bar f_blue4 fix">
+        <div class="opt"><input name="" type="checkbox" value="" class="check" /><a href="#">全选</a><a href="#">删除</a><a href="#">清空</a></div>
+        <div class="page2">1/13 页 <a href="#" class="f_blue4">下一页</a>跳转<input name="" type="text" /></div>
+       </div>
+       </li>
+       <li style="display:none;">系统消息</li>
+       <li style="display:none;">草稿箱</li>
+       <li style="display:none;">已发送</li>
+       <li style="display:none;">        
+        <dl class="box_form">
+          <dd class="fix">
+           <em class="tt2">收件人：</em>
+           <div class="int">
+            管理员
+           </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">主题：</em>
+            <div class="int">
+              <input name="" type="text" class="input2 fl" /><span class="hint"><em>*</em>已输入0/20字</span>
+            </div>
+          </dd>
+          <dd class="fix">
+           <em class="tt2">内容：</em>
+            <div class="int">
+              <input name="" type="text" class="inp2 fl" /><span class="hint"><em>*</em>已输入0字</span>
+              <p class="cl pt10"><input name="" type="checkbox" value="" /> 不发送，只保存到草稿箱中</p>
+              <button type="submit" class="btn">提交</button>
+            </div>
+          </dd>
+         </dl>
+        </li>
+-->      </ul> 
+    </div><!--tabox end-->
+  </div><!--article2 end-->
+</div><!--wrap2 end-->

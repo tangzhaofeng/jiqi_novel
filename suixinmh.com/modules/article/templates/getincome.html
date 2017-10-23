@@ -1,0 +1,40 @@
+<form action="" id="" method="get">
+	  <div class="finag">选择作品:
+	  <select name="articleid">
+	  {?section name=i loop=$articlerows?}
+	  <option value="{?$articlerows[i].articleid?}" {?if $articlerows[i].articleid == $articleid ?} selected {?/if?}>{?$articlerows[i].articlename?}</option>
+	  {?/section?}
+	  </select>
+	  <span class="fr">选择日期
+		
+	  <select name="years"><option value="2015" selected="selected">2015年</option><option value="2014">2014年</option></select>
+	  <select name="months" class="mr20"><option value="0" {?if $months == 0 ?} selected {?/if?}>全年</option><option value="12" {?if $months == 12 ?} selected {?/if?}>12月</option><option value="11" {?if $months == 11 ?} selected {?/if?}>11月</option><option value="10" {?if $months == 10 ?} selected {?/if?}>10月</option><option value="9" {?if $months == 9 ?} selected {?/if?}>9月</option><option value="8" {?if $months == 8 ?} selected {?/if?}>8月</option><option value="7" {?if $months == 7 ?} selected {?/if?}>7月</option><option value="6" {?if $months == 6 ?} selected {?/if?}>6月</option></select><button type="submit" class="ml20 mr10 pl10 pr10">查询</button><!--onchange="location.href='{?function geturl:'article':'article':SYS=method=incomedetail&articleid=$articleid&years=2014&months=?}'+this.value"-->
+	  </span>
+	  </div>
+  </form>
+         <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabl2" id="incomede">
+	  {?if $incomecount > 0?}
+			<tr class="bgt">
+				<td>订阅人</td>
+				<td>订阅时间</td>
+				<td>章节ID</td>
+				<td>章节名字</td>
+				<td>书海币</td>
+			</tr>
+			{?section name=i loop=$incomerows?}
+			<tr>
+				<td><a href="{?function geturl:'system':'userhub':'method=userinfo':'uid=$incomerows[i].accountid'?}" target="_blank" ajaxhover="true" uid="{?$incomerows[i].accountid?}" class="f_blue5">{?$incomerows[i].account?}</a></td>
+				<td class="g6">{?$incomerows[i].buytime|date:"Y-m-d H:i:s"?}</td>
+				<td>{?$incomerows[i].chapterid?}</td>
+				<td><a class="f_blue5" href="{?function geturl:'article':'reader':'SYS=aid=$incomerows[i].articleid':'cid=$incomerows[i].chapterid'?}">{?$incomerows[i].chaptername?}</a></td>
+				<td>{?$incomerows[i].saleprice?}</td>
+			</tr>
+			{?/section?}
+		 {?else?}
+		 <tr><td>没有数据</td></tr>
+		 {?/if?}
+         </table>
+		 {?if $incomecount > 0?}
+		 <span class="fr f12 mr20 mt10"><span style="color:#2286d1; font-size:16px; font-weight:bold;">总计</span>:{?$saleprice?}书海币</span>
+		 {?/if?}
+		 <div class="page3">{?$url_jumppage?}</div>

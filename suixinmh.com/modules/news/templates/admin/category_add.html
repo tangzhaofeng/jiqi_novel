@@ -1,0 +1,525 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>栏目管理</caption>
+  <tr>
+    <td><a href='?ac=category&op=add&step=one'><font color="red">添加栏目</font></a> | <a href='?ac=category'>返回栏目列表</a></td>
+  </tr>
+</table>
+<form name="myform" method="post" action="{?$_PAGE['posturl']?}/modules/news/admin/?ac=category&op=add&catid={?$_PAGE['_GET']['catid']?}" onSubmit="return CheckForm();">
+<input type="hidden" name="category[type]" value="{?$_SGLOBAL['cate']['type']?}"> 
+<input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+{?if $_SGLOBAL['cate']['type']==0?}
+<div class="tag_menu" style="width:99%;margin-top:10px;">
+	<ul>
+		<li><a onClick="ShowTabs(0)" id="TabTitle0" href="###" class="selected">基本信息</a></li>
+		<li><a onClick="ShowTabs(2)" id="TabTitle2" href="###">权限设置</a></li>
+		<li><a onClick="ShowTabs(3)" id="TabTitle3" href="###">收费设置</a></li>
+		<li><a onClick="ShowTabs(4)" id="TabTitle4" href="###">扩展设置</a></li>
+		<li><a onClick="ShowTabs(5)" id="TabTitle5" href="###">变量设置</a></li>
+	</ul>
+</div>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <tbody id='Tabs0' style='display:'>
+  <tr>
+  <th width='20%'><font color="red">*</font> <strong>上级栏目</strong></th>
+  <td>
+<select name='category[parentid]' id='parentid'>
+<option value='0'>无（作为一级栏目）</option>
+{?section name=i loop=$_SGLOBAL['catelist']?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}' {?if $_SGLOBAL['cate']['parentid']==$_SGLOBAL['catelist'][i]['catid']?}selected{?/if?}>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/section?}
+</select>  </td>
+  </tr>
+     <tr>
+      <th><strong>绑定模型</strong></th>
+      <td>{?if $_SGLOBAL['cate']['items']>0?}<input type="hidden" name="category[modelid]" value="{?$_SGLOBAL['cate']['modelid']?}"> {?$_SGLOBAL['cate']['catname']?}（由于{?$_SGLOBAL['cate']['catname']?}栏目存在{?$_SGLOBAL['cate']['items']?}条信息，不能更改模型）
+	{?else?}
+	<select name="category[modelid]" id="modelid" size="1">
+	{?section name=i loop=$_SGLOBAL['model']?}
+	<option value="{?$_SGLOBAL['model'][i]['modelid']?}" {?if $_SGLOBAL['cate']['modelid']==$_SGLOBAL['model'][i]['modelid']?}selected{?/if?}>{?$_SGLOBAL['model'][i]['name']?}</option>
+	{?/section?}
+	</select>
+	{?/if?}
+		</td>
+    </tr>
+    <tr>
+      <th><font color="red">*</font> <strong>栏目名称</strong></th>
+      <td><input name='category[catname]' type='text' id='catname' value="{?$_SGLOBAL['cate']['catname']?}" size='40' maxlength='50' require="true" datatype="limit" min="1" max="50" msg="字符长度范围必须为1到50位" msgid="msgid1">
+	  <input type="hidden" name="category[style]" id="style" value="{?$_SGLOBAL['cate']['style']?}" /> <select name="style_color1" id="style_color1" onchange="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value +=  ' '+document.all.style_strong1.value;">
+<option value="">颜色</option>
+<option value="c1"  class="bg1"></option>
+<option value="c2"  class="bg2"></option>
+<option value="c3"  class="bg3"></option>
+<option value="c4"  class="bg4"></option>
+<option value="c5"  class="bg5"></option>
+<option value="c6"  class="bg6"></option>
+<option value="c7"  class="bg7"></option>
+<option value="c8"  class="bg8"></option>
+<option value="c9"  class="bg9"></option>
+<option value="c10"  class="bg10"></option>
+<option value="c11"  class="bg11"></option>
+<option value="c12"  class="bg12"></option>
+<option value="c13"  class="bg13"></option>
+<option value="c14"  class="bg14"></option>
+<option value="c15"  class="bg15"></option>
+</select>
+ <label><input type="checkbox" name="style_strong1" id="style_strong1" value="b"  onclick="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value += ' '+document.all.style_strong1.value;"> 加粗</label><script>if(document.all.style.value!=''){var temp=document.all.style.value;if(temp.indexOf("b")!=-1){document.all.style_strong1.checked=true;}var sint=temp.replace(/[^\d]*/ig,"");if(sint!=''){document.all.style_color1.selectedIndex = sint;}}</script></td>
+    </tr>
+    <tr>
+      <th><font color="red">*</font> <strong>栏目目录</strong></th>
+      <td><input name='category[catdir]' type='text' id='catdir' value='{?$_SGLOBAL['cate']['catdir']?}' size='20' maxlength='50' require="true" datatype="limit" min="1" max="50" msg="字符长度范围必须为1到50位"></td>
+    </tr>
+    <tr>
+      <th><strong>栏目图片</strong></th>
+      <td><input name='category[image]' type='text' id='image' value='{?$_SGLOBAL['cate']['image']?}' size='40' maxlength='50'> <input type='button' value='浏览...' style='cursor:pointer;' onclick="file_select('image', 'image', '{?$_PAGE['attachurl']?}/modules/news/admin/')"></td>
+    </tr>
+    <tr>
+      <th><strong>栏目介绍</strong><br></th>
+      <td><textarea name='category[description]' id='description' style="width:90%;height:50px">{?$_SGLOBAL['cate']['description']?}</textarea></td>
+    </tr>
+     <tr>
+      <th><strong>工作流方案</strong></th>
+      <td>
+	  <select name="setting[workflowid]" id="workflowid"  size="1"  >
+	     {?section name=i loop=$_SGLOBAL['workflow']?}
+	       <option value="{?$_SGLOBAL['workflow'][i]['workflowid']?}"{?if $_SGLOBAL['cate']['setting']['workflowid']==$_SGLOBAL['workflow'][i]['workflowid']?} selected{?/if?}>{?$_SGLOBAL['workflow'][i]['name']?}</option>
+		 {?/section?}
+	  </select>
+<!--  <a href="?ac=workflow">管理工作流方案</a>--></td>
+    </tr>
+	<tr>
+      <th width='20%'><strong>在导航栏显示</strong></th>
+      <td>
+	  <input type='radio' name='category[ismenu]' value='1'{?eval if($_SGLOBAL['cate']['ismenu']=='1' || !isset($_SGLOBAL['cate']['ismenu'])) echo ' checked';?}> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type='radio' name='category[ismenu]' value='0'{?eval if($_SGLOBAL['cate']['ismenu']=='0') echo ' checked';?}> 否	  </td>
+    </tr>
+    <tr>
+      <th><strong>绑定域名：</strong><br>如果不绑定则请不要填写</th>
+      <td>
+		      <input name='category[url]' type='text' id='domain' value="{?eval if(eregi('http://',$_SGLOBAL['cate']['url'])) echo $_SGLOBAL['cate']['url'];?}" size='60' maxlength='60'> 例如：http://news.xx.com/ 结尾“/”不要掉		      </td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>META Title（栏目标题）</strong><br/>针对搜索引擎设置的标题</th>
+      <td><input name='setting[meta_title]' type='text' id='meta_title' value='{?$_SGLOBAL['cate']['setting']['meta_title']?}' size='60' maxlength='60'></td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>META Keywords（栏目关键词）</strong><br/>针对搜索引擎设置的关键词</th>
+      <td><textarea name='setting[meta_keywords]' id='meta_keywords' style="width:90%;height:40px">{?$_SGLOBAL['cate']['setting']['meta_keywords']?}</textarea></td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>META Description（栏目描述）</strong><br/>针对搜索引擎设置的网页描述</th>
+      <td><textarea name='setting[meta_description]' id='meta_description' style="width:90%;height:50px">{?$_SGLOBAL['cate']['setting']['meta_description']?}</textarea></td>
+    </tr>
+  </tbody>
+
+  <tbody id='Tabs2' style='display:none'>
+    <tr><th width='20%'><strong>会员组权限</strong><br/>针对各个会员组对各栏目设置所属组会员增、删、改、浏览、查看、审核的权利，此设置对上级栏目和下级栏目没有影响。</th>
+      <td valign="top">
+		  <table cellpadding="2" cellspacing="1" class="grid" width="100%" align="center">
+		      <caption>会员组权限</caption>
+			  <tr>
+				  <th>会员组名</th><th>查看</th><th>后台浏览</th><th>录入</th><th>编辑</th><th>审核</th><th>删除</th>
+			  </tr>
+		  		{?section name=i loop=$_SGLOBAL['_GROUPS']?}
+				<tr>
+				  <td>{?$_SGLOBAL['_GROUPS'][i]?}</td>
+				  <td><input type="checkbox" name="setting[show][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['show'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}elseif(!$_PAGE['_GET']['catid']){echo 'checked';}?}></td>
+				  <td><input type="checkbox" name="setting[view][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['view'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}else{}?}></td>
+				  <td><input type="checkbox" name="setting[add][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['add'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}else{}?}></td>
+				  <td><input type="checkbox" name="setting[edit][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['edit'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}else{}?}></td>
+				  <td><input type="checkbox" name="setting[check][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['check'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}else{}?}></td>
+				  <td><input type="checkbox" name="setting[delete][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['delete'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}else{}?}></td>
+			  </tr>
+			  {?/section?}
+			  </table>	  </td>
+      </tr>{?if $_PAGE['_GET']['catid']>0 && $_SGLOBAL['cate']['child']>0?}
+	<tr>
+      <th width='20%'><strong>以上设置是否应用到子栏目及信息</strong></th>
+      <td><label><input type="radio" name="createtype_application" id="createtype_application" value=1> 是</label> <label><input type="radio" name="createtype_application" id="createtype_application" value=0> 否</label> <span style="color:#ff0000">选择“是”权限、收费、扩展设置、变量设置将应用到子栏目上，内容模板将应用到信息上。</span></td>
+    </tr>{?/if?}
+  </tbody>
+  <tbody id='Tabs3' style='display:none'>
+    <tr>
+      <th width='20%'><strong>投稿奖励</strong><br>会员在此栏目发表信息时可以得到的点数</th>
+      <td><input name='setting[presentpoint]' type='text' value="{?$_SGLOBAL['cate']['setting']['presentpoint']?}" size='4' maxlength='4' style='text-align:center'> 点</td>
+    </tr>
+    <tr>
+      <th><strong>默认收费点数</strong><br>会员在此栏目下查看信息时，该信息默认的收费点数</th>
+      <td><input name='setting[defaultchargepoint]' type='text' value="{?$_SGLOBAL['cate']['setting']['defaultchargepoint']?}" size='4' maxlength='4' style='text-align:center'> 点</td>
+    </tr>
+    <tr>
+      <th><strong>重复收费设置</strong></th>
+      <td>
+	    <input name='setting[repeatchargedays]' type='text' value='{?$_SGLOBAL['cate']['setting']['repeatchargedays']?}' size='4' maxlength='4' style='text-align:center'> 天内不重复收费&nbsp;&nbsp;
+        <font color="red">0 表示每阅读一次就重复收费一次（建议不要使用）</font></td>
+    </tr>{?if $_PAGE['_GET']['catid']>0 && $_SGLOBAL['cate']['child']>0?}
+	<tr>
+      <th width='20%'><strong>以上设置是否应用到子栏目及信息</strong></th>
+      <td><label><input type="radio" name="createtype_application" id="createtype_application" value=1> 是</label> <label><input type="radio" name="createtype_application" id="createtype_application" value=0> 否</label> <span style="color:#ff0000">选择“是”权限、收费、扩展设置、变量设置将应用到子栏目上，内容模板将应用到信息上。</span></td>
+    </tr>{?/if?}
+  </tbody>
+   <tbody id='Tabs4' style='display:none'>
+	
+	<tr><td width='100%' colspan=2  class="head">
+	<font color="green">以下设置为选填项,为空相关配置则以系统设置或者模型字段中的设置为准</font></td>
+	</tr>
+	
+	<tr>
+      <th width='20%'><strong>栏目/列表页每页信息条数</strong></th>
+      <td><input type="text" name="setting[pagenum]" value="{?$_SGLOBAL['cate']['setting']['pagenum']?}" size='20' maxlength='2'> <span style="color:#ff0000">不填则为系统默认<a href="/admin/configs.php?mod=news">参数设置。</a></span>
+	  </td> </tr>
+	<tr>
+      <th width='20%'><strong>栏目/列表浏览方式</strong></th>
+      <td>
+	  <select class="select"  size="1" name="setting[ishtml]">
+<option value="-1"{?if $_SGLOBAL['cate']['setting']['ishtml']=='-1'?} selected="selected"{?/if?}>系统默认</option>
+<option value="0"{?if $_SGLOBAL['cate']['setting']['ishtml']=='0'?} selected="selected"{?/if?}>系统默认路径</option>
+<option value="1"{?if $_SGLOBAL['cate']['setting']['ishtml']=='1'?} selected="selected"{?/if?}>伪静态(不生成文件)</option>
+<option value="2"{?if $_SGLOBAL['cate']['setting']['ishtml']=='2'?} selected="selected"{?/if?}>伪静态(生成文件)</option>
+<option value="3"{?if $_SGLOBAL['cate']['setting']['ishtml']=='3'?} selected="selected"{?/if?}>生成HTML</option>
+</select>
+	  </td> </tr>
+	<tr>
+      <th width='20%'><strong>内容页浏览方式</strong></th>
+      <td>
+	  <select class="select"  size="1" name="setting[show_ishtml]">
+<option value="-1"{?if $_SGLOBAL['cate']['setting']['show_ishtml']=='-1'?} selected="selected"{?/if?}>系统默认</option>
+<option value="0"{?if $_SGLOBAL['cate']['setting']['show_ishtml']=='0'?} selected="selected"{?/if?}>系统默认路径</option>
+<option value="1"{?if $_SGLOBAL['cate']['setting']['show_ishtml']=='1'?} selected="selected"{?/if?}>伪静态(不生成文件)</option>
+<option value="2"{?if $_SGLOBAL['cate']['setting']['show_ishtml']=='2'?} selected="selected"{?/if?}>伪静态(生成文件)</option>
+<option value="3"{?if $_SGLOBAL['cate']['setting']['show_ishtml']=='3'?} selected="selected"{?/if?}>生成HTML</option>
+</select>
+	  </td> </tr>
+    <tr>
+      <th width='20%'><strong>栏目首页模板</strong></th>
+      <td><input type="text" name="setting[template_category]" value="{?$_SGLOBAL['cate']['setting']['template_category']?}" size='30' maxlength='100'>
+</td>
+    </tr>
+    <tr>
+      <th><strong>栏目列表页模板</strong></th>
+      <td><input type="text" name="setting[template_list]" value="{?$_SGLOBAL['cate']['setting']['template_list']?}" size='30' maxlength='100'></td>
+    </tr>
+    <tr>
+      <th><strong>内容页模板</strong></th>
+      <td><input type="text" name="setting[template_show]" value="{?$_SGLOBAL['cate']['setting']['template_show']?}" size='30' maxlength='100'></td>
+    </tr>
+   <tr>
+      <th><strong>栏目页URL规则</strong></th>
+      <td><input type="text" name="setting[category_urlrule]" value="{?$_SGLOBAL['cate']['setting']['category_urlrule']?}" size='30' maxlength='100'></td>
+    </tr>
+<tr>
+      <th><strong>内容页URL规则</strong></th>
+      <td><input type="text" name="setting[show_urlrule]" value="{?$_SGLOBAL['cate']['setting']['show_urlrule']?}" size='30' maxlength='100'></td>
+    </tr>
+<tr>
+  <th width='20%'><strong>上传/访问附件的URL服务器</strong></td>
+  <td><input type="text" class="text" name="setting[attachurl]" id="attachurl" size="30" maxlength="100" value="{?$_SGLOBAL['cate']['setting']['attachurl']?}" /> <span class="hottext">上传/访问附件用相对路径的话请留空，否则用完整url，最后不带斜杠。一经设定不可轻易更改，并会覆盖系统参数配置。</span></td>
+</tr>
+
+	<tr>
+      <th width='20%'><strong>允许上传附件的类型</strong></th>
+      <td><input type="text" name="setting[attachmime]" value="{?$_SGLOBAL['cate']['setting']['attachmime']?}" size='40'> <span style="color:#ff0000">多个附件类型用&quot;,&quot;号隔开。防止木马伪装成附件文件上传</span></td>
+    </tr> 
+	
+	<tr>
+      <th width='20%'><strong>是否启用缩略图</strong></th>
+      <td><select class="select"  size="1" name="setting[thumb_enable]">
+<option value="-1"{?if $_SGLOBAL['cate']['setting']['thumb_enable']==''?} selected="selected"{?/if?}>系统默认</option>
+<option value="1"{?if $_SGLOBAL['cate']['setting']['thumb_enable']=='1'?} selected="selected"{?/if?}>启用缩略图</option>
+<option value="0"{?if $_SGLOBAL['cate']['setting']['thumb_enable']=='0'?} selected="selected"{?/if?}>不启用缩略图</option>
+</select>
+	   <span style="color:#ff0000">对本栏目下的图片上传是否开启缩略图功能</span></td>
+    </tr> 
+	
+	<tr>
+      <th width='20%'><strong>缩略图大小</strong></th>
+      <td><input name='setting[thumb_width]' type='text' id='thumb_width' value='{?$_SGLOBAL['cate']['setting']['thumb_width']?}' size='5' maxlength='5'> X <input name='setting[thumb_height]' type='text' id='thumb_height' value='{?$_SGLOBAL['cate']['setting']['thumb_height']?}' size='5' maxlength='5'> px </td>
+    </tr>
+	
+	<tr>
+      <th width='20%'><strong>是否启用水印</strong></th>
+      <td><select class="select"  size="1" name="setting[attachwater]">
+<option value="-1"{?if $_SGLOBAL['cate']['setting']['attachwater']==''?} selected="selected"{?/if?}>系统默认</option>
+<option value="0"{?if $_SGLOBAL['cate']['setting']['attachwater']=='0'?} selected="selected"{?/if?}>不加水印</option>
+<option value="1"{?if $_SGLOBAL['cate']['setting']['attachwater']=='1'?} selected="selected"{?/if?}>顶部居左</option>
+<option value="2"{?if $_SGLOBAL['cate']['setting']['attachwater']=='2'?} selected="selected"{?/if?}>顶部居中</option>
+<option value="3"{?if $_SGLOBAL['cate']['setting']['attachwater']=='3'?} selected="selected"{?/if?}>顶部居右</option>
+<option value="4"{?if $_SGLOBAL['cate']['setting']['attachwater']=='4'?} selected="selected"{?/if?}>中部居左</option>
+<option value="5"{?if $_SGLOBAL['cate']['setting']['attachwater']=='5'?} selected="selected"{?/if?}>中部居中</option>
+<option value="6"{?if $_SGLOBAL['cate']['setting']['attachwater']=='6'?} selected="selected"{?/if?}>中部居右</option>
+<option value="7"{?if $_SGLOBAL['cate']['setting']['attachwater']=='7'?} selected="selected"{?/if?}>底部居左</option>
+<option value="8"{?if $_SGLOBAL['cate']['setting']['attachwater']=='8'?} selected="selected"{?/if?}>底部居中</option>
+<option value="9"{?if $_SGLOBAL['cate']['setting']['attachwater']=='9'?} selected="selected"{?/if?}>底部居右</option>
+<option value="10"{?if $_SGLOBAL['cate']['setting']['attachwater']=='10'?} selected="selected"{?/if?}>随机位置</option>
+</select> <span style="color:#ff0000">水印的详细设置遵照网站配置下的附件设置里的设置。如果<a href='/admin/configs.php?mod=news#catorder2'>修改</a>将全站生效。</span></td>
+    </tr>
+    <tr>
+      <th><strong>水印图片文件</strong></th>
+      <td><input type="text" name="setting[attachwimage]" value='{?$_SGLOBAL['cate']['setting']['attachwimage']?}' size='30' maxlength='100'> <span style="color:#ff0000">允许 JPG/PNG/GIF 格式，默认只需填文件名，放在 modules/news/images 目录下</span></td>
+    </tr>
+	{?if $_PAGE['_GET']['catid']>0 && $_SGLOBAL['cate']['child']>0?}
+	<tr>
+      <th width='20%'><strong>以上设置是否应用到子栏目及信息</strong></th>
+      <td><label><input type="radio" name="createtype_application" id="createtype_application" value=1> 是</label> <label><input type="radio" name="createtype_application" id="createtype_application" value=0> 否</label> <span style="color:#ff0000">选择“是”权限、收费、扩展设置、变量设置将应用到子栏目上，内容模板将应用到信息上。</span></td>
+    </tr>{?/if?}
+  </tbody>
+<tbody id='Tabs5' style='display:none'>
+	<tr><td width='100%' colspan=2  class="head">
+	<font color="green">动态变量设置(支持HTML)</font></td>
+	</tr> 
+	{?section name=i loop=$_SGLOBAL['cate']['setting']['var']?}
+    <tr>
+      <th width='15%'><strong>{?$i.key?}</strong></th>
+      <td><textarea name='setting[var][{?$i.key?}]' style="width:90%;height:100px">{?$_SGLOBAL['cate']['setting']['var'][i]?}</textarea> <br>调用标签：{?$_PAGE['ltag']?}$_SGLOBAL['cate']['setting']['var']['{?$i.key?}']{?$_PAGE['rtag']?}</td>
+    </tr>
+	{?/section?}
+	<tr><td width='100%' colspan=2  class="head">
+	<font color="green">添加栏目变量</font></td>
+	</tr> 
+    <tr>
+      <th width='15%'><strong>变量名</strong><br>变量名不能重复,支持中文</th>
+      <td><input type="text" id="varname" value='' size='20' maxlength='100'> <input type="button" id='addvar' value=" 添加变量 "></td>
+    </tr>	
+{?if $_PAGE['_GET']['catid']>0 && $_SGLOBAL['cate']['child']>0?}
+	<tr>
+      <th width='20%'><strong>以上设置是否应用到子栏目及信息</strong></th>
+      <td><label><input type="radio" name="createtype_application" value=1> 是</label> <label><input type="radio" name="createtype_application" value=0> 否</label> <span style="color:#ff0000">选择“是”权限、收费、扩展设置、变量设置将应用到子栏目上，内容模板将应用到信息上。</span></td>
+    </tr>{?/if?}
+</tbody>
+</table>
+
+<table width="100%" height="25" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+     <td width='20%'></td>
+     <td><input type="submit" name="dosubmit" value=" 确定 ">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重置 "></td>
+  </tr>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+$('#addvar').click(
+    function(){
+	   var name = $("#varname").val();
+	   var result=name.match(/^([\u4E00-\uFA29]|[\uE7C7-\uE7F3]|[\w])*$/);
+	   if($("textarea[name='setting[var]["+name+"]']").val()!=undefined){
+	       alert('变量名不允许重复！');
+		   $("#varname").focus();
+		   return false;
+	   }
+	   if(name=='' || !result){
+	      alert('变量名必须是数字、字母、汉字组成！');
+		  $("#varname").focus();
+	   }else{
+	       var c = "<tr><th width='15%'><strong>"+name+"</strong></th><td><textarea name='setting[var]["+name+"]' style='width:90%;height:100px'></textarea> <br>调用标签：{?$_PAGE['ltag']?}$_SGLOBAL['cate']['setting']['var']['"+name+"']{?$_PAGE['rtag']?}</td></tr>";
+	       //if($("#addvarss").html()==''){alert('dd');
+		        //$("#addvarss").text(c);
+		   //}else{
+		      $("#Tabs5").append(c); 
+		   //}
+	   }
+	}
+);
+function CheckForm(){
+	if(document.myform.catname.value==''){
+		alert('请输入栏目名称！');
+		document.myform.catname.focus();
+		return false;
+	}
+	if(document.myform.catdir.value==''){
+		alert('请输入栏目目录！');
+		document.myform.catdir.focus();
+		return false;
+	}
+}
+</script>
+{?elseif $_SGLOBAL['cate']['type']==1?}
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>修改单网页</caption>
+  <th width='20%'><font color="red">*</font> <strong>上级栏目</strong></th>
+  <td>
+<select name='category[parentid]' id='parentid' >
+<option value='0'>无（作为一级栏目）</option>
+{?section name=i loop=$_SGLOBAL['catelist']?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}' {?if $_SGLOBAL['cate']['parentid']==$_SGLOBAL['catelist'][i]['catid']?}selected{?/if?}>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/section?}
+</select>
+  </td>
+  </tr>
+    <tr>
+      <th><font color="red">*</font> <strong>单网页名称</strong></th>
+      <td><input name='category[catname]' type='text' id='catname' value="{?$_SGLOBAL['cate']['catname']?}" size='40' maxlength='50' require="true" datatype="limit" min="1" max="50" msg="字符长度范围必须为1到50位" msgid="msgid1">
+	  <input type="hidden" name="category[style]" id="style" value="{?$_SGLOBAL['cate']['style']?}" /> <select name="style_color1" id="style_color1" onchange="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value +=  ' '+document.all.style_strong1.value;">
+<option value="">颜色</option>
+<option value="c1"  class="bg1"></option>
+<option value="c2"  class="bg2"></option>
+<option value="c3"  class="bg3"></option>
+<option value="c4"  class="bg4"></option>
+<option value="c5"  class="bg5"></option>
+<option value="c6"  class="bg6"></option>
+<option value="c7"  class="bg7"></option>
+<option value="c8"  class="bg8"></option>
+<option value="c9"  class="bg9"></option>
+<option value="c10"  class="bg10"></option>
+<option value="c11"  class="bg11"></option>
+<option value="c12"  class="bg12"></option>
+<option value="c13"  class="bg13"></option>
+<option value="c14"  class="bg14"></option>
+<option value="c15"  class="bg15"></option>
+</select>
+ <label><input type="checkbox" name="style_strong1" id="style_strong1" value="b"  onclick="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value += ' '+document.all.style_strong1.value;"> 加粗</label><script>if(document.all.style.value!=''){var temp=document.all.style.value;if(temp.indexOf("b")!=-1){document.all.style_strong1.checked=true;}var sint=temp.replace(/[^\d]*/ig,"");if(sint!=''){document.all.style_color1.selectedIndex = sint;}}</script></td>
+    </tr>
+    <tr>
+      <th><font color="red">*</font> <strong>单网页英文名</strong></th>
+      <td><input name='category[catdir]' type='text' id='catdir' value='{?$_SGLOBAL['cate']['catdir']?}' size='20' maxlength='50' require="true" datatype="require" msg="单网页英文名不能为空"></td>
+    </tr>
+    <tr>
+      <th><strong>单网页图片</strong></th>
+      <td><input name='category[image]' type='text' id='image' value='{?$_SGLOBAL['cate']['image']?}' size='40' maxlength='50'> <input type='button' value='浏览...' style='cursor:pointer;' onclick="file_select('image', 'image', '{?$_PAGE['attachurl']?}/modules/news/admin/')"></td>
+    </tr>
+    <tr>
+      <th><strong>栏目介绍</strong><br></th>
+      <td><textarea name='category[description]' id='description' style="width:80%;height:180px">{?$_SGLOBAL['cate']['description']?}</textarea></td>
+    </tr>
+	<tr>
+      <th width='20%'><strong>是否在导航栏显示</strong></th>
+      <td>
+	  <input type='radio' name='category[ismenu]' value='1'{?eval if($_SGLOBAL['cate']['ismenu']=='1') echo ' checked';?}> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type='radio' name='category[ismenu]' value='0'{?eval if($_SGLOBAL['cate']['ismenu']=='0' || !isset($_SGLOBAL['cate']['ismenu'])) echo ' checked';?}> 否	  </td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>修改权限</strong></th>
+      <td>{?section name=i loop=$_SGLOBAL['_GROUPS']?}<input type="checkbox" name="setting[edit][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['edit'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}else{}?}>{?$_SGLOBAL['_GROUPS'][i]?} {?/section?}</td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>浏览权限</strong></th>
+      <td>{?section name=i loop=$_SGLOBAL['_GROUPS']?}<input type="checkbox" name="setting[view][]" value="{?$i['key']?}" {?eval if(@in_array($i['key'],$_SGLOBAL['cate']['setting']['view'])){echo 'checked';}elseif($i['key']==2){echo 'checked disabled';}elseif(!$_PAGE['_GET']['catid']){echo 'checked';}?}>{?$_SGLOBAL['_GROUPS'][i]?} {?/section?}</td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>META Title（单网页标题）</strong><br/>针对搜索引擎设置的标题</th>
+      <td><input name='setting[meta_title]' type='text' id='meta_title' value="{?$_SGLOBAL['cate']['setting']['meta_title']?}" size='60' maxlength='60'></th>
+    </tr>
+    <tr>
+      <th width='20%'><strong>META Keywords（单网页关键词）</strong><br/>针对搜索引擎设置的关键词</th>
+      <td><textarea name='setting[meta_keywords]' cols='100' rows='7' id='meta_keywords'>{?$_SGLOBAL['cate']['setting']['meta_keywords']?}</textarea></td>
+    </tr>
+    <tr>
+      <th width='20%'><strong>META Description（单网页描述）</strong><br/>针对搜索引擎设置的网页描述</th>
+      <td><textarea name='setting[meta_description]' cols='100' rows='7' id='meta_description'>{?$_SGLOBAL['cate']['setting']['meta_description']?}</textarea></td>
+    </tr>
+	<tr><td width='100%' colspan=2 style="align:center"><span style="color:#ff0000">****</span>以下设置为选填项,为空相关配置则以模型配置中的设置为准</td>
+	</tr> 
+	<tr>
+      <th width='20%'><strong>页面浏览方式</strong></th>
+      <td>
+	  <select class="select"  size="1" name="setting[ishtml]" onChange="javascript:if(this.value>0) $('#ishtml').show(); else $('#ishtml').hide();">
+<option value="0"{?eval if($_SGLOBAL['cate']['setting']['ishtml']=='0') echo ' selected';?}>系统默认路径</option>
+<option value="1"{?eval if($_SGLOBAL['cate']['setting']['ishtml']=='1') echo ' selected';?}>伪静态(不生成文件)</option>
+<option value="2"{?eval if($_SGLOBAL['cate']['setting']['ishtml']=='2') echo ' selected';?}>伪静态(生成文件)</option>
+<option value="3"{?eval if($_SGLOBAL['cate']['setting']['ishtml']=='3' || !isset($_SGLOBAL['cate']['setting']['ishtml'])) echo ' selected';?}>生成Html</option>
+</select>
+	  </td>  
+    </tr><tbody id="ishtml" style="display:'block'">
+	<tr>
+      <th><strong>栏目页URL规则</strong></th>
+      <td><input type="text" name="setting[category_urlrule]" value="{?$_SGLOBAL['cate']['setting']['category_urlrule']?}" size='30' maxlength='100'></td>
+    </tr></tbody>
+    <tr>	
+      <th width='20%'><strong>单网页模板</strong></th>
+      <td><input type="text" name="setting[template_category]" value="{?$_SGLOBAL['cate']['setting']['template_category']?}" size='30' maxlength='100'></td>
+    </tr>
+
+  <tr>
+     <td width='20%'></td>
+     <td><input type="submit" name="dosubmit" value=" 确定 ">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重置 "></td>
+  </tr>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+function CheckForm(){
+	if(document.myform.catname.value==''){
+		alert('请输入单网页名称！');
+		document.myform.catname.focus();
+		return false;
+	}
+	if(document.myform.catdir.value==''){
+		alert('请输入单网页英文名！');
+		document.myform.catdir.focus();
+		return false;
+	}
+}
+if($("select[name='setting[ishtml]']").val()>0) $('#ishtml').show();
+else  $('#ishtml').hide();
+</script>
+{?else?}<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>修改外部链接</caption>
+  <tr>
+  <th width='25%'><font color="red">*</font> <strong>上级栏目</strong></th>
+  <td><select name='category[parentid]' id='parentid' >
+<option value='0'>无（作为一级栏目）</option>
+{?section name=i loop=$_SGLOBAL['catelist']?}
+<option value='{?$_SGLOBAL['catelist'][i]['catid']?}' {?if $_SGLOBAL['cate']['parentid']==$_SGLOBAL['catelist'][i]['catid']?}selected{?/if?}>{?$_SGLOBAL['catelist'][i]['layer']?}{?$_SGLOBAL['catelist'][i]['catname']?}</option>
+{?/section?}
+</select> 
+  </td>
+  </tr>
+    <tr>
+      <th><font color="red">*</font>  <strong>链接名称</strong></th>
+      <td><input name='category[catname]' type='text' id='catname' value="{?$_SGLOBAL['cate']['catname']?}" size='40' maxlength='50' require="true" datatype="limit" min="1" max="50" msg="字符长度范围必须为1到50位" msgid="msgid1">
+	  <input type="hidden" name="category[style]" id="style" value="{?$_SGLOBAL['cate']['style']?}" /> <select name="style_color1" id="style_color1" onchange="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value +=  ' '+document.all.style_strong1.value;">
+<option value="">颜色</option>
+<option value="c1"  class="bg1"></option>
+<option value="c2"  class="bg2"></option>
+<option value="c3"  class="bg3"></option>
+<option value="c4"  class="bg4"></option>
+<option value="c5"  class="bg5"></option>
+<option value="c6"  class="bg6"></option>
+<option value="c7"  class="bg7"></option>
+<option value="c8"  class="bg8"></option>
+<option value="c9"  class="bg9"></option>
+<option value="c10"  class="bg10"></option>
+<option value="c11"  class="bg11"></option>
+<option value="c12"  class="bg12"></option>
+<option value="c13"  class="bg13"></option>
+<option value="c14"  class="bg14"></option>
+<option value="c15"  class="bg15"></option>
+</select>
+ <label><input type="checkbox" name="style_strong1" id="style_strong1" value="b"  onclick="document.all.style.value=document.all.style_color1.value;if(document.all.style_strong1.checked)document.all.style.value += ' '+document.all.style_strong1.value;"> 加粗</label><script>if(document.all.style.value!=''){var temp=document.all.style.value;if(temp.indexOf("b")!=-1){document.all.style_strong1.checked=true;}var sint=temp.replace(/[^\d]*/ig,"");if(sint!=''){document.all.style_color1.selectedIndex = sint;}}</script></td>
+    </tr>
+    <tr>
+      <th><strong>链接图片</strong></th>
+      <td><input name='category[image]' type='text' id='image' value='{?$_SGLOBAL['cate']['image']?}' size='40' maxlength='50'> <input type='button' value='浏览...' style='cursor:pointer;' onclick="file_select('image', 'image', '{?$_PAGE['attachurl']?}/modules/news/admin/')"></td>
+    </tr>
+	<tr>
+      <th width='20%'><strong>在导航栏显示</strong></th>
+      <td>
+	  <input type='radio' name='category[ismenu]' value='1'{?eval if($_SGLOBAL['cate']['ismenu']=='1') echo ' checked';?}> 是&nbsp;&nbsp;&nbsp;&nbsp;
+	  <input type='radio' name='category[ismenu]' value='0'{?eval if($_SGLOBAL['cate']['ismenu']=='0' || !isset($_SGLOBAL['cate']['ismenu'])) echo ' checked';?}> 否	  
+	  </td>
+    </tr>
+	<tr>
+      <th><font color="red">*</font>  <strong>链接地址</strong></th>
+      <td><input name='category[url]' type='text' id='url' size='60' maxlength='100' value="{?$_SGLOBAL['cate']['url']?}" require="true" datatype="require" msg="链接地址不能为空"></td>
+    </tr>
+	<tr>
+     <td width='20%'></td>
+     <td><input type="submit" name="dosubmit" value=" 确定 ">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value=" 重置 "></td>
+  </tr>
+</table>
+<script language='JavaScript' type='text/JavaScript'>
+function CheckForm(){
+	if(document.myform.catname.value==''){
+		alert('请输入链接名称！');
+		document.myform.catname.focus();
+		return false;
+	}
+	if(document.myform.url.value==''){
+		alert('请输入链接地址！');
+		document.myform.url.focus();
+		return false;
+	}
+}
+</script>
+{?/if?}
+</form>

@@ -1,0 +1,121 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/validator.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%"> 
+<caption>内容采集</caption>
+  <tr>
+    <td><a href='?ac=collectset&op=add'><font color="red">添加采集规则</font></a> | <a href='?ac=collectset'>管理采集规则</a> | <a href='?ac=collect'>批量采集文章</a></td>
+  </tr>
+</table>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>采集方式</caption>
+
+<tr>
+  <td colspan="2" class="head">按采集任务批量采集</td>
+</tr>
+<form name="frmcollect" id="frmcollect" action="?ac=collect&op=start" method="post">
+		<tr valign="middle" align="left">
+		  <td class="odd" width="15%">采集网站</td>
+		  <td class="even">
+		  <select class="select"  size="1" name="collectid" id="collectid">
+		<option value="">请选择采集站点</option>
+		{?section name=i loop=$_SGLOBAL['collect']?}
+		<option value="{?$_SGLOBAL['collect'][i]['collectid']?}">{?$_SGLOBAL['collect'][i]['sitename']?}</option>
+		{?/section?}
+		</select>
+		<span id="load_index"></span>
+		</td>
+		</tr>
+<tr valign="middle" align="left">
+  <td class="odd">起始页序号</td>
+  <td class="even"><input type="text" class="text" name="startpageid" id="startpageid" size="30" maxlength="11" value="" /> <span class="hottext">留空则按默认方式采集</span></td>
+</tr>
+<tr valign="middle" align="left">
+  <td class="odd">最多采集页数</td>
+  <td class="even"><input type="text" class="text" name="maxpagenum" id="maxpagenum" size="30" maxlength="11" value="" /> </td>
+</tr>
+		<tr valign="middle" align="left">
+		  <td class="odd">说明：</td>
+		  <td class="even">“起始页序号”和“最多采集页数”一般不用填，系统会按默认设置的方式进行。只有您需要不按默认方式进行时才设置，里面的填写格式要跟采集规则里面的设置一致。</td>
+</tr>
+<tr valign="middle" align="left">
+		  <td class="odd">&nbsp;</td>
+		  <td class="even"><input type="submit" class="button" name="psubmit"  id="psubmit" value="下一步" /></td>
+</tr>
+</form>
+<tr>
+  <td colspan="2" class="head">文章URL采集</td>
+</tr>
+<form name="collect" id="collect" action="?ac=collect&op=collectone" method="post">
+<tr valign="middle" align="left">
+  <td class="odd" width="15%">采集网站</td>
+  <td class="even">
+		  <select class="select"  size="1" name="collectid" id="collectid2">
+		  <option value="">请选择采集站点</option>
+		{?section name=i loop=$_SGLOBAL['collect']?}
+		<option value="{?$_SGLOBAL['collect'][i]['collectid']?}">{?$_SGLOBAL['collect'][i]['sitename']?}</option>
+		{?/section?}
+		</select>
+</td>
+</tr>
+<tr valign="middle" align="left">
+  <td class="odd" width="15%">发布栏目</td>
+  <td class="even"><span id="load_catid">
+  <select name="catid" id="catid" style="width:110px;">
+  <option value="">请选择发布栏目</option>
+  </select></span></td>
+</tr>
+<tr valign="middle" align="left">
+  <td>采集到的文章默认设置为</td>
+  <td class="even"><label><input type="radio"  name="status" id="status" value="99" checked="checked"> 发布</label>
+	  	  <label><input type="radio" n name="status" id="status" value="3"> 审核</label>
+	  <label><input type="radio"  name="status" id="status" value="2"> 草稿</label>
+</td>
+<tr valign="middle" align="left">
+  <td class="odd" width="15%">文章URL</td>
+  <td class="even"><textarea name="urls" cols="80" rows="8" id="urls">http://</textarea></td>
+</tr>
+<tr valign="middle" align="left">
+  <td class="odd" width="15%">说明：</td>
+  <td class="even">先选择采集网站，然后输入需要采集或更新的文章URL，每行一个URL地址。</td>
+</tr>
+<tr valign="middle" align="left">
+  <td class="odd" width="15%">&nbsp;</td>
+  <td class="even"><input type="submit" class="button" name="fsubmit"  id="fsubmit" value="开始采集" /></td>
+</tr></form>
+</table>
+<script language="javascript">
+$(
+  function(){
+	  $("#collectid").change(
+		 function(){        
+			$("#load_index").load("/modules/news/load.php?field=collectindex&collectid="+$("#collectid").val());
+		 }
+	  );
+	  $("#collectid2").change(
+		 function(){        
+			$("#load_catid").load("/modules/news/load.php?field=modelcatid&collectid="+$("#collectid2").val());
+		 }
+	  );
+	  $("#fsubmit").click(
+	     function(){        
+			if($("#collectid2").val()<1){ 
+			   alert('请选择采集站点');
+			   return false;
+			}else if($("#catid").val()<1){ 
+			   alert('请选择发布栏目');
+			   return false;
+			}else if($("#urls").val()=='http://'){ 
+			   alert('请填写文章URL');
+			   return false;
+			}
+			return true;
+		 }
+	  );
+    }
+);
+</script>

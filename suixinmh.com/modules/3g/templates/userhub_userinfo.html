@@ -1,0 +1,93 @@
+{?set $jieqi_pagetitle = "我的账户-最新原创小说大全-$jieqi_sitename"?}
+{?set $meta_keywords = "最新小说,原创小说,小说大全,小说库"?}
+{?set $meta_description = "$jieqi_sitename书库提供最新的原创小说大全，提供各类网络小说在线阅读，希望大家支持$jieqi_sitename!"?}
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset={?$jieqi_charset?}" />
+    <title>{?$jieqi_pagetitle?}</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta name="keywords" content="{?$meta_keywords?}" />
+    <meta name="description" content="{?$meta_description?}" />
+    <meta name="author" content="{?$meta_author?}" />
+    <meta name="copyright" content="{?$meta_copyright?}" />
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/common.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}css/extend.css">
+    <link rel="stylesheet" href="{?$jieqi_themeurl?}fonts/iconfont.css">
+    <link href="{?$jieqi_themeurl?}style/account.css" rel="stylesheet" type="text/css" />
+    <script  type="text/javascript" src="{?$jieqi_themeurl?}js/jquery-1.8.3.min.js"></script>
+    <script  type="text/javascript" src="{?$jieqi_themeurl?}js/jquery.cookie.js"></script>
+    <script  type="text/javascript" src="{?$jieqi_local_url?}/scripts/pagewap.js"></script>
+    <script  type="text/javascript" src="{?$jieqi_themeurl?}js/layer/layer.m.js"></script>
+    <script  type="text/javascript" src="{?$jieqi_themeurl?}js/mod.wap.article.js"></script>
+</head>
+<body>
+{?include file = "themes/3g/header.html"?}
+{?include file = "themes/3g/nav.html"?}
+<div class="p10 bgcfff bb bt bcddd mtb10 pr pl60 lh20" style="min-height: 45px;">
+    <img class="w40 h40 b bcddd br5 pa top10 left10" src="{?function jieqi_geturl:'system':'avatar':'$_USER["uid"]':'l':'$_USER["avatar"]'?}" alt="" />
+    <div class="bb bceee c333 f15 pb3">{?$_USER['username']?}<span class="v {?$_USER['vipphoto']?}"></span></div>
+    <div class="bb bceee c333 f15 pb3">vip等级：{?$_USER['vipphoto']?}</div>
+</div>
+<div class="content1">
+    <div class="yu_e">
+        <div class="yu_e_tit">我的余额：</div>
+        <div class="yu_e_con"><span>{?$_USER['egolds']?}</span>{?$egoldname?}/<span>{?$_USER['esilvers']?}</span>书券</div>
+    </div>
+    <div class="chongzhi"><a href="{?function geturl:'3g':'pay'?}">充值</a></div>
+</div>
+
+<div class="content2">
+    <div class="dengji">
+        <div class="dengji_tit">我的等级：</div>
+        {?if $_USER['vipphoto'] == 'goldvip'?}
+        <div class="dengji_con"><span class="vv v{?$_USER['vipphoto']?}"></span>包年VIP</div>
+        {?else?}
+        <div class="dengji_con"><span class="vv v{?$_USER['vipphoto']?}"></span>{?$_USER['vipgrade']?}级</div>
+        {?/if?}
+        <div class="tixi"><a href="{?function geturl:'3g':'userhub':SYS=method=uservip?}">VIP成长体系</a></div>
+    </div>
+    <div class="jifen">
+        <div class="jifen_tit">我的积分：<span>{?$_USER['score']?}</span></div>
+        <div class="tixi"><a href="{?function geturl:'3g':'userhub':SYS=method=usermember?}">会员积分体系</a></div>
+    </div>
+</div>
+<div class="content3">
+    <span class="key">修改密码</span>
+    <a href="javascript:;" class="keybut">&nbsp;&nbsp;</a>
+    <form action="{?function geturl:'3g':'userhub':SYS=method=updatePwd?}" method="post">
+        <div class="xgmm" style="display: none;">
+            <span>旧的密码</span>
+            <input type="password" name="oldpass" placeholder="请输入旧的密码" />
+            <span>新的密码</span>
+            <input type="password" name="newpass" placeholder="请输入新的密码" />
+            <span>重复密码</span>
+            <input type="password" name="repass" placeholder="请再次输一次新的密码" />
+            <input type="hidden" name="formhash" value="{?eval echo form_hash();?}" />
+            <input type="hidden" name="action" id="action" value="update" />
+            <input type="submit" class="submit" value="提交" />
+        </div>
+    </form>
+</div>
+{?include file = "themes/3g/bottom.html"?}
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $("a.keybut").click(function(){
+            var box = $("div.xgmm");
+            if(box.is(":hidden")){
+                box.show();
+            }else{
+                box.hide();
+            }
+//		$(this).addClass("ahover").parents("div.maintit").addClass("maintithover").next().show();
+//		$(this).parents("li").siblings().find("div.maincon").hide();
+//		$(this).parents("li").siblings().find("div.maintit").removeClass("maintithover");
+//		$(this).parents("li").siblings().find("a").removeClass("ahover");
+        });
+
+    });
+</script>
+</body>
+</html>

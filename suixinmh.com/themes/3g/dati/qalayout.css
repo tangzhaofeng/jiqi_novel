@@ -1,0 +1,407 @@
+﻿input[type="button"],input[type="submit"],input[type="reset"]{
+  -webkit-appearance:none;
+}
+textarea{-webkit-appearance:none;}
+ .grab_box{
+    width: 10.0rem;
+    margin: 0 auto;	
+}
+.grab_box{
+	width: 10.0rem;
+}
+.grab_body{
+	background: url("gradtop.jpg") 0 0 no-repeat;
+    background-size: 115%;
+    background-color: #C04152;
+}
+
+/*.grab_top{
+	background:url("http://oss.ycsd.cn/ycsd_web/images/activity/gradtop.jpg") 0 0 no-repeat;
+	background-size: 115%;
+	background-color: #C04152;
+}*/
+.grab_img{
+	background:url("gradheader.png") -1.1rem 0.133333rem no-repeat;
+	background-size: 120%;
+	height:3.733333rem;
+}
+.spare{
+	padding: 0 0.333333rem;
+	color: #fff;
+	font-size: 0.48rem;
+	text-align: center;
+}
+span.spare_money{
+	display: inline-block;
+}
+span.spare_coin{
+	font-size: 0.88rem;
+	color: #FDD849;
+	display: inline-block;
+	padding: 0 0.133333rem;
+}
+span.blod{
+	background-color: #FFA028;
+}
+
+#scroll {
+	width: 9.333333rem;
+	margin:0px auto;
+	background: url("gradop.png") 0 0 no-repeat;
+	background-size: 100%;
+	overflow:hidden;
+	margin-top: 0.4rem;
+}
+#scroll_do {
+	float: left;
+	width:6800%;
+}
+#scroll1 {float: left;}
+#scroll2 {float: left;}
+#scroll1 ul li,#scroll2 ul li{
+	font-size: 0.32rem;
+	margin-right:70px;
+	height:0.533333rem;
+	display: block;
+	float: left;
+	white-space:nowrap; 
+   text-overflow:ellipsis; 
+   -o-text-overflow:ellipsis; 
+   overflow: hidden;
+}
+#scroll1 ul li a,#scroll2 ul li a{
+	color: #fff;
+	height:0.533333rem;
+	line-height: 0.533333rem;
+}
+
+.question{
+   padding: 0 0.333333rem;
+   margin-top: 1.333333rem;
+   font-size: 0.4rem;
+   color: #fff;	
+}
+/*.question_choice{
+   padding: 0 0.333333rem;
+}
+.question_choice span{
+	display: inline-block;
+	border: 1px solid #fff;
+	width:3.6rem;
+	margin-top: 0.4rem;
+	font-size: 0.4rem;
+	color: #fff;
+	height: 0.666667rem;
+	line-height: 0.666667rem;
+	border-radius: 0.066667rem;
+	cursor: pointer;
+}
+.question_choice span:nth-child(odd){
+	margin-right: 0.5rem;
+}*/
+.answer{
+	padding: 0.333333rem 0.333333rem;
+}
+.answer input.answer_button{
+	display: block;
+	width: 100%;
+	font-size: 0.4rem;
+	color: #fff;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+	background-color: #FFA028;
+	border-radius: 0.066667rem;
+	border:0;
+}
+
+.grab_middle{
+	padding: 1rem 0.333333rem 0.6rem;
+}
+.activity_title{
+	margin-bottom: 0.4rem;
+}
+.activity_title span{
+	display: inline-block;
+}
+span.lineae{
+	width:3.3rem;
+	height: 0.026667rem;
+	line-height: 0.026667rem;
+	background-color: #fff;
+	border: 0;
+	margin-top: 0.253333rem;
+}
+span.act_title{
+	width: 2.28rem;
+    height: 0.56rem;
+    line-height: 0.533333rem;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 0.066667rem;
+    text-align: center;
+    font-size: 0.4rem;
+}
+.grab_middle p{
+	font-size: 0.36rem;
+	color: #fff;
+	line-height: 1.5;
+
+}
+/*grabSuccess*/
+.result_title{
+	color: #fff;
+	font-size: 0.5rem;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 0.8rem;
+	letter-spacing: 0.04rem;
+}
+.result_text{
+	padding-left: 0.333333rem;
+	padding-right: 0.333333rem;
+	font-size: 0.4rem;
+	color: #fff;
+	text-align: center;
+	line-height: 1.5;
+	margin-top: 0.266667rem;
+}
+.result_text span{
+	color: #FDD849;
+}
+.sucess_money{
+	padding-top: 0.4rem;
+	padding-left: 0.333333rem;
+	padding-right: 0.333333rem;
+	font-size: 0.5rem;
+	color: #fff;
+	text-align: center;
+}
+.sucess_money span{
+	display: inline-block;
+	padding: 0 0.133333rem;
+	font-size: 1.066667rem;
+	color: #FDD849;
+}
+.sucess_operate{
+	padding: 0.6rem 0.333333rem 0.7rem 0.333333rem;
+}
+.sucess_operate a:hover{
+	text-decoration: none;
+	color: #fff;
+}
+.sucess_operate a{
+	display: inline-block;
+	width: 4.4rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	border: 1px solid #fff;
+	border-radius: 0.066667rem;
+	font-size: 0.4rem;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.sucess_operate a.go_up{
+	float:left;
+	/*margin-right: 0.47rem;*/
+}
+
+/*对不同情况 隐藏 展示*/
+.grad_result_success, .grad_result_fail, .grad_money_ok, .grad_money_no{
+	display: none;
+}
+.grad_result .act_show{
+	display: block;
+}
+
+.grad_result_fail{
+	padding: 0 0.8rem;
+	margin-top: 1.733333rem;
+}
+.grad_money_no{
+	padding: 0 0.8rem;
+	margin-top: 1rem;
+}
+.grad_money_no.act_show{
+	display:block;
+}
+/*two_codes*/
+.two_codes{
+	position: relative;
+	padding-left: 2.666667rem;
+	height: 2.666667rem;
+}
+img.two_codes_img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 2.4rem;
+	height: 2.4rem;
+}
+.two_codes p{
+	font-size: 0.373333rem;
+	line-height: 1.5;
+	color: #fff;
+}
+.two_codes p.two_code_public{
+	margin-bottom: 0.333333rem;
+}
+
+/*剩余书币0*/
+.money_not_title{
+	font-size: 0.533333rem;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+}
+.money_not_text{
+	font-size:0.4rem;
+	color: #fff;
+	text-align: center;
+	padding: 0.4rem 0;
+	/*padding-bottom: 1.066667rem;*/
+}
+
+
+.choose{
+	padding: 0 0.333333rem;
+}
+.choose label{
+	position: relative;
+}
+.choose input{
+	position: absolute;
+	display: none;
+	opacity: 0;
+}
+.choose label span{
+	display: inline-block;
+	border: 1px solid #fff;
+	width:4.2rem;
+	padding-left: 0.2rem;
+	margin-top: 0.4rem;
+	font-size: 0.4rem;
+	color: #fff;
+	height: 0.666667rem;
+	line-height: 0.666667rem;
+	border-radius: 0.066667rem;
+	cursor: pointer;
+	border:1px solid #fff;
+}
+.choose label:nth-child(odd) span{
+	margin-right: 0.3rem;
+}
+.choose label input:checked+span{
+	background:#FFA028;
+}
+
+/*手机 验证*/
+.phone_text{
+   padding: 0.6rem 0 0.533333rem;
+   font-size: 0.4rem ;
+   color: #fff;
+   line-height: 1.5;
+}
+.phone_main{
+	padding: 0.666667rem 0.333333rem 0;
+	/*background-color: #C04152;*/
+}
+.phone{
+	position: relative;
+	color: #fff;
+	padding-bottom:0.4rem;
+	padding-left: 1.6rem;
+}
+.phone_title{
+	position: absolute;
+	left: 0;
+	top: 0.24rem;
+	font-size: 0.426667rem;
+}
+.phone input{
+	height: 1.0rem;
+	line-height: 1.0rem;
+	font-size: 0.48rem;
+	border:1px solid #fff;
+	padding-left: 0.133333rem;
+	padding-right: 0.133333rem;
+	border-radius: 0.08rem;
+}
+input.phone_number{
+	width: 7.37rem;
+	background-color:transparent;
+	color: #fff;
+	letter-spacing: 0.05rem;
+    font-size: 0.55rem;
+}
+.phone_mes{
+	display: block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.38rem;
+    margin-top: 0.106667rem;
+    vertical-align: middle;
+    color: #FFBFC7;
+}
+.phone_gth{
+	background: url(./bangding.png);
+    background-repeat: no-repeat;
+    background-position: 0 0.04rem;
+	background-size: 0.38rem;
+}
+.phone_cw{
+	background: url(./miserr.png);
+    background-repeat: no-repeat;
+    background-position: 0 0.04rem;
+	background-size: 0.38rem;
+}
+.phone_mes img{
+	width:0.4rem;
+	height: 0.4rem;
+	display: inline-block;
+	vertical-align: -0.08rem;
+	padding-right: 0.2rem;
+}
+.phone .code_number{
+	width: 2.853333rem;
+    background-color: transparent;
+    color: #fff;
+    letter-spacing: 0.05rem;
+    font-size: 0.55rem;
+}
+.phone .code_button{
+	    display: inline-block;
+    width: 4rem;
+    margin-left: 0.4rem;
+    border: 0;
+    background-color: #ffbfc7;
+    color: #c24750;
+    
+}
+.submit_button{
+	display: block;
+    width: 9.26rem;
+    font-size: 0.5rem;
+    color: #fff;
+    height: 1rem;
+    background-color: #FFA028;
+    border-radius: 0.066667rem;
+    border: 0;
+   
+}
+.phone_btn{
+	padding: 0 0.333333rem;
+	margin-top:0.4rem;
+	
+}
+.sucessbind{
+    text-align: center;
+    padding-top: 1.2rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.6rem;
+    color: #fff;
+}
+
+

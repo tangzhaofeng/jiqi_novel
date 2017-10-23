@@ -1,0 +1,61 @@
+<link href="{?$_SGLOBAL['news']['url']?}/templates/admin/im/system.css" rel="stylesheet" type="text/css">
+<script type="text/javaScript" src="{?$_SGLOBAL['localurl']?}/lib/html/fckeditor/jquery.min.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/images/js/common.js"></script>
+<script type="text/javaScript" src="{?$_SGLOBAL['news']['url']?}/templates/admin/im/admin.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/form.js"></script>
+<script type="text/javascript" src="{?$_SGLOBAL['news']['url']?}/images/js/css.js"></script>
+<table align="center" cellpadding="2" cellspacing="1" class="grid" width="100%">
+  <caption>{?$_PAGE['model']['name']?}模型管理</caption>
+  <tr>
+    <td><a href='?ac=model'>管理模型</a> | <a href='?ac=model&op=model_field&modelid={?$_PAGE['_GET']['modelid']?}'><font color="red">添加字段</font></a></td>
+  </tr>
+</table>
+
+<form method="post" name="myform" action="?ac=model&op=order&modelid={?$_PAGE['_GET']['modelid']?}">
+<table cellpadding="2" cellspacing="1" class="grid" width="100%">
+<caption>{?$_PAGE['model']['name']?}模型字段管理</caption>
+<tr>
+<th>排序</th>
+<th>字段名</th>
+<th>别名</th>
+<th>类型</th>
+<th>系统</th>
+<th>必填</th>
+<th>搜索</th>
+<th>排序</th>
+<th>投稿</th>
+<th>管理操作</th>
+</tr>
+{?section name=i loop=$_PAGE['fieldrows']?}
+<tr>
+<td class="align_c"><input type="text" name="order[{?$_PAGE['fieldrows'][i]['fieldid']?}]" value="{?$_PAGE['fieldrows'][i]['listorder']?}" size="3"/></td>
+<td>{?$_PAGE['fieldrows'][i]['field']?}</td>
+<td>{?$_PAGE['fieldrows'][i]['name']?}</td>
+<td>{?$_SGLOBAL['fields'][$_PAGE['fieldrows'][i]['formtype']]?}</td>
+<td class="align_c">{?if $_PAGE['fieldrows'][i]['issystem']>0?}<font color="red">√</font>{?/if?}</td>
+<td class="align_c">{?if $_PAGE['fieldrows'][i]['minlength']>0?}<font color="red">√</font>{?/if?}</td>
+<td class="align_c">{?if $_PAGE['fieldrows'][i]['issearch']>0?}<font color="red">√</font>{?/if?}</td>
+<td class="align_c">{?if $_PAGE['fieldrows'][i]['isorder']>0?}<font color="red">√</font>{?/if?}</td>
+<td class="align_c">{?if $_PAGE['fieldrows'][i]['isadd']>0?}<font color="red">√</font>{?/if?}</td>
+<td class="align_c">
+	{?if $_PAGE['fieldrows'][i]['iscore']>0?}<span style="color:#cccccc">修改 | 复制 | 禁用 | 删除</span>{?else?}
+    <a href="?ac=model&op=model_field&modelid={?$_PAGE['fieldrows'][i]['modelid']?}&fieldid={?$_PAGE['fieldrows'][i]['fieldid']?}">修改</a> | 
+	<a href="?ac=model&op=copyfield&modelid={?$_PAGE['_GET']['modelid']?}&fieldid={?$_PAGE['fieldrows'][i]['fieldid']?}">复制</a> | 
+	{?if $_PAGE['fieldrows'][i]['disabled']>0?}
+	<a href="?ac=model&op=fields&modelid={?$_PAGE['fieldrows'][i]['modelid']?}&fieldid={?$_PAGE['fieldrows'][i]['fieldid']?}&disabled=0"><font color="red">启用</font></a> | 
+	{?else?}
+	<a href="?ac=model&op=fields&modelid={?$_PAGE['fieldrows'][i]['modelid']?}&fieldid={?$_PAGE['fieldrows'][i]['fieldid']?}&disabled=1">禁用</a> | 
+	{?/if?}
+	{?if $_PAGE['fieldrows'][i]['issystem']>0?}<span style="color:#cccccc">删除</a></span>{?else?}
+	<a href=javascript:confirmurl("?ac=model&op=deletefield&modelid={?$_PAGE['fieldrows'][i]['modelid']?}&fieldid={?$_PAGE['fieldrows'][i]['fieldid']?}","确认要删除‘{?$_PAGE['fieldrows'][i]['name']?}’字段吗？")>删除</a>
+	{?/if?}
+	{?/if?}
+</td>
+</tr>
+{?/section?}
+</table>
+<div class="button_box">
+<input type="hidden" name="formhash" value="{?eval echo formhash();?}" />
+<input type="submit" name="dosubmit" value=" 排序 ">
+</div>
+</form>

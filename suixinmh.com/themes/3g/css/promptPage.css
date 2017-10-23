@@ -1,0 +1,34 @@
+.shibaitit,.shibai,.yuanyin,.jishi{
+		 font-size:12px;
+		 height:30px;
+		 line-height: 30px;
+		 font-weight: bold;
+		 text-align: center;
+		 color:#D50D56;
+	}
+	.yuanyin{
+		height:auto;
+	}
+	.shibai{
+		color:red;
+	}
+	 .img img{
+	 	width:320px;
+	 	height:210px;
+		display: block;
+		margin:10px auto;
+	 }
+	 .fhbut{
+	 	width:150px;
+	 	display: block;
+	 	height:35px;
+	 	font-size:15px;
+	 	text-align: center;
+	 	line-height: 35px;
+	 	color:#fff;
+	 	background:#D50D56;
+	 	border-radius:5px; 
+	 	margin:0 auto;
+	 	margin-bottom: 20px;
+	 }
+	

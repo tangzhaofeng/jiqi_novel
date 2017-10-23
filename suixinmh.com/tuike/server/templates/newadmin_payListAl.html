@@ -1,0 +1,194 @@
+{?if $ajax_request == 0?}
+{?include file="tuike/server/templates/public/header.html" ?}
+    <div class="g-main">
+      <!-- <h3>充值明细</h3> -->
+      <div class="m-panel " >
+        <div class="panel-body">
+          <div class="m-table-tool f-cb">
+
+            <div class="tool-search f-cb" style="width: auto; padding-right: 8px;">
+              <select id="selectUid" name="uid" class="form-element ">
+                <option value="0">===全部运营===</option>
+                {?eval $list=$getcategory.0.sort;?}
+                {?section name=i loop=$new_list?}
+                <option value="{?$new_list[i].uid?}" {?if $new_list[i].uid == $uid?}selected="selected"{?/if?}>{?$new_list[i].uname?}</option>
+                {?/section?}
+              </select>
+            </div>
+
+            <div class="ta_date fl" style="display: inline-block; padding-right: 32px;line-height: 32px;">
+              <span class="date_title config-demo" id="config-demo">时间：∞ 至 ∞</span>
+              <i class="arrow"></i>
+            </div>
+
+            <form style="display:inline-block" id="form3" method="post">
+              
+              <button class="u-btn u-btn-primary" type="submit">下载列表</button>
+            </form>
+          </div>
+{?/if?}
+
+        <div id="form_main">
+          <table id="table" class="m-table  table_cen table_th">
+            <thead>
+              <tr>
+                <th><i class="sortOr" _z="osn">订单id</i></th>
+                <th><i class="sortOr" _z="unamer">运营</i></th>
+                <th><i class="sortOr" _z="otime">时间</i></th>
+                <th><i class="sortOr" _z="ocom">公司名</i></th>
+                <th><i class="sortOr" _z="ofee">总价</i></th>
+                <th><i class="sortOr" _z="ofeer">结算总价</i></th>
+                <th><i class="sortOr" _z="ofan">粉丝数</i></th>
+                <th><i class="sortOr" _z="onot">备注</i></th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {?if intval($List)==0?}
+              <tr>
+                  <td class="tl col-1" colspan = " 7 ">亲，当前还没有记录哦~</td>
+              </tr>
+              {?else?}
+              {?eval $url=geturl('server','home','SYS=method=getList');?}
+              {?section name=i loop=$List?}
+                <tr>
+                  
+                  <td>{?$List[i].ordersn?}</td>
+                  <td>{?$List[i].uname?}</td>
+                  <td>{?$List[i].addtime|date:"Y-m-d H:i:s"?} </td>
+                  <td>{?$List[i].company?} </td>
+                  <td>{?$List[i].fee?} </td>
+                  <td>
+
+                    {?if $List[i]['is_settle'] ==1 ?}
+                      {?$List[i].money?}
+                    {?else?}
+                      未结算
+                    {?/if?}
+
+                  </td>
+                  <td>{?$List[i].fans?} </td>
+                  <td>{?$List[i].notes?} </td>
+
+                {?if $List[i]['is_settle'] ==1 ?}
+                  <td class="chSelect">
+                      <span _ty="cancel_settle" _id="{?$List[i].id?}">取消结算</span> </td>
+                    {?else?}
+                  <td class="chSelect setSettle">
+                      <span _ty="settle" _id="{?$List[i].id?}">设为结算</span>
+                  </td>
+                {?/if?}
+
+                </tr>
+              </tr>
+              {?/section?}
+              {?/if?}
+              </tbody>
+            </table>
+            <div class="m-table-bar">
+              <div class="bar-pages">
+                <div class="m-page">
+                  {?$page?}
+                </div>
+              </div>
+              <div class="f-cb"></div>
+            </div>
+          </div>
+{?if $ajax_request == 0?}
+
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(function(){
+
+
+        var time={"t1":filter.t1,"t2":filter.t2};
+        var initDate_show=filter.t1?1:false;
+        if( !initDate_show ){
+          time={"t1":getFormatDateAuto(-30,"yyyy-MM-dd"),"t2":formatDate("yyyy-MM-dd")};
+        }
+        initDateFormat($("#config-demo"),time.t1,time.t2,function(obj){
+          if( filter.t1!=obj.t1 || filter.t2!=obj.t2 ){
+            filter.t1=obj.t1;
+            filter.t2=obj.t2;
+            filter.page=1;
+            get_content(location.href);
+          }
+        },'时间：{0} 至 {1}',initDate_show);
+
+
+      });
+
+      
+    
+      $("#form3").submit(function (e) { // 651780 jq
+        e.preventDefault();
+        $.post(getUrl(['newadmin','ajax_action']),$.extend({"ajax_request":1,"ac":"downxls"}, filter),function(msg){
+
+          if(msg.status === 'OK'){
+            location.href=msg.url;
+          }else{
+            Users.ShowMsg(msg.msg);
+          }
+
+        },'json');
+      });
+
+
+      /**
+       * 筛选运营
+       * @param  {[type]} ){                     var uid [description]
+       * @return {[type]}     [description]
+       */
+      $('#selectUid').live('change',function(){
+        var uid=$(this).val(); 
+        filter.uid=uid;
+        filter.page=1;
+        get_content(location.href);
+      });
+      $('.chSelect span').live('click',function(){
+        var q_this=$(this);
+        var id=q_this.attr('_id');
+        var ty=q_this.attr('_ty');
+        $.post('http://'+location.host+location.pathname,{id:id,ty:ty,method:'ajax_action',ac:'setPa',ajax_request:'1'},function(msgs){
+          if(msgs.status === 'OK'){
+            get_content(location.href);
+          }else{
+            Users.ShowMsg(msgs.msg,1);
+          }
+        },'json');
+      });
+
+
+    </script>
+    <style>
+      .chSelect span {
+          color: #d86b00;
+          background-color: #dcc9b6;
+          cursor: pointer;
+          font-size: 12px;
+          height: 25px;
+          display: inline-block;
+          text-align: center;
+          line-height: 25px;
+          padding: 0 6px;
+          border-radius: 3px;
+      }
+      .chSelect span:hover {
+          color: #b90000;
+          background-color: #dacfc2;
+      }
+      .setSettle span{
+        color: #ffffff;
+        background-color: #00a8e6;
+      }
+
+      .config-demo{
+        cursor: pointer;
+      }
+    </style>
+
+
+{?include file="tuike/newadmin/templates/public/footer.html"?}
+{?/if?}

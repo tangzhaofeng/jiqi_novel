@@ -1,0 +1,87 @@
+<!--评论 start-->
+{?section name=i loop=$_PAGE['rows']?}
+<ul class="xzpl_ul">
+<li class="a3"><span class="xfont_right2">{?$_PAGE['rows'][i]['addtime']|date:'Y-m-d H:i:s'?}发表</span>  <span class="xfont_bold">{?if $_PAGE['rows'][i]['username']!=''?}{?if $_PAGE['rows'][i]['userid']==0?}来自{?/if?}{?$_PAGE['rows'][i]['username']?}{?else?}{?$_SGLOBAL['sitename']?}火星网友{?/if?} ip：</span>{?eval $ip=$_PAGE['rows'][i]['ip'];$ip=explode('.',$ip);unset($ip[2]);unset($ip[3]);$ip=implode('.',$ip);?}{?$ip?}.*.*：说: </li>
+<li>{?$_PAGE['rows'][i]['content']?}</li>
+<li class="a2">
+<a href="#" target="_blank" class="xfont05">回复</a> 
+<a href="#" target="_blank" class="xfont06">支持（0）</a> 
+<a href="#" target="_blank" class="xfont05">举报</a>
+</li>
+</ul>
+{?/section?}
+<!--评论框 start-->
+<ul class="xzpl_ul2" >
+<li>
+<span class="xfont_bold xfont_14">■文字凝聚力量 评论点播生活</span> 
+<span class="xfont05">已有（</span><span class="xfont04" id="comments_count">{?$_PAGE['totalcount']|defaultval:0?}条</span><span class="xfont05">）回复</span>，<a href="{?function jieqi_geturl:'news':'comment':$_PAGE['contentid']?}" class="xfont05">请点击查看</a></li>
+<li style="height:18px;">
+{?if $_SGLOBAL['supe_uid']>0?}<span class="xfont04">{?$_SN[$_SGLOBAL['supe_uid']]?}</span> 发言{?else?}<span id="nologin">
+{?$_SGLOBAL['sitename']?}
+通行证：<input type="text" id="comment_username" value="" size="12" class="xz_input01" />
+密码：<input type="password" id="comment_password" size="12" class="xz_input01" />
+{?if $_SCONFIG['_SYSTEM']['checkcodelogin']>0?}
+验证码：<input type="text" class="xz_input01" size="6" maxlength="8" id="comment_checkcode">&nbsp;<img src="{?$_SGLOBAL['localurl']?}/checkcode.php" style="cursor:pointer;" onclick="this.src='{?$_SGLOBAL['localurl']?}/checkcode.php?rand='+Math.random();">
+{?/if?}
+<input type="checkbox" checked="checked" value="1" id="comment_usecookie" /> 自动登录
+<input type="button" class="xz_searchbtn01" id="comment_login" value=" 登 陆 " />
+</span>{?/if?}</li>
+ <li><textarea name="comment_content" id="comment_content" class="xz_input02"></textarea>
+ </li>
+ <li style="text-align:right; padding-right:55px;">
+<span style="float:left" class="xfont03">[小提示：完成后可按 Ctrl+Enter 或 Alt+S 提交]</span>
+<span id="ccode" name="ccode"></span>
+<input name="hidename" id="hidename" type="checkbox" value="1" /> 匿名
+<input type="button" value="发表留言" id="comment_submit"> </li>
+</ul>
+<!--评论框 end-->
+<script language="javascript">
+<!--
+     $(function(){
+	      $('#pcontent').focus(function(){
+		       $('#ccode').html('<strong>验证码 </strong><img onclick="this.src = \'{?$_SGLOBAL['localurl']?}/checkcode.php?rand=\'+Math.random();" src="{?$_SGLOBAL['localurl']?}/checkcode.php" /> <input id="checkcode" size="6" name="checkcode" /> ');
+		  });
+		  $('#comment_login').click(function(){
+		       var username = $("input[id=comment_username]").val();
+			   var password = $("input[id=comment_password]").val();
+			   var checkcode = $("input[id=comment_checkcode]").val();
+		       var usecookie = $("input[id=comment_usecookie]:checked").val();//是否自动登陆
+			   usecookie = usecookie==undefined ? 0 :usecookie;
+			   if(username=='' || password==''){
+			      alert('请将用户名和密码填写');
+				  return false;
+			   }
+			   {?if $_SCONFIG['_SYSTEM']['checkcodelogin']>0?}
+			   var checkcode = $("input[id=comment_checkcode]").val();
+			   if(checkcode==''){
+			      alert('请填写验证码');
+				  return false;
+			   }
+			   {?/if?}
+			   var jumpurl = '{?$_SGLOBAL['localurl']?}/login.php?do=submit&username='+username+'&password='+password+'&checkcode='+checkcode+'&usecookie='+usecookie+'&action=login&ajax_request=jieqi_contents&jumpurl={?$_SGLOBAL['refer']|urlencode?}';
+			   GData.getpage(jumpurl,
+			        function(data) { 
+					     if(data) alert(data);
+					     GData.getComment();
+					}
+			   );
+		  });
+		  $('#comment_submit').click(function(){
+		       var content = $("textarea[id=comment_content]").val();
+			   var hidename = $("input[id=hidename]:checked").val();//是否自动登陆
+			   hidename = hidename==undefined ? 0 :hidename;
+			   if(content==''){
+			      alert('既然来了总要说点什么吧！^--^');
+				  $("textarea[id=comment_content]").focus();
+				  return false;
+			   }
+			   GData.getpage('{?$_SGLOBAL['localurl']?}/modules/news/?ac=comment&op=add&contentid={?$_PAGE['contentid']?}&ajax_request=jieqi_contents&hidename='+hidename+'&content='+content, 
+			        function(data) { 
+					     if(data) alert(data);
+					     GData.getComment();
+					}
+			   );
+		  });
+	 });
+//-->
+</script> 

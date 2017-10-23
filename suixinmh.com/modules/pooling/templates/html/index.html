@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME);?}=>{?eval echo gb2utf8XHSafeStr($channel.channelname);?}-更新列表</title>
+<style>
+body{
+	padding:0;margin:0;font-size:12px;
+}
+ul{
+	margin:10px;;LIST-STYLE-TYPE: none;padding:0;
+}
+
+li{
+	PADDING-BOTTOM: 5px;PADDING-TOP: 8px;LIST-STYLE-IMAGE: none;
+	border-bottom: #EFEEEE 1px solid;height:18px;
+}
+.author{float:right}
+.updatetime{color:#999}
+.sort{color:#333}
+</style>
+</head>
+
+<body>
+<h3 style="color:#f00;text-align:center;">{?eval echo gb2utf8XHSafeStr(JIEQI_SITE_NAME);?}=>{?eval echo gb2utf8XHSafeStr($channel.channelname);?}-小说更新列表</h3>
+<ul>{?section name=i loop=$rows?}
+<li><span class="author">{?eval echo gb2utf8XHSafeStr($rows[i]['author']);?}/著</span>{?$i.order?} .<span class="sort">{?eval echo gb2utf8XHSafeStr($rows[i]['sort']);?}</span> <a href="http://{?$HTTP_HOST?}/?method=chapters&aid={?$rows[i]['articleid']?}" target="_blank">{?eval echo gb2utf8XHSafeStr($rows[i]['articlename']);?}</a> <span class="updatetime">更新时间：{?$rows[i]['lastupdate']|date:'Y-m-d H:i:s'?}</span></li>{?/section?}
+</ul>
+{?eval echo gb2utf8XHSafeStr($url_jumppage,false);?}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!--slide begin-->
+<div id="featured" class="slide">
+	<ul class="ui-tabs-nav">
+	{?section name=i loop=$articlerows?}
+	<li id="nav-fragment-{?$i.order?}" class="ui-tabs-nav-item" style="{?if $i.order==1?}top:0px;{?else if $i.order==2?}top:97px;{?else?}top:194px;{?/if?} left:0px"><a href="#fragment-{?$i.order?}"><img alt="{?$ariclerows[i]['articlename']?}" src="{?$articlerows[i]['url_image']?}" /></a></li>
+	{?/section?}
+	</ul>
+	{?section name=i loop=$articlerows?}
+	<div class="ui-tabs-panel ui-tabs-hide" id="fragment-{?$i.order?}"><a target="_blank" href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}"><img alt="{?$articlerows[i]['articlename']?}" src="{?$articlerows[i]['url_image_l']?}" /></a>
+		<div class="info">
+		<h2><a target="_blank" href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}">{?$articlerows[i]['articlename']?}</a></h2>
+		<p>{?$articlerows[i]['intro']|truncate:190:'......'?}<a target="_blank" href="{?function geturl:'wenxue':'articleinfo':'SYS=aid=$articlerows[i].articleid'?}" class="f_brown">[ฯ๊ว้]</a></p>
+		</div>
+	</div>
+	{?/section?}
+</div>
+<!--slide end-->

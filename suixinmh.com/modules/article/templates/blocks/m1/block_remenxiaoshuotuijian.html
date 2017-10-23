@@ -1,0 +1,11 @@
+{?section name=i loop=$articlerows?}
+         <dl class="list_img2">
+           <dt><a href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image_l?}"/></a></dt>
+           <dd><a href="{?$articlerows[i].url_articleinfo?}" target="_blank" class="b f-gray3">{?$articlerows[i].articlename?}</a></dd>
+           <dd>作者：{?if $articlerows[i].authorid>0?}<a href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i].authorid'?}" target="_blank" class="f-gray6" >{?$articlerows[i].author?}</a>{?else?}{?$articlerows[i].author?}{?/if?}</dd>
+           <dd>类别：<a class="f-gray3" href="{?function geturl:'mm':'shuku':SYS=sort=$articlerows[i].sortid&tag=0&size=0&fullflag=0&operate=0&free=0&page=1?}">{?$articlerows[i].shortcaption?}</a></dd>
+           <dd>字数：{?$articlerows[i].size_w?}万</dd>
+           <dd>更新：{?$articlerows[i]['lastupdate']|date:"m-d"?}</dd>
+           <dd class="f-org"><a href="{?$articlerows[i].url_articleinfo?}" target="_blank">[阅读]</a><a href="javascript:void(0);" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">[收藏]</a></dd>
+         </dl>
+{?/section?}

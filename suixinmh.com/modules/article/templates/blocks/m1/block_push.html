@@ -1,0 +1,15 @@
+{?section name=i loop=$articlerows?}
+   <dd class="focus im clearfix" {?if $i.order!=1?} style="display:none;"{?/if?}>
+     <a class="img" href="{?$articlerows[i].url_articleinfo?}" target="_blank"><img src="{?$articlerows[i].url_image?}" title="{?$articlerows[i].articlename?}"></a>
+     <div class="info">
+       <p class="name2"><a class="f-gray3" title="{?$articlerows[i].articlename?}" target="_blank" href="{?$articlerows[i].url_articleinfo?}">{?$articlerows[i].articlename?}</a></p>
+       <p class="author">作者：<a class="f-gray9" {?if$articlerows[i]["authorid"]>0?} target="_blank" ajaxhover="true" uid="{?$articlerows[i].authorid?}"  href="{?function geturl:'system':'userhub':'method=zuozhe':'SYS=uid=$articlerows[i]["authorid"]'?}"{?else?}href="javascript:void(0);"{?/if?}>{?$articlerows[i].author?}</a></p>
+       <p class="author">类型：<a class="f-gray9" target="_blank" href="{?function geturl:'mm':'shuku':SYS=sort=$articlerows[i]['sortid']&tag=0&size=0&fullflag=0&operate=0&free=0&page=1?}" title="{?$articlerows[i].sort?}">{?$articlerows[i].sort?}</a></p>          
+       <p class="lnk f-org"><a target="_blank" href="{?$articlerows[i].url_articleinfo?}">[阅读]</a><a href="javascript:void(0)" onclick="GPage.addbook('{?function geturl:'article':'huodong':'SYS=method=addBookCase&aid=$articlerows[i].articleid'?}');">[收藏]</a></p>
+      </div>
+    </dd>
+	<dd class="tt" {?if $i.order==1?} style="display:none;"{?/if?}>
+     <a class="f-gray9" href="{?$articlerows[i].url_class?}" title="{?$articlerows[i].sort?}">[{?$articlerows[i].shortcaption?}]</a>
+     <a class="f-black" target="_blank" href="{?$articlerows[i].url_articleinfo?}" title="{?$articlerows[i].articlename?}">{?$articlerows[i].articlename?}</a>
+    </dd>
+{?/section?}

@@ -1,0 +1,7 @@
+{?section name=i loop=$articlerows?}
+	<li>
+		<span class="xu {?if $i.order<4?}red{?/if?}">{?$i.order?}</span>
+		<a href="{?function geturl:'overseas':'articleinfo':SYS=aid=$articlerows[i].articleid?}">[{?$articlerows[i]['shortcaption']?}]{?$articlerows[i]['articlename']|truncate:20?}</a>
+		<span class="shu">{?if $articlerows[i]['visitnum'] < 10000 ?}{?$articlerows[i]['visitnum']?}{?else?}{?$articlerows[i]['visitnum_w']?}Íò{?/if?}</span>
+	</li>
+{?/section?}
