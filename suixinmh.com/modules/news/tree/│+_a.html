@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="css/jquery.treeview.css" />
+<link rel="stylesheet" href="css/screen.css" />
+<script type="text/javascript" src="/lib/html/fckeditor/jquery.min.js"></script>
+<script src="jquery.cookie.js" type="text/javascript"></script>
+<script src="jquery.treeview.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(function() {
+			$("#tree").treeview({
+				collapsed: true,
+				animated: "medium",
+				control:"#sidetreecontrol",
+				//prerendered: true,
+				persist: "location"
+			});
+		})
+		
+	</script>
+</head>
+<body>
+
+<div id="sidetree">
+    <div class="treeheader">&nbsp;</div>
+    <div id="sidetreecontrol"><a href="?#">Collapse All</a> | <a href="?#">Expand All</a></div>
+    <ul id="tree">
+<!--	 <li><a href="#"><strong>Home</strong></a>
+        <ul>
+-->       
+          <li><a href="?/building_inspections/index.cfm">Building Inspections</a>
+                <ul>
+                  <li><a href="?/building_inspections/statistics_2007.cfm">Statistics</a>
+                    <ul>
+                      <li><a href="?/building_inspections/statistics_2006.cfm">Statistics 2006</a></li>
+                      <li><a href="?/building_inspections/statistics_2005.cfm">Statistics 2005</a></li>
+                    </ul>
+                  </li>
+                </ul>
+          </li>
+<!--        </ul>
+      </li>-->
+     
+      <li class="last"><strong><a href="?https://vch.airdrie.ca/index.cfm">Online Services</a></strong></li>
+    </ul>
+  </div>
+
+</body></html>
