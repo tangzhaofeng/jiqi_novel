@@ -3,6 +3,12 @@
 //header("Content-Type:text/xml; charset=utf-8");
 
 $apikey="umZN8ikVRm9emZMP";
+$allow_iplist = array("111.13.108.100",
+                      "111.13.108.101",
+                      "118.26.21.68",
+                      "118.26.21.69",
+                      "210.12.8.240"
+);
 
 if ($_GET['apikey']!=$apikey) {
     die('apikey error');

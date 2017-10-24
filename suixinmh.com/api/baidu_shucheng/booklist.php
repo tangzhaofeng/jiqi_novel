@@ -6,41 +6,37 @@
  * Time: ÏÂÎç10:26
  */
 include("config.php");
-include("db.php");
+include("../db.php");
 $params=$_REQUEST;
 $begin_time=intval($params['begin_time']);
 $end_time=intval($params['end_time']);
-$sortid=intval($params['sortid']);
 
 
-$sql="select * from jieqi_article_article where display=0 and (firstflag in(1,2,3,5,6) or articleid in (10914,11315))";
-
+$sql="select articleid,articlename from jieqi_article_article where display=0";
+/*
 if ($begin_time) {
     $sql.=" and lastupdate>=".strtotime($begin_time);
 }
 if ($end_time) {
     $sql.=" and lastupdate<=".strtotime($end_time);
 }
-if ($sortid) {
-    $sql.=" and sortid=$sortid";
-}
+$sql.=" and firstflag=3";
+*/
+//$sql .= " and articleid in(".implode(',',$booklist).")";
 $sql.=" order by articleid";
 
 $r=mysql_query($sql);
+$xml='<?xml version="1.0" encoding="utf-8" standalone="yes" ?> 
+        <datas>';
 
-
-$booklist=array();
 
 while ($d=mysql_fetch_array($r)) {
-    $imgs="http://www.ishufun.net/files/article/image/$dir/".$d['articleid']."/".$d['articleid']."s.jpg";
-    $imgl="http://www.ishufun.net/files/article/image/$dir/".$d['articleid']."/".$d['articleid']."l.jpg";
-    $booklist[]=array(
-        'bookid'=>$d['articleid'],
-        'bookname'=>iconv("GBK","UTF-8",$d['articlename']),
-        'BookPic'=>$imgl,
-        'description'=>iconv("GBK","UTF-8",$d['intro']),
-        'fullflag'=>$d['fullflag']
-    );
+    $xml.="
+           <item>
+                <id><![CDATA[".$d['articleid']."]]></id> 
+                <bookname><![CDATA[".$d['articlename']."]]></bookname>
+            </item>\n";
 }
+$xml.='</datas>';
 
-echo json_encode($booklist);
+echo iconv("GBK","UTF-8",$xml);

@@ -14,6 +14,8 @@ $db->connect(JIEQI_DB_HOST,JIEQI_DB_USER,JIEQI_DB_PASS);
 mysql_select_db(JIEQI_DB_NAME);
 mysql_query("set names gbk");
 $ip=$_SERVER['REMOTE_ADDR'];
-//if (!in_array($ip,$allow_iplist)) {
-//    die("ip:$ip not allowed");
-//}
+
+
+if (!in_array($ip,$allow_iplist)) {
+    die("ip:$ip Permission denied");
+}

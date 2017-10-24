@@ -14,8 +14,8 @@ $sql="select * from jieqi_article_article where articleid=$bookid and (firstflag
 $r=mysql_query($sql);
 $d=mysql_fetch_array($r);
 $dir=floor($d['articleid']/1000);
-$imgs="http://www.ishufun.net/files/article/image/$dir/".$d['articleid']."/".$d['articleid']."s.jpg";
-$imgl="http://www.ishufun.net/files/article/image/$dir/".$d['articleid']."/".$d['articleid']."l.jpg";
+$imgs="http://".$_SERVER['SERVER_NAME']."/files/article/image/$dir/".$d['articleid']."/".$d['articleid']."s.jpg";
+$imgl="http://".$_SERVER['SERVER_NAME']."/files/article/image/$dir/".$d['articleid']."/".$d['articleid']."l.jpg";
 
 if ($d['lastchaptervip']) {
     $license=1;
@@ -46,32 +46,26 @@ $r1=mysql_query($sql);
 $d1=mysql_fetch_array($r1);
 $price=$d1[0];
 
-$keywords=str_replace(' ','&',$d['keywords']);
 
-$bookinfo=array(
-    'volumecount'=>1,
-    'createtime'=>$d['postdate'],
-    'ClassId'=>$d['sortid'],
-    'title'=>iconv("GBK","UTF-8",$d['articlename']),
-    'BookID'=>$d['articleid'],
-    'BookPic'=>$imgl,
-    'description'=>iconv("GBK","UTF-8",$d['intro']),
-    'author'=>iconv("GBK","UTF-8",$d['author']),
-    'free'=>1,
-    'CreateTime'=>$d['postdate'],
-    'WordNum'=>$d['size'],
-    'ChapterURL'=>$chapter_url,
-    'keyword'=>$keywords,
-    'bookstatus'=>$status,
-    'chaptercount'=>$chaptercount,
-    'price'=>$price,
-    'total_words'=>round($d['size']/2),
-    'bookid'=>$bookid,
-    'cover_url'=>$imgl,
-    'cpname'=>'jinsebook.com',
-    'class'=>iconv("GBK","UTF-8",$config['sort_c'][$d['sortid']]),
-    'lastupdatetime'=>$d['lastupdate'],
-    'free_chapter'=>$free_chapter
-);
 
-echo json_encode($bookinfo);
+$r=mysql_query($sql);
+$xml = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+        <data>';
+
+$xml .= "<cname><![CDATA[]></cname>
+         <bookname><![CDATA[".iconv("GBK","UTF-8",$d['articlename'])."]></bookname>
+         <bookid><![CDATA[".$d['articleid']."]></bookid>
+         <bookpic><![CDATA[".$imgl."]></bookpic>
+         <zzjs><![CDATA[".iconv("GBK","UTF-8",$d['intro'])."]></zzjs>
+         <authorname><![CDATA[".iconv("GBK","UTF-8",$d['author'])."]></authorname>
+         <createtime><![CDATA[".$d['postdate']."]></createtime>
+         <bksize><![CDATA[".$d['size']."]></bksize>
+         <weekvisit><![CDATA[]></weekvisit>
+         <monthvisit><![CDATA[]></monthvisit> 
+         <allvisit><![CDATA[]></allvisit>
+         <writestatus><![CDATA[".$status."]></writestatus>
+         <license><![CDATA[".$license."]></license>
+         </data>\n";
+
+
+echo iconv("GBK","UTF-8",$xml);
